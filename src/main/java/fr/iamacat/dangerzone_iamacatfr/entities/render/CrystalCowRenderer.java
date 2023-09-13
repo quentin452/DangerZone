@@ -1,11 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.util.ResourceLocation;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class CrystalCowRenderer extends RenderLiving {
 

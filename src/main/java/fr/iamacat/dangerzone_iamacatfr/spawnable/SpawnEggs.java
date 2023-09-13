@@ -1,8 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.spawnable;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -11,6 +8,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class SpawnEggs extends Item {
 
@@ -23,12 +24,37 @@ public class SpawnEggs extends Item {
     }
 
     public boolean onItemUse(final ItemStack par1ItemStack, final EntityPlayer par2EntityPlayer, final World par3World,
-        final int par4, final int par5, final int par6, final int par7, final float par8, final float par9,
-        final float par10) {
+                             final int par4, final int par5, final int par6, final int par7, final float par8, final float par9,
+                             final float par10) {
         if (par3World.isRemote) {
             return true;
         }
-        final Entity ent = spawner(this.entityClass, par3World, par4 + 0.5, par5 + 1.01, par6 + 0.5);
+
+        // Calculate the new spawn location based on the side clicked (par7)
+        double x = par4 + 0.5;
+        double y = par5 + 1.01;
+        double z = par6 + 0.5;
+
+        if (par7 == 0) { // Bottom side
+            y -= 1.0;
+        } else if (par7 == 1) { // Top side
+            y += 1.0;
+        } else if (par7 == 2) { // North side
+            z -= 1.0;
+        } else if (par7 == 3) { // South side
+            z += 1.0;
+        } else if (par7 == 4) { // West side
+            x -= 1.0;
+        } else if (par7 == 5) { // East side
+            x += 1.0;
+        }
+
+        // Adjust the y-coordinate for the top side
+        if (par7 == 1) {
+            y += 1.0;
+        }
+
+        final Entity ent = spawner(this.entityClass, par3World, x, y, z);
         if (ent instanceof EntityLiving && par1ItemStack.hasDisplayName()) {
             ((EntityLiving) ent).setCustomNameTag(par1ItemStack.getDisplayName());
         }
@@ -38,8 +64,7 @@ public class SpawnEggs extends Item {
         return true;
     }
 
-    public static Entity spawner(final Class<? extends Entity> entityClass, final World world, final double d0,
-        final double d1, final double d2) {
+    public static Entity spawner(Class<? extends Entity> entityClass, World world, double x, double y, double z) {
         Entity ent = null;
         try {
             ent = entityClass.getConstructor(World.class)
@@ -49,12 +74,12 @@ public class SpawnEggs extends Item {
         }
 
         if (ent != null) {
-            ent.setLocationAndAngles(d0, d1, d2, world.rand.nextFloat() * 360.0f, 0.0f);
+
+            ent.setLocationAndAngles(x, y, z, world.rand.nextFloat() * 360.0f, 0.0f);
             world.spawnEntityInWorld(ent);
-            if (ent instanceof EntityLiving) {
-                ((EntityLiving) ent).playLivingSound();
-            }
+
         }
+
         return ent;
     }
 

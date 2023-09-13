@@ -1,0 +1,16 @@
+[
+{
+  "modid": "dangerzone_iamacatfr",
+  "name": "Danger Zone",
+  "description": "An alternative to the orespawn mod an opensource.",
+  "version": "0.1",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["I'm A Cat[FR]#7202"],
+  "credits": "I'm A Cat[FR]#7202",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

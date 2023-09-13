@@ -1,4 +1,4 @@
-package fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished;
+package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.init.Items;

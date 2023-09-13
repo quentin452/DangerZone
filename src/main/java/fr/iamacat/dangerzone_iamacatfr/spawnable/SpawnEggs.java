@@ -1,5 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.spawnable;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -7,23 +10,16 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class SpawnEggs extends Item {
 
-    private final ResourceLocation texture;
     public Class<? extends Entity> entityClass;
 
     public SpawnEggs(Class<? extends Entity> entityClass) {
         this.entityClass = entityClass;
         this.maxStackSize = 64;
         this.setCreativeTab(CreativeTabs.tabMisc);
-        texture = new ResourceLocation(Tags.MODID, "apple_cow_egg");
     }
 
     public boolean onItemUse(final ItemStack par1ItemStack, final EntityPlayer par2EntityPlayer, final World par3World,
@@ -64,6 +60,13 @@ public class SpawnEggs extends Item {
 
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        itemIcon = iconRegister.registerIcon(texture.toString());
+        String textureName = getEntityTextureName(entityClass);
+        itemIcon = iconRegister.registerIcon(textureName);
     }
+
+    private String getEntityTextureName(Class<? extends Entity> entityClass) {
+        String entityClassName = entityClass.getSimpleName();
+        return Tags.MODID + ":" + entityClassName.toLowerCase() + "_egg";
+    }
+
 }

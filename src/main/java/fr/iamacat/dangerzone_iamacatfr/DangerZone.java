@@ -1,17 +1,17 @@
 package fr.iamacat.dangerzone_iamacatfr;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import fr.iamacat.dangerzone_iamacatfr.init.EntityInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.init.SpawnEggInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.proxy.CommonProxy;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
 
 @Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = Tags.MCVERSION)
 public class DangerZone {
@@ -27,6 +27,7 @@ public class DangerZone {
         proxy.registerRenders();
         EntityInitDangerZone.preInit(event);
         SpawnEggInitDangerZone.preInit(event);
+        ItemInitDangerZone.preInit(event);
     }
 
     @Mod.EventHandler

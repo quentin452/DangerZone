@@ -1,5 +1,13 @@
 itemGroup.dangerzone=Danger Zone
 
 entity.Apple Cow DangerZone.name=Apple Cow
+entity.Crystal Cow DangerZone.name=Crystal Cow
+entity.Enchanted Golden Apple Cow DangerZone.name=Enchanted Golden Apple Cow
+entity.Golden Apple Cow DangerZone.name=Golden Apple Cow
+
+item.CrystalApple.name=Crystal Apple
 
 item.apple_cow_egg.name=Spawn Apple Cow
+item.crystal_cow_egg.name=Spawn Crystal Apple
+item.golden_apple_cow_egg.name=Spawn Golden Apple Cow
+item.enchanted_golden_apple_cow_egg.name=Spawn Enchanted Golden Apple Cow

@@ -1,5 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -7,8 +8,11 @@ import net.minecraft.world.World;
 
 public class AppleCowInstance extends EntityCow {
 
-    public AppleCowInstance(World p_i1683_1_) {
-        super(p_i1683_1_);
+    public World world;
+
+    public AppleCowInstance(World world) {
+        super(world);
+        this.world = world;
     }
 
     @Override

@@ -28,7 +28,8 @@ public class DangerZone {
         proxy.registerRenders();
         EntityInitDangerZone.preInit(event);
         SpawnEggInitDangerZone.preInit(event);
-        ItemInitDangerZone.preInit(event);
+        ItemInitDangerZone.init();
+        ItemInitDangerZone.register();
     }
 
     @Mod.EventHandler

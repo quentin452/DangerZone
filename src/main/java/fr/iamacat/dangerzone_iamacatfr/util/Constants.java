@@ -8,6 +8,4 @@ public class Constants {
     public static Item CrystalCowSpawnEgg;
     public static Item EnchantedGoldenAppleCowSpawnEgg;
     public static Item GoldenAppleCowSpawnEgg;
-
-    public static Item CrystalApple;
 }

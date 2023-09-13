@@ -1,2 +1,5 @@
 itemGroup.dangerzone=Danger Zone
 
+entity.Apple Cow DangerZone.name=Apple Cow
+
+item.apple_cow_egg.name=Spawn Apple Cow

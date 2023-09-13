@@ -4,5 +4,5 @@ import net.minecraft.item.Item;
 
 public class Constants {
 
-
+    public static Item AppleCowSpawnEgg;
 }

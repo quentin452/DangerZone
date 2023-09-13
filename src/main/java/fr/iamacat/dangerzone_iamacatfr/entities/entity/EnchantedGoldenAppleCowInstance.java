@@ -1,12 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Random;
-
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class EnchantedGoldenAppleCowInstance extends EntityCow {
 

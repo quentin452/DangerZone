@@ -1,4 +1,17 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished;
 
-public class CliffRacerInstance {
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.world.World;
+
+public class CliffRacerInstance extends EntityAnimal {
+
+    public CliffRacerInstance(World p_i1681_1_) {
+        super(p_i1681_1_);
+    }
+
+    @Override
+    public EntityAgeable createChild(EntityAgeable p_90011_1_) {
+        return null;
+    }
 }

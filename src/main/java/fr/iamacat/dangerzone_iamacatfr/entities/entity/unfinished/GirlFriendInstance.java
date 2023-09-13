@@ -1,4 +1,17 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished;
 
-public class GirlFriendInstance {
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.passive.EntityTameable;
+import net.minecraft.world.World;
+
+public class GirlFriendInstance extends EntityTameable {
+
+    public GirlFriendInstance(World p_i1604_1_) {
+        super(p_i1604_1_);
+    }
+
+    @Override
+    public EntityAgeable createChild(EntityAgeable p_90011_1_) {
+        return null;
+    }
 }

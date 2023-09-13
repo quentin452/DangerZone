@@ -1,4 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished;
 
-public class FlounderInstance {
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.world.World;
+
+public class FlounderInstance extends EntityMob {
+
+    public FlounderInstance(World p_i1738_1_) {
+        super(p_i1738_1_);
+    }
 }

@@ -1,12 +1,9 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import net.minecraft.entity.monster.EntityMob;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 
 public class CrystalCowInstance extends EntityCow {
 

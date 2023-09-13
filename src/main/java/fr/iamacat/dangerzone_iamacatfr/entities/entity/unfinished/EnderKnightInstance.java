@@ -1,4 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished;
 
-public class EnderKnightInstance {
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.world.World;
+
+public class EnderKnightInstance extends EntityMob {
+
+    public EnderKnightInstance(World p_i1738_1_) {
+        super(p_i1738_1_);
+    }
 }

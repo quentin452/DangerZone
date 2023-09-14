@@ -4,8 +4,6 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.BoyFriendInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GirlFriendInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EntityInitDangerZone {

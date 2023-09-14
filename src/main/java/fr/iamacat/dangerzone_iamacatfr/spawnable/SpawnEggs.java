@@ -1,5 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.spawnable;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -8,10 +11,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class SpawnEggs extends Item {
 
@@ -24,8 +23,8 @@ public class SpawnEggs extends Item {
     }
 
     public boolean onItemUse(final ItemStack par1ItemStack, final EntityPlayer par2EntityPlayer, final World par3World,
-        final int par4, final int par5, final int par6, final int par7, final float par8, final float par9,
-        final float par10) {
+                             final int par4, final int par5, final int par6, final int par7, final float par8, final float par9,
+                             final float par10) {
         if (par3World.isRemote) {
             return true;
         }

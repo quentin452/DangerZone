@@ -4,6 +4,8 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.BoyFriendInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GirlFriendInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EntityInitDangerZone {
@@ -20,9 +22,9 @@ public class EntityInitDangerZone {
             "Apple Cow DangerZone",
             appleCowId, // Use the chosen unique ID
             Tags.MODID,
-            64,
+            32,
             1,
-            false);
+            true);
 
         int CrystalCowId = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -33,9 +35,9 @@ public class EntityInitDangerZone {
             "Crystal Cow DangerZone",
             CrystalCowId, // Use the chosen unique ID
             Tags.MODID,
-            64,
+            32,
             1,
-            false);
+            true);
 
         int EnchantedGoldenAppleCow = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -49,9 +51,9 @@ public class EntityInitDangerZone {
             "Enchanted Golden Apple Cow DangerZone",
             EnchantedGoldenAppleCow, // Use the chosen unique ID
             Tags.MODID,
-            64,
+            32,
             1,
-            false);
+            true);
 
         int GoldenAppleCow = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -63,9 +65,9 @@ public class EntityInitDangerZone {
             "Golden Apple Cow DangerZone",
             GoldenAppleCow, // Use the chosen unique ID
             Tags.MODID,
-            64,
+            32,
             1,
-            false);
+            true);
 
         int BrownAnt = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -78,7 +80,7 @@ public class EntityInitDangerZone {
             Tags.MODID,
             22,
             1,
-            false);
+            true);
 
         int RedAnt = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -91,7 +93,7 @@ public class EntityInitDangerZone {
             Tags.MODID,
             22,
             1,
-            false);
+            true);
         int UnstableAnt = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(UnstableAntInstance.class, "Unstable Ant DangerZone", UnstableAnt);
@@ -103,7 +105,7 @@ public class EntityInitDangerZone {
             Tags.MODID,
             22,
             1,
-            false);
+            true);
         int RainbowAnt = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(RainbowAntInstance.class, "Rainbow Ant DangerZone", RainbowAnt);
@@ -115,7 +117,7 @@ public class EntityInitDangerZone {
             Tags.MODID,
             22,
             1,
-            false);
+            true);
         int Termite = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(TermiteInstance.class, "Termite DangerZone", Termite);
@@ -127,7 +129,34 @@ public class EntityInitDangerZone {
             Tags.MODID,
             22,
             1,
+            true);
+
+        int GirlFriend = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(GirlFriendInstance.class, "Girl Friend DangerZone", GirlFriend);
+
+        EntityRegistry.registerModEntity(
+            TermiteInstance.class,
+            "Girl Friend DangerZone",
+            GirlFriend, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int BoyFriend = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BoyFriendInstance.class, "Boy Friend DangerZone", BoyFriend);
+
+        EntityRegistry.registerModEntity(
+            TermiteInstance.class,
+            "Boy Friend DangerZone",
+            BoyFriend, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
             false);
+
     }
 
 }

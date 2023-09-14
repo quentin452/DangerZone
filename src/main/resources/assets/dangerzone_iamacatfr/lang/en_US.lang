@@ -9,6 +9,9 @@ entity.Unstable Ant DangerZone.name=Unstable Ant
 entity.Rainbow Ant DangerZone.name=Rainbow Ant
 entity.Red Ant DangerZone.name=Red Ant 
 entity.Termite DangerZone.name=Termite
+entity.Girl Friend DangerZone.name=Girl Friend 
+entity.Boy Friend DangerZone.name=Boy Friend
+
 
 item.CrystalApple.name=Crystal Apple
 

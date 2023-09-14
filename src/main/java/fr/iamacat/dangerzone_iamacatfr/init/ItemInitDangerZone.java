@@ -1,9 +1,10 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
+import net.minecraft.item.Item;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalApple;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import net.minecraft.item.Item;
 
 public class ItemInitDangerZone {
 

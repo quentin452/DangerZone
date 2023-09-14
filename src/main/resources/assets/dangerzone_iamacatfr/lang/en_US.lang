@@ -4,6 +4,11 @@ entity.Apple Cow DangerZone.name=Apple Cow
 entity.Crystal Cow DangerZone.name=Crystal Cow
 entity.Enchanted Golden Apple Cow DangerZone.name=Enchanted Golden Apple Cow
 entity.Golden Apple Cow DangerZone.name=Golden Apple Cow
+entity.Brown Ant DangerZone.name=Brown Ant
+entity.Unstable Ant DangerZone.name=Unstable Ant
+entity.Rainbow Ant DangerZone.name=Rainbow Ant
+entity.Red Ant DangerZone.name=Red Ant 
+entity.Termite DangerZone.name=Termite
 
 item.CrystalApple.name=Crystal Apple
 

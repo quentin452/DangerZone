@@ -1,8 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.spawnable;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -11,6 +8,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class SpawnEggs extends Item {
 
@@ -96,8 +97,8 @@ public class SpawnEggs extends Item {
             entityClassName = entityClassName.substring(0, entityClassName.length() - "Instance".length());
         }
 
-        // Convert to lowercase and add the "egg" prefix and ".png" extension
+        // Convert to lowercase and add the "egg" prefix
         String lowerCaseEntityClassName = entityClassName.toLowerCase();
-        return  Tags.MODID+ ":" + "egg" + lowerCaseEntityClassName;
+        return Tags.MODID + ":" + "egg" + lowerCaseEntityClassName;
     }
 }

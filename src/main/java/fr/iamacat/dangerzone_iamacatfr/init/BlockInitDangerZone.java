@@ -38,6 +38,12 @@ public class BlockInitDangerZone {
     public static Block CrystalTorch;
     public static Block TeleportBlock;
 
+    public static Block MobzillaScaleBlock;
+    public static Block EyeOfEnderBlock;
+    public static Block TrollBlock1;
+    public static Block TrollBlock2;
+    public static Block SaltOre;
+
     public static void init() {
 
         blocktorch = new ExtremeTorch();
@@ -123,9 +129,22 @@ public class BlockInitDangerZone {
         TeleportBlock.setBlockName("TeleportBlock");
 
         EnderPearlBlock = new EnderPearlBlock();
-
         EnderPearlBlock.setBlockName("EnderPearlBlock");
 
+        MobzillaScaleBlock = new MobzillaScaleBlock();
+        MobzillaScaleBlock.setBlockName("MobzillaScaleBlock");
+
+        EyeOfEnderBlock = new EyeOfEnderBlock();
+        EyeOfEnderBlock.setBlockName("EyeOfEnderBlock");
+
+        TrollBlock1 = new TrollBlock1();
+        TrollBlock1.setBlockName("TrollBlock1");
+
+        TrollBlock2 = new TrollBlock2();
+        TrollBlock2.setBlockName("TrollBlock2");
+
+        SaltOre = new SaltOre();
+        SaltOre.setBlockName("SaltOre");
     }
 
     public static void register() {
@@ -160,6 +179,12 @@ public class BlockInitDangerZone {
         TeleportBlock.setBlockTextureName(Tags.MODID + ":blockteleport");
 
         GameRegistry.registerBlock(EnderPearlBlock, "EnderPearlBlock");
+        GameRegistry.registerBlock(MobzillaScaleBlock, "MobzillaScaleBlock");
+        GameRegistry.registerBlock(EyeOfEnderBlock, "EyeOfEnderBlock");
+        GameRegistry.registerBlock(TrollBlock1, "TrollBlock1");
+        GameRegistry.registerBlock(TrollBlock2, "TrollBlock2");
+        GameRegistry.registerBlock(SaltOre, "SaltOre");
+
     }
 
 }

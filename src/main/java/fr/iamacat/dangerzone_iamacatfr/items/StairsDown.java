@@ -20,15 +20,16 @@ public class StairsDown extends Item {
     private static final int PARTICLE_COUNT = 6;
 
     // Déclarez la matrice DELTAS pour les valeurs de déplacement
-    private static final int[][] DELTAS = {{0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}};
+    private static final int[][] DELTAS = { { 0, 1 }, { -1, 1 }, { -1, 0 }, { -1, -1 }, { 0, -1 }, { 1, -1 }, { 1, 0 },
+        { 1, 1 } };
 
     public StairsDown() {
         this.maxStackSize = MAX_STACK_SIZE;
     }
 
     public boolean onItemUse(final ItemStack par1ItemStack, final EntityPlayer Player, final World world,
-                             final int cposx, final int cposy, final int cposz, final int par7, final float par8, final float par9,
-                             final float par10) {
+        final int cposx, final int cposy, final int cposz, final int par7, final float par8, final float par9,
+        final float par10) {
         int deltax = 0;
         int deltaz = 0;
         final int x = cposx;
@@ -106,6 +107,6 @@ public class StairsDown extends Item {
         this.itemIcon = iconRegister.registerIcon(
             Tags.MODID + ":"
                 + this.getUnlocalizedName()
-                .substring(5));
+                    .substring(5));
     }
 }

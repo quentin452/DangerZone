@@ -1,47 +1,40 @@
 package fr.iamacat.dangerzone_iamacatfr.materials;
 
-import java.util.Random;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-
+// todo , make can kill ants/termite when moving on salt ore
 public class SaltOre extends Block {
 
-    public SaltOre(final int i) {
+
+    public SaltOre() {
         super(Material.rock);
         this.setHardness(10.0f);
         this.setResistance(4.0f);
+        this.setBlockTextureName(Tags.MODID + ":SaltOre");
     }
 
-    public void dropBlockAsItemWithChance(final World par1World, final int par2, final int par3, final int par4,
-        final int par5, final float par6, final int par7) {
-        super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
-        final int j1 = 5 + par1World.rand.nextInt(5) + par1World.rand.nextInt(5);
-        this.dropXpOnBlockBreak(par1World, par2, par3, par4, j1);
-    }
-    // todo
-    // public Item getItemDropped(final int par1, final Random par2Random, final int par3) {
-    // return SaltOre;
-    // }
-
-    public int quantityDroppedWithBonus(final int par1, final Random par2Random) {
-        return 1 + par2Random.nextInt(2);
+    public void onEntityCollidedWithBlock(final World par1World, final int par2, final int par3, final int par4,
+                                          final Entity par5Entity) {
+        if (isAntEntity(par5Entity)) {
+            par5Entity.attackEntityFrom(DamageSource.cactus, Float.MAX_VALUE);
+        }
     }
 
-    public int quantityDropped(final Random par1Random) {
-        return 1;
+    public void onEntityWalking(final World par1World, final int par2, final int par3, final int par4,
+                                final Entity par5Entity) {
+        if (isAntEntity(par5Entity)) {
+            par5Entity.attackEntityFrom(DamageSource.cactus, Float.MAX_VALUE);
+        }
     }
 
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(final IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(
-            Tags.MODID + this.getUnlocalizedName()
-                .substring(5));
+    private boolean isAntEntity(Entity entity) {
+        return entity instanceof BrownAntInstance || entity instanceof UnstableAntInstance || entity instanceof RainbowAntInstance || entity instanceof RedAntInstance || entity instanceof TermiteInstance;
     }
+
+
 }

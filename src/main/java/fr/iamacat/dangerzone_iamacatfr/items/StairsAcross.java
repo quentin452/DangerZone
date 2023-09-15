@@ -17,15 +17,16 @@ public class StairsAcross extends Item {
 
     private static final int MAX_STACK_SIZE = 32;
     private static final int LENGTH = 16; // Réduisez la taille à 16
-    private static final int[][] DELTAS = {{0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}};
+    private static final int[][] DELTAS = { { 0, 1 }, { -1, 1 }, { -1, 0 }, { -1, -1 }, { 0, -1 }, { 1, -1 }, { 1, 0 },
+        { 1, 1 } };
 
     public StairsAcross() {
         this.maxStackSize = MAX_STACK_SIZE;
     }
 
     public boolean onItemUse(final ItemStack par1ItemStack, final EntityPlayer Player, final World world,
-                             final int cposx, final int cposy, final int cposz, final int par7, final float par8, final float par9,
-                             final float par10) {
+        final int cposx, final int cposy, final int cposz, final int par7, final float par8, final float par9,
+        final float par10) {
         float f = Player.rotationYawHead;
         f += 22.5f;
         f %= 360.0f;
@@ -81,7 +82,13 @@ public class StairsAcross extends Item {
             if ((k - 1) % 8 == 0) {
                 bid = world.getBlock(cposx + k * deltax, cposy + 1, cposz + k * deltaz); // Augmentez y de 1
                 if (bid == Blocks.air) {
-                    world.setBlock(cposx + k * deltax, cposy + 1, cposz + k * deltaz, BlockInitDangerZone.blocktorch, 0, 2);
+                    world.setBlock(
+                        cposx + k * deltax,
+                        cposy + 1,
+                        cposz + k * deltaz,
+                        BlockInitDangerZone.blocktorch,
+                        0,
+                        2);
                 }
             }
         }
@@ -97,6 +104,6 @@ public class StairsAcross extends Item {
         this.itemIcon = iconRegister.registerIcon(
             Tags.MODID + ":"
                 + this.getUnlocalizedName()
-                .substring(5));
+                    .substring(5));
     }
 }

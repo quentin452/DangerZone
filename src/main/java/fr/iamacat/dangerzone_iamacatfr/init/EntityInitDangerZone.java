@@ -4,6 +4,8 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.BirdsInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.TinyBirdsInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EntityInitDangerZone {
@@ -153,8 +155,33 @@ public class EntityInitDangerZone {
             Tags.MODID,
             32,
             1,
-            false);
+            true);
 
+        int TinyBird = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(TinyBirdsInstance.class, "Tiny Bird DangerZone", TinyBird);
+
+        EntityRegistry.registerModEntity(
+            TinyBirdsInstance.class,
+            "Boy Friend DangerZone",
+            TinyBird, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+
+        int Bird = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BirdsInstance.class, "Bird DangerZone", Bird);
+
+        EntityRegistry.registerModEntity(
+            BirdsInstance.class,
+            "Boy Friend DangerZone",
+            Bird, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
     }
 
 }

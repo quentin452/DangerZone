@@ -408,10 +408,15 @@ public class SpawnEggInitDangerZone {
         Constants.WtfSpawnEgg = WtfSpawnEgg;
         GameRegistry.registerItem(Constants.WtfSpawnEgg, "WTF? Egg");
 
-        SpawnEggs BirdSpawnEgg = new SpawnEggs(BirdsInstance.class);
+        SpawnEggs BirdSpawnEgg = new SpawnEggs(TinyBirdsInstance.class);
         BirdSpawnEgg.setUnlocalizedName("bird_egg");
         Constants.BirdSpawnEgg = BirdSpawnEgg;
         GameRegistry.registerItem(Constants.BirdSpawnEgg, "Bird Egg");
+
+        SpawnEggs TinyBirdsSpawnEgg = new SpawnEggs(TinyBirdsInstance.class);
+        TinyBirdsSpawnEgg.setUnlocalizedName("tiny_bird_egg");
+        Constants.TinyBirdsSpawnEgg = TinyBirdsSpawnEgg;
+        GameRegistry.registerItem(Constants.TinyBirdsSpawnEgg, "Tiny Bird Egg");
 
         SpawnEggs WaterDragonSpawnEgg = new SpawnEggs(WaterDragonInstance.class);
         WaterDragonSpawnEgg.setUnlocalizedName("water_dragon_egg");

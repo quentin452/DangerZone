@@ -1,14 +1,19 @@
 package fr.iamacat.dangerzone_iamacatfr.proxy;
 
-import net.minecraft.client.model.ModelBiped;
-
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.BirdsInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.TinyBirdsInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.AppleCowModel;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.CrystalCowModel;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.EnchantedGoldenAppleCowModel;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.GoldenAppleCowModel;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.unfinished.BirdsModel;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.unfinished.TinyBirdsModel;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.unfinished.BirdsRenderer;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.unfinished.TinyBirdsRenderer;
+import net.minecraft.client.model.ModelBiped;
 
 public class ClientProxy extends CommonProxy {
 
@@ -37,5 +42,13 @@ public class ClientProxy extends CommonProxy {
             new GirlFriendRenderer(new ModelBiped(0.5f), 0.5f));
         RenderingRegistry
             .registerEntityRenderingHandler(BoyFriendInstance.class, new BoyFriendRenderer(new ModelBiped(0.5f), 0.5f));
+
+        RenderingRegistry.registerEntityRenderingHandler(
+            TinyBirdsInstance.class,
+            new TinyBirdsRenderer(new TinyBirdsModel(), 1.0F));
+
+        RenderingRegistry.registerEntityRenderingHandler(
+            BirdsInstance.class,
+            new BirdsRenderer(new BirdsModel(), 1.0F, "raven.png"));
     }
 }

@@ -4,6 +4,13 @@ tileentity.TileEntityCrystalFurnaceDangerZone.name=Crystal Furnace
 tileentity.ContainerCrystalFurnaceOnBlock.name=Crystal Furnace On
 tileentity.CreeperRepelent.name=Creeper Repelent
 
+tileentity.TigersEyeBlock.name=Tigers Eye Block
+tileentity.AmethystBlock.name=Amethyst Block
+tileentity.RubyBlock.name=Ruby Block
+tileentity.TitaniumBlock.name=Titanium Block
+tileentity.PinkTourmalineBlock.name=Pink Tourmaline Block
+tileentity.UraniumBlock.name=Uranium Block
+
 entity.Apple Cow DangerZone.name=Apple Cow
 entity.Crystal Cow DangerZone.name=Crystal Cow
 entity.Enchanted Golden Apple Cow DangerZone.name=Enchanted Golden Apple Cow
@@ -202,6 +209,17 @@ item.alosaurus_egg.name=Spawn Alosaurus
 item.cricket_egg.name=Spawn Cricket
 item.lurking_terror_egg.name=Spawn Lurking terror
 item.tiny_bird_egg.name=Spawn Tiny Bird
+tile.TitaniumBlock.name=Titanium Block
+tile.UraniumBlock.name=Uranium Block
+tile.AmethystBlock.name=Amethyst Block
+tile.TigersEyeBlock.name=Tigers Eye Block
+tile.RubyBlock.name=Ruby Block
+tile.PinkTourmalineBlock.name=Pink Tourmaline Block
+tile.TitaniumBlockOre.name=Titanium Ore
+tile.UraniumBlockOre.name=Uranium Ore
+tile.AmethystBlockOre.name=Amethyst Ore
+tile.TigersEyeBlockOre.name=Tigers Eye Ore
+tile.RubyBlockOre.name=Ruby Ore
 
 tile.ExtremeTorch.name=Extreme Torch
 tile.BrownAntNest.name=Brown Ant Nest

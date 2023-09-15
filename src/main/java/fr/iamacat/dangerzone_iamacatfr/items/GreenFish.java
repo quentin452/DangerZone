@@ -13,7 +13,7 @@ public class GreenFish extends ItemFood {
     public GreenFish() {
         // Utilisez les constantes pour définir les propriétés de l'aliment
         super(HEALS_AMOUNT, SATURATION_MODIFIER, false);
-        this.setUnlocalizedName(Tags.MODID + ".pink_fish");
-        this.setTextureName(Tags.MODID + ":pink_fish");
+        this.setUnlocalizedName(Tags.MODID + ".green_fish");
+        this.setTextureName(Tags.MODID + ":green_fish");
     }
 }

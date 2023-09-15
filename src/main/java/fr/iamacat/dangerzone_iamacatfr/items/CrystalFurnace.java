@@ -68,14 +68,11 @@ public class CrystalFurnace extends BlockContainer {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
         this.blockIcon = par1IIconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
-                .substring(5) + "_side");
+            Tags.MODID + ":" + this.getUnlocalizedName().substring(5) + "_side");
         this.furnaceIconFront = par1IIconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
-                .substring(5) + (this.isActive ? "_front_off" : "_front_off"));
+            Tags.MODID + ":" + this.getUnlocalizedName().substring(5) + "_front_off");
         this.furnaceIconTop = par1IIconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
-                .substring(5) + "_top");
+            Tags.MODID + ":" + this.getUnlocalizedName().substring(5) + "_top");
     }
 
     public static void updateFurnaceBlockState(final boolean par0, final World par1World, final int par2,

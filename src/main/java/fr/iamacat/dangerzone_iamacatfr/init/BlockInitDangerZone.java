@@ -1,5 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
+import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import net.minecraft.block.Block;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -21,6 +22,18 @@ public class BlockInitDangerZone {
 
     public static Block ContainerCrystalFurnaceOnBlock;
 
+    public static Block AmethystBlock;
+    public static Block TigersEyeBlock;
+    public static Block RubyBlock;
+    public static Block TitaniumBlock;
+    public static Block UraniumBlock;
+    public static Block PinkTourmalineBlock;
+
+    public static Block AmethystBlockOre;
+    public static Block TigersEyeBlockOre;
+    public static Block RubyBlockOre;
+    public static Block TitaniumBlockOre;
+    public static Block UraniumBlockOre;
     public static void init() {
 
         blocktorch = new ExtremeTorch();
@@ -54,6 +67,50 @@ public class BlockInitDangerZone {
         ContainerCrystalFurnaceOnBlock = new CrystalFurnace(213, true, 2.0f, 10.0f).setBlockName("crystalfurnace");
         CrystalWorkbench = new CrystalWorkbench().setBlockName("crystalworkbench");
 
+        TigersEyeBlock = new TigersEyeBlock();
+
+        TigersEyeBlock.setBlockName("TigersEyeBlock");
+
+        AmethystBlock = new AmethystBlock();
+
+        AmethystBlock.setBlockName("AmethystBlock");
+
+        RubyBlock = new RubyBlock();
+
+        RubyBlock.setBlockName("RubyBlock");
+
+        TitaniumBlock = new TitaniumBlock();
+
+        TitaniumBlock.setBlockName("TitaniumBlock");
+
+        UraniumBlock = new UraniumBlock();
+
+        UraniumBlock.setBlockName("UraniumBlock");
+
+        PinkTourmalineBlock = new PinkTourmalineBlock();
+
+        PinkTourmalineBlock.setBlockName("PinkTourmalineBlock");
+
+        TigersEyeBlockOre = new TigersEyeOre();
+
+        TigersEyeBlockOre.setBlockName("TigersEyeBlockOre");
+
+        AmethystBlockOre = new AmethystOre();
+
+        AmethystBlockOre.setBlockName("AmethystBlockOre");
+
+        RubyBlockOre = new RubyOre();
+
+        RubyBlockOre.setBlockName("RubyBlockOre");
+
+        TitaniumBlockOre = new TitaniumOre();
+
+        TitaniumBlockOre.setBlockName("TitaniumBlockOre");
+
+        UraniumBlockOre = new UraniumOre();
+
+        UraniumBlockOre.setBlockName("UraniumBlockOre");
+
     }
 
     public static void register() {
@@ -69,6 +126,19 @@ public class BlockInitDangerZone {
         GameRegistry.registerBlock(ContainerCrystalFurnaceBlock, "CrystalFurnaceBlock");
         GameRegistry.registerBlock(ContainerCrystalFurnaceOnBlock, "CrystalFurnaceOnBlock");
         GameRegistry.registerBlock(CrystalWorkbench, "CrystalWorkbenchBlock");
+        GameRegistry.registerBlock(TigersEyeBlock, "TigersEyeBlock");
+        GameRegistry.registerBlock(AmethystBlock, "AmethystBlock");
+        GameRegistry.registerBlock(RubyBlock, "RubyBlock");
+        GameRegistry.registerBlock(TitaniumBlock, "TitaniumBlock");
+        GameRegistry.registerBlock(UraniumBlock, "UraniumBlock");
+        GameRegistry.registerBlock(PinkTourmalineBlock, "PinkTourmalineBlock");
+
+        GameRegistry.registerBlock(TigersEyeBlockOre,"TigersEyeBlockOre");
+        GameRegistry.registerBlock(AmethystBlockOre, "AmethystBlockOre");
+        GameRegistry.registerBlock(RubyBlockOre, "RubyBlockOre");
+        GameRegistry.registerBlock(TitaniumBlockOre, "TitaniumBlockOre");
+        GameRegistry.registerBlock(UraniumBlockOre, "UraniumBlockOre");
+
     }
 
 }

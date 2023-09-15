@@ -1,5 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
+import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
+import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import net.minecraft.item.Item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -90,6 +92,12 @@ public class ItemInitDangerZone {
     public static Item Lettuce;
     public static Item WoodFish;
 
+    public static Item AmethystIngot;
+    public static Item TigersEyeIngot;
+    public static Item TitaniumIngot;
+    public static Item UraniumIngot;
+    public static Item RubyIngot;
+
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -162,7 +170,11 @@ public class ItemInitDangerZone {
         Tomato = new Tomato().setUnlocalizedName("Tomato");
         Lettuce = new Lettuce().setUnlocalizedName("Lettuce");
         WoodFish = new WoodFish().setUnlocalizedName("WoodFish");
-
+        AmethystIngot = new AmethystIngot().setUnlocalizedName("AmethystIngot");
+        TigersEyeIngot = new TigersEyeIngot().setUnlocalizedName("TigersEyeIngot");
+        TitaniumIngot = new TitaniumIngot().setUnlocalizedName("TitaniumIngot");
+        UraniumIngot = new UraniumIngot().setUnlocalizedName("UraniumIngot");
+        RubyIngot = new RubyIngot().setUnlocalizedName("RubyIngot");
     }
 
     public static void register() {
@@ -235,6 +247,11 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(Tomato, "Tomato");
         GameRegistry.registerItem(Lettuce, "Lettuce");
         GameRegistry.registerItem(WoodFish, "WoodFish");
+        GameRegistry.registerItem(AmethystIngot, "AmethystIngot");
+        GameRegistry.registerItem(TigersEyeIngot, "TigersEyeIngot");
+        GameRegistry.registerItem(TitaniumIngot, "TitaniumIngot");
+        GameRegistry.registerItem(UraniumIngot, "UraniumIngot");
+        GameRegistry.registerItem(RubyIngot, "RubyIngot");
 
     }
 }

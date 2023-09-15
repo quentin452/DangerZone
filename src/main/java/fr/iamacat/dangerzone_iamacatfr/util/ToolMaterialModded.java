@@ -37,4 +37,12 @@ public class ToolMaterialModded {
         8.0F, // Dommages infligés
         10 // Enchantabilité
     );
+    public static final Item.ToolMaterial AttitudeAdjusterMaterial = EnumHelper.addToolMaterial(
+        "AttitudeAdjusterMaterial", // Nom du matériau
+        3, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        80.0F, // Dommages infligés
+        10 // Enchantabilité
+    );
 }

@@ -1,5 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
+import fr.iamacat.dangerzone_iamacatfr.items.LavaEel;
+import fr.iamacat.dangerzone_iamacatfr.items.unfinished.AttitudeAdjuster;
 import net.minecraft.item.Item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -110,6 +112,8 @@ public class ItemInitDangerZone {
     public static Item RatSword;
     public static Item FairySword;
     public static Item InstantShelter;
+    public static Item JumpyBugScale;
+    public static Item LavaEel;
 
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
@@ -196,6 +200,8 @@ public class ItemInitDangerZone {
         NightmareSword = new NightmareSword(ToolMaterialModded.NIGHTMAREMATERIAL).setUnlocalizedName("NightmareSword");
         FairySword = new FairySword(ToolMaterialModded.FAIRYMATERIAL).setUnlocalizedName("FairySword");
         InstantShelter = new InstantShelter().setUnlocalizedName("InstantShelter");
+        JumpyBugScale = new JumpyBugScale().setUnlocalizedName("JumpyBugScale");
+        LavaEel = new LavaEel().setUnlocalizedName("LavaEel");
 
     }
 
@@ -282,6 +288,8 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(RatSword, "RatSword");
         GameRegistry.registerItem(FairySword, "FairySword");
         GameRegistry.registerItem(InstantShelter, "InstantShelter");
+        GameRegistry.registerItem(JumpyBugScale, "JumpyBugScale");
+        GameRegistry.registerItem(LavaEel, "LavaEel");
 
     }
 }

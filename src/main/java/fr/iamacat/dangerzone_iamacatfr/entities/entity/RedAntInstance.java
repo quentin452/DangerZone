@@ -1,5 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions.teleporter.SafeTeleporter;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -12,9 +14,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions.teleporter.SafeTeleporter;
 
 public class RedAntInstance extends EntityMob {
 

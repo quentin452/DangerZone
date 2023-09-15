@@ -220,8 +220,11 @@ tile.UraniumBlockOre.name=Uranium Ore
 tile.AmethystBlockOre.name=Amethyst Ore
 tile.TigersEyeBlockOre.name=Tigers Eye Ore
 tile.RubyBlockOre.name=Ruby Ore
+tile.EnderPearlBlock.name=Ender Pearl Block
 
 tile.ExtremeTorch.name=Extreme Torch
+tile.TeleportBlock.name=Teleport Block
+tile.CrystalTorch.name=Crystal Torch
 tile.BrownAntNest.name=Brown Ant Nest
 tile.RainbowAntNest.name=Rainbow Ant Nest
 tile.RedAntNest.name=Red Ant Nest

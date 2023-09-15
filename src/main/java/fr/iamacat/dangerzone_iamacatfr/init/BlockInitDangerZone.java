@@ -1,15 +1,15 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
-import fr.iamacat.dangerzone_iamacatfr.materials.*;
-import net.minecraft.block.Block;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.iamacat.dangerzone_iamacatfr.blocks.*;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalFurnace;
+import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraft.block.Block;
 
 public class BlockInitDangerZone {
 
+    public static Block EnderPearlBlock;
     public static Block blocktorch;
     public static Block BrownAntNest;
     public static Block RainbowAntNest;
@@ -34,6 +34,9 @@ public class BlockInitDangerZone {
     public static Block RubyBlockOre;
     public static Block TitaniumBlockOre;
     public static Block UraniumBlockOre;
+    public static Block CrystalTorch;
+    public static Block TeleportBlock;
+
     public static void init() {
 
         blocktorch = new ExtremeTorch();
@@ -108,8 +111,19 @@ public class BlockInitDangerZone {
         TitaniumBlockOre.setBlockName("TitaniumBlockOre");
 
         UraniumBlockOre = new UraniumOre();
-
         UraniumBlockOre.setBlockName("UraniumBlockOre");
+
+        CrystalTorch = new CrystalTorch();
+
+        CrystalTorch.setBlockName("CrystalTorch");
+
+        TeleportBlock = new TeleportBlock();
+
+        TeleportBlock.setBlockName("TeleportBlock");
+
+        EnderPearlBlock = new EnderPearlBlock();
+
+        EnderPearlBlock.setBlockName("EnderPearlBlock");
 
     }
 
@@ -117,6 +131,9 @@ public class BlockInitDangerZone {
 
         GameRegistry.registerBlock(blocktorch, "ExtremeTorch");
         blocktorch.setLightLevel(15);
+        GameRegistry.registerBlock(CrystalTorch, "CrystalTorch");
+        CrystalTorch.setLightLevel(14);
+        CrystalTorch.setBlockTextureName(Tags.MODID + ":crystaltorch");
         GameRegistry.registerBlock(BrownAntNest, "BrownAntNest");
         GameRegistry.registerBlock(RainbowAntNest, "RainbowAntNest");
         GameRegistry.registerBlock(RedAntNest, "RedAntNest");
@@ -133,12 +150,15 @@ public class BlockInitDangerZone {
         GameRegistry.registerBlock(UraniumBlock, "UraniumBlock");
         GameRegistry.registerBlock(PinkTourmalineBlock, "PinkTourmalineBlock");
 
-        GameRegistry.registerBlock(TigersEyeBlockOre,"TigersEyeBlockOre");
+        GameRegistry.registerBlock(TigersEyeBlockOre, "TigersEyeBlockOre");
         GameRegistry.registerBlock(AmethystBlockOre, "AmethystBlockOre");
         GameRegistry.registerBlock(RubyBlockOre, "RubyBlockOre");
         GameRegistry.registerBlock(TitaniumBlockOre, "TitaniumBlockOre");
         GameRegistry.registerBlock(UraniumBlockOre, "UraniumBlockOre");
+        GameRegistry.registerBlock(TeleportBlock, "TeleportBlock");
+        TeleportBlock.setBlockTextureName(Tags.MODID + ":blockteleport");
 
+        GameRegistry.registerBlock(EnderPearlBlock, "EnderPearlBlock");
     }
 
 }

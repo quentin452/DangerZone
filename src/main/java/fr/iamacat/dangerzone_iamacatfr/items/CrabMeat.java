@@ -1,8 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import net.minecraft.item.ItemFood;
-
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraft.item.ItemFood;
 
 public class CrabMeat extends ItemFood {
 

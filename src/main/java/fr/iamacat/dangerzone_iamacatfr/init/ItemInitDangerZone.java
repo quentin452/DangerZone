@@ -1,12 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
-import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
-import fr.iamacat.dangerzone_iamacatfr.materials.*;
-import net.minecraft.item.Item;
-
 import cpw.mods.fml.common.registry.GameRegistry;
+import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
 import fr.iamacat.dangerzone_iamacatfr.items.*;
+import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraft.item.Item;
 
 public class ItemInitDangerZone {
 

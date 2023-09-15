@@ -1,10 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
-import java.util.EnumMap;
-import java.util.HashSet;
-
-import net.minecraft.entity.player.EntityPlayerMP;
-
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.FMLIndexedMessageToMessageCodec;
 import cpw.mods.fml.common.network.FMLOutboundHandler;
@@ -16,6 +11,10 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import net.minecraft.entity.player.EntityPlayerMP;
+
+import java.util.EnumMap;
+import java.util.HashSet;
 
 public class NetworkHelper {
 

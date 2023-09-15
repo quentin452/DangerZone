@@ -1,7 +1,10 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -19,11 +22,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
 
 public class CrystalFurnace extends BlockContainer {
 
@@ -68,11 +67,20 @@ public class CrystalFurnace extends BlockContainer {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
         this.blockIcon = par1IIconRegister.registerIcon(
-            Tags.MODID + ":" + this.getUnlocalizedName().substring(5) + "_side");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_side");
         this.furnaceIconFront = par1IIconRegister.registerIcon(
-            Tags.MODID + ":" + this.getUnlocalizedName().substring(5) + "_front_off");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_front_off");
         this.furnaceIconTop = par1IIconRegister.registerIcon(
-            Tags.MODID + ":" + this.getUnlocalizedName().substring(5) + "_top");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_top");
     }
 
     public static void updateFurnaceBlockState(final boolean par0, final World par1World, final int par2,

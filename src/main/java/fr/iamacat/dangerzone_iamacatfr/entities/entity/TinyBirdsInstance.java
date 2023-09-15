@@ -1,4 +1,4 @@
-package fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished;
+package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAITFBirdFly;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
@@ -17,7 +17,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 

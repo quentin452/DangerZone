@@ -1,4 +1,4 @@
-package fr.iamacat.dangerzone_iamacatfr.entities.model.unfinished;
+package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.TinyBirdsInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.TinyBirdsInstance;
 
 @SideOnly(Side.CLIENT)
 public class TinyBirdsModel extends ModelBase {

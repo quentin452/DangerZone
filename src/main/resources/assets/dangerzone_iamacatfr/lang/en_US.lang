@@ -11,7 +11,8 @@ entity.Red Ant DangerZone.name=Red Ant
 entity.Termite DangerZone.name=Termite
 entity.Girl Friend DangerZone.name=Girl Friend 
 entity.Boy Friend DangerZone.name=Boy Friend
-
+entity.Cave Fisher DangerZone.name=Cave Fisher
+entity.Eye Ray DangerZone.name=Eye Ray Projectile
 
 item.CrystalApple.name=Crystal Apple
 

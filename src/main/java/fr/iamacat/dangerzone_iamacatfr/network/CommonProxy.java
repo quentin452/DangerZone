@@ -1,4 +1,4 @@
-package fr.iamacat.dangerzone_iamacatfr.proxy;
+package fr.iamacat.dangerzone_iamacatfr.network;
 
 public class CommonProxy {
 

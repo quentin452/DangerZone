@@ -4,8 +4,9 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.BirdsInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.TinyBirdsInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BirdsInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.TinyBirdsInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EntityInitDangerZone {
@@ -182,6 +183,33 @@ public class EntityInitDangerZone {
             16,
             1,
             true);
+
+        int CaveFisher = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CaveFisherInstance.class, "Cave Fisher DangerZone", CaveFisher);
+
+        EntityRegistry.registerModEntity(
+            CaveFisherInstance.class,
+            "Cave Fisher DangerZone",
+            CaveFisher, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+
+        int EyeRayProjectile = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(EyeRayInstance.class, "Eye Ray DangerZone", EyeRayProjectile);
+
+        EntityRegistry.registerModEntity(
+            EyeRayInstance.class,
+            "Eye Ray DangerZone",
+            EyeRayProjectile, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
     }
+
 
 }

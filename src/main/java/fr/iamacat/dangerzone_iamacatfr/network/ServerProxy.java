@@ -1,23 +1,14 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
 public class ServerProxy extends CommonProxy {
-    public void DungeonMobsServer()
-    {
-    }
 
-    public void preInit()
-    {
-    }
+    public void DangerZoneServer() {}
 
-    public void load()
-    {
-    }
+    public void preInit() {}
 
-    public void onKnockBackPacket(float xv, float zv)
-    {
-    }
+    public void load() {}
 
-    public void onConfusionPacket(boolean b)
-    {
-    }
+    public void onKnockBackPacket(float xv, float zv) {}
+
+    public void onConfusionPacket(boolean b) {}
 }

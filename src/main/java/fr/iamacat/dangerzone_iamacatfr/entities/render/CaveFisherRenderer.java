@@ -11,34 +11,31 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
-public class CaveFisherRenderer extends RenderLiving
-{
-    private static final ResourceLocation caveFisherTextures = new ResourceLocation(Tags.MODID + ":textures/entity/CaveFisher.png");
+public class CaveFisherRenderer extends RenderLiving {
+
+    private static final ResourceLocation caveFisherTextures = new ResourceLocation(
+        Tags.MODID + ":textures/entity/CaveFisher.png");
     protected CaveFisherModel model;
 
-    public CaveFisherRenderer(CaveFisherModel modelCF, float f)
-    {
+    public CaveFisherRenderer(CaveFisherModel modelCF, float f) {
         super(modelCF, f);
-        model = (CaveFisherModel)mainModel;
+        model = (CaveFisherModel) mainModel;
     }
 
-    public void renderCaveFisher(CaveFisherInstance entity, double par2, double par4, double par6, float par8, float par9)
-    {
+    public void renderCaveFisher(CaveFisherInstance entity, double par2, double par4, double par6, float par8,
+        float par9) {
         super.doRender(entity, par2, par4, par6, par8, par9);
     }
 
-    public void doRenderLiving(EntityLiving par1, double par2, double par4, double par6, float par8, float par9)
-    {
-        renderCaveFisher((CaveFisherInstance)par1, par2, par4, par6, par8, par9);
+    public void doRenderLiving(EntityLiving par1, double par2, double par4, double par6, float par8, float par9) {
+        renderCaveFisher((CaveFisherInstance) par1, par2, par4, par6, par8, par9);
     }
 
-    public void doRender(Entity par1, double par2, double par4, double par6, float par8, float par9)
-    {
-        renderCaveFisher((CaveFisherInstance)par1, par2, par4, par6, par8, par9);
+    public void doRender(Entity par1, double par2, double par4, double par6, float par8, float par9) {
+        renderCaveFisher((CaveFisherInstance) par1, par2, par4, par6, par8, par9);
     }
 
-    protected ResourceLocation getEntityTexture(Entity par1Entity)
-    {
+    protected ResourceLocation getEntityTexture(Entity par1Entity) {
         return caveFisherTextures;
     }
 }

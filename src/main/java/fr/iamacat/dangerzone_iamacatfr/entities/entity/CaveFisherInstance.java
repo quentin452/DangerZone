@@ -25,8 +25,8 @@ import net.minecraft.world.World;
 import java.util.Iterator;
 import java.util.List;
 
-public class CaveFisherInstance extends EntityMob
-{
+public class CaveFisherInstance extends EntityMob {
+
     private int stringTimer;
     private int grabTimer;
     private EntityPlayer myTarget;
@@ -36,8 +36,7 @@ public class CaveFisherInstance extends EntityMob
     public float myAngles[] = new float[4];
     // prev left, prev right, moar prev left, moar prev right
 
-    public CaveFisherInstance(World par1World)
-    {
+    public CaveFisherInstance(World par1World) {
         super(par1World);
         this.setSize(1.4F, 0.9F);
         this.experienceValue = 20;
@@ -45,159 +44,135 @@ public class CaveFisherInstance extends EntityMob
         this.grabTimer = 0;
         this.ignoreHeight = false;
 
-        for(int i = 0; i < 4; i++)
-        {
+        for (int i = 0; i < 4; i++) {
             this.myAngles[i] = 0.0F;
         }
     }
 
-    protected void applyEntityAttributes()
-    {
+    protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.6D);
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
+            .setBaseValue(30.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
+            .setBaseValue(0.6D);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
+            .setBaseValue(4.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance)
+            .setBaseValue(0.0D);
     }
 
-    protected boolean isAIEnabled()
-    {
+    protected boolean isAIEnabled() {
         return false;
     }
 
-    protected void entityInit()
-    {
+    protected void entityInit() {
         super.entityInit();
         this.dataWatcher.addObject(16, 0);
     }
 
-    public void onUpdate()
-    {
+    public void onUpdate() {
         super.onUpdate();
 
-        if (!this.worldObj.isRemote)
-            this.setBesideClimbableBlock(this.isCollidedHorizontally);
+        if (!this.worldObj.isRemote) this.setBesideClimbableBlock(this.isCollidedHorizontally);
     }
 
-    public boolean isOnLadder()
-    {
+    public boolean isOnLadder() {
         return this.isBesideClimbableBlock();
     }
 
     /**
      * Sets the Entity inside a web block.
      */
-    public void setInWeb()
-    {
+    public void setInWeb() {
         ;
     }
 
-    public boolean isBesideClimbableBlock()
-    {
+    public boolean isBesideClimbableBlock() {
         return (this.dataWatcher.getWatchableObjectInt(16) & 1) != 0;
     }
 
-    public void setBesideClimbableBlock(boolean par1)
-    {
+    public void setBesideClimbableBlock(boolean par1) {
         Integer var2 = this.dataWatcher.getWatchableObjectInt(16);
 
-        if (par1)
-            var2 = (var2 | 1);
-        else
-            var2 &= -2;
+        if (par1) var2 = (var2 | 1);
+        else var2 &= -2;
 
         this.dataWatcher.updateObject(16, var2);
     }
 
-    public int getTotalArmorValue()
-    {
+    public int getTotalArmorValue() {
         return 8;
     }
 
-    public int getAttackStrength(Entity par1Entity)
-    {
+    public int getAttackStrength(Entity par1Entity) {
         return 4;
     }
 
-    protected String getLivingSound()
-    {
-        return "dungeonmobs:cf_l";
+    protected String getLivingSound() {
+        return "dangerzone_iamacatfr/sounds/cf_l";
     }
 
-    protected String getHurtSound()
-    {
-        return "dungeonmobs:cf_h";
+    protected String getHurtSound() {
+        return "dangerzone_iamacatfr/sounds/cf_h";
     }
 
-    protected String getDeathSound()
-    {
-        return "dungeonmobs:cf_d";
+    protected String getDeathSound() {
+        return "dangerzone_iamacatfr/sounds/cf_d";
     }
 
-    protected void playStepSound(int par1, int par2, int par3, int par4)
-    {
+    protected void playStepSound(int par1, int par2, int par3, int par4) {
         this.playSound("mob.spider.step", 0.15F, 1.0F);
     }
 
-    public int getTalkInterval()
-    {
+    public int getTalkInterval() {
         return 60;
     }
 
-    public EnumCreatureAttribute getCreatureAttribute()
-    {
+    public EnumCreatureAttribute getCreatureAttribute() {
         return EnumCreatureAttribute.ARTHROPOD;
     }
 
-    public boolean getCanSpawnHere()
-    {
-        if(this.worldObj.canBlockSeeTheSky((int)this.posX, (int)this.posY, (int)this.posZ))
-            return false;
+    public boolean getCanSpawnHere() {
+        if (this.worldObj.canBlockSeeTheSky((int) this.posX, (int) this.posY, (int) this.posZ)) return false;
 
-        if(this.posY > 48.0D && !this.ignoreHeight)
-            return false;
+        if (this.posY > 48.0D && !this.ignoreHeight) return false;
 
         return super.getCanSpawnHere();
     }
 
-    protected void dropFewItems(boolean par1, int par2)
-    {
+    protected void dropFewItems(boolean par1, int par2) {
         int var3;
         int var4;
 
         var3 = this.rand.nextInt(5) + 1;
 
-        for(var4 = 0; var4 < var3; var4++)
-        {
+        for (var4 = 0; var4 < var3; var4++) {
             this.dropItem(Items.string, 1);
 
-            //this.dropItem(Item.silk.itemID, 1);
+            // this.dropItem(Item.silk.itemID, 1);
         }
     }
 
-    public boolean isPotionApplicable(PotionEffect par1PotionEffect)
-    {
+    public boolean isPotionApplicable(PotionEffect par1PotionEffect) {
         return par1PotionEffect.getPotionID() == Potion.poison.id ? false : super.isPotionApplicable(par1PotionEffect);
     }
 
-    protected Entity findPlayerToAttack()
-    {
+    protected Entity findPlayerToAttack() {
         double var2 = 16.0D;
         /*
-        this.myTarget = this.worldObj.getClosestVulnerablePlayerToEntity(this, var2);
-        this.entityToAttack = this.myTarget;
-        return this.worldObj.getClosestVulnerablePlayerToEntity(this, var2);
-        */
+         * this.myTarget = this.worldObj.getClosestVulnerablePlayerToEntity(this, var2);
+         * this.entityToAttack = this.myTarget;
+         * return this.worldObj.getClosestVulnerablePlayerToEntity(this, var2);
+         */
 
         Entity foo = this.worldObj.getClosestVulnerablePlayerToEntity(this, var2);
 
-        if(foo == null)
-        {
-            List bar = this.worldObj.getEntitiesWithinAABB(EntityBat.class, this.boundingBox.expand(16.0F, 8.0F, 16.0F));
+        if (foo == null) {
+            List bar = this.worldObj
+                .getEntitiesWithinAABB(EntityBat.class, this.boundingBox.expand(16.0F, 8.0F, 16.0F));
             Iterator iter = bar.iterator();
 
-            if(iter.hasNext())
-                return (Entity)iter.next();
+            if (iter.hasNext()) return (Entity) iter.next();
 
             bar = null;
         }
@@ -205,115 +180,115 @@ public class CaveFisherInstance extends EntityMob
         return foo;
     }
 
-    public void onLivingUpdate()
-    {
+    public void onLivingUpdate() {
         this.stringTimer++;
 
         int foo = 160 - (Helper.getDifficulty(this.worldObj) * 20);
 
-        if(this.stringTimer - foo > 0)
-        {
-            if(this.getEntityToAttack() != null && this.canEntityBeSeen(this.getEntityToAttack()))
-            {
-                int tarX = (int)this.getEntityToAttack().posX;
-                int tarY = (int)(this.getEntityToAttack().posY + 0.5);
-                int tarZ = (int)this.getEntityToAttack().posZ;
+        if (this.stringTimer - foo > 0) {
+            if (this.getEntityToAttack() != null && this.canEntityBeSeen(this.getEntityToAttack())) {
+                int tarX = (int) this.getEntityToAttack().posX;
+                int tarY = (int) (this.getEntityToAttack().posY + 0.5);
+                int tarZ = (int) this.getEntityToAttack().posZ;
 
-                if(this.worldObj.getBlock(tarX, tarY, tarZ) == Blocks.air)
-                {
+                if (this.worldObj.getBlock(tarX, tarY, tarZ) == Blocks.air) {
                     this.worldObj.setBlock(tarX, tarY, tarZ, Blocks.web, 0, 3);
 
-                    if(Helper.getDifficulty(this.worldObj) > 2)
-                    {
-                        if(this.worldObj.getBlock(tarX - 1, tarY, tarZ) == Blocks.air)
+                    if (Helper.getDifficulty(this.worldObj) > 2) {
+                        if (this.worldObj.getBlock(tarX - 1, tarY, tarZ) == Blocks.air)
                             this.worldObj.setBlock(tarX - 1, tarY, tarZ, Blocks.web, 0, 3);
 
-                        if(this.worldObj.getBlock(tarX + 1, tarY, tarZ) == Blocks.air)
+                        if (this.worldObj.getBlock(tarX + 1, tarY, tarZ) == Blocks.air)
                             this.worldObj.setBlock(tarX + 1, tarY, tarZ, Blocks.web, 0, 3);
 
-                        if(this.worldObj.getBlock(tarX, tarY, tarZ - 1) == Blocks.air)
+                        if (this.worldObj.getBlock(tarX, tarY, tarZ - 1) == Blocks.air)
                             this.worldObj.setBlock(tarX, tarY, tarZ - 1, Blocks.web, 0, 3);
 
-                        if(this.worldObj.getBlock(tarX, tarY, tarZ + 1) == Blocks.air)
+                        if (this.worldObj.getBlock(tarX, tarY, tarZ + 1) == Blocks.air)
                             this.worldObj.setBlock(tarX, tarY, tarZ + 1, Blocks.web, 0, 3);
 
-                        if(this.worldObj.getBlock(tarX, tarY + 1, tarZ) == Blocks.air)
+                        if (this.worldObj.getBlock(tarX, tarY + 1, tarZ) == Blocks.air)
                             this.worldObj.setBlock(tarX, tarY + 1, tarZ, Blocks.web, 0, 3);
                     }
                 }
-            }
-            else
-            {
-                int tarX = (int)this.posX;
-                int tarY = (int)(this.posY + 0.5);
-                int tarZ = (int)this.posZ;
+            } else {
+                int tarX = (int) this.posX;
+                int tarY = (int) (this.posY + 0.5);
+                int tarZ = (int) this.posZ;
 
-                if(this.worldObj.getBlock(tarX, tarY, tarZ) == Blocks.air)
+                if (this.worldObj.getBlock(tarX, tarY, tarZ) == Blocks.air)
                     this.worldObj.setBlock(tarX, tarY, tarZ, Blocks.web, 0, 3);
 
-                if(this.worldObj.getBlock(tarX - 1, tarY, tarZ) == Blocks.air)
+                if (this.worldObj.getBlock(tarX - 1, tarY, tarZ) == Blocks.air)
                     this.worldObj.setBlock(tarX - 1, tarY, tarZ, Blocks.web, 0, 3);
 
-                if(this.worldObj.getBlock(tarX + 1, tarY, tarZ) == Blocks.air)
+                if (this.worldObj.getBlock(tarX + 1, tarY, tarZ) == Blocks.air)
                     this.worldObj.setBlock(tarX + 1, tarY, tarZ, Blocks.web, 0, 3);
 
-                if(this.worldObj.getBlock(tarX, tarY, tarZ - 1) == Blocks.air)
+                if (this.worldObj.getBlock(tarX, tarY, tarZ - 1) == Blocks.air)
                     this.worldObj.setBlock(tarX, tarY, tarZ - 1, Blocks.web, 0, 3);
 
-                if(this.worldObj.getBlock(tarX, tarY, tarZ + 1) == Blocks.air)
+                if (this.worldObj.getBlock(tarX, tarY, tarZ + 1) == Blocks.air)
                     this.worldObj.setBlock(tarX, tarY, tarZ + 1, Blocks.web, 0, 3);
 
-                if(this.worldObj.getBlock(tarX, tarY + 1, tarZ) == Blocks.air)
+                if (this.worldObj.getBlock(tarX, tarY + 1, tarZ) == Blocks.air)
                     this.worldObj.setBlock(tarX, tarY + 1, tarZ, Blocks.web, 0, 3);
             }
 
             this.stringTimer = 0;
         }
 
-        if(this.getEntityToAttack() != null && this.canEntityBeSeen(this.getEntityToAttack()))
-        {
+        if (this.getEntityToAttack() != null && this.canEntityBeSeen(this.getEntityToAttack())) {
             this.grabTimer++;
 
             int bork = this.rand.nextInt(4 - Helper.getDifficulty(this.worldObj));
 
-            if(this.grabTimer == (foo * 3) - 16)
-                this.worldObj.playSoundAtEntity(this, "dungeonmobs:cf_c", 1.0F, (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
+            if (this.grabTimer == (foo * 3) - 16) this.worldObj.playSoundAtEntity(
+                this,
+                "dangerzone_iamacatfr/sounds/cf_c",
+                1.0F,
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
 
-            if(bork == 0 && this.grabTimer == (foo * 3) - 8)
-                this.worldObj.playSoundAtEntity(this, "mob.slime.small", 1.0F, (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
+            if (bork == 0 && this.grabTimer == (foo * 3) - 8) this.worldObj.playSoundAtEntity(
+                this,
+                "mob.slime.small",
+                1.0F,
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
 
-            if(this.grabTimer >= (foo * 3))
-            {
-                if(bork == 0)
-                {
+            if (this.grabTimer >= (foo * 3)) {
+                if (bork == 0) {
                     double difX = this.getEntityToAttack().posX - this.posX;
                     double difZ;
-                    for (difZ = this.getEntityToAttack().posZ - this.posZ; difX * difX + difZ * difZ < 1.0E-4D; difZ = (Math.random() - Math.random()) * 0.01D)
-                    {
+                    for (difZ = this.getEntityToAttack().posZ - this.posZ; difX * difX + difZ * difZ
+                        < 1.0E-4D; difZ = (Math.random() - Math.random()) * 0.01D) {
                         difX = (Math.random() - Math.random()) * 0.01D;
                     }
 
-                    this.worldObj.playSoundAtEntity(this, "dungeonmobs:cf_r", 1.0F, (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
+                    this.worldObj.playSoundAtEntity(
+                        this,
+                        "dangerzone_iamacatfr/sounds/cf_r",
+                        1.0F,
+                        (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
 
-                    if(!(this.getEntityToAttack() instanceof EntityPlayer))
+                    if (!(this.getEntityToAttack() instanceof EntityPlayer))
                         this.grabTarget(this.getEntityToAttack(), difX, difZ);
-                    else
-                    {
-                        EntityPlayer crap = (EntityPlayer)this.getEntityToAttack();
+                    else {
+                        EntityPlayer crap = (EntityPlayer) this.getEntityToAttack();
 
-                        if(!crap.capabilities.isCreativeMode)
-                        {
-                            //if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
-                            if(!(this.getEntityToAttack() instanceof EntityPlayerMP))
-                            {
-                                int moo = FMLClientHandler.instance().getClient().thePlayer.getEntityId();
-                                int cow = this.getEntityToAttack().getEntityId();
+                        if (!crap.capabilities.isCreativeMode) {
+                            // if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
+                            if (!(this.getEntityToAttack() instanceof EntityPlayerMP)) {
+                                int moo = FMLClientHandler.instance()
+                                    .getClient().thePlayer.getEntityId();
+                                int cow = this.getEntityToAttack()
+                                    .getEntityId();
 
-                                if(moo == cow)
-                                    this.grabTarget(FMLClientHandler.instance().getClient().thePlayer, difX, difZ);
-                            }
-                            else
-                                Helper.sendKnockBackPacket((EntityPlayerMP)this.getEntityToAttack(), difX, difZ);
+                                if (moo == cow) this.grabTarget(
+                                    FMLClientHandler.instance()
+                                        .getClient().thePlayer,
+                                    difX,
+                                    difZ);
+                            } else Helper.sendKnockBackPacket((EntityPlayerMP) this.getEntityToAttack(), difX, difZ);
                         }
                     }
                 }
@@ -325,26 +300,23 @@ public class CaveFisherInstance extends EntityMob
         super.onLivingUpdate();
     }
 
-    public void grabTarget(EntityClientPlayerMP ent, double x, double z)
-    {
+    public void grabTarget(EntityClientPlayerMP ent, double x, double z) {
         ent.isAirBorne = true;
         float var7 = MathHelper.sqrt_double(x * x + z * z);
         float var8 = 1.0F;
         ent.motionX /= 2.0D;
         ent.motionY /= 2.0D;
         ent.motionZ /= 2.0D;
-        ent.motionX -= x / (double)var7 * (double)var8;
+        ent.motionX -= x / (double) var7 * (double) var8;
         ent.motionY += var8;
-        ent.motionZ -= z / (double)var7 * (double)var8;
+        ent.motionZ -= z / (double) var7 * (double) var8;
 
-        if (ent.motionY > 0.4000000059604645D)
-        {
+        if (ent.motionY > 0.4000000059604645D) {
             ent.motionY = 0.4000000059604645D;
         }
     }
 
-    public void grabTarget(EntityPlayerMP ent, double x, double z)
-    {
+    public void grabTarget(EntityPlayerMP ent, double x, double z) {
         // PURE!
         ent.isAirBorne = true;
         float var7 = MathHelper.sqrt_double(x * x + z * z);
@@ -352,61 +324,52 @@ public class CaveFisherInstance extends EntityMob
         ent.motionX /= 2.0D;
         ent.motionY /= 2.0D;
         ent.motionZ /= 2.0D;
-        ent.motionX -= x / (double)var7 * (double)var8;
-        ent.motionY += (double)var8;
-        ent.motionZ -= z / (double)var7 * (double)var8;
+        ent.motionX -= x / (double) var7 * (double) var8;
+        ent.motionY += (double) var8;
+        ent.motionZ -= z / (double) var7 * (double) var8;
 
-        if (ent.motionY > 0.4000000059604645D)
-        {
+        if (ent.motionY > 0.4000000059604645D) {
             ent.motionY = 0.4000000059604645D;
         }
     }
 
-    public void grabTarget(Entity ent, double x, double z)
-    {
+    public void grabTarget(Entity ent, double x, double z) {
         ent.isAirBorne = true;
         float var7 = MathHelper.sqrt_double(x * x + z * z);
         float var8 = 1.0F;
         ent.motionX /= 2.0D;
         ent.motionY /= 2.0D;
         ent.motionZ /= 2.0D;
-        ent.motionX -= x / (double)var7 * (double)var8;
-        ent.motionY += (double)var8;
-        ent.motionZ -= z / (double)var7 * (double)var8;
+        ent.motionX -= x / (double) var7 * (double) var8;
+        ent.motionY += var8;
+        ent.motionZ -= z / (double) var7 * (double) var8;
 
-        if (ent.motionY > 0.4000000059604645D)
-        {
+        if (ent.motionY > 0.4000000059604645D) {
             ent.motionY = 0.4000000059604645D;
         }
     }
 
-    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
-    {
+    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
         super.writeEntityToNBT(par1NBTTagCompound);
 
         par1NBTTagCompound.setInteger("StringTimer", this.stringTimer);
         par1NBTTagCompound.setInteger("GrabTimer", this.grabTimer);
     }
 
-    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound)
-    {
+    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
         super.readEntityFromNBT(par1NBTTagCompound);
 
-        this.stringTimer  = par1NBTTagCompound.getInteger("StringTimer");
-        this.grabTimer    = par1NBTTagCompound.getInteger("GrabTimer");
+        this.stringTimer = par1NBTTagCompound.getInteger("StringTimer");
+        this.grabTimer = par1NBTTagCompound.getInteger("GrabTimer");
     }
 
-    public boolean attackEntityFrom(DamageSource par1DamageSource, int par2)
-    {
-        if(par1DamageSource.getEntity() != null && (par1DamageSource.getEntity() instanceof EntityLiving && !(par1DamageSource.getEntity() instanceof EyeRayInstance)))
-        {
-            if(par1DamageSource.getEntity() instanceof EntityThrowable)
-            {
-                EntityThrowable foo = (EntityThrowable)par1DamageSource.getEntity();
+    public boolean attackEntityFrom(DamageSource par1DamageSource, int par2) {
+        if (par1DamageSource.getEntity() != null && (par1DamageSource.getEntity() instanceof EntityLiving
+            && !(par1DamageSource.getEntity() instanceof EyeRayInstance))) {
+            if (par1DamageSource.getEntity() instanceof EntityThrowable) {
+                EntityThrowable foo = (EntityThrowable) par1DamageSource.getEntity();
                 this.entityToAttack = foo.getThrower();
-            }
-            else
-                this.entityToAttack = par1DamageSource.getEntity();
+            } else this.entityToAttack = par1DamageSource.getEntity();
         }
 
         return super.attackEntityFrom(par1DamageSource, par2);

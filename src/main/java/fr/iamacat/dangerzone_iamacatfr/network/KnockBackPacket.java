@@ -4,32 +4,27 @@ import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
-public class KnockBackPacket implements NetworkHelper.IPacket
-{
-  private float xv;
-  private float zv;
+public class KnockBackPacket implements NetworkHelper.IPacket {
 
-  public KnockBackPacket()
-  {
-  }
+    private float xv;
+    private float zv;
 
-  public KnockBackPacket(float x, float z)
-  {
-    this.xv = x;
-    this.zv = z;
-  }
+    public KnockBackPacket() {}
 
-  public void writeBytes(ChannelHandlerContext ctx, ByteBuf bytes)
-  {
-    bytes.writeFloat(this.xv);
-    bytes.writeFloat(this.zv);
-  }
+    public KnockBackPacket(float x, float z) {
+        this.xv = x;
+        this.zv = z;
+    }
 
-  public void readBytes(ChannelHandlerContext ctx, ByteBuf bytes)
-  {
-    this.xv = bytes.readFloat();
-    this.zv = bytes.readFloat();
+    public void writeBytes(ChannelHandlerContext ctx, ByteBuf bytes) {
+        bytes.writeFloat(this.xv);
+        bytes.writeFloat(this.zv);
+    }
 
-    DangerZone.packetProxy.onKnockBackPacket(this.xv, this.zv);
-  }
+    public void readBytes(ChannelHandlerContext ctx, ByteBuf bytes) {
+        this.xv = bytes.readFloat();
+        this.zv = bytes.readFloat();
+
+        DangerZone.packetProxy.onKnockBackPacket(this.xv, this.zv);
+    }
 }

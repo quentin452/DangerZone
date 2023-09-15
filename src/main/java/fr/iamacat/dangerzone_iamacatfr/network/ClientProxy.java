@@ -5,16 +5,9 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import fr.iamacat.dangerzone_iamacatfr.InputConfusedMovement;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.BirdsInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.TinyBirdsInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.CaveFisherInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.CaveFisherModel;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.BirdsRenderer;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.TinyBirdsRenderer;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.CaveFisherRenderer;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -22,7 +15,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
-public class ClientProxy implements ISidedProxy  {
+public class ClientProxy implements ISidedProxy {
 
     @Override
     public void registerRenders() {
@@ -50,9 +43,8 @@ public class ClientProxy implements ISidedProxy  {
         RenderingRegistry
             .registerEntityRenderingHandler(BoyFriendInstance.class, new BoyFriendRenderer(new ModelBiped(0.5f), 0.5f));
 
-        RenderingRegistry.registerEntityRenderingHandler(
-            TinyBirdsInstance.class,
-            new TinyBirdsRenderer(new TinyBirdsModel(), 1.0F));
+        RenderingRegistry
+            .registerEntityRenderingHandler(TinyBirdsInstance.class, new TinyBirdsRenderer(new TinyBirdsModel(), 1.0F));
 
         RenderingRegistry.registerEntityRenderingHandler(
             BirdsInstance.class,
@@ -61,9 +53,8 @@ public class ClientProxy implements ISidedProxy  {
         RenderingRegistry.registerEntityRenderingHandler(
             CaveFisherInstance.class,
             new CaveFisherRenderer(new CaveFisherModel(), 1.0F));
-        RenderingRegistry.registerEntityRenderingHandler(
-            EyeRayInstance.class,
-            new EyeRayRenderer(new EyeRayModel(), 1.0F));
+        RenderingRegistry
+            .registerEntityRenderingHandler(EyeRayInstance.class, new EyeRayRenderer(new EyeRayModel(), 1.0F));
     }
 
     private final double NAME_VISION_DISTANCE = 32.0D;
@@ -73,14 +64,15 @@ public class ClientProxy implements ISidedProxy  {
     private EntityLivingBase retainedTarget;
     public InputConfusedMovement confusedMovementInput;
 
-    public void preInit()
-    {
-        FMLCommonHandler.instance().bus().register(this);
-        this.mc = FMLClientHandler.instance().getClient();
+    public void preInit() {
+        FMLCommonHandler.instance()
+            .bus()
+            .register(this);
+        this.mc = FMLClientHandler.instance()
+            .getClient();
     }
 
-    public void load()
-    {
+    public void load() {
         this.nextPacketTime = 0L;
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -88,16 +80,20 @@ public class ClientProxy implements ISidedProxy  {
         this.retainedTarget = null;
     }
 
-    public void onKnockBackPacket(float xv, float zv)
-    {
-        Helper.knockBack(FMLClientHandler.instance().getClient().thePlayer, xv, zv);
+    public void onKnockBackPacket(float xv, float zv) {
+        Helper.knockBack(
+            FMLClientHandler.instance()
+                .getClient().thePlayer,
+            xv,
+            zv);
     }
 
-    public void onConfusionPacket(boolean b)
-    {
-        if(b)
-            Helper.makePlayerConfused(FMLClientHandler.instance().getClient().thePlayer);
-        else
-            Helper.makePlayerNormal(FMLClientHandler.instance().getClient().thePlayer);
+    public void onConfusionPacket(boolean b) {
+        if (b) Helper.makePlayerConfused(
+            FMLClientHandler.instance()
+                .getClient().thePlayer);
+        else Helper.makePlayerNormal(
+            FMLClientHandler.instance()
+                .getClient().thePlayer);
     }
 }

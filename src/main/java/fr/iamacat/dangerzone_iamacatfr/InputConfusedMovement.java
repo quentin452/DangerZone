@@ -4,21 +4,19 @@ import net.minecraft.util.MovementInput;
 
 import java.util.Random;
 
-public class InputConfusedMovement extends MovementInput
-{
+public class InputConfusedMovement extends MovementInput {
+
     protected MovementInput underlyingMovementInput;
     private boolean confused = false;
     private int confValue = 1;
 
-    public InputConfusedMovement(MovementInput interceptedInput)
-    {
+    public InputConfusedMovement(MovementInput interceptedInput) {
         underlyingMovementInput = interceptedInput;
         confValue = 1;
     }
 
     @Override
-    public void updatePlayerMoveState()
-    {
+    public void updatePlayerMoveState() {
         underlyingMovementInput.updatePlayerMoveState();
 
         this.jump = underlyingMovementInput.jump;
@@ -26,18 +24,16 @@ public class InputConfusedMovement extends MovementInput
         this.moveStrafe = underlyingMovementInput.moveStrafe;
         this.moveForward = underlyingMovementInput.moveForward;
 
-        if(this.confused)
-        {
-            switch(this.confValue)
-            {
-                case(1):
+        if (this.confused) {
+            switch (this.confValue) {
+                case (1):
                     this.moveStrafe = -underlyingMovementInput.moveStrafe;
                     break;
-                case(2):
+                case (2):
                     this.moveStrafe = -underlyingMovementInput.moveStrafe;
                     this.moveForward = -underlyingMovementInput.moveForward;
                     break;
-                case(3):
+                case (3):
                     this.moveStrafe = -underlyingMovementInput.moveStrafe;
                     this.moveForward = -underlyingMovementInput.moveForward;
                     this.jump = underlyingMovementInput.sneak;
@@ -50,20 +46,16 @@ public class InputConfusedMovement extends MovementInput
         }
     }
 
-    public void setConfusion(boolean b)
-    {
+    public void setConfusion(boolean b) {
         this.confused = b;
     }
 
-    public void setConfValue(int i)
-    {
+    public void setConfValue(int i) {
         this.confValue = i;
     }
 
-    public void randomize()
-    {
-        if(this.confused)
-        {
+    public void randomize() {
+        if (this.confused) {
             underlyingMovementInput.updatePlayerMoveState();
 
             this.jump = underlyingMovementInput.jump;
@@ -75,37 +67,36 @@ public class InputConfusedMovement extends MovementInput
 
             int foo = rand.nextInt(8);
 
-            switch(foo)
-            {
-                case(0):
+            switch (foo) {
+                case (0):
                     this.moveStrafe = underlyingMovementInput.moveStrafe;
                     this.moveForward = underlyingMovementInput.moveForward;
                     break;
-                case(1):
+                case (1):
                     this.moveStrafe = -underlyingMovementInput.moveStrafe;
                     this.moveForward = underlyingMovementInput.moveForward;
                     break;
-                case(2):
+                case (2):
                     this.moveStrafe = underlyingMovementInput.moveStrafe;
                     this.moveForward = -underlyingMovementInput.moveForward;
                     break;
-                case(3):
+                case (3):
                     this.moveStrafe = -underlyingMovementInput.moveStrafe;
                     this.moveForward = -underlyingMovementInput.moveForward;
                     break;
-                case(4):
+                case (4):
                     this.moveStrafe = underlyingMovementInput.moveForward;
                     this.moveForward = underlyingMovementInput.moveStrafe;
                     break;
-                case(5):
+                case (5):
                     this.moveStrafe = -underlyingMovementInput.moveForward;
                     this.moveForward = underlyingMovementInput.moveStrafe;
                     break;
-                case(6):
+                case (6):
                     this.moveStrafe = underlyingMovementInput.moveForward;
                     this.moveForward = -underlyingMovementInput.moveStrafe;
                     break;
-                case(7):
+                case (7):
                     this.moveStrafe = -underlyingMovementInput.moveForward;
                     this.moveForward = -underlyingMovementInput.moveStrafe;
                     break;
@@ -117,13 +108,10 @@ public class InputConfusedMovement extends MovementInput
 
             foo = rand.nextInt(2);
 
-            if(foo == 1)
-            {
+            if (foo == 1) {
                 this.jump = underlyingMovementInput.jump;
                 this.sneak = underlyingMovementInput.sneak;
-            }
-            else
-            {
+            } else {
                 this.jump = underlyingMovementInput.sneak;
                 this.sneak = underlyingMovementInput.jump;
             }

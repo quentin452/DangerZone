@@ -42,7 +42,8 @@ public class TinyBirdsInstance extends BirdsInstance {
         // this.stepHeight = 2;
 
         // bird AI
-        this.getNavigator().setAvoidsWater(true);
+        this.getNavigator()
+            .setAvoidsWater(true);
         this.tasks.addTask(0, new EntityAITFBirdFly(this));
         this.tasks.addTask(1, new EntityAITempt(this, 1.0F, Items.wheat_seeds, true));
         this.tasks.addTask(2, new EntityAIWander(this, 1.0F));
@@ -68,8 +69,10 @@ public class TinyBirdsInstance extends BirdsInstance {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0D); // max health
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.20000001192092896D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
+            .setBaseValue(1.0D); // max health
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
+            .setBaseValue(0.20000001192092896D);
     }
 
     // /**
@@ -170,7 +173,8 @@ public class TinyBirdsInstance extends BirdsInstance {
     @Override
     public float getBlockPathWeight(int par1, int par2, int par3) {
         // prefer standing on leaves
-        Material underMaterial = this.worldObj.getBlock(par1, par2 - 1, par3).getMaterial();
+        Material underMaterial = this.worldObj.getBlock(par1, par2 - 1, par3)
+            .getMaterial();
         if (underMaterial == Material.leaves) {
             return 200.0F;
         }
@@ -190,11 +194,11 @@ public class TinyBirdsInstance extends BirdsInstance {
     @Override
     public void onDeath(DamageSource par1DamageSource) {
         super.onDeath(par1DamageSource);
-      /*  if (par1DamageSource.getEntity() instanceof EntityPlayer) {
-            ((EntityPlayer) par1DamageSource.getEntity()).triggerAchievement(TFAchievementPage.twilightHunter);
-        }
-
-       */
+        /*
+         * if (par1DamageSource.getEntity() instanceof EntityPlayer) {
+         * ((EntityPlayer) par1DamageSource.getEntity()).triggerAchievement(TFAchievementPage.twilightHunter);
+         * }
+         */
     }
 
     /**
@@ -235,16 +239,15 @@ public class TinyBirdsInstance extends BirdsInstance {
         } else {
             this.currentFlightTime++;
 
-            if (this.currentFlightTarget != null && (!this.worldObj.isAirBlock(
-                this.currentFlightTarget.posX,
-                this.currentFlightTarget.posY,
-                this.currentFlightTarget.posZ) || this.currentFlightTarget.posY < 1)) {
+            if (this.currentFlightTarget != null && (!this.worldObj
+                .isAirBlock(this.currentFlightTarget.posX, this.currentFlightTarget.posY, this.currentFlightTarget.posZ)
+                || this.currentFlightTarget.posY < 1)) {
                 this.currentFlightTarget = null;
             }
 
             if (this.currentFlightTarget == null || this.rand.nextInt(30) == 0
                 || this.currentFlightTarget.getDistanceSquared((int) this.posX, (int) this.posY, (int) this.posZ)
-                < 4.0F) {
+                    < 4.0F) {
                 int yTarget = this.currentFlightTime < 100 ? 2 : 4;
 
                 this.currentFlightTarget = new ChunkCoordinates(
@@ -285,8 +288,9 @@ public class TinyBirdsInstance extends BirdsInstance {
     public boolean isSpooked() {
         EntityPlayer closestPlayer = this.worldObj.getClosestPlayerToEntity(this, 4.0D);
 
-        return this.hurtTime > 0 || (closestPlayer != null && (closestPlayer.inventory.getCurrentItem() == null
-            || closestPlayer.inventory.getCurrentItem().getItem() != Items.wheat_seeds));
+        return this.hurtTime > 0 || (closestPlayer != null
+            && (closestPlayer.inventory.getCurrentItem() == null || closestPlayer.inventory.getCurrentItem()
+                .getItem() != Items.wheat_seeds));
     }
 
     /**
@@ -327,4 +331,3 @@ public class TinyBirdsInstance extends BirdsInstance {
 
     protected void func_85033_bc() {}
 }
-

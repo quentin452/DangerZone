@@ -9,9 +9,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
-public class CaveFisherModel extends ModelBase
-{
-    //fields
+public class CaveFisherModel extends ModelBase {
+
+    // fields
     ModelRenderer Nose;
     ModelRenderer EyeLeft;
     ModelRenderer HeadMid;
@@ -88,8 +88,7 @@ public class CaveFisherModel extends ModelBase
     ModelRenderer LMLeg5;
     ModelRenderer LMLeg6;
 
-    public CaveFisherModel()
-    {
+    public CaveFisherModel() {
         textureWidth = 64;
         textureHeight = 32;
 
@@ -545,8 +544,7 @@ public class CaveFisherModel extends ModelBase
         setRotation(LMLeg6, 0F, 0F, 0F);
     }
 
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         Nose.render(f5);
@@ -626,15 +624,13 @@ public class CaveFisherModel extends ModelBase
         LMLeg6.render(f5);
     }
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
         model.rotateAngleX = x;
         model.rotateAngleY = y;
         model.rotateAngleZ = z;
     }
 
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity ent)
-    {
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity ent) {
         // head rotation
         this.HeadBase.rotateAngleX = f4 / 57.29578F;
         this.HeadBase.rotateAngleY = f3 / 57.29578F;
@@ -652,7 +648,7 @@ public class CaveFisherModel extends ModelBase
         // leg movement
         // going to move them up and down, so... yeah.
         // rotate all leg pieces ON THE Z AXIS!
-        CaveFisherInstance foo = (CaveFisherInstance)ent;
+        CaveFisherInstance foo = (CaveFisherInstance) ent;
         float[] thisAngles = foo.myAngles;
 
         // MathHelper.cos(f * 0.5662F) * 1.4F * f1;
@@ -665,12 +661,12 @@ public class CaveFisherModel extends ModelBase
         this.LFLeg5.rotateAngleZ = -0.1047198F - MathHelper.cos(f * 0.7662F) * 1.4F * f1;
         this.LFLeg6.rotateAngleZ = (MathHelper.cos(f * 0.3662F) * 1.4F * f1) * -1;
 
-        this.RFLeg1.rotateAngleZ = 0.4363323F + MathHelper.cos(f * 0.7662F + (float)Math.PI) * 1.4F * f1;
-        this.RFLeg2.rotateAngleZ = 0.9599311F + MathHelper.cos(f * 0.7662F + (float)Math.PI) * 1.4F * f1;
-        this.RFLeg3.rotateAngleZ = 0.5759587F + MathHelper.cos(f * 0.7662F + (float)Math.PI) * 1.4F * f1;
-        this.RFLeg4.rotateAngleZ = 0.2094395F + MathHelper.cos(f * 0.7662F + (float)Math.PI) * 1.4F * f1;
-        this.RFLeg5.rotateAngleZ = 0.1047198F + MathHelper.cos(f * 0.7662F + (float)Math.PI) * 1.4F * f1;
-        this.RFLeg6.rotateAngleZ = MathHelper.cos(f * 0.3662F + (float)Math.PI) * 1.4F * f1;
+        this.RFLeg1.rotateAngleZ = 0.4363323F + MathHelper.cos(f * 0.7662F + (float) Math.PI) * 1.4F * f1;
+        this.RFLeg2.rotateAngleZ = 0.9599311F + MathHelper.cos(f * 0.7662F + (float) Math.PI) * 1.4F * f1;
+        this.RFLeg3.rotateAngleZ = 0.5759587F + MathHelper.cos(f * 0.7662F + (float) Math.PI) * 1.4F * f1;
+        this.RFLeg4.rotateAngleZ = 0.2094395F + MathHelper.cos(f * 0.7662F + (float) Math.PI) * 1.4F * f1;
+        this.RFLeg5.rotateAngleZ = 0.1047198F + MathHelper.cos(f * 0.7662F + (float) Math.PI) * 1.4F * f1;
+        this.RFLeg6.rotateAngleZ = MathHelper.cos(f * 0.3662F + (float) Math.PI) * 1.4F * f1;
 
         this.LMLeg1.rotateAngleZ = -0.4363323F - thisAngles[1];
         this.LMLeg2.rotateAngleZ = -0.9599311F - thisAngles[1];
@@ -702,10 +698,10 @@ public class CaveFisherModel extends ModelBase
 
         foo.myAngles[3] = foo.myAngles[1];
         foo.myAngles[2] = foo.myAngles[0];
-        foo.myAngles[1] = MathHelper.cos(f * 0.7662F + (float)Math.PI) * 1.4F * f1;
+        foo.myAngles[1] = MathHelper.cos(f * 0.7662F + (float) Math.PI) * 1.4F * f1;
         foo.myAngles[0] = MathHelper.cos(f * 0.7662F) * 1.4F * f1;
 
-        //super.setRotationAngles(f, f1, f2, f3, f4, f5, ent);
+        // super.setRotationAngles(f, f1, f2, f3, f4, f5, ent);
     }
 
 }

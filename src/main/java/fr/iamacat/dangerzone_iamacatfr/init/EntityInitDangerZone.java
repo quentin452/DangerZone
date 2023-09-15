@@ -4,8 +4,6 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.BirdsInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.TinyBirdsInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
@@ -210,6 +208,5 @@ public class EntityInitDangerZone {
             1,
             true);
     }
-
 
 }

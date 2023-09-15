@@ -8,35 +8,31 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
-public class EyeRayRenderer extends RenderLiving
-{
-	protected EyeRayModel model;
+public class EyeRayRenderer extends RenderLiving {
 
-	public EyeRayRenderer(EyeRayModel modelER, float f)
-	{
-		super(modelER, f);
-		model = (EyeRayModel)mainModel;
-	}
+    protected EyeRayModel model;
 
-	public void renderEyeRay(EyeRayInstance entity, double par2, double par4, double par6, float par8, float par9)
-	{
-		super.doRender(entity, par2, par4, par6, par8, par9);
-	}
+    public EyeRayRenderer(EyeRayModel modelER, float f) {
+        super(modelER, f);
+        model = (EyeRayModel) mainModel;
+    }
 
-	public void doRenderLiving(EntityLiving par1, double par2, double par4, double par6, float par8, float par9)
-	{
-		renderEyeRay((EyeRayInstance)par1, par2, par4, par6, par8, par9);
-	}
+    public void renderEyeRay(EyeRayInstance entity, double par2, double par4, double par6, float par8, float par9) {
+        super.doRender(entity, par2, par4, par6, par8, par9);
+    }
 
-	public void doRender(Entity par1, double par2, double par4, double par6, float par8, float par9)
-	{
-		renderEyeRay((EyeRayInstance)par1, par2, par4, par6, par8, par9);
-	}
+    public void doRenderLiving(EntityLiving par1, double par2, double par4, double par6, float par8, float par9) {
+        renderEyeRay((EyeRayInstance) par1, par2, par4, par6, par8, par9);
+    }
 
-	private static final ResourceLocation eyeRayTextures = new ResourceLocation(Tags.MODID + ":textures/entity/EyeRay.png");
+    public void doRender(Entity par1, double par2, double par4, double par6, float par8, float par9) {
+        renderEyeRay((EyeRayInstance) par1, par2, par4, par6, par8, par9);
+    }
 
-	protected ResourceLocation getEntityTexture(Entity par1Entity)
-    {
-		return eyeRayTextures;
+    private static final ResourceLocation eyeRayTextures = new ResourceLocation(
+        Tags.MODID + ":textures/entity/EyeRay.png");
+
+    protected ResourceLocation getEntityTexture(Entity par1Entity) {
+        return eyeRayTextures;
     }
 }

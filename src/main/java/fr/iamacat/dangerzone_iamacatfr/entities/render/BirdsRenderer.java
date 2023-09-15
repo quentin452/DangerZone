@@ -21,7 +21,7 @@ public class BirdsRenderer extends RenderLiving {
     }
 
     public void renderTFBird(BirdsInstance par1EntityTFBird, double par2, double par4, double par6, float par8,
-                             float par9) {
+        float par9) {
         super.doRender(par1EntityTFBird, par2, par4, par6, par8, par9);
     }
 
@@ -41,7 +41,7 @@ public class BirdsRenderer extends RenderLiving {
     }
 
     public void doRenderLiving(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8,
-                               float par9) {
+        float par9) {
         this.renderTFBird((BirdsInstance) par1EntityLiving, par2, par4, par6, par8, par9);
     }
 

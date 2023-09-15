@@ -13,7 +13,8 @@ entity.Girl Friend DangerZone.name=Girl Friend
 entity.Boy Friend DangerZone.name=Boy Friend
 entity.Cave Fisher DangerZone.name=Cave Fisher
 entity.Eye Ray DangerZone.name=Eye Ray Projectile
-entity.Fairy.name=Fairy
+entity.Fairy DangerZone.name=Fairy
+entity.Crab DangerZone.name=Crab
 
 item.CrystalApple.name=Crystal Apple
 

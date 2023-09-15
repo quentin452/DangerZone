@@ -1,5 +1,9 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.CrabInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.CrabModel;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.CrabRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
@@ -65,6 +69,9 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry
             .registerEntityRenderingHandler(FairyInstance.class, new FairyRenderer(new FairyModel(), 1.0F));
         RenderingRegistry.registerEntityRenderingHandler(FairyFishHookInstance.class, new FishRenderer());
+        RenderingRegistry.registerEntityRenderingHandler(
+          CrabInstance.class,
+            new CrabRenderer(new CrabModel(), 0.625F, ":textures/entity/helmetcrab.png"));
     }
 
     @Override

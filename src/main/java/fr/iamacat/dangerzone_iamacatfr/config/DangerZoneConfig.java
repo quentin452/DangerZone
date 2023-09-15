@@ -1,8 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.config;
 
-import net.minecraftforge.common.config.Configuration;
-
 import java.io.File;
+
+import net.minecraftforge.common.config.Configuration;
 
 public class DangerZoneConfig extends Configuration {
 

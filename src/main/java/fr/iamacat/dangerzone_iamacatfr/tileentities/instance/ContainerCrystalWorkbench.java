@@ -1,12 +1,13 @@
 package fr.iamacat.dangerzone_iamacatfr.tileentities.instance;
 
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 
 public class ContainerCrystalWorkbench extends Container {
 
@@ -18,7 +19,7 @@ public class ContainerCrystalWorkbench extends Container {
     private int posZ;
 
     public ContainerCrystalWorkbench(final InventoryPlayer par1InventoryPlayer, final World par2World, final int par3,
-                                     final int par4, final int par5) {
+        final int par4, final int par5) {
         this.craftMatrix = new InventoryCrafting(this, 3, 3);
         this.craftResult = new InventoryCraftResult();
         this.worldObj = par2World;
@@ -26,13 +27,7 @@ public class ContainerCrystalWorkbench extends Container {
         this.posY = par4;
         this.posZ = par5;
         this.addSlotToContainer(
-            new SlotCrafting(
-                par1InventoryPlayer.player,
-                (IInventory) this.craftMatrix,
-                this.craftResult,
-                0,
-                124,
-                35));
+            new SlotCrafting(par1InventoryPlayer.player, (IInventory) this.craftMatrix, this.craftResult, 0, 124, 35));
         for (int l = 0; l < 3; ++l) {
             for (int i1 = 0; i1 < 3; ++i1) {
                 this.addSlotToContainer(new Slot(this.craftMatrix, i1 + l * 3, 30 + i1 * 18, 17 + l * 18));
@@ -40,8 +35,7 @@ public class ContainerCrystalWorkbench extends Container {
         }
         for (int l = 0; l < 3; ++l) {
             for (int i1 = 0; i1 < 9; ++i1) {
-                this.addSlotToContainer(
-                    new Slot(par1InventoryPlayer, i1 + l * 9 + 9, 8 + i1 * 18, 84 + l * 18));
+                this.addSlotToContainer(new Slot(par1InventoryPlayer, i1 + l * 9 + 9, 8 + i1 * 18, 84 + l * 18));
             }
         }
         for (int l = 0; l < 9; ++l) {

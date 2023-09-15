@@ -1,7 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished;
 
-import cpw.mods.fml.relauncher.ReflectionHelper;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockReed;
@@ -23,8 +24,8 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
-import java.util.ArrayList;
-import java.util.List;
+import cpw.mods.fml.relauncher.ReflectionHelper;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
 
 public class FairyJob {
 

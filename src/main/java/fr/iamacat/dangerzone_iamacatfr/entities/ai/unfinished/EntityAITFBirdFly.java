@@ -1,7 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.TinyBirdsInstance;
 import net.minecraft.entity.ai.EntityAIBase;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.TinyBirdsInstance;
 
 public class EntityAITFBirdFly extends EntityAIBase {
 

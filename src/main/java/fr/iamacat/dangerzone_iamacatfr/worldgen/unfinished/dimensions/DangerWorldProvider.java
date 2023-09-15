@@ -1,9 +1,10 @@
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions;
 
-import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.biomes.DangerBiomeProvider;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
+
+import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.biomes.DangerBiomeProvider;
 
 public class DangerWorldProvider extends WorldProvider {
 

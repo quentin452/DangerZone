@@ -1,9 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +8,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class MinersDream extends Item {
 
     public MinersDream(final int i) {
@@ -19,7 +20,7 @@ public class MinersDream extends Item {
     }
 
     public boolean onItemUse(final ItemStack itemStack, final EntityPlayer player, final World world, final int targetX,
-                             final int targetY, final int targetZ, final int par7, final float par8, final float par9, final float par10) {
+        final int targetY, final int targetZ, final int par7, final float par8, final float par9, final float par10) {
         // Vérifiez si la position Y du joueur est supérieure à 50
         if (player.posY > 50) {
             // Si la condition est vraie, retournez false pour empêcher l'utilisation de l'objet

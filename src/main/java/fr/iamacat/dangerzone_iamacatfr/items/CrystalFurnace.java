@@ -1,10 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -22,7 +19,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class CrystalFurnace extends BlockContainer {
 
@@ -78,7 +79,7 @@ public class CrystalFurnace extends BlockContainer {
     }
 
     public static void updateFurnaceBlockState(final boolean par0, final World par1World, final int par2,
-                                               final int par3, final int par4) {
+        final int par3, final int par4) {
         final int l = par1World.getBlockMetadata(par2, par3, par4);
         final TileEntity tileentity = par1World.getTileEntity(par2, par3, par4);
         CrystalFurnace.keepFurnaceInventory = true;
@@ -124,7 +125,7 @@ public class CrystalFurnace extends BlockContainer {
     }
 
     public boolean onBlockActivated(final World par1World, final int par2, final int par3, final int par4,
-                                    final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
+        final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
         if (par1World.isRemote) {
             return true;
         }
@@ -138,7 +139,7 @@ public class CrystalFurnace extends BlockContainer {
 
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(final World par1World, final int par2, final int par3, final int par4,
-                                  final Random par5Random) {
+        final Random par5Random) {
         if (this.isActive) {
             final int l = par1World.getBlockMetadata(par2, par3, par4);
             final float f = par2 + 0.5f;
@@ -163,7 +164,7 @@ public class CrystalFurnace extends BlockContainer {
     }
 
     public void onBlockPlacedBy(final World par1World, final int par2, final int par3, final int par4,
-                                final EntityLivingBase par5EntityLivingBase, final ItemStack par6ItemStack) {
+        final EntityLivingBase par5EntityLivingBase, final ItemStack par6ItemStack) {
         final int l = MathHelper.floor_double(par5EntityLivingBase.rotationYaw * 4.0f / 360.0f + 0.5) & 0x3;
         if (l == 0) {
             par1World.setBlockMetadataWithNotify(par2, par3, par4, 2, 2);
@@ -184,7 +185,7 @@ public class CrystalFurnace extends BlockContainer {
     }
 
     public void breakBlock(final World par1World, final int par2, final int par3, final int par4, final Block par5,
-                           final int par6) {
+        final int par6) {
         if (!CrystalFurnace.keepFurnaceInventory) {
             final TileEntityCrystalFurnace tileentitycrystalfurnace = (TileEntityCrystalFurnace) par1World
                 .getTileEntity(par2, par3, par4);
@@ -233,7 +234,7 @@ public class CrystalFurnace extends BlockContainer {
     }
 
     public int getComparatorInputOverride(final World par1World, final int par2, final int par3, final int par4,
-                                          final int par5) {
+        final int par5) {
         return Container.calcRedstoneFromInventory((IInventory) par1World.getTileEntity(par2, par3, par4));
     }
 

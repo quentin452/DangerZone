@@ -1,11 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
+import net.minecraft.block.Block;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.iamacat.dangerzone_iamacatfr.blocks.*;
-import fr.iamacat.dangerzone_iamacatfr.blocks.CreeperRepellent;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalFurnace;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import net.minecraft.block.Block;
 
 public class BlockInitDangerZone {
 
@@ -20,6 +20,7 @@ public class BlockInitDangerZone {
     public static Block ContainerCrystalFurnaceBlock;
 
     public static Block ContainerCrystalFurnaceOnBlock;
+
     public static void init() {
 
         blocktorch = new ExtremeTorch();
@@ -48,16 +49,10 @@ public class BlockInitDangerZone {
         CreeperRepellent = new CreeperRepellent();
 
         CreeperRepellent.setBlockName("CreeperRepelent");
-        ContainerCrystalFurnaceBlock = new CrystalFurnace(
-            212,
-            false,
-            2.0f,
-            10.0f).setBlockName("crystalfurnace");
+        ContainerCrystalFurnaceBlock = new CrystalFurnace(212, false, 2.0f, 10.0f).setBlockName("crystalfurnace");
 
-        ContainerCrystalFurnaceOnBlock = new CrystalFurnace(213, true, 2.0f, 10.0f)
-            .setBlockName("crystalfurnace");
-        CrystalWorkbench = new CrystalWorkbench()
-            .setBlockName("crystalworkbench");
+        ContainerCrystalFurnaceOnBlock = new CrystalFurnace(213, true, 2.0f, 10.0f).setBlockName("crystalfurnace");
+        CrystalWorkbench = new CrystalWorkbench().setBlockName("crystalworkbench");
 
     }
 

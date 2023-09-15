@@ -1,14 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import com.google.common.collect.Maps;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.FairyModel;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.FairyModelEyes;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.FairyModelProps;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.FairyModelProps2;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Map;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -22,9 +15,19 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
+
 import org.lwjgl.opengl.GL11;
 
-import java.util.Map;
+import com.google.common.collect.Maps;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.FairyModel;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.FairyModelEyes;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.FairyModelProps;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.FairyModelProps2;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 @SideOnly(Side.CLIENT)
 public class FairyRenderer extends RenderLiving {

@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.ContainerCrystalFur
 import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
 
 public class TileEntityInitDangerZone {
+
     public static ContainerCrystalFurnace CrystalFurnaceTile;
 
     public static void init() {

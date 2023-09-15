@@ -1,9 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -13,9 +12,10 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class CreeperRepellent extends BlockTorch {
 
@@ -25,7 +25,7 @@ public class CreeperRepellent extends BlockTorch {
 
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(final World par1World, final int par2, final int par3, final int par4,
-                                  final Random par5Random) {
+        final Random par5Random) {
         final int var6 = par1World.getBlockMetadata(par2, par3, par4);
         final double var7 = par2 + 0.5;
         final double var8 = par3 + 0.7;
@@ -33,11 +33,18 @@ public class CreeperRepellent extends BlockTorch {
         final double var10 = 0.413;
         final double var11 = 0.271;
 
-        String[] particles = {"smoke", "flame", "reddust"};
+        String[] particles = { "smoke", "flame", "reddust" };
 
         if (var6 >= 1 && var6 <= 4) {
             for (String particle : particles) {
-                par1World.spawnParticle(particle, var7 + (var6 == 2 ? var11 : (var6 == 3 ? -var11 : 0)), var8 + var10, var9 + (var6 == 1 ? -var11 : (var6 == 4 ? var11 : 0)), 0.0, 0.0, 0.0);
+                par1World.spawnParticle(
+                    particle,
+                    var7 + (var6 == 2 ? var11 : (var6 == 3 ? -var11 : 0)),
+                    var8 + var10,
+                    var9 + (var6 == 1 ? -var11 : (var6 == 4 ? var11 : 0)),
+                    0.0,
+                    0.0,
+                    0.0);
             }
         } else {
             for (String particle : particles) {
@@ -51,7 +58,7 @@ public class CreeperRepellent extends BlockTorch {
     }
 
     public void updateTick(final World par1World, final int par2, final int par3, final int par4,
-                           final Random par5Random) {
+        final Random par5Random) {
         if (!par1World.isRemote) {
             this.findSomethingToRepel(par1World, par2, par3, par4);
             par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate(par1World));
@@ -71,7 +78,8 @@ public class CreeperRepellent extends BlockTorch {
     }
 
     private void findSomethingToRepel(final World par1World, final int par2, final int par3, final int par4) {
-        final AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(par2 - 20.0, par3 - 10.0, par4 - 20.0, par2 + 20.0, par3 + 40.0, par4 + 20.0);
+        final AxisAlignedBB bb = AxisAlignedBB
+            .getBoundingBox(par2 - 20.0, par3 - 10.0, par4 - 20.0, par2 + 20.0, par3 + 40.0, par4 + 20.0);
         final List<EntityLivingBase> entities = par1World.getEntitiesWithinAABB(EntityLivingBase.class, bb);
 
         for (EntityLivingBase entity : entities) {
@@ -80,12 +88,13 @@ public class CreeperRepellent extends BlockTorch {
             if (entity instanceof EntityCreeper) {
                 f = 20.0 - entity.getDistance(par2, par3, par4);
                 f = Math.max(0.0, Math.min(20.0, f)) * 0.4;
-            } else if (entity instanceof BrownAntInstance || entity instanceof RedAntInstance ||
-                entity instanceof RainbowAntInstance || entity instanceof UnstableAntInstance ||
-                entity instanceof TermiteInstance) {
-                f = 20.0 - entity.getDistance(par2, par3, par4);
-                f = Math.max(0.0, Math.min(20.0, f)) * 0.4;
-            }
+            } else if (entity instanceof BrownAntInstance || entity instanceof RedAntInstance
+                || entity instanceof RainbowAntInstance
+                || entity instanceof UnstableAntInstance
+                || entity instanceof TermiteInstance) {
+                    f = 20.0 - entity.getDistance(par2, par3, par4);
+                    f = Math.max(0.0, Math.min(20.0, f)) * 0.4;
+                }
 
             if (f > 0.0) {
                 double d1 = entity.posX - par2;

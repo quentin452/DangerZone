@@ -1,8 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,7 +15,9 @@ import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class BrownAntNest extends BlockGrass {
 
@@ -37,7 +38,7 @@ public class BrownAntNest extends BlockGrass {
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(final IBlockAccess par1IBlockAccess, final int par2, final int par3, final int par4,
-                         final int par5) {
+        final int par5) {
         if (this.field_94364_a == null) {
             return null;
         }
@@ -74,7 +75,7 @@ public class BrownAntNest extends BlockGrass {
     }
 
     public static Entity spawnCreature(final World par0World, final String par1, final double par2, final double par4,
-                                       final double par6) {
+        final double par6) {
         Entity var8;
         var8 = EntityList.createEntityByName(par1, par0World);
         if (var8 != null) {
@@ -99,7 +100,7 @@ public class BrownAntNest extends BlockGrass {
 
     @SideOnly(Side.CLIENT)
     public int colorMultiplier(final IBlockAccess p_149720_1_, final int p_149720_2_, final int p_149720_3_,
-                               final int p_149720_4_) {
+        final int p_149720_4_) {
         int l = 0;
         int i1 = 0;
         int j1 = 0;
@@ -117,8 +118,8 @@ public class BrownAntNest extends BlockGrass {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
-        (this.field_94364_a = new IIcon[3])[0] = par1IIconRegister.registerIcon(Tags.MODID +":antnest_top");
-        this.field_94364_a[1] = par1IIconRegister.registerIcon(Tags.MODID +":antnest_bottom");
-        this.field_94364_a[2] = par1IIconRegister.registerIcon(Tags.MODID +":antnest_side");
+        (this.field_94364_a = new IIcon[3])[0] = par1IIconRegister.registerIcon(Tags.MODID + ":antnest_top");
+        this.field_94364_a[1] = par1IIconRegister.registerIcon(Tags.MODID + ":antnest_bottom");
+        this.field_94364_a[2] = par1IIconRegister.registerIcon(Tags.MODID + ":antnest_side");
     }
 }

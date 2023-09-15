@@ -1,16 +1,19 @@
 package fr.iamacat.dangerzone_iamacatfr.gui;
 
-import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.ContainerCrystalFurnace;
-import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.ContainerCrystalFurnace;
+import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
 
 public class CrystalFurnaceGUI extends GuiContainer {
 
-    private static final ResourceLocation FURNACE_GUI_TEXTURES = new ResourceLocation("textures/gui/container/furnace.png");
+    private static final ResourceLocation FURNACE_GUI_TEXTURES = new ResourceLocation(
+        "textures/gui/container/furnace.png");
     private final TileEntityCrystalFurnace furnaceInventory;
 
     public CrystalFurnaceGUI(final InventoryPlayer playerInventory, final TileEntityCrystalFurnace furnace) {
@@ -32,14 +35,21 @@ public class CrystalFurnaceGUI extends GuiContainer {
     @Override
     protected void drawGuiContainerBackgroundLayer(final float partialTicks, final int mouseX, final int mouseY) {
         GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-        this.mc.getTextureManager().bindTexture(FURNACE_GUI_TEXTURES);
+        this.mc.getTextureManager()
+            .bindTexture(FURNACE_GUI_TEXTURES);
         final int k = (this.width - this.xSize) / 2;
         final int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 
         if (this.furnaceInventory.isBurning()) {
             final int burnTimeRemainingScaled = this.furnaceInventory.getBurnTimeRemainingScaled(12);
-            this.drawTexturedModalRect(k + 56, l + 36 + 12 - burnTimeRemainingScaled, 176, 12 - burnTimeRemainingScaled, 14, burnTimeRemainingScaled + 2);
+            this.drawTexturedModalRect(
+                k + 56,
+                l + 36 + 12 - burnTimeRemainingScaled,
+                176,
+                12 - burnTimeRemainingScaled,
+                14,
+                burnTimeRemainingScaled + 2);
         }
 
         final int cookProgressScaled = this.furnaceInventory.getCookProgressScaled(24);

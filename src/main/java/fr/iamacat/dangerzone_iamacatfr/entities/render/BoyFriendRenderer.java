@@ -1,8 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import java.util.Map;
-import java.util.UUID;
-
+import com.google.common.collect.Maps;
+import com.mojang.authlib.GameProfile;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BoyFriendInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -18,16 +21,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTUtil;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
-
 import org.lwjgl.opengl.GL11;
 
-import com.google.common.collect.Maps;
-import com.mojang.authlib.GameProfile;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.BoyFriendInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Map;
+import java.util.UUID;
 
 @SideOnly(Side.CLIENT)
 public class BoyFriendRenderer extends RenderLiving {

@@ -1,18 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.CrabInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.CrabModel;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.CrabRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -22,8 +9,16 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.*;
-import fr.iamacat.dangerzone_iamacatfr.gui.GuiName;
+import fr.iamacat.dangerzone_iamacatfr.gui.FairyGui;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy implements ISidedProxy {
 
@@ -70,8 +65,15 @@ public class ClientProxy implements ISidedProxy {
             .registerEntityRenderingHandler(FairyInstance.class, new FairyRenderer(new FairyModel(), 1.0F));
         RenderingRegistry.registerEntityRenderingHandler(FairyFishHookInstance.class, new FishRenderer());
         RenderingRegistry.registerEntityRenderingHandler(
-          CrabInstance.class,
+            CrabInstance.class,
             new CrabRenderer(new CrabModel(), 0.625F, ":textures/entity/helmetcrab.png"));
+
+        RenderingRegistry.registerEntityRenderingHandler(BeeInstance.class, new BeeRenderer(new BeeModel()));
+
+        RenderingRegistry
+            .registerEntityRenderingHandler(BabyDragonInstance.class, new BabyDragonRenderer(new BabyDragonModel()));
+
+        RenderingRegistry.registerEntityRenderingHandler(DragonInstance.class, new DragonRenderer(new DragonModel()));
     }
 
     @Override
@@ -82,7 +84,7 @@ public class ClientProxy implements ISidedProxy {
             DangerLogger.LOGGER.info("ClientProxy.openRenameGUI: current player is ruler, displaying gui");
             fairy.setNameEnabled(false);
             Minecraft.getMinecraft()
-                .displayGuiScreen(new GuiName(fairy));
+                .displayGuiScreen(new FairyGui(fairy));
         }
     }
 

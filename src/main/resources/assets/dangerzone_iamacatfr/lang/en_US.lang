@@ -15,6 +15,7 @@ entity.Cave Fisher DangerZone.name=Cave Fisher
 entity.Eye Ray DangerZone.name=Eye Ray Projectile
 entity.Fairy DangerZone.name=Fairy
 entity.Crab DangerZone.name=Crab
+item.MinersDream.name=Miner's Dream
 
 item.CrystalApple.name=Crystal Apple
 
@@ -129,3 +130,10 @@ item.alosaurus_egg.name=Spawn Alosaurus
 item.cricket_egg.name=Spawn Cricket
 item.lurking_terror_egg.name=Spawn Lurking terror
 item.tiny_bird_egg.name=Spawn Tiny Bird
+
+tile.ExtremeTorch.name=Extreme Torch
+tile.BrownAntNest.name=Brown Ant Nest
+tile.RainbowAntNest.name=Rainbow Ant Nest
+tile.RedAntNest.name=Red Ant Nest
+tile.UnstableAntNest.name=Unstable Ant Nest
+tile.TermiteAntNest.name=Termite Nest

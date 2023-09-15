@@ -53,9 +53,12 @@ public class CrabInstance extends EntityMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(13.0D); // max health
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.28D); // movement speed
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(3.0D); // attack damage
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
+            .setBaseValue(13.0D); // max health
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
+            .setBaseValue(0.28D); // movement speed
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
+            .setBaseValue(3.0D); // attack damage
     }
 
     @Override

@@ -4,7 +4,6 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.CrabInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
@@ -234,6 +233,44 @@ public class EntityInitDangerZone {
             16,
             1,
             true);
+
+        int Bee = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BeeInstance.class, "Bee DangerZone", Bee);
+
+        EntityRegistry.registerModEntity(
+            BeeInstance.class,
+            "Bee DangerZone",
+            Bee, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+        int Dragon = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BabyDragonInstance.class, "Dragon DangerZone", Dragon);
+
+        EntityRegistry.registerModEntity(
+            BabyDragonInstance.class,
+            "Dragon DangerZone",
+            Dragon, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+        int BabyDragon = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(DragonInstance.class, "Baby Dragon DangerZone", BabyDragon);
+
+        EntityRegistry.registerModEntity(
+            DragonInstance.class,
+            "Baby Dragon DangerZone",
+            BabyDragon, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+
     }
 
 }

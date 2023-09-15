@@ -1,24 +1,22 @@
 package fr.iamacat.dangerzone_iamacatfr.gui;
 
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.util.ChatAllowedCharacters;
-
-import org.lwjgl.input.Keyboard;
-
 import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
 import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.util.ChatAllowedCharacters;
+import org.lwjgl.input.Keyboard;
 
-public class GuiName extends GuiScreen {
+public class FairyGui extends GuiScreen {
 
     protected String screenTitle;
     private FairyInstance fairy;
     private int updateCounter;
     private String nameText;
 
-    public GuiName(FairyInstance entityfairy) {
-        DangerLogger.LOGGER.info("GuiName: constructed");
+    public FairyGui(FairyInstance entityfairy) {
+        DangerLogger.LOGGER.info("FairyGui: constructed");
 
         screenTitle = "Enter custom name or leave blank for default:";
         fairy = entityfairy;
@@ -41,7 +39,7 @@ public class GuiName extends GuiScreen {
         Keyboard.enableRepeatEvents(false);
 
         if (fairy != null) {
-            DangerLogger.LOGGER.info("GuiName.onGuiClosed: isRemote = " + fairy.worldObj.isRemote);
+            DangerLogger.LOGGER.info("FairyGui.onGuiClosed: isRemote = " + fairy.worldObj.isRemote);
 
             if (fairy.worldObj.isRemote) {
                 // String s1 = "setfryname " + fairy.getEntityId() + " " + nameText;

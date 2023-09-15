@@ -2,9 +2,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished;
 
-import java.lang.reflect.Field;
-import java.util.*;
-
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -22,9 +22,8 @@ import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.biome.BiomeGenEnd;
 import net.minecraft.world.biome.BiomeGenHell;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
+import java.lang.reflect.Field;
+import java.util.*;
 
 public final class Spawner {
 

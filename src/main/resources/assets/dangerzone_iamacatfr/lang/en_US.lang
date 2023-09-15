@@ -1,5 +1,9 @@
 itemGroup.dangerzone=Danger Zone
 
+tileentity.TileEntityCrystalFurnaceDangerZone.name=Crystal Furnace
+tileentity.ContainerCrystalFurnaceOnBlock.name=Crystal Furnace On
+tileentity.CreeperRepelent.name=Creeper Repelent
+
 entity.Apple Cow DangerZone.name=Apple Cow
 entity.Crystal Cow DangerZone.name=Crystal Cow
 entity.Enchanted Golden Apple Cow DangerZone.name=Enchanted Golden Apple Cow
@@ -18,7 +22,7 @@ entity.Crab DangerZone.name=Crab
 
 item.MinersDream.name=Miner's Dream
 item.CrystalApple.name=Crystal Apple
-
+item.CrystalFurnace.name=Crystal Furnace
 item.BasiclicsScale.name=Basilics Scale
 item.MobzillaScale.name=Mobzilla Scale
 item.MothScale.name=Moth Scale
@@ -29,6 +33,25 @@ item.OmgMagicApple.name=Omg Magic Apple
 item.PeacockFeather.name=Peacock Feather
 item.CaterKillerJaw.name=Caterkiller Jaw
 item.CreeperLauncher.name=Creeper Launcher
+item.RandomDungeon.name=Random Dungeon
+item.SeaMonsterScale.name=Sea Monster Scale
+item.SeaViperTongue.name=Sea Viper Tongue
+item.CrystalShard.name=Crystal Shard
+item.Sifter.name=Sifter
+item.RedAntRobotKit.name=Red Ant Robot Kit
+item.SpiderRobotKit.name=Spider Robot Kit
+item.DeadStinkBug.name=Dead Stink Bug
+item.DuctTape.name=Duct Tape
+item.KrakenTooth.name=Kraken Tooth
+item.TrexTooth.name=T.Rex Tooth
+item.WormTooth.name=Worm Tooth
+item.EmperorScorpionScale.name=Emperor Scorpion Scale
+item.VortexEye.name=Vortex Eye
+item.WaterDragonScale.name=Water Dragon Scale
+item.GreenGoo.name=Green Goo
+item.QueenScale.name=Queen Scale
+item.BigBerthaGuard.name=Big Bertha Guard
+item.BigBerthaHandle.name=Big Bertha Handle
 
 item.apple_cow_egg.name=Spawn Apple Cow
 item.crystal_cow_egg.name=Spawn Crystal Apple
@@ -148,3 +171,4 @@ tile.RainbowAntNest.name=Rainbow Ant Nest
 tile.RedAntNest.name=Red Ant Nest
 tile.UnstableAntNest.name=Unstable Ant Nest
 tile.TermiteAntNest.name=Termite Nest
+tile.CreeperRepellent.name=Creeper Repellent

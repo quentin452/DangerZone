@@ -5,6 +5,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
@@ -50,9 +52,12 @@ public class DangerZone {
         ItemInitDangerZone.register();
         BlockInitDangerZone.init();
         BlockInitDangerZone.register();
+        TileEntityInitDangerZone.init();
+        TileEntityInitDangerZone.register();
         RecipeHandler.preInit(event);
         DimensionInitDangerZone.preInit(event);
         EntitySpawningHandler.preInit(event);
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandlerDangerZone());
     }
 
     @Mod.EventHandler

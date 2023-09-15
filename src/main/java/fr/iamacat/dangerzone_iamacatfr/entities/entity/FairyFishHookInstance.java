@@ -1,5 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -13,8 +15,6 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.FishingHooks;
-
-import java.util.List;
 
 public class FairyFishHookInstance extends Entity {
 

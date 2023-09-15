@@ -1,11 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
+import net.minecraft.item.Item;
+
 import cpw.mods.fml.common.registry.GameRegistry;
-import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
 import fr.iamacat.dangerzone_iamacatfr.items.*;
+import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import net.minecraft.item.Item;
 
 public class ItemInitDangerZone {
 
@@ -97,6 +98,10 @@ public class ItemInitDangerZone {
     public static Item UraniumIngot;
     public static Item RubyIngot;
 
+    public static Item StairsAcross;
+    public static Item StairsUp;
+    public static Item StairsDown;
+
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -174,6 +179,10 @@ public class ItemInitDangerZone {
         TitaniumIngot = new TitaniumIngot().setUnlocalizedName("TitaniumIngot");
         UraniumIngot = new UraniumIngot().setUnlocalizedName("UraniumIngot");
         RubyIngot = new RubyIngot().setUnlocalizedName("RubyIngot");
+        StairsAcross = new StairsAcross().setUnlocalizedName("StairsAcross");
+        StairsUp = new StairsUp().setUnlocalizedName("StairsUp");
+        StairsDown = new StairsDown().setUnlocalizedName("StairsDown");
+
     }
 
     public static void register() {
@@ -251,6 +260,9 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(TitaniumIngot, "TitaniumIngot");
         GameRegistry.registerItem(UraniumIngot, "UraniumIngot");
         GameRegistry.registerItem(RubyIngot, "RubyIngot");
+        GameRegistry.registerItem(StairsAcross, "StairsAcross");
+        GameRegistry.registerItem(StairsUp, "StairsUp");
+        GameRegistry.registerItem(StairsDown, "StairsDown");
 
     }
 }

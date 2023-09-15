@@ -1,14 +1,15 @@
 package fr.iamacat.dangerzone_iamacatfr.event;
 
-import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
+import java.io.IOException;
+
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.PacketBuffer;
 
-import java.io.IOException;
+import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
 
 public class PacketSetFairyName extends FairyPacket {
 

@@ -98,6 +98,9 @@ item.Tomato.name=Tomato
 item.Lettuce.name=Lettuce
 item.WoodFish.name=Wood Fish
 
+item.StairsAcross.name=Insta-Bridge
+item.StairsUp.name=Stairs-UP
+item.StairsDown.name=Stairs-DOWN
 item.apple_cow_egg.name=Spawn Apple Cow
 item.crystal_cow_egg.name=Spawn Crystal Apple
 item.golden_apple_cow_egg.name=Spawn Golden Apple Cow

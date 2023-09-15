@@ -1,14 +1,15 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+
 import cpw.mods.fml.common.network.IGuiHandler;
 import fr.iamacat.dangerzone_iamacatfr.gui.CrystalFurnaceGUI;
 import fr.iamacat.dangerzone_iamacatfr.gui.CrystalWorkbenchGUI;
 import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.ContainerCrystalFurnace;
 import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.ContainerCrystalWorkbench;
 import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 
 public class GuiHandlerDangerZone implements IGuiHandler {
 

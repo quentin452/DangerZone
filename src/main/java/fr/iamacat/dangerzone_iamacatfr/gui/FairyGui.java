@@ -1,12 +1,14 @@
 package fr.iamacat.dangerzone_iamacatfr.gui;
 
-import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ChatAllowedCharacters;
+
 import org.lwjgl.input.Keyboard;
+
+import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
 
 public class FairyGui extends GuiScreen {
 

@@ -1,16 +1,18 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.BrownAntInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.BrownAntModel;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BrownAntInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.BrownAntModel;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 @SideOnly(Side.CLIENT)
 public class BrownAntRenderer extends RenderLiving {

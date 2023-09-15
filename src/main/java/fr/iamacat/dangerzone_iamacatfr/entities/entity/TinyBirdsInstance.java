@@ -1,6 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIBirdFly;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAITFBirdFly;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -44,7 +44,7 @@ public class TinyBirdsInstance extends BirdsInstance {
         // bird AI
         this.getNavigator()
             .setAvoidsWater(true);
-        this.tasks.addTask(0, new EntityAIBirdFly(this));
+        this.tasks.addTask(0, new EntityAITFBirdFly(this));
         this.tasks.addTask(1, new EntityAITempt(this, 1.0F, Items.wheat_seeds, true));
         this.tasks.addTask(2, new EntityAIWander(this, 1.0F));
         this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 6F));

@@ -1,4 +1,4 @@
-package fr.iamacat.dangerzone_iamacatfr.items.unfinished;
+package fr.iamacat.dangerzone_iamacatfr.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -19,7 +19,7 @@ public class MinersDream extends Item {
     }
 
     public boolean onItemUse(final ItemStack itemStack, final EntityPlayer player, final World world, final int targetX,
-        final int targetY, final int targetZ, final int par7, final float par8, final float par9, final float par10) {
+                             final int targetY, final int targetZ, final int par7, final float par8, final float par9, final float par10) {
         // Vérifiez si la position Y du joueur est supérieure à 50
         if (player.posY > 50) {
             // Si la condition est vraie, retournez false pour empêcher l'utilisation de l'objet

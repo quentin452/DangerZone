@@ -67,13 +67,6 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(
             CrabInstance.class,
             new CrabRenderer(new CrabModel(), 0.625F, ":textures/entity/helmetcrab.png"));
-
-        RenderingRegistry.registerEntityRenderingHandler(BeeInstance.class, new BeeRenderer(new BeeModel()));
-
-        RenderingRegistry
-            .registerEntityRenderingHandler(BabyDragonInstance.class, new BabyDragonRenderer(new BabyDragonModel()));
-
-        RenderingRegistry.registerEntityRenderingHandler(DragonInstance.class, new DragonRenderer(new DragonModel()));
     }
 
     @Override

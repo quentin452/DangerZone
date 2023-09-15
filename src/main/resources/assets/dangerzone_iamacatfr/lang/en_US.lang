@@ -15,9 +15,20 @@ entity.Cave Fisher DangerZone.name=Cave Fisher
 entity.Eye Ray DangerZone.name=Eye Ray Projectile
 entity.Fairy DangerZone.name=Fairy
 entity.Crab DangerZone.name=Crab
-item.MinersDream.name=Miner's Dream
 
+item.MinersDream.name=Miner's Dream
 item.CrystalApple.name=Crystal Apple
+
+item.BasiclicsScale.name=Basilics Scale
+item.MobzillaScale.name=Mobzilla Scale
+item.MothScale.name=Moth Scale
+item.MolenoidNose.name=Molenoid Nose
+item.BigBerthaBlade.name=Big Bertha Blade
+item.NightmareScale.name=Nightmare Scale
+item.OmgMagicApple.name=Omg Magic Apple
+item.PeacockFeather.name=Peacock Feather
+item.CaterKillerJaw.name=Caterkiller Jaw
+item.CreeperLauncher.name=Creeper Launcher
 
 item.apple_cow_egg.name=Spawn Apple Cow
 item.crystal_cow_egg.name=Spawn Crystal Apple

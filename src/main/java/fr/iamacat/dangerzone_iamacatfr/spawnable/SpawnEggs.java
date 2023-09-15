@@ -23,8 +23,8 @@ public class SpawnEggs extends Item {
     }
 
     public boolean onItemUse(final ItemStack par1ItemStack, final EntityPlayer par2EntityPlayer, final World par3World,
-        final int par4, final int par5, final int par6, final int par7, final float par8, final float par9,
-        final float par10) {
+                             final int par4, final int par5, final int par6, final int par7, final float par8, final float par9,
+                             final float par10) {
         if (par3World.isRemote) {
             return true;
         }

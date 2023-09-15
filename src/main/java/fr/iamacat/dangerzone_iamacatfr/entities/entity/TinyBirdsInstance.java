@@ -1,7 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAITFBirdFly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -19,6 +17,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAITFBirdFly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class TinyBirdsInstance extends BirdsInstance {
 

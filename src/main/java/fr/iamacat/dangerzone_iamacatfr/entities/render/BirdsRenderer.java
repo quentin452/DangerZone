@@ -1,7 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.BirdsInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
@@ -10,14 +8,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BirdsInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class BirdsRenderer extends RenderLiving {
 
     private final ResourceLocation textureLoc;
 
-    public BirdsRenderer(ModelBase par1ModelBase, float par2, String textureName) {
+    public BirdsRenderer(ModelBase par1ModelBase, float par2, String image) {
         super(par1ModelBase, par2);
 
-        textureLoc = new ResourceLocation(Tags.MODID + textureName);
+        textureLoc = new ResourceLocation(Tags.MODID + ":textures/entity/raven.png");
     }
 
     public void renderTFBird(BirdsInstance par1EntityTFBird, double par2, double par4, double par6, float par8,

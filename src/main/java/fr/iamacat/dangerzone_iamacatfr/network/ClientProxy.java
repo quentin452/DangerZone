@@ -1,19 +1,25 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
+import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
 import fr.iamacat.dangerzone_iamacatfr.InputConfusedMovement;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.*;
+import fr.iamacat.dangerzone_iamacatfr.gui.GuiName;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy implements ISidedProxy {
 
@@ -48,13 +54,34 @@ public class ClientProxy implements ISidedProxy {
 
         RenderingRegistry.registerEntityRenderingHandler(
             BirdsInstance.class,
-            new BirdsRenderer(new BirdsModel(), 1.0F, "raven.png"));
+            new BirdsRenderer(new BirdsModel(), 1.0F, "tinybirdbrown.png"));
 
         RenderingRegistry.registerEntityRenderingHandler(
             CaveFisherInstance.class,
             new CaveFisherRenderer(new CaveFisherModel(), 1.0F));
         RenderingRegistry
             .registerEntityRenderingHandler(EyeRayInstance.class, new EyeRayRenderer(new EyeRayModel(), 1.0F));
+
+        RenderingRegistry
+            .registerEntityRenderingHandler(FairyInstance.class, new FairyRenderer(new FairyModel(), 1.0F));
+        RenderingRegistry.registerEntityRenderingHandler(FairyFishHookInstance.class, new FishRenderer());
+    }
+
+    @Override
+    public void openRenameGUI(FairyInstance fairy) {
+        DangerLogger.LOGGER.info("ClientProxy.openRenameGUI");
+
+        if (fairy.isRuler(getCurrentPlayer())) {
+            DangerLogger.LOGGER.info("ClientProxy.openRenameGUI: current player is ruler, displaying gui");
+            fairy.setNameEnabled(false);
+            Minecraft.getMinecraft()
+                .displayGuiScreen(new GuiName(fairy));
+        }
+    }
+
+    @Override
+    public EntityPlayer getCurrentPlayer() {
+        return Minecraft.getMinecraft().thePlayer;
     }
 
     private final double NAME_VISION_DISTANCE = 32.0D;
@@ -95,5 +122,25 @@ public class ClientProxy implements ISidedProxy {
         else Helper.makePlayerNormal(
             FMLClientHandler.instance()
                 .getClient().thePlayer);
+    }
+
+    @Override
+    public void sendFairyDespawn(FairyInstance fairyInstance) {
+
+    }
+
+    @Override
+    public void sendFairyMount(FairyInstance fairy, Entity ridingEntity) {
+
+    }
+
+    @Override
+    public void sendChat(EntityPlayerMP player, String s) {
+
+    }
+
+    @Override
+    public void sendFairyRename(FairyInstance fairy, String nameText) {
+
     }
 }

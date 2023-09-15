@@ -207,6 +207,19 @@ public class EntityInitDangerZone {
             16,
             1,
             true);
+
+        int Fairy = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(FairyInstance.class, "Fairy DangerZone", Fairy);
+
+        EntityRegistry.registerModEntity(
+            FairyInstance.class,
+            "Fairy DangerZone",
+            Fairy, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
     }
 
 }

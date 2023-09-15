@@ -1,6 +1,16 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
+
 public abstract interface ISidedProxy {
+
+    void openRenameGUI(FairyInstance fairy);
+
+    EntityPlayer getCurrentPlayer();
 
     public abstract void preInit();
 
@@ -16,6 +26,14 @@ public abstract interface ISidedProxy {
     public abstract void onKnockBackPacket(float paramFloat1, float paramFloat2);
 
     public abstract void onConfusionPacket(boolean paramBool);
+
+    void sendFairyDespawn(FairyInstance fairyInstance);
+
+    void sendFairyMount(FairyInstance fairy, Entity ridingEntity);
+
+    void sendChat(EntityPlayerMP player, String s);
+
+    void sendFairyRename(FairyInstance fairy, String nameText);
 
     // public abstract void onMobModsPacketToClient(String paramString, int paramInt);
 

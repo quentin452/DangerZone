@@ -1,5 +1,10 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
+import fr.iamacat.dangerzone_iamacatfr.items.NightmareSword;
+import fr.iamacat.dangerzone_iamacatfr.items.PoisonSword;
+import fr.iamacat.dangerzone_iamacatfr.items.RatSword;
+import fr.iamacat.dangerzone_iamacatfr.util.ToolMaterialModded;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -7,6 +12,8 @@ import fr.iamacat.dangerzone_iamacatfr.items.*;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
+import javax.tools.Tool;
 
 public class ItemInitDangerZone {
 
@@ -102,6 +109,10 @@ public class ItemInitDangerZone {
     public static Item StairsUp;
     public static Item StairsDown;
 
+    public static Item NightmareSword;
+    public static Item PoisonSword;
+    public static Item RatSword;
+
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -182,7 +193,9 @@ public class ItemInitDangerZone {
         StairsAcross = new StairsAcross().setUnlocalizedName("StairsAcross");
         StairsUp = new StairsUp().setUnlocalizedName("StairsUp");
         StairsDown = new StairsDown().setUnlocalizedName("StairsDown");
-
+        RatSword = new RatSword(ToolMaterialModded.RatMATERIAL).setUnlocalizedName("RatSword");
+        PoisonSword = new PoisonSword(ToolMaterialModded.POISONMATERIAL).setUnlocalizedName("PoisonSword");
+        NightmareSword = new NightmareSword(ToolMaterialModded.NIGHTMAREMATERIAL).setUnlocalizedName("NightmareSword");
     }
 
     public static void register() {
@@ -263,6 +276,9 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(StairsAcross, "StairsAcross");
         GameRegistry.registerItem(StairsUp, "StairsUp");
         GameRegistry.registerItem(StairsDown, "StairsDown");
+        GameRegistry.registerItem(NightmareSword, "NightmareSword");
+        GameRegistry.registerItem(PoisonSword, "PoisonSword");
+        GameRegistry.registerItem(RatSword, "RatSword");
 
     }
 }

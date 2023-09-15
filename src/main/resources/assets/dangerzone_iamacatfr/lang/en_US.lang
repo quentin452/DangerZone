@@ -97,6 +97,9 @@ item.SunFish.name=Sun Fish
 item.Tomato.name=Tomato
 item.Lettuce.name=Lettuce
 item.WoodFish.name=Wood Fish
+item.RatSword.name=Rat Sword
+item.PoisonSword.name=Poison Sword
+item.NightmareSword.name=Nightmare Sword
 
 item.StairsAcross.name=Insta-Bridge
 item.StairsUp.name=Stairs-UP

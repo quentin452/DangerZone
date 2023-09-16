@@ -157,6 +157,17 @@ item.TigersEyeBoots.name=Tigers Eye Boots
 item.TigersEyeChestplate.name=Tigers Eye Chestplate
 item.TigersEyeHelmet.name=Tigers Eye Helmet
 item.TigersEyeLeggings.name=Tigers Eye Leggings
+item.UltimateSword.name=Ultimate Sword
+item.UltimateShovel.name=Ultimate Shovel
+item.UltimatePickaxe.name=Ultimate Pickaxe
+item.UltimateHoe.name=Ultimate Hoe
+item.UltimateAxe.name=Ultimate Axe
+item.UltimateBoots.name=Ultimate Boots
+item.UltimateChestplate.name=Ultimate Chestplate
+item.UltimateHelmet.name=Ultimate Helmet
+item.UltimateLeggings.name=Ultimate Leggings
+item.UltimateFishingRog.name=Ultimate Fishing Rog
+item.UltimateBow.name=Ultimate Bow
 
 item.StairsAcross.name=Insta-Bridge
 item.StairsUp.name=Stairs-UP

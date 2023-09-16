@@ -54,4 +54,30 @@ public class ArmorMaterialModded {
         new int[] {0, 0, 7, 0}, // Indice 2 pour les jambières
         70
     );
+
+
+    public static final ItemArmor.ArmorMaterial UltimateBoots = EnumHelper.addArmorMaterial(
+        "UltimateBoots",
+        3000,
+        new int[] {0, 0, 0, 6}, // Indice 3 pour les bottes
+        100
+    );
+    public static final ItemArmor.ArmorMaterial UltimateChestplate = EnumHelper.addArmorMaterial(
+        "UltimateChestplate",
+        3000,
+        new int[] {0, 12, 0, 0}, // Indice 1 pour le plastron
+        100
+    );
+    public static final ItemArmor.ArmorMaterial UltimateHelmet = EnumHelper.addArmorMaterial(
+        "UltimateHelmet",
+        3000,
+        new int[] {6,0, 0, 0}, // Indice 0 pour le casque
+        100
+    );
+    public static final ItemArmor.ArmorMaterial UltimateLeggings = EnumHelper.addArmorMaterial(
+        "UltimateLeggings",
+        3000,
+        new int[] {0, 0, 10, 0}, // Indice 2 pour les jambières
+        100
+    );
 }

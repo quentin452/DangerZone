@@ -163,7 +163,17 @@ public class ItemInitDangerZone {
     public static Item TigersEyeChestplate;
     public static Item TigersEyeHelmet;
     public static Item TigersEyeLeggings;
-
+    public static Item UltimateSword;
+    public static Item UltimateShovel;
+    public static Item UltimatePickaxe;
+    public static Item UltimateHoe;
+    public static Item UltimateAxe;
+    public static Item UltimateBoots;
+    public static Item UltimateChestplate;
+    public static Item UltimateHelmet;
+    public static Item UltimateLeggings;
+    public static Item UltimateBow;
+    public static Item UltimateFishingRod;
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -290,6 +300,18 @@ public class ItemInitDangerZone {
         TigersEyeChestplate = new TigersEyeChestplate(ArmorMaterialModded.TigersEyeChestplate, 1, 1).setUnlocalizedName("TigersEyeChestplate");
         TigersEyeHelmet = new TigersEyeHelmet(ArmorMaterialModded.TigersEyeHelmet, 0, 0).setUnlocalizedName("TigersEyeHelmet");
         TigersEyeLeggings = new TigersEyeLeggings(ArmorMaterialModded.TigersEyeLeggings, 2, 2).setUnlocalizedName("TigersEyeLeggings");
+        UltimateSword = new UltimateSword(ToolMaterialModded.UltimateSword).setUnlocalizedName("UltimateSword");
+        UltimateShovel = new UltimateShovel(ToolMaterialModded.UltimateShovel).setUnlocalizedName("UltimateShovel");
+        UltimatePickaxe = new UltimatePickaxe(ToolMaterialModded.UltimatePickaxe).setUnlocalizedName("UltimatePickaxe");
+        UltimateHoe = new UltimateHoe(ToolMaterialModded.UltimateHoe).setUnlocalizedName("UltimateHoe");
+        UltimateAxe = new UltimateAxe(ToolMaterialModded.UltimateAxe).setUnlocalizedName("UltimateAxe");
+        UltimateBoots = new UltimateBoots(ArmorMaterialModded.UltimateBoots, 3, 3).setUnlocalizedName("UltimateBoots");
+        UltimateChestplate = new UltimateChestplate(ArmorMaterialModded.UltimateChestplate, 1, 1).setUnlocalizedName("UltimateChestplate");
+        UltimateHelmet = new UltimateHelmet(ArmorMaterialModded.UltimateHelmet, 0, 0).setUnlocalizedName("UltimateHelmet");
+        UltimateLeggings = new UltimateLeggings(ArmorMaterialModded.UltimateLeggings, 2, 2).setUnlocalizedName("UltimateLeggings");
+        UltimateBow = new UltimateBow().setUnlocalizedName("UltimateBow");
+        UltimateFishingRod = new UltimateFishingRod().setUnlocalizedName("UltimateFishingRod");
+
 
 
 
@@ -419,6 +441,16 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(TigersEyeChestplate, "TigersEyeChestplate");
         GameRegistry.registerItem(TigersEyeHelmet, "TigersEyeHelmet");
         GameRegistry.registerItem(TigersEyeLeggings, "TigersEyeLeggings");
-
+        GameRegistry.registerItem(UltimateSword, "UltimateSword");
+        GameRegistry.registerItem(UltimateShovel, "UltimateShovel");
+        GameRegistry.registerItem(UltimatePickaxe, "UltimatePickaxe");
+        GameRegistry.registerItem(UltimateHoe, "UltimateHoe");
+        GameRegistry.registerItem(UltimateAxe, "UltimateAxe");
+        GameRegistry.registerItem(UltimateBoots, "UltimateBoots");
+        GameRegistry.registerItem(UltimateChestplate, "UltimateChestplate");
+        GameRegistry.registerItem(UltimateHelmet, "UltimateHelmet");
+        GameRegistry.registerItem(UltimateLeggings, "UltimateLeggings");
+        GameRegistry.registerItem(UltimateBow, "UltimateBow");
+        GameRegistry.registerItem(UltimateFishingRod, "UltimateFishingRod");
     }
 }

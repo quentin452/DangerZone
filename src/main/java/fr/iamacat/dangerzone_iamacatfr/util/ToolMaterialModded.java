@@ -168,6 +168,48 @@ public class ToolMaterialModded {
         11.0F, // Dommages infligés
         75 // Enchantabilité
     );
+
+
+    public static final Item.ToolMaterial UltimateSword = EnumHelper.addToolMaterial(
+        "UltimateSword", // Nom du matériau
+        4, // Niveau de harvest
+        3000, // Durabilité
+        8.0F, // Vitesse d'attaque
+        46.25F, // Dommages infligés
+        100 // Enchantabilité
+    );
+    public static final Item.ToolMaterial UltimateShovel = EnumHelper.addToolMaterial(
+        "UltimateShovel", // Nom du matériau
+        4, // Niveau de harvest
+        3000, // Durabilité
+        9.0F, // Vitesse d'attaque
+        37.0F, // Dommages infligés
+        100 // Enchantabilité
+    );
+    public static final Item.ToolMaterial UltimatePickaxe = EnumHelper.addToolMaterial(
+        "UltimatePickaxe", // Nom du matériau
+        4, // Niveau de harvest
+        3000, // Durabilité
+        9.0F, // Vitesse d'attaque
+        37.0F, // Dommages infligés
+        100 // Enchantabilité
+    );
+    public static final Item.ToolMaterial UltimateHoe = EnumHelper.addToolMaterial(
+        "UltimateHoe", // Nom du matériau
+        4, // Niveau de harvest
+        3000, // Durabilité
+        9.0F, // Vitesse d'attaque
+        25.0F, // Dommages infligés
+        100 // Enchantabilité
+    );
+    public static final Item.ToolMaterial UltimateAxe = EnumHelper.addToolMaterial(
+        "UltimateAxe", // Nom du matériau
+        4, // Niveau de harvest
+        3000, // Durabilité
+        8.0F, // Vitesse d'attaque
+        39.0F, // Dommages infligés
+        100 // Enchantabilité
+    );
 }
 
 

@@ -86,6 +86,47 @@ public class ToolMaterialModded {
         10.0F, // Dommages infligés
         10 // Enchantabilité
     );
+
+    public static final Item.ToolMaterial AMETHYSTSword = EnumHelper.addToolMaterial(
+        "AMETHYSTSword", // Nom du matériau
+        4, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        15.0F, // Dommages infligés
+        70 // Enchantabilité
+    );
+    public static final Item.ToolMaterial AmethystSHovel = EnumHelper.addToolMaterial(
+        "AmethystSHovel", // Nom du matériau
+        4, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        13.0F, // Dommages infligés
+        70 // Enchantabilité
+    );
+    public static final Item.ToolMaterial AmethystPickaxe = EnumHelper.addToolMaterial(
+        "AmethystPickaxe", // Nom du matériau
+        4, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        13.0F, // Dommages infligés
+        70 // Enchantabilité
+    );
+    public static final Item.ToolMaterial AmethystHoe = EnumHelper.addToolMaterial(
+        "AmethystHoe", // Nom du matériau
+        4, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        3.0F, // Dommages infligés
+        70 // Enchantabilité
+    );
+    public static final Item.ToolMaterial AmethystAxe = EnumHelper.addToolMaterial(
+        "AmethystAxe", // Nom du matériau
+        4, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        14.0F, // Dommages infligés
+        70 // Enchantabilité
+    );
 }
 
 

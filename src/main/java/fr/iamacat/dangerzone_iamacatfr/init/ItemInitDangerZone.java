@@ -17,6 +17,7 @@ import fr.iamacat.dangerzone_iamacatfr.items.Wrench;
 import fr.iamacat.dangerzone_iamacatfr.items.WatterBall;
 import fr.iamacat.dangerzone_iamacatfr.items.ThunderStaff;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
+import fr.iamacat.dangerzone_iamacatfr.util.ArmorMaterialModded;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.util.ToolMaterialModded;
 import net.minecraft.item.Item;
@@ -143,6 +144,15 @@ public class ItemInitDangerZone {
     public static Item WaterBall;
     public static Item ThunderStaff;
     public static Item SunspotUrchin;
+    public static Item AmethystSword;
+    public static Item AmethystShovel;
+    public static Item AmethystPickaxe;
+    public static Item AmethystHoe;
+    public static Item AmethystAxe;
+    public static Item AmethystBoots;
+    public static Item AmethystChestplate;
+    public static Item AmethystHelmet;
+    public static Item AmethystLeggings;
 
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
@@ -252,6 +262,16 @@ public class ItemInitDangerZone {
         WaterBall = new WatterBall().setUnlocalizedName("WaterBall");
         ThunderStaff = new ThunderStaff().setUnlocalizedName("ThunderStaff");
         SunspotUrchin = new SunspotUrchin().setUnlocalizedName("SunspotUrchin");
+        AmethystSword = new AmethystSword(ToolMaterialModded.AMETHYSTSword).setUnlocalizedName("AmethystSword");
+        AmethystShovel = new AmethystShovel(ToolMaterialModded.AmethystSHovel).setUnlocalizedName("AmethystShovel");
+        AmethystPickaxe = new AmethystPickaxe(ToolMaterialModded.AmethystPickaxe).setUnlocalizedName("AmethystPickaxe");
+        AmethystHoe = new AmethystHoe(ToolMaterialModded.AmethystHoe).setUnlocalizedName("AmethystHoe");
+        AmethystAxe = new AmethystAxe(ToolMaterialModded.AmethystAxe).setUnlocalizedName("AmethystAxe");
+        AmethystBoots = new AmethystBoots(ArmorMaterialModded.AmethystBoots, 3, 3).setUnlocalizedName("AmethystBoots");
+        AmethystChestplate = new AmethystChestplate(ArmorMaterialModded.AmethystChestplate, 1, 1).setUnlocalizedName("AmethystChestplate");
+        AmethystHelmet = new AmethystHelmet(ArmorMaterialModded.AmethystHelmet, 0, 0).setUnlocalizedName("AmethystHelmet");
+        AmethystLeggings = new AmethystLeggings(ArmorMaterialModded.AmethystLeggings, 2, 2).setUnlocalizedName("AmethystLeggings");
+
 
     }
 
@@ -361,6 +381,15 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(WaterBall, "WaterBall");
         GameRegistry.registerItem(ThunderStaff, "ThunderStaff");
         GameRegistry.registerItem(SunspotUrchin, "SunspotUrchin");
+        GameRegistry.registerItem(AmethystSword, "AmethystSword");
+        GameRegistry.registerItem(AmethystShovel, "AmethystShovel");
+        GameRegistry.registerItem(AmethystPickaxe, "AmethystPickaxe");
+        GameRegistry.registerItem(AmethystHoe, "AmethystHoe");
+        GameRegistry.registerItem(AmethystAxe, "AmethystAxe");
+        GameRegistry.registerItem(AmethystBoots, "AmethystBoots");
+        GameRegistry.registerItem(AmethystChestplate, "AmethystChestplate");
+        GameRegistry.registerItem(AmethystHelmet, "AmethystHelmet");
+        GameRegistry.registerItem(AmethystLeggings, "AmethystLeggings");
 
     }
 }

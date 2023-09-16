@@ -154,6 +154,16 @@ public class ItemInitDangerZone {
     public static Item AmethystHelmet;
     public static Item AmethystLeggings;
 
+    public static Item TigersEyeSword;
+    public static Item TigersEyeShovel;
+    public static Item TigersEyePickaxe;
+    public static Item TigersEyeHoe;
+    public static Item TigersEyeAxe;
+    public static Item TigersEyeBoots;
+    public static Item TigersEyeChestplate;
+    public static Item TigersEyeHelmet;
+    public static Item TigersEyeLeggings;
+
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -271,6 +281,16 @@ public class ItemInitDangerZone {
         AmethystChestplate = new AmethystChestplate(ArmorMaterialModded.AmethystChestplate, 1, 1).setUnlocalizedName("AmethystChestplate");
         AmethystHelmet = new AmethystHelmet(ArmorMaterialModded.AmethystHelmet, 0, 0).setUnlocalizedName("AmethystHelmet");
         AmethystLeggings = new AmethystLeggings(ArmorMaterialModded.AmethystLeggings, 2, 2).setUnlocalizedName("AmethystLeggings");
+        TigersEyeSword = new TigersEyeSword(ToolMaterialModded.TigersEyeSword).setUnlocalizedName("TigersEyeSword");
+        TigersEyeShovel = new TigersEyeShovel(ToolMaterialModded.TigersEyeSHovel).setUnlocalizedName("TigersEyeShovel");
+        TigersEyePickaxe = new TigersEyePickaxe(ToolMaterialModded.TigersEyePickaxe).setUnlocalizedName("TigersEyePickaxe");
+        TigersEyeHoe = new TigersEyeHoe(ToolMaterialModded.TigersEyetHoe).setUnlocalizedName("TigersEyeHoe");
+        TigersEyeAxe = new TigersEyeAxe(ToolMaterialModded.TigersEyeAxe).setUnlocalizedName("TigersEyeAxe");
+        TigersEyeBoots = new TigersEyeBoots(ArmorMaterialModded.TigersEyeBoots, 3, 3).setUnlocalizedName("TigersEyeBoots");
+        TigersEyeChestplate = new TigersEyeChestplate(ArmorMaterialModded.TigersEyeChestplate, 1, 1).setUnlocalizedName("TigersEyeChestplate");
+        TigersEyeHelmet = new TigersEyeHelmet(ArmorMaterialModded.TigersEyeHelmet, 0, 0).setUnlocalizedName("TigersEyeHelmet");
+        TigersEyeLeggings = new TigersEyeLeggings(ArmorMaterialModded.TigersEyeLeggings, 2, 2).setUnlocalizedName("TigersEyeLeggings");
+
 
 
     }
@@ -390,6 +410,15 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(AmethystChestplate, "AmethystChestplate");
         GameRegistry.registerItem(AmethystHelmet, "AmethystHelmet");
         GameRegistry.registerItem(AmethystLeggings, "AmethystLeggings");
+        GameRegistry.registerItem(TigersEyeSword, "TigersEyeSword");
+        GameRegistry.registerItem(TigersEyeShovel, "TigersEyeShovel");
+        GameRegistry.registerItem(TigersEyePickaxe, "TigersEyePickaxe");
+        GameRegistry.registerItem(TigersEyeHoe, "TigersEyeHoe");
+        GameRegistry.registerItem(TigersEyeAxe, "TigersEyeAxe");
+        GameRegistry.registerItem(TigersEyeBoots, "TigersEyeBoots");
+        GameRegistry.registerItem(TigersEyeChestplate, "TigersEyeChestplate");
+        GameRegistry.registerItem(TigersEyeHelmet, "TigersEyeHelmet");
+        GameRegistry.registerItem(TigersEyeLeggings, "TigersEyeLeggings");
 
     }
 }

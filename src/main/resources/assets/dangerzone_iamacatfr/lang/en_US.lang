@@ -148,6 +148,15 @@ item.AmethystBoots.name=Amethyst Boots
 item.AmethystChestplate.name=Amethyst Chestplate
 item.AmethystHelmet.name=Amethyst Helmet
 item.AmethystLeggings.name=Amethyst Leggings
+item.TigersEyeSword.name=Tigers Eye Sword
+item.TigersEyeShovel.name=Tigers Eye Shovel
+item.TigersEyePickaxe.name=Tigers Eye Pickaxe
+item.TigersEyeHoe.name=Tigers Eye Hoe
+item.TigersEyeAxe.name=Tigers Eye Axe
+item.TigersEyeBoots.name=Tigers Eye Boots
+item.TigersEyeChestplate.name=Tigers Eye Chestplate
+item.TigersEyeHelmet.name=Tigers Eye Helmet
+item.TigersEyeLeggings.name=Tigers Eye Leggings
 
 item.StairsAcross.name=Insta-Bridge
 item.StairsUp.name=Stairs-UP

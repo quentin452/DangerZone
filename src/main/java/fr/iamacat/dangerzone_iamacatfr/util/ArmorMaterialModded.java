@@ -29,4 +29,29 @@ public class ArmorMaterialModded {
         new int[] {0, 0, 4, 0}, // Indice 2 pour les jambières
         70
     );
+
+    public static final ItemArmor.ArmorMaterial TigersEyeBoots = EnumHelper.addArmorMaterial(
+        "TigersEyeBoots",
+        1500,
+        new int[] {0, 0, 0, 4}, // Indice 3 pour les bottes
+        70
+    );
+    public static final ItemArmor.ArmorMaterial TigersEyeChestplate = EnumHelper.addArmorMaterial(
+        "TigersEyeChestplate",
+        1500,
+        new int[] {0, 8, 0, 0}, // Indice 1 pour le plastron
+        70
+    );
+    public static final ItemArmor.ArmorMaterial TigersEyeHelmet = EnumHelper.addArmorMaterial(
+        "TigersEyeHelmet",
+        1500,
+        new int[] {4,0, 0, 0}, // Indice 0 pour le casque
+        70
+    );
+    public static final ItemArmor.ArmorMaterial TigersEyeLeggings = EnumHelper.addArmorMaterial(
+        "AmethystLeggings",
+        1500,
+        new int[] {0, 0, 7, 0}, // Indice 2 pour les jambières
+        70
+    );
 }

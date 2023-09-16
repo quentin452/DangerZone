@@ -90,7 +90,7 @@ public class ToolMaterialModded {
     public static final Item.ToolMaterial AMETHYSTSword = EnumHelper.addToolMaterial(
         "AMETHYSTSword", // Nom du matériau
         4, // Niveau de harvest
-        100, // Durabilité
+        2000, // Durabilité
         8.0F, // Vitesse d'attaque
         15.0F, // Dommages infligés
         70 // Enchantabilité
@@ -98,7 +98,7 @@ public class ToolMaterialModded {
     public static final Item.ToolMaterial AmethystSHovel = EnumHelper.addToolMaterial(
         "AmethystSHovel", // Nom du matériau
         4, // Niveau de harvest
-        100, // Durabilité
+        2000, // Durabilité
         8.0F, // Vitesse d'attaque
         13.0F, // Dommages infligés
         70 // Enchantabilité
@@ -106,7 +106,7 @@ public class ToolMaterialModded {
     public static final Item.ToolMaterial AmethystPickaxe = EnumHelper.addToolMaterial(
         "AmethystPickaxe", // Nom du matériau
         4, // Niveau de harvest
-        100, // Durabilité
+        2000, // Durabilité
         8.0F, // Vitesse d'attaque
         13.0F, // Dommages infligés
         70 // Enchantabilité
@@ -114,7 +114,7 @@ public class ToolMaterialModded {
     public static final Item.ToolMaterial AmethystHoe = EnumHelper.addToolMaterial(
         "AmethystHoe", // Nom du matériau
         4, // Niveau de harvest
-        100, // Durabilité
+        2000, // Durabilité
         8.0F, // Vitesse d'attaque
         3.0F, // Dommages infligés
         70 // Enchantabilité
@@ -122,10 +122,51 @@ public class ToolMaterialModded {
     public static final Item.ToolMaterial AmethystAxe = EnumHelper.addToolMaterial(
         "AmethystAxe", // Nom du matériau
         4, // Niveau de harvest
-        100, // Durabilité
+        2000, // Durabilité
         8.0F, // Vitesse d'attaque
         14.0F, // Dommages infligés
         70 // Enchantabilité
+    );
+
+    public static final Item.ToolMaterial TigersEyeSword = EnumHelper.addToolMaterial(
+        "TigersEyeSword", // Nom du matériau
+        4, // Niveau de harvest
+        1600, // Durabilité
+        8.0F, // Vitesse d'attaque
+        12.0F, // Dommages infligés
+        75 // Enchantabilité
+    );
+    public static final Item.ToolMaterial TigersEyeSHovel = EnumHelper.addToolMaterial(
+        "TigersEyeSHovel", // Nom du matériau
+        4, // Niveau de harvest
+        1600, // Durabilité
+        9.0F, // Vitesse d'attaque
+        13.0F, // Dommages infligés
+        75 // Enchantabilité
+    );
+    public static final Item.ToolMaterial TigersEyePickaxe = EnumHelper.addToolMaterial(
+        "TigersEyePickaxe", // Nom du matériau
+        4, // Niveau de harvest
+        1600, // Durabilité
+        9.0F, // Vitesse d'attaque
+        13.0F, // Dommages infligés
+        75 // Enchantabilité
+    );
+    public static final Item.ToolMaterial TigersEyetHoe = EnumHelper.addToolMaterial(
+        "TigersEyeHoe", // Nom du matériau
+        4, // Niveau de harvest
+        1600, // Durabilité
+        9.0F, // Vitesse d'attaque
+        3.0F, // Dommages infligés
+        75 // Enchantabilité
+    );
+    public static final Item.ToolMaterial TigersEyeAxe = EnumHelper.addToolMaterial(
+        "TigersEyeAxe", // Nom du matériau
+        4, // Niveau de harvest
+        1600, // Durabilité
+        8.0F, // Vitesse d'attaque
+        11.0F, // Dommages infligés
+        75 // Enchantabilité
     );
 }
 

@@ -8,7 +8,12 @@ import fr.iamacat.dangerzone_iamacatfr.items.Acid;
 import fr.iamacat.dangerzone_iamacatfr.items.BattleAxe;
 import fr.iamacat.dangerzone_iamacatfr.items.BigBerthaSword;
 import fr.iamacat.dangerzone_iamacatfr.items.BigHammer;
-import fr.iamacat.dangerzone_iamacatfr.items.unfinished.InstantShelter;
+import fr.iamacat.dangerzone_iamacatfr.items.Blackheels;
+import fr.iamacat.dangerzone_iamacatfr.items.ExperienceCatcher;
+import fr.iamacat.dangerzone_iamacatfr.items.GameController;
+import fr.iamacat.dangerzone_iamacatfr.items.InstantShelter;
+import fr.iamacat.dangerzone_iamacatfr.items.InstantGarden;
+import fr.iamacat.dangerzone_iamacatfr.items.Wrench;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.util.ToolMaterialModded;
@@ -124,6 +129,15 @@ public class ItemInitDangerZone {
     public static Item BattleAxe;
     public static Item BigBerthaSword;
     public static Item BigHammer;
+    public static Item Blackheels;
+    public static Item Boots;
+    public static Item DeadIrukandji;
+    public static Item ExperienceCatcher;
+    public static Item GameController;
+    public static Item InstantGarden;
+    public static Item Wrench;
+    public static Item MantisClaw;
+    public static Item NetherTracker;
 
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
@@ -221,6 +235,15 @@ public class ItemInitDangerZone {
         BattleAxe = new BattleAxe(ToolMaterialModded.BATTLEAXE).setUnlocalizedName("BattleAxe");
         BigBerthaSword = new BigBerthaSword(ToolMaterialModded.BIGBERTHA).setUnlocalizedName("BigBerthaSword");
         BigHammer = new BigHammer(ToolMaterialModded.BIGHAMMER).setUnlocalizedName("BigHammer");
+        Blackheels = new Blackheels().setUnlocalizedName("Blackheels");
+        Boots = new Boots().setUnlocalizedName("Boots");
+        DeadIrukandji = new DeadIrukandji().setUnlocalizedName("DeadIrukandji");
+        ExperienceCatcher = new ExperienceCatcher().setUnlocalizedName("ExperienceCatcher");
+        GameController = new GameController().setUnlocalizedName("GameController");
+        InstantGarden = new InstantGarden().setUnlocalizedName("InstantGarden");
+        Wrench = new Wrench().setUnlocalizedName("Wrench");
+        MantisClaw = new MantisClaw(ToolMaterialModded.MantisClaw).setUnlocalizedName("MantisClaw");
+        NetherTracker = new NetherTracker().setUnlocalizedName("NetherTracker");
 
     }
 
@@ -318,6 +341,15 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(BattleAxe, "BattleAxe");
         GameRegistry.registerItem(BigBerthaSword, "BigBerthaSword");
         GameRegistry.registerItem(BigHammer, "BigHammer");
+        GameRegistry.registerItem(Blackheels, "Blackheels");
+        GameRegistry.registerItem(Boots, "Boots");
+        GameRegistry.registerItem(DeadIrukandji, "DeadIrukandji");
+        GameRegistry.registerItem(ExperienceCatcher, "ExperienceCatcher");
+        GameRegistry.registerItem(GameController, "GameController");
+        GameRegistry.registerItem(InstantGarden, "InstantGarden");
+        GameRegistry.registerItem(Wrench, "Wrench");
+        GameRegistry.registerItem(MantisClaw, "MantisClaw");
+        GameRegistry.registerItem(NetherTracker, "NetherTracker");
 
     }
 }

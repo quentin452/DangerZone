@@ -27,7 +27,19 @@ entity.Eye Ray DangerZone.name=Eye Ray Projectile
 entity.Fairy DangerZone.name=Fairy
 entity.Crab DangerZone.name=Crab
 entity.Laser Ball DangerZone.name=Laser Ball
+entity.BlackHeelsInstance.name=Black Heels Entity
+entity.BootsInstance.name=Boots
+entity.Dead Irukandji Entity DangerZone.name=Dead Irukandji Entity
+entity.GameControllerInstance.name=Game Controller Entity
 
+
+item.NetherTracker.name=Nether Tracker
+item.Wrench.name=Wrench
+item.MantisClaw.name=Mantis Claw
+item.InstantGarden.name=Instant Garden
+item.GameController.name=Game Controller
+item.ExperienceCatcher.name=Experience Catcher
+item.DeadIrukandji.name=Dead  Irukandji
 item.MinersDream.name=Miner's Dream
 item.CrystalApple.name=Crystal Apple
 item.CrystalFurnace.name=Crystal Furnace
@@ -120,6 +132,8 @@ item.ItemAcid.name=Item Acid
 item.BattleAxe.name=Battle Axe
 item.BigBerthaSword.name=Big Bertha
 item.BigHammer.name=Big Hammer
+item.Black heels.name=Black heels
+item.Boots.name=Boots
 
 item.StairsAcross.name=Insta-Bridge
 item.StairsUp.name=Stairs-UP

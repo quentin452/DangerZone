@@ -10,7 +10,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class AcidEntityInstance extends EntityThrowable {
+public class GameControllerInstance extends EntityThrowable {
     // todo fix none model are sended when throwed
 
     private float my_rotation;
@@ -21,7 +21,7 @@ public class AcidEntityInstance extends EntityThrowable {
     private int is_irukandji;
     private int ticksalive;
 
-    public AcidEntityInstance(final World world, final EntityLivingBase entityLivingBase) {
+    public GameControllerInstance(final World world, final EntityLivingBase entityLivingBase) {
         super(world, entityLivingBase);
         this.my_rotation = 0.0f;
         this.my_index = 81;
@@ -31,7 +31,7 @@ public class AcidEntityInstance extends EntityThrowable {
         this.is_irukandji = 0;
         this.ticksalive = 0;
     }
-    public AcidEntityInstance(final World world) {
+    public GameControllerInstance(final World world) {
         super(world);
         this.my_rotation = 0.0f;
         this.my_index = 81;
@@ -42,7 +42,7 @@ public class AcidEntityInstance extends EntityThrowable {
         this.ticksalive = 0;
     }
 
-    public AcidEntityInstance(final World world, final EntityLivingBase entityLivingBase, final int par3) {
+    public GameControllerInstance(final World world, final EntityLivingBase entityLivingBase, final int par3) {
         super(world, entityLivingBase);
         this.my_rotation = 0.0f;
         this.my_index = 81;
@@ -53,7 +53,7 @@ public class AcidEntityInstance extends EntityThrowable {
         this.ticksalive = 0;
     }
 
-    public AcidEntityInstance(final World world, final double par2, final double par4, final double par6) {
+    public GameControllerInstance(final World world, final double par2, final double par4, final double par6) {
         super(world, par2, par4, par6);
         this.my_rotation = 0.0f;
         this.my_index = 81;

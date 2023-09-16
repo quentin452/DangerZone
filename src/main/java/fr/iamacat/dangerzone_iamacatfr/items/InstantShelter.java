@@ -1,4 +1,4 @@
-package fr.iamacat.dangerzone_iamacatfr.items.unfinished;
+package fr.iamacat.dangerzone_iamacatfr.items;
 
 import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
@@ -18,7 +18,6 @@ public class InstantShelter extends Item {
 
     public InstantShelter() {
         this.maxStackSize = 16;
-        this.setCreativeTab(CreativeTabs.tabRedstone);
         this.setTextureName(Tags.MODID + ":InstantShelter");
     }
 

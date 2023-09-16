@@ -4,6 +4,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.IrukandjiInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.items.IrukandjiArrows;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
@@ -249,12 +250,63 @@ public class EntityInitDangerZone {
             true);
         int IrukandjiArrows = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.items.IrukandjiArrows.class, "Irukandji Arrows DangerZone", IrukandjiArrows);
+        EntityRegistry.registerGlobalEntityID(IrukandjiArrows.class, "Irukandji Arrows DangerZone", IrukandjiArrows);
 
         EntityRegistry.registerModEntity(
-            LaserBallInstance.class,
+            IrukandjiArrows.class,
             "Irukandji Arrows DangerZone",
             IrukandjiArrows, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+
+        int BlackHeelsInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BlackHeelsInstance.class, "Black Heels Entity DangerZone", BlackHeelsInstance);
+
+        EntityRegistry.registerModEntity(
+            BlackHeelsInstance.class,
+            "Black Heels Entity DangerZone",
+            BlackHeelsInstance, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+
+        int BootsInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BootsInstance.class, "Boots DangerZone", BootsInstance);
+
+        EntityRegistry.registerModEntity(
+            BootsInstance.class,
+            "Boots DangerZone",
+            BootsInstance, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+
+        int DeadIrukandjInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(DeadIrukandjInstance.class, "Dead Irukandji Entity DangerZone", DeadIrukandjInstance);
+
+        EntityRegistry.registerModEntity(
+            DeadIrukandjInstance.class,
+            "Dead Irukandji Entity DangerZone",
+            DeadIrukandjInstance, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+        int GameControllerInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(GameControllerInstance.class, "GameControllerInstanceDangerZone", GameControllerInstance);
+
+        EntityRegistry.registerModEntity(
+            GameControllerInstance.class,
+            "GameControllerInstanceDangerZone",
+            GameControllerInstance, // Use the chosen unique ID
             Tags.MODID,
             16,
             1,

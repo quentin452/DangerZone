@@ -78,5 +78,14 @@ public class ToolMaterialModded {
         15.0F, // Dommages infligés
         10 // Enchantabilité
     );
+    public static final Item.ToolMaterial MantisClaw = EnumHelper.addToolMaterial(
+        "MantisClaw", // Nom du matériau
+        3, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        10.0F, // Dommages infligés
+        10 // Enchantabilité
+    );
 }
+
 

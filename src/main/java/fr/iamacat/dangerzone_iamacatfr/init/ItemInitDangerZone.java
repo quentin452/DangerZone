@@ -184,6 +184,21 @@ public class ItemInitDangerZone {
     public static Item RubyChestplate;
     public static Item RubyHelmet;
     public static Item RubyLeggings;
+    public static Item EmeraldSword;
+    public static Item EmeraldShovel;
+    public static Item EmeraldPickaxe;
+    public static Item EmeraldHoe;
+    public static Item EmeraldAxe;
+    public static Item EmeraldBoots;
+    public static Item EmeraldChestplate;
+    public static Item EmeraldHelmet;
+    public static Item EmeraldLeggings;
+
+    public static Item ExperienceSword;
+    public static Item ExperienceBoots;
+    public static Item ExperienceChestplate;
+    public static Item ExperienceHelmet;
+    public static Item ExperienceLeggings;
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -332,7 +347,21 @@ public class ItemInitDangerZone {
         RubyLeggings = new RubyLeggings(ArmorMaterialModded.RubyLeggings, 2, 2).setUnlocalizedName("RubyLeggings");
 
 
+        EmeraldSword = new EmeraldSword(ToolMaterialModded.EmeraldSword).setUnlocalizedName("EmeraldSword");
+        EmeraldShovel = new EmeraldShovel(ToolMaterialModded.EmeraldShovel).setUnlocalizedName("EmeraldShovel");
+        EmeraldPickaxe = new EmeraldPickaxe(ToolMaterialModded.EmeraldPickaxe).setUnlocalizedName("EmeraldPickaxe");
+        EmeraldHoe = new EmeraldHoe(ToolMaterialModded.EmeraldHoe).setUnlocalizedName("EmeraldHoe");
+        EmeraldAxe = new EmeraldAxe(ToolMaterialModded.EmeraldAxe).setUnlocalizedName("EmeraldAxe");
+        EmeraldBoots = new EmeraldBoots(ArmorMaterialModded.EmeraldBoots, 3, 3).setUnlocalizedName("EmeraldBoots");
+        EmeraldChestplate = new EmeraldChestplate(ArmorMaterialModded.EmeraldChestplate, 1, 1).setUnlocalizedName("EmeraldChestplate");
+        EmeraldHelmet = new EmeraldHelmet(ArmorMaterialModded.EmeraldHelmet, 0, 0).setUnlocalizedName("EmeraldHelmet");
+        EmeraldLeggings = new EmeraldLeggings(ArmorMaterialModded.EmeraldLeggings, 2, 2).setUnlocalizedName("EmeraldLeggings");
 
+        ExperienceSword = new ExperienceSword(ToolMaterialModded.ExperienceSword).setUnlocalizedName("ExperienceSword");
+        ExperienceBoots = new ExperienceBoots(ArmorMaterialModded.ExperienceBoots, 3, 3).setUnlocalizedName("ExperienceBoots");
+        ExperienceChestplate = new ExperienceChestplate(ArmorMaterialModded.ExperienceChestplate, 1, 1).setUnlocalizedName("ExperienceChestplate");
+        ExperienceHelmet = new ExperienceHelmet(ArmorMaterialModded.ExperienceHelmet, 0, 0).setUnlocalizedName("ExperienceHelmet");
+        ExperienceLeggings = new ExperienceLeggings(ArmorMaterialModded.ExperienceLeggings, 2, 2).setUnlocalizedName("ExperienceLeggings");
 
 
     }
@@ -481,5 +510,21 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(RubyChestplate, "RubyChestplate");
         GameRegistry.registerItem(RubyHelmet, "RubyHelmet");
         GameRegistry.registerItem(RubyLeggings, "RubyLeggings");
+
+        GameRegistry.registerItem(EmeraldSword, "EmeraldSword");
+        GameRegistry.registerItem(EmeraldShovel, "EmeraldShovel");
+        GameRegistry.registerItem(EmeraldPickaxe, "EmeraldPickaxe");
+        GameRegistry.registerItem(EmeraldHoe, "EmeraldHoe");
+        GameRegistry.registerItem(EmeraldAxe, "EmeraldAxe");
+        GameRegistry.registerItem(EmeraldBoots, "EmeraldBoots");
+        GameRegistry.registerItem(EmeraldChestplate, "EmeraldChestplate");
+        GameRegistry.registerItem(EmeraldHelmet, "EmeraldHelmet");
+        GameRegistry.registerItem(EmeraldLeggings, "EmeraldLeggings");
+
+        GameRegistry.registerItem(ExperienceSword, "ExperienceSword");
+        GameRegistry.registerItem(ExperienceBoots, "ExperienceBoots");
+        GameRegistry.registerItem(ExperienceChestplate, "ExperienceChestplate");
+        GameRegistry.registerItem(ExperienceHelmet, "ExperienceHelmet");
+        GameRegistry.registerItem(ExperienceLeggings, "ExperienceLeggings");
     }
 }

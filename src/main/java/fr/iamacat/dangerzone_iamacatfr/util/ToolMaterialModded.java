@@ -251,6 +251,54 @@ public class ToolMaterialModded {
         19.0F, // Dommages infligés
         85 // Enchantabilité
     );
+    public static final Item.ToolMaterial EmeraldSword = EnumHelper.addToolMaterial(
+        "EmeraldSword", // Nom du matériau
+        4, // Niveau de harvest
+        1300, // Durabilité
+        8.0F, // Vitesse d'attaque
+        10F, // Dommages infligés
+        75 // Enchantabilité
+    );
+    public static final Item.ToolMaterial EmeraldShovel = EnumHelper.addToolMaterial(
+        "EmeraldShovel", // Nom du matériau
+        4, // Niveau de harvest
+        1300, // Durabilité
+        9.0F, // Vitesse d'attaque
+        8.0F, // Dommages infligés
+        75 // Enchantabilité
+    );
+    public static final Item.ToolMaterial EmeraldPickaxe = EnumHelper.addToolMaterial(
+        "EmeraldPickaxe", // Nom du matériau
+        4, // Niveau de harvest
+        1300, // Durabilité
+        9.0F, // Vitesse d'attaque
+        8.0F, // Dommages infligés
+        75 // Enchantabilité
+    );
+    public static final Item.ToolMaterial EmeraldHoe = EnumHelper.addToolMaterial(
+        "EmeraldHoe", // Nom du matériau
+        4, // Niveau de harvest
+        1300, // Durabilité
+        8.0F, // Vitesse d'attaque
+        15.0F, // Dommages infligés
+        75 // Enchantabilité
+    );
+    public static final Item.ToolMaterial EmeraldAxe = EnumHelper.addToolMaterial(
+        "EmeraldAxe", // Nom du matériau
+        4, // Niveau de harvest
+        1300, // Durabilité
+        8.0F, // Vitesse d'attaque
+        9.0F, // Dommages infligés
+        75 // Enchantabilité
+    );
+    public static final Item.ToolMaterial ExperienceSword = EnumHelper.addToolMaterial(
+        "ExperienceSword", // Nom du matériau
+        4, // Niveau de harvest
+        1300, // Durabilité
+        8.0F, // Vitesse d'attaque
+        10F, // Dommages infligés
+        75 // Enchantabilité
+    );
 }
 
 

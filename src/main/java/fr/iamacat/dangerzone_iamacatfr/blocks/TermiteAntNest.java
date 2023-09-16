@@ -19,12 +19,12 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class TermiteAntNest extends BlockGrass {
-
+    private final int maxEntitiesCanSpawn = 10;
+    private int numSpawned = 0;
     @SideOnly(Side.CLIENT)
     private IIcon[] field_94364_a;
 
     public TermiteAntNest() {
-        this.setTickRandomly(true);
     }
 
     @SideOnly(Side.CLIENT)
@@ -51,24 +51,14 @@ public class TermiteAntNest extends BlockGrass {
     }
 
     public void updateTick(final World world, final int par2, final int par3, final int par4, final Random rand) {
-        int rand2;
-        int numSpawned = 0; // Nombre de mobs déjà générés
-
         if (!world.isRemote) {
-            if (world.isRaining()) {
-                return;
-            }
             final Block bid = world.getBlock(par2, par3 + 1, par4);
-            if (bid == Blocks.air) {
-                rand2 = rand.nextInt(6) + 2;
-                for (int i = 0; i < rand2 && numSpawned < 3; ++i) {
-                    spawnCreature(world, "Termite DangerZone", par2 + 0.5, par3 + 1.01, par4 + 0.5);
-                    numSpawned++;
-                }
+            if (bid == Blocks.air && numSpawned < maxEntitiesCanSpawn) {
+                spawnCreature(world, "Termite DangerZone", par2 + 0.5, par3 + 1.01, par4 + 0.5);
+                numSpawned++;
             }
         }
     }
-
     public Item getItemDropped(final int par1, final Random par2Random, final int par3) {
         return Item.getItemFromBlock(this);
     }

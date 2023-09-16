@@ -104,4 +104,52 @@ public class ArmorMaterialModded {
         new int[] {0, 0, 4, 0}, // Indice 2 pour les jambières
         85
     );
+    public static final ItemArmor.ArmorMaterial EmeraldBoots = EnumHelper.addArmorMaterial(
+        "EmeraldBoots",
+        1300,
+        new int[] {0, 0, 0, 3}, // Indice 3 pour les bottes
+        75
+    );
+    public static final ItemArmor.ArmorMaterial EmeraldChestplate = EnumHelper.addArmorMaterial(
+        "EmeraldChestplate",
+        1300,
+        new int[] {0, 8, 0, 0}, // Indice 1 pour le plastron
+        75
+    );
+    public static final ItemArmor.ArmorMaterial EmeraldHelmet = EnumHelper.addArmorMaterial(
+        "EmeraldHelmet",
+        1300,
+        new int[] {6,0, 0, 0}, // Indice 0 pour le casque
+        75
+    );
+    public static final ItemArmor.ArmorMaterial EmeraldLeggings = EnumHelper.addArmorMaterial(
+        "EmeraldLeggings",
+        1300,
+        new int[] {0, 0, 3, 0}, // Indice 2 pour les jambières
+        75
+    );
+    public static final ItemArmor.ArmorMaterial ExperienceBoots = EnumHelper.addArmorMaterial(
+        "ExperienceBoots",
+        1300,
+        new int[] {0, 0, 0, 4}, // Indice 3 pour les bottes
+        75
+    );
+    public static final ItemArmor.ArmorMaterial ExperienceChestplate = EnumHelper.addArmorMaterial(
+        "ExperienceChestplate",
+        1300,
+        new int[] {0, 9, 0, 0}, // Indice 1 pour le plastron
+        75
+    );
+    public static final ItemArmor.ArmorMaterial ExperienceHelmet = EnumHelper.addArmorMaterial(
+        "ExperienceHelmet",
+        1300,
+        new int[] {8,0, 0, 0}, // Indice 0 pour le casque
+        75
+    );
+    public static final ItemArmor.ArmorMaterial ExperienceLeggings = EnumHelper.addArmorMaterial(
+        "ExperienceLeggings",
+        1300,
+        new int[] {0, 0, 4, 0}, // Indice 2 pour les jambières
+        75
+    );
 }

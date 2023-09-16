@@ -14,6 +14,8 @@ import fr.iamacat.dangerzone_iamacatfr.items.GameController;
 import fr.iamacat.dangerzone_iamacatfr.items.InstantShelter;
 import fr.iamacat.dangerzone_iamacatfr.items.InstantGarden;
 import fr.iamacat.dangerzone_iamacatfr.items.Wrench;
+import fr.iamacat.dangerzone_iamacatfr.items.WatterBall;
+import fr.iamacat.dangerzone_iamacatfr.items.ThunderStaff;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.util.ToolMaterialModded;
@@ -138,6 +140,9 @@ public class ItemInitDangerZone {
     public static Item Wrench;
     public static Item MantisClaw;
     public static Item NetherTracker;
+    public static Item WaterBall;
+    public static Item ThunderStaff;
+    public static Item SunspotUrchin;
 
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
@@ -244,6 +249,9 @@ public class ItemInitDangerZone {
         Wrench = new Wrench().setUnlocalizedName("Wrench");
         MantisClaw = new MantisClaw(ToolMaterialModded.MantisClaw).setUnlocalizedName("MantisClaw");
         NetherTracker = new NetherTracker().setUnlocalizedName("NetherTracker");
+        WaterBall = new WatterBall().setUnlocalizedName("WaterBall");
+        ThunderStaff = new ThunderStaff().setUnlocalizedName("ThunderStaff");
+        SunspotUrchin = new SunspotUrchin().setUnlocalizedName("SunspotUrchin");
 
     }
 
@@ -350,6 +358,9 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(Wrench, "Wrench");
         GameRegistry.registerItem(MantisClaw, "MantisClaw");
         GameRegistry.registerItem(NetherTracker, "NetherTracker");
+        GameRegistry.registerItem(WaterBall, "WaterBall");
+        GameRegistry.registerItem(ThunderStaff, "ThunderStaff");
+        GameRegistry.registerItem(SunspotUrchin, "SunspotUrchin");
 
     }
 }

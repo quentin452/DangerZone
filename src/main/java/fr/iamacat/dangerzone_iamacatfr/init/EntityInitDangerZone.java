@@ -4,7 +4,6 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.IrukandjiInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.items.IrukandjiArrows;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
@@ -307,6 +306,45 @@ public class EntityInitDangerZone {
             GameControllerInstance.class,
             "GameControllerInstanceDangerZone",
             GameControllerInstance, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+
+        int WaterBallInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(WaterBallInstance.class, "WaterBallDangerZone", WaterBallInstance);
+
+        EntityRegistry.registerModEntity(
+            WaterBallInstance.class,
+            "WaterBallDangerZone",
+            WaterBallInstance, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+
+        int ThunderStaffInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(ThunderStaffInstance.class, "ThunderStaffInstance", ThunderStaffInstance);
+
+        EntityRegistry.registerModEntity(
+            ThunderStaffInstance.class,
+            "ThunderStaffInstance",
+            ThunderStaffInstance, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+
+        int SunspotUrchinInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(SunspotUrchinInstance.class, "SunspotUrchinInstance", SunspotUrchinInstance);
+
+        EntityRegistry.registerModEntity(
+            SunspotUrchinInstance.class,
+            "SunspotUrchinInstance",
+            SunspotUrchinInstance, // Use the chosen unique ID
             Tags.MODID,
             16,
             1,

@@ -30,10 +30,15 @@ entity.Laser Ball DangerZone.name=Laser Ball
 entity.BlackHeelsInstance.name=Black Heels Entity
 entity.BootsInstance.name=Boots
 entity.Dead Irukandji Entity DangerZone.name=Dead Irukandji Entity
+entity.WaterBallInstance.name=Water Ball Entity
 entity.GameControllerInstance.name=Game Controller Entity
+entity.ThunderStaffInstance.name=Thunder Staff
+entity.SunspotUrchinInstance.name=Sunsport Urchin Entity
 
-
+item.SunspotUrchin.name=Sunsport Urchin
+item.ThunderStaff.name=Thunder Staff
 item.NetherTracker.name=Nether Tracker
+item.WaterBall.name=Water Ball
 item.Wrench.name=Wrench
 item.MantisClaw.name=Mantis Claw
 item.InstantGarden.name=Instant Garden

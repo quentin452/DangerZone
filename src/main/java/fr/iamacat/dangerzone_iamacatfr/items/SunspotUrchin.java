@@ -1,18 +1,17 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.AcidEntityInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.DeadIrukandjInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BootsInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class DeadIrukandji  extends Item {
+public class SunspotUrchin  extends Item {
 
-    public DeadIrukandji() {
+    public SunspotUrchin() {
         this.maxStackSize = 64;
-        this.setTextureName(Tags.MODID +":deadirukandji");
+        this.setTextureName(Tags.MODID +":sunspoturchin");
     }
 
     public ItemStack onItemRightClick(final ItemStack stack, final World world,
@@ -22,7 +21,7 @@ public class DeadIrukandji  extends Item {
         }
         world.playSoundAtEntity(entityPlayer, "random.bow", 3.0f, 1.0f);
         if (!world.isRemote) {
-            world.spawnEntityInWorld(new DeadIrukandjInstance(world, entityPlayer));
+            world.spawnEntityInWorld(new BootsInstance(world, entityPlayer));
         }
         return stack;
     }

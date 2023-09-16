@@ -152,4 +152,29 @@ public class ArmorMaterialModded {
         new int[] {0, 0, 4, 0}, // Indice 2 pour les jambières
         75
     );
+
+    public static final ItemArmor.ArmorMaterial LapisBoots = EnumHelper.addArmorMaterial(
+        "LapisBoots",
+        1300,
+        new int[] {0, 0, 0, 4}, // Indice 3 pour les bottes
+        30
+    );
+    public static final ItemArmor.ArmorMaterial LapisChestplate = EnumHelper.addArmorMaterial(
+        "LapisChestplate",
+        1300,
+        new int[] {0, 8, 0, 0}, // Indice 1 pour le plastron
+        30
+    );
+    public static final ItemArmor.ArmorMaterial LapisHelmet = EnumHelper.addArmorMaterial(
+        "LapisHelmet",
+        1300,
+        new int[] {5,0, 0, 0}, // Indice 0 pour le casque
+        30
+    );
+    public static final ItemArmor.ArmorMaterial LapisLeggings = EnumHelper.addArmorMaterial(
+        "LapisLeggings",
+        1300,
+        new int[] {0, 0, 7, 0}, // Indice 2 pour les jambières
+        30
+    );
 }

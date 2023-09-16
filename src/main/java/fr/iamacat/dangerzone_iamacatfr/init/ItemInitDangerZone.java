@@ -198,12 +198,16 @@ public class ItemInitDangerZone {
     public static Item ExperienceChestplate;
     public static Item ExperienceHelmet;
     public static Item ExperienceLeggings;
-
     public static Item KyaniteShovel;
     public static Item KyanitePickaxe;
     public static Item KyaniteHoe;
     public static Item KyaniteAxe;
     public static Item KyaniteSword;
+
+    public static Item LapisBoots;
+    public static Item LapisChestplate;
+    public static Item LapisHelmet;
+    public static Item LapisLeggings;
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -364,12 +368,17 @@ public class ItemInitDangerZone {
         ExperienceChestplate = new ExperienceChestplate(ArmorMaterialModded.ExperienceChestplate, 1, 1).setUnlocalizedName("ExperienceChestplate");
         ExperienceHelmet = new ExperienceHelmet(ArmorMaterialModded.ExperienceHelmet, 0, 0).setUnlocalizedName("ExperienceHelmet");
         ExperienceLeggings = new ExperienceLeggings(ArmorMaterialModded.ExperienceLeggings, 2, 2).setUnlocalizedName("ExperienceLeggings");
-
         KyaniteSword = new KyaniteSword(ToolMaterialModded.KyaniteSword).setUnlocalizedName("KyaniteSword");
         KyaniteShovel = new KyaniteShovel(ToolMaterialModded.KyaniteShovel).setUnlocalizedName("KyaniteShovel");
         KyanitePickaxe = new KyanitePickaxe(ToolMaterialModded.KyanitePickaxe).setUnlocalizedName("KyanitePickaxe");
         KyaniteHoe = new KyaniteHoe(ToolMaterialModded.KyaniteHoe).setUnlocalizedName("KyaniteHoe");
         KyaniteAxe = new KyaniteAxe(ToolMaterialModded.KyaniteAxe).setUnlocalizedName("KyaniteAxe");
+
+
+        LapisBoots = new LapisBoots(ArmorMaterialModded.LapisBoots, 3, 3).setUnlocalizedName("LapisBoots");
+        LapisChestplate = new LapisChestplate(ArmorMaterialModded.LapisChestplate, 1, 1).setUnlocalizedName("LapisChestplate");
+        LapisHelmet = new LapisHelmet(ArmorMaterialModded.LapisHelmet, 0, 0).setUnlocalizedName("LapisHelmet");
+        LapisLeggings = new LapisLeggings(ArmorMaterialModded.LapisLeggings, 2, 2).setUnlocalizedName("LapisLeggings");
     }
 
     public static void register() {
@@ -530,12 +539,15 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(ExperienceChestplate, "ExperienceChestplate");
         GameRegistry.registerItem(ExperienceHelmet, "ExperienceHelmet");
         GameRegistry.registerItem(ExperienceLeggings, "ExperienceLeggings");
-
-
         GameRegistry.registerItem(KyaniteSword, "KyaniteSword");
         GameRegistry.registerItem(KyaniteShovel, "KyaniteShovel");
         GameRegistry.registerItem(KyanitePickaxe, "KyanitePickaxe");
         GameRegistry.registerItem(KyaniteHoe, "KyaniteHoe");
         GameRegistry.registerItem(KyaniteAxe, "KyaniteAxe");
+
+        GameRegistry.registerItem(LapisBoots, "LapisBoots");
+        GameRegistry.registerItem(LapisChestplate, "LapisChestplate");
+        GameRegistry.registerItem(LapisHelmet, "LapisHelmet");
+        GameRegistry.registerItem(LapisLeggings, "LapisLeggings");
     }
 }

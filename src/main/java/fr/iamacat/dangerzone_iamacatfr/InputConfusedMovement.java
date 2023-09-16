@@ -1,8 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr;
 
-import java.util.Random;
-
 import net.minecraft.util.MovementInput;
+
+import java.util.Random;
 
 public class InputConfusedMovement extends MovementInput {
 

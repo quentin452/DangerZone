@@ -26,6 +26,7 @@ entity.Cave Fisher DangerZone.name=Cave Fisher
 entity.Eye Ray DangerZone.name=Eye Ray Projectile
 entity.Fairy DangerZone.name=Fairy
 entity.Crab DangerZone.name=Crab
+entity.Laser Ball DangerZone.name=Laser Ball
 
 item.MinersDream.name=Miner's Dream
 item.CrystalApple.name=Crystal Apple
@@ -109,7 +110,16 @@ item.BltSandwitch.name=Sandwitch BLT
 item.TigersEyeIngot.name=Tigers Eye Ingot
 item.LavaEel.name=Lava Eel
 item.JumpyBugScale.name=Jumpy Bug Scale
-item.AttitudeAdjuster.name=Attitude Adjuster
+item.SliceSword.name=Slice Sword
+item.AttitudeAdjuster.name=Attitude Adjuster Sword
+item.RobotLaserCharge.name=Robot Laser Charge
+entity.Irukandji Arrows DangerZone.name=Irukandji Arrows
+item.SkateBow.name=Skate Bow
+item.ItemIrukandjiArrow.name=Irukandji Arrow
+item.ItemAcid.name=Item Acid
+item.BattleAxe.name=Battle Axe
+item.BigBerthaSword.name=Big Bertha
+item.BigHammer.name=Big Hammer
 
 item.StairsAcross.name=Insta-Bridge
 item.StairsUp.name=Stairs-UP

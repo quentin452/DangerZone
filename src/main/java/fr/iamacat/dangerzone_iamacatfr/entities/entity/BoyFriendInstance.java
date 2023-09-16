@@ -1,8 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Random;
-import java.util.UUID;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,9 +16,8 @@ import net.minecraft.server.management.PreYggdrasilConverter;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
+import java.util.UUID;
 
 public class BoyFriendInstance extends EntityMob {
 

@@ -5,6 +5,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
+import fr.iamacat.dangerzone_iamacatfr.items.IrukandjiArrows;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EntityInitDangerZone {
@@ -234,6 +235,30 @@ public class EntityInitDangerZone {
             1,
             true);
 
+        int LaserBall = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(LaserBallInstance.class, "Laser Ball DangerZone", LaserBall);
+
+        EntityRegistry.registerModEntity(
+            LaserBallInstance.class,
+            "Laser Ball DangerZone",
+            LaserBall, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
+        int IrukandjiArrows = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.items.IrukandjiArrows.class, "Irukandji Arrows DangerZone", IrukandjiArrows);
+
+        EntityRegistry.registerModEntity(
+            LaserBallInstance.class,
+            "Irukandji Arrows DangerZone",
+            IrukandjiArrows, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
     }
 
 }

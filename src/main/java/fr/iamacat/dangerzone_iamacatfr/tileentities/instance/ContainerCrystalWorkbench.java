@@ -1,13 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.tileentities.instance;
 
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 
 public class ContainerCrystalWorkbench extends Container {
 

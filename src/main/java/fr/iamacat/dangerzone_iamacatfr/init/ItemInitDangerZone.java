@@ -1,17 +1,18 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
-import fr.iamacat.dangerzone_iamacatfr.items.LavaEel;
-import fr.iamacat.dangerzone_iamacatfr.items.unfinished.AttitudeAdjuster;
-import net.minecraft.item.Item;
-
 import cpw.mods.fml.common.registry.GameRegistry;
-import fr.iamacat.dangerzone_iamacatfr.items.*;
+import fr.iamacat.dangerzone_iamacatfr.blocks.ItemIrukandjiArrow;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
-import fr.iamacat.dangerzone_iamacatfr.items.unfinished.FairySword;
+import fr.iamacat.dangerzone_iamacatfr.items.*;
+import fr.iamacat.dangerzone_iamacatfr.items.Acid;
+import fr.iamacat.dangerzone_iamacatfr.items.BattleAxe;
+import fr.iamacat.dangerzone_iamacatfr.items.BigBerthaSword;
+import fr.iamacat.dangerzone_iamacatfr.items.BigHammer;
 import fr.iamacat.dangerzone_iamacatfr.items.unfinished.InstantShelter;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.util.ToolMaterialModded;
+import net.minecraft.item.Item;
 
 public class ItemInitDangerZone {
 
@@ -114,6 +115,15 @@ public class ItemInitDangerZone {
     public static Item InstantShelter;
     public static Item JumpyBugScale;
     public static Item LavaEel;
+    public static Item SliceSword;
+    public static Item AttitudeAdjuster;
+    public static Item LaserCharge;
+    public static Item SkateBow;
+    public static Item ItemAcid;
+    public static Item ItemIrukandjiArrow;
+    public static Item BattleAxe;
+    public static Item BigBerthaSword;
+    public static Item BigHammer;
 
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
@@ -202,6 +212,15 @@ public class ItemInitDangerZone {
         InstantShelter = new InstantShelter().setUnlocalizedName("InstantShelter");
         JumpyBugScale = new JumpyBugScale().setUnlocalizedName("JumpyBugScale");
         LavaEel = new LavaEel().setUnlocalizedName("LavaEel");
+        SliceSword = new SliceSword(ToolMaterialModded.SLICEMATERIAL).setUnlocalizedName("SliceSword");
+        AttitudeAdjuster = new AttitudeAdjuster(ToolMaterialModded.AttitudeAdjusterMaterial).setUnlocalizedName("AttitudeAdjuster");
+        LaserCharge = new LaserCharge().setUnlocalizedName("RobotLaserCharge");
+        SkateBow = new SkateBow().setUnlocalizedName("SkateBow");
+        ItemAcid = new Acid().setUnlocalizedName("ItemAcid");
+        ItemIrukandjiArrow = new ItemIrukandjiArrow().setUnlocalizedName("ItemIrukandjiArrow");
+        BattleAxe = new BattleAxe(ToolMaterialModded.BATTLEAXE).setUnlocalizedName("BattleAxe");
+        BigBerthaSword = new BigBerthaSword(ToolMaterialModded.BIGBERTHA).setUnlocalizedName("BigBerthaSword");
+        BigHammer = new BigHammer(ToolMaterialModded.BIGHAMMER).setUnlocalizedName("BigHammer");
 
     }
 
@@ -290,6 +309,15 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(InstantShelter, "InstantShelter");
         GameRegistry.registerItem(JumpyBugScale, "JumpyBugScale");
         GameRegistry.registerItem(LavaEel, "LavaEel");
+        GameRegistry.registerItem(SliceSword, "SliceSword");
+        GameRegistry.registerItem(AttitudeAdjuster, "AttitudeAdjuster");
+        GameRegistry.registerItem(LaserCharge, "RobotLaserCharge");
+        GameRegistry.registerItem(SkateBow, "SkateBow");
+        GameRegistry.registerItem(ItemAcid, "ItemAcid");
+        GameRegistry.registerItem(ItemIrukandjiArrow, "ItemIrukandjiArrow");
+        GameRegistry.registerItem(BattleAxe, "BattleAxe");
+        GameRegistry.registerItem(BigBerthaSword, "BigBerthaSword");
+        GameRegistry.registerItem(BigHammer, "BigHammer");
 
     }
 }

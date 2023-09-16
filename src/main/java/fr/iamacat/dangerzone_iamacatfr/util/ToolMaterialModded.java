@@ -45,4 +45,38 @@ public class ToolMaterialModded {
         80.0F, // Dommages infligés
         10 // Enchantabilité
     );
+
+    public static final Item.ToolMaterial SLICEMATERIAL = EnumHelper.addToolMaterial(
+        "SLICEMATERIAL", // Nom du matériau
+        3, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        500.0F, // Dommages infligés
+        10 // Enchantabilité
+    );
+    public static final Item.ToolMaterial BATTLEAXE = EnumHelper.addToolMaterial(
+        "BATTLEAXE", // Nom du matériau
+        3, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        50.0F, // Dommages infligés
+        10 // Enchantabilité
+    );
+    public static final Item.ToolMaterial BIGBERTHA = EnumHelper.addToolMaterial(
+        "BIGBERTHA", // Nom du matériau
+        3, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        500.0F, // Dommages infligés
+        10 // Enchantabilité
+    );
+    public static final Item.ToolMaterial BIGHAMMER = EnumHelper.addToolMaterial(
+        "BIGHAMMER", // Nom du matériau
+        3, // Niveau de harvest
+        100, // Durabilité
+        8.0F, // Vitesse d'attaque
+        15.0F, // Dommages infligés
+        10 // Enchantabilité
+    );
 }
+

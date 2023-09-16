@@ -1,4 +1,4 @@
 package fr.iamacat.dangerzone_iamacatfr.items.unfinished;
 
-public class MediumZooCage {
+public class TheZooKeeper {
 }

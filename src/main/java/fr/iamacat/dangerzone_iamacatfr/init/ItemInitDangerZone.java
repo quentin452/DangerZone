@@ -236,6 +236,11 @@ public class ItemInitDangerZone {
     public static Item RoyalChestplate;
     public static Item RoyalHelmet;
     public static Item RoyalLeggings;
+    public static Item ExtraSmallZooCage;
+    public static Item SmallZooCage;
+    public static Item MediumZooCage;
+    public static Item LargeZooCage;
+    public static Item ExtraLargeZooCage;
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -435,6 +440,11 @@ public class ItemInitDangerZone {
         RoyalChestplate = new RoyalChestplate(ArmorMaterialModded.RoyalChestplate, 1, 1).setUnlocalizedName("RoyalChestplate");
         RoyalHelmet = new RoyalChestplate(ArmorMaterialModded.RoyalHelmet, 0, 0).setUnlocalizedName("RoyalHelmet");
         RoyalLeggings = new RoyalLeggings(ArmorMaterialModded.RoyalLeggings, 2, 2).setUnlocalizedName("RoyalLeggings");
+        ExtraSmallZooCage = new ExtraSmallZooCage().setUnlocalizedName("ExtraSmallZooCage");
+        SmallZooCage = new SmallZooCage().setUnlocalizedName("SmallZooCage");
+        MediumZooCage = new MediumZooCage().setUnlocalizedName("MediumZooCage");
+        LargeZooCage = new LargeZooCage().setUnlocalizedName("LargeZooCage");
+        ExtraLargeZooCage = new ExtraLargeZooCage().setUnlocalizedName("ExtraLargeZooCage");
 
     }
 
@@ -634,5 +644,11 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(RoyalChestplate, "RoyalChestplate");
         GameRegistry.registerItem(RoyalHelmet, "RoyalHelmet");
         GameRegistry.registerItem(RoyalLeggings, "RoyalLeggings");
+        GameRegistry.registerItem(ExtraSmallZooCage, "ExtraSmallZooCage");
+        GameRegistry.registerItem(SmallZooCage, "SmallZooCage");
+        GameRegistry.registerItem(MediumZooCage, "MediumZooCage");
+        GameRegistry.registerItem(LargeZooCage, "LargeZooCage");
+        GameRegistry.registerItem(ExtraLargeZooCage, "ExtraLargeZooCage");
+
     }
 }

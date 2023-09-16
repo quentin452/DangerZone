@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class Acid extends Item {
 
-    // todo fix the model getted is white and don't make any damge/fire aspect
+    // todo fix none model are sended
 
     public Acid() {
         this.maxStackSize = 64;

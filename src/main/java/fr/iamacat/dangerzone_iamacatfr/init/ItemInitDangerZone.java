@@ -208,6 +208,10 @@ public class ItemInitDangerZone {
     public static Item LapisChestplate;
     public static Item LapisHelmet;
     public static Item LapisLeggings;
+    public static Item LavaEelBoots;
+    public static Item LavaEelChestplate;
+    public static Item LavaEelHelmet;
+    public static Item LavaEelLeggings;
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -379,6 +383,10 @@ public class ItemInitDangerZone {
         LapisChestplate = new LapisChestplate(ArmorMaterialModded.LapisChestplate, 1, 1).setUnlocalizedName("LapisChestplate");
         LapisHelmet = new LapisHelmet(ArmorMaterialModded.LapisHelmet, 0, 0).setUnlocalizedName("LapisHelmet");
         LapisLeggings = new LapisLeggings(ArmorMaterialModded.LapisLeggings, 2, 2).setUnlocalizedName("LapisLeggings");
+        LavaEelBoots = new LavaEelBoots(ArmorMaterialModded.LavaEelBoots, 3, 3).setUnlocalizedName("LavaEelBoots");
+        LavaEelChestplate = new LavaEelChestplate(ArmorMaterialModded.LavaEelChestplate, 1, 1).setUnlocalizedName("LavaEelChestplate");
+        LavaEelHelmet = new LavaEelHelmet(ArmorMaterialModded.LavaEelHelmet, 0, 0).setUnlocalizedName("LavaEelHelmet");
+        LavaEelLeggings = new LavaEelLeggings(ArmorMaterialModded.LavaEelLeggings, 2, 2).setUnlocalizedName("LavaEelLeggings");
     }
 
     public static void register() {
@@ -549,5 +557,9 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(LapisChestplate, "LapisChestplate");
         GameRegistry.registerItem(LapisHelmet, "LapisHelmet");
         GameRegistry.registerItem(LapisLeggings, "LapisLeggings");
+        GameRegistry.registerItem(LavaEelBoots, "LavaEelBoots");
+        GameRegistry.registerItem(LavaEelChestplate, "LavaEelChestplate");
+        GameRegistry.registerItem(LavaEelHelmet, "LavaEelHelmet");
+        GameRegistry.registerItem(LavaEelLeggings, "LavaEelLeggings");
     }
 }

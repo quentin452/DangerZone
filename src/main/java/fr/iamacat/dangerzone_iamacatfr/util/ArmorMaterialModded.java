@@ -177,4 +177,29 @@ public class ArmorMaterialModded {
         new int[] {0, 0, 7, 0}, // Indice 2 pour les jambières
         30
     );
+
+    public static final ItemArmor.ArmorMaterial LavaEelBoots = EnumHelper.addArmorMaterial(
+        "LavaEelBoots",
+        1000,
+        new int[] {0, 0, 0, 2}, // Indice 3 pour les bottes
+        30
+    );
+    public static final ItemArmor.ArmorMaterial LavaEelChestplate = EnumHelper.addArmorMaterial(
+        "LavaEelChestplate",
+        1000,
+        new int[] {0, 7, 0, 0}, // Indice 1 pour le plastron
+        30
+    );
+    public static final ItemArmor.ArmorMaterial LavaEelHelmet = EnumHelper.addArmorMaterial(
+        "LavaEelHelmet",
+        1000,
+        new int[] {2,0, 0, 0}, // Indice 0 pour le casque
+        30
+    );
+    public static final ItemArmor.ArmorMaterial LavaEelLeggings = EnumHelper.addArmorMaterial(
+        "LavaEelLeggings",
+        1000,
+        new int[] {0, 0, 5, 0}, // Indice 2 pour les jambières
+        30
+    );
 }

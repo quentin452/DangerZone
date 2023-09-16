@@ -241,6 +241,8 @@ public class ItemInitDangerZone {
     public static Item MediumZooCage;
     public static Item LargeZooCage;
     public static Item ExtraLargeZooCage;
+    public static Item TheZooKeeper;
+
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -406,8 +408,6 @@ public class ItemInitDangerZone {
         KyanitePickaxe = new KyanitePickaxe(ToolMaterialModded.KyanitePickaxe).setUnlocalizedName("KyanitePickaxe");
         KyaniteHoe = new KyaniteHoe(ToolMaterialModded.KyaniteHoe).setUnlocalizedName("KyaniteHoe");
         KyaniteAxe = new KyaniteAxe(ToolMaterialModded.KyaniteAxe).setUnlocalizedName("KyaniteAxe");
-
-
         LapisBoots = new LapisBoots(ArmorMaterialModded.LapisBoots, 3, 3).setUnlocalizedName("LapisBoots");
         LapisChestplate = new LapisChestplate(ArmorMaterialModded.LapisChestplate, 1, 1).setUnlocalizedName("LapisChestplate");
         LapisHelmet = new LapisHelmet(ArmorMaterialModded.LapisHelmet, 0, 0).setUnlocalizedName("LapisHelmet");
@@ -445,6 +445,7 @@ public class ItemInitDangerZone {
         MediumZooCage = new MediumZooCage().setUnlocalizedName("MediumZooCage");
         LargeZooCage = new LargeZooCage().setUnlocalizedName("LargeZooCage");
         ExtraLargeZooCage = new ExtraLargeZooCage().setUnlocalizedName("ExtraLargeZooCage");
+        TheZooKeeper = new TheZooKeeper().setUnlocalizedName("TheZooKeeper");
 
     }
 
@@ -611,7 +612,6 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(KyanitePickaxe, "KyanitePickaxe");
         GameRegistry.registerItem(KyaniteHoe, "KyaniteHoe");
         GameRegistry.registerItem(KyaniteAxe, "KyaniteAxe");
-
         GameRegistry.registerItem(LapisBoots, "LapisBoots");
         GameRegistry.registerItem(LapisChestplate, "LapisChestplate");
         GameRegistry.registerItem(LapisHelmet, "LapisHelmet");
@@ -649,6 +649,7 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(MediumZooCage, "MediumZooCage");
         GameRegistry.registerItem(LargeZooCage, "LargeZooCage");
         GameRegistry.registerItem(ExtraLargeZooCage, "ExtraLargeZooCage");
+        GameRegistry.registerItem(TheZooKeeper, "TheZooKeeper");
 
     }
 }

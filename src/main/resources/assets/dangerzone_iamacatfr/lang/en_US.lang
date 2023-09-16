@@ -180,6 +180,7 @@ item.SmallZooCage.name=Small Zoo Cage
 item.MediumZooCage.name=Medium Zoo Cage
 item.LargeZooCage.name=Large Zoo Cage
 item.ExtraLargeZooCage.name=Extra Large Zoo Cage
+item.TheZooKeeper.name=The Zoo Keeper
 
 item.LavaEelBoots.name=Lava Eel Boots
 item.LavaEelChestplate.name=Lava Eel Chestplate

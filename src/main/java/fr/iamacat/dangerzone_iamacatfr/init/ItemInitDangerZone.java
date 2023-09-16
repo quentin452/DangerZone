@@ -224,6 +224,18 @@ public class ItemInitDangerZone {
     public static Item PeacockChestplate;
     public static Item PeacockHelmet;
     public static Item PeacockLeggings;
+    public static Item PinkTourmalineBoots;
+    public static Item PinkTourmalineChestplate;
+    public static Item PinkTourmalineHelmet;
+    public static Item PinkTourmalineLeggings;
+    public static Item QueenBoots;
+    public static Item QueenChestplate;
+    public static Item QueenHelmet;
+    public static Item QueenLeggings;
+    public static Item RoyalBoots;
+    public static Item RoyalChestplate;
+    public static Item RoyalHelmet;
+    public static Item RoyalLeggings;
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -411,6 +423,18 @@ public class ItemInitDangerZone {
         PeacockChestplate = new PeacockChestplate(ArmorMaterialModded.PeacockChestplate, 1, 1).setUnlocalizedName("PeacockChestplate");
         PeacockHelmet = new PeacockHelmet(ArmorMaterialModded.PeacockHelmet, 0, 0).setUnlocalizedName("PeacockHelmet");
         PeacockLeggings = new PeacockLeggings(ArmorMaterialModded.PeacockLeggings, 2, 2).setUnlocalizedName("PeacockLeggings");
+        PinkTourmalineBoots = new PinkTourmalineBoots(ArmorMaterialModded.PinktourmalineBoots, 3, 3).setUnlocalizedName("PinkTourmalineBoots");
+        PinkTourmalineChestplate = new PinkTourmalineChestplate(ArmorMaterialModded.PinktourmalineChestplate, 1, 1).setUnlocalizedName("PinkTourmalineChestplate");
+        PinkTourmalineHelmet = new PinkTourmalineHelmet(ArmorMaterialModded.PinktourmalineHelmet, 0, 0).setUnlocalizedName("PinkTourmalineHelmet");
+        PinkTourmalineLeggings = new PinkTourmalineLeggings(ArmorMaterialModded.PinktourmalineLeggings, 2, 2).setUnlocalizedName("PinkTourmalineLeggings");
+        QueenBoots = new QueenBoots(ArmorMaterialModded.QueenBoots, 3, 3).setUnlocalizedName("QueenBoots");
+        QueenChestplate = new QueenChestplate(ArmorMaterialModded.QueenChestplate, 1, 1).setUnlocalizedName("QueenChestplate");
+        QueenHelmet = new QueenHelmet(ArmorMaterialModded.QueenHelmet, 0, 0).setUnlocalizedName("QueenHelmet");
+        QueenLeggings = new QueenLeggings(ArmorMaterialModded.QueenLeggings, 2, 2).setUnlocalizedName("QueenLeggings");
+        RoyalBoots = new RoyalBoots(ArmorMaterialModded.RoyalBoots, 3, 3).setUnlocalizedName("RoyalBoots");
+        RoyalChestplate = new RoyalChestplate(ArmorMaterialModded.RoyalChestplate, 1, 1).setUnlocalizedName("RoyalChestplate");
+        RoyalHelmet = new RoyalChestplate(ArmorMaterialModded.RoyalHelmet, 0, 0).setUnlocalizedName("RoyalHelmet");
+        RoyalLeggings = new RoyalLeggings(ArmorMaterialModded.RoyalLeggings, 2, 2).setUnlocalizedName("RoyalLeggings");
 
     }
 
@@ -598,5 +622,17 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(PeacockChestplate, "PeacockChestplate");
         GameRegistry.registerItem(PeacockHelmet, "PeacockHelmet");
         GameRegistry.registerItem(PeacockLeggings, "PeacockLeggings");
+        GameRegistry.registerItem(PinkTourmalineBoots, "PinkTourmalineBoots");
+        GameRegistry.registerItem(PinkTourmalineChestplate, "PinkTourmalineChestplate");
+        GameRegistry.registerItem(PinkTourmalineHelmet, "PinkTourmalineHelmet");
+        GameRegistry.registerItem(PinkTourmalineLeggings, "PinkTourmalineLeggings");
+        GameRegistry.registerItem(QueenBoots, "QueenBoots");
+        GameRegistry.registerItem(QueenChestplate, "QueenChestplate");
+        GameRegistry.registerItem(QueenHelmet, "QueenHelmet");
+        GameRegistry.registerItem(QueenLeggings, "QueenLeggings");
+        GameRegistry.registerItem(RoyalBoots, "RoyalBoots");
+        GameRegistry.registerItem(RoyalChestplate, "RoyalChestplate");
+        GameRegistry.registerItem(RoyalHelmet, "RoyalHelmet");
+        GameRegistry.registerItem(RoyalLeggings, "RoyalLeggings");
     }
 }

@@ -274,4 +274,77 @@ public class ArmorMaterialModded {
         new int[] {0, 0, 2, 0}, // Indice 2 pour les jambières
         30
     );
+
+    public static final ItemArmor.ArmorMaterial PinktourmalineBoots = EnumHelper.addArmorMaterial(
+        "PinktourmalineBoots",
+        1000,
+        new int[] {0, 0, 0, 5}, // Indice 3 pour les bottes
+        30
+    );
+    public static final ItemArmor.ArmorMaterial PinktourmalineChestplate = EnumHelper.addArmorMaterial(
+        "PinktourmalineChestplate",
+        1000,
+        new int[] {0, 7, 0, 0}, // Indice 1 pour le plastron
+        30
+    );
+    public static final ItemArmor.ArmorMaterial PinktourmalineHelmet = EnumHelper.addArmorMaterial(
+        "PinktourmalineHelmet",
+        1000,
+        new int[] {3,0, 0, 0}, // Indice 0 pour le casque
+        30
+    );
+    public static final ItemArmor.ArmorMaterial PinktourmalineLeggings = EnumHelper.addArmorMaterial(
+        "PinktourmalineLeggings",
+        1000,
+        new int[] {0, 0, 2, 0}, // Indice 2 pour les jambières
+        30
+    );
+    public static final ItemArmor.ArmorMaterial QueenBoots = EnumHelper.addArmorMaterial(
+        "QueenBoots",
+        1000,
+        new int[] {0, 0, 0, 7}, // Indice 3 pour les bottes
+        30
+    );
+    public static final ItemArmor.ArmorMaterial QueenChestplate = EnumHelper.addArmorMaterial(
+        "QueenChestplate",
+        1000,
+        new int[] {0, 16, 0, 0}, // Indice 1 pour le plastron
+        30
+    );
+    public static final ItemArmor.ArmorMaterial QueenHelmet = EnumHelper.addArmorMaterial(
+        "QueenHelmet",
+        1000,
+        new int[] {9,0, 0, 0}, // Indice 0 pour le casque
+        30
+    );
+    public static final ItemArmor.ArmorMaterial QueenLeggings = EnumHelper.addArmorMaterial(
+        "QueenLeggings",
+        1000,
+        new int[] {0, 0, 14, 0}, // Indice 2 pour les jambières
+        30
+    );
+    public static final ItemArmor.ArmorMaterial RoyalBoots = EnumHelper.addArmorMaterial(
+        "RoyalBoots",
+        3500,
+        new int[] {0, 0, 0, 8}, // Indice 3 pour les bottes
+        30
+    );
+    public static final ItemArmor.ArmorMaterial RoyalChestplate = EnumHelper.addArmorMaterial(
+        "RoyalChestplate",
+        3500,
+        new int[] {0, 14, 0, 0}, // Indice 1 pour le plastron
+        30
+    );
+    public static final ItemArmor.ArmorMaterial RoyalHelmet = EnumHelper.addArmorMaterial(
+        "RoyalHelmet",
+        3500,
+        new int[] {8,0, 0, 0}, // Indice 0 pour le casque
+        30
+    );
+    public static final ItemArmor.ArmorMaterial RoyalLeggings = EnumHelper.addArmorMaterial(
+        "RoyalLeggings",
+        3500,
+        new int[] {0, 0, 12, 0}, // Indice 2 pour les jambières
+        30
+    );
 }

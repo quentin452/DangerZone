@@ -210,6 +210,47 @@ public class ToolMaterialModded {
         39.0F, // Dommages infligés
         100 // Enchantabilité
     );
+
+    public static final Item.ToolMaterial RubySword = EnumHelper.addToolMaterial(
+        "RubySword", // Nom du matériau
+        4, // Niveau de harvest
+        1500, // Durabilité
+        8.0F, // Vitesse d'attaque
+        20F, // Dommages infligés
+        85 // Enchantabilité
+    );
+    public static final Item.ToolMaterial RubyShovel = EnumHelper.addToolMaterial(
+        "RubyShovel", // Nom du matériau
+        4, // Niveau de harvest
+        1500, // Durabilité
+        9.0F, // Vitesse d'attaque
+        17.0F, // Dommages infligés
+        85 // Enchantabilité
+    );
+    public static final Item.ToolMaterial RubyPickaxe = EnumHelper.addToolMaterial(
+        "RubyPickaxe", // Nom du matériau
+        4, // Niveau de harvest
+        1500, // Durabilité
+        9.0F, // Vitesse d'attaque
+        18.0F, // Dommages infligés
+        85 // Enchantabilité
+    );
+    public static final Item.ToolMaterial RubyHoe = EnumHelper.addToolMaterial(
+        "RubyHoe", // Nom du matériau
+        4, // Niveau de harvest
+        1500, // Durabilité
+        9.0F, // Vitesse d'attaque
+        15.0F, // Dommages infligés
+        85 // Enchantabilité
+    );
+    public static final Item.ToolMaterial RubyAxe = EnumHelper.addToolMaterial(
+        "RubyAxe", // Nom du matériau
+        4, // Niveau de harvest
+        1500, // Durabilité
+        8.0F, // Vitesse d'attaque
+        19.0F, // Dommages infligés
+        85 // Enchantabilité
+    );
 }
 
 

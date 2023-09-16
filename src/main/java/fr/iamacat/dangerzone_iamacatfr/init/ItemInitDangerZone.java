@@ -174,6 +174,16 @@ public class ItemInitDangerZone {
     public static Item UltimateLeggings;
     public static Item UltimateBow;
     public static Item UltimateFishingRod;
+
+    public static Item RubySword;
+    public static Item RubyShovel;
+    public static Item RubyPickaxe;
+    public static Item RubyHoe;
+    public static Item RubyAxe;
+    public static Item RubyBoots;
+    public static Item RubyChestplate;
+    public static Item RubyHelmet;
+    public static Item RubyLeggings;
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -311,6 +321,16 @@ public class ItemInitDangerZone {
         UltimateLeggings = new UltimateLeggings(ArmorMaterialModded.UltimateLeggings, 2, 2).setUnlocalizedName("UltimateLeggings");
         UltimateBow = new UltimateBow().setUnlocalizedName("UltimateBow");
         UltimateFishingRod = new UltimateFishingRod().setUnlocalizedName("UltimateFishingRod");
+        RubySword = new RubySword(ToolMaterialModded.RubySword).setUnlocalizedName("RubySword");
+        RubyShovel = new RubyShovel(ToolMaterialModded.RubyShovel).setUnlocalizedName("RubyShovel");
+        RubyPickaxe = new RubyPickaxe(ToolMaterialModded.RubyPickaxe).setUnlocalizedName("RubyPickaxe");
+        RubyHoe = new RubyHoe(ToolMaterialModded.RubyHoe).setUnlocalizedName("RubyHoe");
+        RubyAxe = new RubyAxe(ToolMaterialModded.RubyAxe).setUnlocalizedName("RubyAxe");
+        RubyBoots = new RubyBoots(ArmorMaterialModded.RubyBoots, 3, 3).setUnlocalizedName("RubyBoots");
+        RubyChestplate = new RubyChestplate(ArmorMaterialModded.RubyChestplate, 1, 1).setUnlocalizedName("RubyChestplate");
+        RubyHelmet = new RubyHelmet(ArmorMaterialModded.RubyHelmet, 0, 0).setUnlocalizedName("RubyHelmet");
+        RubyLeggings = new RubyLeggings(ArmorMaterialModded.RubyLeggings, 2, 2).setUnlocalizedName("RubyLeggings");
+
 
 
 
@@ -452,5 +472,14 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(UltimateLeggings, "UltimateLeggings");
         GameRegistry.registerItem(UltimateBow, "UltimateBow");
         GameRegistry.registerItem(UltimateFishingRod, "UltimateFishingRod");
+        GameRegistry.registerItem(RubySword, "RubySword");
+        GameRegistry.registerItem(RubyShovel, "RubyShovel");
+        GameRegistry.registerItem(RubyPickaxe, "RubyPickaxe");
+        GameRegistry.registerItem(RubyHoe, "RubyHoe");
+        GameRegistry.registerItem(RubyAxe, "RubyAxe");
+        GameRegistry.registerItem(RubyBoots, "RubyBoots");
+        GameRegistry.registerItem(RubyChestplate, "RubyChestplate");
+        GameRegistry.registerItem(RubyHelmet, "RubyHelmet");
+        GameRegistry.registerItem(RubyLeggings, "RubyLeggings");
     }
 }

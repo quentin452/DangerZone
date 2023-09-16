@@ -80,4 +80,28 @@ public class ArmorMaterialModded {
         new int[] {0, 0, 10, 0}, // Indice 2 pour les jambières
         100
     );
+    public static final ItemArmor.ArmorMaterial RubyBoots = EnumHelper.addArmorMaterial(
+        "RubyBoots",
+        1500,
+        new int[] {0, 0, 0, 4}, // Indice 3 pour les bottes
+        85
+    );
+    public static final ItemArmor.ArmorMaterial RubyChestplate = EnumHelper.addArmorMaterial(
+        "RubyChestplate",
+        1500,
+        new int[] {0, 9, 0, 0}, // Indice 1 pour le plastron
+        85
+    );
+    public static final ItemArmor.ArmorMaterial RubyHelmet = EnumHelper.addArmorMaterial(
+        "RubyHelmet",
+        1500,
+        new int[] {8,0, 0, 0}, // Indice 0 pour le casque
+        85
+    );
+    public static final ItemArmor.ArmorMaterial RubyLeggings = EnumHelper.addArmorMaterial(
+        "RubyLeggings",
+        1500,
+        new int[] {0, 0, 4, 0}, // Indice 2 pour les jambières
+        85
+    );
 }

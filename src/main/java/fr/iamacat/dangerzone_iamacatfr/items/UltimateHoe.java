@@ -22,7 +22,7 @@ public class UltimateHoe extends ItemHoe {
 
     public void onUsingTick(final ItemStack stack, final EntityPlayer player, final int count) {
         if (!enchantmentsAdded) {
-            stack.addEnchantment(Enchantment.efficiency, 2);
+            stack.addEnchantment(Enchantment.efficiency, 5);
             enchantmentsAdded = true;
         }
     }

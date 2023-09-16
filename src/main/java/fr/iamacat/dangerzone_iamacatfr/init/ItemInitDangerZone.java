@@ -193,12 +193,17 @@ public class ItemInitDangerZone {
     public static Item EmeraldChestplate;
     public static Item EmeraldHelmet;
     public static Item EmeraldLeggings;
-
     public static Item ExperienceSword;
     public static Item ExperienceBoots;
     public static Item ExperienceChestplate;
     public static Item ExperienceHelmet;
     public static Item ExperienceLeggings;
+
+    public static Item KyaniteShovel;
+    public static Item KyanitePickaxe;
+    public static Item KyaniteHoe;
+    public static Item KyaniteAxe;
+    public static Item KyaniteSword;
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -345,8 +350,6 @@ public class ItemInitDangerZone {
         RubyChestplate = new RubyChestplate(ArmorMaterialModded.RubyChestplate, 1, 1).setUnlocalizedName("RubyChestplate");
         RubyHelmet = new RubyHelmet(ArmorMaterialModded.RubyHelmet, 0, 0).setUnlocalizedName("RubyHelmet");
         RubyLeggings = new RubyLeggings(ArmorMaterialModded.RubyLeggings, 2, 2).setUnlocalizedName("RubyLeggings");
-
-
         EmeraldSword = new EmeraldSword(ToolMaterialModded.EmeraldSword).setUnlocalizedName("EmeraldSword");
         EmeraldShovel = new EmeraldShovel(ToolMaterialModded.EmeraldShovel).setUnlocalizedName("EmeraldShovel");
         EmeraldPickaxe = new EmeraldPickaxe(ToolMaterialModded.EmeraldPickaxe).setUnlocalizedName("EmeraldPickaxe");
@@ -356,14 +359,17 @@ public class ItemInitDangerZone {
         EmeraldChestplate = new EmeraldChestplate(ArmorMaterialModded.EmeraldChestplate, 1, 1).setUnlocalizedName("EmeraldChestplate");
         EmeraldHelmet = new EmeraldHelmet(ArmorMaterialModded.EmeraldHelmet, 0, 0).setUnlocalizedName("EmeraldHelmet");
         EmeraldLeggings = new EmeraldLeggings(ArmorMaterialModded.EmeraldLeggings, 2, 2).setUnlocalizedName("EmeraldLeggings");
-
         ExperienceSword = new ExperienceSword(ToolMaterialModded.ExperienceSword).setUnlocalizedName("ExperienceSword");
         ExperienceBoots = new ExperienceBoots(ArmorMaterialModded.ExperienceBoots, 3, 3).setUnlocalizedName("ExperienceBoots");
         ExperienceChestplate = new ExperienceChestplate(ArmorMaterialModded.ExperienceChestplate, 1, 1).setUnlocalizedName("ExperienceChestplate");
         ExperienceHelmet = new ExperienceHelmet(ArmorMaterialModded.ExperienceHelmet, 0, 0).setUnlocalizedName("ExperienceHelmet");
         ExperienceLeggings = new ExperienceLeggings(ArmorMaterialModded.ExperienceLeggings, 2, 2).setUnlocalizedName("ExperienceLeggings");
 
-
+        KyaniteSword = new KyaniteSword(ToolMaterialModded.KyaniteSword).setUnlocalizedName("KyaniteSword");
+        KyaniteShovel = new KyaniteShovel(ToolMaterialModded.KyaniteShovel).setUnlocalizedName("KyaniteShovel");
+        KyanitePickaxe = new KyanitePickaxe(ToolMaterialModded.KyanitePickaxe).setUnlocalizedName("KyanitePickaxe");
+        KyaniteHoe = new KyaniteHoe(ToolMaterialModded.KyaniteHoe).setUnlocalizedName("KyaniteHoe");
+        KyaniteAxe = new KyaniteAxe(ToolMaterialModded.KyaniteAxe).setUnlocalizedName("KyaniteAxe");
     }
 
     public static void register() {
@@ -510,7 +516,6 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(RubyChestplate, "RubyChestplate");
         GameRegistry.registerItem(RubyHelmet, "RubyHelmet");
         GameRegistry.registerItem(RubyLeggings, "RubyLeggings");
-
         GameRegistry.registerItem(EmeraldSword, "EmeraldSword");
         GameRegistry.registerItem(EmeraldShovel, "EmeraldShovel");
         GameRegistry.registerItem(EmeraldPickaxe, "EmeraldPickaxe");
@@ -520,11 +525,17 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(EmeraldChestplate, "EmeraldChestplate");
         GameRegistry.registerItem(EmeraldHelmet, "EmeraldHelmet");
         GameRegistry.registerItem(EmeraldLeggings, "EmeraldLeggings");
-
         GameRegistry.registerItem(ExperienceSword, "ExperienceSword");
         GameRegistry.registerItem(ExperienceBoots, "ExperienceBoots");
         GameRegistry.registerItem(ExperienceChestplate, "ExperienceChestplate");
         GameRegistry.registerItem(ExperienceHelmet, "ExperienceHelmet");
         GameRegistry.registerItem(ExperienceLeggings, "ExperienceLeggings");
+
+
+        GameRegistry.registerItem(KyaniteSword, "KyaniteSword");
+        GameRegistry.registerItem(KyaniteShovel, "KyaniteShovel");
+        GameRegistry.registerItem(KyanitePickaxe, "KyanitePickaxe");
+        GameRegistry.registerItem(KyaniteHoe, "KyaniteHoe");
+        GameRegistry.registerItem(KyaniteAxe, "KyaniteAxe");
     }
 }

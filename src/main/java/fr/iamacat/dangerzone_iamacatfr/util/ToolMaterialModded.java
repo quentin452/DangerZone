@@ -299,6 +299,48 @@ public class ToolMaterialModded {
         10F, // Dommages infligés
         75 // Enchantabilité
     );
+
+
+    public static final Item.ToolMaterial KyaniteSword = EnumHelper.addToolMaterial(
+        "KyaniteSword", // Nom du matériau
+        3, // Niveau de harvest
+        800, // Durabilité
+        6.0F, // Vitesse d'attaque
+        9F, // Dommages infligés
+        45 // Enchantabilité
+    );
+    public static final Item.ToolMaterial KyaniteShovel = EnumHelper.addToolMaterial(
+        "KyaniteShovel", // Nom du matériau
+        3, // Niveau de harvest
+        800, // Durabilité
+        6.0F, // Vitesse d'attaque
+        6.0F, // Dommages infligés
+        45 // Enchantabilité
+    );
+    public static final Item.ToolMaterial KyanitePickaxe = EnumHelper.addToolMaterial(
+        "KyanitePickaxe", // Nom du matériau
+        3, // Niveau de harvest
+        800, // Durabilité
+        6.0F, // Vitesse d'attaque
+        7.0F, // Dommages infligés
+        45 // Enchantabilité
+    );
+    public static final Item.ToolMaterial KyaniteHoe = EnumHelper.addToolMaterial(
+        "KyaniteHoe", // Nom du matériau
+        3, // Niveau de harvest
+        800, // Durabilité
+        6.0F, // Vitesse d'attaque
+        6.0F, // Dommages infligés
+        45 // Enchantabilité
+    );
+    public static final Item.ToolMaterial KyaniteAxe = EnumHelper.addToolMaterial(
+        "KyanitedAxe", // Nom du matériau
+        3, // Niveau de harvest
+        800, // Durabilité
+        6.0F, // Vitesse d'attaque
+        8.0F, // Dommages infligés
+        45 // Enchantabilité
+    );
 }
 
 

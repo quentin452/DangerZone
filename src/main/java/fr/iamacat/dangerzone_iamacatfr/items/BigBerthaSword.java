@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,20 +21,35 @@ public class BigBerthaSword extends ItemSword {
         this.setTextureName(Tags.MODID + ":berthasmall");
         this.field_150934_a = 8.0F + p_i45356_1_.getDamageVsEntity();
     }
-    public void onUpdate(final ItemStack stack, final World world, final Entity entity, final int i,
-                         final boolean i2) {
-        this.onUsingTick(stack, null, 0);
-    }
 
-    public void onUsingTick(final ItemStack stack, final EntityPlayer player, final int count) {
-        final int lvl = EnchantmentHelper.getEnchantmentLevel(Enchantment.sharpness.effectId, stack);
-        if (lvl <= 0) {
+    @Override
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+        if (!stack.isItemEnchanted()) {
             stack.addEnchantment(Enchantment.knockback, 5);
             stack.addEnchantment(Enchantment.baneOfArthropods, 1);
             stack.addEnchantment(Enchantment.fireAspect, 1);
+        }
+        return super.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);
+    }
 
+    @Override
+    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
+        if (!stack.isItemEnchanted()) {
+            stack.addEnchantment(Enchantment.knockback, 5);
+            stack.addEnchantment(Enchantment.baneOfArthropods, 1);
+            stack.addEnchantment(Enchantment.fireAspect, 1);
+        }
+        return super.onEntitySwing(entityLiving, stack);
+    }
+    @Override
+    public void onCreated(ItemStack stack, World world, EntityPlayer player) {
+        if (!stack.isItemEnchanted()) {
+            stack.addEnchantment(Enchantment.knockback, 5);
+            stack.addEnchantment(Enchantment.baneOfArthropods, 1);
+            stack.addEnchantment(Enchantment.fireAspect, 1);
         }
     }
+
     public Multimap getItemAttributeModifiers()
     {
         Multimap multimap = super.getItemAttributeModifiers();

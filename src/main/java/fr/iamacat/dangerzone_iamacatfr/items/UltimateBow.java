@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBow;
@@ -15,7 +16,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class UltimateBow extends ItemBow {
-    // todo fix cannot throw IrukandjiArrows + fix enchantments
+    // todo fix cannot throw IrukandjiArrows
     // todo make sure that the UltimateBow can send arrows without charging at full the bow
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
@@ -54,21 +55,38 @@ public class UltimateBow extends ItemBow {
     {
         this.itemIcon = register.registerIcon(Tags.MODID + ":ultimatebow");
     }
-    private boolean enchantmentsAdded = false;
 
-    public void onUpdate(final ItemStack stack, final World world, final Entity entity, final int i,
-                         final boolean i2) {
-        this.onUsingTick(stack, null, 0);
-    }
 
-    public void onUsingTick(final ItemStack stack, final EntityPlayer player, final int count) {
-        if (!enchantmentsAdded) {
+
+    @Override
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+        if (!stack.isItemEnchanted()) {
             stack.addEnchantment(Enchantment.power, 5);
             stack.addEnchantment(Enchantment.flame, 3);
             stack.addEnchantment(Enchantment.punch, 2);
             stack.addEnchantment(Enchantment.infinity, 1);
+        }
+        return super.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);
+    }
 
-            enchantmentsAdded = true;
+    @Override
+    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
+        if (!stack.isItemEnchanted()) {
+            stack.addEnchantment(Enchantment.power, 5);
+            stack.addEnchantment(Enchantment.flame, 3);
+            stack.addEnchantment(Enchantment.punch, 2);
+            stack.addEnchantment(Enchantment.infinity, 1);
+        }
+        return super.onEntitySwing(entityLiving, stack);
+    }
+    @Override
+    public void onCreated(ItemStack stack, World world, EntityPlayer player) {
+        if (!stack.isItemEnchanted()) {
+            stack.addEnchantment(Enchantment.power, 5);
+            stack.addEnchantment(Enchantment.flame, 3);
+            stack.addEnchantment(Enchantment.punch, 2);
+            stack.addEnchantment(Enchantment.infinity, 1);
         }
     }
+
 }

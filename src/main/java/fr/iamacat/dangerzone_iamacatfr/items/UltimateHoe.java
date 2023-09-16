@@ -3,27 +3,38 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class UltimateHoe extends ItemHoe {
-    public UltimateHoe(ToolMaterial p_i45343_1_) {
-        super(p_i45343_1_);
-        this.setTextureName(Tags.MODID + ":ultimatehoe");
-    }
-    private boolean enchantmentsAdded = false;
 
-    public void onUpdate(final ItemStack stack, final World world, final Entity entity, final int i,
-                         final boolean i2) {
-        this.onUsingTick(stack, null, 0);
+    public UltimateHoe(ToolMaterial material) {
+        super(material);
+        setTextureName(Tags.MODID + ":ultimatehoe");
     }
 
-    public void onUsingTick(final ItemStack stack, final EntityPlayer player, final int count) {
-        if (!enchantmentsAdded) {
+    @Override
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+        if (!stack.isItemEnchanted()) {
             stack.addEnchantment(Enchantment.efficiency, 5);
-            enchantmentsAdded = true;
+        }
+        return super.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);
+    }
+
+    @Override
+    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
+        if (!stack.isItemEnchanted()) {
+            stack.addEnchantment(Enchantment.efficiency, 5);
+        }
+        return super.onEntitySwing(entityLiving, stack);
+    }
+    @Override
+    public void onCreated(ItemStack stack, World world, EntityPlayer player) {
+        if (!stack.isItemEnchanted()) {
+            stack.addEnchantment(Enchantment.efficiency, 5);
         }
     }
 }

@@ -212,6 +212,18 @@ public class ItemInitDangerZone {
     public static Item LavaEelChestplate;
     public static Item LavaEelHelmet;
     public static Item LavaEelLeggings;
+    public static Item MobzillaBoots;
+    public static Item MobzillaChestplate;
+    public static Item MobzillaHelmet;
+    public static Item MobzillaLeggings;
+    public static Item MothScaleBoots;
+    public static Item MothScaleChestplate;
+    public static Item MothScaleHelmet;
+    public static Item MothScaleLeggings;
+    public static Item PeacockBoots;
+    public static Item PeacockChestplate;
+    public static Item PeacockHelmet;
+    public static Item PeacockLeggings;
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
@@ -387,6 +399,19 @@ public class ItemInitDangerZone {
         LavaEelChestplate = new LavaEelChestplate(ArmorMaterialModded.LavaEelChestplate, 1, 1).setUnlocalizedName("LavaEelChestplate");
         LavaEelHelmet = new LavaEelHelmet(ArmorMaterialModded.LavaEelHelmet, 0, 0).setUnlocalizedName("LavaEelHelmet");
         LavaEelLeggings = new LavaEelLeggings(ArmorMaterialModded.LavaEelLeggings, 2, 2).setUnlocalizedName("LavaEelLeggings");
+        MobzillaBoots = new MobzillaBoots(ArmorMaterialModded.MobzillaBoots, 3, 3).setUnlocalizedName("MobzillaBoots");
+        MobzillaChestplate = new MobzillaChestplate(ArmorMaterialModded.MobzillaChestplate, 1, 1).setUnlocalizedName("MobzillaChestplate");
+        MobzillaHelmet = new MobzillaHelmet(ArmorMaterialModded.MobzillaHelmet, 0, 0).setUnlocalizedName("MobzillaHelmet");
+        MobzillaLeggings = new MobzillaLeggings(ArmorMaterialModded.MobzillaLeggings, 2, 2).setUnlocalizedName("MobzillaLeggings");
+        MothScaleBoots = new MothScaleBoots(ArmorMaterialModded.MothScaleBoots, 3, 3).setUnlocalizedName("MothScaleBoots");
+        MothScaleChestplate = new MothScaleChestplate(ArmorMaterialModded.MothScaleChestplate, 1, 1).setUnlocalizedName("MothScaleChestplate");
+        MothScaleHelmet = new MothScaleHelmet(ArmorMaterialModded.MothScaleHelmet, 0, 0).setUnlocalizedName("MothScaleHelmet");
+        MothScaleLeggings = new MothScaleLeggings(ArmorMaterialModded.MothScaleLeggings, 2, 2).setUnlocalizedName("MothScaleLeggings");
+        PeacockBoots = new PeacockBoots(ArmorMaterialModded.PeacockBoots, 3, 3).setUnlocalizedName("PeacockBoots");
+        PeacockChestplate = new PeacockChestplate(ArmorMaterialModded.PeacockChestplate, 1, 1).setUnlocalizedName("PeacockChestplate");
+        PeacockHelmet = new PeacockHelmet(ArmorMaterialModded.PeacockHelmet, 0, 0).setUnlocalizedName("PeacockHelmet");
+        PeacockLeggings = new PeacockLeggings(ArmorMaterialModded.PeacockLeggings, 2, 2).setUnlocalizedName("PeacockLeggings");
+
     }
 
     public static void register() {
@@ -561,5 +586,17 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(LavaEelChestplate, "LavaEelChestplate");
         GameRegistry.registerItem(LavaEelHelmet, "LavaEelHelmet");
         GameRegistry.registerItem(LavaEelLeggings, "LavaEelLeggings");
+        GameRegistry.registerItem(MobzillaBoots, "MobzillaBoots");
+        GameRegistry.registerItem(MobzillaChestplate, "MobzillaChestplate");
+        GameRegistry.registerItem(MobzillaHelmet, "MobzillaHelmet");
+        GameRegistry.registerItem(MobzillaLeggings, "MobzillaLeggings");
+        GameRegistry.registerItem(MothScaleBoots, "MothScaleBoots");
+        GameRegistry.registerItem(MothScaleChestplate, "MothScaleChestplate");
+        GameRegistry.registerItem(MothScaleHelmet, "MothScaleHelmet");
+        GameRegistry.registerItem(MothScaleLeggings, "MothScaleLeggings");
+        GameRegistry.registerItem(PeacockBoots, "PeacockBoots");
+        GameRegistry.registerItem(PeacockChestplate, "PeacockChestplate");
+        GameRegistry.registerItem(PeacockHelmet, "PeacockHelmet");
+        GameRegistry.registerItem(PeacockLeggings, "PeacockLeggings");
     }
 }

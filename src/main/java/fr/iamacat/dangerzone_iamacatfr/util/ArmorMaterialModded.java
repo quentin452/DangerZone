@@ -202,4 +202,76 @@ public class ArmorMaterialModded {
         new int[] {0, 0, 5, 0}, // Indice 2 pour les jambières
         30
     );
+    public static final ItemArmor.ArmorMaterial MobzillaBoots = EnumHelper.addArmorMaterial(
+        "MobzillaBoots",
+        1000,
+        new int[] {0, 0, 0, 2}, // Indice 3 pour les bottes
+        30
+    );
+    public static final ItemArmor.ArmorMaterial MobzillaChestplate = EnumHelper.addArmorMaterial(
+        "MobzillaChestplate",
+        1000,
+        new int[] {0, 7, 0, 0}, // Indice 1 pour le plastron
+        30
+    );
+    public static final ItemArmor.ArmorMaterial MobzillaHelmet = EnumHelper.addArmorMaterial(
+        "MobzillaEelHelmet",
+        1000,
+        new int[] {2,0, 0, 0}, // Indice 0 pour le casque
+        30
+    );
+    public static final ItemArmor.ArmorMaterial MobzillaLeggings = EnumHelper.addArmorMaterial(
+        "MobzillaLeggings",
+        1000,
+        new int[] {0, 0, 5, 0}, // Indice 2 pour les jambières
+        30
+    );
+    public static final ItemArmor.ArmorMaterial MothScaleBoots = EnumHelper.addArmorMaterial(
+        "MothScaleBoots",
+        1000,
+        new int[] {0, 0, 0, 2}, // Indice 3 pour les bottes
+        30
+    );
+    public static final ItemArmor.ArmorMaterial MothScaleChestplate = EnumHelper.addArmorMaterial(
+        "MothScaleChestplate",
+        1000,
+        new int[] {0, 7, 0, 0}, // Indice 1 pour le plastron
+        30
+    );
+    public static final ItemArmor.ArmorMaterial MothScaleHelmet = EnumHelper.addArmorMaterial(
+        "MothScaleHelmet",
+        1000,
+        new int[] {2,0, 0, 0}, // Indice 0 pour le casque
+        30
+    );
+    public static final ItemArmor.ArmorMaterial MothScaleLeggings = EnumHelper.addArmorMaterial(
+        "MothScaleLeggings",
+        1000,
+        new int[] {0, 0, 5, 0}, // Indice 2 pour les jambières
+        30
+    );
+    public static final ItemArmor.ArmorMaterial PeacockBoots = EnumHelper.addArmorMaterial(
+        "PeacockBoots",
+        1000,
+        new int[] {0, 0, 0, 4}, // Indice 3 pour les bottes
+        30
+    );
+    public static final ItemArmor.ArmorMaterial PeacockChestplate = EnumHelper.addArmorMaterial(
+        "PeacockChestplate",
+        1000,
+        new int[] {0, 5, 0, 0}, // Indice 1 pour le plastron
+        30
+    );
+    public static final ItemArmor.ArmorMaterial PeacockHelmet = EnumHelper.addArmorMaterial(
+        "PeacockHelmet",
+        1000,
+        new int[] {2,0, 0, 0}, // Indice 0 pour le casque
+        30
+    );
+    public static final ItemArmor.ArmorMaterial PeacockLeggings = EnumHelper.addArmorMaterial(
+        "PeacockLeggings",
+        1000,
+        new int[] {0, 0, 2, 0}, // Indice 2 pour les jambières
+        30
+    );
 }

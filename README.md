@@ -18,4 +18,4 @@ Thx to twilight forest for the code
 
 Thx to Dungeon Mobs for the code
 
-Thx to Fairy for the Fairy the code
+Thx to Fairy for the the code

@@ -119,4 +119,42 @@ public class Constants {
     public static SpawnEggs NastysaurusSpawnEgg;
     public static SpawnEggs CaterKillerSpawnEgg;
     public static SpawnEggs TinyBirdsSpawnEgg;
+
+    public static SpawnEggs EntityAetherDragonSpawnEgg;
+    public static SpawnEggs EntityAlpsDragonSpawnEgg;
+  //  public static SpawnEggs EntityAngelDragonSpawnEgg;
+    public static SpawnEggs EntityBirchDragonSpawnEgg;
+    public static SpawnEggs EntityBlazeDragonSpawnEgg;
+    public static SpawnEggs EntityBluestoneDragonSpawnEgg;
+    public static SpawnEggs EntityBoneDragonSpawnEgg;
+    public static SpawnEggs EntityCactusDragonSpawnEgg;
+    public static SpawnEggs EntityCaveDragonSpawnEgg;
+    public static SpawnEggs EntityCloudDragonSpawnEgg;
+    public static SpawnEggs EntityDesertDragonSpawnEgg;
+    public static SpawnEggs EntityDiamondDragonSpawnEgg;
+    public static SpawnEggs EntityEmeraldDragonSpawnEgg;
+    public static SpawnEggs EntityEndDragonSpawnEgg;
+    public static SpawnEggs EntityEnthralledDragonSpawnEgg;
+    public static SpawnEggs EntityExHillsDragonSpawnEgg;
+    public static SpawnEggs EntityForestDragonSpawnEgg;
+    public static SpawnEggs EntityGoldDragonSpawnEgg;
+    public static SpawnEggs EntityIronDragonSpawnEgg;
+    public static SpawnEggs EntityJungleDragonSpawnEgg;
+    public static SpawnEggs EntityKleurloosSpawnEgg;
+    public static SpawnEggs EntityLapisDragonSpawnEgg;
+    public static SpawnEggs EntityMesaDragonSpawnEgg;
+    public static SpawnEggs EntityMushroomDragon1SpawnEgg;
+    public static SpawnEggs EntityMushroomDragon2SpawnEgg;
+    public static SpawnEggs EntityNetherDragonSpawnEgg;
+    public static SpawnEggs EntityOceanDragonSpawnEgg;
+    public static SpawnEggs EntityPlainsDragonSpawnEgg;
+    public static SpawnEggs EntityPlainsDragon2SpawnEgg;
+    public static SpawnEggs EntityRedstoneDragonSpawnEgg;
+    public static SpawnEggs EntityRiverDragonSpawnEgg;
+    public static SpawnEggs EntitySavannaDragonSpawnEgg;
+    public static SpawnEggs EntitySnowDragonSpawnEgg;
+    public static SpawnEggs EntityStarDragonSpawnEgg;
+    public static SpawnEggs EntitySwampDragonSpawnEgg;
+    public static SpawnEggs EntityZombieDragonSpawnEgg;
+
 }

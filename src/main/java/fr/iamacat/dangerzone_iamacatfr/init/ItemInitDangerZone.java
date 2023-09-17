@@ -2,6 +2,7 @@ package fr.iamacat.dangerzone_iamacatfr.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.iamacat.dangerzone_iamacatfr.blocks.ItemIrukandjiArrow;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
 import fr.iamacat.dangerzone_iamacatfr.items.*;
 import fr.iamacat.dangerzone_iamacatfr.items.Acid;
@@ -20,7 +21,10 @@ import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.ArmorMaterialModded;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.util.ToolMaterialModded;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 
 public class ItemInitDangerZone {
 
@@ -244,8 +248,20 @@ public class ItemInitDangerZone {
     public static Item TheZooKeeper;
     public static Item SquidZooka;
     public static Item Slippers;
+    public static Item ItemDecoyDragonsAdvancedFood;
+    public static Item ItemDecoyDragonFood;
+    public static Item rainbowOpalGem;
+    public static Item rainbowOpalChunk;
+    public static Item pureRainbowOpalGem;
+    public static Item dragonMeat;
+    public static Item dragonMeatCooked;
 
     public static void init() {
+        GameRegistry.registerItem(ItemInitDangerZone.rainbowOpalGem = new Item().setUnlocalizedName("rainbowOpalGem").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Tags.MODID +":rainbowOpalGem"), "rainbowOpalGem");
+        GameRegistry.registerItem(ItemInitDangerZone.pureRainbowOpalGem = new Item().setUnlocalizedName("pureRainbowOpalGem").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Tags.MODID +":pureRainbowOpalGem"), "pureRainbowOpalGem");
+        GameRegistry.registerItem(ItemInitDangerZone.rainbowOpalChunk = new Item().setUnlocalizedName("rainbowOpalChunk").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Tags.MODID +":rainbowOpalChunk"), "rainbowOpalChunk");
+        GameRegistry.registerItem(ItemInitDangerZone.dragonMeat = new ItemDecoyDragonFood("dragonMeat", 3, 0.3f, false, new PotionEffect(Potion.regeneration.id, 0, 0)).setAlwaysEdible(), "dragonMeat");
+        GameRegistry.registerItem(ItemInitDangerZone.dragonMeatCooked = new ItemDecoyDragonFood("dragonMeatCooked", 3, 1.0f, false, new PotionEffect(Potion.regeneration.id, 2, 1)).setAlwaysEdible(), "dragonMeatCooked");
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
         MinersDream = new MinersDream(4).setUnlocalizedName("MinersDream");
@@ -450,6 +466,9 @@ public class ItemInitDangerZone {
         TheZooKeeper = new TheZooKeeper().setUnlocalizedName("TheZooKeeper");
         SquidZooka = new SquidZooka().setUnlocalizedName("SquidZooka");
         Slippers = new Slippers().setUnlocalizedName("Slippers");
+
+
+
 
     }
 
@@ -656,6 +675,9 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(TheZooKeeper, "TheZooKeeper");
         GameRegistry.registerItem(SquidZooka, "SquidZooka");
         GameRegistry.registerItem(Slippers, "Slippers");
+
+
+
 
     }
 }

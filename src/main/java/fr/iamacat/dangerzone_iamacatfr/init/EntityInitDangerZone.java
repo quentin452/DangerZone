@@ -4,6 +4,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.AlienInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.items.IrukandjiArrows;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
@@ -351,7 +352,7 @@ public class EntityInitDangerZone {
             true);
         int SlippersInstance = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(SunspotUrchinInstance.class, "SlippersInstance", SlippersInstance);
+        EntityRegistry.registerGlobalEntityID(SlippersInstance.class, "SlippersInstance", SlippersInstance);
 
         EntityRegistry.registerModEntity(
             SlippersInstance.class,

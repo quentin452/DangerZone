@@ -6,9 +6,12 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
 import fr.iamacat.dangerzone_iamacatfr.InputConfusedMovement;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.AlienInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.unfinished.AlienModel;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.unfinished.AlienRenderer;
 import fr.iamacat.dangerzone_iamacatfr.gui.FairyGui;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 import net.minecraft.client.Minecraft;
@@ -67,6 +70,10 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(
             CrabInstance.class,
             new CrabRenderer(new CrabModel(), 0.625F, ":textures/entity/helmetcrab.png"));
+
+        RenderingRegistry.registerEntityRenderingHandler(
+            AlienInstance.class,
+            new AlienRenderer(new AlienModel(), 0.5f));
     }
 
     @Override

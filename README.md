@@ -14,8 +14,8 @@ For now there are just models
 
 # SPECIAL THANKS
 
-Thx to twilight forest for the bird,crab model/sounds etc...........
+Thx to twilight forest for the code
 
-Thx to Dungeon Mobs for the Cave Fisher Model/Sounds etc...........
+Thx to Dungeon Mobs for the code
 
-Thx to Fairy for the Fairy Model/Sounds etc...........
+Thx to Fairy for the Fairy the code

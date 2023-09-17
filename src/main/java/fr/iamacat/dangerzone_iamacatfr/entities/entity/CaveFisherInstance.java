@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 import java.util.Iterator;
 import java.util.List;
 
-public class CaveFisherInstance extends EntityMob {
+public class CaveFisherInstance extends EntityDungeonMob {
 
     private int stringTimer;
     private int grabTimer;

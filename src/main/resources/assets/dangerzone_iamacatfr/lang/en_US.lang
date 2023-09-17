@@ -35,6 +35,7 @@ entity.GameControllerInstance.name=Game Controller Entity
 entity.ThunderStaffInstance.name=Thunder Staff
 entity.SunspotUrchinInstance.name=Sunsport Urchin Entity
 entity.SlippersInstance.name=Slippers Entity
+entity.AlienInstance.name=Alien
 
 item.SunspotUrchin.name=Sunsport Urchin
 item.ThunderStaff.name=Thunder Staff

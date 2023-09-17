@@ -362,6 +362,18 @@ public class EntityInitDangerZone {
             16,
             1,
             true);
+        int AlienInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(AlienInstance.class, "AlienInstance", AlienInstance);
+
+        EntityRegistry.registerModEntity(
+            AlienInstance.class,
+            "AlienInstance",
+            AlienInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
     }
 
 }

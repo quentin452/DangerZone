@@ -38,6 +38,7 @@ entity.SlippersInstance.name=Slippers Entity
 entity.AlienInstance.name=Alien
 entity.RatInstance.name=Rat
 entity.AlosaurusInstance.name=Alosaurus
+entity.AttackSquidInstance.name=Attack Squid
 
 item.SunspotUrchin.name=Sunsport Urchin
 item.ThunderStaff.name=Thunder Staff
@@ -307,7 +308,7 @@ item.irukandhi_egg.name=Spawn Irukandhi
 item.ghost_pumpkin_skelly_egg.name=Spawn Ghost Pumpkin Skelly
 item.bomb_omb_egg.name=Spawn Bomb-omb
 item.small_worm_egg.name=Spawn Small Worm
-item.attacksquid_egg.name=Spawn Attacksquid
+item.attacksquid_egg.name=Spawn Attack Squid
 item.ghost_egg.name=Spawn Ghost
 item.brown_ant_egg.name=Spawn Brown Ant
 item.chipmunk_egg.name=Spawn Chipmunk

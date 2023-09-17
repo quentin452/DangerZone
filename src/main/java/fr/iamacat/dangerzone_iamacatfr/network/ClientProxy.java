@@ -81,6 +81,9 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(
             AlosaurusInstance.class,
             new AlosaurusRenderer(new AlosaurusModel(), 0.5f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            AttackSquidInstance.class,
+            new AttackSquidRenderer(new AttackSquidModel(), 0.5f));
     }
 
     @Override

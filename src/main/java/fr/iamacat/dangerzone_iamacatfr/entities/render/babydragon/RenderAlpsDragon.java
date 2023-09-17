@@ -55,6 +55,6 @@ public class RenderAlpsDragon extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID + ":textures/entitybabydragon//alps.png");
+        texture = new ResourceLocation(Tags.MODID + ":textures/entity/babydragon/alps.png");
     }
 }

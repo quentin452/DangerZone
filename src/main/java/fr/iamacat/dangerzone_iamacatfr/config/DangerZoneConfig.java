@@ -5,7 +5,9 @@ import java.io.File;
 import net.minecraftforge.common.config.Configuration;
 
 public class DangerZoneConfig extends Configuration {
+    public static boolean allowExtraBossLoot;
 
+    public static int bossDamageCap = 25;
     public static int SPAWN_FACTION_MIN_SIZE = 8;
     public static int SPAWN_FACTION_MAX_SIZE = 10;
 
@@ -129,6 +131,21 @@ public class DangerZoneConfig extends Configuration {
             1,
             100,
             "how long will tame fairies stay angry? (wild are 3x this)");
+
+        allowExtraBossLoot = getBoolean(
+            "allowExtraBossLoot",
+            "general",
+            true,
+            "Can Bosses drop a lot of extra normal loot in addition to their specific drops?");
+
+        bossDamageCap = getInt(
+            "bossDamageCap",
+            "general",
+            25,
+            1,
+            Integer.MAX_VALUE,
+            "Maximum damage cap for boss creatures");
+
     }
 
 }

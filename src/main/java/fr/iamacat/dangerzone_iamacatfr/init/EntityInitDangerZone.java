@@ -5,6 +5,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.items.IrukandjiArrows;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
@@ -684,19 +685,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-        int EntityKleurloosDragon = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(EntityKleurloos.class, "EntityKleurloosDragon", EntityKleurloosDragon);
-
-        EntityRegistry.registerModEntity(
-            EntityKleurloos.class,
-            "EntityKleurloosDragon",
-            EntityKleurloosDragon, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-
         int EntityLapisDragon = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(EntityLapisDragon.class, "EntityLapisDragon", EntityLapisDragon);
@@ -940,6 +928,20 @@ public class EntityInitDangerZone {
             BeaverInstance.class,
             "BeaverInstance",
             BeaverInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+
+        int BeeInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance.class, "BeeInstance", BeeInstance);
+
+        EntityRegistry.registerModEntity(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance.class,
+            "BeeInstance",
+            BeeInstance, // Use the chosen unique ID
             Tags.MODID,
             32,
             1,

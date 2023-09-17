@@ -55,6 +55,6 @@ public class RenderSnowDragon extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID + ":textures/entity/bydragon/snow.png");
+        texture = new ResourceLocation(Tags.MODID + ":textures/entity/babydragon/snow.png");
     }
 }

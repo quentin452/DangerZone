@@ -5,6 +5,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
 import fr.iamacat.dangerzone_iamacatfr.spawnable.SpawnEggs;
 import fr.iamacat.dangerzone_iamacatfr.util.Constants;

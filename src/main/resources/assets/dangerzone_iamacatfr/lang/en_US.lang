@@ -11,6 +11,7 @@ tileentity.TitaniumBlock.name=Titanium Block
 tileentity.PinkTourmalineBlock.name=Pink Tourmaline Block
 tileentity.UraniumBlock.name=Uranium Block
 
+entity.BeeInstance.name=Bee
 entity.BeaverInstance.name=Beaver
 entity.Apple Cow DangerZone.name=Apple Cow
 entity.Crystal Cow DangerZone.name=Crystal Cow

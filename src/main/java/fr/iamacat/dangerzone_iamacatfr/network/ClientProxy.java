@@ -1,5 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -118,7 +119,6 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityPlainsDragon2.class, new RenderPlainsDragon2());
         RenderingRegistry.registerEntityRenderingHandler(EntityZombieDragon.class, new RenderZombieDragon());
         RenderingRegistry.registerEntityRenderingHandler(EntityBoneDragon.class, new RenderBoneDragon());
-        RenderingRegistry.registerEntityRenderingHandler(EntityKleurloos.class, new RenderKleurloos());
         RenderingRegistry.registerEntityRenderingHandler(EntityAngelDragon.class, new RenderAngelDragon());
 
         RenderingRegistry.registerEntityRenderingHandler(
@@ -131,6 +131,9 @@ public class ClientProxy implements ISidedProxy {
         ResourceLocation textureLocation = new ResourceLocation(Tags.MODID, "textures/entity/beaver.png");
 
         RenderingRegistry.registerEntityRenderingHandler(BeaverInstance.class, new RenderGenericLiving(new BeaverModel(), 0.5f, textureLocation));
+        RenderingRegistry.registerEntityRenderingHandler(BeeInstance.class, new BeeRenderer());
+        RenderingRegistry.registerEntityRenderingHandler(EntityDarkCrystal.class, new RenderDarkCrystal());
+
     }
 
     @Override

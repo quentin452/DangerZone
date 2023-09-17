@@ -55,6 +55,6 @@ public class RenderExHillsDragon extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID + ":textures/entitybabydragon//exhills.png");
+        texture = new ResourceLocation(Tags.MODID + ":textures/entity/babydragon/exhills.png");
     }
 }

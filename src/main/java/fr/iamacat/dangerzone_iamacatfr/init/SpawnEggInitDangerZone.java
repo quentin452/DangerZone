@@ -360,7 +360,7 @@ public class SpawnEggInitDangerZone {
         Constants.BasiliskSpawnEgg = BasiliskSpawnEgg;
         GameRegistry.registerItem(Constants.BasiliskSpawnEgg, "Basilisk Egg");
 
-        SpawnEggs ChipmunkSpawnEgg = new SpawnEggs(ChipmunkInstance.class);
+        SpawnEggs ChipmunkSpawnEgg = new SpawnEggs(ChipMunkInstance.class);
         ChipmunkSpawnEgg.setUnlocalizedName("chipmunk_egg");
         Constants.ChipmunkSpawnEgg = ChipmunkSpawnEgg;
         GameRegistry.registerItem(Constants.ChipmunkSpawnEgg, "Chipmunk Egg");

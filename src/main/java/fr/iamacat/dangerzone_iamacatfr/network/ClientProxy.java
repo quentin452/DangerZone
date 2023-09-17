@@ -1,6 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.unfinished.RenderTFGenericLiving;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -134,6 +135,10 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(BeeInstance.class, new BeeRenderer());
         RenderingRegistry.registerEntityRenderingHandler(EntityDarkCrystal.class, new RenderDarkCrystal());
         RenderingRegistry.registerEntityRenderingHandler(ButterflyInstance.class, new ButterflyRenderer(new ButterflyModel(), 0.5f));
+
+        RenderingRegistry.registerEntityRenderingHandler(
+            ChipMunkInstance.class,
+            new RenderTFGenericLiving(new ChipmunkModel(), 1.0F, ":textures/entity/squirrel2.png"));
 
     }
 

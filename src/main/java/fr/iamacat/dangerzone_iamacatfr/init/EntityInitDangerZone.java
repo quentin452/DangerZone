@@ -959,6 +959,19 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
+
+        int ChipMunkInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(ChipMunkInstance.class, "ChipMunkInstance", ChipMunkInstance);
+
+        EntityRegistry.registerModEntity(
+            ChipMunkInstance.class,
+            "ChipMunkInstance",
+            ChipMunkInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
     }
 
 }

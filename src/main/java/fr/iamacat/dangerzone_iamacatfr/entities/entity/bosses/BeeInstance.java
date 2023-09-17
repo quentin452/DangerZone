@@ -1,11 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses;
 
-import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityDarkCrystal;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityDirectedLightning;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.EntityPart;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.IMultiPart;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIWatchTarget;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIWatchTarget;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityDarkEnergy;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityDarkLightning;
 import fr.iamacat.dangerzone_iamacatfr.util.DamageHelper;
@@ -16,9 +13,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.monster.EntityGolem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;

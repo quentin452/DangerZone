@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.AICustomAttackPlayer;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.AICustomAttackPlayer;
 
 public class AttackSquidInstance extends EntityMob {
 

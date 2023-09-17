@@ -41,7 +41,7 @@ import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
 import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import fr.iamacat.dangerzone_iamacatfr.Loc;
 import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.FairyJob;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.FairyJob;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.FairyGroupGenerator;
 

@@ -1,8 +1,9 @@
 
 
-package fr.iamacat.dangerzone_iamacatfr.angeldragon;
+package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.RandomPositionGenerator;
+
+
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
@@ -63,12 +64,13 @@ public class EntityAIAvoidEntity extends EntityAIBase
             }
         }
         else {
-            final List<Entity> list = this.theEntity.worldObj.selectEntitiesWithinAABB(this.targetEntityClass, this.theEntity.boundingBox.expand((double)this.distanceFromEntity, 3.0, (double)this.distanceFromEntity), this.field_98218_a);
+            final List list = this.theEntity.worldObj.selectEntitiesWithinAABB(this.targetEntityClass, this.theEntity.boundingBox.expand((double)this.distanceFromEntity, 3.0, (double)this.distanceFromEntity), this.field_98218_a);
             if (list.isEmpty()) {
                 return false;
             }
-            this.closestLivingEntity = list.get(0);
+            this.closestLivingEntity = (Entity) list.get(0);
         }
+
         final Vec3 vec3 = RandomPositionGenerator.findRandomTargetBlockAwayFrom(this.theEntity, 16, 7, Vec3.createVectorHelper(this.closestLivingEntity.posX, this.closestLivingEntity.posY, this.closestLivingEntity.posZ));
         if (vec3 == null) {
             return false;

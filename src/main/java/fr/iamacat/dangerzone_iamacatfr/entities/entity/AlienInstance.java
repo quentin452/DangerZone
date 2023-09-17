@@ -24,8 +24,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIFollowTwin;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIMonsterPanic;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIFollowTwin;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIMonsterPanic;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 
 public class AlienInstance extends EntityDungeonMob {

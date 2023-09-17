@@ -5,7 +5,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
 import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIMoveTowardsRestriction;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.IEntityLivingData;

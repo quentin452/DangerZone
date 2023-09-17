@@ -4,8 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 
 import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
-import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.*;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;

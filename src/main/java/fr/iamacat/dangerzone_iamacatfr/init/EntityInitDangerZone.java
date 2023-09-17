@@ -349,6 +349,18 @@ public class EntityInitDangerZone {
             16,
             1,
             true);
+        int SlippersInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(SunspotUrchinInstance.class, "SlippersInstance", SlippersInstance);
+
+        EntityRegistry.registerModEntity(
+            SlippersInstance.class,
+            "SlippersInstance",
+            SlippersInstance, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
     }
 
 }

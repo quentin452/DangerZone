@@ -243,6 +243,7 @@ public class ItemInitDangerZone {
     public static Item ExtraLargeZooCage;
     public static Item TheZooKeeper;
     public static Item SquidZooka;
+    public static Item Slippers;
 
     public static void init() {
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
@@ -448,6 +449,7 @@ public class ItemInitDangerZone {
         ExtraLargeZooCage = new ExtraLargeZooCage().setUnlocalizedName("ExtraLargeZooCage");
         TheZooKeeper = new TheZooKeeper().setUnlocalizedName("TheZooKeeper");
         SquidZooka = new SquidZooka().setUnlocalizedName("SquidZooka");
+        Slippers = new Slippers().setUnlocalizedName("Slippers");
 
     }
 
@@ -653,6 +655,7 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(ExtraLargeZooCage, "ExtraLargeZooCage");
         GameRegistry.registerItem(TheZooKeeper, "TheZooKeeper");
         GameRegistry.registerItem(SquidZooka, "SquidZooka");
+        GameRegistry.registerItem(Slippers, "Slippers");
 
     }
 }

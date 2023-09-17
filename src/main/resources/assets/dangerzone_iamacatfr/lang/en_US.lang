@@ -34,6 +34,7 @@ entity.WaterBallInstance.name=Water Ball Entity
 entity.GameControllerInstance.name=Game Controller Entity
 entity.ThunderStaffInstance.name=Thunder Staff
 entity.SunspotUrchinInstance.name=Sunsport Urchin Entity
+entity.SlippersInstance.name=Slippers Entity
 
 item.SunspotUrchin.name=Sunsport Urchin
 item.ThunderStaff.name=Thunder Staff
@@ -181,6 +182,8 @@ item.MediumZooCage.name=Medium Zoo Cage
 item.LargeZooCage.name=Large Zoo Cage
 item.ExtraLargeZooCage.name=Extra Large Zoo Cage
 item.TheZooKeeper.name=The Zoo Keeper
+item.SquidZooka.name=SquidZooka
+item.Slippers.name=Slippers
 
 item.LavaEelBoots.name=Lava Eel Boots
 item.LavaEelChestplate.name=Lava Eel Chestplate

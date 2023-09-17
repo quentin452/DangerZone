@@ -1,11 +1,13 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -126,7 +128,9 @@ public class ClientProxy implements ISidedProxy {
             .registerEntityRenderingHandler(MassoInstance.class, new MassoRenderer(new MassoModel(), shadowSize));
         RenderingRegistry
             .registerEntityRenderingHandler(BasilikInstance.class, new BasilikRenderer(new BasilikModel(), 0.5f));
+        ResourceLocation textureLocation = new ResourceLocation(Tags.MODID, "textures/entity/beaver.png");
 
+        RenderingRegistry.registerEntityRenderingHandler(BeaverInstance.class, new RenderGenericLiving(new BeaverModel(), 0.5f, textureLocation));
     }
 
     @Override
@@ -204,5 +208,12 @@ public class ClientProxy implements ISidedProxy {
     @Override
     public void sendFairyRename(FairyInstance fairy, String nameText) {
 
+    }
+
+    @Override
+    public EntityPlayer getClientPlayer() {
+
+
+        return null;
     }
 }

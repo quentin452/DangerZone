@@ -35,6 +35,8 @@ public abstract interface ISidedProxy {
 
     void sendFairyRename(FairyInstance fairy, String nameText);
 
+    EntityPlayer getClientPlayer();
+
     // public abstract void onMobModsPacketToClient(String paramString, int paramInt);
 
     // public abstract void onVelocityPacket(float paramFloat1, float paramFloat2, float paramFloat3);

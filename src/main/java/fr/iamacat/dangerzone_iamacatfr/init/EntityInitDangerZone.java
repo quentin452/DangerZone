@@ -931,6 +931,19 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
+
+        int BeaverInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BeaverInstance.class, "BeaverInstance", BeaverInstance);
+
+        EntityRegistry.registerModEntity(
+            BeaverInstance.class,
+            "BeaverInstance",
+            BeaverInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
     }
 
 }

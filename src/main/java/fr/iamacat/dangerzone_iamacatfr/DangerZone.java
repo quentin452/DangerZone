@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr;
 import java.io.File;
 import java.util.List;
 
+import fr.iamacat.dangerzone_iamacatfr.network.PZPacketHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
@@ -35,6 +36,7 @@ public class DangerZone {
 
     @SidedProxy(clientSide = Tags.CLIENTPROXY, serverSide = Tags.SERVERPROXY)
     public static ISidedProxy packetProxy;
+    public static PZPacketHandler packetHandler;
 
     public static Configuration config;
 

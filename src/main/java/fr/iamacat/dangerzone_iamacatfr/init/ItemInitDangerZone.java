@@ -1,30 +1,31 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.iamacat.dangerzone_iamacatfr.blocks.ItemIrukandjiArrow;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
-import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
 import fr.iamacat.dangerzone_iamacatfr.items.*;
 import fr.iamacat.dangerzone_iamacatfr.items.Acid;
 import fr.iamacat.dangerzone_iamacatfr.items.BattleAxe;
 import fr.iamacat.dangerzone_iamacatfr.items.BigBerthaSword;
 import fr.iamacat.dangerzone_iamacatfr.items.BigHammer;
 import fr.iamacat.dangerzone_iamacatfr.items.Blackheels;
+import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
 import fr.iamacat.dangerzone_iamacatfr.items.ExperienceCatcher;
 import fr.iamacat.dangerzone_iamacatfr.items.GameController;
-import fr.iamacat.dangerzone_iamacatfr.items.InstantShelter;
 import fr.iamacat.dangerzone_iamacatfr.items.InstantGarden;
-import fr.iamacat.dangerzone_iamacatfr.items.Wrench;
-import fr.iamacat.dangerzone_iamacatfr.items.WatterBall;
+import fr.iamacat.dangerzone_iamacatfr.items.InstantShelter;
 import fr.iamacat.dangerzone_iamacatfr.items.ThunderStaff;
+import fr.iamacat.dangerzone_iamacatfr.items.WatterBall;
+import fr.iamacat.dangerzone_iamacatfr.items.Wrench;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.ArmorMaterialModded;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.util.ToolMaterialModded;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 
 public class ItemInitDangerZone {
 
@@ -257,11 +258,37 @@ public class ItemInitDangerZone {
     public static Item dragonMeatCooked;
 
     public static void init() {
-        GameRegistry.registerItem(ItemInitDangerZone.rainbowOpalGem = new Item().setUnlocalizedName("rainbowOpalGem").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Tags.MODID +":rainbowOpalGem"), "rainbowOpalGem");
-        GameRegistry.registerItem(ItemInitDangerZone.pureRainbowOpalGem = new Item().setUnlocalizedName("pureRainbowOpalGem").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Tags.MODID +":pureRainbowOpalGem"), "pureRainbowOpalGem");
-        GameRegistry.registerItem(ItemInitDangerZone.rainbowOpalChunk = new Item().setUnlocalizedName("rainbowOpalChunk").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Tags.MODID +":rainbowOpalChunk"), "rainbowOpalChunk");
-        GameRegistry.registerItem(ItemInitDangerZone.dragonMeat = new ItemDecoyDragonFood("dragonMeat", 3, 0.3f, false, new PotionEffect(Potion.regeneration.id, 0, 0)).setAlwaysEdible(), "dragonMeat");
-        GameRegistry.registerItem(ItemInitDangerZone.dragonMeatCooked = new ItemDecoyDragonFood("dragonMeatCooked", 3, 1.0f, false, new PotionEffect(Potion.regeneration.id, 2, 1)).setAlwaysEdible(), "dragonMeatCooked");
+        GameRegistry.registerItem(
+            ItemInitDangerZone.rainbowOpalGem = new Item().setUnlocalizedName("rainbowOpalGem")
+                .setCreativeTab(CreativeTabs.tabMaterials)
+                .setTextureName(Tags.MODID + ":rainbowOpalGem"),
+            "rainbowOpalGem");
+        GameRegistry.registerItem(
+            ItemInitDangerZone.pureRainbowOpalGem = new Item().setUnlocalizedName("pureRainbowOpalGem")
+                .setCreativeTab(CreativeTabs.tabMaterials)
+                .setTextureName(Tags.MODID + ":pureRainbowOpalGem"),
+            "pureRainbowOpalGem");
+        GameRegistry.registerItem(
+            ItemInitDangerZone.rainbowOpalChunk = new Item().setUnlocalizedName("rainbowOpalChunk")
+                .setCreativeTab(CreativeTabs.tabMaterials)
+                .setTextureName(Tags.MODID + ":rainbowOpalChunk"),
+            "rainbowOpalChunk");
+        GameRegistry.registerItem(
+            ItemInitDangerZone.dragonMeat = new ItemDecoyDragonFood(
+                "dragonMeat",
+                3,
+                0.3f,
+                false,
+                new PotionEffect(Potion.regeneration.id, 0, 0)).setAlwaysEdible(),
+            "dragonMeat");
+        GameRegistry.registerItem(
+            ItemInitDangerZone.dragonMeatCooked = new ItemDecoyDragonFood(
+                "dragonMeatCooked",
+                3,
+                1.0f,
+                false,
+                new PotionEffect(Potion.regeneration.id, 2, 1)).setAlwaysEdible(),
+            "dragonMeatCooked");
         CrystalAppleItem = new CrystalApple().setUnlocalizedName("CrystalApple")
             .setTextureName(Tags.MODID + ":crystal_apple");
         MinersDream = new MinersDream(4).setUnlocalizedName("MinersDream");
@@ -349,7 +376,8 @@ public class ItemInitDangerZone {
         JumpyBugScale = new JumpyBugScale().setUnlocalizedName("JumpyBugScale");
         LavaEel = new LavaEel().setUnlocalizedName("LavaEel");
         SliceSword = new SliceSword(ToolMaterialModded.SLICEMATERIAL).setUnlocalizedName("SliceSword");
-        AttitudeAdjuster = new AttitudeAdjuster(ToolMaterialModded.AttitudeAdjusterMaterial).setUnlocalizedName("AttitudeAdjuster");
+        AttitudeAdjuster = new AttitudeAdjuster(ToolMaterialModded.AttitudeAdjusterMaterial)
+            .setUnlocalizedName("AttitudeAdjuster");
         LaserCharge = new LaserCharge().setUnlocalizedName("RobotLaserCharge");
         SkateBow = new SkateBow().setUnlocalizedName("SkateBow");
         ItemAcid = new Acid().setUnlocalizedName("ItemAcid");
@@ -375,27 +403,38 @@ public class ItemInitDangerZone {
         AmethystHoe = new AmethystHoe(ToolMaterialModded.AmethystHoe).setUnlocalizedName("AmethystHoe");
         AmethystAxe = new AmethystAxe(ToolMaterialModded.AmethystAxe).setUnlocalizedName("AmethystAxe");
         AmethystBoots = new AmethystBoots(ArmorMaterialModded.AmethystBoots, 3, 3).setUnlocalizedName("AmethystBoots");
-        AmethystChestplate = new AmethystChestplate(ArmorMaterialModded.AmethystChestplate, 1, 1).setUnlocalizedName("AmethystChestplate");
-        AmethystHelmet = new AmethystHelmet(ArmorMaterialModded.AmethystHelmet, 0, 0).setUnlocalizedName("AmethystHelmet");
-        AmethystLeggings = new AmethystLeggings(ArmorMaterialModded.AmethystLeggings, 2, 2).setUnlocalizedName("AmethystLeggings");
+        AmethystChestplate = new AmethystChestplate(ArmorMaterialModded.AmethystChestplate, 1, 1)
+            .setUnlocalizedName("AmethystChestplate");
+        AmethystHelmet = new AmethystHelmet(ArmorMaterialModded.AmethystHelmet, 0, 0)
+            .setUnlocalizedName("AmethystHelmet");
+        AmethystLeggings = new AmethystLeggings(ArmorMaterialModded.AmethystLeggings, 2, 2)
+            .setUnlocalizedName("AmethystLeggings");
         TigersEyeSword = new TigersEyeSword(ToolMaterialModded.TigersEyeSword).setUnlocalizedName("TigersEyeSword");
         TigersEyeShovel = new TigersEyeShovel(ToolMaterialModded.TigersEyeSHovel).setUnlocalizedName("TigersEyeShovel");
-        TigersEyePickaxe = new TigersEyePickaxe(ToolMaterialModded.TigersEyePickaxe).setUnlocalizedName("TigersEyePickaxe");
+        TigersEyePickaxe = new TigersEyePickaxe(ToolMaterialModded.TigersEyePickaxe)
+            .setUnlocalizedName("TigersEyePickaxe");
         TigersEyeHoe = new TigersEyeHoe(ToolMaterialModded.TigersEyetHoe).setUnlocalizedName("TigersEyeHoe");
         TigersEyeAxe = new TigersEyeAxe(ToolMaterialModded.TigersEyeAxe).setUnlocalizedName("TigersEyeAxe");
-        TigersEyeBoots = new TigersEyeBoots(ArmorMaterialModded.TigersEyeBoots, 3, 3).setUnlocalizedName("TigersEyeBoots");
-        TigersEyeChestplate = new TigersEyeChestplate(ArmorMaterialModded.TigersEyeChestplate, 1, 1).setUnlocalizedName("TigersEyeChestplate");
-        TigersEyeHelmet = new TigersEyeHelmet(ArmorMaterialModded.TigersEyeHelmet, 0, 0).setUnlocalizedName("TigersEyeHelmet");
-        TigersEyeLeggings = new TigersEyeLeggings(ArmorMaterialModded.TigersEyeLeggings, 2, 2).setUnlocalizedName("TigersEyeLeggings");
+        TigersEyeBoots = new TigersEyeBoots(ArmorMaterialModded.TigersEyeBoots, 3, 3)
+            .setUnlocalizedName("TigersEyeBoots");
+        TigersEyeChestplate = new TigersEyeChestplate(ArmorMaterialModded.TigersEyeChestplate, 1, 1)
+            .setUnlocalizedName("TigersEyeChestplate");
+        TigersEyeHelmet = new TigersEyeHelmet(ArmorMaterialModded.TigersEyeHelmet, 0, 0)
+            .setUnlocalizedName("TigersEyeHelmet");
+        TigersEyeLeggings = new TigersEyeLeggings(ArmorMaterialModded.TigersEyeLeggings, 2, 2)
+            .setUnlocalizedName("TigersEyeLeggings");
         UltimateSword = new UltimateSword(ToolMaterialModded.UltimateSword).setUnlocalizedName("UltimateSword");
         UltimateShovel = new UltimateShovel(ToolMaterialModded.UltimateShovel).setUnlocalizedName("UltimateShovel");
         UltimatePickaxe = new UltimatePickaxe(ToolMaterialModded.UltimatePickaxe).setUnlocalizedName("UltimatePickaxe");
         UltimateHoe = new UltimateHoe(ToolMaterialModded.UltimateHoe).setUnlocalizedName("UltimateHoe");
         UltimateAxe = new UltimateAxe(ToolMaterialModded.UltimateAxe).setUnlocalizedName("UltimateAxe");
         UltimateBoots = new UltimateBoots(ArmorMaterialModded.UltimateBoots, 3, 3).setUnlocalizedName("UltimateBoots");
-        UltimateChestplate = new UltimateChestplate(ArmorMaterialModded.UltimateChestplate, 1, 1).setUnlocalizedName("UltimateChestplate");
-        UltimateHelmet = new UltimateHelmet(ArmorMaterialModded.UltimateHelmet, 0, 0).setUnlocalizedName("UltimateHelmet");
-        UltimateLeggings = new UltimateLeggings(ArmorMaterialModded.UltimateLeggings, 2, 2).setUnlocalizedName("UltimateLeggings");
+        UltimateChestplate = new UltimateChestplate(ArmorMaterialModded.UltimateChestplate, 1, 1)
+            .setUnlocalizedName("UltimateChestplate");
+        UltimateHelmet = new UltimateHelmet(ArmorMaterialModded.UltimateHelmet, 0, 0)
+            .setUnlocalizedName("UltimateHelmet");
+        UltimateLeggings = new UltimateLeggings(ArmorMaterialModded.UltimateLeggings, 2, 2)
+            .setUnlocalizedName("UltimateLeggings");
         UltimateBow = new UltimateBow().setUnlocalizedName("UltimateBow");
         UltimateFishingRod = new UltimateFishingRod().setUnlocalizedName("UltimateFishingRod");
         RubySword = new RubySword(ToolMaterialModded.RubySword).setUnlocalizedName("RubySword");
@@ -404,7 +443,8 @@ public class ItemInitDangerZone {
         RubyHoe = new RubyHoe(ToolMaterialModded.RubyHoe).setUnlocalizedName("RubyHoe");
         RubyAxe = new RubyAxe(ToolMaterialModded.RubyAxe).setUnlocalizedName("RubyAxe");
         RubyBoots = new RubyBoots(ArmorMaterialModded.RubyBoots, 3, 3).setUnlocalizedName("RubyBoots");
-        RubyChestplate = new RubyChestplate(ArmorMaterialModded.RubyChestplate, 1, 1).setUnlocalizedName("RubyChestplate");
+        RubyChestplate = new RubyChestplate(ArmorMaterialModded.RubyChestplate, 1, 1)
+            .setUnlocalizedName("RubyChestplate");
         RubyHelmet = new RubyHelmet(ArmorMaterialModded.RubyHelmet, 0, 0).setUnlocalizedName("RubyHelmet");
         RubyLeggings = new RubyLeggings(ArmorMaterialModded.RubyLeggings, 2, 2).setUnlocalizedName("RubyLeggings");
         EmeraldSword = new EmeraldSword(ToolMaterialModded.EmeraldSword).setUnlocalizedName("EmeraldSword");
@@ -413,49 +453,73 @@ public class ItemInitDangerZone {
         EmeraldHoe = new EmeraldHoe(ToolMaterialModded.EmeraldHoe).setUnlocalizedName("EmeraldHoe");
         EmeraldAxe = new EmeraldAxe(ToolMaterialModded.EmeraldAxe).setUnlocalizedName("EmeraldAxe");
         EmeraldBoots = new EmeraldBoots(ArmorMaterialModded.EmeraldBoots, 3, 3).setUnlocalizedName("EmeraldBoots");
-        EmeraldChestplate = new EmeraldChestplate(ArmorMaterialModded.EmeraldChestplate, 1, 1).setUnlocalizedName("EmeraldChestplate");
+        EmeraldChestplate = new EmeraldChestplate(ArmorMaterialModded.EmeraldChestplate, 1, 1)
+            .setUnlocalizedName("EmeraldChestplate");
         EmeraldHelmet = new EmeraldHelmet(ArmorMaterialModded.EmeraldHelmet, 0, 0).setUnlocalizedName("EmeraldHelmet");
-        EmeraldLeggings = new EmeraldLeggings(ArmorMaterialModded.EmeraldLeggings, 2, 2).setUnlocalizedName("EmeraldLeggings");
+        EmeraldLeggings = new EmeraldLeggings(ArmorMaterialModded.EmeraldLeggings, 2, 2)
+            .setUnlocalizedName("EmeraldLeggings");
         ExperienceSword = new ExperienceSword(ToolMaterialModded.ExperienceSword).setUnlocalizedName("ExperienceSword");
-        ExperienceBoots = new ExperienceBoots(ArmorMaterialModded.ExperienceBoots, 3, 3).setUnlocalizedName("ExperienceBoots");
-        ExperienceChestplate = new ExperienceChestplate(ArmorMaterialModded.ExperienceChestplate, 1, 1).setUnlocalizedName("ExperienceChestplate");
-        ExperienceHelmet = new ExperienceHelmet(ArmorMaterialModded.ExperienceHelmet, 0, 0).setUnlocalizedName("ExperienceHelmet");
-        ExperienceLeggings = new ExperienceLeggings(ArmorMaterialModded.ExperienceLeggings, 2, 2).setUnlocalizedName("ExperienceLeggings");
+        ExperienceBoots = new ExperienceBoots(ArmorMaterialModded.ExperienceBoots, 3, 3)
+            .setUnlocalizedName("ExperienceBoots");
+        ExperienceChestplate = new ExperienceChestplate(ArmorMaterialModded.ExperienceChestplate, 1, 1)
+            .setUnlocalizedName("ExperienceChestplate");
+        ExperienceHelmet = new ExperienceHelmet(ArmorMaterialModded.ExperienceHelmet, 0, 0)
+            .setUnlocalizedName("ExperienceHelmet");
+        ExperienceLeggings = new ExperienceLeggings(ArmorMaterialModded.ExperienceLeggings, 2, 2)
+            .setUnlocalizedName("ExperienceLeggings");
         KyaniteSword = new KyaniteSword(ToolMaterialModded.KyaniteSword).setUnlocalizedName("KyaniteSword");
         KyaniteShovel = new KyaniteShovel(ToolMaterialModded.KyaniteShovel).setUnlocalizedName("KyaniteShovel");
         KyanitePickaxe = new KyanitePickaxe(ToolMaterialModded.KyanitePickaxe).setUnlocalizedName("KyanitePickaxe");
         KyaniteHoe = new KyaniteHoe(ToolMaterialModded.KyaniteHoe).setUnlocalizedName("KyaniteHoe");
         KyaniteAxe = new KyaniteAxe(ToolMaterialModded.KyaniteAxe).setUnlocalizedName("KyaniteAxe");
         LapisBoots = new LapisBoots(ArmorMaterialModded.LapisBoots, 3, 3).setUnlocalizedName("LapisBoots");
-        LapisChestplate = new LapisChestplate(ArmorMaterialModded.LapisChestplate, 1, 1).setUnlocalizedName("LapisChestplate");
+        LapisChestplate = new LapisChestplate(ArmorMaterialModded.LapisChestplate, 1, 1)
+            .setUnlocalizedName("LapisChestplate");
         LapisHelmet = new LapisHelmet(ArmorMaterialModded.LapisHelmet, 0, 0).setUnlocalizedName("LapisHelmet");
         LapisLeggings = new LapisLeggings(ArmorMaterialModded.LapisLeggings, 2, 2).setUnlocalizedName("LapisLeggings");
         LavaEelBoots = new LavaEelBoots(ArmorMaterialModded.LavaEelBoots, 3, 3).setUnlocalizedName("LavaEelBoots");
-        LavaEelChestplate = new LavaEelChestplate(ArmorMaterialModded.LavaEelChestplate, 1, 1).setUnlocalizedName("LavaEelChestplate");
+        LavaEelChestplate = new LavaEelChestplate(ArmorMaterialModded.LavaEelChestplate, 1, 1)
+            .setUnlocalizedName("LavaEelChestplate");
         LavaEelHelmet = new LavaEelHelmet(ArmorMaterialModded.LavaEelHelmet, 0, 0).setUnlocalizedName("LavaEelHelmet");
-        LavaEelLeggings = new LavaEelLeggings(ArmorMaterialModded.LavaEelLeggings, 2, 2).setUnlocalizedName("LavaEelLeggings");
+        LavaEelLeggings = new LavaEelLeggings(ArmorMaterialModded.LavaEelLeggings, 2, 2)
+            .setUnlocalizedName("LavaEelLeggings");
         MobzillaBoots = new MobzillaBoots(ArmorMaterialModded.MobzillaBoots, 3, 3).setUnlocalizedName("MobzillaBoots");
-        MobzillaChestplate = new MobzillaChestplate(ArmorMaterialModded.MobzillaChestplate, 1, 1).setUnlocalizedName("MobzillaChestplate");
-        MobzillaHelmet = new MobzillaHelmet(ArmorMaterialModded.MobzillaHelmet, 0, 0).setUnlocalizedName("MobzillaHelmet");
-        MobzillaLeggings = new MobzillaLeggings(ArmorMaterialModded.MobzillaLeggings, 2, 2).setUnlocalizedName("MobzillaLeggings");
-        MothScaleBoots = new MothScaleBoots(ArmorMaterialModded.MothScaleBoots, 3, 3).setUnlocalizedName("MothScaleBoots");
-        MothScaleChestplate = new MothScaleChestplate(ArmorMaterialModded.MothScaleChestplate, 1, 1).setUnlocalizedName("MothScaleChestplate");
-        MothScaleHelmet = new MothScaleHelmet(ArmorMaterialModded.MothScaleHelmet, 0, 0).setUnlocalizedName("MothScaleHelmet");
-        MothScaleLeggings = new MothScaleLeggings(ArmorMaterialModded.MothScaleLeggings, 2, 2).setUnlocalizedName("MothScaleLeggings");
+        MobzillaChestplate = new MobzillaChestplate(ArmorMaterialModded.MobzillaChestplate, 1, 1)
+            .setUnlocalizedName("MobzillaChestplate");
+        MobzillaHelmet = new MobzillaHelmet(ArmorMaterialModded.MobzillaHelmet, 0, 0)
+            .setUnlocalizedName("MobzillaHelmet");
+        MobzillaLeggings = new MobzillaLeggings(ArmorMaterialModded.MobzillaLeggings, 2, 2)
+            .setUnlocalizedName("MobzillaLeggings");
+        MothScaleBoots = new MothScaleBoots(ArmorMaterialModded.MothScaleBoots, 3, 3)
+            .setUnlocalizedName("MothScaleBoots");
+        MothScaleChestplate = new MothScaleChestplate(ArmorMaterialModded.MothScaleChestplate, 1, 1)
+            .setUnlocalizedName("MothScaleChestplate");
+        MothScaleHelmet = new MothScaleHelmet(ArmorMaterialModded.MothScaleHelmet, 0, 0)
+            .setUnlocalizedName("MothScaleHelmet");
+        MothScaleLeggings = new MothScaleLeggings(ArmorMaterialModded.MothScaleLeggings, 2, 2)
+            .setUnlocalizedName("MothScaleLeggings");
         PeacockBoots = new PeacockBoots(ArmorMaterialModded.PeacockBoots, 3, 3).setUnlocalizedName("PeacockBoots");
-        PeacockChestplate = new PeacockChestplate(ArmorMaterialModded.PeacockChestplate, 1, 1).setUnlocalizedName("PeacockChestplate");
+        PeacockChestplate = new PeacockChestplate(ArmorMaterialModded.PeacockChestplate, 1, 1)
+            .setUnlocalizedName("PeacockChestplate");
         PeacockHelmet = new PeacockHelmet(ArmorMaterialModded.PeacockHelmet, 0, 0).setUnlocalizedName("PeacockHelmet");
-        PeacockLeggings = new PeacockLeggings(ArmorMaterialModded.PeacockLeggings, 2, 2).setUnlocalizedName("PeacockLeggings");
-        PinkTourmalineBoots = new PinkTourmalineBoots(ArmorMaterialModded.PinktourmalineBoots, 3, 3).setUnlocalizedName("PinkTourmalineBoots");
-        PinkTourmalineChestplate = new PinkTourmalineChestplate(ArmorMaterialModded.PinktourmalineChestplate, 1, 1).setUnlocalizedName("PinkTourmalineChestplate");
-        PinkTourmalineHelmet = new PinkTourmalineHelmet(ArmorMaterialModded.PinktourmalineHelmet, 0, 0).setUnlocalizedName("PinkTourmalineHelmet");
-        PinkTourmalineLeggings = new PinkTourmalineLeggings(ArmorMaterialModded.PinktourmalineLeggings, 2, 2).setUnlocalizedName("PinkTourmalineLeggings");
+        PeacockLeggings = new PeacockLeggings(ArmorMaterialModded.PeacockLeggings, 2, 2)
+            .setUnlocalizedName("PeacockLeggings");
+        PinkTourmalineBoots = new PinkTourmalineBoots(ArmorMaterialModded.PinktourmalineBoots, 3, 3)
+            .setUnlocalizedName("PinkTourmalineBoots");
+        PinkTourmalineChestplate = new PinkTourmalineChestplate(ArmorMaterialModded.PinktourmalineChestplate, 1, 1)
+            .setUnlocalizedName("PinkTourmalineChestplate");
+        PinkTourmalineHelmet = new PinkTourmalineHelmet(ArmorMaterialModded.PinktourmalineHelmet, 0, 0)
+            .setUnlocalizedName("PinkTourmalineHelmet");
+        PinkTourmalineLeggings = new PinkTourmalineLeggings(ArmorMaterialModded.PinktourmalineLeggings, 2, 2)
+            .setUnlocalizedName("PinkTourmalineLeggings");
         QueenBoots = new QueenBoots(ArmorMaterialModded.QueenBoots, 3, 3).setUnlocalizedName("QueenBoots");
-        QueenChestplate = new QueenChestplate(ArmorMaterialModded.QueenChestplate, 1, 1).setUnlocalizedName("QueenChestplate");
+        QueenChestplate = new QueenChestplate(ArmorMaterialModded.QueenChestplate, 1, 1)
+            .setUnlocalizedName("QueenChestplate");
         QueenHelmet = new QueenHelmet(ArmorMaterialModded.QueenHelmet, 0, 0).setUnlocalizedName("QueenHelmet");
         QueenLeggings = new QueenLeggings(ArmorMaterialModded.QueenLeggings, 2, 2).setUnlocalizedName("QueenLeggings");
         RoyalBoots = new RoyalBoots(ArmorMaterialModded.RoyalBoots, 3, 3).setUnlocalizedName("RoyalBoots");
-        RoyalChestplate = new RoyalChestplate(ArmorMaterialModded.RoyalChestplate, 1, 1).setUnlocalizedName("RoyalChestplate");
+        RoyalChestplate = new RoyalChestplate(ArmorMaterialModded.RoyalChestplate, 1, 1)
+            .setUnlocalizedName("RoyalChestplate");
         RoyalHelmet = new RoyalChestplate(ArmorMaterialModded.RoyalHelmet, 0, 0).setUnlocalizedName("RoyalHelmet");
         RoyalLeggings = new RoyalLeggings(ArmorMaterialModded.RoyalLeggings, 2, 2).setUnlocalizedName("RoyalLeggings");
         ExtraSmallZooCage = new ExtraSmallZooCage().setUnlocalizedName("ExtraSmallZooCage");
@@ -466,9 +530,6 @@ public class ItemInitDangerZone {
         TheZooKeeper = new TheZooKeeper().setUnlocalizedName("TheZooKeeper");
         SquidZooka = new SquidZooka().setUnlocalizedName("SquidZooka");
         Slippers = new Slippers().setUnlocalizedName("Slippers");
-
-
-
 
     }
 
@@ -675,9 +736,6 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(TheZooKeeper, "TheZooKeeper");
         GameRegistry.registerItem(SquidZooka, "SquidZooka");
         GameRegistry.registerItem(Slippers, "Slippers");
-
-
-
 
     }
 }

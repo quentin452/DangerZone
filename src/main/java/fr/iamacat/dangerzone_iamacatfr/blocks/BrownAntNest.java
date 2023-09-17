@@ -1,8 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,15 +15,18 @@ import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class BrownAntNest extends BlockGrass {
+
     private final int maxEntitiesCanSpawn = 10;
     private int numSpawned = 0;
     @SideOnly(Side.CLIENT)
     private IIcon[] field_94364_a;
 
-    public BrownAntNest() {
-    }
+    public BrownAntNest() {}
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(final int par1, final int par2) {

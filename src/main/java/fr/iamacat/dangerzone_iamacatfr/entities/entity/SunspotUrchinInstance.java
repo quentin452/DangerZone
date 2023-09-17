@@ -1,7 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
-import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,6 +7,9 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 
 public class SunspotUrchinInstance extends EntityThrowable {
     // todo fix none model are sended when throwed
@@ -31,6 +32,7 @@ public class SunspotUrchinInstance extends EntityThrowable {
         this.is_irukandji = 0;
         this.ticksalive = 0;
     }
+
     public SunspotUrchinInstance(final World world) {
         super(world);
         this.my_rotation = 0.0f;
@@ -90,16 +92,16 @@ public class SunspotUrchinInstance extends EntityThrowable {
         float var2 = 16.0f;
         if (par1MovingObjectPosition.entityHit != null) {
             if (isAcid != 0) {
-                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof JumpyBugInstance ||
-                    par1MovingObjectPosition.entityHit instanceof SpitInstance;
+                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof JumpyBugInstance
+                    || par1MovingObjectPosition.entityHit instanceof SpitInstance;
                 setEntityDeadIfCondition(par1MovingObjectPosition.entityHit, shouldSetDead);
             } else {
-                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof RoboJefferyInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboPounderInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboGunnerInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboWarriorInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboSniperInstance ||
-                    par1MovingObjectPosition.entityHit instanceof SpiderRobotInstance;
+                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof RoboJefferyInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboPounderInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboGunnerInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboWarriorInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboSniperInstance
+                    || par1MovingObjectPosition.entityHit instanceof SpiderRobotInstance;
                 setEntityDeadIfCondition(par1MovingObjectPosition.entityHit, shouldSetDead);
 
                 if (par1MovingObjectPosition.entityHit instanceof DragonInstance) {
@@ -113,10 +115,11 @@ public class SunspotUrchinInstance extends EntityThrowable {
                 }
                 // Mettre les entités en feu
                 if (par1MovingObjectPosition.entityHit != null && this.is_iceball == 0) {
-                    par1MovingObjectPosition.entityHit.setFire(5); // Réglez la durée du feu en ticks ici (5 dans cet exemple)
+                    par1MovingObjectPosition.entityHit.setFire(5); // Réglez la durée du feu en ticks ici (5 dans cet
+                                                                   // exemple)
                 }
 
-                 // todo fix can't make fire on the ground
+                // todo fix can't make fire on the ground
                 // Créer du feu au sol
                 if (!this.worldObj.isRemote) {
                     double x = this.posX;
@@ -133,20 +136,14 @@ public class SunspotUrchinInstance extends EntityThrowable {
                         double motionY = -0.1; // Réglez la vitesse verticale des particules
                         double motionZ = 0.0;
 
-                        this.worldObj.spawnParticle(
-                            "flame",
-                            x + offsetX,
-                            y + offsetY,
-                            z + offsetZ,
-                            motionX,
-                            motionY,
-                            motionZ
-                        );
+                        this.worldObj
+                            .spawnParticle("flame", x + offsetX, y + offsetY, z + offsetZ, motionX, motionY, motionZ);
                     }
                 }
 
                 assert par1MovingObjectPosition.entityHit != null;
-                par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
+                par1MovingObjectPosition.entityHit
+                    .attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
 
                 if (this.is_iceball == 0) {
                     par1MovingObjectPosition.entityHit.setFire(1);
@@ -187,14 +184,14 @@ public class SunspotUrchinInstance extends EntityThrowable {
         int mx = this.is_special != 0 ? 10 : this.is_iceball != 0 ? 2 : 4;
 
         for (int i = 0; i < mx; ++i) {
-                this.worldObj.spawnParticle(
-                    "reddust",
-                    this.posX,
-                    this.posY,
-                    this.posZ,
-                    this.worldObj.rand.nextGaussian() / 10.0,
-                    this.worldObj.rand.nextGaussian() / 10.0,
-                    this.worldObj.rand.nextGaussian() / 10.0);
+            this.worldObj.spawnParticle(
+                "reddust",
+                this.posX,
+                this.posY,
+                this.posZ,
+                this.worldObj.rand.nextGaussian() / 10.0,
+                this.worldObj.rand.nextGaussian() / 10.0,
+                this.worldObj.rand.nextGaussian() / 10.0);
 
         }
     }

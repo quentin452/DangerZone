@@ -1,8 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -10,6 +7,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class InstantShelter extends Item {
 
@@ -21,9 +21,8 @@ public class InstantShelter extends Item {
         this.setTextureName(Tags.MODID + ":InstantShelter");
     }
 
-    public boolean onItemUse(final ItemStack itemStack, final EntityPlayer player, final World world,
-                             final int targetX, final int targetY, final int targetZ, final int side, final float hitX, final float hitY,
-                             final float hitZ) {
+    public boolean onItemUse(final ItemStack itemStack, final EntityPlayer player, final World world, final int targetX,
+        final int targetY, final int targetZ, final int side, final float hitX, final float hitY, final float hitZ) {
         int deltaX = 0;
         int deltaZ = 0;
         int directionX = 0;
@@ -87,6 +86,7 @@ public class InstantShelter extends Item {
 
         return true;
     }
+
     private void buildHouse(World world, int x, int y, int z, int deltaX, int deltaZ, int stuffDirection) {
         // Construction des murs extérieurs
         for (int i = -WIDTH; i <= WIDTH; ++i) {
@@ -122,13 +122,15 @@ public class InstantShelter extends Item {
         world.setBlock(x + deltaX * 2, y + 1, z + deltaZ * 2, Blocks.furnace);
     }
 
-    private void createChest(World world, int x, int y, int z, int deltaX, int deltaZ, int stuffDirection, EntityPlayer player) {
+    private void createChest(World world, int x, int y, int z, int deltaX, int deltaZ, int stuffDirection,
+        EntityPlayer player) {
         // Création d'un coffre
         world.setBlock(x + deltaX * (WIDTH / 2), y + 1, z + deltaZ * (WIDTH / 2), Blocks.chest);
         int chestMeta = 2; // Vous pouvez ajuster la métadonnée du coffre en fonction de stuffDirection
         world.setBlockMetadataWithNotify(x + deltaX * (WIDTH / 2), y + 1, z + deltaZ * (WIDTH / 2), chestMeta, 3);
 
-        TileEntityChest chest = (TileEntityChest) world.getTileEntity(x + deltaX * (WIDTH / 2), y + 1, z + deltaZ * (WIDTH / 2));
+        TileEntityChest chest = (TileEntityChest) world
+            .getTileEntity(x + deltaX * (WIDTH / 2), y + 1, z + deltaZ * (WIDTH / 2));
 
         if (chest != null) {
             // Ajout d'objets dans le coffre

@@ -8,7 +8,6 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
 import fr.iamacat.dangerzone_iamacatfr.spawnable.SpawnEggs;
 import fr.iamacat.dangerzone_iamacatfr.util.Constants;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class SpawnEggInitDangerZone {
 
@@ -435,12 +434,12 @@ public class SpawnEggInitDangerZone {
         Constants.EntityAlpsDragonSpawnEgg = EntityAlpsDragonSpawnEgg;
         GameRegistry.registerItem(Constants.EntityAlpsDragonSpawnEgg, "Entity Alps Dragon Egg");
 
-       /*SpawnEggs EntityAngelDragonSpawnEgg = new SpawnEggs(EntityAngelDragon.class);
-        EntityAngelDragonSpawnEgg.setUnlocalizedName("Entity Angel Dragon Egg");
-        Constants.EntityAngelDragonSpawnEgg = EntityAngelDragonSpawnEgg;
-        GameRegistry.registerItem(Constants.EntityAngelDragonSpawnEgg, "Entity Angel Dragon Egg");
-
-        */
+        /*
+         * SpawnEggs EntityAngelDragonSpawnEgg = new SpawnEggs(EntityAngelDragon.class);
+         * EntityAngelDragonSpawnEgg.setUnlocalizedName("Entity Angel Dragon Egg");
+         * Constants.EntityAngelDragonSpawnEgg = EntityAngelDragonSpawnEgg;
+         * GameRegistry.registerItem(Constants.EntityAngelDragonSpawnEgg, "Entity Angel Dragon Egg");
+         */
 
         SpawnEggs EntityBirchDragonSpawnEgg = new SpawnEggs(EntityBirchDragon.class);
         EntityBirchDragonSpawnEgg.setUnlocalizedName("Entity Birch Dragon Egg");
@@ -512,7 +511,6 @@ public class SpawnEggInitDangerZone {
         Constants.EntityForestDragonSpawnEgg = EntityForestDragonSpawnEgg;
         GameRegistry.registerItem(Constants.EntityForestDragonSpawnEgg, "Entity Forest Dragon Egg");
 
-
         SpawnEggs EntityGoldDragonSpawnEgg = new SpawnEggs(EntityGoldDragon.class);
         EntityGoldDragonSpawnEgg.setUnlocalizedName("Entity Gold Dragon Egg");
         Constants.EntityGoldDragonSpawnEgg = EntityGoldDragonSpawnEgg;
@@ -528,12 +526,10 @@ public class SpawnEggInitDangerZone {
         Constants.EntityJungleDragonSpawnEgg = EntityJungleDragonSpawnEgg;
         GameRegistry.registerItem(Constants.EntityJungleDragonSpawnEgg, "Entity Jungle Dragon Egg");
 
-
         SpawnEggs EntityKleurloosSpawnEgg = new SpawnEggs(EntityKleurloos.class);
         EntityKleurloosSpawnEgg.setUnlocalizedName("Entity Kleurloos Egg");
         Constants.EntityKleurloosSpawnEgg = EntityKleurloosSpawnEgg;
         GameRegistry.registerItem(Constants.EntityKleurloosSpawnEgg, "Entity Kleurloos Egg");
-
 
         SpawnEggs EntityLapisDragonSpawnEgg = new SpawnEggs(EntityLapisDragon.class);
         EntityLapisDragonSpawnEgg.setUnlocalizedName("Entity Lapis Dragon Egg");

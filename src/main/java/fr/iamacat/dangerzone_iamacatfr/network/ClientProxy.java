@@ -1,5 +1,14 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -16,16 +25,6 @@ import fr.iamacat.dangerzone_iamacatfr.entities.render.AlienRenderer;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.babydragon.*;
 import fr.iamacat.dangerzone_iamacatfr.gui.FairyGui;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy implements ISidedProxy {
 
@@ -76,23 +75,19 @@ public class ClientProxy implements ISidedProxy {
             CrabInstance.class,
             new CrabRenderer(new CrabModel(), 0.625F, ":textures/entity/helmetcrab.png"));
 
-        RenderingRegistry.registerEntityRenderingHandler(
-            AlienInstance.class,
-            new AlienRenderer(new AlienModel(), 0.5f));
-        RenderingRegistry.registerEntityRenderingHandler(
-            RatInstance.class,
-            new RatRenderer(new RatModel(), 0.5f));
+        RenderingRegistry
+            .registerEntityRenderingHandler(AlienInstance.class, new AlienRenderer(new AlienModel(), 0.5f));
+        RenderingRegistry.registerEntityRenderingHandler(RatInstance.class, new RatRenderer(new RatModel(), 0.5f));
 
-        RenderingRegistry.registerEntityRenderingHandler(
-            AlosaurusInstance.class,
-            new AlosaurusRenderer(new AlosaurusModel(), 0.5f));
+        RenderingRegistry
+            .registerEntityRenderingHandler(AlosaurusInstance.class, new AlosaurusRenderer(new AlosaurusModel(), 0.5f));
         RenderingRegistry.registerEntityRenderingHandler(
             AttackSquidInstance.class,
             new AttackSquidRenderer(new AttackSquidModel(), 0.5f));
 
         RenderingRegistry.registerEntityRenderingHandler(EntityBirchDragon.class, new RenderBirchDragon());
-        RenderingRegistry.registerEntityRenderingHandler( EntityBlazeDragon.class, new RenderBlazeDragon());
-        RenderingRegistry.registerEntityRenderingHandler( EntityAlpsDragon.class, new RenderAlpsDragon());
+        RenderingRegistry.registerEntityRenderingHandler(EntityBlazeDragon.class, new RenderBlazeDragon());
+        RenderingRegistry.registerEntityRenderingHandler(EntityAlpsDragon.class, new RenderAlpsDragon());
         RenderingRegistry.registerEntityRenderingHandler(EntityCaveDragon.class, new RenderCaveDragon());
         RenderingRegistry.registerEntityRenderingHandler(EntityDesertDragon.class, new RenderDesertDragon());
         RenderingRegistry.registerEntityRenderingHandler(EntityDiamondDragon.class, new RenderDiamondDragon());
@@ -127,9 +122,13 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityKleurloos.class, new RenderKleurloos());
         RenderingRegistry.registerEntityRenderingHandler(EntityAngelDragon.class, new RenderAngelDragon());
 
-        RenderingRegistry.registerEntityRenderingHandler(BaryonyxInstance.class, new BaryonyxRenderer(new BaryonyxModel(), shadowSize, 2.5f));
-        RenderingRegistry.registerEntityRenderingHandler(MassoInstance.class, new MassoRenderer(new MassoModel(), shadowSize));
-        RenderingRegistry.registerEntityRenderingHandler(BasilikInstance.class, new BasilikRenderer(new BasilikModel(), 0.5f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            BaryonyxInstance.class,
+            new BaryonyxRenderer(new BaryonyxModel(), shadowSize, 2.5f));
+        RenderingRegistry
+            .registerEntityRenderingHandler(MassoInstance.class, new MassoRenderer(new MassoModel(), shadowSize));
+        RenderingRegistry
+            .registerEntityRenderingHandler(BasilikInstance.class, new BasilikRenderer(new BasilikModel(), 0.5f));
 
     }
 

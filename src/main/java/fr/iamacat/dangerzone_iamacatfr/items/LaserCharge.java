@@ -1,11 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.LaserBallInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.LaserBallInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class LaserCharge extends Item {
 
@@ -14,8 +15,7 @@ public class LaserCharge extends Item {
         this.setTextureName(Tags.MODID + ":laserball");
     }
 
-    public ItemStack onItemRightClick(final ItemStack stack, final World world,
-                                      final EntityPlayer entityPlayer) {
+    public ItemStack onItemRightClick(final ItemStack stack, final World world, final EntityPlayer entityPlayer) {
         if (!entityPlayer.capabilities.isCreativeMode) {
             --stack.stackSize;
         }

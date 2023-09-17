@@ -1,10 +1,11 @@
-//Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings "C:\Users\Administrator\Downloads\Minecraft-Deobfuscator3000-1.2.3\Minecraft-Deobfuscator3000-1.2.3\1.7.10 stable mappings"!
+// Deobfuscated with https://github.com/SimplyProgrammer/Minecraft-Deobfuscator3000 using mappings
+// "C:\Users\Administrator\Downloads\Minecraft-Deobfuscator3000-1.2.3\Minecraft-Deobfuscator3000-1.2.3\1.7.10 stable
+// mappings"!
 
-//Decompiled by Procyon!
+// Decompiled by Procyon!
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.passive.EntityTameable;
@@ -13,8 +14,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class MassoInstance extends EntityTameable
-{
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
+public class MassoInstance extends EntityTameable {
+
     public MassoInstance(final World par1World) {
         super(par1World);
         this.setSize(1.0f, 1.0f);
@@ -25,18 +28,26 @@ public class MassoInstance extends EntityTameable
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true));
         this.tasks.addTask(1, new EntityAIAvoidEntity(this, BaryonyxInstance.class, 8.0f, 0.8, 0.8));
-     //   this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntitySpino.class, 8.0f, 0.8, 0.8));
-      // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntityDromaeosaurus.class, 8.0f, 0.6, 0.6));
-       // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntityMegalodon.class, 8.0f, 0.8, 0.8));
-      //  this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntityTylo.class, 8.0f, 0.8, 0.8));
-       // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntityQuetzalcoatlus.class, 8.0f, 0.8, 0.8));
-      //  this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntityCryo.class, 8.0f, 0.8, 0.8));
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntitySpino.class,
+        // 8.0f, 0.8, 0.8));
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this,
+        // (Class)EntityDromaeosaurus.class, 8.0f, 0.6, 0.6));
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this,
+        // (Class)EntityMegalodon.class, 8.0f, 0.8, 0.8));
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntityTylo.class,
+        // 8.0f, 0.8, 0.8));
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this,
+        // (Class)EntityQuetzalcoatlus.class, 8.0f, 0.8, 0.8));
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntityCryo.class,
+        // 8.0f, 0.8, 0.8));
     }
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.4);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10.0);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
+            .setBaseValue(0.4);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
+            .setBaseValue(10.0);
     }
 
     public void writeEntityToNBT(final NBTTagCompound par1NBTTagCompound) {
@@ -69,7 +80,9 @@ public class MassoInstance extends EntityTameable
     }
 
     protected void attackEntity(final Entity par1Entity, final float par2) {
-        if (this.attackTime <= 0 && par2 < 2.0f && par1Entity.boundingBox.maxY > this.boundingBox.minY && par1Entity.boundingBox.minY < this.boundingBox.maxY) {
+        if (this.attackTime <= 0 && par2 < 2.0f
+            && par1Entity.boundingBox.maxY > this.boundingBox.minY
+            && par1Entity.boundingBox.minY < this.boundingBox.maxY) {
             this.attackTime = 20;
             this.attackEntityAsMob(par1Entity);
         }
@@ -77,7 +90,7 @@ public class MassoInstance extends EntityTameable
 
     public boolean attackEntityAsMob(final Entity par1Entity) {
         final int i = 10;
-        return par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float)i);
+        return par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float) i);
     }
 
     public EntityAgeable createChild(final EntityAgeable entityageable) {
@@ -98,10 +111,9 @@ public class MassoInstance extends EntityTameable
     public void setAngry(final boolean par1) {
         final byte b0 = this.dataWatcher.getWatchableObjectByte(16);
         if (par1) {
-            this.dataWatcher.updateObject(16, (byte)(b0 | 0x2));
-        }
-        else {
-            this.dataWatcher.updateObject(16, (byte)(b0 & 0xFFFFFFFD));
+            this.dataWatcher.updateObject(16, (byte) (b0 | 0x2));
+        } else {
+            this.dataWatcher.updateObject(16, (byte) (b0 & 0xFFFFFFFD));
         }
     }
 }

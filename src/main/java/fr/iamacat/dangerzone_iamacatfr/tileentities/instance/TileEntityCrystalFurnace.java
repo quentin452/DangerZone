@@ -1,10 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.tileentities.instance;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.items.CrystalFurnace;
+import java.util.Objects;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +14,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import java.util.Objects;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.items.CrystalFurnace;
 
 public class TileEntityCrystalFurnace extends TileEntity implements ISidedInventory {
 

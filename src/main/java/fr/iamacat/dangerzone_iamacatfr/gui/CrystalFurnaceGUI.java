@@ -1,12 +1,14 @@
 package fr.iamacat.dangerzone_iamacatfr.gui;
 
-import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.ContainerCrystalFurnace;
-import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.ContainerCrystalFurnace;
+import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
 
 public class CrystalFurnaceGUI extends GuiContainer {
 

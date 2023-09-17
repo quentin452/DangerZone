@@ -1,10 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemSpade;
-import net.minecraft.item.ItemStack;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class AmethystShovel extends ItemSpade {
 

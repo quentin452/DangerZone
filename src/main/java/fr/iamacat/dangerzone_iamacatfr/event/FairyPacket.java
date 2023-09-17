@@ -1,10 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.event;
 
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.PacketBuffer;
+
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import io.netty.buffer.Unpooled;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.PacketBuffer;
 
 public abstract class FairyPacket extends FMLProxyPacket {
 

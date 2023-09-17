@@ -1,12 +1,11 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math;
 
 import java.io.Serializable;
 import java.util.logging.Logger;
 
-public final class Vector3f implements Cloneable, Serializable
-{
+public final class Vector3f implements Cloneable, Serializable {
+
     static final long serialVersionUID = 1L;
     private static final Logger logger;
     public static final Vector3f ZERO;
@@ -146,7 +145,8 @@ public final class Vector3f implements Cloneable, Serializable
     public Vector3f project(final Vector3f other) {
         final float n = this.dot(other);
         final float d = other.lengthSquared();
-        return new Vector3f(other).normalizeLocal().multLocal(n / d);
+        return new Vector3f(other).normalizeLocal()
+            .multLocal(n / d);
     }
 
     public boolean isUnitVector() {
@@ -166,7 +166,7 @@ public final class Vector3f implements Cloneable, Serializable
         final double dx = this.x - v.x;
         final double dy = this.y - v.y;
         final double dz = this.z - v.z;
-        return (float)(dx * dx + dy * dy + dz * dz);
+        return (float) (dx * dx + dy * dy + dz * dz);
     }
 
     public float distance(final Vector3f v) {
@@ -363,7 +363,12 @@ public final class Vector3f implements Cloneable, Serializable
     }
 
     public static boolean isValidVector(final Vector3f vector) {
-        return vector != null && !Float.isNaN(vector.x) && !Float.isNaN(vector.y) && !Float.isNaN(vector.z) && !Float.isInfinite(vector.x) && !Float.isInfinite(vector.y) && !Float.isInfinite(vector.z);
+        return vector != null && !Float.isNaN(vector.x)
+            && !Float.isNaN(vector.y)
+            && !Float.isNaN(vector.z)
+            && !Float.isInfinite(vector.x)
+            && !Float.isInfinite(vector.y)
+            && !Float.isInfinite(vector.z);
     }
 
     public static void generateOrthonormalBasis(final Vector3f u, final Vector3f v, final Vector3f w) {
@@ -380,8 +385,7 @@ public final class Vector3f implements Cloneable, Serializable
             v.x = w.y * u.z;
             v.y = w.z * u.x - w.x * u.z;
             v.z = -w.y * u.x;
-        }
-        else {
+        } else {
             final float fInvLength = FastMath.invSqrt(w.y * w.y + w.z * w.z);
             u.x = 0.0f;
             u.y = w.z * fInvLength;
@@ -394,9 +398,8 @@ public final class Vector3f implements Cloneable, Serializable
 
     public Vector3f clone() {
         try {
-            return (Vector3f)super.clone();
-        }
-        catch (CloneNotSupportedException e) {
+            return (Vector3f) super.clone();
+        } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
     }
@@ -419,8 +422,9 @@ public final class Vector3f implements Cloneable, Serializable
         if (this == o) {
             return true;
         }
-        final Vector3f comp = (Vector3f)o;
-        return Float.compare(this.x, comp.x) == 0 && Float.compare(this.y, comp.y) == 0 && Float.compare(this.z, comp.z) == 0;
+        final Vector3f comp = (Vector3f) o;
+        return Float.compare(this.x, comp.x) == 0 && Float.compare(this.y, comp.y) == 0
+            && Float.compare(this.z, comp.z) == 0;
     }
 
     @Override

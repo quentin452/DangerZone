@@ -1,9 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.util;
 
-import fr.iamacat.dangerzone_iamacatfr.spawnable.SpawnEggs;
 import net.minecraft.item.Item;
 
+import fr.iamacat.dangerzone_iamacatfr.spawnable.SpawnEggs;
+
 public class Constants {
+
     public static Item MassoSpawnEgg;
     public static Item AppleCowSpawnEgg;
     public static Item CrystalCowSpawnEgg;
@@ -122,7 +124,7 @@ public class Constants {
 
     public static SpawnEggs EntityAetherDragonSpawnEgg;
     public static SpawnEggs EntityAlpsDragonSpawnEgg;
-  //  public static SpawnEggs EntityAngelDragonSpawnEgg;
+    // public static SpawnEggs EntityAngelDragonSpawnEgg;
     public static SpawnEggs EntityBirchDragonSpawnEgg;
     public static SpawnEggs EntityBlazeDragonSpawnEgg;
     public static SpawnEggs EntityBluestoneDragonSpawnEgg;

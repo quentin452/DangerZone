@@ -1,21 +1,18 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraftforge.event.world.BlockEvent;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class NetherTracker extends Item {
+
     public NetherTracker() {
         this.setTextureName(Tags.MODID + ":netherlost");
     }

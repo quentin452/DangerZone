@@ -1,5 +1,4 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.angeldragon;
 
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.Channel;
@@ -7,8 +6,8 @@ import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.KeyFrame;
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Quaternion;
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Vector3f;
 
-public class ChannelLiving2 extends Channel
-{
+public class ChannelLiving2 extends Channel {
+
     public ChannelLiving2(final String _name, final float _fps, final int _totalFrames, final byte _mode) {
         super(_name, _fps, _totalFrames, _mode);
     }
@@ -28,12 +27,14 @@ public class ChannelLiving2 extends Channel
         frame0.modelRenderersRotations.put("rear2", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame0.modelRenderersRotations.put("rhorn2", new Quaternion(0.12186935f, 0.0f, 0.0f, 0.99254614f));
         frame0.modelRenderersRotations.put("rear1", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
-        frame0.modelRenderersRotations.put("lwing1", new Quaternion(-0.15641065f, 0.002730158f, -0.017237538f, 0.9875379f));
+        frame0.modelRenderersRotations
+            .put("lwing1", new Quaternion(-0.15641065f, 0.002730158f, -0.017237538f, 0.9875379f));
         frame0.modelRenderersRotations.put("lear1", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame0.modelRenderersRotations.put("body2", new Quaternion(-0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame0.modelRenderersRotations.put("neck2", new Quaternion(-0.25881904f, 0.0f, 0.0f, 0.9659258f));
         frame0.modelRenderersRotations.put("rear3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
-        frame0.modelRenderersRotations.put("rwing1", new Quaternion(-0.15641065f, -0.002730158f, 0.017237538f, 0.9875379f));
+        frame0.modelRenderersRotations
+            .put("rwing1", new Quaternion(-0.15641065f, -0.002730158f, 0.017237538f, 0.9875379f));
         frame0.modelRenderersRotations.put("tail1", new Quaternion(-0.11320321f, 0.0f, 0.0f, 0.9935719f));
         frame0.modelRenderersRotations.put("bodymain", new Quaternion(0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame0.modelRenderersRotations.put("lear3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
@@ -94,21 +95,25 @@ public class ChannelLiving2 extends Channel
         frame2.modelRenderersRotations.put("rear2", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame2.modelRenderersRotations.put("rhorn2", new Quaternion(0.12186935f, 0.0f, 0.0f, 0.99254614f));
         frame2.modelRenderersRotations.put("rear1", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
-        frame2.modelRenderersRotations.put("lwing1", new Quaternion(-0.15642852f, 0.001365131f, -0.008619097f, 0.98765075f));
+        frame2.modelRenderersRotations
+            .put("lwing1", new Quaternion(-0.15642852f, 0.001365131f, -0.008619097f, 0.98765075f));
         frame2.modelRenderersRotations.put("lear1", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame2.modelRenderersRotations.put("body2", new Quaternion(-0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame2.modelRenderersRotations.put("neck2", new Quaternion(-0.25881904f, 0.0f, 0.0f, 0.9659258f));
         frame2.modelRenderersRotations.put("rear3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
-        frame2.modelRenderersRotations.put("rwing1", new Quaternion(-0.15642852f, -0.001365131f, 0.008619097f, 0.98765075f));
+        frame2.modelRenderersRotations
+            .put("rwing1", new Quaternion(-0.15642852f, -0.001365131f, 0.008619097f, 0.98765075f));
         frame2.modelRenderersRotations.put("tail1", new Quaternion(-0.1131989f, 0.00867044f, 9.878718E-4f, 0.993534f));
         frame2.modelRenderersRotations.put("bodymain", new Quaternion(0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame2.modelRenderersRotations.put("lear3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
-        frame2.modelRenderersRotations.put("tail5", new Quaternion(0.07845611f, 0.008699634f, -6.846761E-4f, 0.99687934f));
+        frame2.modelRenderersRotations
+            .put("tail5", new Quaternion(0.07845611f, 0.008699634f, -6.846761E-4f, 0.99687934f));
         frame2.modelRenderersRotations.put("nose", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame2.modelRenderersRotations.put("rwing3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame2.modelRenderersRotations.put("neck1", new Quaternion(-0.34202012f, 0.0f, 0.0f, 0.9396926f));
         frame2.modelRenderersRotations.put("head", new Quaternion(-0.09584575f, 0.0f, 0.0f, 0.9953962f));
-        frame2.modelRenderersRotations.put("tail3", new Quaternion(0.061046217f, 0.008710259f, -5.3274224E-4f, 0.99809676f));
+        frame2.modelRenderersRotations
+            .put("tail3", new Quaternion(0.061046217f, 0.008710259f, -5.3274224E-4f, 0.99809676f));
         frame2.modelRenderersRotations.put("lhorn2", new Quaternion(0.12186935f, 0.0f, 0.0f, 0.99254614f));
         frame2.modelRenderersRotations.put("rwing2", new Quaternion(0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame2.modelRenderersRotations.put("lwing3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
@@ -226,21 +231,26 @@ public class ChannelLiving2 extends Channel
         frame4.modelRenderersRotations.put("rear2", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame4.modelRenderersRotations.put("rhorn2", new Quaternion(0.12186935f, 0.0f, 0.0f, 0.99254614f));
         frame4.modelRenderersRotations.put("rear1", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
-        frame4.modelRenderersRotations.put("lwing1", new Quaternion(-0.15642852f, 0.001365131f, -0.008619097f, 0.98765075f));
+        frame4.modelRenderersRotations
+            .put("lwing1", new Quaternion(-0.15642852f, 0.001365131f, -0.008619097f, 0.98765075f));
         frame4.modelRenderersRotations.put("lear1", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame4.modelRenderersRotations.put("body2", new Quaternion(-0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame4.modelRenderersRotations.put("neck2", new Quaternion(-0.25881904f, 0.0f, 0.0f, 0.9659258f));
         frame4.modelRenderersRotations.put("rear3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
-        frame4.modelRenderersRotations.put("rwing1", new Quaternion(-0.15642852f, -0.001365131f, 0.008619097f, 0.98765075f));
-        frame4.modelRenderersRotations.put("tail1", new Quaternion(-0.1131989f, -0.00867044f, -9.878718E-4f, 0.993534f));
+        frame4.modelRenderersRotations
+            .put("rwing1", new Quaternion(-0.15642852f, -0.001365131f, 0.008619097f, 0.98765075f));
+        frame4.modelRenderersRotations
+            .put("tail1", new Quaternion(-0.1131989f, -0.00867044f, -9.878718E-4f, 0.993534f));
         frame4.modelRenderersRotations.put("bodymain", new Quaternion(0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame4.modelRenderersRotations.put("lear3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
-        frame4.modelRenderersRotations.put("tail5", new Quaternion(0.07845611f, -0.008699634f, 6.846761E-4f, 0.99687934f));
+        frame4.modelRenderersRotations
+            .put("tail5", new Quaternion(0.07845611f, -0.008699634f, 6.846761E-4f, 0.99687934f));
         frame4.modelRenderersRotations.put("nose", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame4.modelRenderersRotations.put("rwing3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame4.modelRenderersRotations.put("neck1", new Quaternion(-0.34202012f, 0.0f, 0.0f, 0.9396926f));
         frame4.modelRenderersRotations.put("head", new Quaternion(-0.09584575f, 0.0f, 0.0f, 0.9953962f));
-        frame4.modelRenderersRotations.put("tail3", new Quaternion(0.061046217f, -0.008710259f, 5.3274224E-4f, 0.99809676f));
+        frame4.modelRenderersRotations
+            .put("tail3", new Quaternion(0.061046217f, -0.008710259f, 5.3274224E-4f, 0.99809676f));
         frame4.modelRenderersRotations.put("lhorn2", new Quaternion(0.12186935f, 0.0f, 0.0f, 0.99254614f));
         frame4.modelRenderersRotations.put("rwing2", new Quaternion(0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame4.modelRenderersRotations.put("lwing3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
@@ -292,12 +302,14 @@ public class ChannelLiving2 extends Channel
         frame5.modelRenderersRotations.put("rear2", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame5.modelRenderersRotations.put("rhorn2", new Quaternion(0.12186935f, 0.0f, 0.0f, 0.99254614f));
         frame5.modelRenderersRotations.put("rear1", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
-        frame5.modelRenderersRotations.put("lwing1", new Quaternion(-0.15641065f, 0.002730158f, -0.017237538f, 0.9875379f));
+        frame5.modelRenderersRotations
+            .put("lwing1", new Quaternion(-0.15641065f, 0.002730158f, -0.017237538f, 0.9875379f));
         frame5.modelRenderersRotations.put("lear1", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
         frame5.modelRenderersRotations.put("body2", new Quaternion(-0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame5.modelRenderersRotations.put("neck2", new Quaternion(-0.25881904f, 0.0f, 0.0f, 0.9659258f));
         frame5.modelRenderersRotations.put("rear3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
-        frame5.modelRenderersRotations.put("rwing1", new Quaternion(-0.15641065f, -0.002730158f, 0.017237538f, 0.9875379f));
+        frame5.modelRenderersRotations
+            .put("rwing1", new Quaternion(-0.15641065f, -0.002730158f, 0.017237538f, 0.9875379f));
         frame5.modelRenderersRotations.put("tail1", new Quaternion(-0.11320321f, 0.0f, 0.0f, 0.9935719f));
         frame5.modelRenderersRotations.put("bodymain", new Quaternion(0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame5.modelRenderersRotations.put("lear3", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));

@@ -1,14 +1,13 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation;
+
+import java.util.HashMap;
 
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Quaternion;
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Vector3f;
 
-import java.util.HashMap;
+public class KeyFrame {
 
-public class KeyFrame
-{
     public HashMap<String, Quaternion> modelRenderersRotations;
     public HashMap<String, Vector3f> modelRenderersTranslations;
 

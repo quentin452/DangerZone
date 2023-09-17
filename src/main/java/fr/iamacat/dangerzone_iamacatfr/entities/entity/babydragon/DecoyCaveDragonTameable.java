@@ -1,5 +1,4 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon;
 
 import net.minecraft.entity.EntityCreature;
@@ -15,8 +14,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class DecoyCaveDragonTameable extends EntityTameable
-{
+public abstract class DecoyCaveDragonTameable extends EntityTameable {
+
     public DecoyCaveDragonTameable(final World w) {
         super(w);
         this.addBasicAI();
@@ -24,23 +23,28 @@ public abstract class DecoyCaveDragonTameable extends EntityTameable
     }
 
     public double getHP() {
-        return this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getAttributeValue();
+        return this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
+            .getAttributeValue();
     }
 
     public double getMoveSpeed() {
-        return this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue();
+        return this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
+            .getAttributeValue();
     }
 
     public double getAttackDamage() {
-        return this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue();
+        return this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
+            .getAttributeValue();
     }
 
     public double getFollowRange() {
-        return this.getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
+        return this.getEntityAttribute(SharedMonsterAttributes.followRange)
+            .getAttributeValue();
     }
 
     public double getKnockbackResistance() {
-        return this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).getAttributeValue();
+        return this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance)
+            .getAttributeValue();
     }
 
     public abstract String mobName();
@@ -58,25 +62,44 @@ public abstract class DecoyCaveDragonTameable extends EntityTameable
     }
 
     protected void addBasicAI() {
-        this.getNavigator().setAvoidsWater(true);
+        this.getNavigator()
+            .setAvoidsWater(true);
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, this.aiSit);
         this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4f));
-        this.tasks.addTask(4, (EntityAIBase)new EntityAIAttackOnCollide(this, this.getMoveSpeed() * 5.0, true));
-        this.tasks.addTask(5, (EntityAIBase)new EntityAIFollowOwner((EntityTameable)this, this.getMoveSpeed() * 5.0, 4.0f, 16.0f));
-        this.tasks.addTask(6, (EntityAIBase)new EntityAIMate((EntityAnimal)this, 1.0));
-        this.tasks.addTask(7, (EntityAIBase)new EntityAIWander((EntityCreature)this, 1.0));
-        this.tasks.addTask(9, (EntityAIBase)new EntityAIWatchClosest((EntityLiving)this, EntityPlayer.class, 8.0f));
-        this.tasks.addTask(9, (EntityAIBase)new EntityAILookIdle((EntityLiving)this));
-        this.targetTasks.addTask(1, (EntityAIBase)new EntityAIOwnerHurtByTarget((EntityTameable)this));
-        this.targetTasks.addTask(2, (EntityAIBase)new EntityAIOwnerHurtTarget((EntityTameable)this));
-        this.targetTasks.addTask(3, (EntityAIBase)new EntityAIHurtByTarget((EntityCreature)this, true));
-        this.targetTasks.addTask(6, (EntityAIBase)new EntityAINearestAttackableTarget((EntityCreature)this, EntityLiving.class, 0, false, true, IMob.mobSelector));
+        this.tasks.addTask(4, (EntityAIBase) new EntityAIAttackOnCollide(this, this.getMoveSpeed() * 5.0, true));
+        this.tasks.addTask(
+            5,
+            (EntityAIBase) new EntityAIFollowOwner((EntityTameable) this, this.getMoveSpeed() * 5.0, 4.0f, 16.0f));
+        this.tasks.addTask(6, (EntityAIBase) new EntityAIMate((EntityAnimal) this, 1.0));
+        this.tasks.addTask(7, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+        this.tasks.addTask(9, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, EntityPlayer.class, 8.0f));
+        this.tasks.addTask(9, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
+        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIOwnerHurtByTarget((EntityTameable) this));
+        this.targetTasks.addTask(2, (EntityAIBase) new EntityAIOwnerHurtTarget((EntityTameable) this));
+        this.targetTasks.addTask(3, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, true));
+        this.targetTasks.addTask(
+            6,
+            (EntityAIBase) new EntityAINearestAttackableTarget(
+                (EntityCreature) this,
+                EntityLiving.class,
+                0,
+                false,
+                true,
+                IMob.mobSelector));
     }
 
     protected void addAttackingAI() {
-        this.tasks.addTask(5, (EntityAIBase)new EntityAIAttackOnCollide((EntityCreature)this, EntityPlayer.class, this.getMoveSpeed(), false));
-        this.targetTasks.addTask(6, (EntityAIBase)new EntityAINearestAttackableTarget((EntityCreature)this, EntityPlayer.class, 0, true));
+        this.tasks.addTask(
+            5,
+            (EntityAIBase) new EntityAIAttackOnCollide(
+                (EntityCreature) this,
+                EntityPlayer.class,
+                this.getMoveSpeed(),
+                false));
+        this.targetTasks.addTask(
+            6,
+            (EntityAIBase) new EntityAINearestAttackableTarget((EntityCreature) this, EntityPlayer.class, 0, true));
     }
 
     public EntityLivingBase getAttackTarget() {
@@ -91,7 +114,8 @@ public abstract class DecoyCaveDragonTameable extends EntityTameable
         final int i = MathHelper.floor_double(this.posX);
         final int j = MathHelper.floor_double(this.boundingBox.maxY);
         final int k = MathHelper.floor_double(this.posZ);
-        return this.worldObj.getBlock(i, j - 40, k) == Blocks.stone && this.worldObj.getFullBlockLightValue(i, j, k) > 1 && super.getCanSpawnHere();
+        return this.worldObj.getBlock(i, j - 40, k) == Blocks.stone && this.worldObj.getFullBlockLightValue(i, j, k) > 1
+            && super.getCanSpawnHere();
     }
 
     protected boolean isValidLightLevel() {

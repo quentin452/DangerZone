@@ -1,15 +1,16 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 @SideOnly(Side.CLIENT)
-public class RatModel extends ModelBase
-{
-    //fields
+public class RatModel extends ModelBase {
+
+    // fields
     ModelRenderer BodyMid;
     ModelRenderer HeadConeEnd;
     ModelRenderer HeadConeLow;
@@ -37,8 +38,7 @@ public class RatModel extends ModelBase
     ModelRenderer SpineLE;
     ModelRenderer SpineLF;
 
-    public RatModel()
-    {
+    public RatModel() {
         textureWidth = 64;
         textureHeight = 32;
 
@@ -200,8 +200,7 @@ public class RatModel extends ModelBase
         setRotation(SpineLF, 0F, 0.1745329F, 0F);
     }
 
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         BodyMid.render(f5);
@@ -232,15 +231,13 @@ public class RatModel extends ModelBase
         SpineLF.render(f5);
     }
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
         model.rotateAngleX = x;
         model.rotateAngleY = y;
         model.rotateAngleZ = z;
     }
 
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity ent)
-    {
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity ent) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, ent);
 
         HeadConeEnd.rotateAngleY = (f3 / 57.29578F) * .2F;

@@ -264,7 +264,8 @@ public class EntityInitDangerZone {
 
         int BlackHeelsInstance = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(BlackHeelsInstance.class, "Black Heels Entity DangerZone", BlackHeelsInstance);
+        EntityRegistry
+            .registerGlobalEntityID(BlackHeelsInstance.class, "Black Heels Entity DangerZone", BlackHeelsInstance);
 
         EntityRegistry.registerModEntity(
             BlackHeelsInstance.class,
@@ -290,7 +291,10 @@ public class EntityInitDangerZone {
 
         int DeadIrukandjInstance = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(DeadIrukandjInstance.class, "Dead Irukandji Entity DangerZone", DeadIrukandjInstance);
+        EntityRegistry.registerGlobalEntityID(
+            DeadIrukandjInstance.class,
+            "Dead Irukandji Entity DangerZone",
+            DeadIrukandjInstance);
 
         EntityRegistry.registerModEntity(
             DeadIrukandjInstance.class,
@@ -302,7 +306,10 @@ public class EntityInitDangerZone {
             true);
         int GameControllerInstance = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(GameControllerInstance.class, "GameControllerInstanceDangerZone", GameControllerInstance);
+        EntityRegistry.registerGlobalEntityID(
+            GameControllerInstance.class,
+            "GameControllerInstanceDangerZone",
+            GameControllerInstance);
 
         EntityRegistry.registerModEntity(
             GameControllerInstance.class,
@@ -341,7 +348,8 @@ public class EntityInitDangerZone {
 
         int SunspotUrchinInstance = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(SunspotUrchinInstance.class, "SunspotUrchinInstance", SunspotUrchinInstance);
+        EntityRegistry
+            .registerGlobalEntityID(SunspotUrchinInstance.class, "SunspotUrchinInstance", SunspotUrchinInstance);
 
         EntityRegistry.registerModEntity(
             SunspotUrchinInstance.class,
@@ -378,7 +386,10 @@ public class EntityInitDangerZone {
 
         int RatInstance = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.entities.entity.RatInstance.class, "RatInstance", RatInstance);
+        EntityRegistry.registerGlobalEntityID(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.RatInstance.class,
+            "RatInstance",
+            RatInstance);
 
         EntityRegistry.registerModEntity(
             fr.iamacat.dangerzone_iamacatfr.entities.entity.RatInstance.class,
@@ -414,26 +425,12 @@ public class EntityInitDangerZone {
             1,
             true);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         int EntityAlpsDragon = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityAlpsDragon.class, "EntityAlpsDragon", EntityAlpsDragon);
+        EntityRegistry.registerGlobalEntityID(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityAlpsDragon.class,
+            "EntityAlpsDragon",
+            EntityAlpsDragon);
 
         EntityRegistry.registerModEntity(
             fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityAlpsDragon.class,
@@ -459,7 +456,10 @@ public class EntityInitDangerZone {
 
         int EntityBirchDragon = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityBirchDragon.class, "EntityBirchDragon", EntityBirchDragon);
+        EntityRegistry.registerGlobalEntityID(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityBirchDragon.class,
+            "EntityBirchDragon",
+            EntityBirchDragon);
 
         EntityRegistry.registerModEntity(
             fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityBirchDragon.class,
@@ -472,7 +472,10 @@ public class EntityInitDangerZone {
 
         int EntityBlazeDragon = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityBlazeDragon.class, "EntityBlazeDragon", EntityBlazeDragon);
+        EntityRegistry.registerGlobalEntityID(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityBlazeDragon.class,
+            "EntityBlazeDragon",
+            EntityBlazeDragon);
 
         EntityRegistry.registerModEntity(
             fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityBlazeDragon.class,
@@ -485,7 +488,10 @@ public class EntityInitDangerZone {
 
         int EntityBluestoneDragon = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityBluestoneDragon.class, "EntityBluestoneDragon", EntityBluestoneDragon);
+        EntityRegistry.registerGlobalEntityID(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityBluestoneDragon.class,
+            "EntityBluestoneDragon",
+            EntityBluestoneDragon);
 
         EntityRegistry.registerModEntity(
             fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityBluestoneDragon.class,
@@ -602,7 +608,8 @@ public class EntityInitDangerZone {
 
         int EntityEnthralledDragon = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(EntityEnthralledDragon.class, "EntityEnthralledDragon", EntityEnthralledDragon);
+        EntityRegistry
+            .registerGlobalEntityID(EntityEnthralledDragon.class, "EntityEnthralledDragon", EntityEnthralledDragon);
 
         EntityRegistry.registerModEntity(
             EntityEnthralledDragon.class,
@@ -719,7 +726,8 @@ public class EntityInitDangerZone {
 
         int EntityMushroomDragon1 = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(EntityMushroomDragon1.class, "EntityMushroomDragon1", EntityMushroomDragon1);
+        EntityRegistry
+            .registerGlobalEntityID(EntityMushroomDragon1.class, "EntityMushroomDragon1", EntityMushroomDragon1);
 
         EntityRegistry.registerModEntity(
             EntityMushroomDragon1.class,
@@ -732,7 +740,8 @@ public class EntityInitDangerZone {
 
         int EntityMushroomDragon2 = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(EntityMushroomDragon2.class, "EntityMushroomDragon2", EntityMushroomDragon2);
+        EntityRegistry
+            .registerGlobalEntityID(EntityMushroomDragon2.class, "EntityMushroomDragon2", EntityMushroomDragon2);
 
         EntityRegistry.registerModEntity(
             EntityMushroomDragon2.class,

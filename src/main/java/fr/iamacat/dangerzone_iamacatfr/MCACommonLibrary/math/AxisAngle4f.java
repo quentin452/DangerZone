@@ -1,11 +1,10 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math;
 
 import java.io.Serializable;
 
-public class AxisAngle4f implements Serializable, Cloneable
-{
+public class AxisAngle4f implements Serializable, Cloneable {
+
     static final long serialVersionUID = -163246355858070601L;
     public float x;
     public float y;
@@ -88,12 +87,11 @@ public class AxisAngle4f implements Serializable, Cloneable
         if (mag > 1.0E-6) {
             mag = Math.sqrt(mag);
             final double invMag = 1.0 / mag;
-            this.x = (float)(q1.x * invMag);
-            this.y = (float)(q1.y * invMag);
-            this.z = (float)(q1.z * invMag);
-            this.angle = (float)(2.0 * Math.atan2(mag, q1.w));
-        }
-        else {
+            this.x = (float) (q1.x * invMag);
+            this.y = (float) (q1.y * invMag);
+            this.z = (float) (q1.z * invMag);
+            this.angle = (float) (2.0 * Math.atan2(mag, q1.w));
+        } else {
             this.x = 0.0f;
             this.y = 1.0f;
             this.z = 0.0f;
@@ -112,13 +110,12 @@ public class AxisAngle4f implements Serializable, Cloneable
             mag = Math.sqrt(mag);
             final double sin = 0.5 * mag;
             final double cos = 0.5 * (m3f.m00 + m3f.m11 + m3f.m22 - 1.0);
-            this.angle = (float)Math.atan2(sin, cos);
+            this.angle = (float) Math.atan2(sin, cos);
             final double invMag = 1.0 / mag;
-            this.x *= (float)invMag;
-            this.y *= (float)invMag;
-            this.z *= (float)invMag;
-        }
-        else {
+            this.x *= (float) invMag;
+            this.y *= (float) invMag;
+            this.z *= (float) invMag;
+        } else {
             this.x = 0.0f;
             this.y = 1.0f;
             this.z = 0.0f;
@@ -135,13 +132,12 @@ public class AxisAngle4f implements Serializable, Cloneable
             mag = Math.sqrt(mag);
             final double sin = 0.5 * mag;
             final double cos = 0.5 * (m1.m00 + m1.m11 + m1.m22 - 1.0);
-            this.angle = (float)Math.atan2(sin, cos);
+            this.angle = (float) Math.atan2(sin, cos);
             final double invMag = 1.0 / mag;
-            this.x *= (float)invMag;
-            this.y *= (float)invMag;
-            this.z *= (float)invMag;
-        }
-        else {
+            this.x *= (float) invMag;
+            this.y *= (float) invMag;
+            this.z *= (float) invMag;
+        } else {
             this.x = 0.0f;
             this.y = 1.0f;
             this.z = 0.0f;
@@ -150,21 +146,20 @@ public class AxisAngle4f implements Serializable, Cloneable
     }
 
     public final void set(final Matrix3d m1) {
-        this.x = (float)(m1.m21 - m1.m12);
-        this.y = (float)(m1.m02 - m1.m20);
-        this.z = (float)(m1.m10 - m1.m01);
+        this.x = (float) (m1.m21 - m1.m12);
+        this.y = (float) (m1.m02 - m1.m20);
+        this.z = (float) (m1.m10 - m1.m01);
         double mag = this.x * this.x + this.y * this.y + this.z * this.z;
         if (mag > 1.0E-6) {
             mag = Math.sqrt(mag);
             final double sin = 0.5 * mag;
             final double cos = 0.5 * (m1.m00 + m1.m11 + m1.m22 - 1.0);
-            this.angle = (float)Math.atan2(sin, cos);
+            this.angle = (float) Math.atan2(sin, cos);
             final double invMag = 1.0 / mag;
-            this.x *= (float)invMag;
-            this.y *= (float)invMag;
-            this.z *= (float)invMag;
-        }
-        else {
+            this.x *= (float) invMag;
+            this.y *= (float) invMag;
+            this.z *= (float) invMag;
+        } else {
             this.x = 0.0f;
             this.y = 1.0f;
             this.z = 0.0f;
@@ -180,8 +175,7 @@ public class AxisAngle4f implements Serializable, Cloneable
     public boolean equals(final AxisAngle4f a1) {
         try {
             return this.x == a1.x && this.y == a1.y && this.z == a1.z && this.angle == a1.angle;
-        }
-        catch (NullPointerException e2) {
+        } catch (NullPointerException e2) {
             return false;
         }
     }
@@ -189,13 +183,11 @@ public class AxisAngle4f implements Serializable, Cloneable
     @Override
     public boolean equals(final Object o1) {
         try {
-            final AxisAngle4f a2 = (AxisAngle4f)o1;
+            final AxisAngle4f a2 = (AxisAngle4f) o1;
             return this.x == a2.x && this.y == a2.y && this.z == a2.z && this.angle == a2.angle;
-        }
-        catch (NullPointerException e2) {
+        } catch (NullPointerException e2) {
             return false;
-        }
-        catch (ClassCastException e3) {
+        } catch (ClassCastException e3) {
             return false;
         }
     }
@@ -220,8 +212,7 @@ public class AxisAngle4f implements Serializable, Cloneable
     public Object clone() {
         try {
             return super.clone();
-        }
-        catch (CloneNotSupportedException e) {
+        } catch (CloneNotSupportedException e) {
             throw new InternalError();
         }
     }

@@ -1,13 +1,12 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math;
 
 import java.io.Serializable;
 import java.nio.FloatBuffer;
 import java.util.logging.Logger;
 
-public final class Matrix3f implements Cloneable, Serializable
-{
+public final class Matrix3f implements Cloneable, Serializable {
+
     static final long serialVersionUID = 1L;
     private static final Logger logger;
     protected float m00;
@@ -26,7 +25,8 @@ public final class Matrix3f implements Cloneable, Serializable
         this.loadIdentity();
     }
 
-    public Matrix3f(final float m00, final float m01, final float m02, final float m10, final float m11, final float m12, final float m20, final float m21, final float m22) {
+    public Matrix3f(final float m00, final float m01, final float m02, final float m10, final float m11,
+        final float m12, final float m20, final float m21, final float m22) {
         this.m00 = m00;
         this.m01 = m01;
         this.m02 = m02;
@@ -57,8 +57,7 @@ public final class Matrix3f implements Cloneable, Serializable
     public Matrix3f set(final Matrix3f matrix) {
         if (null == matrix) {
             this.loadIdentity();
-        }
-        else {
+        } else {
             this.m00 = matrix.m00;
             this.m01 = matrix.m01;
             this.m02 = matrix.m02;
@@ -144,8 +143,7 @@ public final class Matrix3f implements Cloneable, Serializable
                 data[6] = this.m20;
                 data[7] = this.m21;
                 data[8] = this.m22;
-            }
-            else {
+            } else {
                 data[0] = this.m00;
                 data[1] = this.m10;
                 data[2] = this.m20;
@@ -156,8 +154,7 @@ public final class Matrix3f implements Cloneable, Serializable
                 data[7] = this.m12;
                 data[8] = this.m22;
             }
-        }
-        else {
+        } else {
             if (data.length != 16) {
                 throw new IndexOutOfBoundsException("Array size must be 9 or 16 in Matrix3f.get().");
             }
@@ -171,8 +168,7 @@ public final class Matrix3f implements Cloneable, Serializable
                 data[8] = this.m20;
                 data[9] = this.m21;
                 data[10] = this.m22;
-            }
-            else {
+            } else {
                 data[0] = this.m00;
                 data[1] = this.m10;
                 data[2] = this.m20;
@@ -258,14 +254,25 @@ public final class Matrix3f implements Cloneable, Serializable
 
     public FloatBuffer fillFloatBuffer(final FloatBuffer fb, final boolean columnMajor) {
         if (columnMajor) {
-            fb.put(this.m00).put(this.m10).put(this.m20);
-            fb.put(this.m01).put(this.m11).put(this.m21);
-            fb.put(this.m02).put(this.m12).put(this.m22);
-        }
-        else {
-            fb.put(this.m00).put(this.m01).put(this.m02);
-            fb.put(this.m10).put(this.m11).put(this.m12);
-            fb.put(this.m20).put(this.m21).put(this.m22);
+            fb.put(this.m00)
+                .put(this.m10)
+                .put(this.m20);
+            fb.put(this.m01)
+                .put(this.m11)
+                .put(this.m21);
+            fb.put(this.m02)
+                .put(this.m12)
+                .put(this.m22);
+        } else {
+            fb.put(this.m00)
+                .put(this.m01)
+                .put(this.m02);
+            fb.put(this.m10)
+                .put(this.m11)
+                .put(this.m12);
+            fb.put(this.m20)
+                .put(this.m21)
+                .put(this.m22);
         }
         return fb;
     }
@@ -281,8 +288,7 @@ public final class Matrix3f implements Cloneable, Serializable
             f[6] = this.m02;
             f[7] = this.m12;
             f[8] = this.m22;
-        }
-        else {
+        } else {
             f[0] = this.m00;
             f[1] = this.m01;
             f[2] = this.m02;
@@ -474,8 +480,7 @@ public final class Matrix3f implements Cloneable, Serializable
             this.m20 = matrix[6];
             this.m21 = matrix[7];
             this.m22 = matrix[8];
-        }
-        else {
+        } else {
             this.m00 = matrix[0];
             this.m01 = matrix[3];
             this.m02 = matrix[6];
@@ -504,7 +509,14 @@ public final class Matrix3f implements Cloneable, Serializable
     }
 
     public boolean isIdentity() {
-        return this.m00 == 1.0f && this.m01 == 0.0f && this.m02 == 0.0f && this.m10 == 0.0f && this.m11 == 1.0f && this.m12 == 0.0f && this.m20 == 0.0f && this.m21 == 0.0f && this.m22 == 1.0f;
+        return this.m00 == 1.0f && this.m01 == 0.0f
+            && this.m02 == 0.0f
+            && this.m10 == 0.0f
+            && this.m11 == 1.0f
+            && this.m12 == 0.0f
+            && this.m20 == 0.0f
+            && this.m21 == 0.0f
+            && this.m22 == 1.0f;
     }
 
     public void fromAngleAxis(final float angle, final Vector3f axis) {
@@ -723,7 +735,16 @@ public final class Matrix3f implements Cloneable, Serializable
     }
 
     public Matrix3f transposeNew() {
-        final Matrix3f ret = new Matrix3f(this.m00, this.m10, this.m20, this.m01, this.m11, this.m21, this.m02, this.m12, this.m22);
+        final Matrix3f ret = new Matrix3f(
+            this.m00,
+            this.m10,
+            this.m20,
+            this.m01,
+            this.m11,
+            this.m21,
+            this.m02,
+            this.m12,
+            this.m22);
         return ret;
     }
 
@@ -777,8 +798,15 @@ public final class Matrix3f implements Cloneable, Serializable
         if (this == o) {
             return true;
         }
-        final Matrix3f comp = (Matrix3f)o;
-        return Float.compare(this.m00, comp.m00) == 0 && Float.compare(this.m01, comp.m01) == 0 && Float.compare(this.m02, comp.m02) == 0 && Float.compare(this.m10, comp.m10) == 0 && Float.compare(this.m11, comp.m11) == 0 && Float.compare(this.m12, comp.m12) == 0 && Float.compare(this.m20, comp.m20) == 0 && Float.compare(this.m21, comp.m21) == 0 && Float.compare(this.m22, comp.m22) == 0;
+        final Matrix3f comp = (Matrix3f) o;
+        return Float.compare(this.m00, comp.m00) == 0 && Float.compare(this.m01, comp.m01) == 0
+            && Float.compare(this.m02, comp.m02) == 0
+            && Float.compare(this.m10, comp.m10) == 0
+            && Float.compare(this.m11, comp.m11) == 0
+            && Float.compare(this.m12, comp.m12) == 0
+            && Float.compare(this.m20, comp.m20) == 0
+            && Float.compare(this.m21, comp.m21) == 0
+            && Float.compare(this.m22, comp.m22) == 0;
     }
 
     public void fromStartEndVectors(final Vector3f start, final Vector3f end) {
@@ -800,8 +828,7 @@ public final class Matrix3f implements Cloneable, Serializable
                     final float n = 0.0f;
                     vector3f2.z = n;
                     vector3f.y = n;
-                }
-                else {
+                } else {
                     x.z = 1.0f;
                     final Vector3f vector3f3 = x;
                     final Vector3f vector3f4 = x;
@@ -809,16 +836,14 @@ public final class Matrix3f implements Cloneable, Serializable
                     vector3f4.y = n2;
                     vector3f3.x = n2;
                 }
-            }
-            else if (x.y < x.z) {
+            } else if (x.y < x.z) {
                 x.y = 1.0f;
                 final Vector3f vector3f5 = x;
                 final Vector3f vector3f6 = x;
                 final float n3 = 0.0f;
                 vector3f6.z = n3;
                 vector3f5.x = n3;
-            }
-            else {
+            } else {
                 x.z = 1.0f;
                 final Vector3f vector3f7 = x;
                 final Vector3f vector3f8 = x;
@@ -843,8 +868,7 @@ public final class Matrix3f implements Cloneable, Serializable
                 final float val = this.get(i, i);
                 this.set(i, i, val + 1.0f);
             }
-        }
-        else {
+        } else {
             final float h = 1.0f / (1.0f + e);
             final float hvx = h * v.x;
             final float hvz = h * v.z;
@@ -876,14 +900,20 @@ public final class Matrix3f implements Cloneable, Serializable
     }
 
     static boolean equalIdentity(final Matrix3f mat) {
-        return Math.abs(mat.m00 - 1.0f) <= 1.0E-4 && Math.abs(mat.m11 - 1.0f) <= 1.0E-4 && Math.abs(mat.m22 - 1.0f) <= 1.0E-4 && Math.abs(mat.m01) <= 1.0E-4 && Math.abs(mat.m02) <= 1.0E-4 && Math.abs(mat.m10) <= 1.0E-4 && Math.abs(mat.m12) <= 1.0E-4 && Math.abs(mat.m20) <= 1.0E-4 && Math.abs(mat.m21) <= 1.0E-4;
+        return Math.abs(mat.m00 - 1.0f) <= 1.0E-4 && Math.abs(mat.m11 - 1.0f) <= 1.0E-4
+            && Math.abs(mat.m22 - 1.0f) <= 1.0E-4
+            && Math.abs(mat.m01) <= 1.0E-4
+            && Math.abs(mat.m02) <= 1.0E-4
+            && Math.abs(mat.m10) <= 1.0E-4
+            && Math.abs(mat.m12) <= 1.0E-4
+            && Math.abs(mat.m20) <= 1.0E-4
+            && Math.abs(mat.m21) <= 1.0E-4;
     }
 
     public Matrix3f clone() {
         try {
-            return (Matrix3f)super.clone();
-        }
-        catch (CloneNotSupportedException e) {
+            return (Matrix3f) super.clone();
+        } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
     }

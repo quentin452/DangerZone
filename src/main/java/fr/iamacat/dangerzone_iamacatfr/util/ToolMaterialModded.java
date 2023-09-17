@@ -169,7 +169,6 @@ public class ToolMaterialModded {
         75 // Enchantabilité
     );
 
-
     public static final Item.ToolMaterial UltimateSword = EnumHelper.addToolMaterial(
         "UltimateSword", // Nom du matériau
         4, // Niveau de harvest
@@ -300,7 +299,6 @@ public class ToolMaterialModded {
         75 // Enchantabilité
     );
 
-
     public static final Item.ToolMaterial KyaniteSword = EnumHelper.addToolMaterial(
         "KyaniteSword", // Nom du matériau
         3, // Niveau de harvest
@@ -342,5 +340,3 @@ public class ToolMaterialModded {
         45 // Enchantabilité
     );
 }
-
-

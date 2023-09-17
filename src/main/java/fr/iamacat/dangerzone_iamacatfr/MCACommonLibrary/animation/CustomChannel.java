@@ -1,21 +1,19 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation;
+
+import java.util.HashMap;
 
 import fr.iamacat.dangerzone_iamacatfr.MCAClientLibrary.MCAModelRenderer;
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.IMCAnimatedEntity;
 
-import java.util.HashMap;
+public class CustomChannel extends Channel {
 
-public class CustomChannel extends Channel
-{
     public CustomChannel(final String _name) {
         super(_name);
         this.mode = 3;
     }
 
-    protected void initializeAllFrames() {
-    }
+    protected void initializeAllFrames() {}
 
     public KeyFrame getPreviousRotationKeyFrameForBox(final String boxName, final float currentFrame) {
         return null;
@@ -37,6 +35,5 @@ public class CustomChannel extends Channel
         return -1;
     }
 
-    public void update(final HashMap<String, MCAModelRenderer> parts, final IMCAnimatedEntity entity) {
-    }
+    public void update(final HashMap<String, MCAModelRenderer> parts, final IMCAnimatedEntity entity) {}
 }

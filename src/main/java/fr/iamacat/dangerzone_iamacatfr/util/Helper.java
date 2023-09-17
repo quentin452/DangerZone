@@ -1,8 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.util;
 
-import fr.iamacat.dangerzone_iamacatfr.network.ConfusionPacket;
-import fr.iamacat.dangerzone_iamacatfr.network.KnockBackPacket;
-import fr.iamacat.dangerzone_iamacatfr.network.NetworkHelper;
+import java.util.LinkedList;
+
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,7 +11,9 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
 
-import java.util.LinkedList;
+import fr.iamacat.dangerzone_iamacatfr.network.ConfusionPacket;
+import fr.iamacat.dangerzone_iamacatfr.network.KnockBackPacket;
+import fr.iamacat.dangerzone_iamacatfr.network.NetworkHelper;
 
 public class Helper {
     // private static Item[] modItems;

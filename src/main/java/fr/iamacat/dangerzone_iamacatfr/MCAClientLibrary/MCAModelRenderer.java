@@ -1,23 +1,23 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.MCAClientLibrary;
 
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.Utils;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Matrix4f;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Quaternion;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Vector3f;
+import java.nio.FloatBuffer;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.Tessellator;
+
 import org.lwjgl.opengl.GL11;
 
-import java.nio.FloatBuffer;
+import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.Utils;
+import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Matrix4f;
+import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Quaternion;
+import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Vector3f;
 
-public class MCAModelRenderer extends ModelRenderer
-{
+public class MCAModelRenderer extends ModelRenderer {
+
     private int DDStextureOffsetX;
     private int DDStextureOffsetY;
     private boolean DDScompiled;
@@ -30,7 +30,8 @@ public class MCAModelRenderer extends ModelRenderer
     private Matrix4f defaultRotationMatrix;
     private Quaternion defaultRotationAsQuaternion;
 
-    public MCAModelRenderer(final ModelBase par1ModelBase, final String par2Str, final int xTextureOffset, final int yTextureOffset) {
+    public MCAModelRenderer(final ModelBase par1ModelBase, final String par2Str, final int xTextureOffset,
+        final int yTextureOffset) {
         super(par1ModelBase, par2Str);
         this.rotationMatrix = new Matrix4f();
         this.prevRotationMatrix = new Matrix4f();
@@ -45,19 +46,55 @@ public class MCAModelRenderer extends ModelRenderer
         return this;
     }
 
-    public ModelRenderer addBox(String par1Str, final float par2, final float par3, final float par4, final int par5, final int par6, final int par7) {
+    public ModelRenderer addBox(String par1Str, final float par2, final float par3, final float par4, final int par5,
+        final int par6, final int par7) {
         par1Str = this.boxName + "." + par1Str;
-        this.cubeList.add(new MCAModelBox(this, this.DDStextureOffsetX, this.DDStextureOffsetY, par2, par3, par4, par5, par6, par7, 0.0f).func_78244_a(par1Str));
+        this.cubeList.add(
+            new MCAModelBox(
+                this,
+                this.DDStextureOffsetX,
+                this.DDStextureOffsetY,
+                par2,
+                par3,
+                par4,
+                par5,
+                par6,
+                par7,
+                0.0f).func_78244_a(par1Str));
         return this;
     }
 
-    public ModelRenderer addBox(final float par1, final float par2, final float par3, final int par4, final int par5, final int par6) {
-        this.cubeList.add(new MCAModelBox(this, this.DDStextureOffsetX, this.DDStextureOffsetY, par1, par2, par3, par4, par5, par6, 0.0f));
+    public ModelRenderer addBox(final float par1, final float par2, final float par3, final int par4, final int par5,
+        final int par6) {
+        this.cubeList.add(
+            new MCAModelBox(
+                this,
+                this.DDStextureOffsetX,
+                this.DDStextureOffsetY,
+                par1,
+                par2,
+                par3,
+                par4,
+                par5,
+                par6,
+                0.0f));
         return this;
     }
 
-    public void addBox(final float par1, final float par2, final float par3, final int par4, final int par5, final int par6, final float par7) {
-        this.cubeList.add(new MCAModelBox(this, this.DDStextureOffsetX, this.DDStextureOffsetY, par1, par2, par3, par4, par5, par6, par7));
+    public void addBox(final float par1, final float par2, final float par3, final int par4, final int par5,
+        final int par6, final float par7) {
+        this.cubeList.add(
+            new MCAModelBox(
+                this,
+                this.DDStextureOffsetX,
+                this.DDStextureOffsetY,
+                par1,
+                par2,
+                par3,
+                par4,
+                par5,
+                par6,
+                par7));
     }
 
     public void render(final float par1) {
@@ -75,9 +112,11 @@ public class MCAModelRenderer extends ModelRenderer
                             child.render(par1);
                         }
                     }
-                }
-                else {
-                    GL11.glTranslatef(this.rotationPointX * par1, this.rotationPointY * par1, this.rotationPointZ * par1);
+                } else {
+                    GL11.glTranslatef(
+                        this.rotationPointX * par1,
+                        this.rotationPointY * par1,
+                        this.rotationPointZ * par1);
                     GL11.glCallList(this.DDSdisplayList);
                     if (this.childModels != null) {
                         for (int i = 0; i < this.childModels.size(); i++) {
@@ -85,10 +124,12 @@ public class MCAModelRenderer extends ModelRenderer
                             child.render(par1);
                         }
                     }
-                    GL11.glTranslatef(-this.rotationPointX * par1, -this.rotationPointY * par1, -this.rotationPointZ * par1);
+                    GL11.glTranslatef(
+                        -this.rotationPointX * par1,
+                        -this.rotationPointY * par1,
+                        -this.rotationPointZ * par1);
                 }
-            }
-            else {
+            } else {
                 GL11.glPushMatrix();
                 GL11.glTranslatef(this.rotationPointX * par1, this.rotationPointY * par1, this.rotationPointZ * par1);
                 final FloatBuffer buf = Utils.makeFloatBuffer(this.rotationMatrix.intoArray());
@@ -107,8 +148,7 @@ public class MCAModelRenderer extends ModelRenderer
         }
     }
 
-    public void renderWithRotation(final float par1) {
-    }
+    public void renderWithRotation(final float par1) {}
 
     public void postRender(final float par1) {
         if (!this.isHidden && this.showModel) {
@@ -117,10 +157,12 @@ public class MCAModelRenderer extends ModelRenderer
             }
             if (this.rotationMatrix.equals(this.prevRotationMatrix)) {
                 if (this.rotationPointX != 0.0f || this.rotationPointY != 0.0f || this.rotationPointZ != 0.0f) {
-                    GL11.glTranslatef(this.rotationPointX * par1, this.rotationPointY * par1, this.rotationPointZ * par1);
+                    GL11.glTranslatef(
+                        this.rotationPointX * par1,
+                        this.rotationPointY * par1,
+                        this.rotationPointZ * par1);
                 }
-            }
-            else {
+            } else {
                 GL11.glTranslatef(this.rotationPointX * par1, this.rotationPointY * par1, this.rotationPointZ * par1);
                 GL11.glMultMatrix(FloatBuffer.wrap(this.rotationMatrix.intoArray()));
             }
@@ -128,7 +170,10 @@ public class MCAModelRenderer extends ModelRenderer
     }
 
     public void setInitialRotationPoint(final float par1, final float par2, final float par3) {
-        this.setRotationPoint(this.defaultRotationPointX = par1, this.defaultRotationPointY = par2, this.defaultRotationPointZ = par3);
+        this.setRotationPoint(
+            this.defaultRotationPointX = par1,
+            this.defaultRotationPointY = par2,
+            this.defaultRotationPointZ = par3);
     }
 
     public void setRotationPoint(final float par1, final float par2, final float par3) {
@@ -187,7 +232,7 @@ public class MCAModelRenderer extends ModelRenderer
         GL11.glNewList(this.DDSdisplayList = GLAllocation.generateDisplayLists(1), 4864);
         final Tessellator tessellator = Tessellator.instance;
         for (int i = 0; i < this.cubeList.size(); ++i) {
-            ((ModelBox)this.cubeList.get(i)).render(tessellator,0);
+            ((ModelBox) this.cubeList.get(i)).render(tessellator, 0);
 
         }
         GL11.glEndList();

@@ -1,8 +1,10 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIFollowTwin;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIMonsterPanic;
-import fr.iamacat.dangerzone_iamacatfr.util.Helper;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
+
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -22,13 +24,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIFollowTwin;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIMonsterPanic;
+import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 
-public class AlienInstance extends EntityDungeonMob
-{
+public class AlienInstance extends EntityDungeonMob {
+
     private int twinID;
     private int twinEntityID;
     private boolean isTwin;
@@ -53,8 +54,7 @@ public class AlienInstance extends EntityDungeonMob
     private EntityAIHurtByTarget revenge;
     private EntityAINearestAttackableTarget target;
 
-    public AlienInstance(World par1World)
-    {
+    public AlienInstance(World par1World) {
         super(par1World);
         this.ignoreHeight = false;
         this.twinID = -1;
@@ -89,123 +89,105 @@ public class AlienInstance extends EntityDungeonMob
         this.targetTasks.addTask(1, this.target);
     }
 
-    protected void applyEntityAttributes()
-    {
+    protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(7.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
+            .setBaseValue(30.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
+            .setBaseValue(0.35D);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
+            .setBaseValue(7.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance)
+            .setBaseValue(0.0D);
     }
 
-    protected boolean isAIEnabled()
-    {
+    protected boolean isAIEnabled() {
         return true;
     }
 
-    public int getTotalArmorValue()
-    {
+    public int getTotalArmorValue() {
         return 10;
     }
 
-    public int getAttackStrength(Entity par1Entity)
-    {
-        if(!this.onGround)
-            return 12;
-        else
-            return 7;
+    public int getAttackStrength(Entity par1Entity) {
+        if (!this.onGround) return 12;
+        else return 7;
     }
 
-    public int getTalkInterval()
-    {
+    public int getTalkInterval() {
         return 80;
     }
 
-    protected String getLivingSound()
-    {
-        if(this.isTwin())
-            return "dungeonmobs:li_l";
-        else
-            return "dungeonmobs:li_l2";
+    protected String getLivingSound() {
+        if (this.isTwin()) return "dungeonmobs:li_l";
+        else return "dungeonmobs:li_l2";
     }
 
-    protected String getHurtSound()
-    {
+    protected String getHurtSound() {
         return "dungeonmobs:li_h";
     }
 
-    protected String getDeathSound()
-    {
+    protected String getDeathSound() {
         return "dungeonmobs:li_d";
     }
 
-    public int getTwinID()
-    {
+    public int getTwinID() {
         return this.twinID;
     }
 
-    public boolean isTwin()
-    {
+    public boolean isTwin() {
         return this.isTwin;
     }
 
-    public void setIsTwin(boolean foo)
-    {
+    public void setIsTwin(boolean foo) {
         this.isTwin = foo;
     }
 
-    public void setTwinID(int i)
-    {
+    public void setTwinID(int i) {
         this.twinID = i;
     }
 
-    public void setTwin(AlienInstance foo)
-    {
+    public void setTwin(AlienInstance foo) {
         this.myTwinWeak = new WeakReference<AlienInstance>(foo);
-        //this.myTwin = foo;
+        // this.myTwin = foo;
     }
 
-    public AlienInstance getTwin()
-    {
+    public AlienInstance getTwin() {
         return this.myTwinWeak.get();
-        //return myTwin;
+        // return myTwin;
     }
 
-    public void killTwin()
-    {
+    public void killTwin() {
         this.myTwinIsDead = true;
         this.myTwinWeak = null;
     }
 
-    public boolean getCanSpawnHere()
-    {
-        if(this.isTwin())
-            return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+    public boolean getCanSpawnHere() {
+        if (this.isTwin())
+            return this.worldObj.checkNoEntityCollision(this.boundingBox)
+                && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox)
+                    .isEmpty()
+                && !this.worldObj.isAnyLiquid(this.boundingBox);
 
-        if(this.worldObj.canBlockSeeTheSky((int)this.posX, (int)this.posY, (int)this.posZ))
-            return false;
+        if (this.worldObj.canBlockSeeTheSky((int) this.posX, (int) this.posY, (int) this.posZ)) return false;
 
-        if(this.posY > 32.0D && !this.ignoreHeight)
-            return false;
+        if (this.posY > 32.0D && !this.ignoreHeight) return false;
 
         return super.getCanSpawnHere();
     }
 
-    public boolean isTwinDead()
-    {
+    public boolean isTwinDead() {
         return this.myTwinIsDead;
     }
 
-    public void setDead()
-    {
-        if(this.myTwinWeak != null && !this.isTwinDead())
-            this.myTwinWeak.get().killTwin();
+    public void setDead() {
+        if (this.myTwinWeak != null && !this.isTwinDead()) this.myTwinWeak.get()
+            .killTwin();
 
         super.setDead();
     }
 
-    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
-    {
+    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
         super.writeEntityToNBT(par1NBTTagCompound);
 
         par1NBTTagCompound.setInteger("twinID", this.twinID);
@@ -216,8 +198,7 @@ public class AlienInstance extends EntityDungeonMob
         par1NBTTagCompound.setInteger("runTimer", this.runTimer);
     }
 
-    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound)
-    {
+    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
         super.readEntityFromNBT(par1NBTTagCompound);
 
         this.twinID = par1NBTTagCompound.getInteger("twinID");
@@ -225,10 +206,9 @@ public class AlienInstance extends EntityDungeonMob
         this.myTwinIsDead = par1NBTTagCompound.getBoolean("twinDead");
         this.hasRetreated = par1NBTTagCompound.getBoolean("hasFled");
         this.isRetreating = par1NBTTagCompound.getBoolean("isRunning");
-        this.runTimer     = par1NBTTagCompound.getInteger("runTimer");
+        this.runTimer = par1NBTTagCompound.getInteger("runTimer");
 
-        if(this.isRetreating)
-        {
+        if (this.isRetreating) {
             this.retreat = new EntityAIAvoidEntity(this, EntityPlayer.class, 12.0F, 1.0F, 0.4F);
 
             this.tasks.removeTask(this.attack);
@@ -237,62 +217,48 @@ public class AlienInstance extends EntityDungeonMob
             this.tasks.addTask(3, this.retreat);
         }
 
-
         /*
-        boolean foundFlag = false;
-
-        if(!myTwinIsDead)
-        {
-        	System.out.println("I have a twin, looking for him...");
-
-        	List allEntities = this.worldObj.getLoadedEntityList();
-
-        	Iterator iter = allEntities.iterator();
-
-        	while(iter.hasNext() && !foundFlag)
-        	{
-        		System.out.println("Is this next guy my twin?");
-
-        		Entity foo = (Entity)iter.next();
-
-        		if(foo instanceof AlienInstance)
-        		{
-        			System.out.println("This guy might be my twin!");
-
-        			AlienInstance bar = (AlienInstance)foo;
-
-        			if(this.twinID == bar.getTwinID())
-        			{
-        				System.out.println("I found my twin.");
-        				this.setTwin(bar);
-        				bar.setTwin(this);
-        				foundFlag = true;
-
-        				System.out.println("I think my twin's ID is " + bar.entityId);
-        				System.out.println("My twin thinks my ID is " + bar.myTwin.entityId);
-        				System.out.println("My actual ID is " + this.entityId);
-        			}
-        		}
-        	}
-        }
-        else
-        	System.out.println("My twin is dead.");
-
-        */
+         * boolean foundFlag = false;
+         * if(!myTwinIsDead)
+         * {
+         * System.out.println("I have a twin, looking for him...");
+         * List allEntities = this.worldObj.getLoadedEntityList();
+         * Iterator iter = allEntities.iterator();
+         * while(iter.hasNext() && !foundFlag)
+         * {
+         * System.out.println("Is this next guy my twin?");
+         * Entity foo = (Entity)iter.next();
+         * if(foo instanceof AlienInstance)
+         * {
+         * System.out.println("This guy might be my twin!");
+         * AlienInstance bar = (AlienInstance)foo;
+         * if(this.twinID == bar.getTwinID())
+         * {
+         * System.out.println("I found my twin.");
+         * this.setTwin(bar);
+         * bar.setTwin(this);
+         * foundFlag = true;
+         * System.out.println("I think my twin's ID is " + bar.entityId);
+         * System.out.println("My twin thinks my ID is " + bar.myTwin.entityId);
+         * System.out.println("My actual ID is " + this.entityId);
+         * }
+         * }
+         * }
+         * }
+         * else
+         * System.out.println("My twin is dead.");
+         */
     }
 
-    protected void entityInit()
-    {
-        if(this.twinID == -1 && !this.worldObj.isRemote)
-        {
+    protected void entityInit() {
+        if (this.twinID == -1 && !this.worldObj.isRemote) {
             boolean twinSpawned = false;
 
             this.twinID = this.worldObj.rand.nextInt(16000);
 
             int spawnAttempts = 0;
 
-            while(!twinSpawned && spawnAttempts < 6)
-            {
+            while (!twinSpawned && spawnAttempts < 6) {
                 WeakReference<AlienInstance> bar = new WeakReference<>(new AlienInstance(this.worldObj));
 
                 AlienInstance foo = bar.get();
@@ -306,41 +272,35 @@ public class AlienInstance extends EntityDungeonMob
                 foo.setIsTwin(true);
                 foo.setTwinID(this.twinID);
 
-                if(foo.getCanSpawnHere())
-                {
+                if (foo.getCanSpawnHere()) {
                     foo.setTwin(this);
                     this.setTwin(foo);
 
-                    this.twinEntityID = this.getTwin().getEntityId();
+                    this.twinEntityID = this.getTwin()
+                        .getEntityId();
                     this.getTwin().twinEntityID = this.getEntityId();
 
                     foo.entityInit();
                     this.worldObj.spawnEntityInWorld(foo);
                     twinSpawned = true;
-                }
-                else
-                    spawnAttempts++;
+                } else spawnAttempts++;
             }
 
-            if(spawnAttempts > 5)
-                this.setDead();
+            if (spawnAttempts > 5) this.setDead();
         }
 
         super.entityInit();
     }
 
-    public void forceTwinSpawn()
-    {
-        if(this.twinID == -1 && !this.worldObj.isRemote)
-        {
+    public void forceTwinSpawn() {
+        if (this.twinID == -1 && !this.worldObj.isRemote) {
             boolean twinSpawned = false;
 
             this.twinID = this.worldObj.rand.nextInt(16000);
 
             int spawnAttempts = 0;
 
-            while(!twinSpawned && spawnAttempts < 6)
-            {
+            while (!twinSpawned && spawnAttempts < 6) {
                 WeakReference<AlienInstance> bar = new WeakReference<>(new AlienInstance(this.worldObj));
 
                 AlienInstance foo = bar.get();
@@ -355,97 +315,84 @@ public class AlienInstance extends EntityDungeonMob
                 foo.setIsTwin(true);
                 foo.setTwinID(this.twinID);
 
-                if(foo.getCanSpawnHere())
-                {
+                if (foo.getCanSpawnHere()) {
                     foo.setTwin(this);
                     this.setTwin(foo);
 
-                    this.twinEntityID = this.getTwin().getEntityId();
+                    this.twinEntityID = this.getTwin()
+                        .getEntityId();
                     this.getTwin().twinEntityID = this.getEntityId();
 
                     foo.entityInit();
                     this.worldObj.spawnEntityInWorld(foo);
                     twinSpawned = true;
-                }
-                else
-                    spawnAttempts++;
+                } else spawnAttempts++;
             }
 
-            if(spawnAttempts > 5)
-                this.setDead();
+            if (spawnAttempts > 5) this.setDead();
         }
     }
 
-    public void onLivingUpdate()
-    {
-        if(!this.isTwinDead() && this.myTwinWeak == null)
-            this.goodToGo = false;
+    public void onLivingUpdate() {
+        if (!this.isTwinDead() && this.myTwinWeak == null) this.goodToGo = false;
 
-        if(!this.goodToGo && !this.isTwinDead())
-        {
+        if (!this.goodToGo && !this.isTwinDead()) {
             this.findTwin();
             this.goodToGo = true;
         }
 
-        if(this.runTimer > 0)
-        {
+        if (this.runTimer > 0) {
             this.runTimer--;
 
-            if(this.runTimer < 1)
-                this.cancelRetreat();
+            if (this.runTimer < 1) this.cancelRetreat();
 
-            if(this.isTwinDead())
-            {
+            if (this.isTwinDead()) {
                 this.runTimer = 0;
                 this.cancelRetreat();
             }
         }
 
-        if(this.getAttackTarget() != null)
-            this.tasks.removeTask(this.followTwin);
-        else if(this.isTwin() && !this.isRetreating && !this.isTwinDead())
-            this.tasks.addTask(3, this.followTwin);
+        if (this.getAttackTarget() != null) this.tasks.removeTask(this.followTwin);
+        else if (this.isTwin() && !this.isRetreating && !this.isTwinDead()) this.tasks.addTask(3, this.followTwin);
 
-        if(!this.isTwinDead()/* && !this.worldObj.isRemote*/ && !(this.myTwin == null))
-        {
-            if(this.getAttackTarget() != null && Objects.requireNonNull(this.myTwinWeak.get()).getAttackTarget() == null)
-                Objects.requireNonNull(this.myTwinWeak.get()).setAttackTarget(this.getAttackTarget());
+        if (!this.isTwinDead()/* && !this.worldObj.isRemote */ && !(this.myTwin == null)) {
+            if (this.getAttackTarget() != null && Objects.requireNonNull(this.myTwinWeak.get())
+                .getAttackTarget() == null) Objects.requireNonNull(this.myTwinWeak.get())
+                    .setAttackTarget(this.getAttackTarget());
         }
 
-        if(this.getHealth() < (this.getMaxHealth() / 2) && !this.hasRetreated && !this.isRetreating && !this.isTwinDead())
-        {
+        if (this.getHealth() < (this.getMaxHealth() / 2) && !this.hasRetreated
+            && !this.isRetreating
+            && !this.isTwinDead()) {
             this.runAway();
 
-            if(!this.isTwinDead() && this.myTwin != null)
-                Objects.requireNonNull(this.myTwinWeak.get()).cancelRetreat();
+            if (!this.isTwinDead() && this.myTwin != null) Objects.requireNonNull(this.myTwinWeak.get())
+                .cancelRetreat();
         }
 
         super.onLivingUpdate();
     }
 
-    public boolean attackEntityFrom(DamageSource par1DamageSource, int par2)
-    {
-        if(par1DamageSource == DamageSource.fall)
+    public boolean attackEntityFrom(DamageSource par1DamageSource, int par2) {
+        if (par1DamageSource == DamageSource.fall) return false;
+        else if (par1DamageSource.isProjectile()) {
+            this.worldObj.playSoundAtEntity(
+                this,
+                "dungeonmobs:li_a",
+                1.0F,
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
             return false;
-        else if(par1DamageSource.isProjectile())
-        {
-            this.worldObj.playSoundAtEntity(this, "dungeonmobs:li_a", 1.0F, (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
-            return false;
-        }
-        else
-            return super.attackEntityFrom(par1DamageSource, par2);
+        } else return super.attackEntityFrom(par1DamageSource, par2);
     }
 
     @Override
-    protected void jump()
-    {
+    protected void jump() {
         this.motionY = 0.5D;
 
-        if (this.isPotionActive(Potion.jump))
-            this.motionY += (float)(this.getActivePotionEffect(Potion.jump).getAmplifier() + 1) * 0.1F;
+        if (this.isPotionActive(Potion.jump)) this.motionY += (float) (this.getActivePotionEffect(Potion.jump)
+            .getAmplifier() + 1) * 0.1F;
 
-        if (this.isSprinting())
-        {
+        if (this.isSprinting()) {
             float var1 = this.rotationYaw * 0.017453292F;
             this.motionX -= MathHelper.sin(var1) * 0.2F;
             this.motionZ += MathHelper.cos(var1) * 0.2F;
@@ -455,55 +402,47 @@ public class AlienInstance extends EntityDungeonMob
         ForgeHooks.onLivingJump(this);
     }
 
-    private void findTwin()
-    {
+    private void findTwin() {
         boolean skipFlag = false;
 
         Entity foo = this.worldObj.getEntityByID(this.twinEntityID);
 
-        if(foo instanceof AlienInstance)
-        {
-            AlienInstance bar = (AlienInstance)foo;
+        if (foo instanceof AlienInstance) {
+            AlienInstance bar = (AlienInstance) foo;
 
-            if(bar.getTwinID() == this.twinID && !bar.equals(this))
-            {
+            if (bar.getTwinID() == this.twinID && !bar.equals(this)) {
                 this.setTwin(bar);
                 bar.setTwin(this);
                 skipFlag = true;
             }
         }
 
-        if(!this.worldObj.isRemote && !skipFlag)
-        {
+        if (!this.worldObj.isRemote && !skipFlag) {
             List allEntities;
 
-            try
-            {
+            try {
                 allEntities = this.worldObj.getLoadedEntityList();
-            }
-            catch(NoSuchMethodError e)
-            {
-                allEntities = this.worldObj.getEntitiesWithinAABB(AlienInstance.class, this.boundingBox.expand(48.0F, 48.0F, 48.0F));
+            } catch (NoSuchMethodError e) {
+                allEntities = this.worldObj
+                    .getEntitiesWithinAABB(AlienInstance.class, this.boundingBox.expand(48.0F, 48.0F, 48.0F));
             }
 
             Iterator iter = allEntities.iterator();
 
             boolean foundFlag = false;
 
-            while(iter.hasNext() && !foundFlag)
-            {
-                foo = (Entity)iter.next();
+            while (iter.hasNext() && !foundFlag) {
+                foo = (Entity) iter.next();
 
-                if(foo instanceof AlienInstance && !foo.equals(this))
-                {
-                    AlienInstance bar = (AlienInstance)foo;
+                if (foo instanceof AlienInstance && !foo.equals(this)) {
+                    AlienInstance bar = (AlienInstance) foo;
 
-                    if(this.twinID == bar.getTwinID())
-                    {
+                    if (this.twinID == bar.getTwinID()) {
                         this.setTwin(bar);
                         bar.setTwin(this);
 
-                        this.twinEntityID = this.getTwin().getEntityId();
+                        this.twinEntityID = this.getTwin()
+                            .getEntityId();
                         this.getTwin().twinEntityID = this.getEntityId();
 
                         foundFlag = true;
@@ -511,17 +450,14 @@ public class AlienInstance extends EntityDungeonMob
                 }
             }
 
-            if(this.isTwin())
-                this.tasks.addTask(3, this.followTwin);
+            if (this.isTwin()) this.tasks.addTask(3, this.followTwin);
 
             allEntities = null;
         }
     }
 
-    public void cancelRetreat()
-    {
-        if(this.isRetreating)
-        {
+    public void cancelRetreat() {
+        if (this.isRetreating) {
             this.tasks.removeTask(this.retreat);
             this.tasks.removeTask(this.panic);
 
@@ -536,8 +472,7 @@ public class AlienInstance extends EntityDungeonMob
         }
     }
 
-    public void runAway()
-    {
+    public void runAway() {
         this.isRetreating = true;
 
         this.tasks.removeTask(this.followTwin);
@@ -553,14 +488,11 @@ public class AlienInstance extends EntityDungeonMob
         this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 240, 1));
     }
 
-    protected void dropFewItems(boolean par1, int par2)
-    {
-        if(Helper.getDifficulty(this.worldObj) > 0)
-        {
+    protected void dropFewItems(boolean par1, int par2) {
+        if (Helper.getDifficulty(this.worldObj) > 0) {
             int var2 = this.rand.nextInt(Helper.getDifficulty(this.worldObj) + 1);
 
-            if(var2 == 0)
-            {
+            if (var2 == 0) {
                 Item aSword = Items.iron_sword;
                 ItemStack mySword = new ItemStack(aSword);
                 EnchantmentHelper.addRandomEnchantment(this.worldObj.rand, mySword, 15);
@@ -572,24 +504,23 @@ public class AlienInstance extends EntityDungeonMob
     }
 
     @Override
-    protected void fall(float par1)
-    {
+    protected void fall(float par1) {
         par1 = ForgeHooks.onLivingFall(this, par1);
 
-        if (par1 <= 0)
-            return;
+        if (par1 <= 0) return;
 
         int var2 = MathHelper.ceiling_float_int(par1 - 3.0F);
 
-        if (var2 > 0)
-        {
-            Block var3 = this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY - 0.20000000298023224D - (double)this.yOffset), MathHelper.floor_double(this.posZ));
+        if (var2 > 0) {
+            Block var3 = this.worldObj.getBlock(
+                MathHelper.floor_double(this.posX),
+                MathHelper.floor_double(this.posY - 0.20000000298023224D - (double) this.yOffset),
+                MathHelper.floor_double(this.posZ));
 
-            if (var3 != Blocks.air)
-            {
+            if (var3 != Blocks.air) {
                 Block.SoundType var4 = var3.stepSound;
 
-                //this.playSound(var3.stepSound.soundName, 0.5F, (float)(0.75F * this.worldObj.rand.nextDouble()));
+                // this.playSound(var3.stepSound.soundName, 0.5F, (float)(0.75F * this.worldObj.rand.nextDouble()));
                 this.playSound(var4.soundName, var4.getVolume() * 0.5F, var4.getPitch() * 0.75F);
             }
         }

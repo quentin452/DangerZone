@@ -1,6 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -9,8 +8,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 // todo it seem thats doesn't work
 public class TheZooKeeper extends Item {
+
     public TheZooKeeper() {
         this.setMaxStackSize(1);
         this.setTextureName(Tags.MODID + ":zookeeper"); // Nom de la texture de l'item
@@ -28,7 +31,6 @@ public class TheZooKeeper extends Item {
 
         return itemStack;
     }
-
 
     private Entity getMouseOverEntity(EntityPlayer player, World world) {
         // Effectuez un rayon depuis la position des yeux du joueur dans la direction de son regard.
@@ -53,7 +55,9 @@ public class TheZooKeeper extends Item {
         double targetZ = posZ + dirZ * reachDistance;
 
         // Effectuez le rayon et obtenez le résultat
-        MovingObjectPosition target = world.rayTraceBlocks(Vec3.createVectorHelper(posX, posY, posZ), Vec3.createVectorHelper(targetX, targetY, targetZ));
+        MovingObjectPosition target = world.rayTraceBlocks(
+            Vec3.createVectorHelper(posX, posY, posZ),
+            Vec3.createVectorHelper(targetX, targetY, targetZ));
 
         if (target != null && target.entityHit != null) {
             return target.entityHit;

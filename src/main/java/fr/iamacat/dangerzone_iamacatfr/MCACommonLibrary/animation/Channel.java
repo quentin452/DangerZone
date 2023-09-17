@@ -1,12 +1,11 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Channel
-{
+public class Channel {
+
     public static final byte LINEAR = 0;
     public static final byte LOOP = 1;
     public static final byte CYCLE = 2;
@@ -32,8 +31,7 @@ public class Channel
         this.mode = _mode;
     }
 
-    protected void initializeAllFrames() {
-    }
+    protected void initializeAllFrames() {}
 
     public KeyFrame getPreviousRotationKeyFrameForBox(final String boxName, final float currentFrame) {
         int latestFramePosition = -1;
@@ -55,7 +53,8 @@ public class Channel
         for (final Map.Entry<Integer, KeyFrame> entry : this.keyFrames.entrySet()) {
             final Integer key = entry.getKey();
             final KeyFrame value = entry.getValue();
-            if (key > currentFrame && (key < nextFramePosition || nextFramePosition == -1) && value.useBoxInRotations(boxName)) {
+            if (key > currentFrame && (key < nextFramePosition || nextFramePosition == -1)
+                && value.useBoxInRotations(boxName)) {
                 nextFramePosition = key;
                 nextKeyFrame = value;
             }
@@ -83,7 +82,8 @@ public class Channel
         for (final Map.Entry<Integer, KeyFrame> entry : this.keyFrames.entrySet()) {
             final Integer key = entry.getKey();
             final KeyFrame value = entry.getValue();
-            if (key > currentFrame && (key < nextFramePosition || nextFramePosition == -1) && value.useBoxInTranslations(boxName)) {
+            if (key > currentFrame && (key < nextFramePosition || nextFramePosition == -1)
+                && value.useBoxInTranslations(boxName)) {
                 nextFramePosition = key;
                 nextKeyFrame = value;
             }

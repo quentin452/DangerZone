@@ -1,7 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
-import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,6 +7,10 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
+
 // todo fix getting white square when throwing the entity instead of an item
 public class LaserBallInstance extends EntityThrowable {
 
@@ -30,6 +32,7 @@ public class LaserBallInstance extends EntityThrowable {
         this.is_irukandji = 0;
         this.ticksalive = 0;
     }
+
     public LaserBallInstance(final World world) {
         super(world);
         this.my_rotation = 0.0f;
@@ -89,16 +92,16 @@ public class LaserBallInstance extends EntityThrowable {
         float var2 = 16.0f;
         if (par1MovingObjectPosition.entityHit != null) {
             if (isAcid != 0) {
-                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof JumpyBugInstance ||
-                    par1MovingObjectPosition.entityHit instanceof SpitInstance;
+                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof JumpyBugInstance
+                    || par1MovingObjectPosition.entityHit instanceof SpitInstance;
                 setEntityDeadIfCondition(par1MovingObjectPosition.entityHit, shouldSetDead);
             } else {
-                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof RoboJefferyInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboPounderInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboGunnerInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboWarriorInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboSniperInstance ||
-                    par1MovingObjectPosition.entityHit instanceof SpiderRobotInstance;
+                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof RoboJefferyInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboPounderInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboGunnerInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboWarriorInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboSniperInstance
+                    || par1MovingObjectPosition.entityHit instanceof SpiderRobotInstance;
                 setEntityDeadIfCondition(par1MovingObjectPosition.entityHit, shouldSetDead);
 
                 if (par1MovingObjectPosition.entityHit instanceof DragonInstance) {
@@ -111,7 +114,8 @@ public class LaserBallInstance extends EntityThrowable {
                     setEntityDeadIfCondition(d2, d2.ridingEntity != null);
                 }
 
-                par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
+                par1MovingObjectPosition.entityHit
+                    .attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
 
                 if (this.is_iceball == 0) {
                     par1MovingObjectPosition.entityHit.setFire(1);

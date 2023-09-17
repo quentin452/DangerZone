@@ -1,24 +1,25 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.render.babydragon;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityAlpsDragon;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.babydragon.ModelTinyDragon;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
 
-public class RenderZombieDragon extends RenderLiving
-{
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityAlpsDragon;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.babydragon.ModelTinyDragon;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
+public class RenderZombieDragon extends RenderLiving {
+
     private static final ResourceLocation texture;
     private ModelBase scaleAmount;
 
     public RenderZombieDragon() {
-        super((ModelBase)new ModelTinyDragon(), 0.55f);
+        super((ModelBase) new ModelTinyDragon(), 0.55f);
     }
 
     public RenderZombieDragon(final ModelBase p_i1267_1_, final ModelBase p_i1267_2_, final float p_i1267_3_) {
@@ -54,6 +55,6 @@ public class RenderZombieDragon extends RenderLiving
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID +":textures/entity/babydragon/zombie.png");
+        texture = new ResourceLocation(Tags.MODID + ":textures/entity/babydragon/zombie.png");
     }
 }

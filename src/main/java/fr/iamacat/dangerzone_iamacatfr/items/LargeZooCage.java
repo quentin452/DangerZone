@@ -1,13 +1,15 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class LargeZooCage extends Item {
+
     public LargeZooCage() {
         this.setMaxStackSize(16);
         this.setTextureName(Tags.MODID + ":zoo8");
@@ -18,7 +20,7 @@ public class LargeZooCage extends Item {
         if (!world.isRemote) {
             // Get the block position the player is looking at
             int x = (int) Math.floor(player.posX);
-            int y = (int) Math.floor(player.posY)- 1; // Abaissez la structure d'un bloc
+            int y = (int) Math.floor(player.posY) - 1; // Abaissez la structure d'un bloc
             int z = (int) Math.floor(player.posZ);
 
             // Generate the complex structure

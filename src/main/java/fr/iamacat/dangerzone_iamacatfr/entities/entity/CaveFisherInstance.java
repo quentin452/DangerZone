@@ -1,14 +1,13 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.Helper;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -22,8 +21,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Iterator;
-import java.util.List;
+import cpw.mods.fml.client.FMLClientHandler;
+import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 
 public class CaveFisherInstance extends EntityDungeonMob {
 

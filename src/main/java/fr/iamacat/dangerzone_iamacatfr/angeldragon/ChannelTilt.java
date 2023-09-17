@@ -1,5 +1,4 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.angeldragon;
 
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.Channel;
@@ -7,8 +6,8 @@ import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.KeyFrame;
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Quaternion;
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Vector3f;
 
-public class ChannelTilt extends Channel
-{
+public class ChannelTilt extends Channel {
+
     public ChannelTilt(final String _name, final float _fps, final int _totalFrames, final byte _mode) {
         super(_name, _fps, _totalFrames, _mode);
     }

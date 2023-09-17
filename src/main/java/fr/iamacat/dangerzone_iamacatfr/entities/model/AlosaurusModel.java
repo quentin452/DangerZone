@@ -1,26 +1,27 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 @SideOnly(Side.CLIENT)
-public class AlosaurusModel extends ModelBase
-{
-    //fields
+public class AlosaurusModel extends ModelBase {
+
+    // fields
     // ModelRenderer LeftClawBack;
-    //ModelRenderer LeftClawRight;
+    // ModelRenderer LeftClawRight;
     ModelRenderer LeftLegTop;
     ModelRenderer LeftLegLow;
-    //ModelRenderer LeftClawLeft;
-    //ModelRenderer LeftClawCenter;
-    //ModelRenderer RightClawBack;
-    //ModelRenderer RightClawRight;
-    //ModelRenderer RightClawCenter;
-    //ModelRenderer RightClawLeft;
+    // ModelRenderer LeftClawLeft;
+    // ModelRenderer LeftClawCenter;
+    // ModelRenderer RightClawBack;
+    // ModelRenderer RightClawRight;
+    // ModelRenderer RightClawCenter;
+    // ModelRenderer RightClawLeft;
     ModelRenderer RightLegLow;
     ModelRenderer BodyFrontTop;
     ModelRenderer RightLegTop;
@@ -30,7 +31,7 @@ public class AlosaurusModel extends ModelBase
     ModelRenderer BodyFrontLow;
     ModelRenderer BodyFrontMid;
     ModelRenderer NeckTop;
-    //ModelRenderer BeakLow;
+    // ModelRenderer BeakLow;
     ModelRenderer NeckBase;
     ModelRenderer HeadBase;
     ModelRenderer BeakBase;
@@ -42,61 +43,60 @@ public class AlosaurusModel extends ModelBase
     ModelRenderer RightWing;
     ModelRenderer LeftWing;
 
-    public AlosaurusModel()
-    {
+    public AlosaurusModel() {
         textureWidth = 64;
         textureHeight = 32;
 
-	    /*
-	      LeftClawBack = new ModelRenderer(this, 0, 25);
-	      LeftClawBack.addBox(-0.5F, 7F, 0F, 1, 1, 2);
-	      LeftClawBack.setRotationPoint(4F, 16F, 0F);
-	      LeftClawBack.setTextureSize(64, 32);
-	      LeftClawBack.mirror = true;
-	      setRotation(LeftClawBack, 0F, 0F, 0F);
-	      LeftClawRight = new ModelRenderer(this, 0, 28);
-	      LeftClawRight.addBox(-0.5F, 7F, -3F, 1, 1, 3);
-	      LeftClawRight.setRotationPoint(4F, 16F, 0F);
-	      LeftClawRight.setTextureSize(64, 32);
-	      LeftClawRight.mirror = true;
-	      setRotation(LeftClawRight, 0F, 0.6981317F, 0F);
-	      LeftClawLeft = new ModelRenderer(this, 0, 28);
-	      LeftClawLeft.addBox(-0.5F, 7F, -3F, 1, 1, 3);
-	      LeftClawLeft.setRotationPoint(4F, 16F, 0F);
-	      LeftClawLeft.setTextureSize(64, 32);
-	      LeftClawLeft.mirror = true;
-	      setRotation(LeftClawLeft, 0F, -0.6981317F, 0F);
-	      LeftClawCenter = new ModelRenderer(this, 0, 28);
-	      LeftClawCenter.addBox(-0.5F, 7F, -3F, 1, 1, 3);
-	      LeftClawCenter.setRotationPoint(4F, 16F, 0F);
-	      LeftClawCenter.setTextureSize(64, 32);
-	      LeftClawCenter.mirror = true;
-	      setRotation(LeftClawCenter, 0F, 0F, 0F);
-	      RightClawBack = new ModelRenderer(this, 0, 25);
-	      RightClawBack.addBox(-0.5F, 7F, 0F, 1, 1, 2);
-	      RightClawBack.setRotationPoint(-3.4F, 16F, 0F);
-	      RightClawBack.setTextureSize(64, 32);
-	      RightClawBack.mirror = true;
-	      setRotation(RightClawBack, 0F, 0F, 0F);
-	      RightClawRight = new ModelRenderer(this, 0, 28);
-	      RightClawRight.addBox(-0.5F, 7F, -3F, 1, 1, 3);
-	      RightClawRight.setRotationPoint(-3.4F, 16F, 0F);
-	      RightClawRight.setTextureSize(64, 32);
-	      RightClawRight.mirror = true;
-	      setRotation(RightClawRight, 0F, 0.6981317F, 0F);
-	      RightClawCenter = new ModelRenderer(this, 0, 28);
-	      RightClawCenter.addBox(-0.5F, 7F, -3F, 1, 1, 3);
-	      RightClawCenter.setRotationPoint(-3.4F, 16F, 0F);
-	      RightClawCenter.setTextureSize(64, 32);
-	      RightClawCenter.mirror = true;
-	      setRotation(RightClawCenter, 0F, 0F, 0F);
-	      RightClawLeft = new ModelRenderer(this, 0, 28);
-	      RightClawLeft.addBox(-0.5F, 7F, -3F, 1, 1, 3);
-	      RightClawLeft.setRotationPoint(-3.4F, 16F, 0F);
-	      RightClawLeft.setTextureSize(64, 32);
-	      RightClawLeft.mirror = true;
-	      setRotation(RightClawLeft, 0F, -0.6981317F, 0F);
-	      */
+        /*
+         * LeftClawBack = new ModelRenderer(this, 0, 25);
+         * LeftClawBack.addBox(-0.5F, 7F, 0F, 1, 1, 2);
+         * LeftClawBack.setRotationPoint(4F, 16F, 0F);
+         * LeftClawBack.setTextureSize(64, 32);
+         * LeftClawBack.mirror = true;
+         * setRotation(LeftClawBack, 0F, 0F, 0F);
+         * LeftClawRight = new ModelRenderer(this, 0, 28);
+         * LeftClawRight.addBox(-0.5F, 7F, -3F, 1, 1, 3);
+         * LeftClawRight.setRotationPoint(4F, 16F, 0F);
+         * LeftClawRight.setTextureSize(64, 32);
+         * LeftClawRight.mirror = true;
+         * setRotation(LeftClawRight, 0F, 0.6981317F, 0F);
+         * LeftClawLeft = new ModelRenderer(this, 0, 28);
+         * LeftClawLeft.addBox(-0.5F, 7F, -3F, 1, 1, 3);
+         * LeftClawLeft.setRotationPoint(4F, 16F, 0F);
+         * LeftClawLeft.setTextureSize(64, 32);
+         * LeftClawLeft.mirror = true;
+         * setRotation(LeftClawLeft, 0F, -0.6981317F, 0F);
+         * LeftClawCenter = new ModelRenderer(this, 0, 28);
+         * LeftClawCenter.addBox(-0.5F, 7F, -3F, 1, 1, 3);
+         * LeftClawCenter.setRotationPoint(4F, 16F, 0F);
+         * LeftClawCenter.setTextureSize(64, 32);
+         * LeftClawCenter.mirror = true;
+         * setRotation(LeftClawCenter, 0F, 0F, 0F);
+         * RightClawBack = new ModelRenderer(this, 0, 25);
+         * RightClawBack.addBox(-0.5F, 7F, 0F, 1, 1, 2);
+         * RightClawBack.setRotationPoint(-3.4F, 16F, 0F);
+         * RightClawBack.setTextureSize(64, 32);
+         * RightClawBack.mirror = true;
+         * setRotation(RightClawBack, 0F, 0F, 0F);
+         * RightClawRight = new ModelRenderer(this, 0, 28);
+         * RightClawRight.addBox(-0.5F, 7F, -3F, 1, 1, 3);
+         * RightClawRight.setRotationPoint(-3.4F, 16F, 0F);
+         * RightClawRight.setTextureSize(64, 32);
+         * RightClawRight.mirror = true;
+         * setRotation(RightClawRight, 0F, 0.6981317F, 0F);
+         * RightClawCenter = new ModelRenderer(this, 0, 28);
+         * RightClawCenter.addBox(-0.5F, 7F, -3F, 1, 1, 3);
+         * RightClawCenter.setRotationPoint(-3.4F, 16F, 0F);
+         * RightClawCenter.setTextureSize(64, 32);
+         * RightClawCenter.mirror = true;
+         * setRotation(RightClawCenter, 0F, 0F, 0F);
+         * RightClawLeft = new ModelRenderer(this, 0, 28);
+         * RightClawLeft.addBox(-0.5F, 7F, -3F, 1, 1, 3);
+         * RightClawLeft.setRotationPoint(-3.4F, 16F, 0F);
+         * RightClawLeft.setTextureSize(64, 32);
+         * RightClawLeft.mirror = true;
+         * setRotation(RightClawLeft, 0F, -0.6981317F, 0F);
+         */
         LeftLegTop = new ModelRenderer(this, 60, 26);
         LeftLegTop.addBox(-0.5F, 0.2F, -0.5F, 1, 4, 1);
         LeftLegTop.setRotationPoint(4F, 16F, 0F);
@@ -163,14 +163,14 @@ public class AlosaurusModel extends ModelBase
         NeckTop.setTextureSize(64, 32);
         NeckTop.mirror = true;
         setRotation(NeckTop, 0.9599311F, 0F, 0F);
-	      /*
-	      BeakLow = new ModelRenderer(this, 22, 0);
-	      BeakLow.addBox(2.3F, -1.5F, -4.9F, 3, 1, 3);
-	      BeakLow.setRotationPoint(0.3F, 1.8F, -9.8F);
-	      BeakLow.setTextureSize(64, 32);
-	      BeakLow.mirror = true;
-	      setRotation(BeakLow, 0.2617994F, 0.7853982F, 0.2617994F);
-	      */
+        /*
+         * BeakLow = new ModelRenderer(this, 22, 0);
+         * BeakLow.addBox(2.3F, -1.5F, -4.9F, 3, 1, 3);
+         * BeakLow.setRotationPoint(0.3F, 1.8F, -9.8F);
+         * BeakLow.setTextureSize(64, 32);
+         * BeakLow.mirror = true;
+         * setRotation(BeakLow, 0.2617994F, 0.7853982F, 0.2617994F);
+         */
         NeckBase = new ModelRenderer(this, 0, 16);
         NeckBase.addBox(-1F, -6F, -1F, 2, 6, 2);
         NeckBase.setRotationPoint(0.3F, 9.3F, -5.8F);
@@ -233,20 +233,19 @@ public class AlosaurusModel extends ModelBase
         setRotation(LeftWing, 0.1047198F, -0.1047198F, -0.4363323F);
     }
 
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        //LeftClawBack.render(f5);
-        //LeftClawRight.render(f5);
+        // LeftClawBack.render(f5);
+        // LeftClawRight.render(f5);
         LeftLegTop.render(f5);
         LeftLegLow.render(f5);
-        //LeftClawLeft.render(f5);
-        //LeftClawCenter.render(f5);
-        //RightClawBack.render(f5);
-        //RightClawRight.render(f5);
-        //RightClawCenter.render(f5);
-        //RightClawLeft.render(f5);
+        // LeftClawLeft.render(f5);
+        // LeftClawCenter.render(f5);
+        // RightClawBack.render(f5);
+        // RightClawRight.render(f5);
+        // RightClawCenter.render(f5);
+        // RightClawLeft.render(f5);
         RightLegLow.render(f5);
         BodyFrontTop.render(f5);
         RightLegTop.render(f5);
@@ -256,7 +255,7 @@ public class AlosaurusModel extends ModelBase
         BodyFrontLow.render(f5);
         BodyFrontMid.render(f5);
         NeckTop.render(f5);
-        //BeakLow.render(f5);
+        // BeakLow.render(f5);
         NeckBase.render(f5);
         HeadBase.render(f5);
         BeakBase.render(f5);
@@ -269,27 +268,24 @@ public class AlosaurusModel extends ModelBase
         LeftWing.render(f5);
     }
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
         model.rotateAngleX = x;
         model.rotateAngleY = y;
         model.rotateAngleZ = z;
     }
 
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity ent)
-    {
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity ent) {
         // Math.abs(MathHelper.cos(f * 0.5662F) * 1.4F * f1);
 
         this.HeadBase.rotateAngleY = f3 / 57.29578F;
         this.BeakBase.rotateAngleY = 0.7853982F + f3 / 57.29578F;
         this.BeakNose.rotateAngleY = f3 / 57.29578F;
 
-        this.LeftLegTop.rotateAngleX     = 0.4363323F + Math.abs(MathHelper.cos(f * 0.5662F) * 1.4F * f1);
-        this.LeftLegLow.rotateAngleX     = -0.5235988F + Math.abs(MathHelper.cos(f * 0.5662F) * 1.4F * f1);
+        this.LeftLegTop.rotateAngleX = 0.4363323F + Math.abs(MathHelper.cos(f * 0.5662F) * 1.4F * f1);
+        this.LeftLegLow.rotateAngleX = -0.5235988F + Math.abs(MathHelper.cos(f * 0.5662F) * 1.4F * f1);
 
-        this.RightLegTop.rotateAngleX     = 0.4363323F + Math.abs(MathHelper.sin(f * 0.5662F) * 1.4F * f1);
-        this.RightLegLow.rotateAngleX     = -0.5235988F + Math.abs(MathHelper.sin(f * 0.5662F) * 1.4F * f1);
-
+        this.RightLegTop.rotateAngleX = 0.4363323F + Math.abs(MathHelper.sin(f * 0.5662F) * 1.4F * f1);
+        this.RightLegLow.rotateAngleX = -0.5235988F + Math.abs(MathHelper.sin(f * 0.5662F) * 1.4F * f1);
 
     }
 

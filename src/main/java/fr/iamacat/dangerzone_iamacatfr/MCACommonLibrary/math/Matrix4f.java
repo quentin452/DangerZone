@@ -1,11 +1,10 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math;
 
 import java.io.Serializable;
 
-public class Matrix4f implements Serializable
-{
+public class Matrix4f implements Serializable {
+
     public float m00;
     public float m01;
     public float m02;
@@ -24,7 +23,9 @@ public class Matrix4f implements Serializable
     public float m33;
     private static final double EPS = 1.0E-8;
 
-    public Matrix4f(final float m00, final float m01, final float m02, final float m03, final float m10, final float m11, final float m12, final float m13, final float m20, final float m21, final float m22, final float m23, final float m30, final float m31, final float m32, final float m33) {
+    public Matrix4f(final float m00, final float m01, final float m02, final float m03, final float m10,
+        final float m11, final float m12, final float m13, final float m20, final float m21, final float m22,
+        final float m23, final float m30, final float m31, final float m32, final float m33) {
         this.m00 = m00;
         this.m01 = m01;
         this.m02 = m02;
@@ -63,15 +64,15 @@ public class Matrix4f implements Serializable
     }
 
     public Matrix4f(final Quaternion q1, final Vector3f t1, final float s) {
-        this.m00 = (float)(s * (1.0 - 2.0 * q1.y * q1.y - 2.0 * q1.z * q1.z));
-        this.m10 = (float)(s * (2.0 * (q1.x * q1.y + q1.w * q1.z)));
-        this.m20 = (float)(s * (2.0 * (q1.x * q1.z - q1.w * q1.y)));
-        this.m01 = (float)(s * (2.0 * (q1.x * q1.y - q1.w * q1.z)));
-        this.m11 = (float)(s * (1.0 - 2.0 * q1.x * q1.x - 2.0 * q1.z * q1.z));
-        this.m21 = (float)(s * (2.0 * (q1.y * q1.z + q1.w * q1.x)));
-        this.m02 = (float)(s * (2.0 * (q1.x * q1.z + q1.w * q1.y)));
-        this.m12 = (float)(s * (2.0 * (q1.y * q1.z - q1.w * q1.x)));
-        this.m22 = (float)(s * (1.0 - 2.0 * q1.x * q1.x - 2.0 * q1.y * q1.y));
+        this.m00 = (float) (s * (1.0 - 2.0 * q1.y * q1.y - 2.0 * q1.z * q1.z));
+        this.m10 = (float) (s * (2.0 * (q1.x * q1.y + q1.w * q1.z)));
+        this.m20 = (float) (s * (2.0 * (q1.x * q1.z - q1.w * q1.y)));
+        this.m01 = (float) (s * (2.0 * (q1.x * q1.y - q1.w * q1.z)));
+        this.m11 = (float) (s * (1.0 - 2.0 * q1.x * q1.x - 2.0 * q1.z * q1.z));
+        this.m21 = (float) (s * (2.0 * (q1.y * q1.z + q1.w * q1.x)));
+        this.m02 = (float) (s * (2.0 * (q1.x * q1.z + q1.w * q1.y)));
+        this.m12 = (float) (s * (2.0 * (q1.y * q1.z - q1.w * q1.x)));
+        this.m22 = (float) (s * (1.0 - 2.0 * q1.x * q1.x - 2.0 * q1.y * q1.y));
         this.m03 = t1.x;
         this.m13 = t1.y;
         this.m23 = t1.z;
@@ -140,7 +141,37 @@ public class Matrix4f implements Serializable
 
     @Override
     public String toString() {
-        return this.m00 + ", " + this.m01 + ", " + this.m02 + ", " + this.m03 + "\n" + this.m10 + ", " + this.m11 + ", " + this.m12 + ", " + this.m13 + "\n" + this.m20 + ", " + this.m21 + ", " + this.m22 + ", " + this.m23 + "\n" + this.m30 + ", " + this.m31 + ", " + this.m32 + ", " + this.m33 + "\n";
+        return this.m00 + ", "
+            + this.m01
+            + ", "
+            + this.m02
+            + ", "
+            + this.m03
+            + "\n"
+            + this.m10
+            + ", "
+            + this.m11
+            + ", "
+            + this.m12
+            + ", "
+            + this.m13
+            + "\n"
+            + this.m20
+            + ", "
+            + this.m21
+            + ", "
+            + this.m22
+            + ", "
+            + this.m23
+            + "\n"
+            + this.m30
+            + ", "
+            + this.m31
+            + ", "
+            + this.m32
+            + ", "
+            + this.m33
+            + "\n";
     }
 
     public final void setIdentity() {
@@ -360,15 +391,15 @@ public class Matrix4f implements Serializable
         final double[] tmp_rot = new double[9];
         final double[] tmp_scale = new double[3];
         this.getScaleRotate(tmp_scale, tmp_rot);
-        m1.m00 = (float)tmp_rot[0];
-        m1.m01 = (float)tmp_rot[1];
-        m1.m02 = (float)tmp_rot[2];
-        m1.m10 = (float)tmp_rot[3];
-        m1.m11 = (float)tmp_rot[4];
-        m1.m12 = (float)tmp_rot[5];
-        m1.m20 = (float)tmp_rot[6];
-        m1.m21 = (float)tmp_rot[7];
-        m1.m22 = (float)tmp_rot[8];
+        m1.m00 = (float) tmp_rot[0];
+        m1.m01 = (float) tmp_rot[1];
+        m1.m02 = (float) tmp_rot[2];
+        m1.m10 = (float) tmp_rot[3];
+        m1.m11 = (float) tmp_rot[4];
+        m1.m12 = (float) tmp_rot[5];
+        m1.m20 = (float) tmp_rot[6];
+        m1.m21 = (float) tmp_rot[7];
+        m1.m22 = (float) tmp_rot[8];
     }
 
     public final void get(final Quaternion q1) {
@@ -377,27 +408,27 @@ public class Matrix4f implements Serializable
         this.getScaleRotate(tmp_scale, tmp_rot);
         double ww = 0.25 * (1.0 + tmp_rot[0] + tmp_rot[4] + tmp_rot[8]);
         if (((ww < 0.0) ? (-ww) : ww) >= 1.0E-30) {
-            q1.w = (float)Math.sqrt(ww);
+            q1.w = (float) Math.sqrt(ww);
             ww = 0.25 / q1.w;
-            q1.x = (float)((tmp_rot[7] - tmp_rot[5]) * ww);
-            q1.y = (float)((tmp_rot[2] - tmp_rot[6]) * ww);
-            q1.z = (float)((tmp_rot[3] - tmp_rot[1]) * ww);
+            q1.x = (float) ((tmp_rot[7] - tmp_rot[5]) * ww);
+            q1.y = (float) ((tmp_rot[2] - tmp_rot[6]) * ww);
+            q1.z = (float) ((tmp_rot[3] - tmp_rot[1]) * ww);
             return;
         }
         q1.w = 0.0f;
         ww = -0.5 * (tmp_rot[4] + tmp_rot[8]);
         if (((ww < 0.0) ? (-ww) : ww) >= 1.0E-30) {
-            q1.x = (float)Math.sqrt(ww);
+            q1.x = (float) Math.sqrt(ww);
             ww = 0.5 / q1.x;
-            q1.y = (float)(tmp_rot[3] * ww);
-            q1.z = (float)(tmp_rot[6] * ww);
+            q1.y = (float) (tmp_rot[3] * ww);
+            q1.z = (float) (tmp_rot[6] * ww);
             return;
         }
         q1.x = 0.0f;
         ww = 0.5 * (1.0 - tmp_rot[8]);
         if (((ww < 0.0) ? (-ww) : ww) >= 1.0E-30) {
-            q1.y = (float)Math.sqrt(ww);
-            q1.z = (float)(tmp_rot[7] / (2.0 * q1.y));
+            q1.y = (float) Math.sqrt(ww);
+            q1.z = (float) (tmp_rot[7] / (2.0 * q1.y));
             return;
         }
         q1.y = 0.0f;
@@ -426,7 +457,7 @@ public class Matrix4f implements Serializable
         final double[] tmp_rot = new double[9];
         final double[] tmp_scale = new double[3];
         this.getScaleRotate(tmp_scale, tmp_rot);
-        return (float)Matrix3d.max3(tmp_scale);
+        return (float) Matrix3d.max3(tmp_scale);
     }
 
     public final void setRotationScale(final Matrix3f m1) {
@@ -739,8 +770,7 @@ public class Matrix4f implements Serializable
             this.m31 = m1.m13;
             this.m32 = m1.m23;
             this.m33 = m1.m33;
-        }
-        else {
+        } else {
             this.transpose();
         }
     }
@@ -766,7 +796,7 @@ public class Matrix4f implements Serializable
     }
 
     public final void set(final AxisAngle4f a1) {
-        float mag = (float)Math.sqrt(a1.x * a1.x + a1.y * a1.y + a1.z * a1.z);
+        float mag = (float) Math.sqrt(a1.x * a1.x + a1.y * a1.y + a1.z * a1.z);
         if (mag < 1.0E-8) {
             this.m00 = 1.0f;
             this.m01 = 0.0f;
@@ -777,14 +807,13 @@ public class Matrix4f implements Serializable
             this.m20 = 0.0f;
             this.m21 = 0.0f;
             this.m22 = 1.0f;
-        }
-        else {
+        } else {
             mag = 1.0f / mag;
             final float ax = a1.x * mag;
             final float ay = a1.y * mag;
             final float az = a1.z * mag;
-            final float sinTheta = (float)Math.sin(a1.angle);
-            final float cosTheta = (float)Math.cos(a1.angle);
+            final float sinTheta = (float) Math.sin(a1.angle);
+            final float cosTheta = (float) Math.cos(a1.angle);
             final float t = 1.0f - cosTheta;
             final float xz = ax * az;
             final float xy = ax * ay;
@@ -877,8 +906,7 @@ public class Matrix4f implements Serializable
         if (!luDecomposition(temp, row_perm)) {
             try {
                 throw new Exception("PROBLEM!!! Matrix4f12");
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -888,22 +916,22 @@ public class Matrix4f implements Serializable
         result[5] = (result[0] = 1.0);
         result[15] = (result[10] = 1.0);
         luBacksubstitution(temp, row_perm, result);
-        this.m00 = (float)result[0];
-        this.m01 = (float)result[1];
-        this.m02 = (float)result[2];
-        this.m03 = (float)result[3];
-        this.m10 = (float)result[4];
-        this.m11 = (float)result[5];
-        this.m12 = (float)result[6];
-        this.m13 = (float)result[7];
-        this.m20 = (float)result[8];
-        this.m21 = (float)result[9];
-        this.m22 = (float)result[10];
-        this.m23 = (float)result[11];
-        this.m30 = (float)result[12];
-        this.m31 = (float)result[13];
-        this.m32 = (float)result[14];
-        this.m33 = (float)result[15];
+        this.m00 = (float) result[0];
+        this.m01 = (float) result[1];
+        this.m02 = (float) result[2];
+        this.m03 = (float) result[3];
+        this.m10 = (float) result[4];
+        this.m11 = (float) result[5];
+        this.m12 = (float) result[6];
+        this.m13 = (float) result[7];
+        this.m20 = (float) result[8];
+        this.m21 = (float) result[9];
+        this.m22 = (float) result[10];
+        this.m23 = (float) result[11];
+        this.m30 = (float) result[12];
+        this.m31 = (float) result[13];
+        this.m32 = (float) result[14];
+        this.m33 = (float) result[15];
     }
 
     static boolean luDecomposition(final double[] matrix0, final int[] row_perm) {
@@ -1007,8 +1035,7 @@ public class Matrix4f implements Serializable
                     for (int j = ii; j <= i - 1; ++j) {
                         sum -= matrix1[rv + j] * matrix2[cv + 4 * j];
                     }
-                }
-                else if (sum != 0.0) {
+                } else if (sum != 0.0) {
                     ii = i;
                 }
                 matrix2[cv + 4 * i] = sum;
@@ -1019,17 +1046,36 @@ public class Matrix4f implements Serializable
             rv -= 4;
             matrix2[cv + 8] = (matrix2[cv + 8] - matrix1[rv + 3] * matrix2[cv + 12]) / matrix1[rv + 2];
             rv -= 4;
-            matrix2[cv + 4] = (matrix2[cv + 4] - matrix1[rv + 2] * matrix2[cv + 8] - matrix1[rv + 3] * matrix2[cv + 12]) / matrix1[rv + 1];
+            matrix2[cv + 4] = (matrix2[cv + 4] - matrix1[rv + 2] * matrix2[cv + 8] - matrix1[rv + 3] * matrix2[cv + 12])
+                / matrix1[rv + 1];
             rv -= 4;
-            matrix2[cv + 0] = (matrix2[cv + 0] - matrix1[rv + 1] * matrix2[cv + 4] - matrix1[rv + 2] * matrix2[cv + 8] - matrix1[rv + 3] * matrix2[cv + 12]) / matrix1[rv + 0];
+            matrix2[cv + 0] = (matrix2[cv + 0] - matrix1[rv + 1] * matrix2[cv + 4]
+                - matrix1[rv + 2] * matrix2[cv + 8]
+                - matrix1[rv + 3] * matrix2[cv + 12]) / matrix1[rv + 0];
         }
     }
 
     public final float determinant() {
-        float det = this.m00 * (this.m11 * this.m22 * this.m33 + this.m12 * this.m23 * this.m31 + this.m13 * this.m21 * this.m32 - this.m13 * this.m22 * this.m31 - this.m11 * this.m23 * this.m32 - this.m12 * this.m21 * this.m33);
-        det -= this.m01 * (this.m10 * this.m22 * this.m33 + this.m12 * this.m23 * this.m30 + this.m13 * this.m20 * this.m32 - this.m13 * this.m22 * this.m30 - this.m10 * this.m23 * this.m32 - this.m12 * this.m20 * this.m33);
-        det += this.m02 * (this.m10 * this.m21 * this.m33 + this.m11 * this.m23 * this.m30 + this.m13 * this.m20 * this.m31 - this.m13 * this.m21 * this.m30 - this.m10 * this.m23 * this.m31 - this.m11 * this.m20 * this.m33);
-        det -= this.m03 * (this.m10 * this.m21 * this.m32 + this.m11 * this.m22 * this.m30 + this.m12 * this.m20 * this.m31 - this.m12 * this.m21 * this.m30 - this.m10 * this.m22 * this.m31 - this.m11 * this.m20 * this.m32);
+        float det = this.m00 * (this.m11 * this.m22 * this.m33 + this.m12 * this.m23 * this.m31
+            + this.m13 * this.m21 * this.m32
+            - this.m13 * this.m22 * this.m31
+            - this.m11 * this.m23 * this.m32
+            - this.m12 * this.m21 * this.m33);
+        det -= this.m01 * (this.m10 * this.m22 * this.m33 + this.m12 * this.m23 * this.m30
+            + this.m13 * this.m20 * this.m32
+            - this.m13 * this.m22 * this.m30
+            - this.m10 * this.m23 * this.m32
+            - this.m12 * this.m20 * this.m33);
+        det += this.m02 * (this.m10 * this.m21 * this.m33 + this.m11 * this.m23 * this.m30
+            + this.m13 * this.m20 * this.m31
+            - this.m13 * this.m21 * this.m30
+            - this.m10 * this.m23 * this.m31
+            - this.m11 * this.m20 * this.m33);
+        det -= this.m03 * (this.m10 * this.m21 * this.m32 + this.m11 * this.m22 * this.m30
+            + this.m12 * this.m20 * this.m31
+            - this.m12 * this.m21 * this.m30
+            - this.m10 * this.m22 * this.m31
+            - this.m11 * this.m20 * this.m32);
         return det;
     }
 
@@ -1173,8 +1219,8 @@ public class Matrix4f implements Serializable
     }
 
     public final void rotX(final float angle) {
-        final float sinAngle = (float)Math.sin(angle);
-        final float cosAngle = (float)Math.cos(angle);
+        final float sinAngle = (float) Math.sin(angle);
+        final float cosAngle = (float) Math.cos(angle);
         this.m00 = 1.0f;
         this.m01 = 0.0f;
         this.m02 = 0.0f;
@@ -1194,8 +1240,8 @@ public class Matrix4f implements Serializable
     }
 
     public final void rotY(final float angle) {
-        final float sinAngle = (float)Math.sin(angle);
-        final float cosAngle = (float)Math.cos(angle);
+        final float sinAngle = (float) Math.sin(angle);
+        final float cosAngle = (float) Math.cos(angle);
         this.m00 = cosAngle;
         this.m01 = 0.0f;
         this.m02 = sinAngle;
@@ -1215,8 +1261,8 @@ public class Matrix4f implements Serializable
     }
 
     public final void rotZ(final float angle) {
-        final float sinAngle = (float)Math.sin(angle);
-        final float cosAngle = (float)Math.cos(angle);
+        final float sinAngle = (float) Math.sin(angle);
+        final float cosAngle = (float) Math.cos(angle);
         this.m00 = cosAngle;
         this.m01 = -sinAngle;
         this.m02 = 0.0f;
@@ -1326,8 +1372,7 @@ public class Matrix4f implements Serializable
             this.m31 = m1.m30 * m2.m01 + m1.m31 * m2.m11 + m1.m32 * m2.m21 + m1.m33 * m2.m31;
             this.m32 = m1.m30 * m2.m02 + m1.m31 * m2.m12 + m1.m32 * m2.m22 + m1.m33 * m2.m32;
             this.m33 = m1.m30 * m2.m03 + m1.m31 * m2.m13 + m1.m32 * m2.m23 + m1.m33 * m2.m33;
-        }
-        else {
+        } else {
             final float m3 = m1.m00 * m2.m00 + m1.m01 * m2.m10 + m1.m02 * m2.m20 + m1.m03 * m2.m30;
             final float m4 = m1.m00 * m2.m01 + m1.m01 * m2.m11 + m1.m02 * m2.m21 + m1.m03 * m2.m31;
             final float m5 = m1.m00 * m2.m02 + m1.m01 * m2.m12 + m1.m02 * m2.m22 + m1.m03 * m2.m32;
@@ -1381,8 +1426,7 @@ public class Matrix4f implements Serializable
             this.m31 = m1.m03 * m2.m10 + m1.m13 * m2.m11 + m1.m23 * m2.m12 + m1.m33 * m2.m13;
             this.m32 = m1.m03 * m2.m20 + m1.m13 * m2.m21 + m1.m23 * m2.m22 + m1.m33 * m2.m23;
             this.m33 = m1.m03 * m2.m30 + m1.m13 * m2.m31 + m1.m23 * m2.m32 + m1.m33 * m2.m33;
-        }
-        else {
+        } else {
             final float m3 = m1.m00 * m2.m00 + m1.m10 * m2.m01 + m1.m20 * m2.m02 + m1.m30 * m2.m03;
             final float m4 = m1.m00 * m2.m10 + m1.m10 * m2.m11 + m1.m20 * m2.m12 + m1.m30 * m2.m13;
             final float m5 = m1.m00 * m2.m20 + m1.m10 * m2.m21 + m1.m20 * m2.m22 + m1.m30 * m2.m23;
@@ -1436,8 +1480,7 @@ public class Matrix4f implements Serializable
             this.m31 = m1.m30 * m2.m10 + m1.m31 * m2.m11 + m1.m32 * m2.m12 + m1.m33 * m2.m13;
             this.m32 = m1.m30 * m2.m20 + m1.m31 * m2.m21 + m1.m32 * m2.m22 + m1.m33 * m2.m23;
             this.m33 = m1.m30 * m2.m30 + m1.m31 * m2.m31 + m1.m32 * m2.m32 + m1.m33 * m2.m33;
-        }
-        else {
+        } else {
             final float m3 = m1.m00 * m2.m00 + m1.m01 * m2.m01 + m1.m02 * m2.m02 + m1.m03 * m2.m03;
             final float m4 = m1.m00 * m2.m10 + m1.m01 * m2.m11 + m1.m02 * m2.m12 + m1.m03 * m2.m13;
             final float m5 = m1.m00 * m2.m20 + m1.m01 * m2.m21 + m1.m02 * m2.m22 + m1.m03 * m2.m23;
@@ -1491,8 +1534,7 @@ public class Matrix4f implements Serializable
             this.m31 = m1.m03 * m2.m01 + m1.m13 * m2.m11 + m1.m23 * m2.m21 + m1.m33 * m2.m31;
             this.m32 = m1.m03 * m2.m02 + m1.m13 * m2.m12 + m1.m23 * m2.m22 + m1.m33 * m2.m32;
             this.m33 = m1.m03 * m2.m03 + m1.m13 * m2.m13 + m1.m23 * m2.m23 + m1.m33 * m2.m33;
-        }
-        else {
+        } else {
             final float m3 = m1.m00 * m2.m00 + m1.m10 * m2.m10 + m1.m20 * m2.m20 + m1.m30 * m2.m30;
             final float m4 = m1.m00 * m2.m01 + m1.m10 * m2.m11 + m1.m20 * m2.m21 + m1.m30 * m2.m31;
             final float m5 = m1.m00 * m2.m02 + m1.m10 * m2.m12 + m1.m20 * m2.m22 + m1.m30 * m2.m32;
@@ -1530,9 +1572,22 @@ public class Matrix4f implements Serializable
 
     public boolean equals(final Matrix4f m1) {
         try {
-            return this.m00 == m1.m00 && this.m01 == m1.m01 && this.m02 == m1.m02 && this.m03 == m1.m03 && this.m10 == m1.m10 && this.m11 == m1.m11 && this.m12 == m1.m12 && this.m13 == m1.m13 && this.m20 == m1.m20 && this.m21 == m1.m21 && this.m22 == m1.m22 && this.m23 == m1.m23 && this.m30 == m1.m30 && this.m31 == m1.m31 && this.m32 == m1.m32 && this.m33 == m1.m33;
-        }
-        catch (NullPointerException e) {
+            return this.m00 == m1.m00 && this.m01 == m1.m01
+                && this.m02 == m1.m02
+                && this.m03 == m1.m03
+                && this.m10 == m1.m10
+                && this.m11 == m1.m11
+                && this.m12 == m1.m12
+                && this.m13 == m1.m13
+                && this.m20 == m1.m20
+                && this.m21 == m1.m21
+                && this.m22 == m1.m22
+                && this.m23 == m1.m23
+                && this.m30 == m1.m30
+                && this.m31 == m1.m31
+                && this.m32 == m1.m32
+                && this.m33 == m1.m33;
+        } catch (NullPointerException e) {
             return false;
         }
     }
@@ -1540,13 +1595,25 @@ public class Matrix4f implements Serializable
     @Override
     public boolean equals(final Object t1) {
         try {
-            final Matrix4f m2 = (Matrix4f)t1;
-            return this.m00 == m2.m00 && this.m01 == m2.m01 && this.m02 == m2.m02 && this.m03 == m2.m03 && this.m10 == m2.m10 && this.m11 == m2.m11 && this.m12 == m2.m12 && this.m13 == m2.m13 && this.m20 == m2.m20 && this.m21 == m2.m21 && this.m22 == m2.m22 && this.m23 == m2.m23 && this.m30 == m2.m30 && this.m31 == m2.m31 && this.m32 == m2.m32 && this.m33 == m2.m33;
-        }
-        catch (ClassCastException e1) {
+            final Matrix4f m2 = (Matrix4f) t1;
+            return this.m00 == m2.m00 && this.m01 == m2.m01
+                && this.m02 == m2.m02
+                && this.m03 == m2.m03
+                && this.m10 == m2.m10
+                && this.m11 == m2.m11
+                && this.m12 == m2.m12
+                && this.m13 == m2.m13
+                && this.m20 == m2.m20
+                && this.m21 == m2.m21
+                && this.m22 == m2.m22
+                && this.m23 == m2.m23
+                && this.m30 == m2.m30
+                && this.m31 == m2.m31
+                && this.m32 == m2.m32
+                && this.m33 == m2.m33;
+        } catch (ClassCastException e1) {
             return false;
-        }
-        catch (NullPointerException e2) {
+        } catch (NullPointerException e2) {
             return false;
         }
     }
@@ -1624,30 +1691,30 @@ public class Matrix4f implements Serializable
         final double[] tmp_rot = new double[9];
         final double[] tmp_scale = new double[3];
         this.getScaleRotate(tmp_scale, tmp_rot);
-        this.m00 = (float)(m1.m00 * tmp_scale[0]);
-        this.m01 = (float)(m1.m01 * tmp_scale[1]);
-        this.m02 = (float)(m1.m02 * tmp_scale[2]);
-        this.m10 = (float)(m1.m10 * tmp_scale[0]);
-        this.m11 = (float)(m1.m11 * tmp_scale[1]);
-        this.m12 = (float)(m1.m12 * tmp_scale[2]);
-        this.m20 = (float)(m1.m20 * tmp_scale[0]);
-        this.m21 = (float)(m1.m21 * tmp_scale[1]);
-        this.m22 = (float)(m1.m22 * tmp_scale[2]);
+        this.m00 = (float) (m1.m00 * tmp_scale[0]);
+        this.m01 = (float) (m1.m01 * tmp_scale[1]);
+        this.m02 = (float) (m1.m02 * tmp_scale[2]);
+        this.m10 = (float) (m1.m10 * tmp_scale[0]);
+        this.m11 = (float) (m1.m11 * tmp_scale[1]);
+        this.m12 = (float) (m1.m12 * tmp_scale[2]);
+        this.m20 = (float) (m1.m20 * tmp_scale[0]);
+        this.m21 = (float) (m1.m21 * tmp_scale[1]);
+        this.m22 = (float) (m1.m22 * tmp_scale[2]);
     }
 
     public final void setRotation(final Quaternion q1) {
         final double[] tmp_rot = new double[9];
         final double[] tmp_scale = new double[3];
         this.getScaleRotate(tmp_scale, tmp_rot);
-        this.m00 = (float)((1.0f - 2.0f * q1.y * q1.y - 2.0f * q1.z * q1.z) * tmp_scale[0]);
-        this.m10 = (float)(2.0f * (q1.x * q1.y + q1.w * q1.z) * tmp_scale[0]);
-        this.m20 = (float)(2.0f * (q1.x * q1.z - q1.w * q1.y) * tmp_scale[0]);
-        this.m01 = (float)(2.0f * (q1.x * q1.y - q1.w * q1.z) * tmp_scale[1]);
-        this.m11 = (float)((1.0f - 2.0f * q1.x * q1.x - 2.0f * q1.z * q1.z) * tmp_scale[1]);
-        this.m21 = (float)(2.0f * (q1.y * q1.z + q1.w * q1.x) * tmp_scale[1]);
-        this.m02 = (float)(2.0f * (q1.x * q1.z + q1.w * q1.y) * tmp_scale[2]);
-        this.m12 = (float)(2.0f * (q1.y * q1.z - q1.w * q1.x) * tmp_scale[2]);
-        this.m22 = (float)((1.0f - 2.0f * q1.x * q1.x - 2.0f * q1.y * q1.y) * tmp_scale[2]);
+        this.m00 = (float) ((1.0f - 2.0f * q1.y * q1.y - 2.0f * q1.z * q1.z) * tmp_scale[0]);
+        this.m10 = (float) (2.0f * (q1.x * q1.y + q1.w * q1.z) * tmp_scale[0]);
+        this.m20 = (float) (2.0f * (q1.x * q1.z - q1.w * q1.y) * tmp_scale[0]);
+        this.m01 = (float) (2.0f * (q1.x * q1.y - q1.w * q1.z) * tmp_scale[1]);
+        this.m11 = (float) ((1.0f - 2.0f * q1.x * q1.x - 2.0f * q1.z * q1.z) * tmp_scale[1]);
+        this.m21 = (float) (2.0f * (q1.y * q1.z + q1.w * q1.x) * tmp_scale[1]);
+        this.m02 = (float) (2.0f * (q1.x * q1.z + q1.w * q1.y) * tmp_scale[2]);
+        this.m12 = (float) (2.0f * (q1.y * q1.z - q1.w * q1.x) * tmp_scale[2]);
+        this.m22 = (float) ((1.0f - 2.0f * q1.x * q1.x - 2.0f * q1.y * q1.y) * tmp_scale[2]);
     }
 
     public final void setRotation(final AxisAngle4f a1) {
@@ -1665,8 +1732,7 @@ public class Matrix4f implements Serializable
             this.m20 = 0.0f;
             this.m21 = 0.0f;
             this.m22 = 1.0f;
-        }
-        else {
+        } else {
             mag = 1.0 / mag;
             final double ax = a1.x * mag;
             final double ay = a1.y * mag;
@@ -1677,15 +1743,15 @@ public class Matrix4f implements Serializable
             final double xz = a1.x * a1.z;
             final double xy = a1.x * a1.y;
             final double yz = a1.y * a1.z;
-            this.m00 = (float)((t * ax * ax + cosTheta) * tmp_scale[0]);
-            this.m01 = (float)((t * xy - sinTheta * az) * tmp_scale[1]);
-            this.m02 = (float)((t * xz + sinTheta * ay) * tmp_scale[2]);
-            this.m10 = (float)((t * xy + sinTheta * az) * tmp_scale[0]);
-            this.m11 = (float)((t * ay * ay + cosTheta) * tmp_scale[1]);
-            this.m12 = (float)((t * yz - sinTheta * ax) * tmp_scale[2]);
-            this.m20 = (float)((t * xz - sinTheta * ay) * tmp_scale[0]);
-            this.m21 = (float)((t * yz + sinTheta * ax) * tmp_scale[1]);
-            this.m22 = (float)((t * az * az + cosTheta) * tmp_scale[2]);
+            this.m00 = (float) ((t * ax * ax + cosTheta) * tmp_scale[0]);
+            this.m01 = (float) ((t * xy - sinTheta * az) * tmp_scale[1]);
+            this.m02 = (float) ((t * xz + sinTheta * ay) * tmp_scale[2]);
+            this.m10 = (float) ((t * xy + sinTheta * az) * tmp_scale[0]);
+            this.m11 = (float) ((t * ay * ay + cosTheta) * tmp_scale[1]);
+            this.m12 = (float) ((t * yz - sinTheta * ax) * tmp_scale[2]);
+            this.m20 = (float) ((t * xz - sinTheta * ay) * tmp_scale[0]);
+            this.m21 = (float) ((t * yz + sinTheta * ax) * tmp_scale[1]);
+            this.m22 = (float) ((t * az * az + cosTheta) * tmp_scale[2]);
         }
     }
 
@@ -1747,16 +1813,16 @@ public class Matrix4f implements Serializable
     }
 
     private final void getScaleRotate(final double[] scales, final double[] rots) {
-        final double[] tmp = { this.m00, this.m01, this.m02, this.m10, this.m11, this.m12, this.m20, this.m21, this.m22 };
+        final double[] tmp = { this.m00, this.m01, this.m02, this.m10, this.m11, this.m12, this.m20, this.m21,
+            this.m22 };
         Matrix3d.compute_svd(tmp, scales, rots);
     }
 
     public Object clone() {
         Matrix4f m1 = null;
         try {
-            m1 = (Matrix4f)super.clone();
-        }
-        catch (CloneNotSupportedException e) {
+            m1 = (Matrix4f) super.clone();
+        } catch (CloneNotSupportedException e) {
             throw new InternalError();
         }
         return m1;
@@ -1891,7 +1957,8 @@ public class Matrix4f implements Serializable
     }
 
     public final float[] intoArray() {
-        final float[] m = { this.m00, this.m01, this.m02, this.m03, this.m10, this.m11, this.m12, this.m13, this.m20, this.m21, this.m22, this.m23, this.m30, this.m31, this.m32, this.m33 };
+        final float[] m = { this.m00, this.m01, this.m02, this.m03, this.m10, this.m11, this.m12, this.m13, this.m20,
+            this.m21, this.m22, this.m23, this.m30, this.m31, this.m32, this.m33 };
         return m;
     }
 

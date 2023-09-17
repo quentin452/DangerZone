@@ -1,11 +1,10 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math;
 
 import java.io.Serializable;
 
-public class Matrix3d implements Serializable, Cloneable
-{
+public class Matrix3d implements Serializable, Cloneable {
+
     static final long serialVersionUID = 6837536777072402710L;
     public double m00;
     public double m01;
@@ -25,7 +24,8 @@ public class Matrix3d implements Serializable, Cloneable
     private static double yout;
     private static double zout;
 
-    public Matrix3d(final double m00, final double m01, final double m02, final double m10, final double m11, final double m12, final double m20, final double m21, final double m22) {
+    public Matrix3d(final double m00, final double m01, final double m02, final double m10, final double m11,
+        final double m12, final double m20, final double m21, final double m22) {
         this.m00 = m00;
         this.m01 = m01;
         this.m02 = m02;
@@ -87,7 +87,23 @@ public class Matrix3d implements Serializable, Cloneable
 
     @Override
     public String toString() {
-        return this.m00 + ", " + this.m01 + ", " + this.m02 + "\n" + this.m10 + ", " + this.m11 + ", " + this.m12 + "\n" + this.m20 + ", " + this.m21 + ", " + this.m22 + "\n";
+        return this.m00 + ", "
+            + this.m01
+            + ", "
+            + this.m02
+            + "\n"
+            + this.m10
+            + ", "
+            + this.m11
+            + ", "
+            + this.m12
+            + "\n"
+            + this.m20
+            + ", "
+            + this.m21
+            + ", "
+            + this.m22
+            + "\n";
     }
 
     public final void setIdentity() {
@@ -248,22 +264,20 @@ public class Matrix3d implements Serializable, Cloneable
 
     public final void getRow(final int row, final Vector3f v) {
         if (row == 0) {
-            v.x = (float)this.m00;
-            v.y = (float)this.m01;
-            v.z = (float)this.m02;
-        }
-        else if (row == 1) {
-            v.x = (float)this.m10;
-            v.y = (float)this.m11;
-            v.z = (float)this.m12;
-        }
-        else {
+            v.x = (float) this.m00;
+            v.y = (float) this.m01;
+            v.z = (float) this.m02;
+        } else if (row == 1) {
+            v.x = (float) this.m10;
+            v.y = (float) this.m11;
+            v.z = (float) this.m12;
+        } else {
             if (row != 2) {
                 throw new ArrayIndexOutOfBoundsException("PROBLEM!!! Matrix3d");
             }
-            v.x = (float)this.m20;
-            v.y = (float)this.m21;
-            v.z = (float)this.m22;
+            v.x = (float) this.m20;
+            v.y = (float) this.m21;
+            v.z = (float) this.m22;
         }
     }
 
@@ -272,13 +286,11 @@ public class Matrix3d implements Serializable, Cloneable
             v[0] = this.m00;
             v[1] = this.m01;
             v[2] = this.m02;
-        }
-        else if (row == 1) {
+        } else if (row == 1) {
             v[0] = this.m10;
             v[1] = this.m11;
             v[2] = this.m12;
-        }
-        else {
+        } else {
             if (row != 2) {
                 throw new ArrayIndexOutOfBoundsException("PROBLEM!!! Matrix3d");
             }
@@ -290,22 +302,20 @@ public class Matrix3d implements Serializable, Cloneable
 
     public final void getColumn(final int column, final Vector3f v) {
         if (column == 0) {
-            v.x = (float)this.m00;
-            v.y = (float)this.m10;
-            v.z = (float)this.m20;
-        }
-        else if (column == 1) {
-            v.x = (float)this.m01;
-            v.y = (float)this.m11;
-            v.z = (float)this.m21;
-        }
-        else {
+            v.x = (float) this.m00;
+            v.y = (float) this.m10;
+            v.z = (float) this.m20;
+        } else if (column == 1) {
+            v.x = (float) this.m01;
+            v.y = (float) this.m11;
+            v.z = (float) this.m21;
+        } else {
             if (column != 2) {
                 throw new ArrayIndexOutOfBoundsException("PROBLEM!!! Matrix3d");
             }
-            v.x = (float)this.m02;
-            v.y = (float)this.m12;
-            v.z = (float)this.m22;
+            v.x = (float) this.m02;
+            v.y = (float) this.m12;
+            v.z = (float) this.m22;
         }
     }
 
@@ -314,13 +324,11 @@ public class Matrix3d implements Serializable, Cloneable
             v[0] = this.m00;
             v[1] = this.m10;
             v[2] = this.m20;
-        }
-        else if (column == 1) {
+        } else if (column == 1) {
             v[0] = this.m01;
             v[1] = this.m11;
             v[2] = this.m21;
-        }
-        else {
+        } else {
             if (column != 2) {
                 throw new ArrayIndexOutOfBoundsException("PROBLEM!!! Matrix3d");
             }
@@ -588,8 +596,7 @@ public class Matrix3d implements Serializable, Cloneable
             this.m20 = m1.m02;
             this.m21 = m1.m12;
             this.m22 = m1.m22;
-        }
-        else {
+        } else {
             this.transpose();
         }
     }
@@ -618,8 +625,7 @@ public class Matrix3d implements Serializable, Cloneable
             this.m20 = 0.0;
             this.m21 = 0.0;
             this.m22 = 1.0;
-        }
-        else {
+        } else {
             mag = 1.0 / mag;
             final double ax = a1.x * mag;
             final double ay = a1.y * mag;
@@ -693,8 +699,7 @@ public class Matrix3d implements Serializable, Cloneable
         if (!luDecomposition(tmp, row_perm)) {
             try {
                 throw new Exception("PROBLEM!!! Matrix3d12");
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -816,8 +821,7 @@ public class Matrix3d implements Serializable, Cloneable
                     for (int j = ii; j <= i - 1; ++j) {
                         sum -= matrix1[rv + j] * matrix2[cv + 3 * j];
                     }
-                }
-                else if (sum != 0.0) {
+                } else if (sum != 0.0) {
                     ii = i;
                 }
                 matrix2[cv + 3 * i] = sum;
@@ -828,12 +832,15 @@ public class Matrix3d implements Serializable, Cloneable
             rv -= 3;
             matrix2[cv + 3] = (matrix2[cv + 3] - matrix1[rv + 2] * matrix2[cv + 6]) / matrix1[rv + 1];
             rv -= 3;
-            matrix2[cv + 0] = (matrix2[cv + 0] - matrix1[rv + 1] * matrix2[cv + 3] - matrix1[rv + 2] * matrix2[cv + 6]) / matrix1[rv + 0];
+            matrix2[cv + 0] = (matrix2[cv + 0] - matrix1[rv + 1] * matrix2[cv + 3] - matrix1[rv + 2] * matrix2[cv + 6])
+                / matrix1[rv + 0];
         }
     }
 
     public final double determinant() {
-        final double total = this.m00 * (this.m11 * this.m22 - this.m12 * this.m21) + this.m01 * (this.m12 * this.m20 - this.m10 * this.m22) + this.m02 * (this.m10 * this.m21 - this.m11 * this.m20);
+        final double total = this.m00 * (this.m11 * this.m22 - this.m12 * this.m21)
+            + this.m01 * (this.m12 * this.m20 - this.m10 * this.m22)
+            + this.m02 * (this.m10 * this.m21 - this.m11 * this.m20);
         return total;
     }
 
@@ -947,8 +954,7 @@ public class Matrix3d implements Serializable, Cloneable
             this.m20 = m1.m20 * m2.m00 + m1.m21 * m2.m10 + m1.m22 * m2.m20;
             this.m21 = m1.m20 * m2.m01 + m1.m21 * m2.m11 + m1.m22 * m2.m21;
             this.m22 = m1.m20 * m2.m02 + m1.m21 * m2.m12 + m1.m22 * m2.m22;
-        }
-        else {
+        } else {
             final double m3 = m1.m00 * m2.m00 + m1.m01 * m2.m10 + m1.m02 * m2.m20;
             final double m4 = m1.m00 * m2.m01 + m1.m01 * m2.m11 + m1.m02 * m2.m21;
             final double m5 = m1.m00 * m2.m02 + m1.m01 * m2.m12 + m1.m02 * m2.m22;
@@ -1031,8 +1037,7 @@ public class Matrix3d implements Serializable, Cloneable
             this.m20 = m1.m02 * m2.m00 + m1.m12 * m2.m01 + m1.m22 * m2.m02;
             this.m21 = m1.m02 * m2.m10 + m1.m12 * m2.m11 + m1.m22 * m2.m12;
             this.m22 = m1.m02 * m2.m20 + m1.m12 * m2.m21 + m1.m22 * m2.m22;
-        }
-        else {
+        } else {
             final double m3 = m1.m00 * m2.m00 + m1.m10 * m2.m01 + m1.m20 * m2.m02;
             final double m4 = m1.m00 * m2.m10 + m1.m10 * m2.m11 + m1.m20 * m2.m12;
             final double m5 = m1.m00 * m2.m20 + m1.m10 * m2.m21 + m1.m20 * m2.m22;
@@ -1065,8 +1070,7 @@ public class Matrix3d implements Serializable, Cloneable
             this.m20 = m1.m20 * m2.m00 + m1.m21 * m2.m01 + m1.m22 * m2.m02;
             this.m21 = m1.m20 * m2.m10 + m1.m21 * m2.m11 + m1.m22 * m2.m12;
             this.m22 = m1.m20 * m2.m20 + m1.m21 * m2.m21 + m1.m22 * m2.m22;
-        }
-        else {
+        } else {
             final double m3 = m1.m00 * m2.m00 + m1.m01 * m2.m01 + m1.m02 * m2.m02;
             final double m4 = m1.m00 * m2.m10 + m1.m01 * m2.m11 + m1.m02 * m2.m12;
             final double m5 = m1.m00 * m2.m20 + m1.m01 * m2.m21 + m1.m02 * m2.m22;
@@ -1099,8 +1103,7 @@ public class Matrix3d implements Serializable, Cloneable
             this.m20 = m1.m02 * m2.m00 + m1.m12 * m2.m10 + m1.m22 * m2.m20;
             this.m21 = m1.m02 * m2.m01 + m1.m12 * m2.m11 + m1.m22 * m2.m21;
             this.m22 = m1.m02 * m2.m02 + m1.m12 * m2.m12 + m1.m22 * m2.m22;
-        }
-        else {
+        } else {
             final double m3 = m1.m00 * m2.m00 + m1.m10 * m2.m10 + m1.m20 * m2.m20;
             final double m4 = m1.m00 * m2.m01 + m1.m10 * m2.m11 + m1.m20 * m2.m21;
             final double m5 = m1.m00 * m2.m02 + m1.m10 * m2.m12 + m1.m20 * m2.m22;
@@ -1192,9 +1195,15 @@ public class Matrix3d implements Serializable, Cloneable
 
     public boolean equals(final Matrix3d m1) {
         try {
-            return this.m00 == m1.m00 && this.m01 == m1.m01 && this.m02 == m1.m02 && this.m10 == m1.m10 && this.m11 == m1.m11 && this.m12 == m1.m12 && this.m20 == m1.m20 && this.m21 == m1.m21 && this.m22 == m1.m22;
-        }
-        catch (NullPointerException e2) {
+            return this.m00 == m1.m00 && this.m01 == m1.m01
+                && this.m02 == m1.m02
+                && this.m10 == m1.m10
+                && this.m11 == m1.m11
+                && this.m12 == m1.m12
+                && this.m20 == m1.m20
+                && this.m21 == m1.m21
+                && this.m22 == m1.m22;
+        } catch (NullPointerException e2) {
             return false;
         }
     }
@@ -1202,13 +1211,18 @@ public class Matrix3d implements Serializable, Cloneable
     @Override
     public boolean equals(final Object t1) {
         try {
-            final Matrix3d m2 = (Matrix3d)t1;
-            return this.m00 == m2.m00 && this.m01 == m2.m01 && this.m02 == m2.m02 && this.m10 == m2.m10 && this.m11 == m2.m11 && this.m12 == m2.m12 && this.m20 == m2.m20 && this.m21 == m2.m21 && this.m22 == m2.m22;
-        }
-        catch (ClassCastException e1) {
+            final Matrix3d m2 = (Matrix3d) t1;
+            return this.m00 == m2.m00 && this.m01 == m2.m01
+                && this.m02 == m2.m02
+                && this.m10 == m2.m10
+                && this.m11 == m2.m11
+                && this.m12 == m2.m12
+                && this.m20 == m2.m20
+                && this.m21 == m2.m21
+                && this.m22 == m2.m22;
+        } catch (ClassCastException e1) {
             return false;
-        }
-        catch (NullPointerException e2) {
+        } catch (NullPointerException e2) {
             return false;
         }
     }
@@ -1287,7 +1301,8 @@ public class Matrix3d implements Serializable, Cloneable
     }
 
     final void getScaleRotate(final double[] scales, final double[] rots) {
-        final double[] tmp = { this.m00, this.m01, this.m02, this.m10, this.m11, this.m12, this.m20, this.m21, this.m22 };
+        final double[] tmp = { this.m00, this.m01, this.m02, this.m10, this.m11, this.m12, this.m20, this.m21,
+            this.m22 };
         compute_svd(tmp, scales, rots);
     }
 
@@ -1313,8 +1328,7 @@ public class Matrix3d implements Serializable, Cloneable
             u1[5] = 0.0;
             u1[7] = (u1[6] = 0.0);
             u1[8] = 1.0;
-        }
-        else if (m[0] * m[0] < 1.110223024E-16) {
+        } else if (m[0] * m[0] < 1.110223024E-16) {
             tmp[0] = m[0];
             tmp[1] = m[1];
             tmp[2] = m[2];
@@ -1331,8 +1345,7 @@ public class Matrix3d implements Serializable, Cloneable
             u1[5] = (u1[4] = 0.0);
             u1[7] = (u1[6] = 0.0);
             u1[8] = 1.0;
-        }
-        else {
+        } else {
             final double g = 1.0 / Math.sqrt(m[0] * m[0] + m[3] * m[3]);
             final double c1 = m[0] * g;
             final double s1 = m[3] * g;
@@ -1374,8 +1387,7 @@ public class Matrix3d implements Serializable, Cloneable
                 u1[6] = -tmp[0];
                 u1[7] = -tmp[1];
                 u1[8] = -tmp[2];
-            }
-            else {
+            } else {
                 final double g = 1.0 / Math.sqrt(m[0] * m[0] + m[6] * m[6]);
                 final double c2 = m[0] * g;
                 final double s2 = m[6] * g;
@@ -1408,8 +1420,7 @@ public class Matrix3d implements Serializable, Cloneable
             v1[5] = 0.0;
             v1[7] = (v1[6] = 0.0);
             v1[8] = 1.0;
-        }
-        else if (m[1] * m[1] < 1.110223024E-16) {
+        } else if (m[1] * m[1] < 1.110223024E-16) {
             tmp[2] = m[2];
             tmp[5] = m[5];
             tmp[8] = m[8];
@@ -1426,8 +1437,7 @@ public class Matrix3d implements Serializable, Cloneable
             v1[6] = 0.0;
             v1[7] = 1.0;
             v1[8] = 0.0;
-        }
-        else {
+        } else {
             final double g = 1.0 / Math.sqrt(m[1] * m[1] + m[2] * m[2]);
             final double c3 = m[1] * g;
             final double s3 = m[2] * g;
@@ -1469,8 +1479,7 @@ public class Matrix3d implements Serializable, Cloneable
                 u1[6] = -tmp[3];
                 u1[7] = -tmp[4];
                 u1[8] = -tmp[5];
-            }
-            else {
+            } else {
                 final double g = 1.0 / Math.sqrt(m[4] * m[4] + m[7] * m[7]);
                 final double c4 = m[4] * g;
                 final double s4 = m[7] * g;
@@ -1505,7 +1514,8 @@ public class Matrix3d implements Serializable, Cloneable
         scales[0] = single_values[0];
         scales[1] = single_values[1];
         scales[2] = single_values[2];
-        if (almostEqual(Math.abs(scales[0]), 1.0) && almostEqual(Math.abs(scales[1]), 1.0) && almostEqual(Math.abs(scales[2]), 1.0)) {
+        if (almostEqual(Math.abs(scales[0]), 1.0) && almostEqual(Math.abs(scales[1]), 1.0)
+            && almostEqual(Math.abs(scales[2]), 1.0)) {
             for (int i = 0; i < 3; ++i) {
                 if (scales[i] < 0.0) {
                     ++negCnt;
@@ -1529,7 +1539,8 @@ public class Matrix3d implements Serializable, Cloneable
         svdReorder(m, t1, t2, scales, outRot, outScale);
     }
 
-    static void svdReorder(final double[] m, final double[] t1, final double[] t2, final double[] scales, final double[] outRot, final double[] outScale) {
+    static void svdReorder(final double[] m, final double[] t1, final double[] t2, final double[] scales,
+        final double[] outRot, final double[] outScale) {
         final int[] out = new int[3];
         final int[] in = new int[3];
         final double[] mag = new double[3];
@@ -1553,44 +1564,39 @@ public class Matrix3d implements Serializable, Cloneable
             t2[8] = -t2[8];
         }
         mat_mul(t1, t2, rot);
-        if (almostEqual(Math.abs(scales[0]), Math.abs(scales[1])) && almostEqual(Math.abs(scales[1]), Math.abs(scales[2]))) {
+        if (almostEqual(Math.abs(scales[0]), Math.abs(scales[1]))
+            && almostEqual(Math.abs(scales[1]), Math.abs(scales[2]))) {
             for (int i = 0; i < 9; ++i) {
                 outRot[i] = rot[i];
             }
             for (int i = 0; i < 3; ++i) {
                 outScale[i] = scales[i];
             }
-        }
-        else {
+        } else {
             if (scales[0] > scales[1]) {
                 if (scales[0] > scales[2]) {
                     if (scales[2] > scales[1]) {
                         out[0] = 0;
                         out[out[1] = 2] = 1;
-                    }
-                    else {
+                    } else {
                         out[0] = 0;
                         out[1] = 1;
                         out[2] = 2;
                     }
-                }
-                else {
+                } else {
                     out[0] = 2;
                     out[1] = 0;
                     out[2] = 1;
                 }
-            }
-            else if (scales[1] > scales[2]) {
+            } else if (scales[1] > scales[2]) {
                 if (scales[2] > scales[0]) {
                     out[0] = 1;
                     out[out[1] = 2] = 0;
-                }
-                else {
+                } else {
                     out[out[0] = 1] = 0;
                     out[2] = 2;
                 }
-            }
-            else {
+            } else {
                 out[0] = 2;
                 out[1] = 1;
                 out[2] = 0;
@@ -1607,32 +1613,27 @@ public class Matrix3d implements Serializable, Cloneable
                         in2 = 0;
                         in3 = 1;
                         in4 = 2;
-                    }
-                    else {
+                    } else {
                         in2 = 0;
                         in4 = 1;
                         in3 = 2;
                     }
-                }
-                else {
+                } else {
                     in3 = 0;
                     in2 = 1;
                     in4 = 2;
                 }
-            }
-            else if (mag[1] > mag[2]) {
+            } else if (mag[1] > mag[2]) {
                 if (mag[2] > mag[0]) {
                     in4 = 0;
                     in3 = 1;
                     in2 = 2;
-                }
-                else {
+                } else {
                     in4 = 0;
                     in2 = 1;
                     in3 = 2;
                 }
-            }
-            else {
+            } else {
                 in3 = 0;
                 in4 = 1;
                 in2 = 2;
@@ -1773,8 +1774,7 @@ public class Matrix3d implements Serializable, Cloneable
             vtemp = v[6];
             v[6] = cosr[0] * vtemp + sinr[0] * v[7];
             v[7] = -sinr[0] * vtemp + cosr[0] * v[7];
-        }
-        else {
+        } else {
             compute_2X2(s[1], e[1], s[2], s, sinl, cosl, sinr, cosr, 1);
             double utemp = u[3];
             u[3] = cosl[0] * utemp + sinl[0] * u[6];
@@ -1829,21 +1829,18 @@ public class Matrix3d implements Serializable, Cloneable
             if (fhmx != 0.0) {
                 final double d__1 = min(fhmx, ga) / max(fhmx, ga);
             }
-        }
-        else if (ga < fhmx) {
+        } else if (ga < fhmx) {
             final double as = fhmn / fhmx + 1.0;
             final double at = (fhmx - fhmn) / fhmx;
             final double d__1 = ga / fhmx;
             final double au = d__1 * d__1;
             final double c = 2.0 / (Math.sqrt(as * as + au) + Math.sqrt(at * at + au));
             ssmin = fhmn * c;
-        }
-        else {
+        } else {
             final double au = fhmx / ga;
             if (au == 0.0) {
                 ssmin = fhmn * fhmx / ga;
-            }
-            else {
+            } else {
                 final double as = fhmn / fhmx + 1.0;
                 final double at = (fhmx - fhmn) / fhmx;
                 final double d__1 = as * au;
@@ -1856,7 +1853,8 @@ public class Matrix3d implements Serializable, Cloneable
         return ssmin;
     }
 
-    static int compute_2X2(final double f, final double g, final double h, final double[] single_values, final double[] snl, final double[] csl, final double[] snr, final double[] csr, final int index) {
+    static int compute_2X2(final double f, final double g, final double h, final double[] single_values,
+        final double[] snl, final double[] csl, final double[] snr, final double[] csr, final int index) {
         final double c_b3 = 2.0;
         final double c_b4 = 1.0;
         double ssmax = single_values[0];
@@ -1890,8 +1888,7 @@ public class Matrix3d implements Serializable, Cloneable
             crt = 1.0;
             slt = 0.0;
             srt = 0.0;
-        }
-        else {
+        } else {
             boolean gasmal = true;
             if (ga > fa) {
                 pmax = 2;
@@ -1900,8 +1897,7 @@ public class Matrix3d implements Serializable, Cloneable
                     ssmax = ga;
                     if (ha > 1.0) {
                         ssmin = fa / (ga / ha);
-                    }
-                    else {
+                    } else {
                         ssmin = fa / ga * ha;
                     }
                     clt = 1.0;
@@ -1915,8 +1911,7 @@ public class Matrix3d implements Serializable, Cloneable
                 double l;
                 if (d == fa) {
                     l = 1.0;
-                }
-                else {
+                } else {
                     l = d / fa;
                 }
                 double m = gt / ft;
@@ -1927,8 +1922,7 @@ public class Matrix3d implements Serializable, Cloneable
                 double r;
                 if (l == 0.0) {
                     r = Math.abs(m);
-                }
-                else {
+                } else {
                     r = Math.sqrt(l * l + mm);
                 }
                 double a = (s + r) * 0.5;
@@ -1939,8 +1933,7 @@ public class Matrix3d implements Serializable, Cloneable
                         ssmax = ga;
                         if (ha > 1.0) {
                             ssmin = fa / (ga / ha);
-                        }
-                        else {
+                        } else {
                             ssmin = fa / ga * ha;
                         }
                         clt = 1.0;
@@ -1953,8 +1946,7 @@ public class Matrix3d implements Serializable, Cloneable
                     d = fa - ha;
                     if (d == fa) {
                         l = 1.0;
-                    }
-                    else {
+                    } else {
                         l = d / fa;
                     }
                     m = gt / ft;
@@ -1964,8 +1956,7 @@ public class Matrix3d implements Serializable, Cloneable
                     s = Math.sqrt(tt + mm);
                     if (l == 0.0) {
                         r = Math.abs(m);
-                    }
-                    else {
+                    } else {
                         r = Math.sqrt(l * l + mm);
                     }
                     a = (s + r) * 0.5;
@@ -1974,12 +1965,10 @@ public class Matrix3d implements Serializable, Cloneable
                     if (mm == 0.0) {
                         if (l == 0.0) {
                             t = d_sign(c_b3, ft) * d_sign(c_b4, gt);
-                        }
-                        else {
+                        } else {
                             t = gt / d_sign(d, ft) + m / t;
                         }
-                    }
-                    else {
+                    } else {
                         t = (m / (s + t) + m / (r + l)) * (a + 1.0);
                     }
                     l = Math.sqrt(t * t + 4.0);
@@ -1994,8 +1983,7 @@ public class Matrix3d implements Serializable, Cloneable
                 snl[0] = crt;
                 csr[0] = slt;
                 snr[0] = clt;
-            }
-            else {
+            } else {
                 csl[0] = clt;
                 snl[0] = slt;
                 csr[0] = crt;
@@ -2017,7 +2005,8 @@ public class Matrix3d implements Serializable, Cloneable
         return 0;
     }
 
-    static double compute_rot(final double f, final double g, final double[] sin, final double[] cos, final int index, final int first) {
+    static double compute_rot(final double f, final double g, final double[] sin, final double[] cos, final int index,
+        final int first) {
         final double safmn2 = 2.002083095183101E-146;
         final double safmx2 = 4.9947976805055876E145;
         double cs;
@@ -2027,13 +2016,11 @@ public class Matrix3d implements Serializable, Cloneable
             cs = 1.0;
             sn = 0.0;
             r = f;
-        }
-        else if (f == 0.0) {
+        } else if (f == 0.0) {
             cs = 0.0;
             sn = 1.0;
             r = g;
-        }
-        else {
+        } else {
             double f2 = f;
             double g2 = g;
             double scale = max(Math.abs(f2), Math.abs(g2));
@@ -2052,8 +2039,7 @@ public class Matrix3d implements Serializable, Cloneable
                 for (int i = 1; i <= count; ++i) {
                     r *= 4.9947976805055876E145;
                 }
-            }
-            else if (scale <= 2.002083095183101E-146) {
+            } else if (scale <= 2.002083095183101E-146) {
                 int count = 0;
                 while (scale <= 2.002083095183101E-146) {
                     ++count;
@@ -2068,8 +2054,7 @@ public class Matrix3d implements Serializable, Cloneable
                 for (int i = 1; i <= count; ++i) {
                     r *= 2.002083095183101E-146;
                 }
-            }
-            else {
+            } else {
                 r = Math.sqrt(f2 * f2 + g2 * g2);
                 cs = f2 / r;
                 sn = g2 / r;
@@ -2092,12 +2077,20 @@ public class Matrix3d implements Serializable, Cloneable
     }
 
     static void print_det(final double[] mat) {
-        final double det = mat[0] * mat[4] * mat[8] + mat[1] * mat[5] * mat[6] + mat[2] * mat[3] * mat[7] - mat[2] * mat[4] * mat[6] - mat[0] * mat[5] * mat[7] - mat[1] * mat[3] * mat[8];
+        final double det = mat[0] * mat[4] * mat[8] + mat[1] * mat[5] * mat[6]
+            + mat[2] * mat[3] * mat[7]
+            - mat[2] * mat[4] * mat[6]
+            - mat[0] * mat[5] * mat[7]
+            - mat[1] * mat[3] * mat[8];
         System.out.println("det= " + det);
     }
 
     static void mat_mul(final double[] m1, final double[] m2, final double[] m3) {
-        final double[] tmp = { m1[0] * m2[0] + m1[1] * m2[3] + m1[2] * m2[6], m1[0] * m2[1] + m1[1] * m2[4] + m1[2] * m2[7], m1[0] * m2[2] + m1[1] * m2[5] + m1[2] * m2[8], m1[3] * m2[0] + m1[4] * m2[3] + m1[5] * m2[6], m1[3] * m2[1] + m1[4] * m2[4] + m1[5] * m2[7], m1[3] * m2[2] + m1[4] * m2[5] + m1[5] * m2[8], m1[6] * m2[0] + m1[7] * m2[3] + m1[8] * m2[6], m1[6] * m2[1] + m1[7] * m2[4] + m1[8] * m2[7], m1[6] * m2[2] + m1[7] * m2[5] + m1[8] * m2[8] };
+        final double[] tmp = { m1[0] * m2[0] + m1[1] * m2[3] + m1[2] * m2[6],
+            m1[0] * m2[1] + m1[1] * m2[4] + m1[2] * m2[7], m1[0] * m2[2] + m1[1] * m2[5] + m1[2] * m2[8],
+            m1[3] * m2[0] + m1[4] * m2[3] + m1[5] * m2[6], m1[3] * m2[1] + m1[4] * m2[4] + m1[5] * m2[7],
+            m1[3] * m2[2] + m1[4] * m2[5] + m1[5] * m2[8], m1[6] * m2[0] + m1[7] * m2[3] + m1[8] * m2[6],
+            m1[6] * m2[1] + m1[7] * m2[4] + m1[8] * m2[7], m1[6] * m2[2] + m1[7] * m2[5] + m1[8] * m2[8] };
         for (int i = 0; i < 9; ++i) {
             m3[i] = tmp[i];
         }
@@ -2121,8 +2114,7 @@ public class Matrix3d implements Serializable, Cloneable
                 return values[0];
             }
             return values[2];
-        }
-        else {
+        } else {
             if (values[1] > values[2]) {
                 return values[1];
             }
@@ -2146,9 +2138,8 @@ public class Matrix3d implements Serializable, Cloneable
     public Object clone() {
         Matrix3d m1 = null;
         try {
-            m1 = (Matrix3d)super.clone();
-        }
-        catch (CloneNotSupportedException e) {
+            m1 = (Matrix3d) super.clone();
+        } catch (CloneNotSupportedException e) {
             throw new InternalError();
         }
         return m1;

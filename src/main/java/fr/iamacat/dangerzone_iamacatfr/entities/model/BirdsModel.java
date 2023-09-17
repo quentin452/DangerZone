@@ -1,10 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.BirdsInstance;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BirdsInstance;
 
 public class BirdsModel extends ModelBase {
 

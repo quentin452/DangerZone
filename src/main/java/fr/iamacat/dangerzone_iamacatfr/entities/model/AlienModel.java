@@ -1,14 +1,15 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.AlienInstance;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
-public class AlienModel extends ModelBase
-{
-    //fields
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.AlienInstance;
+
+public class AlienModel extends ModelBase {
+
+    // fields
     ModelRenderer ChestOutTop;
     ModelRenderer LegLeftMid;
     ModelRenderer TailMid;
@@ -59,8 +60,7 @@ public class AlienModel extends ModelBase
     ModelRenderer SwordBladeMid;
     ModelRenderer SwordBladePoint;
 
-    public AlienModel()
-    {
+    public AlienModel() {
         textureWidth = 64;
         textureHeight = 32;
 
@@ -355,8 +355,7 @@ public class AlienModel extends ModelBase
         setRotation(SwordBladeTop, -1.570796F, 0F, 0F);
     }
 
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         ChestOutTop.render(f5);
@@ -410,38 +409,38 @@ public class AlienModel extends ModelBase
         SwordBladeTop.render(f5);
     }
 
-    private void setRotation(ModelRenderer model, float x, float y, float z)
-    {
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
         model.rotateAngleX = x;
         model.rotateAngleY = y;
         model.rotateAngleZ = z;
     }
 
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity ent)
-    {
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity ent) {
         // let's do this!
         // LEEEEEEEEEEROOOOOOOOOOOOOOOOOOOY JENKINS!
 
-        float var8 = 0.1F * (float)(ent.getEntityId() % 10);
+        float var8 = 0.1F * (float) (ent.getEntityId() % 10);
 
-        this.TailBase.rotateAngleY   = MathHelper.cos((float)ent.ticksExisted * var8) * 16.0F * (float)Math.PI / 180.0F;
-        this.TailMid.rotateAngleY    = MathHelper.cos((float)ent.ticksExisted * var8) * 24.0F * (float)Math.PI / 180.0F;
-        this.TailEnd.rotateAngleY    = MathHelper.cos((float)ent.ticksExisted * var8) * 32.0F * (float)Math.PI / 180.0F;
-        this.TailHelper.rotateAngleY = MathHelper.cos((float)ent.ticksExisted * var8) * 16.0F * (float)Math.PI / 180.0F;
+        this.TailBase.rotateAngleY = MathHelper.cos((float) ent.ticksExisted * var8) * 16.0F * (float) Math.PI / 180.0F;
+        this.TailMid.rotateAngleY = MathHelper.cos((float) ent.ticksExisted * var8) * 24.0F * (float) Math.PI / 180.0F;
+        this.TailEnd.rotateAngleY = MathHelper.cos((float) ent.ticksExisted * var8) * 32.0F * (float) Math.PI / 180.0F;
+        this.TailHelper.rotateAngleY = MathHelper.cos((float) ent.ticksExisted * var8) * 16.0F
+            * (float) Math.PI
+            / 180.0F;
 
         // H'okay, let's do legs!
 
-        this.LegLeftLow.rotateAngleX     = -0.6108652F + MathHelper.cos(f * 0.5662F) * 1.4F * f1;
-        this.LegLeftMid.rotateAngleX     =  0.6981317F + MathHelper.cos(f * 0.5662F) * 1.4F * f1;
-        this.LegLeftTop.rotateAngleX     = -0.8726646F + MathHelper.cos(f * 0.5662F) * 1.4F * f1;
-        this.FootLeft.rotateAngleX       = MathHelper.cos(f * 0.5662F) * 1.4F * f1;
-        this.FootLeftClaws.rotateAngleX  = MathHelper.cos(f * 0.5662F) * 1.4F * f1;
+        this.LegLeftLow.rotateAngleX = -0.6108652F + MathHelper.cos(f * 0.5662F) * 1.4F * f1;
+        this.LegLeftMid.rotateAngleX = 0.6981317F + MathHelper.cos(f * 0.5662F) * 1.4F * f1;
+        this.LegLeftTop.rotateAngleX = -0.8726646F + MathHelper.cos(f * 0.5662F) * 1.4F * f1;
+        this.FootLeft.rotateAngleX = MathHelper.cos(f * 0.5662F) * 1.4F * f1;
+        this.FootLeftClaws.rotateAngleX = MathHelper.cos(f * 0.5662F) * 1.4F * f1;
 
-        this.LegRightLow.rotateAngleX     = -0.6108652F + MathHelper.cos(f * 0.5662F + (float)Math.PI) * 1.4F * f1;
-        this.LegRightMid.rotateAngleX     =  0.6981317F + MathHelper.cos(f * 0.5662F + (float)Math.PI) * 1.4F * f1;
-        this.LegRightTop.rotateAngleX     = -0.8726646F + MathHelper.cos(f * 0.5662F + (float)Math.PI) * 1.4F * f1;
-        this.FootRight.rotateAngleX       = MathHelper.cos(f * 0.5662F + (float)Math.PI) * 1.4F * f1;
-        this.FootRightClaws.rotateAngleX  = MathHelper.cos(f * 0.5662F + (float)Math.PI) * 1.4F * f1;
+        this.LegRightLow.rotateAngleX = -0.6108652F + MathHelper.cos(f * 0.5662F + (float) Math.PI) * 1.4F * f1;
+        this.LegRightMid.rotateAngleX = 0.6981317F + MathHelper.cos(f * 0.5662F + (float) Math.PI) * 1.4F * f1;
+        this.LegRightTop.rotateAngleX = -0.8726646F + MathHelper.cos(f * 0.5662F + (float) Math.PI) * 1.4F * f1;
+        this.FootRight.rotateAngleX = MathHelper.cos(f * 0.5662F + (float) Math.PI) * 1.4F * f1;
+        this.FootRightClaws.rotateAngleX = MathHelper.cos(f * 0.5662F + (float) Math.PI) * 1.4F * f1;
 
         // And head!
 
@@ -460,25 +459,23 @@ public class AlienModel extends ModelBase
         this.Head7.rotateAngleX = 0.3490659F + f4 / 57.29578F;
         this.Head7.rotateAngleY = f3 / 57.29578F;
 
-        this.HeadEyeLeft.rotateAngleX  = 0.7853982F + f4 / 57.29578F;
-        this.HeadEyeLeft.rotateAngleY  = 0.1919862F + f3 / 57.29578F;
+        this.HeadEyeLeft.rotateAngleX = 0.7853982F + f4 / 57.29578F;
+        this.HeadEyeLeft.rotateAngleY = 0.1919862F + f3 / 57.29578F;
         this.HeadEyeRight.rotateAngleX = -0.7853982F + f4 / 57.29578F;
         this.HeadEyeRight.rotateAngleY = -0.1919862F + f3 / 57.29578F;
 
-        AlienInstance foo = (AlienInstance)ent;
+        AlienInstance foo = (AlienInstance) ent;
 
-        if(foo.getAttackTarget() != null)
-        {
-            this.SwordBladePoint.rotateAngleX =  -1.570796F + f4 / 57.29578F;
-            this.SwordHilt.rotateAngleX       = f4 / 57.29578F;
-            this.SwordCrossbar.rotateAngleX	=  -1.570796F + f4 / 57.29578F;
-            this.SwordBladeBase.rotateAngleX	=  -1.570796F + f4 / 57.29578F;
-            this.SwordBladeMid.rotateAngleX	=  -1.570796F + f4 / 57.29578F;
-            this.SwordBladeTop.rotateAngleX	=  -1.570796F + f4 / 57.29578F;
-            this.ArmRightTop.rotateAngleX		= -0.8726646F + f4 / 57.29578F;
-            this.ArmRightLow.rotateAngleX		= f4 / 57.29578F;
+        if (foo.getAttackTarget() != null) {
+            this.SwordBladePoint.rotateAngleX = -1.570796F + f4 / 57.29578F;
+            this.SwordHilt.rotateAngleX = f4 / 57.29578F;
+            this.SwordCrossbar.rotateAngleX = -1.570796F + f4 / 57.29578F;
+            this.SwordBladeBase.rotateAngleX = -1.570796F + f4 / 57.29578F;
+            this.SwordBladeMid.rotateAngleX = -1.570796F + f4 / 57.29578F;
+            this.SwordBladeTop.rotateAngleX = -1.570796F + f4 / 57.29578F;
+            this.ArmRightTop.rotateAngleX = -0.8726646F + f4 / 57.29578F;
+            this.ArmRightLow.rotateAngleX = f4 / 57.29578F;
         }
     }
 
 }
-

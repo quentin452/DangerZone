@@ -1,8 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
-import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -11,6 +9,9 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 
 public class ThunderStaffInstance extends EntityThrowable {
     // todo fix none model are sended when throwed
@@ -33,6 +34,7 @@ public class ThunderStaffInstance extends EntityThrowable {
         this.is_irukandji = 0;
         this.ticksalive = 0;
     }
+
     public ThunderStaffInstance(final World world) {
         super(world);
         this.my_rotation = 0.0f;
@@ -99,16 +101,16 @@ public class ThunderStaffInstance extends EntityThrowable {
 
         if (par1MovingObjectPosition.entityHit != null) {
             if (isAcid != 0) {
-                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof JumpyBugInstance ||
-                    par1MovingObjectPosition.entityHit instanceof SpitInstance;
+                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof JumpyBugInstance
+                    || par1MovingObjectPosition.entityHit instanceof SpitInstance;
                 setEntityDeadIfCondition(par1MovingObjectPosition.entityHit, shouldSetDead);
             } else {
-                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof RoboJefferyInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboPounderInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboGunnerInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboWarriorInstance ||
-                    par1MovingObjectPosition.entityHit instanceof RoboSniperInstance ||
-                    par1MovingObjectPosition.entityHit instanceof SpiderRobotInstance;
+                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof RoboJefferyInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboPounderInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboGunnerInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboWarriorInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboSniperInstance
+                    || par1MovingObjectPosition.entityHit instanceof SpiderRobotInstance;
                 setEntityDeadIfCondition(par1MovingObjectPosition.entityHit, shouldSetDead);
 
                 if (par1MovingObjectPosition.entityHit instanceof DragonInstance) {
@@ -122,7 +124,8 @@ public class ThunderStaffInstance extends EntityThrowable {
                 }
 
                 // Appliquer un peu de knockback au personnage
-                par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
+                par1MovingObjectPosition.entityHit
+                    .attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), var2);
                 par1MovingObjectPosition.entityHit.addVelocity(0.0, 1.0, 0.0);
 
                 if (this.is_iceball == 0) {

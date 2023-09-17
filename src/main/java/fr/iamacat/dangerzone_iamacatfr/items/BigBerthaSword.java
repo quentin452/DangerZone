@@ -1,10 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import com.google.common.collect.Multimap;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -13,9 +9,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.world.World;
 
+import com.google.common.collect.Multimap;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 // todo fix reach + make a model to make the item larger
 public class BigBerthaSword extends ItemSword {
+
     private final float field_150934_a;
+
     public BigBerthaSword(ToolMaterial p_i45356_1_) {
         super(p_i45356_1_);
         this.setTextureName(Tags.MODID + ":berthasmall");
@@ -23,7 +25,8 @@ public class BigBerthaSword extends ItemSword {
     }
 
     @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side,
+        float hitX, float hitY, float hitZ) {
         if (!stack.isItemEnchanted()) {
             stack.addEnchantment(Enchantment.knockback, 5);
             stack.addEnchantment(Enchantment.baneOfArthropods, 1);
@@ -41,6 +44,7 @@ public class BigBerthaSword extends ItemSword {
         }
         return super.onEntitySwing(entityLiving, stack);
     }
+
     @Override
     public void onCreated(ItemStack stack, World world, EntityPlayer player) {
         if (!stack.isItemEnchanted()) {
@@ -50,10 +54,11 @@ public class BigBerthaSword extends ItemSword {
         }
     }
 
-    public Multimap getItemAttributeModifiers()
-    {
+    public Multimap getItemAttributeModifiers() {
         Multimap multimap = super.getItemAttributeModifiers();
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", this.field_150934_a, 0));
+        multimap.put(
+            SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),
+            new AttributeModifier(field_111210_e, "Weapon modifier", this.field_150934_a, 0));
         return multimap;
     }
 }

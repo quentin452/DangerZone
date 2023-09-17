@@ -1,5 +1,4 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.angeldragon;
 
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.Channel;
@@ -7,8 +6,8 @@ import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.KeyFrame;
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Quaternion;
 import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Vector3f;
 
-public class ChannelLook extends Channel
-{
+public class ChannelLook extends Channel {
+
     public ChannelLook(final String _name, final float _fps, final int _totalFrames, final byte _mode) {
         super(_name, _fps, _totalFrames, _mode);
     }
@@ -49,7 +48,8 @@ public class ChannelLook extends Channel
         frame2.modelRenderersRotations.put("rleg2", new Quaternion(-0.0784591f, 0.0f, 0.0f, 0.9969173f));
         frame2.modelRenderersRotations.put("lleg2", new Quaternion(-0.0784591f, 0.0f, 0.0f, 0.9969173f));
         frame2.modelRenderersRotations.put("tail1", new Quaternion(-0.017452406f, 0.0f, 0.0f, 0.9998477f));
-        frame2.modelRenderersRotations.put("body2", new Quaternion(0.034898166f, 0.008721219f, -3.0455168E-4f, 0.99935275f));
+        frame2.modelRenderersRotations
+            .put("body2", new Quaternion(0.034898166f, 0.008721219f, -3.0455168E-4f, 0.99935275f));
         frame2.modelRenderersRotations.put("head", new Quaternion(0.0784591f, 0.0f, 0.0f, 0.9969173f));
         frame2.modelRenderersRotations.put("bodymain", new Quaternion(-0.09584575f, 0.0f, 0.0f, 0.9953962f));
         frame2.modelRenderersRotations.put("lleg1", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
@@ -75,7 +75,8 @@ public class ChannelLook extends Channel
         frame3.modelRenderersRotations.put("rleg2", new Quaternion(-0.0784591f, 0.0f, 0.0f, 0.9969173f));
         frame3.modelRenderersRotations.put("lleg2", new Quaternion(-0.656059f, 0.0f, 0.0f, 0.7547096f));
         frame3.modelRenderersRotations.put("tail1", new Quaternion(0.1650476f, 0.0f, 0.0f, 0.9862856f));
-        frame3.modelRenderersRotations.put("body2", new Quaternion(-0.087152414f, 0.008693328f, 7.605676E-4f, 0.99615675f));
+        frame3.modelRenderersRotations
+            .put("body2", new Quaternion(-0.087152414f, 0.008693328f, 7.605676E-4f, 0.99615675f));
         frame3.modelRenderersRotations.put("head", new Quaternion(0.0784591f, 0.0f, 0.0f, 0.9969173f));
         frame3.modelRenderersRotations.put("bodymain", new Quaternion(-0.3007058f, 0.0f, 0.0f, 0.95371693f));
         frame3.modelRenderersRotations.put("lleg1", new Quaternion(0.0f, 0.0f, 0.0f, 1.0f));
@@ -107,7 +108,8 @@ public class ChannelLook extends Channel
         frame4.modelRenderersRotations.put("lleg2", new Quaternion(-0.777146f, 0.0f, 0.0f, 0.6293204f));
         frame4.modelRenderersRotations.put("bodymain", new Quaternion(-0.49242356f, 0.0f, 0.0f, 0.87035567f));
         frame4.modelRenderersRotations.put("lleg1", new Quaternion(0.27563736f, 0.0f, 0.0f, 0.9612617f));
-        frame4.modelRenderersRotations.put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
+        frame4.modelRenderersRotations
+            .put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
         frame4.modelRenderersRotations.put("neck4", new Quaternion(0.1391731f, 0.0f, 0.0f, 0.99026805f));
         frame4.modelRenderersRotations.put("neck3", new Quaternion(0.25881904f, 0.0f, 0.0f, 0.9659258f));
         frame4.modelRenderersTranslations.put("lpaw1", new Vector3f(0.0f, -6.0f, 0.0f));
@@ -134,7 +136,8 @@ public class ChannelLook extends Channel
         frame5.modelRenderersRotations.put("bodymain", new Quaternion(-0.49242356f, 0.0f, 0.0f, 0.87035567f));
         frame5.modelRenderersRotations.put("head", new Quaternion(0.08715574f, 0.0f, 0.0f, 0.9961947f));
         frame5.modelRenderersRotations.put("lleg1", new Quaternion(0.27563736f, 0.0f, 0.0f, 0.9612617f));
-        frame5.modelRenderersRotations.put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
+        frame5.modelRenderersRotations
+            .put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
         frame5.modelRenderersRotations.put("neck4", new Quaternion(0.1391731f, 0.0f, 0.0f, 0.99026805f));
         frame5.modelRenderersRotations.put("neck3", new Quaternion(0.25881904f, 0.0f, 0.0f, 0.9659258f));
         frame5.modelRenderersTranslations.put("lpaw1", new Vector3f(0.0f, -6.0f, 0.0f));
@@ -162,7 +165,8 @@ public class ChannelLook extends Channel
         frame6.modelRenderersRotations.put("bodymain", new Quaternion(-0.49242356f, 0.0f, 0.0f, 0.87035567f));
         frame6.modelRenderersRotations.put("head", new Quaternion(0.0327948f, -0.01193633f, -0.34181178f, 0.9391202f));
         frame6.modelRenderersRotations.put("lleg1", new Quaternion(0.27563736f, 0.0f, 0.0f, 0.9612617f));
-        frame6.modelRenderersRotations.put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
+        frame6.modelRenderersRotations
+            .put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
         frame6.modelRenderersRotations.put("neck4", new Quaternion(0.1391731f, 0.0f, 0.0f, 0.99026805f));
         frame6.modelRenderersRotations.put("neck3", new Quaternion(0.25881904f, 0.0f, 0.0f, 0.9659258f));
         frame6.modelRenderersTranslations.put("lpaw1", new Vector3f(0.0f, -6.0f, 0.0f));
@@ -188,9 +192,11 @@ public class ChannelLook extends Channel
         frame7.modelRenderersRotations.put("lleg2", new Quaternion(-0.777146f, 0.0f, 0.0f, 0.6293204f));
         frame7.modelRenderersRotations.put("tail1", new Quaternion(0.40640178f, 0.0f, 0.0f, 0.9136945f));
         frame7.modelRenderersRotations.put("bodymain", new Quaternion(-0.49242356f, 0.0f, 0.0f, 0.87035567f));
-        frame7.modelRenderersRotations.put("head", new Quaternion(0.07372744f, -0.02683459f, -0.34096578f, 0.93679583f));
+        frame7.modelRenderersRotations
+            .put("head", new Quaternion(0.07372744f, -0.02683459f, -0.34096578f, 0.93679583f));
         frame7.modelRenderersRotations.put("lleg1", new Quaternion(0.27563736f, 0.0f, 0.0f, 0.9612617f));
-        frame7.modelRenderersRotations.put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
+        frame7.modelRenderersRotations
+            .put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
         frame7.modelRenderersRotations.put("neck4", new Quaternion(0.11182797f, 0.0f, 0.0f, 0.99372756f));
         frame7.modelRenderersRotations.put("neck3", new Quaternion(0.25881904f, 0.0f, 0.0f, 0.9659258f));
         frame7.modelRenderersTranslations.put("lpaw1", new Vector3f(0.0f, -6.0f, 0.0f));
@@ -215,9 +221,11 @@ public class ChannelLook extends Channel
         frame8.modelRenderersRotations.put("rleg2", new Quaternion(-0.8526402f, 0.0f, 0.0f, 0.5224985f));
         frame8.modelRenderersRotations.put("lleg2", new Quaternion(-0.777146f, 0.0f, 0.0f, 0.6293204f));
         frame8.modelRenderersRotations.put("tail1", new Quaternion(0.4048703f, 0.0f, 0.0f, 0.9143741f));
-        frame8.modelRenderersRotations.put("head", new Quaternion(0.07829233f, -0.0073290616f, 0.018082514f, 0.99673945f));
+        frame8.modelRenderersRotations
+            .put("head", new Quaternion(0.07829233f, -0.0073290616f, 0.018082514f, 0.99673945f));
         frame8.modelRenderersRotations.put("lleg1", new Quaternion(0.27563736f, 0.0f, 0.0f, 0.9612617f));
-        frame8.modelRenderersRotations.put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
+        frame8.modelRenderersRotations
+            .put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
         frame8.modelRenderersRotations.put("neck4", new Quaternion(0.1391731f, 0.0f, 0.0f, 0.99026805f));
         frame8.modelRenderersRotations.put("neck3", new Quaternion(0.25881904f, 0.0f, 0.0f, 0.9659258f));
         frame8.modelRenderersTranslations.put("lpaw1", new Vector3f(0.0f, -6.0f, 0.0f));
@@ -244,7 +252,8 @@ public class ChannelLook extends Channel
         frame9.modelRenderersRotations.put("bodymain", new Quaternion(-0.49242356f, 0.0f, 0.0f, 0.87035567f));
         frame9.modelRenderersRotations.put("head", new Quaternion(0.07074918f, 0.018658586f, 0.34159616f, 0.9369943f));
         frame9.modelRenderersRotations.put("lleg1", new Quaternion(0.27563736f, 0.0f, 0.0f, 0.9612617f));
-        frame9.modelRenderersRotations.put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
+        frame9.modelRenderersRotations
+            .put("rleg1", new Quaternion(0.24011865f, 0.029482864f, 0.118249305f, 0.9630633f));
         frame9.modelRenderersRotations.put("neck4", new Quaternion(0.1391731f, 0.0f, 0.0f, 0.99026805f));
         frame9.modelRenderersRotations.put("neck3", new Quaternion(0.25881904f, 0.0f, 0.0f, 0.9659258f));
         frame9.modelRenderersTranslations.put("lpaw1", new Vector3f(0.0f, -6.0f, 0.0f));
@@ -294,7 +303,8 @@ public class ChannelLook extends Channel
         frame11.modelRenderersRotations.put("rpaw1", new Quaternion(0.54317445f, 0.0f, 0.0f, 0.8396199f));
         frame11.modelRenderersRotations.put("rleg2", new Quaternion(-0.5f, 0.0f, 0.0f, 0.8660254f));
         frame11.modelRenderersRotations.put("lleg2", new Quaternion(-0.22495106f, 0.0f, 0.0f, 0.97437006f));
-        frame11.modelRenderersRotations.put("head", new Quaternion(0.07845611f, -0.008699634f, 6.846761E-4f, 0.99687934f));
+        frame11.modelRenderersRotations
+            .put("head", new Quaternion(0.07845611f, -0.008699634f, 6.846761E-4f, 0.99687934f));
         frame11.modelRenderersRotations.put("lleg1", new Quaternion(0.26723838f, 0.0f, 0.0f, 0.96363044f));
         frame11.modelRenderersRotations.put("rleg1", new Quaternion(0.26723838f, 0.0f, 0.0f, 0.96363044f));
         frame11.modelRenderersTranslations.put("lpaw1", new Vector3f(0.0f, -6.0f, -2.0f));

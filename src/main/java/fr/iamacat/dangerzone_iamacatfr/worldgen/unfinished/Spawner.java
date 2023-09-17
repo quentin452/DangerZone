@@ -659,9 +659,9 @@ public final class Spawner {
 
         if (entityplayer != null) // entityliving.canDespawn() &&
         {
-            double d = ((Entity) (entityplayer)).posX - entityliving.posX;
-            double d1 = ((Entity) (entityplayer)).posY - entityliving.posY;
-            double d2 = ((Entity) (entityplayer)).posZ - entityliving.posZ;
+            double d = entityplayer.posX - entityliving.posX;
+            double d1 = entityplayer.posY - entityliving.posY;
+            double d2 = entityplayer.posZ - entityliving.posZ;
             double d3 = d * d + d1 * d1 + d2 * d2;
 
             if (d3 > 16384D) {

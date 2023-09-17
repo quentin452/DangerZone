@@ -387,6 +387,18 @@ public class EntityInitDangerZone {
             16,
             1,
             true);
+        int AlosaurusInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(AlosaurusInstance.class, "AlosaurusInstance", AlosaurusInstance);
+
+        EntityRegistry.registerModEntity(
+            AlosaurusInstance.class,
+            "AlosaurusInstance",
+            AlosaurusInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
     }
 
 }

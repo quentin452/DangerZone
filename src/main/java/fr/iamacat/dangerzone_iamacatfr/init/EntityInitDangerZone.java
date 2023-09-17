@@ -374,6 +374,19 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
+
+        int RatInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.entities.entity.RatInstance.class, "RatInstance", RatInstance);
+
+        EntityRegistry.registerModEntity(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.RatInstance.class,
+            "RatInstance",
+            RatInstance, // Use the chosen unique ID
+            Tags.MODID,
+            16,
+            1,
+            true);
     }
 
 }

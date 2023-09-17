@@ -17,6 +17,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.render.babydragon.*;
 import fr.iamacat.dangerzone_iamacatfr.gui.FairyGui;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
@@ -128,6 +129,7 @@ public class ClientProxy implements ISidedProxy {
 
         RenderingRegistry.registerEntityRenderingHandler(BaryonyxInstance.class, new BaryonyxRenderer(new BaryonyxModel(), shadowSize, 2.5f));
         RenderingRegistry.registerEntityRenderingHandler(MassoInstance.class, new MassoRenderer(new MassoModel(), shadowSize));
+        RenderingRegistry.registerEntityRenderingHandler(BasilikInstance.class, new BasilikRenderer(new BasilikModel(), 0.5f));
 
     }
 

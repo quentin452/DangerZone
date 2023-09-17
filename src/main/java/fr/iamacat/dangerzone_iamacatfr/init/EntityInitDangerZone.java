@@ -910,6 +910,19 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
+
+        int BasilikInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BasilikInstance.class, "BasilikInstance", BasilikInstance);
+
+        EntityRegistry.registerModEntity(
+            BasilikInstance.class,
+            "BasilikInstance",
+            BasilikInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
     }
 
 }

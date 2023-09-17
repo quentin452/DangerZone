@@ -355,7 +355,7 @@ public class SpawnEggInitDangerZone {
         Constants.CryolohosaurusSpawnEgg = CryolohosaurusSpawnEgg;
         GameRegistry.registerItem(Constants.CryolohosaurusSpawnEgg, "Cryolophosaurus Egg");
 
-        SpawnEggs BasiliskSpawnEgg = new SpawnEggs(BasiliscInstance.class);
+        SpawnEggs BasiliskSpawnEgg = new SpawnEggs(BasilikInstance.class);
         BasiliskSpawnEgg.setUnlocalizedName("basilisc_egg");
         Constants.BasiliskSpawnEgg = BasiliskSpawnEgg;
         GameRegistry.registerItem(Constants.BasiliskSpawnEgg, "Basilisk Egg");

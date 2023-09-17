@@ -884,6 +884,32 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
+
+        int BaryonyxInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BaryonyxInstance.class, "BaryonyxInstance", BaryonyxInstance);
+
+        EntityRegistry.registerModEntity(
+            BaryonyxInstance.class,
+            "BaryonyxInstance",
+            BaryonyxInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int MassoInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(MassoInstance.class, "MassoInstance", MassoInstance);
+
+        EntityRegistry.registerModEntity(
+            MassoInstance.class,
+            "MassoInstance",
+            MassoInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
     }
 
 }

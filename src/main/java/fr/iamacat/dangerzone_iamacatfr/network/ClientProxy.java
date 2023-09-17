@@ -30,6 +30,7 @@ public class ClientProxy implements ISidedProxy {
 
     @Override
     public void registerRenders() {
+        final float shadowSize = 0.5f;
         RenderingRegistry
             .registerEntityRenderingHandler(AppleCowInstance.class, new AppleCowRenderer(new AppleCowModel(), 0.5F));
         RenderingRegistry.registerEntityRenderingHandler(
@@ -124,6 +125,10 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityBoneDragon.class, new RenderBoneDragon());
         RenderingRegistry.registerEntityRenderingHandler(EntityKleurloos.class, new RenderKleurloos());
         RenderingRegistry.registerEntityRenderingHandler(EntityAngelDragon.class, new RenderAngelDragon());
+
+        RenderingRegistry.registerEntityRenderingHandler(BaryonyxInstance.class, new BaryonyxRenderer(new BaryonyxModel(), shadowSize, 2.5f));
+        RenderingRegistry.registerEntityRenderingHandler(MassoInstance.class, new MassoRenderer(new MassoModel(), shadowSize));
+
     }
 
     @Override

@@ -602,6 +602,10 @@ public class SpawnEggInitDangerZone {
         Constants.EntityZombieDragonSpawnEgg = EntityZombieDragonSpawnEgg;
         GameRegistry.registerItem(Constants.EntityZombieDragonSpawnEgg, "Entity Zombie Dragon Egg");
 
+        SpawnEggs MassoSpawnEgg = new SpawnEggs(MassoInstance.class);
+        MassoSpawnEgg.setUnlocalizedName("Masso Egg");
+        Constants.MassoSpawnEgg = MassoSpawnEgg;
+        GameRegistry.registerItem(Constants.MassoSpawnEgg, "Masso Egg");
 
         SpawnEggs TriffidSpawnEgg = new SpawnEggs(TriffidInstance.class);
         TriffidSpawnEgg.setUnlocalizedName("triffid_egg");

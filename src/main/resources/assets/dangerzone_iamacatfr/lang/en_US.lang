@@ -39,7 +39,10 @@ entity.AlienInstance.name=Alien
 entity.RatInstance.name=Rat
 entity.AlosaurusInstance.name=Alosaurus
 entity.AttackSquidInstance.name=Attack Squid
+entity.BaryonyxInstance.name=Baryonyx
+entity.MassoInstance.name=Masso
 
+item.Masso Egg.name=Masso Egg
 item.SunspotUrchin.name=Sunsport Urchin
 item.ThunderStaff.name=Thunder Staff
 item.NetherTracker.name=Nether Tracker

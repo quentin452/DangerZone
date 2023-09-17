@@ -4,7 +4,7 @@ import fr.iamacat.dangerzone_iamacatfr.spawnable.SpawnEggs;
 import net.minecraft.item.Item;
 
 public class Constants {
-
+    public static Item MassoSpawnEgg;
     public static Item AppleCowSpawnEgg;
     public static Item CrystalCowSpawnEgg;
     public static Item EnchantedGoldenAppleCowSpawnEgg;

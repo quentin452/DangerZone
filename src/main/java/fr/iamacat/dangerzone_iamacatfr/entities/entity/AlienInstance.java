@@ -1,9 +1,7 @@
-package fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished;
+package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.AICustomAttackPlayer;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIFollowTwin;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished.EntityAIMonsterPanic;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityDungeonMob;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -11,7 +9,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -24,13 +21,11 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
-import scala.collection.parallel.Task;
 
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 
 public class AlienInstance extends EntityDungeonMob
 {

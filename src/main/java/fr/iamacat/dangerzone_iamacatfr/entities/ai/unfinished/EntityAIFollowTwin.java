@@ -1,6 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.ai.unfinished;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.AlienInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.AlienInstance;
 import net.minecraft.entity.ai.EntityAIBase;
 
 public class EntityAIFollowTwin extends EntityAIBase

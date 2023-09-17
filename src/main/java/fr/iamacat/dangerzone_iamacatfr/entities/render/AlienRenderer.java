@@ -1,11 +1,10 @@
-package fr.iamacat.dangerzone_iamacatfr.entities.render.unfinished;
+package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.AlienInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.unfinished.AlienModel;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.AlienInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.AlienModel;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;

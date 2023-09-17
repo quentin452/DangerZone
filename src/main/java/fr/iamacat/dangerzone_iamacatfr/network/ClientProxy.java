@@ -133,6 +133,7 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(BeaverInstance.class, new RenderGenericLiving(new BeaverModel(), 0.5f, textureLocation));
         RenderingRegistry.registerEntityRenderingHandler(BeeInstance.class, new BeeRenderer());
         RenderingRegistry.registerEntityRenderingHandler(EntityDarkCrystal.class, new RenderDarkCrystal());
+        RenderingRegistry.registerEntityRenderingHandler(ButterflyInstance.class, new ButterflyRenderer(new ButterflyModel(), 0.5f));
 
     }
 

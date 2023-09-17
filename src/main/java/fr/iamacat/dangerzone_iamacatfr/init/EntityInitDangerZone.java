@@ -946,6 +946,19 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
+
+        int ButerflyInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(ButterflyInstance.class, "ButerflyInstance", ButerflyInstance);
+
+        EntityRegistry.registerModEntity(
+            ButterflyInstance.class,
+            "ButerflyInstance",
+            ButerflyInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
     }
 
 }

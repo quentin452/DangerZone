@@ -239,9 +239,12 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(LaserBallMLP.class, new RenderRanged());
         RenderingRegistry
             .registerEntityRenderingHandler(MavisBall.class, new RenderSnowball(ItemInitDangerZone.mavisOrb));
+
         RenderingRegistry.registerEntityRenderingHandler(TwilicornArrow.class, new RenderTwilightMagic());
+
         RenderingRegistry
-            .registerEntityRenderingHandler(PhoenixArrow.class, new RenderSnowball(ItemInitDangerZone.phoenixFeather));
+            .registerEntityRenderingHandler(PhoenixArrow.class, new PhoenixArrowRenderer(ItemInitDangerZone.phoenixFeather));
+
         RenderingRegistry.registerEntityRenderingHandler(TwilyMagic.class, new RenderTwilyMagic2());
         RenderingRegistry.registerEntityRenderingHandler(
             DarkCrystalCannon.class,

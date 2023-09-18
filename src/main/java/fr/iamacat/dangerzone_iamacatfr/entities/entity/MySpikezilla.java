@@ -61,9 +61,10 @@ public class MySpikezilla extends EntityMob {
         this.largemob = 0;
         /*
          * if (Basic.Snap == 0) {
-         * this.setSize(8.0f, 35.0f);
+         this.setSize(8.0f, 35.0f);
          * }
          */
+        this.setSize(8.0f, 35.0f);
         this.getNavigator()
             .setAvoidsWater(true);
         this.experienceValue = 25000;
@@ -74,7 +75,7 @@ public class MySpikezilla extends EntityMob {
         this.tasks.addTask(4, new EntityAILookIdle( this));
         this.tasks.addTask(5, new EntityAIWander( this, 1.0));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
-        this.TargetSorter = new GenericTargetSorter((Entity) this);
+        this.TargetSorter = new GenericTargetSorter(this);
         this.fireResistance = 10000;
         this.isImmuneToFire = true;
         this.renderDistanceWeight = 12.0;
@@ -83,9 +84,9 @@ public class MySpikezilla extends EntityMob {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
-            .setBaseValue((double) this.mygetMaxHealth());
+            .setBaseValue(this.mygetMaxHealth());
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
-            .setBaseValue((double) this.moveSpeed);
+            .setBaseValue(this.moveSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
             .setBaseValue(350.0);
         this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance)
@@ -94,8 +95,8 @@ public class MySpikezilla extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (Object) 0);
-        // this.dataWatcher.addObject(21, (Object)Basic.Snap);
+        this.dataWatcher.addObject(20, (byte)0);
+        // this.dataWatcher.addObject(21, Basic.Snap);
         if (this.renderdata == null) {
             this.renderdata = new RenderInfo();
         }
@@ -148,11 +149,11 @@ public class MySpikezilla extends EntityMob {
         final double xzoff = 0.0;
         final double myoff = 20.0;
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
-            .setBaseValue((double) this.moveSpeed);
+            .setBaseValue(this.moveSpeed);
         super.onUpdate();
         if (this.isAirBorne) {
             this.getNavigator()
-                .setPath((PathEntity) null, 0.0);
+                .setPath(null, 0.0);
         }
     }
 
@@ -298,7 +299,7 @@ public class MySpikezilla extends EntityMob {
             --this.jump_timer;
         }
         if (this.worldObj.rand.nextInt(200) == 0) {
-            this.setAttackTarget((EntityLivingBase) null);
+            this.setAttackTarget(null);
         }
         if (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) {
             if (this.motionY < -0.95) {
@@ -360,10 +361,10 @@ public class MySpikezilla extends EntityMob {
              */
             if (e != null) {
                 if (!e.isEntityAlive()) {
-                    this.setAttackTarget((EntityLivingBase) null);
+                    this.setAttackTarget(null);
                     e = null;
                 } else if (e instanceof MySpikezilla) {
-                    this.setAttackTarget((EntityLivingBase) null);
+                    this.setAttackTarget(null);
                     e = null;
                 }
             }
@@ -371,15 +372,15 @@ public class MySpikezilla extends EntityMob {
                 e = this.findSomethingToAttack();
             }
             if (e != null) {
-                this.faceEntity((Entity) e, 10.0f, 10.0f);
+                this.faceEntity(e, 10.0f, 10.0f);
                 this.getNavigator()
-                    .tryMoveToEntityLiving((Entity) e, 1.2);
-                this.setAttacking(1);
+                    .tryMoveToEntityLiving(e, 1.2);
+                this.setAttacking((byte) 1);
                 if (this.worldObj.rand.nextInt() == 1) {
                     this.doJumpDamage(dx, this.posY, this.posZ, 16.5, 355.0, 2);
                 }
                 if (this.worldObj.rand.nextInt(6) == 1) {
-                    this.faceEntity((Entity) e, 10.0f, 10.0f);
+                    this.faceEntity(e, 10.0f, 10.0f);
                     this.strikeTheGround(e);
                     this.MeteorStrike(e);
                     this.MagicCannon(e);
@@ -389,13 +390,13 @@ public class MySpikezilla extends EntityMob {
                     this.doJumpDamage(dx, this.posY, this.posZ, 16.5, 355.0, 1);
                     this.MagicCannon(e);
                     this.jump_timer = 20;
-                } else if (this.MygetDistanceSqToEntity((Entity) e) < 300.0) {
-                    this.setAttacking(1);
+                } else if (this.MygetDistanceSqToEntity(e) < 300.0) {
+                    this.setAttacking((byte) 1);
                     this.getNavigator()
-                        .tryMoveToEntityLiving((Entity) e, 1.0);
+                        .tryMoveToEntityLiving(e, 1.0);
                     if (this.worldObj.rand.nextInt(4 - this.largemob) == 0
                         || this.worldObj.rand.nextInt(3 - this.largemob) == 1) {
-                        this.attackEntityAsMob((Entity) e);
+                        this.attackEntityAsMob(e);
                         final float s = e.height * e.width;
                         if (s > 50.0f && !(e instanceof MySpikezilla)
                             && !(e instanceof MyMLPHydra)
@@ -408,10 +409,10 @@ public class MySpikezilla extends EntityMob {
                     }
                 } else {
                     this.getNavigator()
-                        .tryMoveToEntityLiving((Entity) e, 1.0);
-                    if (this.getHorizontalDistanceSqToEntity((Entity) e) > 625.0) {
+                        .tryMoveToEntityLiving(e, 1.0);
+                    if (this.getHorizontalDistanceSqToEntity(e) > 625.0) {
                         if (this.stream_count > 0) {
-                            this.setAttacking(1);
+                            this.setAttacking((byte) 1);
                             final double rr = Math.atan2(e.posZ - this.posZ, e.posX - this.posX);
                             final double rhdir = Math.toRadians((this.rotationYawHead + 90.0f) % 360.0f);
                             final double pi = 3.1415926545;
@@ -421,7 +422,7 @@ public class MySpikezilla extends EntityMob {
                             }
                             rdd = Math.abs(rdd);
                             if (rdd < 0.5) {
-                                this.faceEntity((Entity) e, 10.0f, 10.0f);
+                                this.faceEntity(e, 10.0f, 10.0f);
                                 this.MeteorStrike(e);
                                 this.MagicCannon(e);
                                 this.PhoenixFlame(e);
@@ -432,24 +433,24 @@ public class MySpikezilla extends EntityMob {
                                 }
                             }
                             if (rdd < 2.0) {
-                                this.faceEntity((Entity) e, 10.0f, 10.0f);
+                                this.faceEntity(e, 10.0f, 10.0f);
                                 this.PhoenixFlame(e);
                                 this.WindyMagic(e);
                             }
                             if (rdd < 0.1) {
-                                this.faceEntity((Entity) e, 10.0f, 10.0f);
+                                this.faceEntity(e, 10.0f, 10.0f);
                                 this.MagicCannon(e);
                                 this.WindyMagic(e);
                             }
                         } else {
-                            this.setAttacking(0);
+                            this.setAttacking((byte) 0);
                         }
                     } else {
-                        this.setAttacking(0);
+                        this.setAttacking((byte) 0);
                     }
                 }
             } else {
-                this.setAttacking(0);
+                this.setAttacking((byte) 0);
                 this.stream_count = 8;
             }
         }
@@ -486,7 +487,7 @@ public class MySpikezilla extends EntityMob {
             return false;
         }
         if (!this.getEntitySenses()
-            .canSee((Entity) par1EntityLiving)) {
+            .canSee(par1EntityLiving)) {
             return false;
         }
         if (par1EntityLiving instanceof MySpikezilla) {
@@ -506,7 +507,7 @@ public class MySpikezilla extends EntityMob {
             && par1EntityLiving != this
             && par1EntityLiving.isEntityAlive()
             && this.getEntitySenses()
-                .canSee((Entity) par1EntityLiving)
+                .canSee(par1EntityLiving)
             && par1EntityLiving instanceof EntityVillager;
     }
 
@@ -515,7 +516,7 @@ public class MySpikezilla extends EntityMob {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
         final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;
         EntityLivingBase var8;
@@ -544,10 +545,10 @@ public class MySpikezilla extends EntityMob {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
         final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
-        Entity var7 = null;
-        EntityLivingBase var8 = null;
+        Entity var7;
+        EntityLivingBase var8;
         while (var6.hasNext()) {
             var7 = (Entity) var6.next();
             var8 = (EntityLivingBase) var7;
@@ -555,10 +556,10 @@ public class MySpikezilla extends EntityMob {
                 && var8 != this
                 && var8.isEntityAlive()) {
                 DamageSource var9 = null;
-                var9 = DamageSource.setExplosionSource((Explosion) null);
+                var9 = DamageSource.setExplosionSource(null);
                 var9.setExplosion();
-                var8.attackEntityFrom(var9, (float) damage / 1.0f);
-                var8.attackEntityFrom(DamageSource.inWall, (float) damage / 1.0f);
+                var8.attackEntityFrom(var9, (float) damage);
+                var8.attackEntityFrom(DamageSource.inWall, (float) damage);
                 final double ks = 1.25;
                 final double inair = -0.5;
                 final float f3 = (float) Math.atan2(var8.posZ - this.posZ, var8.posX - this.posX);
@@ -580,7 +581,7 @@ public class MySpikezilla extends EntityMob {
         if (var5 == null) {
             return null;
         }
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         var6 = var5.iterator();
         this.head_found = 0;
         while (var6.hasNext()) {
@@ -610,7 +611,7 @@ public class MySpikezilla extends EntityMob {
                     final Block bid = this.worldObj
                         .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
                             .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
@@ -622,24 +623,24 @@ public class MySpikezilla extends EntityMob {
                 }
             }
         }
-        MySpikezilla target = null;
+        MySpikezilla target;
         target = (MySpikezilla) this.worldObj.findNearestEntityWithinAABB(
              MySpikezilla.class,
             this.boundingBox.expand(72.0, 36.0, 72.0),
-            (Entity) this);
+            this);
         return target == null;
     }
 
-    public final int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+    public final byte getAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
-    public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+    public final void setAttacking(byte par1) {
+        this.dataWatcher.updateObject(20, par1);
     }
 
     private ItemStack dropItemRand(final Item index, final int par1) {
-        EntityItem var3 = null;
+        EntityItem var3 ;
         final ItemStack is = new ItemStack(index, par1, 0);
         var3 = new EntityItem(
             this.worldObj,
@@ -650,13 +651,13 @@ public class MySpikezilla extends EntityMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
 
     private ItemStack dropBlockRand(final Block index, final int par1) {
-        EntityItem var3 = null;
+        EntityItem var3;
         final ItemStack is = new ItemStack(index, par1, 0);
         var3 = new EntityItem(
             this.worldObj,
@@ -667,7 +668,7 @@ public class MySpikezilla extends EntityMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
@@ -693,7 +694,7 @@ public class MySpikezilla extends EntityMob {
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var2);
+            this.worldObj.spawnEntityInWorld(var2);
         }
         for (int i = 0; i < 25; ++i) {
             final FireCannon var3 = new FireCannon(
@@ -718,7 +719,7 @@ public class MySpikezilla extends EntityMob {
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
     }
 
@@ -768,7 +769,7 @@ public class MySpikezilla extends EntityMob {
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
     }
 
@@ -793,7 +794,7 @@ public class MySpikezilla extends EntityMob {
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var2);
+            this.worldObj.spawnEntityInWorld(var2);
         }
         for (int i = 0; i < 10; ++i) {
             final PhoenixArrow var3 = new PhoenixArrow(
@@ -818,7 +819,7 @@ public class MySpikezilla extends EntityMob {
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
     }
 
@@ -843,7 +844,7 @@ public class MySpikezilla extends EntityMob {
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var2);
+            this.worldObj.spawnEntityInWorld(var2);
         }
         for (int i = 0; i < 1; ++i) {
             final WindigoPower var3 = new WindigoPower(
@@ -868,12 +869,12 @@ public class MySpikezilla extends EntityMob {
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
     }
 
     public boolean attackEntityAsMob(final Entity par1Entity) {
-        if (par1Entity != null && par1Entity instanceof EntityLivingBase) {
+        if (par1Entity instanceof EntityLivingBase) {
             final float s = par1Entity.height * par1Entity.width;
             final EntityLivingBase e = (EntityLivingBase) par1Entity;
             if (s > 50.0f && !(par1Entity instanceof MySpikezilla)
@@ -896,7 +897,7 @@ public class MySpikezilla extends EntityMob {
                 e.setDead();
             }
         }
-        if (par1Entity != null && par1Entity instanceof EntityDragon) {
+        if (par1Entity instanceof EntityDragon) {
             final EntityDragon dr = (EntityDragon) par1Entity;
             DamageSource var21 = null;
             var21 = DamageSource.setExplosionSource((Explosion) null);
@@ -916,7 +917,7 @@ public class MySpikezilla extends EntityMob {
             }
         }
         if (super.attackEntityAsMob(par1Entity)) {
-            if (par1Entity != null && par1Entity instanceof EntityLivingBase) {
+            if (par1Entity instanceof EntityLivingBase) {
                 final double ks = 3.25;
                 double inair = 1.75;
                 final float f3 = (float) Math.atan2(par1Entity.posZ - this.posZ, par1Entity.posX - this.posX);
@@ -954,7 +955,7 @@ public class MySpikezilla extends EntityMob {
                 this.setAttackTarget((EntityLivingBase) e);
                 this.setTarget(e);
                 this.getNavigator()
-                    .tryMoveToEntityLiving((Entity) e, 1.2);
+                    .tryMoveToEntityLiving(e, 1.2);
             }
         }
         return ret;
@@ -967,7 +968,7 @@ public class MySpikezilla extends EntityMob {
             return;
         }
         final float var2 = 750.0f;
-        e.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase) this), var2);
+        e.attackEntityFrom(DamageSource.causeMobDamage(this), var2);
         e.setFire(30);
         for (int var3 = 0; var3 < 20; ++var3) {
             this.worldObj.spawnParticle(
@@ -1036,13 +1037,13 @@ public class MySpikezilla extends EntityMob {
                 this.worldObj.rand.nextGaussian());
         }
         this.worldObj.playSoundAtEntity(
-            (Entity) e,
+            e,
             "random.explode",
             0.5f,
             1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);
         if (!this.worldObj.isRemote) {
             this.worldObj.createExplosion(
-                (Entity) this,
+                this,
                 e.posX,
                 e.posY,
                 e.posZ,

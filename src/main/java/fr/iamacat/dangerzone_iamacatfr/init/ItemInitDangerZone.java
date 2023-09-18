@@ -521,11 +521,11 @@ public class ItemInitDangerZone {
         TheZooKeeper = new TheZooKeeper().setUnlocalizedName("TheZooKeeper");
         SquidZooka = new SquidZooka().setUnlocalizedName("SquidZooka");
         Slippers = new Slippers().setUnlocalizedName("Slippers");
-        mavisOrb = new MavisOrb(5029).setTextureName(Tags.MODID + ":MavisOrb")
+        mavisOrb = new MavisOrb().setTextureName(Tags.MODID + ":MavisOrb")
             .setUnlocalizedName("MavisOrb");
-        phoenixFeather = new PhoenixFeather(5054);
-        darkCrystal = new DarkCrystal(5060);
-        twilightStar = new TwilightStar(5020);
+        phoenixFeather = new PhoenixFeather();
+        darkCrystal = new DarkCrystal();
+        twilightStar = new TwilightStar();
 
     }
 

@@ -13,7 +13,7 @@ import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class PhoenixFeather extends Item {
 
-    public PhoenixFeather(final int id) {
+    public PhoenixFeather() {
         this.setMaxStackSize(64);
         this.setUnlocalizedName("PhoenixFeather");
         this.setTextureName(Tags.MODID.toLowerCase() + ":phoenixfeather");

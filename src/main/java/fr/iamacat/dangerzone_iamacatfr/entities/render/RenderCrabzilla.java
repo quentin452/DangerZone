@@ -16,12 +16,11 @@ import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 public class RenderCrabzilla extends RenderLiving {
 
     protected Crabzilla model;
-    private float scale;
+    private final float scale;
     private static final ResourceLocation texturecrab;
 
     public RenderCrabzilla(final Crabzilla par1ModelBase, final float par2, final float par3) {
-        super((ModelBase) par1ModelBase, par2 * par3);
-        this.scale = 1.0f;
+        super(par1ModelBase, par2 * par3);
         this.model = (Crabzilla) this.mainModel;
         this.scale = par3;
     }

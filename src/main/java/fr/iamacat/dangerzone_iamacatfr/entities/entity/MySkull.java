@@ -399,18 +399,18 @@ public class MySkull extends EntityMob implements IMob {
                 }
             }
         }
-        MySkull target = null;
+        MySkull target;
         target = (MySkull) this.worldObj.findNearestEntityWithinAABB(
-            (Class<MySkull>) MySkull.class,
+            MySkull.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
-            (Entity) this);
+            this);
         return target == null;
     }
 
     public void initCreature() {}
 
     private ItemStack dropItemRand(final Item index, final int par1) {
-        EntityItem var3 = null;
+        EntityItem var3;
         final ItemStack is = new ItemStack(index, par1, 0);
         var3 = new EntityItem(
             this.worldObj,
@@ -421,13 +421,13 @@ public class MySkull extends EntityMob implements IMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
 
     private ItemStack dropBlockRand(final Block index, final int par1) {
-        EntityItem var3 = null;
+        EntityItem var3;
         final ItemStack is = new ItemStack(index, par1, 0);
         var3 = new EntityItem(
             this.worldObj,
@@ -438,7 +438,7 @@ public class MySkull extends EntityMob implements IMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }

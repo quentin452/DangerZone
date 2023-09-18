@@ -12,7 +12,7 @@ import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class DarkCrystal extends Item {
 
-    public DarkCrystal(final int id) {
+    public DarkCrystal() {
         this.setMaxStackSize(64);
         this.setUnlocalizedName("DarkCrystal");
         this.setTextureName(Tags.MODID.toLowerCase() + ":darkcrystal");

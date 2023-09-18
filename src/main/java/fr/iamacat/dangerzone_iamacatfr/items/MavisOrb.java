@@ -11,7 +11,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.MavisBall;
 
 public class MavisOrb extends Item {
 
-    public MavisOrb(final int i) {
+    public MavisOrb() {
         this.maxStackSize = 64;
     }
 
@@ -22,7 +22,7 @@ public class MavisOrb extends Item {
         }
         final double xzoff = 0.4;
         final double yoff = 1.25;
-        final MavisBall lb = new MavisBall(par2World, (EntityLivingBase) par3EntityPlayer);
+        final MavisBall lb = new MavisBall(par2World, par3EntityPlayer);
         lb.setLocationAndAngles(
             par3EntityPlayer.posX - xzoff * Math.sin(Math.toRadians(par3EntityPlayer.rotationYawHead + 45.0f)),
             par3EntityPlayer.posY + yoff,

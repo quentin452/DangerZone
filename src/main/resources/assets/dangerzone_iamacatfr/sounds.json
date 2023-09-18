@@ -140,5 +140,11 @@
 "pincer_a2": {"category": "master","sounds": [{"name": "pincer_a2","stream": false}]},
 "pincer_a1": {"category": "master","sounds": [{"name": "pincer_a1","stream": false}]},
 "howl_h1": {"category": "master","sounds": [{"name": "howl_h1","stream": false}]},
+"aj_a1": {"category": "master","sounds": [{"name": "aj_a1","stream": false}]},
+"er_d": {"category": "master","sounds": [{"name": "er_d","stream": false}]},
+"fanfare": {"category": "master","sounds": [{"name": "fanfare","stream": false}]},
+"bosshurt": {"category": "master","sounds": [{"name": "bosshurt","stream": false}]},
+"pincer_a1": {"category": "master","sounds": [{"name": "pincer_a1","stream": false}]},
+"pincer_a2": {"category": "master","sounds": [{"name": "pincer_a2","stream": false}]},
 "slap": {"category": "master","sounds": [{"name": "slap","stream": false}]}
 }

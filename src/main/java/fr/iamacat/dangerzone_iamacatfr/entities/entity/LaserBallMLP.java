@@ -100,7 +100,7 @@ public class LaserBallMLP extends EntityThrowable {
             final float var2 = 16.0f;
             if (this.is_irukandji != 0) {
                 par1MovingObjectPosition.entityHit.attackEntityFrom(
-                    DamageSource.causeThrownDamage((Entity) this, (Entity) this.getThrower()),
+                    DamageSource.causeThrownDamage(this, this.getThrower()),
                     100.0f);
                 this.setDead();
                 return;

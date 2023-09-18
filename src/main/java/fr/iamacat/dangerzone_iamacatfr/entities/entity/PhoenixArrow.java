@@ -29,41 +29,54 @@ public class PhoenixArrow extends EntityThrowable {
     }
 
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
-        if (par1MovingObjectPosition.entityHit != null) {
-            final Entity e = par1MovingObjectPosition.entityHit;
-            e.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.getThrower()), 450.0f);
-            e.setFire(20);
-            final float var2 = 40.0f;
+        if (!this.worldObj.isRemote) {
+            if (par1MovingObjectPosition.entityHit != null) {
+                final Entity entityHit = par1MovingObjectPosition.entityHit;
+                EntityLivingBase thrower = this.getThrower();
+
+                if (thrower != null) {
+                    entityHit.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) thrower), 450.0f);
+                    entityHit.setFire(20);
+                }
+
+                final int maxParticles = 40;
+                for (int i = 0; i < maxParticles; ++i) {
+                    this.worldObj.spawnParticle(
+
+
+                        "flame",
+                        this.posX + this.rand.nextFloat() - this.rand.nextFloat(),
+                        this.posY + this.rand.nextFloat() - this.rand.nextFloat(),
+                        this.posZ + this.rand.nextFloat(),
+                        0.0,
+                        0.0,
+                        0.0
+                    );
+                    this.worldObj.spawnParticle(
+                        "flame",
+                        this.posX + this.rand.nextFloat() - this.rand.nextFloat(),
+                        this.posY + this.rand.nextFloat() - this.rand.nextFloat(),
+                        this.posZ + this.rand.nextFloat() - this.rand.nextFloat(),
+                        0.0,
+                        0.0,
+                        0.0
+                    );
+                    this.worldObj.spawnParticle(
+                        "flame",
+                        this.posX,
+                        this.posY,
+                        this.posZ,
+                        this.worldObj.rand.nextGaussian(),
+                        this.worldObj.rand.nextGaussian(),
+                        this.worldObj.rand.nextGaussian()
+                    );
+                }
+
+                this.playSound("random.explode", 1.5f, 1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);
+            }
+
+            this.setDead();
         }
-        for (int mx = 20, var3 = 0; var3 < mx; ++var3) {
-            this.worldObj.spawnParticle(
-                "flame",
-                this.posX + this.rand.nextFloat() - this.rand.nextFloat(),
-                this.posY + this.rand.nextFloat() - this.rand.nextFloat(),
-                this.posZ + this.rand.nextFloat(),
-                0.0,
-                0.0,
-                0.0);
-            this.worldObj.spawnParticle(
-                "flame",
-                this.posX + this.rand.nextFloat() - this.rand.nextFloat(),
-                this.posY + this.rand.nextFloat() - this.rand.nextFloat(),
-                this.posZ + this.rand.nextFloat() - this.rand.nextFloat(),
-                0.0,
-                0.0,
-                0.0);
-            this.worldObj.spawnParticle(
-                "flame",
-                this.posX,
-                this.posY,
-                this.posZ,
-                this.worldObj.rand.nextGaussian(),
-                this.worldObj.rand.nextGaussian(),
-                this.worldObj.rand.nextGaussian());
-        }
-        this.playSound("random.explode", 1.5f, 1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);
-        if (!this.worldObj.isRemote) {}
-        this.setDead();
     }
 
     public void onUpdate() {

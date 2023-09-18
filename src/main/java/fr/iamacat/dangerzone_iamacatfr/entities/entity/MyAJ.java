@@ -278,7 +278,7 @@ public class MyAJ extends EntityTameable {
     }
 
     protected String getLivingSound() {
-        return Tags.MODID + ":aj_a";
+        return Tags.MODID + ":aj_a1";
     }
 
     protected String getHurtSound() {
@@ -314,7 +314,7 @@ public class MyAJ extends EntityTameable {
         final float f3 = (float) Math.atan2(random.nextInt() - this.posZ, random.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
@@ -332,7 +332,7 @@ public class MyAJ extends EntityTameable {
         final float f3 = (float) Math.atan2(random.nextInt() - this.posZ, random.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
@@ -442,7 +442,7 @@ public class MyAJ extends EntityTameable {
             this.setAttackTarget((EntityLivingBase) e);
             this.setTarget(e);
             this.getNavigator()
-                .tryMoveToEntityLiving((Entity) e, 1.5);
+                .tryMoveToEntityLiving(e, 1.5);
         }
         return ret;
     }
@@ -484,32 +484,32 @@ public class MyAJ extends EntityTameable {
         if (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.worldObj.rand.nextInt(5) == 1) {
             EntityLivingBase e = this.findSomethingToAttack();
             if (e != null) {
-                this.faceEntity((Entity) e, 10.0f, 10.0f);
+                this.faceEntity(e, 10.0f, 10.0f);
                 this.setAttacking(1);
                 this.getNavigator()
-                    .tryMoveToEntityLiving((Entity) e, 1.0);
-                if (this.getDistanceSqToEntity((Entity) e) < (10.0f + e.width / 2.0f) * (10.0f + e.width / 2.0f)) {
+                    .tryMoveToEntityLiving(e, 1.0);
+                if (this.getDistanceSqToEntity(e) < (10.0f + e.width / 2.0f) * (10.0f + e.width / 2.0f)) {
                     this.setAttacking(1);
                     this.getNavigator()
-                        .tryMoveToEntityLiving((Entity) e, 1.0);
+                        .tryMoveToEntityLiving(e, 1.0);
                     if (this.worldObj.rand.nextInt(1) == 0 || this.worldObj.rand.nextInt(2) == 1) {
-                        this.attackEntityAsMob((Entity) e);
+                        this.attackEntityAsMob(e);
                         this.ForceFeed(e);
                         this.earthQuake(this.posX, this.posY, this.posZ, 5.0, 275.0, 2);
                         this.getNavigator()
-                            .tryMoveToEntityLiving((Entity) e, 1.0);
+                            .tryMoveToEntityLiving(e, 1.0);
                     }
                 }
                 if (this.getHealth() < 75.0f) {
                     this.setAttacking(0);
                     e = null;
                 }
-                if (this.getDistanceSqToEntity((Entity) e) < (100.0f + e.width / 2.0f) * (100.0f + e.width / 2.0f)) {
+                if (this.getDistanceSqToEntity(e) < (100.0f + e.width / 2.0f) * (100.0f + e.width / 2.0f)) {
                     e = this.findSomethingToAttack();
                 } else {
                     this.getNavigator()
-                        .tryMoveToEntityLiving((Entity) e, 2.0);
-                    this.faceEntity((Entity) e, 10.0f, 10.0f);
+                        .tryMoveToEntityLiving(e, 2.0);
+                    this.faceEntity(e, 10.0f, 10.0f);
                     this.ForceFeed(e);
                 }
             } else {
@@ -576,15 +576,15 @@ public class MyAJ extends EntityTameable {
         }
         final List var5 = this.worldObj
             .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(32.0, 16.0, 32.0));
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
-        Entity var7 = null;
-        EntityLivingBase var8 = null;
+        Entity var7;
+        EntityLivingBase var8;
         final EntityLivingBase e = this.getAttackTarget();
         if (e != null && e.isEntityAlive()) {
             return e;
         }
-        this.setAttackTarget((EntityLivingBase) null);
+        this.setAttackTarget(null);
         while (var6.hasNext()) {
             var7 = (Entity) var6.next();
             var8 = (EntityLivingBase) var7;
@@ -600,7 +600,7 @@ public class MyAJ extends EntityTameable {
     }
 
     public void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+        this.dataWatcher.updateObject(20, (byte) par1);
     }
 
     public void writeEntityToNBT(final NBTTagCompound par1NBTTagCompound) {
@@ -631,12 +631,12 @@ public class MyAJ extends EntityTameable {
                     this.rotationYaw,
                     this.rotationPitch);
                 this.worldObj.playSoundAtEntity(
-                    (Entity) this,
+                    this,
                     "random.bow",
                     0.75f,
                     1.0f / (this.getRNG()
                         .nextFloat() * 0.4f + 0.8f));
-                this.worldObj.spawnEntityInWorld((Entity) var2);
+                this.worldObj.spawnEntityInWorld(var2);
             }
             final ProjectileApples var2 = new ProjectileApples(
                 this.worldObj,
@@ -660,7 +660,7 @@ public class MyAJ extends EntityTameable {
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var2);
+            this.worldObj.spawnEntityInWorld(var2);
             --this.stream_count;
         } else {
             this.setAttacking(0);
@@ -677,7 +677,7 @@ public class MyAJ extends EntityTameable {
                     final Block bid = this.worldObj
                         .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
                             .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
@@ -699,7 +699,7 @@ public class MyAJ extends EntityTameable {
         target = (MyAJ) this.worldObj.findNearestEntityWithinAABB(
              MyAJ.class,
             this.boundingBox.expand(256.0, 256.0, 256.0),
-            (Entity) this);
+            this);
         return target == null;
     }
 
@@ -708,7 +708,7 @@ public class MyAJ extends EntityTameable {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
         final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
         EntityLivingBase var8 = null;
@@ -723,11 +723,11 @@ public class MyAJ extends EntityTameable {
                 && !(var8 instanceof MyAJ)
                 && !(var8 instanceof EntityTameable)
                 && !(var8 instanceof EntityPlayer)) {
-                DamageSource var9 = null;
-                var9 = DamageSource.setExplosionSource((Explosion) null);
+                DamageSource var9;
+                var9 = DamageSource.setExplosionSource(null);
                 var9.setExplosion();
-                var8.attackEntityFrom(var9, (float) damage / 1.0f);
-                var8.attackEntityFrom(DamageSource.inWall, (float) damage / 1.0f);
+                var8.attackEntityFrom(var9, (float) damage);
+                var8.attackEntityFrom(DamageSource.inWall, (float) damage);
                 this.worldObj.playSoundAtEntity(
                     (Entity) var8,
                     "random.explode",
@@ -808,7 +808,7 @@ public class MyAJ extends EntityTameable {
     }
 
     public EntityAgeable createChild(final EntityAgeable entityageable) {
-        return (EntityAgeable) this.spawnBabyAnimal(entityageable);
+        return this.spawnBabyAnimal(entityageable);
     }
 
     public MyAJ spawnBabyAnimal(final EntityAgeable par1EntityAgeable) {

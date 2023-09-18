@@ -2,7 +2,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -22,12 +21,10 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
-import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.AIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class MyCrabzilla extends EntityTameable {
@@ -305,7 +302,7 @@ public class MyCrabzilla extends EntityTameable {
     }
 
     public boolean attackEntityAsMob(final Entity par1Entity) {
-        final boolean var4 = par1Entity.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase) this), 475.0f);
+        final boolean var4 = par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), 475.0f);
         if (var4) {
             if (par1Entity != null && par1Entity instanceof EntityLivingBase) {
                 final double ks = 2.6;
@@ -487,28 +484,28 @@ public class MyCrabzilla extends EntityTameable {
         if (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.worldObj.rand.nextInt(5) == 1) {
             EntityLivingBase e = this.findSomethingToAttack();
             if (e != null) {
-                this.faceEntity((Entity) e, 10.0f, 10.0f);
+                this.faceEntity(e, 10.0f, 10.0f);
                 this.setAttacking(1);
-                if (this.getDistanceSqToEntity((Entity) e) < (16.0f + e.width / 2.0f) * (16.0f + e.width / 2.0f)
-                    && (this.worldObj.rand.nextInt(1) == 0 || this.worldObj.rand.nextInt(2) == 1)) {
-                    this.attackEntityAsMob((Entity) e);
+                if (this.getDistanceSqToEntity(e) < (16.0f + e.width / 2.0f) * (16.0f + e.width / 2.0f)) {
+                    this.worldObj.rand.nextInt(1);
+                    this.attackEntityAsMob(e);
                     if (!this.worldObj.isRemote) {
                         if (this.worldObj.rand.nextInt(9) == 1) {
-                            this.worldObj.playSoundAtEntity((Entity) e, Tags.MODID + ":pincer_a", 3.5f, 1.0f);
+                            this.worldObj.playSoundAtEntity(e, Tags.MODID + ":pincer_a1", 3.5f, 1.0f);
                         } else {
-                            this.worldObj.playSoundAtEntity((Entity) e, Tags.MODID + ":pincer_a", 3.5f, 1.0f);
+                            this.worldObj.playSoundAtEntity(e, Tags.MODID + ":pincer_a2", 3.5f, 1.0f);
                         }
                     }
                 }
-                if (this.getDistanceSqToEntity((Entity) e) < (60.0f + e.width / 2.0f) * (60.0f + e.width / 2.0f)) {
+                if (this.getDistanceSqToEntity(e) < (60.0f + e.width / 2.0f) * (60.0f + e.width / 2.0f)) {
                     e = null;
                     e = this.findSomethingToAttack();
                     if (e != null) {
-                        this.faceEntity((Entity) e, 10.0f, 10.0f);
+                        this.faceEntity(e, 10.0f, 10.0f);
                     }
                 } else {
                     this.getNavigator()
-                        .tryMoveToEntityLiving((Entity) e, 1.0);
+                        .tryMoveToEntityLiving(e, 1.0);
                 }
             } else {
                 this.setAttacking(0);
@@ -519,7 +516,7 @@ public class MyCrabzilla extends EntityTameable {
         }
     }
 
-    private boolean isSuitableTarget(final EntityLivingBase par1EntityLiving, final boolean par2) {
+    private boolean isSuitableTarget(final EntityLivingBase par1EntityLiving) {
         if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
             return false;
         }
@@ -533,7 +530,7 @@ public class MyCrabzilla extends EntityTameable {
             return false;
         }
         if (!this.getEntitySenses()
-            .canSee((Entity) par1EntityLiving)) {
+            .canSee(par1EntityLiving)) {
             return false;
         }
         if (par1EntityLiving instanceof MyCrabzilla) {
@@ -549,7 +546,7 @@ public class MyCrabzilla extends EntityTameable {
             final EntityPlayer p = (EntityPlayer) par1EntityLiving;
             return !p.capabilities.isCreativeMode;
         }
-        return !MobUtils.isAttackableNonMob(par1EntityLiving) || true;
+        return true;
     }
 
     private EntityLivingBase findSomethingToAttack() {
@@ -563,19 +560,19 @@ public class MyCrabzilla extends EntityTameable {
         }
         final List var5 = this.worldObj
             .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(64.0, 64.0, 64.0));
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
-        Entity var7 = null;
-        EntityLivingBase var8 = null;
+        Entity var7;
+        EntityLivingBase var8;
         final EntityLivingBase e = this.getAttackTarget();
         if (e != null && e.isEntityAlive()) {
             return e;
         }
-        this.setAttackTarget((EntityLivingBase) null);
+        this.setAttackTarget(null);
         while (var6.hasNext()) {
             var7 = (Entity) var6.next();
             var8 = (EntityLivingBase) var7;
-            if (this.isSuitableTarget(var8, false)) {
+            if (this.isSuitableTarget(var8)) {
                 return var8;
             }
         }
@@ -583,11 +580,11 @@ public class MyCrabzilla extends EntityTameable {
     }
 
     public int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
     public void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+        this.dataWatcher.updateObject(20, (byte) par1);
     }
 
     public boolean getCanSpawnHere() {
@@ -609,7 +606,7 @@ public class MyCrabzilla extends EntityTameable {
                 }
             }
         }
-        MyCrabzilla target = null;
+        MyCrabzilla target;
         if (this.posY < 50.0) {
             return false;
         }
@@ -619,7 +616,7 @@ public class MyCrabzilla extends EntityTameable {
         target = (MyCrabzilla) this.worldObj.findNearestEntityWithinAABB(
              MyCrabzilla.class,
             this.boundingBox.expand(256.0, 256.0, 256.0),
-            (Entity) this);
+            this);
         return target == null;
     }
 
@@ -628,16 +625,16 @@ public class MyCrabzilla extends EntityTameable {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
         final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
-        Entity var7 = null;
-        EntityLivingBase var8 = null;
+        Entity var7;
+        EntityLivingBase var8;
         while (var6.hasNext()) {
             var7 = (Entity) var6.next();
             var8 = (EntityLivingBase) var7;
             if (var8 != null && var8 != this && var8.isEntityAlive() && !(var8 instanceof MyCrabzilla)) {
-                DamageSource var9 = null;
-                var9 = DamageSource.setExplosionSource((Explosion) null);
+                DamageSource var9;
+                var9 = DamageSource.setExplosionSource(null);
                 var9.setExplosion();
                 var8.attackEntityFrom(var9, (float) damage / 1.0f);
                 var8.attackEntityFrom(DamageSource.fall, (float) damage / 1.0f);

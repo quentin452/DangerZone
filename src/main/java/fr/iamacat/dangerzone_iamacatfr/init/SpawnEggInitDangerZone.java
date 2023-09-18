@@ -665,11 +665,6 @@ public class SpawnEggInitDangerZone {
         Constants.AlienSpawnEgg = AlienSpawnEgg;
         GameRegistry.registerItem(Constants.AlienSpawnEgg, "Alien Egg");
 
-        SpawnEggs MobzillaSpawnEgg = new SpawnEggs(MobzillaInstance.class);
-        MobzillaSpawnEgg.setUnlocalizedName("mobzilla_egg");
-        Constants.MobzillaSpawnEgg = MobzillaSpawnEgg;
-        GameRegistry.registerItem(Constants.MobzillaSpawnEgg, "Mobzilla Egg");
-
         SpawnEggs OstrichSpawnEgg = new SpawnEggs(OstrichInstance.class);
         OstrichSpawnEgg.setUnlocalizedName("ostrich_egg");
         Constants.OstrichSpawnEgg = OstrichSpawnEgg;

@@ -45,7 +45,6 @@ public class MySkullBoss extends EntityMob implements IMob {
     private double boatZ;
     private double boatYaw;
     private double boatPitch;
-    private double boatYawHead;
 
     public MySkullBoss(final World par1World) {
         super(par1World);
@@ -138,25 +137,25 @@ public class MySkullBoss extends EntityMob implements IMob {
             this.posX,
             this.posY + 1.25,
             this.posZ,
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
+            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
+            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
+            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
         this.worldObj.spawnParticle(
             "flame",
             this.posX,
             this.posY + 1.25,
             this.posZ,
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
+            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
+            (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f,
+            (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f);
         this.worldObj.spawnParticle(
             "flame",
             this.posX,
             this.posY + 1.25,
             this.posZ,
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
+            (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f,
+            (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f,
+            (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f);
         this.motionY *= 0.4;
         if (this.getHealth() < this.mygetMaxHealth() && this.worldObj.rand.nextInt(5) == 1) {
             this.heal(1.0f);
@@ -293,12 +292,12 @@ public class MySkullBoss extends EntityMob implements IMob {
                 }
                 e = this.findSomethingToAttack();
                 if (e != null) {
-                    if (this.getDistanceSqToEntity((Entity) e) < (35.0f + e.width / 2.0f) * (35.0f + e.width / 2.0f)) {
+                    if (this.getDistanceSqToEntity(e) < (35.0f + e.width / 2.0f) * (35.0f + e.width / 2.0f)) {
                         if (this.worldObj.rand.nextInt(5) == 1 || this.worldObj.rand.nextInt(6) == 1) {
                             this.firecanon(e);
                             this.MeteorStrike(e);
                         }
-                        if (this.getDistanceSqToEntity((Entity) e)
+                        if (this.getDistanceSqToEntity(e)
                             < (15.0f + e.width / 2.0f) * (15.0f + e.width / 2.0f)) {
                             final int down2 = 0;
                             int newz2 = this.rand.nextInt(5) + 6;
@@ -314,8 +313,8 @@ public class MySkullBoss extends EntityMob implements IMob {
                     this.currentFlightTarget.set((int) e.posX, (int) e.posY + 5, (int) e.posZ);
                     this.firecanon(e);
                     this.MeteorStrike(e);
-                    if (this.getDistanceSqToEntity((Entity) e) < (5.0f + e.width / 2.0f) * (5.0f + e.width / 2.0f)) {
-                        this.attackEntityAsMob((Entity) e);
+                    if (this.getDistanceSqToEntity(e) < (5.0f + e.width / 2.0f) * (5.0f + e.width / 2.0f)) {
+                        this.attackEntityAsMob(e);
                     }
                 }
             }
@@ -374,12 +373,12 @@ public class MySkullBoss extends EntityMob implements IMob {
                 this.rotationYaw,
                 this.rotationPitch);
             this.worldObj.playSoundAtEntity(
-                (Entity) this,
+                this,
                 "random.bow",
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var2);
+            this.worldObj.spawnEntityInWorld(var2);
         }
         final FireCannon var2 = new FireCannon(
             this.worldObj,
@@ -403,7 +402,7 @@ public class MySkullBoss extends EntityMob implements IMob {
             0.75f,
             1.0f / (this.getRNG()
                 .nextFloat() * 0.4f + 0.8f));
-        this.worldObj.spawnEntityInWorld((Entity) var2);
+        this.worldObj.spawnEntityInWorld(var2);
     }
 
     protected boolean canTriggerWalking() {
@@ -486,7 +485,7 @@ public class MySkullBoss extends EntityMob implements IMob {
         target = (MySkullBoss) this.worldObj.findNearestEntityWithinAABB(
              MySkullBoss.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
-            (Entity) this);
+            this);
         return target == null;
     }
 
@@ -504,7 +503,7 @@ public class MySkullBoss extends EntityMob implements IMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
@@ -521,7 +520,7 @@ public class MySkullBoss extends EntityMob implements IMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
@@ -567,8 +566,8 @@ public class MySkullBoss extends EntityMob implements IMob {
         bf.setLocationAndAngles(cx, this.posY + yoff, cz, this.rotationYaw, 0.0f);
         bf.setPosition(cx, this.posY + yoff, cz);
         bf.setBowser();
-        this.worldObj.playSoundAtEntity((Entity) this, Tags.MODID + ":slap", 3.0f, 1.0f);
-        this.worldObj.spawnEntityInWorld((Entity) bf);
+        this.worldObj.playSoundAtEntity(this, Tags.MODID + ":slap", 3.0f, 1.0f);
+        this.worldObj.spawnEntityInWorld(bf);
         this.heal(5.0f);
     }
 
@@ -610,7 +609,7 @@ public class MySkullBoss extends EntityMob implements IMob {
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
             .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(65.0, 30.0, 65.0));
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;
         EntityLivingBase var8;

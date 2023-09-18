@@ -2,6 +2,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.projectile;
 
 import java.util.List;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -142,7 +143,7 @@ public class EyeRayInstance extends EntityLiving {
                 // this.worldObj.spawnParticle("smoke", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
 
                 if (!(foo == Blocks.water || foo == Blocks.lava) && !this.worldObj.isRemote) {
-                    this.worldObj.playSoundAtEntity(this, "dangerzone_iamacatfr/sounds/er_d", 1.0F, 1.0F);
+                    this.worldObj.playSoundAtEntity(this, Tags.MODID + ":er_d", 1.0F, 1.0F);
                     // this.worldObj.setBlockWithNotify((int)this.posX, (int)this.posY, (int)this.posZ, 0);
                     this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 1.2F, true);
                     this.setDead();
@@ -164,9 +165,9 @@ public class EyeRayInstance extends EntityLiving {
                 }
 
                 this.inGround = false;
-                this.motionX *= (double) (this.rand.nextFloat() * 0.2F);
-                this.motionY *= (double) (this.rand.nextFloat() * 0.2F);
-                this.motionZ *= (double) (this.rand.nextFloat() * 0.2F);
+                this.motionX *= this.rand.nextFloat() * 0.2F;
+                this.motionY *= this.rand.nextFloat() * 0.2F;
+                this.motionZ *= this.rand.nextFloat() * 0.2F;
                 this.ticksAlive = 0;
                 this.ticksInAir = 0;
             } else this.ticksInAir++;
@@ -197,7 +198,7 @@ public class EyeRayInstance extends EntityLiving {
                     && !(var9 instanceof EntityArrow)
                     && !(var9 instanceof EntityThrowable)) {
                     float var10 = 0.3F;
-                    AxisAlignedBB var11 = var9.boundingBox.expand((double) var10, (double) var10, (double) var10);
+                    AxisAlignedBB var11 = var9.boundingBox.expand(var10, var10, var10);
                     MovingObjectPosition var12 = var11.calculateIntercept(var15, var2);
 
                     if (var12 != null) {
@@ -225,7 +226,7 @@ public class EyeRayInstance extends EntityLiving {
             float var16 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
             this.rotationYaw = (float) (Math.atan2(this.motionZ, this.motionX) * 180.0D / Math.PI) + 90.0F;
 
-            for (this.rotationPitch = (float) (Math.atan2((double) var16, this.motionY) * 180.0D / Math.PI)
+            for (this.rotationPitch = (float) (Math.atan2(var16, this.motionY) * 180.0D / Math.PI)
                 - 90.0F; this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
                 ;
             }
@@ -249,9 +250,9 @@ public class EyeRayInstance extends EntityLiving {
             this.motionX += this.accelerationX;
             this.motionY += this.accelerationY;
             this.motionZ += this.accelerationZ;
-            this.motionX *= (double) var17;
-            this.motionY *= (double) var17;
-            this.motionZ *= (double) var17;
+            this.motionX *= var17;
+            this.motionY *= var17;
+            this.motionZ *= var17;
             this.worldObj.spawnParticle("mobSpell", this.posX, this.posY + 1.0D, this.posZ, 0.0D, 0.0D, 0.0D);
             this.setPosition(this.posX, this.posY, this.posZ);
         }
@@ -273,7 +274,7 @@ public class EyeRayInstance extends EntityLiving {
                 }
 
                 if (foo instanceof EntityLivingBase && !badIdea) {
-                    this.worldObj.playSoundAtEntity(this, "dangerzone_iamacatfr/sounds/er_d", 1.0F, 1.0F);
+                    this.worldObj.playSoundAtEntity(this, Tags.MODID + "er_d", 1.0F, 1.0F);
 
                     EntityLivingBase bar = (EntityLivingBase) foo;
 
@@ -346,7 +347,7 @@ public class EyeRayInstance extends EntityLiving {
         var1.setShort("zTile", (short) this.zTile);
         var1.setByte("inTile", (byte) this.inTile);
         var1.setByte("inGround", (byte) (this.inGround ? 1 : 0));
-        var1.setTag("direction", this.newDoubleNBTList(new double[] { this.motionX, this.motionY, this.motionZ }));
+        var1.setTag("direction", this.newDoubleNBTList(this.motionX, this.motionY, this.motionZ));
 
         NBTTagList var2 = new NBTTagList();
 

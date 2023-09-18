@@ -102,19 +102,19 @@ public class FairyFishHookInstance extends Entity {
             fairy.posZ,
             fairy.rotationYaw,
             0.25F);
-        this.posX -= (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posX -= MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
         this.posY -= 0.10000000149011612D;
-        this.posZ -= (double) (MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F);
+        this.posZ -= MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * 0.16F;
         this.setPosition(this.posX, this.posY, this.posZ);
         this.yOffset = 0.0F;
         float var3 = 0.4F;
-        this.motionX = (double) (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
+        this.motionX = -MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI)
             * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI)
-            * var3);
-        this.motionZ = (double) (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
+            * var3;
+        this.motionZ = MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI)
             * MathHelper.cos(this.rotationPitch / 180.0F * (float) Math.PI)
-            * var3);
-        this.motionY = (double) (-MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI) * var3);
+            * var3;
+        this.motionY = -MathHelper.sin(this.rotationPitch / 180.0F * (float) Math.PI) * var3;
         this.calculateVelocity(this.motionX, this.motionY, this.motionZ, 0.75F, 1.0F);
     }
 
@@ -132,21 +132,21 @@ public class FairyFishHookInstance extends Entity {
 
     public void calculateVelocity(double par1, double par3, double par5, float par7, float par8) {
         float var9 = MathHelper.sqrt_double(par1 * par1 + par3 * par3 + par5 * par5);
-        par1 /= (double) var9;
-        par3 /= (double) var9;
-        par5 /= (double) var9;
+        par1 /= var9;
+        par3 /= var9;
+        par5 /= var9;
         par1 += this.rand.nextGaussian() * 0.007499999832361937D * (double) par8;
         par3 += this.rand.nextGaussian() * 0.007499999832361937D * (double) par8;
         par5 += this.rand.nextGaussian() * 0.007499999832361937D * (double) par8;
-        par1 *= (double) par7;
-        par3 *= (double) par7;
-        par5 *= (double) par7;
+        par1 *= par7;
+        par3 *= par7;
+        par5 *=par7;
         this.motionX = par1;
         this.motionY = par3;
         this.motionZ = par5;
         float var10 = MathHelper.sqrt_double(par1 * par1 + par5 * par5);
         this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(par1, par5) * 180.0D / Math.PI);
-        this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(par3, (double) var10) * 180.0D / Math.PI);
+        this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(par3, var10) * 180.0D / Math.PI);
         this.ticksInGround = 0;
     }
 
@@ -158,8 +158,8 @@ public class FairyFishHookInstance extends Entity {
         this.fishX = par1;
         this.fishY = par3;
         this.fishZ = par5;
-        this.fishYaw = (double) par7;
-        this.fishPitch = (double) par8;
+        this.fishYaw = par7;
+        this.fishPitch = par8;
         this.fishPosRotationIncrements = par9;
         this.motionX = this.velocityX;
         this.motionY = this.velocityY;
@@ -196,7 +196,7 @@ public class FairyFishHookInstance extends Entity {
             double var7;
 
             for (var7 = this.fishYaw - (double) this.rotationYaw; var7 < -180.0D; var7 += 360.0D) {
-                ;
+
             }
 
             while (var7 >= 180.0D) {
@@ -253,9 +253,9 @@ public class FairyFishHookInstance extends Entity {
                 }
 
                 this.inGround = false;
-                this.motionX *= (double) (this.rand.nextFloat() * 0.2F);
-                this.motionY *= (double) (this.rand.nextFloat() * 0.2F);
-                this.motionZ *= (double) (this.rand.nextFloat() * 0.2F);
+                this.motionX *= this.rand.nextFloat() * 0.2F;
+                this.motionY *= this.rand.nextFloat() * 0.2F;
+                this.motionZ *= this.rand.nextFloat() * 0.2F;
                 this.ticksInGround = 0;
                 this.ticksInAir = 0;
             } else {
@@ -287,7 +287,7 @@ public class FairyFishHookInstance extends Entity {
 
                 if (var9.canBeCollidedWith() && (var9 != this.angler || this.ticksInAir >= 5)) {
                     float var10 = 0.3F;
-                    AxisAlignedBB var11 = var9.boundingBox.expand((double) var10, (double) var10, (double) var10);
+                    AxisAlignedBB var11 = var9.boundingBox.expand(var10, var10, var10);
                     MovingObjectPosition var12 = var11.calculateIntercept(var20, var2);
 
                     if (var12 != null) {
@@ -316,7 +316,7 @@ public class FairyFishHookInstance extends Entity {
                 float var24 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
                 this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
-                for (this.rotationPitch = (float) (Math.atan2(this.motionY, (double) var24) * 180.0D
+                for (this.rotationPitch = (float) (Math.atan2(this.motionY, var24) * 180.0D
                     / Math.PI); this.rotationPitch - this.prevRotationPitch
                         < -180.0F; this.prevRotationPitch -= 360.0F) {
                     ;
@@ -348,7 +348,7 @@ public class FairyFishHookInstance extends Entity {
 
                 for (int var29 = 0; var29 < var27; ++var29) {
                     double var14 = this.boundingBox.minY
-                        + (this.boundingBox.maxY - this.boundingBox.minY) * (double) (var29 + 0) / (double) var27
+                        + (this.boundingBox.maxY - this.boundingBox.minY) * (double) (var29) / (double) var27
                         - 0.125D
                         + 0.125D;
                     double var16 = this.boundingBox.minY
@@ -400,7 +400,7 @@ public class FairyFishHookInstance extends Entity {
                                 this.worldObj.spawnParticle(
                                     "bubble",
                                     this.posX + (double) var31,
-                                    (double) (var30 + 1.0F),
+                                    var30 + 1.0F,
                                     this.posZ + (double) var17,
                                     this.motionX,
                                     this.motionY - (double) (this.rand.nextFloat() * 0.2F),
@@ -413,7 +413,7 @@ public class FairyFishHookInstance extends Entity {
                                 this.worldObj.spawnParticle(
                                     "splash",
                                     this.posX + (double) var31,
-                                    (double) (var30 + 1.0F),
+                                    var30 + 1.0F,
                                     this.posZ + (double) var17,
                                     this.motionX,
                                     this.motionY,
@@ -436,9 +436,9 @@ public class FairyFishHookInstance extends Entity {
                     this.motionY *= 0.8D;
                 }
 
-                this.motionX *= (double) var25;
-                this.motionY *= (double) var25;
-                this.motionZ *= (double) var25;
+                this.motionX *= var25;
+                this.motionY *= var25;
+                this.motionZ *= var25;
                 this.setPosition(this.posX, this.posY, this.posZ);
             }
         }
@@ -479,7 +479,7 @@ public class FairyFishHookInstance extends Entity {
             double var2 = this.angler.posX - this.posX;
             double var4 = this.angler.posY - this.posY;
             double var6 = this.angler.posZ - this.posZ;
-            double var8 = (double) MathHelper.sqrt_double(var2 * var2 + var4 * var4 + var6 * var6);
+            double var8 = MathHelper.sqrt_double(var2 * var2 + var4 * var4 + var6 * var6);
             double var10 = 0.1D;
             this.bobber.motionX += var2 * var10;
             this.bobber.motionY += var4 * var10 + (double) MathHelper.sqrt_double(var8) * 0.08D;
@@ -491,7 +491,7 @@ public class FairyFishHookInstance extends Entity {
             double var3 = this.angler.posX - this.posX;
             double var5 = this.angler.posY - this.posY;
             double var7 = this.angler.posZ - this.posZ;
-            double var9 = (double) MathHelper.sqrt_double(var3 * var3 + var5 * var5 + var7 * var7);
+            double var9 = MathHelper.sqrt_double(var3 * var3 + var5 * var5 + var7 * var7);
             double var11 = 0.1D;
             var13.motionX = var3 * var11;
             var13.motionY = var5 * var11 + (double) MathHelper.sqrt_double(var9) * 0.08D;

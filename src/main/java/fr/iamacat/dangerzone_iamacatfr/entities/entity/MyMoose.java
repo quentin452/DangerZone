@@ -147,7 +147,7 @@ public class MyMoose extends EntityMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
@@ -164,7 +164,7 @@ public class MyMoose extends EntityMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
@@ -251,7 +251,7 @@ public class MyMoose extends EntityMob {
                     this.rt = null;
                 }
                 if (e != null && !this.getEntitySenses()
-                    .canSee((Entity) e)) {
+                    .canSee(e)) {
                     e = null;
                 }
             }
@@ -259,15 +259,15 @@ public class MyMoose extends EntityMob {
                 e = this.findSomethingToAttack();
             }
             if (e != null) {
-                this.faceEntity((Entity) e, 10.0f, 10.0f);
-                if (this.getDistanceSqToEntity((Entity) e) < (3.5f + e.width / 2.0f) * (3.5f + e.width / 2.0f)) {
+                this.faceEntity(e, 10.0f, 10.0f);
+                if (this.getDistanceSqToEntity(e) < (3.5f + e.width / 2.0f) * (3.5f + e.width / 2.0f)) {
                     this.setAttacking(1);
                     if (this.worldObj.rand.nextInt(5) == 0 || this.worldObj.rand.nextInt(6) == 1) {
-                        this.attackEntityAsMob((Entity) e);
+                        this.attackEntityAsMob(e);
                     }
                 } else {
                     this.getNavigator()
-                        .tryMoveToEntityLiving((Entity) e, 1.25);
+                        .tryMoveToEntityLiving(e, 1.25);
                 }
             } else {
                 this.setAttacking(0);
@@ -361,10 +361,10 @@ public class MyMoose extends EntityMob {
          */
         final List var5 = this.worldObj
             .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(12.0, 5.0, 12.0));
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
-        Entity var7 = null;
-        EntityLivingBase var8 = null;
+        Entity var7;
+        EntityLivingBase var8;
         while (var6.hasNext()) {
             var7 = (Entity) var6.next();
             var8 = (EntityLivingBase) var7;
@@ -400,11 +400,11 @@ public class MyMoose extends EntityMob {
         if (this.worldObj.isDaytime()) {
             return false;
         }
-        MyMoose target = null;
+        MyMoose target;
         target = (MyMoose) this.worldObj.findNearestEntityWithinAABB(
              MyMoose.class,
             this.boundingBox.expand(16.0, 6.0, 16.0),
-            (Entity) this);
+            this);
         return target == null;
     }
 
@@ -413,7 +413,7 @@ public class MyMoose extends EntityMob {
     }
 
     public void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+        this.dataWatcher.updateObject(20, (byte) par1);
     }
 
     @SideOnly(Side.CLIENT)

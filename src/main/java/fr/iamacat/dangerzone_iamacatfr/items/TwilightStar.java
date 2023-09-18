@@ -13,7 +13,7 @@ import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class TwilightStar extends Item {
 
-    public TwilightStar(final int id) {
+    public TwilightStar() {
         this.setMaxStackSize(64);
         this.setUnlocalizedName("TwilightStar");
         this.setTextureName(Tags.MODID.toLowerCase() + ":twilightstar");

@@ -1,4 +1,3 @@
-
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
 import net.minecraft.client.model.ModelBase;
@@ -21,25 +20,26 @@ public class RenderSpikezilla extends RenderLiving {
     private static final ResourceLocation texturespk;
 
     public RenderSpikezilla(final Spikezilla par1ModelBase, final float par2, final float par3) {
-        super((ModelBase) par1ModelBase, par2 * par3);
-        this.scale = 1.0f;
+        super(par1ModelBase, par2 * par3);
         this.model = (Spikezilla) this.mainModel;
         this.scale = par3;
     }
 
     public void renderSPIKE(final MySpikezilla par1EntityMolenoid, final double par2, final double par4,
-        final double par6, final float par8, final float par9) {
-        super.doRender( par1EntityMolenoid, par2, par4, par6, par8, par9);
+                            final double par6, final float par8, final float par9) {
+        super.doRender(par1EntityMolenoid, par2, par4, par6, par8, par9);
     }
 
     public void doRenderLiving(final EntityLiving par1EntityLiving, final double par2, final double par4,
-        final double par6, final float par8, final float par9) {
+                               final double par6, final float par8, final float par9) {
         this.renderSPIKE((MySpikezilla) par1EntityLiving, par2, par4, par6, par8, par9);
     }
 
     public void doRender(final Entity par1Entity, final double par2, final double par4, final double par6,
-        final float par8, final float par9) {
+                         final float par8, final float par9) {
+        GL11.glDisable(GL11.GL_CULL_FACE);
         this.renderSPIKE((MySpikezilla) par1Entity, par2, par4, par6, par8, par9);
+        GL11.glEnable(GL11.GL_CULL_FACE);
     }
 
     protected void preRenderScale(final MySpikezilla par1Entity, final float par2) {

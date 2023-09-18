@@ -1,18 +1,18 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericBreedable;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Random;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericBreedable;
 
-public class EntityAIMate extends EntityAIBase
-{
+public class EntityAIMate extends EntityAIBase {
+
     private EntityGenericBreedable theAnimal;
     World theWorld;
     private EntityGenericBreedable targetMate;
@@ -57,8 +57,10 @@ public class EntityAIMate extends EntityAIBase
     }
 
     public void updateTask() {
-        this.theAnimal.getLookHelper().setLookPositionWithEntity((Entity)this.targetMate, 10.0f, (float)this.theAnimal.getVerticalFaceSpeed());
-        this.theAnimal.getNavigator().tryMoveToEntityLiving((Entity)this.targetMate, (double)this.moveSpeed);
+        this.theAnimal.getLookHelper()
+            .setLookPositionWithEntity((Entity) this.targetMate, 10.0f, (float) this.theAnimal.getVerticalFaceSpeed());
+        this.theAnimal.getNavigator()
+            .tryMoveToEntityLiving((Entity) this.targetMate, (double) this.moveSpeed);
         ++this.spawnBabyDelay;
         if (this.shouldHop) {
             this.tryToHop();
@@ -70,7 +72,9 @@ public class EntityAIMate extends EntityAIBase
 
     private EntityGenericBreedable getNearbyMate() {
         final float var1 = 8.0f;
-        final List<EntityGenericBreedable> var2 = this.theWorld.getEntitiesWithinAABB(this.theAnimal.getClass(), this.theAnimal.boundingBox.expand((double)var1, (double)var1, (double)var1));
+        final List<EntityGenericBreedable> var2 = this.theWorld.getEntitiesWithinAABB(
+            this.theAnimal.getClass(),
+            this.theAnimal.boundingBox.expand((double) var1, (double) var1, (double) var1));
         for (final EntityGenericBreedable var4 : var2) {
             if (this.theAnimal.canMateWith(var4)) {
                 return var4;
@@ -88,30 +92,46 @@ public class EntityAIMate extends EntityAIBase
             this.targetMate.resetInLove();
             var1.setGrowingAge(-24000);
             var1.setLocationAndAngles(this.theAnimal.posX, this.theAnimal.posY, this.theAnimal.posZ, 0.0f, 0.0f);
-            this.theWorld.spawnEntityInWorld((Entity)var1);
+            this.theWorld.spawnEntityInWorld((Entity) var1);
             final Random var2 = this.theAnimal.getRNG();
             for (int var3 = 0; var3 < 7; ++var3) {
                 final double var4 = var2.nextGaussian() * 0.02;
                 final double var5 = var2.nextGaussian() * 0.02;
                 final double var6 = var2.nextGaussian() * 0.02;
-                this.theWorld.spawnParticle("heart", this.theAnimal.posX + var2.nextFloat() * this.theAnimal.width * 2.0f - this.theAnimal.width, this.theAnimal.posY + 0.5 + var2.nextFloat() * this.theAnimal.height, this.theAnimal.posZ + var2.nextFloat() * this.theAnimal.width * 2.0f - this.theAnimal.width, var4, var5, var6);
+                this.theWorld.spawnParticle(
+                    "heart",
+                    this.theAnimal.posX + var2.nextFloat() * this.theAnimal.width * 2.0f - this.theAnimal.width,
+                    this.theAnimal.posY + 0.5 + var2.nextFloat() * this.theAnimal.height,
+                    this.theAnimal.posZ + var2.nextFloat() * this.theAnimal.width * 2.0f - this.theAnimal.width,
+                    var4,
+                    var5,
+                    var6);
             }
-            this.theWorld.spawnEntityInWorld((Entity)new EntityXPOrb(this.theWorld, this.theAnimal.posX, this.theAnimal.posY, this.theAnimal.posZ, var2.nextInt(4) + 1));
+            this.theWorld.spawnEntityInWorld(
+                (Entity) new EntityXPOrb(
+                    this.theWorld,
+                    this.theAnimal.posX,
+                    this.theAnimal.posY,
+                    this.theAnimal.posZ,
+                    var2.nextInt(4) + 1));
         }
     }
 
     public void tryToHop() {
         if (this.theAnimal.onGround && this.slimeJumpDelay-- <= 0) {
             this.slimeJumpDelay = this.getJumpDelay();
-            this.theAnimal.getJumpHelper().setJumping();
-            this.theAnimal.getNavigator().setSpeed((double)this.moveSpeed);
-        }
-        else {
-            this.theAnimal.getNavigator().setSpeed(0.0);
+            this.theAnimal.getJumpHelper()
+                .setJumping();
+            this.theAnimal.getNavigator()
+                .setSpeed((double) this.moveSpeed);
+        } else {
+            this.theAnimal.getNavigator()
+                .setSpeed(0.0);
         }
     }
 
     protected int getJumpDelay() {
-        return this.theAnimal.getRNG().nextInt(20) + 10;
+        return this.theAnimal.getRNG()
+            .nextInt(20) + 10;
     }
 }

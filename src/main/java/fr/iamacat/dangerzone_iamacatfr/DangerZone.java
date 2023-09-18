@@ -3,7 +3,6 @@ package fr.iamacat.dangerzone_iamacatfr;
 import java.io.File;
 import java.util.List;
 
-import fr.iamacat.dangerzone_iamacatfr.network.PZPacketHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
@@ -22,6 +21,7 @@ import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
 import fr.iamacat.dangerzone_iamacatfr.init.*;
 import fr.iamacat.dangerzone_iamacatfr.network.ISidedProxy;
+import fr.iamacat.dangerzone_iamacatfr.network.PZPacketHandler;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 @Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = Tags.MCVERSION)

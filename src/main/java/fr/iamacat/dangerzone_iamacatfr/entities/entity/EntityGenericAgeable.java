@@ -4,8 +4,8 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-public class EntityGenericAgeable extends EntityGenericCreature
-{
+public class EntityGenericAgeable extends EntityGenericCreature {
+
     public EntityGenericAgeable(final World par1World) {
         super(par1World);
     }
@@ -21,7 +21,7 @@ public class EntityGenericAgeable extends EntityGenericCreature
     }
 
     public void setGrowingAge(final int par1) {
-        this.dataWatcher.updateObject(12, (Object)par1);
+        this.dataWatcher.updateObject(12, (Object) par1);
     }
 
     @Override
@@ -31,8 +31,7 @@ public class EntityGenericAgeable extends EntityGenericCreature
         if (var1 < 0) {
             ++var1;
             this.setGrowingAge(var1);
-        }
-        else if (var1 > 0) {
+        } else if (var1 > 0) {
             --var1;
             this.setGrowingAge(var1);
         }

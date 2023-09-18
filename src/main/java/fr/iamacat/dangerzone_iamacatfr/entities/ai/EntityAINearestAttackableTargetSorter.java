@@ -1,17 +1,17 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
-
-import net.minecraft.entity.Entity;
 
 import java.util.Comparator;
 
-public class EntityAINearestAttackableTargetSorter implements Comparator
-{
+import net.minecraft.entity.Entity;
+
+public class EntityAINearestAttackableTargetSorter implements Comparator {
+
     private Entity theEntity;
     final EntityAINearestAttackableTarget parent;
 
-    public EntityAINearestAttackableTargetSorter(final EntityAINearestAttackableTarget par1EntityAINearestAttackableTarget, final Entity par2Entity) {
+    public EntityAINearestAttackableTargetSorter(
+        final EntityAINearestAttackableTarget par1EntityAINearestAttackableTarget, final Entity par2Entity) {
         this.parent = par1EntityAINearestAttackableTarget;
         this.theEntity = par2Entity;
     }
@@ -24,6 +24,6 @@ public class EntityAINearestAttackableTargetSorter implements Comparator
 
     @Override
     public int compare(final Object par1Obj, final Object par2Obj) {
-        return this.compareDistanceSq((Entity)par1Obj, (Entity)par2Obj);
+        return this.compareDistanceSq((Entity) par1Obj, (Entity) par2Obj);
     }
 }

@@ -1,7 +1,10 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.packets;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.world.World;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -11,13 +14,9 @@ import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
 import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.world.World;
 
-public class PZPacketAnimTime implements IMessage, IMessageHandler<PZPacketAnimTime, IMessage>
-{
+public class PZPacketAnimTime implements IMessage, IMessageHandler<PZPacketAnimTime, IMessage> {
+
     private int entityIDtoSync;
     private int animTime;
 
@@ -35,7 +34,7 @@ public class PZPacketAnimTime implements IMessage, IMessageHandler<PZPacketAnimT
         final World worldObj = player.worldObj;
         final Entity entity = worldObj.getEntityByID(message.entityIDtoSync);
         if (entity != null && entity instanceof EntityGenericCreature) {
-            ((EntityGenericCreature)entity).setAnimTime(message.animTime);
+            ((EntityGenericCreature) entity).setAnimTime(message.animTime);
         }
         return null;
     }
@@ -45,9 +44,9 @@ public class PZPacketAnimTime implements IMessage, IMessageHandler<PZPacketAnimT
         try {
             this.entityIDtoSync = buffer.readInt();
             this.animTime = buffer.readInt();
-        }
-        catch (Exception e) {
-            DangerLogger.LOGGER.error("There was a problem encoding the packet in PZPacketAnimTime: " + buffer + ".", this);
+        } catch (Exception e) {
+            DangerLogger.LOGGER
+                .error("There was a problem encoding the packet in PZPacketAnimTime: " + buffer + ".", this);
             e.printStackTrace();
         }
     }
@@ -57,9 +56,9 @@ public class PZPacketAnimTime implements IMessage, IMessageHandler<PZPacketAnimT
         try {
             buffer.writeInt(this.entityIDtoSync);
             buffer.writeInt(this.animTime);
-        }
-        catch (Exception e) {
-            DangerLogger.LOGGER.error("There was a problem encoding the packet in PZPacketAnimTime : " + buffer + ".", this);
+        } catch (Exception e) {
+            DangerLogger.LOGGER
+                .error("There was a problem encoding the packet in PZPacketAnimTime : " + buffer + ".", this);
             e.printStackTrace();
         }
     }

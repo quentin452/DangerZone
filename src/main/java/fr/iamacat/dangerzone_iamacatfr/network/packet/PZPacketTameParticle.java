@@ -1,6 +1,9 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.network.packet;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.PacketBuffer;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -10,12 +13,9 @@ import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
 import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.network.PacketBuffer;
 
-public class PZPacketTameParticle implements IMessage, IMessageHandler<PZPacketTameParticle, IMessage>
-{
+public class PZPacketTameParticle implements IMessage, IMessageHandler<PZPacketTameParticle, IMessage> {
+
     private int entityIdToTriggerEffect;
     private boolean tameingSuccess;
 
@@ -32,7 +32,7 @@ public class PZPacketTameParticle implements IMessage, IMessageHandler<PZPacketT
         final EntityPlayer player = DangerZone.packetProxy.getClientPlayer();
         final Entity entity = player.worldObj.getEntityByID(message.entityIdToTriggerEffect);
         if (entity != null && entity instanceof EntityGenericTameable) {
-            ((EntityGenericTameable)entity).playTameEffect(message.tameingSuccess);
+            ((EntityGenericTameable) entity).playTameEffect(message.tameingSuccess);
         }
         return null;
     }
@@ -42,9 +42,9 @@ public class PZPacketTameParticle implements IMessage, IMessageHandler<PZPacketT
         try {
             this.entityIdToTriggerEffect = buffer.readInt();
             this.tameingSuccess = buffer.readBoolean();
-        }
-        catch (Exception e) {
-            DangerLogger.LOGGER.error("There was a problem decoding the packet in PZPacketStreamSound : " + buffer + ".", this);
+        } catch (Exception e) {
+            DangerLogger.LOGGER
+                .error("There was a problem decoding the packet in PZPacketStreamSound : " + buffer + ".", this);
             e.printStackTrace();
         }
     }
@@ -54,9 +54,9 @@ public class PZPacketTameParticle implements IMessage, IMessageHandler<PZPacketT
         try {
             buffer.writeInt(this.entityIdToTriggerEffect);
             buffer.writeBoolean(this.tameingSuccess);
-        }
-        catch (Exception e) {
-            DangerLogger.LOGGER.error("There was a problem encoding the packet in PZTameParticle : " + buffer + ".", this);
+        } catch (Exception e) {
+            DangerLogger.LOGGER
+                .error("There was a problem encoding the packet in PZTameParticle : " + buffer + ".", this);
             e.printStackTrace();
         }
     }

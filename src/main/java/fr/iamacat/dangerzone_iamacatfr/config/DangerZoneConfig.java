@@ -5,11 +5,14 @@ import java.io.File;
 import net.minecraftforge.common.config.Configuration;
 
 public class DangerZoneConfig extends Configuration {
+
     public static boolean allowExtraBossLoot;
+    public static int MeteorStrikeDamage;
 
     public static int bossDamageCap = 25;
     public static int SPAWN_FACTION_MIN_SIZE = 8;
     public static int SPAWN_FACTION_MAX_SIZE = 10;
+    public static int DarkCrystalDamage = 9750;
 
     public static double GENERAL_HEALTH_BASE = 15.0D;
     public static float GENERAL_SPEED_BASE = 0.9F;
@@ -145,6 +148,15 @@ public class DangerZoneConfig extends Configuration {
             1,
             Integer.MAX_VALUE,
             "Maximum damage cap for boss creatures");
+
+        DarkCrystalDamage = getInt(
+            "DarkCrystalDamage",
+            "general",
+            9750,
+            0,
+            Integer.MAX_VALUE,
+            "Dark Crystal Projectile Damage");
+        MeteorStrikeDamage = getInt("DarkCrystalDamage", "general", 350, 0, Integer.MAX_VALUE, "Meteor Strike Damage");
 
     }
 

@@ -1,17 +1,16 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+public abstract class EntityGenericBreedable extends EntityGenericAgeable {
 
-public abstract class EntityGenericBreedable extends EntityGenericAgeable
-{
     protected int loveTimer;
     protected int loveCooldown;
 
@@ -49,7 +48,14 @@ public abstract class EntityGenericBreedable extends EntityGenericAgeable
                 final double var2 = this.rand.nextGaussian() * 0.02;
                 final double var3 = this.rand.nextGaussian() * 0.02;
                 final double var4 = this.rand.nextGaussian() * 0.02;
-                this.worldObj.spawnParticle(var1, this.posX + this.rand.nextFloat() * this.width * 2.0f - this.width, this.posY + 0.5 + this.rand.nextFloat() * this.height, this.posZ + this.rand.nextFloat() * this.width * 2.0f - this.width, var2, var3, var4);
+                this.worldObj.spawnParticle(
+                    var1,
+                    this.posX + this.rand.nextFloat() * this.width * 2.0f - this.width,
+                    this.posY + 0.5 + this.rand.nextFloat() * this.height,
+                    this.posZ + this.rand.nextFloat() * this.width * 2.0f - this.width,
+                    var2,
+                    var3,
+                    var4);
             }
         }
     }
@@ -65,7 +71,8 @@ public abstract class EntityGenericBreedable extends EntityGenericAgeable
                 final ItemStack itemStack = var2;
                 --itemStack.stackSize;
                 if (var2.stackSize <= 0) {
-                    par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack)null);
+                    par1EntityPlayer.inventory
+                        .setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack) null);
                 }
             }
             this.loveTimer = this.loveCooldown;
@@ -73,7 +80,14 @@ public abstract class EntityGenericBreedable extends EntityGenericAgeable
                 final double var4 = this.rand.nextGaussian() * 0.02;
                 final double var5 = this.rand.nextGaussian() * 0.02;
                 final double var6 = this.rand.nextGaussian() * 0.02;
-                this.worldObj.spawnParticle("heart", this.posX + this.rand.nextFloat() * this.width * 2.0f - this.width, this.posY + 0.5 + this.rand.nextFloat() * this.height, this.posZ + this.rand.nextFloat() * this.width * 2.0f - this.width, var4, var5, var6);
+                this.worldObj.spawnParticle(
+                    "heart",
+                    this.posX + this.rand.nextFloat() * this.width * 2.0f - this.width,
+                    this.posY + 0.5 + this.rand.nextFloat() * this.height,
+                    this.posZ + this.rand.nextFloat() * this.width * 2.0f - this.width,
+                    var4,
+                    var5,
+                    var6);
             }
             return true;
         }
@@ -81,7 +95,8 @@ public abstract class EntityGenericBreedable extends EntityGenericAgeable
     }
 
     public boolean canMateWith(final EntityGenericBreedable targetEntity) {
-        return targetEntity != this && targetEntity.getClass() == this.getClass() && (this.isInLove() && targetEntity.isInLove());
+        return targetEntity != this && targetEntity.getClass() == this.getClass()
+            && (this.isInLove() && targetEntity.isInLove());
     }
 
     public EntityGenericBreedable getBabyAnimalEntity(final Entity par1EntityAnimal) {
@@ -91,26 +106,20 @@ public abstract class EntityGenericBreedable extends EntityGenericAgeable
             final Constructor<?> ctor = thisClass.getConstructor(World.class);
             try {
                 object = ctor.newInstance(this.worldObj);
-            }
-            catch (InstantiationException e) {
+            } catch (InstantiationException e) {
                 e.printStackTrace();
-            }
-            catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
-            }
-            catch (IllegalArgumentException e3) {
+            } catch (IllegalArgumentException e3) {
                 e3.printStackTrace();
-            }
-            catch (InvocationTargetException e4) {
+            } catch (InvocationTargetException e4) {
                 e4.printStackTrace();
             }
-        }
-        catch (NoSuchMethodException e5) {
+        } catch (NoSuchMethodException e5) {
             e5.printStackTrace();
-        }
-        catch (SecurityException e6) {
+        } catch (SecurityException e6) {
             e6.printStackTrace();
         }
-        return (EntityGenericBreedable)object;
+        return (EntityGenericBreedable) object;
     }
 }

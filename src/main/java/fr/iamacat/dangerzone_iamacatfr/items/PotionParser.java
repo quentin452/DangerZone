@@ -1,11 +1,10 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-public class PotionParser
-{
+public class PotionParser {
+
     public static int readID(final int value) {
-        final byte lowByte = (byte)(value & getLeastBitMask(4));
+        final byte lowByte = (byte) (value & getLeastBitMask(4));
         return lowByte & 0xFF;
     }
 
@@ -17,7 +16,7 @@ public class PotionParser
     }
 
     public static int readLevel(final int value) {
-        final byte lowByte = (byte)(value >> 4 & getLeastBitMask(2));
+        final byte lowByte = (byte) (value >> 4 & getLeastBitMask(2));
         return lowByte & 0xFF;
     }
 
@@ -29,7 +28,7 @@ public class PotionParser
     }
 
     public static int readPower(final int value) {
-        final byte lowByte = (byte)(value >> 6 & getLeastBitMask(2));
+        final byte lowByte = (byte) (value >> 6 & getLeastBitMask(2));
         return lowByte & 0xFF;
     }
 
@@ -41,7 +40,7 @@ public class PotionParser
     }
 
     public static int readDuration(final int value) {
-        final byte lowByte = (byte)(value >> 8 & getLeastBitMask(2));
+        final byte lowByte = (byte) (value >> 8 & getLeastBitMask(2));
         return lowByte & 0xFF;
     }
 
@@ -53,7 +52,7 @@ public class PotionParser
     }
 
     public static int readContainer(final int value) {
-        final byte lowByte = (byte)(value >> 10 & getLeastBitMask(2));
+        final byte lowByte = (byte) (value >> 10 & getLeastBitMask(2));
         return lowByte & 0xFF;
     }
 
@@ -72,7 +71,8 @@ public class PotionParser
         return setBit(value, 14);
     }
 
-    private static int setBitRange(int origValue, final int valueToSet, final int startingBitToSet, final int bitsToSet) {
+    private static int setBitRange(int origValue, final int valueToSet, final int startingBitToSet,
+        final int bitsToSet) {
         for (int i = 0; i < bitsToSet; ++i) {
             if (isBitSet(origValue, startingBitToSet + i) == !isBitSet(valueToSet, i)) {
                 origValue = flipBit(origValue, startingBitToSet + i);
@@ -82,7 +82,7 @@ public class PotionParser
     }
 
     private static boolean isBitSet(final int value, final int index) {
-        return ((long)value & 1L << index) != 0x0L;
+        return ((long) value & 1L << index) != 0x0L;
     }
 
     private static int setBit(final int value, final int index) {

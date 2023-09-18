@@ -1,7 +1,7 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.packets;
 
+import java.io.IOException;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -11,19 +11,16 @@ import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
 
-import java.io.IOException;
+public class PZPacketTileText implements IMessage, IMessageHandler<PZPacketTileText, IMessage> {
 
-public class PZPacketTileText implements IMessage, IMessageHandler<PZPacketTileText, IMessage>
-{
     private int tileLocationX;
     private int tileLocationY;
     private int tileLocationZ;
     private String[] text;
 
-    public PZPacketTileText setPacketData(final int tileLocationX, final int tileLocationY, final int tileLocationZ, final String[] text) {
+    public PZPacketTileText setPacketData(final int tileLocationX, final int tileLocationY, final int tileLocationZ,
+        final String[] text) {
         this.tileLocationX = tileLocationX;
         this.tileLocationY = tileLocationY;
         this.tileLocationZ = tileLocationZ;
@@ -35,8 +32,7 @@ public class PZPacketTileText implements IMessage, IMessageHandler<PZPacketTileT
         final ByteBufOutputStream data = new ByteBufOutputStream(buffer);
         try {
             this.writeData(data);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             DangerLogger.LOGGER.error("Error writing packet %s to ByteBufOutputStream", this);
             e.printStackTrace();
         }
@@ -46,8 +42,7 @@ public class PZPacketTileText implements IMessage, IMessageHandler<PZPacketTileT
         final ByteBufInputStream byteStream = new ByteBufInputStream(buffer);
         try {
             this.readData(byteStream);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             DangerLogger.LOGGER.error("Error reading packet %s from ByteBufInputStream", this);
             e.printStackTrace();
         }
@@ -84,17 +79,19 @@ public class PZPacketTileText implements IMessage, IMessageHandler<PZPacketTileT
         if (ctx.side != Side.SERVER) {
             return null;
         }
-      /*  final EntityPlayer player = (EntityPlayer)ctx.getServerHandler().playerEntity;
-        if (player.worldObj.getTileEntity(message.tileLocationX, message.tileLocationY, message.tileLocationZ) instanceof TileEntityTombstone) {
-            final TileEntity tile = player.worldObj.getTileEntity(message.tileLocationX, message.tileLocationY, message.tileLocationZ);
-            if (tile != null && tile instanceof TileEntityTombstone) {
-                final TileEntityTombstone tombstone = (TileEntityTombstone)tile;
-                tombstone.signText = message.text;
-                player.worldObj.markBlockForUpdate(message.tileLocationX, message.tileLocationY, message.tileLocationZ);
-            }
-        }
-
-       */
+        /*
+         * final EntityPlayer player = (EntityPlayer)ctx.getServerHandler().playerEntity;
+         * if (player.worldObj.getTileEntity(message.tileLocationX, message.tileLocationY, message.tileLocationZ)
+         * instanceof TileEntityTombstone) {
+         * final TileEntity tile = player.worldObj.getTileEntity(message.tileLocationX, message.tileLocationY,
+         * message.tileLocationZ);
+         * if (tile != null && tile instanceof TileEntityTombstone) {
+         * final TileEntityTombstone tombstone = (TileEntityTombstone)tile;
+         * tombstone.signText = message.text;
+         * player.worldObj.markBlockForUpdate(message.tileLocationX, message.tileLocationY, message.tileLocationZ);
+         * }
+         * }
+         */
         return null;
     }
 }

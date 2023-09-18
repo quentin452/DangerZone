@@ -1,6 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import net.minecraft.entity.player.EntityPlayerMP;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
@@ -10,10 +11,9 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.packets.*;
 import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketPlaySound;
 import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketStreamSound;
 import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketTameParticle;
-import net.minecraft.entity.player.EntityPlayerMP;
 
-public class PZPacketHandler
-{
+public class PZPacketHandler {
+
     public final SimpleNetworkWrapper network;
 
     public PZPacketHandler() {
@@ -26,7 +26,11 @@ public class PZPacketHandler
         this.network.registerMessage(PZPacketStreamSound.class, PZPacketStreamSound.class, messageID++, Side.CLIENT);
         this.network.registerMessage(PZPacketTameParticle.class, PZPacketTameParticle.class, messageID++, Side.CLIENT);
         this.network.registerMessage(PZPacketAnimTime.class, PZPacketAnimTime.class, messageID++, Side.CLIENT);
-        this.network.registerMessage(PZPacketFollowerMasterData.class, PZPacketFollowerMasterData.class, messageID++, Side.CLIENT);
+        this.network.registerMessage(
+            PZPacketFollowerMasterData.class,
+            PZPacketFollowerMasterData.class,
+            messageID++,
+            Side.CLIENT);
         this.network.registerMessage(PZPacketNameSync.class, PZPacketNameSync.class, messageID++, Side.SERVER);
         this.network.registerMessage(PZPacketTileText.class, PZPacketTileText.class, messageID++, Side.SERVER);
         this.network.registerMessage(PZPacketKeyBind.class, PZPacketKeyBind.class, messageID++, Side.SERVER);

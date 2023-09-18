@@ -1,15 +1,15 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericBreedable;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.ai.EntityAIBase;
 
 import java.util.List;
 
-public class EntityAIFollowParent extends EntityAIBase
-{
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.ai.EntityAIBase;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericBreedable;
+
+public class EntityAIFollowParent extends EntityAIBase {
+
     EntityGenericBreedable childAnimal;
     EntityGenericBreedable parentAnimal;
     float field_75347_c;
@@ -24,7 +24,9 @@ public class EntityAIFollowParent extends EntityAIBase
         if (this.childAnimal.getGrowingAge() >= 0) {
             return false;
         }
-        final List<EntityGenericBreedable> var1 = this.childAnimal.worldObj.getEntitiesWithinAABB((Class)this.childAnimal.getClass(), this.childAnimal.boundingBox.expand(8.0, 4.0, 8.0));
+        final List<EntityGenericBreedable> var1 = this.childAnimal.worldObj.getEntitiesWithinAABB(
+            (Class) this.childAnimal.getClass(),
+            this.childAnimal.boundingBox.expand(8.0, 4.0, 8.0));
         EntityGenericBreedable var2 = null;
         double var3 = Double.MAX_VALUE;
         for (final EntityGenericBreedable var5 : var1) {
@@ -68,7 +70,8 @@ public class EntityAIFollowParent extends EntityAIBase
         this.field_75345_d = field_75345_d;
         if (field_75345_d <= 0) {
             this.field_75345_d = 10;
-            this.childAnimal.getNavigator().tryMoveToEntityLiving((Entity)this.parentAnimal, this.field_75347_c);
+            this.childAnimal.getNavigator()
+                .tryMoveToEntityLiving((Entity) this.parentAnimal, this.field_75347_c);
         }
     }
 }

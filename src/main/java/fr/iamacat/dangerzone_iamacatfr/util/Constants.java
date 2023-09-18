@@ -159,4 +159,64 @@ public class Constants {
     public static SpawnEggs EntitySwampDragonSpawnEgg;
     public static SpawnEggs EntityZombieDragonSpawnEgg;
 
+    public static SpawnEggs RobotBeam;
+    public static SpawnEggs FireCannon;
+    public static SpawnEggs RainbowCannon;
+    public static SpawnEggs ProjectileApples;
+    public static SpawnEggs FreezeBall;
+    public static SpawnEggs HydraFireball;
+    public static SpawnEggs TwilightFireball;
+    public static SpawnEggs MyMagic;
+    public static SpawnEggs BetterFireball;
+    public static SpawnEggs LongHit;
+    public static SpawnEggs DarkCrystalCannon;
+    public static SpawnEggs TwilyMagic;
+    public static SpawnEggs WindigoPower;
+    public static SpawnEggs PhoenixArrow;
+    public static SpawnEggs TwilicornArrow;
+
+    public static SpawnEggs MavisBall;
+    public static SpawnEggs LaserBallMLP;
+    public static SpawnEggs TwilightCannon;
+    public static SpawnEggs MyRhinoceros;
+    public static SpawnEggs MyYakPrince;
+    public static SpawnEggs MySpikezilla;
+    public static SpawnEggs MySkull;
+    public static SpawnEggs MySkullBoss;
+    public static SpawnEggs TrevorPhillips;
+    public static SpawnEggs MyDashCloud;
+    public static SpawnEggs MyCrabzilla;
+    public static SpawnEggs MyIronWill;
+    public static SpawnEggs MyTimberWolf;
+    public static SpawnEggs MyCockatrice;
+    public static SpawnEggs MyParasprite;
+    public static SpawnEggs MyRainbowCentipede;
+    public static SpawnEggs MyArcticScorpion;
+    public static SpawnEggs TwilightMob;
+    public static SpawnEggs DemonSpiderEntity;
+    public static SpawnEggs MyLeviathan;
+    public static SpawnEggs MyThunderHooves;
+    public static SpawnEggs MyTwilicorn;
+    public static SpawnEggs MyKingbowser;
+    public static SpawnEggs MyCentipede;
+    public static SpawnEggs MyMLPHydra;
+    public static SpawnEggs MyWindigo;
+    public static SpawnEggs MyMLPBuffalo;
+    public static SpawnEggs MyDarkness;
+    public static SpawnEggs MyTwilightMagic;
+    public static SpawnEggs MyMooseBig;
+    public static SpawnEggs MyBear;
+    public static SpawnEggs MyMavis;
+    public static SpawnEggs MyPhoenix;
+    public static SpawnEggs MyAJ;
+    public static SpawnEggs MyManticore;
+    public static SpawnEggs MyDash;
+
+    public static SpawnEggs MyToughGuy;
+    public static SpawnEggs MyCragadile;
+    public static SpawnEggs MyFlameDragon;
+
+    public static SpawnEggs MyMoose;
+
+    public static SpawnEggs MyUrsaMAJOR;
 }

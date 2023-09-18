@@ -1,8 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-public enum EntityStates
-{
+public enum EntityStates {
+
     idle(0),
     looking(1),
     attacking(2),

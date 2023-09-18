@@ -1,12 +1,9 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
-import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketTameParticle;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -14,11 +11,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketTameParticle;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
-public abstract class EntityGenericTameable extends EntityGenericRideable
-{
+public abstract class EntityGenericTameable extends EntityGenericRideable {
+
     boolean shouldFollow;
     boolean shouldAttack;
 
@@ -30,9 +29,9 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(23, (Object)0);
-        this.dataWatcher.addObject(24, (Object)"");
-        this.dataWatcher.addObject(25, (Object)"");
+        this.dataWatcher.addObject(23, (Object) 0);
+        this.dataWatcher.addObject(24, (Object) "");
+        this.dataWatcher.addObject(25, (Object) "");
     }
 
     public String getOwnerName() {
@@ -40,11 +39,11 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
     }
 
     public void setOwner(final String par1Str) {
-        this.dataWatcher.updateObject(24, (Object)par1Str);
+        this.dataWatcher.updateObject(24, (Object) par1Str);
     }
 
     public EntityLivingBase getOwner() {
-        return (EntityLivingBase)this.worldObj.getPlayerEntityByName(this.getOwnerName());
+        return (EntityLivingBase) this.worldObj.getPlayerEntityByName(this.getOwnerName());
     }
 
     public String getEntityTamed() {
@@ -63,8 +62,7 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
         final int var2 = this.dataWatcher.getWatchableObjectInt(23);
         if (par1) {
             this.dataWatcher.updateObject(23, (var2 | 0x4));
-        }
-        else {
+        } else {
             this.dataWatcher.updateObject(23, (var2 & 0xFFFFFFFB));
         }
     }
@@ -81,8 +79,7 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
         final int var2 = this.dataWatcher.getWatchableObjectInt(23);
         if (par1) {
             this.dataWatcher.updateObject(23, (var2 | 0x1));
-        }
-        else {
+        } else {
             this.dataWatcher.updateObject(23, (var2 & 0xFFFFFFFE));
         }
     }
@@ -96,7 +93,14 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
             final double var4 = this.rand.nextGaussian() * 0.02;
             final double var5 = this.rand.nextGaussian() * 0.02;
             final double var6 = this.rand.nextGaussian() * 0.02;
-            this.worldObj.spawnParticle(var2, this.posX + this.rand.nextFloat() * this.width * 2.0f - this.width, this.posY + 0.5 + this.rand.nextFloat() * this.height, this.posZ + this.rand.nextFloat() * this.width * 2.0f - this.width, var4, var5, var6);
+            this.worldObj.spawnParticle(
+                var2,
+                this.posX + this.rand.nextFloat() * this.width * 2.0f - this.width,
+                this.posY + 0.5 + this.rand.nextFloat() * this.height,
+                this.posZ + this.rand.nextFloat() * this.width * 2.0f - this.width,
+                var4,
+                var5,
+                var6);
         }
     }
 
@@ -104,14 +108,12 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
         super.writeEntityToNBT(par1NBTTagCompound);
         if (this.getOwnerName() == null) {
             par1NBTTagCompound.setString("Owner", "");
-        }
-        else {
+        } else {
             par1NBTTagCompound.setString("Owner", this.getOwnerName());
         }
         if (this.getEntityTamed() == null) {
             par1NBTTagCompound.setString("EntityTamed", "");
-        }
-        else {
+        } else {
             par1NBTTagCompound.setString("EntityTamed", this.getEntityTamed());
         }
         par1NBTTagCompound.setBoolean("Sitting", this.isSitting());
@@ -127,8 +129,7 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
                 this.setOwner(owner);
                 this.setTamed(true);
             }
-        }
-        else {
+        } else {
             this.setOwner("");
             this.setTamed(false);
         }
@@ -137,8 +138,7 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
             if (entityTamed.length() > 0) {
                 this.setEntityTamed(entityTamed);
             }
-        }
-        else {
+        } else {
             this.setEntityTamed("");
         }
         this.setSitting(par1NBTTagCompound.getBoolean("Sitting"));
@@ -165,7 +165,8 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
     public boolean interact(final EntityPlayer par1EntityPlayer) {
         final ItemStack var2 = par1EntityPlayer.inventory.getCurrentItem();
         if (this.isTamed()) {
-            if (par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.getOwnerName())) {
+            if (par1EntityPlayer.getCommandSenderName()
+                .equalsIgnoreCase(this.getOwnerName())) {
                 if (var2 != null) {
                     if (var2.getItem() == Items.paper || var2.getItem() == Items.name_tag) {
                         par1EntityPlayer.openGui(Tags.MODID, 2, par1EntityPlayer.worldObj, this.getEntityId(), 0, 0);
@@ -176,9 +177,10 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
                             final ItemStack itemStack = var2;
                             --itemStack.stackSize;
                         }
-                        this.heal((float)this.getHealingValueIfValid(var2));
+                        this.heal((float) this.getHealingValueIfValid(var2));
                         if (var2.stackSize <= 0) {
-                            par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack)null);
+                            par1EntityPlayer.inventory
+                                .setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack) null);
                         }
                         return true;
                     }
@@ -190,36 +192,34 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
                     if (this.getEntityState() == EntityStates.sitting) {
                         this.setSitting(false);
                         this.shouldFollow = true;
-                    }
-                    else if (this.getEntityState() == EntityStates.following) {
+                    } else if (this.getEntityState() == EntityStates.following) {
                         this.shouldFollow = false;
                         this.shouldAttack = true;
                         this.setAngerLevel(2);
-                    }
-                    else if (this.getEntityState() == EntityStates.attacking || this.getEntityState() == EntityStates.looking) {
-                        this.shouldAttack = false;
-                    }
-                    else if (this.getEntityState() == EntityStates.idle) {
-                        this.setSitting(true);
-                        this.isJumping = false;
-                    }
+                    } else if (this.getEntityState() == EntityStates.attacking
+                        || this.getEntityState() == EntityStates.looking) {
+                            this.shouldAttack = false;
+                        } else if (this.getEntityState() == EntityStates.idle) {
+                            this.setSitting(true);
+                            this.isJumping = false;
+                        }
                     return true;
                 }
             }
-        }
-        else if (var2 != null && this.isValidTamingItem(var2)) {
+        } else if (var2 != null && this.isValidTamingItem(var2)) {
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack2 = var2;
                 --itemStack2.stackSize;
             }
             if (var2.stackSize <= 0) {
-                par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack)null);
+                par1EntityPlayer.inventory
+                    .setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack) null);
             }
             if (!this.worldObj.isRemote) {
                 boolean tameEffectSuccess = false;
                 if (this.rand.nextInt(3) == 0) {
                     this.setTamed(true);
-                    this.setAttackTarget((EntityLivingBase)null);
+                    this.setAttackTarget((EntityLivingBase) null);
                     this.setSitting(true);
                     this.setHealth(this.getMaxHealth());
                     this.setOwner(par1EntityPlayer.getCommandSenderName());
@@ -230,19 +230,20 @@ public abstract class EntityGenericTameable extends EntityGenericRideable
                 final DataOutputStream data = new DataOutputStream(bytes);
                 try {
                     data.writeInt(5);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 try {
                     data.writeInt(this.getEntityId());
                     data.writeBoolean(tameEffectSuccess);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-                final PZPacketTameParticle message = new PZPacketTameParticle().setPacketData(this.getEntityId(), tameEffectSuccess);
-                DangerZone.packetHandler.sendToAllAround(message, new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 10.0));
+                final PZPacketTameParticle message = new PZPacketTameParticle()
+                    .setPacketData(this.getEntityId(), tameEffectSuccess);
+                DangerZone.packetHandler.sendToAllAround(
+                    message,
+                    new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 10.0));
             }
             return true;
         }

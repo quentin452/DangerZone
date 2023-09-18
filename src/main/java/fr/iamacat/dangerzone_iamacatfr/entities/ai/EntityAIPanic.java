@@ -1,14 +1,14 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.Vec3;
 
-public class EntityAIPanic extends EntityAIBase
-{
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
+
+public class EntityAIPanic extends EntityAIBase {
+
     private EntityGenericCreature theEntityCreature;
     private float speed;
     private double randPosX;
@@ -45,7 +45,8 @@ public class EntityAIPanic extends EntityAIBase
     }
 
     public void startExecuting() {
-        this.theEntityCreature.getNavigator().tryMoveToXYZ(this.randPosX, this.randPosY, this.randPosZ, (double)this.speed);
+        this.theEntityCreature.getNavigator()
+            .tryMoveToXYZ(this.randPosX, this.randPosY, this.randPosZ, (double) this.speed);
         if (this.shouldHop) {
             this.tryToHop();
         }
@@ -55,7 +56,8 @@ public class EntityAIPanic extends EntityAIBase
         if (this.shouldHop) {
             this.tryToHop();
         }
-        return !this.theEntityCreature.getNavigator().noPath();
+        return !this.theEntityCreature.getNavigator()
+            .noPath();
     }
 
     public void resetTask() {
@@ -65,18 +67,22 @@ public class EntityAIPanic extends EntityAIBase
     public void tryToHop() {
         if (this.theEntityCreature.onGround && this.slimeJumpDelay-- <= 0) {
             this.slimeJumpDelay = this.getJumpDelay();
-            this.theEntityCreature.getJumpHelper().setJumping();
-            this.theEntityCreature.getNavigator().setSpeed((double)this.speed);
-        }
-        else {
-            this.theEntityCreature.getNavigator().setSpeed(0.0);
+            this.theEntityCreature.getJumpHelper()
+                .setJumping();
+            this.theEntityCreature.getNavigator()
+                .setSpeed((double) this.speed);
+        } else {
+            this.theEntityCreature.getNavigator()
+                .setSpeed(0.0);
         }
     }
 
     protected int getJumpDelay() {
         if (this.theEntityCreature.getEntityState() == EntityStates.fleeing) {
-            return this.theEntityCreature.getRNG().nextInt(3);
+            return this.theEntityCreature.getRNG()
+                .nextInt(3);
         }
-        return this.theEntityCreature.getRNG().nextInt(5) + 2;
+        return this.theEntityCreature.getRNG()
+            .nextInt(5) + 2;
     }
 }

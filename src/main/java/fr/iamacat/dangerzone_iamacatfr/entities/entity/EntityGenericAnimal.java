@@ -1,14 +1,9 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import java.util.Collection;
+import java.util.List;
 
-import cpw.mods.fml.common.network.NetworkRegistry;
-import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
-import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
-import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.packets.PZPacketAnimTime;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
 import net.minecraft.entity.monster.IMob;
@@ -17,16 +12,20 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
+
 import org.apache.logging.log4j.Level;
 
-import java.util.Collection;
-import java.util.List;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
+import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.packets.PZPacketAnimTime;
 
-public class EntityGenericAnimal extends EntityGenericTameable
-{
+public class EntityGenericAnimal extends EntityGenericTameable {
+
     public int maxAnimTime;
     public boolean forceDespawn;
     private float flightChance;
@@ -40,22 +39,29 @@ public class EntityGenericAnimal extends EntityGenericTameable
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        final CustomEntityList entityEntry = CustomEntityList.getByName(EntityList.getEntityString((Entity)this));
-        if (entityEntry != null && ((CustomMobData)entityEntry.modData.get()).entityProperties != null) {
-            this.getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage);
-            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((double)((CustomMobData)entityEntry.modData.get()).entityProperties.maxHealth);
-            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue((double)((CustomMobData)entityEntry.modData.get()).entityProperties.moveSpeed);
-            this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue((double)((CustomMobData)entityEntry.modData.get()).entityProperties.followRange);
-            this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue((double)((CustomMobData)entityEntry.modData.get()).entityProperties.knockbackResistance);
-            this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue((double)((CustomMobData)entityEntry.modData.get()).entityProperties.attackDamage);
-            this.flightChance = ((CustomMobData)entityEntry.modData.get()).entityProperties.flightChance;
+        final CustomEntityList entityEntry = CustomEntityList.getByName(EntityList.getEntityString((Entity) this));
+        if (entityEntry != null && ((CustomMobData) entityEntry.modData.get()).entityProperties != null) {
+            this.getAttributeMap()
+                .registerAttribute(SharedMonsterAttributes.attackDamage);
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
+                .setBaseValue((double) ((CustomMobData) entityEntry.modData.get()).entityProperties.maxHealth);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
+                .setBaseValue((double) ((CustomMobData) entityEntry.modData.get()).entityProperties.moveSpeed);
+            this.getEntityAttribute(SharedMonsterAttributes.followRange)
+                .setBaseValue((double) ((CustomMobData) entityEntry.modData.get()).entityProperties.followRange);
+            this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance)
+                .setBaseValue(
+                    (double) ((CustomMobData) entityEntry.modData.get()).entityProperties.knockbackResistance);
+            this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
+                .setBaseValue((double) ((CustomMobData) entityEntry.modData.get()).entityProperties.attackDamage);
+            this.flightChance = ((CustomMobData) entityEntry.modData.get()).entityProperties.flightChance;
         }
     }
 
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (Object)0);
+        this.dataWatcher.addObject(20, (Object) 0);
     }
 
     protected void updateDWEntityState(final EntityStates entityState) {
@@ -77,28 +83,23 @@ public class EntityGenericAnimal extends EntityGenericTameable
     }
 
     public void updateAIState() {
-       // if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL && Properties.despawnInPeaceful && !this.isTamed()) {
-       //     this.setDead();
-      //  }
+        // if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL && Properties.despawnInPeaceful &&
+        // !this.isTamed()) {
+        // this.setDead();
+        // }
         if (this.fleeingTick > 0) {
             this.entityState = EntityStates.fleeing;
-        }
-        else if (this.loveTimer > 0) {
+        } else if (this.loveTimer > 0) {
             this.entityState = EntityStates.inLove;
-        }
-        else if (this.angerLevel > 0 && (this.getAttackTarget() != null || this.getAITarget() != null)) {
+        } else if (this.angerLevel > 0 && (this.getAttackTarget() != null || this.getAITarget() != null)) {
             this.entityState = EntityStates.attacking;
-        }
-        else if (this.angerLevel > 0) {
+        } else if (this.angerLevel > 0) {
             this.entityState = EntityStates.looking;
-        }
-        else if (this.isSitting()) {
+        } else if (this.isSitting()) {
             this.entityState = EntityStates.sitting;
-        }
-        else if (this.shouldFollow) {
+        } else if (this.shouldFollow) {
             this.entityState = EntityStates.following;
-        }
-        else {
+        } else {
             this.entityState = EntityStates.idle;
         }
     }
@@ -112,9 +113,9 @@ public class EntityGenericAnimal extends EntityGenericTameable
 
     @Override
     protected boolean canDespawn() {
-        final CustomEntityList entityEntry = CustomEntityList.getByName(EntityList.getEntityString((Entity)this));
+        final CustomEntityList entityEntry = CustomEntityList.getByName(EntityList.getEntityString((Entity) this));
         if (entityEntry != null && !this.isTamed()) {
-            return this.forceDespawn || ((CustomMobData)entityEntry.modData.get()).shouldDespawn;
+            return this.forceDespawn || ((CustomMobData) entityEntry.modData.get()).shouldDespawn;
         }
         return super.canDespawn();
     }
@@ -122,31 +123,42 @@ public class EntityGenericAnimal extends EntityGenericTameable
     public boolean isCreatureType(final EnumCreatureType type, final boolean forSpawnCount) {
         final CustomEntityList entityEntry = CustomEntityList.getByName(EntityList.getEntityString(this));
         if (forSpawnCount && entityEntry != null) {
-            return ((CustomMobData)entityEntry.modData.get()).spawnType != null && entityEntry.modData.get().spawnType.equals(type);
+            return ((CustomMobData) entityEntry.modData.get()).spawnType != null
+                && entityEntry.modData.get().spawnType.equals(type);
         }
         if (entityEntry != null) {
-            return (((CustomMobData)entityEntry.modData.get()).creatureType != null) ? ((CustomMobData)entityEntry.modData.get()).creatureType.equals((Object)type) : super.isCreatureType(type, forSpawnCount);
+            return (((CustomMobData) entityEntry.modData.get()).creatureType != null)
+                ? ((CustomMobData) entityEntry.modData.get()).creatureType.equals((Object) type)
+                : super.isCreatureType(type, forSpawnCount);
         }
         return super.isCreatureType(type, forSpawnCount);
     }
 
     public boolean attackEntityAsMob(final Entity targetEntity) {
-        if (targetEntity.boundingBox.maxY > this.boundingBox.minY && targetEntity.boundingBox.minY < this.boundingBox.maxY) {
+        if (targetEntity.boundingBox.maxY > this.boundingBox.minY
+            && targetEntity.boundingBox.minY < this.boundingBox.maxY) {
             this.animTime = this.maxAnimTime;
             if (!this.worldObj.isRemote) {
-                final PZPacketAnimTime message = new PZPacketAnimTime().setPacketData(this.getEntityId(), this.animTime);
-                DangerZone.packetHandler.sendToAllAround(message, new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 30.0));
+                final PZPacketAnimTime message = new PZPacketAnimTime()
+                    .setPacketData(this.getEntityId(), this.animTime);
+                DangerZone.packetHandler.sendToAllAround(
+                    message,
+                    new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 30.0));
             }
-            float damage = (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue();
+            float damage = (float) this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
+                .getAttributeValue();
             int knockbackScale = 0;
             if (targetEntity instanceof EntityLivingBase) {
-                damage += EnchantmentHelper.getEnchantmentModifierLiving(this, (EntityLivingBase)targetEntity);
-                knockbackScale += EnchantmentHelper.getKnockbackModifier(this, (EntityLivingBase)targetEntity);
+                damage += EnchantmentHelper.getEnchantmentModifierLiving(this, (EntityLivingBase) targetEntity);
+                knockbackScale += EnchantmentHelper.getKnockbackModifier(this, (EntityLivingBase) targetEntity);
             }
             final boolean attackedSucceded = targetEntity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
             if (attackedSucceded) {
                 if (knockbackScale > 0) {
-                    targetEntity.addVelocity(-MathHelper.sin(this.rotationYaw * 3.1415927f / 180.0f) * knockbackScale * 0.5f, 0.1, (double)(MathHelper.cos(this.rotationYaw * 3.1415927f / 180.0f) * knockbackScale * 0.5f));
+                    targetEntity.addVelocity(
+                        -MathHelper.sin(this.rotationYaw * 3.1415927f / 180.0f) * knockbackScale * 0.5f,
+                        0.1,
+                        (double) (MathHelper.cos(this.rotationYaw * 3.1415927f / 180.0f) * knockbackScale * 0.5f));
                     this.motionX *= 0.6;
                     this.motionZ *= 0.6;
                 }
@@ -155,9 +167,9 @@ public class EntityGenericAnimal extends EntityGenericTameable
                     targetEntity.setFire(fireScale * 4);
                 }
                 if (targetEntity instanceof EntityLivingBase) {
-                    EnchantmentHelper.func_151384_a((EntityLivingBase)targetEntity, (Entity)this);
+                    EnchantmentHelper.func_151384_a((EntityLivingBase) targetEntity, (Entity) this);
                 }
-                EnchantmentHelper.func_151385_b((EntityLivingBase)this, targetEntity);
+                EnchantmentHelper.func_151385_b((EntityLivingBase) this, targetEntity);
             }
             return attackedSucceded && super.attackEntityAsMob(targetEntity);
         }
@@ -165,15 +177,17 @@ public class EntityGenericAnimal extends EntityGenericTameable
     }
 
     public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-        if (super.attackEntityFrom(par1DamageSource, par2) && par1DamageSource.getEntity() != null && par1DamageSource.getEntity() instanceof EntityPlayer) {
-            final EntityPlayer attackingPlayer = (EntityPlayer)par1DamageSource.getEntity();
+        if (super.attackEntityFrom(par1DamageSource, par2) && par1DamageSource.getEntity() != null
+            && par1DamageSource.getEntity() instanceof EntityPlayer) {
+            final EntityPlayer attackingPlayer = (EntityPlayer) par1DamageSource.getEntity();
             if (this.shouldNotifySimilar(attackingPlayer)) {
 
-
-                final List<Entity> var4 = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(20.0, 20.0, 20.0));
+                final List<Entity> var4 = this.worldObj
+                    .getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(20.0, 20.0, 20.0));
                 for (final Entity nearbyEntity : var4) {
-                    if (nearbyEntity.getClass().equals(this.getClass())) {
-                        final EntityGenericAnimal nearbyAlly = (EntityGenericAnimal)nearbyEntity;
+                    if (nearbyEntity.getClass()
+                        .equals(this.getClass())) {
+                        final EntityGenericAnimal nearbyAlly = (EntityGenericAnimal) nearbyEntity;
                         nearbyAlly.entityAttackedReaction(attackingPlayer);
                     }
                 }
@@ -188,8 +202,7 @@ public class EntityGenericAnimal extends EntityGenericTameable
         if (!this.isTamed()) {
             if (this.shouldPanic()) {
                 this.setFleeTick(80);
-            }
-            else {
+            } else {
                 this.setAngerLevel(400);
             }
         }
@@ -207,7 +220,8 @@ public class EntityGenericAnimal extends EntityGenericTameable
         if (this.isTamed()) {
             return 0;
         }
-        if (this instanceof IMob || this.getEntityState() == EntityStates.attacking || this.getEntityState() == EntityStates.looking) {
+        if (this instanceof IMob || this.getEntityState() == EntityStates.attacking
+            || this.getEntityState() == EntityStates.looking) {
             return 5;
         }
         return this.rand.nextInt(2) + 1;
@@ -220,17 +234,29 @@ public class EntityGenericAnimal extends EntityGenericTameable
         boolean wasSuccesful = false;
         final CustomEntityList customEntity = CustomEntityList.getByEntity(this);
         if (customEntity == null) {
-            DangerLogger.LOGGER.log(Level.WARN, "Entity %s is Trying to Spawn but does not exist in the CustomEntityList. It will not spawn, please report this to Modder.", this.getClass().toString());            return false;
+            DangerLogger.LOGGER.log(
+                Level.WARN,
+                "Entity %s is Trying to Spawn but does not exist in the CustomEntityList. It will not spawn, please report this to Modder.",
+                this.getClass()
+                    .toString());
+            return false;
         }
-        if (customEntity.modData.get().secondarySpawnRate - this.rand.nextInt(100) >= 0 && super.getCanSpawnHere() && this.isValidLightLevel(this.worldObj, xCoord, yCoord, zCoord) && this.isValidLocation(this.worldObj, xCoord, yCoord, zCoord)) {
+        if (customEntity.modData.get().secondarySpawnRate - this.rand.nextInt(100) >= 0 && super.getCanSpawnHere()
+            && this.isValidLightLevel(this.worldObj, xCoord, yCoord, zCoord)
+            && this.isValidLocation(this.worldObj, xCoord, yCoord, zCoord)) {
             wasSuccesful = true;
         }
         if (customEntity.modData.get().reportSpawningInLog) {
             if (wasSuccesful) {
-                DangerLogger.info("Successfully spawned %s at X:%s Y:%s Z:%s in %s", new Object[] { this.getCommandSenderName(), xCoord, yCoord, zCoord, this.worldObj.getBiomeGenForCoords(xCoord, zCoord) });
-            }
-            else {
-                DangerLogger.info("Failed to spawn %s at X:%s Y:%s Z:%s in %s, Spawning Location Inhospitable", new Object[] { this.getCommandSenderName(), xCoord, yCoord, zCoord, this.worldObj.getBiomeGenForCoords(xCoord, zCoord) });
+                DangerLogger.info(
+                    "Successfully spawned %s at X:%s Y:%s Z:%s in %s",
+                    new Object[] { this.getCommandSenderName(), xCoord, yCoord, zCoord,
+                        this.worldObj.getBiomeGenForCoords(xCoord, zCoord) });
+            } else {
+                DangerLogger.info(
+                    "Failed to spawn %s at X:%s Y:%s Z:%s in %s, Spawning Location Inhospitable",
+                    new Object[] { this.getCommandSenderName(), xCoord, yCoord, zCoord,
+                        this.worldObj.getBiomeGenForCoords(xCoord, zCoord) });
             }
         }
         return wasSuccesful;
@@ -245,9 +271,10 @@ public class EntityGenericAnimal extends EntityGenericTameable
     }
 
     protected void dropFewItems(final boolean par1, final int par2) {
-        final CustomEntityList customEntity = CustomEntityList.getByEntity((Entity)this);
+        final CustomEntityList customEntity = CustomEntityList.getByEntity((Entity) this);
         if (customEntity != null) {
-            final Collection<ItemStack> loot = (Collection<ItemStack>)((CustomMobData)customEntity.modData.get()).getLoot(this.rand, par2);
+            final Collection<ItemStack> loot = (Collection<ItemStack>) ((CustomMobData) customEntity.modData.get())
+                .getLoot(this.rand, par2);
             for (final ItemStack itemStack : loot) {
                 if (itemStack != null) {
                     this.entityDropItem(itemStack, 1.0f);

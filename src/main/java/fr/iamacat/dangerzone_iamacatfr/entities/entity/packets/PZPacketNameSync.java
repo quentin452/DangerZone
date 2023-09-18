@@ -1,6 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.packets;
 
+import java.io.IOException;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.PacketBuffer;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -8,14 +14,9 @@ import cpw.mods.fml.relauncher.Side;
 import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.network.PacketBuffer;
 
-import java.io.IOException;
+public class PZPacketNameSync implements IMessage, IMessageHandler<PZPacketNameSync, IMessage> {
 
-public class PZPacketNameSync implements IMessage, IMessageHandler<PZPacketNameSync, IMessage>
-{
     private int entityIdToBeNamed;
     private String entityName;
     private String RentityName;
@@ -30,10 +31,10 @@ public class PZPacketNameSync implements IMessage, IMessageHandler<PZPacketNameS
         if (ctx.side != Side.SERVER) {
             return null;
         }
-        final EntityPlayer player = (EntityPlayer)ctx.getServerHandler().playerEntity;
+        final EntityPlayer player = (EntityPlayer) ctx.getServerHandler().playerEntity;
         final Entity entity = player.worldObj.getEntityByID(message.entityIdToBeNamed);
         if (entity != null && entity instanceof EntityGenericTameable) {
-            ((EntityGenericTameable)entity).setEntityTamed(message.RentityName);
+            ((EntityGenericTameable) entity).setEntityTamed(message.RentityName);
         }
         return null;
     }
@@ -45,7 +46,8 @@ public class PZPacketNameSync implements IMessage, IMessageHandler<PZPacketNameS
             final int nameLength = buffer.readInt();
             this.entityName = buffer.readStringFromBuffer(nameLength);
         } catch (Exception e) {
-            DangerLogger.LOGGER.error("There was a problem decoding the packet in PZPacketNameSync: " + e.getMessage(), e);
+            DangerLogger.LOGGER
+                .error("There was a problem decoding the packet in PZPacketNameSync: " + e.getMessage(), e);
             e.printStackTrace();
         }
     }
@@ -58,7 +60,8 @@ public class PZPacketNameSync implements IMessage, IMessageHandler<PZPacketNameS
             buffer.writeInt(entityNameBytes.length);
             buffer.writeBytes(entityNameBytes);
         } catch (IOException e) {
-            DangerLogger.LOGGER.error("There was a problem encoding the packet in PZPacketNameSync: " + e.getMessage(), e);
+            DangerLogger.LOGGER
+                .error("There was a problem encoding the packet in PZPacketNameSync: " + e.getMessage(), e);
             e.printStackTrace();
         }
     }

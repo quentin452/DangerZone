@@ -1,15 +1,16 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class EntityAITempt extends EntityAIBase
-{
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+
+public class EntityAITempt extends EntityAIBase {
+
     private EntityGenericCreature temptedEntity;
     private float speed;
     private double targetX;
@@ -26,7 +27,8 @@ public class EntityAITempt extends EntityAIBase
     private boolean scaredByPlayerMovement;
     private boolean field_75286_m;
 
-    public EntityAITempt(final EntityGenericCreature par1EntityCreature, final float par2, final Item par3, final boolean par4) {
+    public EntityAITempt(final EntityGenericCreature par1EntityCreature, final float par2, final Item par3,
+        final boolean par4) {
         this.shouldHop = false;
         this.slimeJumpDelay = 0;
         this.delayTemptCounter = 0;
@@ -37,7 +39,8 @@ public class EntityAITempt extends EntityAIBase
         this.setMutexBits(3);
     }
 
-    public EntityAITempt(final EntityGenericCreature par1EntityCreature, final float par2, final Item par3, final boolean par4, final boolean shouldHop) {
+    public EntityAITempt(final EntityGenericCreature par1EntityCreature, final float par2, final Item par3,
+        final boolean par4, final boolean shouldHop) {
         this(par1EntityCreature, par2, par3, par4);
         this.shouldHop = shouldHop;
     }
@@ -47,7 +50,7 @@ public class EntityAITempt extends EntityAIBase
             --this.delayTemptCounter;
             return false;
         }
-        this.temptingPlayer = this.temptedEntity.worldObj.getClosestPlayerToEntity((Entity)this.temptedEntity, 10.0);
+        this.temptingPlayer = this.temptedEntity.worldObj.getClosestPlayerToEntity((Entity) this.temptedEntity, 10.0);
         if (this.temptingPlayer == null) {
             return false;
         }
@@ -61,14 +64,15 @@ public class EntityAITempt extends EntityAIBase
         }
         if (this.scaredByPlayerMovement) {
             if (this.temptedEntity.getDistanceSqToEntity(this.temptingPlayer) < 36.0) {
-                if (this.temptingPlayer.getDistanceSq(this.targetX, this.targetY, this.targetZ) > 0.010000000000000002) {
+                if (this.temptingPlayer.getDistanceSq(this.targetX, this.targetY, this.targetZ)
+                    > 0.010000000000000002) {
                     return false;
                 }
-                if (Math.abs(this.temptingPlayer.rotationPitch - this.field_75278_f) > 5.0 || Math.abs(this.temptingPlayer.rotationYaw - this.field_75279_g) > 5.0) {
+                if (Math.abs(this.temptingPlayer.rotationPitch - this.field_75278_f) > 5.0
+                    || Math.abs(this.temptingPlayer.rotationYaw - this.field_75279_g) > 5.0) {
                     return false;
                 }
-            }
-            else {
+            } else {
                 this.targetX = this.temptingPlayer.posX;
                 this.targetY = this.temptingPlayer.posY;
                 this.targetZ = this.temptingPlayer.posZ;
@@ -87,8 +91,10 @@ public class EntityAITempt extends EntityAIBase
         this.targetY = this.temptingPlayer.posY;
         this.targetZ = this.temptingPlayer.posZ;
         this.isRunning = true;
-        this.field_75286_m = this.temptedEntity.getNavigator().getAvoidsWater();
-        this.temptedEntity.getNavigator().setAvoidsWater(false);
+        this.field_75286_m = this.temptedEntity.getNavigator()
+            .getAvoidsWater();
+        this.temptedEntity.getNavigator()
+            .setAvoidsWater(false);
     }
 
     public void resetTask() {
@@ -96,19 +102,26 @@ public class EntityAITempt extends EntityAIBase
             this.tryToHop();
         }
         this.temptingPlayer = null;
-        this.temptedEntity.getNavigator().clearPathEntity();
+        this.temptedEntity.getNavigator()
+            .clearPathEntity();
         this.delayTemptCounter = 100;
         this.isRunning = false;
-        this.temptedEntity.getNavigator().setAvoidsWater(this.field_75286_m);
+        this.temptedEntity.getNavigator()
+            .setAvoidsWater(this.field_75286_m);
     }
 
     public void updateTask() {
-        this.temptedEntity.getLookHelper().setLookPositionWithEntity((Entity)this.temptingPlayer, 30.0f, (float)this.temptedEntity.getVerticalFaceSpeed());
-        if (this.temptedEntity.getDistanceSqToEntity((Entity)this.temptingPlayer) < 6.25) {
-            this.temptedEntity.getNavigator().clearPathEntity();
-        }
-        else {
-            this.temptedEntity.getNavigator().tryMoveToEntityLiving((Entity)this.temptingPlayer, (double)this.speed);
+        this.temptedEntity.getLookHelper()
+            .setLookPositionWithEntity(
+                (Entity) this.temptingPlayer,
+                30.0f,
+                (float) this.temptedEntity.getVerticalFaceSpeed());
+        if (this.temptedEntity.getDistanceSqToEntity((Entity) this.temptingPlayer) < 6.25) {
+            this.temptedEntity.getNavigator()
+                .clearPathEntity();
+        } else {
+            this.temptedEntity.getNavigator()
+                .tryMoveToEntityLiving((Entity) this.temptingPlayer, (double) this.speed);
         }
         if (this.shouldHop) {
             this.tryToHop();
@@ -123,16 +136,19 @@ public class EntityAITempt extends EntityAIBase
         if (this.temptedEntity.onGround) {
             if (this.temptedEntity.onGround && this.slimeJumpDelay-- <= 0) {
                 this.slimeJumpDelay = this.getJumpDelay();
-                this.temptedEntity.getJumpHelper().setJumping();
-                this.temptedEntity.getNavigator().setSpeed(this.speed);
-            }
-            else {
-                this.temptedEntity.getNavigator().setSpeed(0.0);
+                this.temptedEntity.getJumpHelper()
+                    .setJumping();
+                this.temptedEntity.getNavigator()
+                    .setSpeed(this.speed);
+            } else {
+                this.temptedEntity.getNavigator()
+                    .setSpeed(0.0);
             }
         }
     }
 
     protected int getJumpDelay() {
-        return this.temptedEntity.getRNG().nextInt(20) + 10;
+        return this.temptedEntity.getRNG()
+            .nextInt(20) + 10;
     }
 }

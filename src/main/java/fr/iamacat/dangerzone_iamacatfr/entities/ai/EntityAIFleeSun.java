@@ -1,17 +1,17 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import java.util.Random;
+
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-import java.util.Random;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
 
-public class EntityAIFleeSun extends EntityAIBase
-{
+public class EntityAIFleeSun extends EntityAIBase {
+
     private EntityGenericCreature theCreature;
     private double shelterX;
     private double shelterY;
@@ -33,7 +33,10 @@ public class EntityAIFleeSun extends EntityAIBase
         if (!this.theCreature.isBurning()) {
             return false;
         }
-        if (!this.theWorld.canBlockSeeTheSky(MathHelper.floor_double(this.theCreature.posX), (int)this.theCreature.boundingBox.minY, MathHelper.floor_double(this.theCreature.posZ))) {
+        if (!this.theWorld.canBlockSeeTheSky(
+            MathHelper.floor_double(this.theCreature.posX),
+            (int) this.theCreature.boundingBox.minY,
+            MathHelper.floor_double(this.theCreature.posZ))) {
             return false;
         }
         final Vec3 vec3 = this.findPossibleShelter();
@@ -47,11 +50,13 @@ public class EntityAIFleeSun extends EntityAIBase
     }
 
     public boolean continueExecuting() {
-        return !this.theCreature.getNavigator().noPath();
+        return !this.theCreature.getNavigator()
+            .noPath();
     }
 
     public void startExecuting() {
-        this.theCreature.getNavigator().tryMoveToXYZ(this.shelterX, this.shelterY, this.shelterZ, this.movementSpeed);
+        this.theCreature.getNavigator()
+            .tryMoveToXYZ(this.shelterX, this.shelterY, this.shelterZ, this.movementSpeed);
     }
 
     private Vec3 findPossibleShelter() {
@@ -61,7 +66,7 @@ public class EntityAIFleeSun extends EntityAIBase
             final int k = MathHelper.floor_double(this.theCreature.boundingBox.minY + random.nextInt(6) - 3.0);
             final int l = MathHelper.floor_double(this.theCreature.posZ + random.nextInt(20) - 10.0);
             if (!this.theWorld.canBlockSeeTheSky(j, k, l) && this.theCreature.getBlockPathWeight(j, k, l) < 0.0f) {
-                return Vec3.createVectorHelper((double)j, (double)k, (double)l);
+                return Vec3.createVectorHelper((double) j, (double) k, (double) l);
             }
         }
         return null;

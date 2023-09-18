@@ -1,7 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericRideable;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,8 +13,10 @@ import net.minecraft.pathfinding.PathFinder;
 import net.minecraft.pathfinding.PathPoint;
 import net.minecraft.util.MathHelper;
 
-public class EntityAIControlledByPlayer extends EntityAIBase
-{
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericRideable;
+
+public class EntityAIControlledByPlayer extends EntityAIBase {
+
     private final EntityGenericRideable thisEntity;
     private final float maxSpeed;
     private float currentSpeed;
@@ -45,21 +46,24 @@ public class EntityAIControlledByPlayer extends EntityAIBase
     }
 
     public boolean shouldExecute() {
-        return this.thisEntity.isEntityAlive() && this.thisEntity.riddenByEntity != null && this.thisEntity.riddenByEntity instanceof EntityPlayer && (this.speedBoosted || this.thisEntity.canBeSteered());
+        return this.thisEntity.isEntityAlive() && this.thisEntity.riddenByEntity != null
+            && this.thisEntity.riddenByEntity instanceof EntityPlayer
+            && (this.speedBoosted || this.thisEntity.canBeSteered());
     }
 
     public boolean continueExecuting() {
-        return this.thisEntity.isEntityAlive() && this.thisEntity.riddenByEntity != null && this.thisEntity.riddenByEntity instanceof EntityPlayer && (this.speedBoosted || this.thisEntity.canBeSteered() || this.thisEntity.shouldIgnorePlayerRot());
+        return this.thisEntity.isEntityAlive() && this.thisEntity.riddenByEntity != null
+            && this.thisEntity.riddenByEntity instanceof EntityPlayer
+            && (this.speedBoosted || this.thisEntity.canBeSteered() || this.thisEntity.shouldIgnorePlayerRot());
     }
 
     public void updateTask() {
-        final EntityPlayer var1 = (EntityPlayer)this.thisEntity.riddenByEntity;
+        final EntityPlayer var1 = (EntityPlayer) this.thisEntity.riddenByEntity;
         final EntityGenericRideable var2 = this.thisEntity;
         float var3;
         if (var2.shouldIgnorePlayerRot()) {
             var3 = 0.0f;
-        }
-        else {
+        } else {
             var3 = MathHelper.wrapAngleTo180_float(var1.rotationYaw - this.thisEntity.rotationYaw) * 0.5f;
         }
         if (var3 > this.maxRotation) {
@@ -83,12 +87,15 @@ public class EntityAIControlledByPlayer extends EntityAIBase
             if (this.speedBoostTime++ > this.maxSpeedBoostTime) {
                 this.speedBoosted = false;
             }
-            var7 += var7 * 1.15f * MathHelper.sin(this.speedBoostTime / (float)this.maxSpeedBoostTime * 3.1415927f);
+            var7 += var7 * 1.15f * MathHelper.sin(this.speedBoostTime / (float) this.maxSpeedBoostTime * 3.1415927f);
         }
         float var8 = 0.91f;
         if (this.thisEntity.onGround) {
             var8 = 0.54600006f;
-            final Block var9 = this.thisEntity.worldObj.getBlock(MathHelper.floor_float((float)var4), MathHelper.floor_float((float)var5) - 1, MathHelper.floor_float((float)var6));
+            final Block var9 = this.thisEntity.worldObj.getBlock(
+                MathHelper.floor_float((float) var4),
+                MathHelper.floor_float((float) var5) - 1,
+                MathHelper.floor_float((float) var6));
             if (var9 != null) {
                 var8 = var9.slipperiness * 0.91f;
             }
@@ -110,8 +117,7 @@ public class EntityAIControlledByPlayer extends EntityAIBase
                 var16 += this.thisEntity.width / 2.0f;
             }
             var17 = 0.0f;
-        }
-        else {
+        } else {
             var16 = 0.0f;
             if (var17 < 0.0f) {
                 var17 -= this.thisEntity.width / 2.0f;
@@ -122,16 +128,27 @@ public class EntityAIControlledByPlayer extends EntityAIBase
         }
         final int var18 = MathHelper.floor_double(this.thisEntity.posX + var16);
         final int var19 = MathHelper.floor_double(this.thisEntity.posZ + var17);
-        final PathPoint var20 = new PathPoint(MathHelper.floor_float(this.thisEntity.width + 1.0f), MathHelper.floor_float(this.thisEntity.height + var1.height + 1.0f), MathHelper.floor_float(this.thisEntity.width + 1.0f));
-        if ((var4 != var18 || var6 != var19) && PathFinder.func_82565_a((Entity)this.thisEntity, var18, var5, var19, var20, false, false, true) == 0 && PathFinder.func_82565_a((Entity)this.thisEntity, var4, var5 + 1, var6, var20, false, false, true) == 1 && PathFinder.func_82565_a((Entity)this.thisEntity, var18, var5 + 1, var19, var20, false, false, true) == 1) {
-            var2.getJumpHelper().setJumping();
+        final PathPoint var20 = new PathPoint(
+            MathHelper.floor_float(this.thisEntity.width + 1.0f),
+            MathHelper.floor_float(this.thisEntity.height + var1.height + 1.0f),
+            MathHelper.floor_float(this.thisEntity.width + 1.0f));
+        if ((var4 != var18 || var6 != var19)
+            && PathFinder.func_82565_a((Entity) this.thisEntity, var18, var5, var19, var20, false, false, true) == 0
+            && PathFinder.func_82565_a((Entity) this.thisEntity, var4, var5 + 1, var6, var20, false, false, true) == 1
+            && PathFinder.func_82565_a((Entity) this.thisEntity, var18, var5 + 1, var19, var20, false, false, true)
+                == 1) {
+            var2.getJumpHelper()
+                .setJumping();
         }
-        if (!var1.capabilities.isCreativeMode && this.currentSpeed >= this.maxSpeed * 0.5f && this.thisEntity.getRNG().nextFloat() < 0.006f && !this.speedBoosted) {
+        if (!var1.capabilities.isCreativeMode && this.currentSpeed >= this.maxSpeed * 0.5f
+            && this.thisEntity.getRNG()
+                .nextFloat() < 0.006f
+            && !this.speedBoosted) {
             final ItemStack var21 = var1.getHeldItem();
             if (var21 != null && var21.getItem() == Items.carrot_on_a_stick) {
-                var21.damageItem(1, (EntityLivingBase)var1);
+                var21.damageItem(1, (EntityLivingBase) var1);
                 if (var21.stackSize == 0) {
-                    var1.inventory.mainInventory[var1.inventory.currentItem] = new ItemStack((Item)Items.fishing_rod);
+                    var1.inventory.mainInventory[var1.inventory.currentItem] = new ItemStack((Item) Items.fishing_rod);
                 }
             }
         }
@@ -145,7 +162,8 @@ public class EntityAIControlledByPlayer extends EntityAIBase
     public void boostSpeed() {
         this.speedBoosted = true;
         this.speedBoostTime = 0;
-        this.maxSpeedBoostTime = this.thisEntity.getRNG().nextInt(841) + 140;
+        this.maxSpeedBoostTime = this.thisEntity.getRNG()
+            .nextInt(841) + 140;
     }
 
     public boolean isControlledByPlayer() {

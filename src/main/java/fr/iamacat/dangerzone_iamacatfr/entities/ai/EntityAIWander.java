@@ -1,12 +1,13 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.Vec3;
 
-public class EntityAIWander extends EntityAIBase
-{
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+
+public class EntityAIWander extends EntityAIBase {
+
     private EntityGenericCreature entity;
     private double xPosition;
     private double yPosition;
@@ -25,7 +26,8 @@ public class EntityAIWander extends EntityAIBase
         this.chanceToMove = chanceToMove;
     }
 
-    public EntityAIWander(final EntityGenericCreature par1EntityCreature, final float speed, final int chanceToMove, final boolean shouldHop) {
+    public EntityAIWander(final EntityGenericCreature par1EntityCreature, final float speed, final int chanceToMove,
+        final boolean shouldHop) {
         this(par1EntityCreature, speed, chanceToMove);
         this.shouldHop = shouldHop;
     }
@@ -34,7 +36,8 @@ public class EntityAIWander extends EntityAIBase
         if (this.entity.getAge() >= 100 && !this.entity.isEntityGrounded()) {
             return false;
         }
-        if (this.entity.getRNG().nextInt(this.chanceToMove) != 0) {
+        if (this.entity.getRNG()
+            .nextInt(this.chanceToMove) != 0) {
             return false;
         }
         final Vec3 var1 = RandomPositionGenerator.findRandomTarget(this.entity, 10, 7);
@@ -51,11 +54,13 @@ public class EntityAIWander extends EntityAIBase
         if (this.shouldHop) {
             this.tryToHop();
         }
-        return !this.entity.getNavigator().noPath();
+        return !this.entity.getNavigator()
+            .noPath();
     }
 
     public void startExecuting() {
-        this.entity.getNavigator().tryMoveToXYZ(this.xPosition, this.yPosition, this.zPosition, this.speed);
+        this.entity.getNavigator()
+            .tryMoveToXYZ(this.xPosition, this.yPosition, this.zPosition, this.speed);
         if (this.shouldHop) {
             this.tryToHop();
         }
@@ -64,15 +69,18 @@ public class EntityAIWander extends EntityAIBase
     public void tryToHop() {
         if (this.entity.onGround && this.slimeJumpDelay-- <= 0) {
             this.slimeJumpDelay = this.getJumpDelay();
-            this.entity.getJumpHelper().setJumping();
-            this.entity.getNavigator().setSpeed(this.speed);
-        }
-        else {
-            this.entity.getNavigator().setSpeed(0.0);
+            this.entity.getJumpHelper()
+                .setJumping();
+            this.entity.getNavigator()
+                .setSpeed(this.speed);
+        } else {
+            this.entity.getNavigator()
+                .setSpeed(0.0);
         }
     }
 
     protected int getJumpDelay() {
-        return this.entity.getRNG().nextInt(20) + 10;
+        return this.entity.getRNG()
+            .nextInt(20) + 10;
     }
 }

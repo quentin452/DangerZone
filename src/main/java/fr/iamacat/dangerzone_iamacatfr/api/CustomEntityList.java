@@ -1,17 +1,17 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.api;
-
-import com.google.common.base.CharMatcher;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
 
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Optional;
 
-public enum CustomEntityList
-{
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+
+import com.google.common.base.CharMatcher;
+
+public enum CustomEntityList {
+
     CREEPERBLOSSOMPRIMED,
     ARMADILLO,
     SANDWORM,
@@ -83,12 +83,14 @@ public enum CustomEntityList
         if (mobName == null) {
             return null;
         }
-        final String[] nameParts = CharMatcher.anyOf((CharSequence)" ").removeFrom((CharSequence)mobName).toLowerCase().split("\\.");
+        final String[] nameParts = CharMatcher.anyOf((CharSequence) " ")
+            .removeFrom((CharSequence) mobName)
+            .toLowerCase()
+            .split("\\.");
         CustomEntityList result;
         if (nameParts.length > 1) {
             result = CustomEntityList.lookupEnum.get(nameParts[nameParts.length - 1]);
-        }
-        else {
+        } else {
             result = CustomEntityList.lookupEnum.get(nameParts[0]);
         }
         if (result == null) {}
@@ -106,7 +108,10 @@ public enum CustomEntityList
     static {
         lookupEnum = new HashMap<String, CustomEntityList>();
         for (final CustomEntityList entry : EnumSet.allOf(CustomEntityList.class)) {
-            CustomEntityList.lookupEnum.put(entry.toString().toLowerCase(), entry);
+            CustomEntityList.lookupEnum.put(
+                entry.toString()
+                    .toLowerCase(),
+                entry);
         }
     }
 }

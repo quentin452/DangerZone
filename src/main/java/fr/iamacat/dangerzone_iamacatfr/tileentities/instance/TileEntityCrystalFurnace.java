@@ -93,7 +93,7 @@ public class TileEntityCrystalFurnace extends TileEntity implements ISidedInvent
         this.furnaceItemStacks = new ItemStack[this.getSizeInventory()];
         for (int i = 0; i < nbttaglist.tagCount(); ++i) {
             final NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
-            final byte b0 = nbttagcompound1.getByte("Slot");
+            final int b0 = nbttagcompound1.getByte("Slot");
             if (b0 >= 0 && b0 < this.furnaceItemStacks.length) {
                 this.furnaceItemStacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
             }

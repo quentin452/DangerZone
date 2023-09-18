@@ -735,5 +735,284 @@ public class SpawnEggInitDangerZone {
         Constants.MolenoidSpawnEgg = MolenoidSpawnEgg;
         GameRegistry.registerItem(Constants.MolenoidSpawnEgg, "Molenoid Egg");
 
+        SpawnEggs TwilightMob = new SpawnEggs(TwilightMob.class);
+        MolenoidSpawnEgg.setUnlocalizedName("Twilight Mob Egg");
+        Constants.TwilightMob = TwilightMob;
+        GameRegistry.registerItem(Constants.TwilightMob, "Twilight Mob Egg");
+
+        SpawnEggs DemonSpiderEntity = new SpawnEggs(DemonSpiderEntity.class);
+        DemonSpiderEntity.setUnlocalizedName("Demon Spider Entity Egg");
+        Constants.DemonSpiderEntity = DemonSpiderEntity;
+        GameRegistry.registerItem(Constants.DemonSpiderEntity, "Demon Spider Entity Egg");
+
+        SpawnEggs MyLeviathan = new SpawnEggs(MyLeviathan.class);
+        MyLeviathan.setUnlocalizedName("My Leviathan Egg");
+        Constants.MyLeviathan = MyLeviathan;
+        GameRegistry.registerItem(Constants.MyLeviathan, "My Leviathan Egg");
+        SpawnEggs MyThunderHooves = new SpawnEggs(MyThunderHooves.class);
+        MyThunderHooves.setUnlocalizedName("My Thunder Hooves Egg");
+        Constants.MyThunderHooves = MyThunderHooves;
+        GameRegistry.registerItem(Constants.MyThunderHooves, "My Thunder Hooves Egg");
+        SpawnEggs MyTwilicorn = new SpawnEggs(MyTwilicorn.class);
+        MyTwilicorn.setUnlocalizedName("My Twilicorn Egg");
+        Constants.MyTwilicorn = MyTwilicorn;
+        GameRegistry.registerItem(Constants.MyTwilicorn, "My Twilicorn Egg");
+        SpawnEggs MyKingbowser = new SpawnEggs(MyKingbowser.class);
+        MyKingbowser.setUnlocalizedName("My King bowser Egg");
+        Constants.MyKingbowser = MyKingbowser;
+        GameRegistry.registerItem(Constants.MyKingbowser, "My King bowser Egg");
+
+        SpawnEggs MyCentipede = new SpawnEggs(MyCentipede.class);
+        MyCentipede.setUnlocalizedName("My Centipede Egg");
+        Constants.MyCentipede = MyCentipede;
+        GameRegistry.registerItem(Constants.MyCentipede, "My Centipede Egg");
+
+        SpawnEggs MyMLPHydra = new SpawnEggs(MyMLPHydra.class);
+        MyMLPHydra.setUnlocalizedName("My MLP Hydra Egg");
+        Constants.MyMLPHydra = MyMLPHydra;
+        GameRegistry.registerItem(Constants.MyMLPHydra, "My MLP Hydra Egg");
+
+        SpawnEggs MyWindigo = new SpawnEggs(MyWindigo.class);
+        MyWindigo.setUnlocalizedName("My Windigo Egg");
+        Constants.MyWindigo = MyWindigo;
+        GameRegistry.registerItem(Constants.MyWindigo, "My Windigo Egg");
+
+        SpawnEggs MyMoose = new SpawnEggs(MyMoose.class);
+        MyMoose.setUnlocalizedName("My Moose Egg");
+        Constants.MyMoose = MyMoose;
+        GameRegistry.registerItem(Constants.MyMoose, "My Moose Egg");
+
+        SpawnEggs MyMLPBuffalo = new SpawnEggs(MyMLPBuffalo.class);
+        MyMLPBuffalo.setUnlocalizedName("My MLP Buffalo Egg");
+        Constants.MyMLPBuffalo = MyMLPBuffalo;
+        GameRegistry.registerItem(Constants.MyMLPBuffalo, "My MLP Buffalo Egg");
+
+        SpawnEggs MyDarkness = new SpawnEggs(MyDarkness.class);
+        MyDarkness.setUnlocalizedName("My Darkness Egg");
+        Constants.MyDarkness = MyDarkness;
+        GameRegistry.registerItem(Constants.MyDarkness, "My Darkness Egg");
+
+        SpawnEggs MyTwilightMagic = new SpawnEggs(MyTwilightMagic.class);
+        MyTwilightMagic.setUnlocalizedName("My Twilight Magic Egg");
+        Constants.MyTwilightMagic = MyTwilightMagic;
+        GameRegistry.registerItem(Constants.MyTwilightMagic, "My Twilight Magic Egg");
+
+        SpawnEggs MyFlameDragon = new SpawnEggs(MyFlameDragon.class);
+        MyFlameDragon.setUnlocalizedName("My Flame Dragon Egg");
+        Constants.MyFlameDragon = MyFlameDragon;
+        GameRegistry.registerItem(Constants.MyFlameDragon, "My Flame Dragon Egg");
+
+        SpawnEggs MyMooseBig = new SpawnEggs(MyMooseBig.class);
+        MyMooseBig.setUnlocalizedName("My Moose Big Egg");
+        Constants.MyMooseBig = MyMooseBig;
+        GameRegistry.registerItem(Constants.MyMooseBig, "My Moose Big Egg");
+
+        SpawnEggs MyCragadile = new SpawnEggs(MyCragadile.class);
+        MyCragadile.setUnlocalizedName("My Cragadile Egg");
+        Constants.MyCragadile = MyCragadile;
+        GameRegistry.registerItem(Constants.MyCragadile, "My Cragadile Egg");
+
+        SpawnEggs MyBear = new SpawnEggs(MyBear.class);
+        MyBear.setUnlocalizedName("My Bear Egg");
+        Constants.MyBear = MyBear;
+        GameRegistry.registerItem(Constants.MyBear, "My Bear Egg");
+
+        SpawnEggs MyToughGuy = new SpawnEggs(MyToughGuy.class);
+        MyToughGuy.setUnlocalizedName("My Tough Guy Egg");
+        Constants.MyToughGuy = MyToughGuy;
+        GameRegistry.registerItem(Constants.MyToughGuy, "My Tough Guy Egg");
+
+        SpawnEggs MyMavis = new SpawnEggs(MyMavis.class);
+        MyMavis.setUnlocalizedName("My Mavis Egg");
+        Constants.MyMavis = MyMavis;
+        GameRegistry.registerItem(Constants.MyMavis, "My Mavis Egg");
+
+        SpawnEggs MyUrsaMAJOR = new SpawnEggs(MyUrsaMAJOR.class);
+        MyUrsaMAJOR.setUnlocalizedName("My Ursa MAJOR Egg");
+        Constants.MyUrsaMAJOR = MyUrsaMAJOR;
+        GameRegistry.registerItem(Constants.MyUrsaMAJOR, "My Ursa MAJOR Egg");
+
+        SpawnEggs MyPhoenix = new SpawnEggs(MyPhoenix.class);
+        MyPhoenix.setUnlocalizedName("My Phoenix Egg");
+        Constants.MyPhoenix = MyPhoenix;
+        GameRegistry.registerItem(Constants.MyPhoenix, "My Phoenix Egg");
+
+        SpawnEggs MyDash = new SpawnEggs(MyDash.class);
+        MyDash.setUnlocalizedName("My Dash Egg");
+        Constants.MyDash = MyDash;
+        GameRegistry.registerItem(Constants.MyDash, "My Dash Egg");
+
+        SpawnEggs MyManticore = new SpawnEggs(MyManticore.class);
+        MyManticore.setUnlocalizedName("My Manticore Egg");
+        Constants.MyManticore = MyManticore;
+        GameRegistry.registerItem(Constants.MyManticore, "My Manticore Egg");
+
+        SpawnEggs MyRainbowCentipede = new SpawnEggs(MyRainbowCentipede.class);
+        MyRainbowCentipede.setUnlocalizedName("My Rainbow Centipede Egg");
+        Constants.MyRainbowCentipede = MyRainbowCentipede;
+        GameRegistry.registerItem(Constants.MyRainbowCentipede, "My Rainbow Centipede Egg");
+
+        SpawnEggs MyParasprite = new SpawnEggs(MyParasprite.class);
+        MyParasprite.setUnlocalizedName("My Parasprite Egg");
+        Constants.MyParasprite = MyParasprite;
+        GameRegistry.registerItem(Constants.MyParasprite, "My Parasprite Egg");
+
+        SpawnEggs MyAJ = new SpawnEggs(MyAJ.class);
+        MyAJ.setUnlocalizedName("My AJ Egg");
+        Constants.MyAJ = MyAJ;
+        GameRegistry.registerItem(Constants.MyAJ, "My AJ Egg");
+
+        SpawnEggs MyArcticScorpion = new SpawnEggs(MyArcticScorpion.class);
+        MyArcticScorpion.setUnlocalizedName("My Arctic Scorpion Egg");
+        Constants.MyArcticScorpion = MyArcticScorpion;
+        GameRegistry.registerItem(Constants.MyArcticScorpion, "My Arctic Scorpion Egg");
+
+        SpawnEggs MyTimberWolf = new SpawnEggs(MyTimberWolf.class);
+        MyTimberWolf.setUnlocalizedName("My Timber Wolf Egg");
+        Constants.MyTimberWolf = MyTimberWolf;
+        GameRegistry.registerItem(Constants.MyTimberWolf, "My Timber Wolf Egg");
+
+        SpawnEggs MyCockatrice = new SpawnEggs(MyCockatrice.class);
+        MyCockatrice.setUnlocalizedName("My Cockatrice Egg");
+        Constants.MyCockatrice = MyCockatrice;
+        GameRegistry.registerItem(Constants.MyCockatrice, "My Cockatrice Egg");
+
+        SpawnEggs MyIronWill = new SpawnEggs(MyIronWill.class);
+        MyIronWill.setUnlocalizedName("My Iron Will Egg");
+        Constants.MyIronWill = MyIronWill;
+        GameRegistry.registerItem(Constants.MyIronWill, "My Iron Will Egg");
+
+        SpawnEggs MyCrabzilla = new SpawnEggs(MyCrabzilla.class);
+        MyCrabzilla.setUnlocalizedName("My Crabzilla Egg");
+        Constants.MyCrabzilla = MyCrabzilla;
+        GameRegistry.registerItem(Constants.MyCrabzilla, "My Crabzilla Egg");
+
+        SpawnEggs MyDashCloud = new SpawnEggs(MyDashCloud.class);
+        MyDashCloud.setUnlocalizedName("My Dash Cloud Egg");
+        Constants.MyDashCloud = MyDashCloud;
+        GameRegistry.registerItem(Constants.MyDashCloud, "My Dash Cloud Egg");
+
+        SpawnEggs TrevorPhillips = new SpawnEggs(TrevorPhillips.class);
+        TrevorPhillips.setUnlocalizedName("Trevor Phillips Egg");
+        Constants.TrevorPhillips = TrevorPhillips;
+        GameRegistry.registerItem(Constants.TrevorPhillips, "Trevor Phillips Egg");
+
+        SpawnEggs MySkullBoss = new SpawnEggs(MySkullBoss.class);
+        MySkullBoss.setUnlocalizedName("My Skull Boss Egg");
+        Constants.MySkullBoss = MySkullBoss;
+        GameRegistry.registerItem(Constants.MySkullBoss, "My Skull Boss Egg");
+
+        SpawnEggs MySkull = new SpawnEggs(MySkull.class);
+        MySkull.setUnlocalizedName("My Skull Egg");
+        Constants.MySkull = MySkull;
+        GameRegistry.registerItem(Constants.MySkull, "My Skull Egg");
+
+        SpawnEggs MyYakPrince = new SpawnEggs(MyYakPrince.class);
+        MyYakPrince.setUnlocalizedName("My Yak Prince Egg");
+        Constants.MyYakPrince = MyYakPrince;
+        GameRegistry.registerItem(Constants.MyYakPrince, "My Yak Prince Egg");
+
+        SpawnEggs MySpikezilla = new SpawnEggs(MySpikezilla.class);
+        MySpikezilla.setUnlocalizedName("My Spikezilla Egg");
+        Constants.MySpikezilla = MySpikezilla;
+        GameRegistry.registerItem(Constants.MySpikezilla, "My Spikezilla Egg");
+
+        SpawnEggs MyRhinoceros = new SpawnEggs(MyRhinoceros.class);
+        MyRhinoceros.setUnlocalizedName("My Rhinoceros Egg");
+        Constants.MyRhinoceros = MyRhinoceros;
+        GameRegistry.registerItem(Constants.MyRhinoceros, "My Rhinoceros Egg");
+
+        SpawnEggs TwilightCannon = new SpawnEggs(TwilightCannon.class);
+        TwilightCannon.setUnlocalizedName("Twilight Cannon Egg");
+        Constants.TwilightCannon = TwilightCannon;
+        GameRegistry.registerItem(Constants.TwilightCannon, "Twilight Cannon Egg");
+
+        SpawnEggs LaserBallMLP = new SpawnEggs(LaserBallMLP.class);
+        LaserBallMLP.setUnlocalizedName("Laser Ball MLP Egg");
+        Constants.LaserBallMLP = LaserBallMLP;
+        GameRegistry.registerItem(Constants.LaserBallMLP, "Laser Ball MLP Egg");
+
+       /* SpawnEggs MavisBall = new SpawnEggs(fr.iamacat.dangerzone_iamacatfr.entities.entity.MavisBall.class);
+        MavisBall.setUnlocalizedName("Mavis Ball Egg");
+        Constants.MavisBall = MolenoidSpawnEgg;
+        GameRegistry.registerItem(Constants.MavisBall, "Mavis Ball Egg");
+
+        */
+
+        SpawnEggs TwilicornArrow = new SpawnEggs(TwilicornArrow.class);
+        TwilicornArrow.setUnlocalizedName("Twilicorn Arrow Egg");
+        Constants.TwilicornArrow = TwilicornArrow;
+        GameRegistry.registerItem(Constants.TwilicornArrow, "Twilicorn Arrow Egg");
+
+        SpawnEggs PhoenixArrow = new SpawnEggs(PhoenixArrow.class);
+        PhoenixArrow.setUnlocalizedName("Phoenix Arrow Egg");
+        Constants.PhoenixArrow = PhoenixArrow;
+        GameRegistry.registerItem(Constants.PhoenixArrow, "Phoenix Arrow Egg");
+
+        SpawnEggs TwilyMagic = new SpawnEggs(TwilyMagic.class);
+        TwilyMagic.setUnlocalizedName("Twily Magic Egg");
+        Constants.TwilyMagic = TwilyMagic;
+        GameRegistry.registerItem(Constants.TwilyMagic, "Twily Magic Egg");
+
+        SpawnEggs DarkCrystalCannon = new SpawnEggs(DarkCrystalCannon.class);
+        DarkCrystalCannon.setUnlocalizedName("Dark Crystal Cannon Egg");
+        Constants.DarkCrystalCannon = DarkCrystalCannon;
+        GameRegistry.registerItem(Constants.DarkCrystalCannon, "Dark Crystal Cannon Egg");
+
+        SpawnEggs WindigoPower = new SpawnEggs(WindigoPower.class);
+        WindigoPower.setUnlocalizedName("Windigo Power Egg");
+        Constants.WindigoPower = WindigoPower;
+        GameRegistry.registerItem(Constants.WindigoPower, "Windigo Power Egg");
+
+        SpawnEggs LongHit = new SpawnEggs(LongHit.class);
+        LongHit.setUnlocalizedName("Long Hit Egg");
+        Constants.LongHit = LongHit;
+        GameRegistry.registerItem(Constants.LongHit, "Long Hit Egg");
+
+        SpawnEggs MyMagic = new SpawnEggs(MyMagic.class);
+        MyMagic.setUnlocalizedName("My Magic Egg");
+        Constants.MyMagic = MyMagic;
+        GameRegistry.registerItem(Constants.MyMagic, "My Magic Egg");
+
+        SpawnEggs BetterFireball = new SpawnEggs(BetterFireball.class);
+        BetterFireball.setUnlocalizedName("Better Fireball Egg");
+        Constants.BetterFireball = BetterFireball;
+        GameRegistry.registerItem(Constants.BetterFireball, "Better Fireball Egg");
+
+        SpawnEggs TwilightFireball = new SpawnEggs(TwilightFireball.class);
+        TwilightFireball.setUnlocalizedName("Twilight Fireball Egg");
+        Constants.TwilightFireball = TwilightFireball;
+        GameRegistry.registerItem(Constants.TwilightFireball, "Twilight Fireball Egg");
+
+        SpawnEggs HydraFireball = new SpawnEggs(HydraFireball.class);
+        HydraFireball.setUnlocalizedName("Hydra Fire ball Egg");
+        Constants.HydraFireball = HydraFireball;
+        GameRegistry.registerItem(Constants.HydraFireball, "Hydra Fire ball Egg");
+
+        SpawnEggs FreezeBall = new SpawnEggs(FreezeBall.class);
+        FreezeBall.setUnlocalizedName("Freeze Ball Egg");
+        Constants.FreezeBall = FreezeBall;
+        GameRegistry.registerItem(Constants.FreezeBall, "Freeze Ball Egg");
+
+        SpawnEggs RobotBeam = new SpawnEggs(RobotBeam.class);
+        RobotBeam.setUnlocalizedName("Robot Beam Egg");
+        Constants.RobotBeam = RobotBeam;
+        GameRegistry.registerItem(Constants.RobotBeam, "Robot Beam Egg");
+
+        SpawnEggs FireCannon = new SpawnEggs(FireCannon.class);
+        FireCannon.setUnlocalizedName("Fire Cannon Egg");
+        Constants.FireCannon = FireCannon;
+        GameRegistry.registerItem(Constants.FireCannon, "Fire Cannon Egg");
+
+        SpawnEggs RainbowCannon = new SpawnEggs(RainbowCannon.class);
+        RainbowCannon.setUnlocalizedName("Rainbow Cannon Egg");
+        Constants.RainbowCannon = RainbowCannon;
+        GameRegistry.registerItem(Constants.RainbowCannon, "Rainbow Cannon Egg");
+
+        SpawnEggs ProjectileApples = new SpawnEggs(ProjectileApples.class);
+        ProjectileApples.setUnlocalizedName("Projectile Apples Egg");
+        Constants.ProjectileApples = ProjectileApples;
+        GameRegistry.registerItem(Constants.ProjectileApples, "Projectile Apples Egg");
+
     }
 }

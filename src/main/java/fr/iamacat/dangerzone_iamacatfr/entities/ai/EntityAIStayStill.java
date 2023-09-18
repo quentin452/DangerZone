@@ -1,13 +1,13 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
+
+import net.minecraft.entity.ai.EntityAIBase;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericAnimal;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
-import net.minecraft.entity.ai.EntityAIBase;
 
-public class EntityAIStayStill extends EntityAIBase
-{
+public class EntityAIStayStill extends EntityAIBase {
+
     private EntityGenericAnimal theEntity;
     EntityStates triggeringState;
 
@@ -18,13 +18,14 @@ public class EntityAIStayStill extends EntityAIBase
     }
 
     public boolean shouldExecute() {
-        return !this.theEntity.isInWater() && this.theEntity.onGround && this.theEntity.getEntityState() == this.triggeringState;
+        return !this.theEntity.isInWater() && this.theEntity.onGround
+            && this.theEntity.getEntityState() == this.triggeringState;
     }
 
     public void startExecuting() {
-        this.theEntity.getNavigator().clearPathEntity();
+        this.theEntity.getNavigator()
+            .clearPathEntity();
     }
 
-    public void resetTask() {
-    }
+    public void resetTask() {}
 }

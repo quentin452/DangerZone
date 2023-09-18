@@ -243,6 +243,10 @@ public class ItemInitDangerZone {
     public static Item pureRainbowOpalGem;
     public static Item dragonMeat;
     public static Item dragonMeatCooked;
+    public static Item mavisOrb;
+    public static Item phoenixFeather;
+    public static Item darkCrystal;
+    public static Item twilightStar;
 
     public static void init() {
         GameRegistry.registerItem(
@@ -517,6 +521,11 @@ public class ItemInitDangerZone {
         TheZooKeeper = new TheZooKeeper().setUnlocalizedName("TheZooKeeper");
         SquidZooka = new SquidZooka().setUnlocalizedName("SquidZooka");
         Slippers = new Slippers().setUnlocalizedName("Slippers");
+        mavisOrb = new MavisOrb(5029).setTextureName(Tags.MODID + ":MavisOrb")
+            .setUnlocalizedName("MavisOrb");
+        phoenixFeather = new PhoenixFeather(5054);
+        darkCrystal = new DarkCrystal(5060);
+        twilightStar = new TwilightStar(5020);
 
     }
 
@@ -723,6 +732,10 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(TheZooKeeper, "TheZooKeeper");
         GameRegistry.registerItem(SquidZooka, "SquidZooka");
         GameRegistry.registerItem(Slippers, "Slippers");
+        GameRegistry.registerItem(mavisOrb, "MavisOrb");
+        GameRegistry.registerItem(phoenixFeather, "phoenixFeather");
+        GameRegistry.registerItem(darkCrystal, "darkCrystal");
+        GameRegistry.registerItem(twilightStar, "twilightStar");
 
     }
 }

@@ -9,8 +9,8 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityAerial extends EntityLiving
-{
+public class EntityAerial extends EntityLiving {
+
     protected ChunkCoordinates targetPosition;
     protected int maxFlightHeight;
 
@@ -34,10 +34,9 @@ public class EntityAerial extends EntityLiving
     protected void entityInit() {
         super.entityInit();
         if (this.defaultGrounded()) {
-            this.dataWatcher.addObject(17, (Object)1);
-        }
-        else {
-            this.dataWatcher.addObject(17, (Object)0);
+            this.dataWatcher.addObject(17, (Object) 1);
+        } else {
+            this.dataWatcher.addObject(17, (Object) 0);
         }
     }
 
@@ -51,10 +50,9 @@ public class EntityAerial extends EntityLiving
 
     protected void setEntityGrounded(final Boolean par1) {
         if (par1) {
-            this.dataWatcher.updateObject(17, (Object)1);
-        }
-        else {
-            this.dataWatcher.updateObject(17, (Object)0);
+            this.dataWatcher.updateObject(17, (Object) 1);
+        } else {
+            this.dataWatcher.updateObject(17, (Object) 0);
         }
     }
 
@@ -79,7 +77,7 @@ public class EntityAerial extends EntityLiving
             this.motionX += (Math.signum(var1) * 0.5 - this.motionX) * 0.10000000149011612 * 0.3;
             this.motionY += (Math.signum(var2) * 0.699999988079071 - this.motionY) * 0.10000000149011612 * 0.3;
             this.motionZ += (Math.signum(var3) * 0.5 - this.motionZ) * 0.10000000149011612 * 0.3;
-            final float var4 = (float)(Math.atan2(this.motionZ, this.motionX) * 180.0 / 3.141592653589793) - 90.0f;
+            final float var4 = (float) (Math.atan2(this.motionZ, this.motionX) * 180.0 / 3.141592653589793) - 90.0f;
             final float var5 = MathHelper.wrapAngleTo180_float(var4 - this.rotationYaw);
             this.moveForward = 0.5f;
             this.rotationYaw += var5;
@@ -96,11 +94,19 @@ public class EntityAerial extends EntityLiving
     }
 
     public boolean isTargetPositionValid(final ChunkCoordinates targetPosition) {
-        return targetPosition == null || (this.worldObj.isAirBlock(targetPosition.posX, targetPosition.posY, targetPosition.posZ) && targetPosition.posY >= 3 && !this.worldObj.getBlock(targetPosition.posX, targetPosition.posY, targetPosition.posZ).getMaterial().equals(Material.water));
+        return targetPosition == null
+            || (this.worldObj.isAirBlock(targetPosition.posX, targetPosition.posY, targetPosition.posZ)
+                && targetPosition.posY >= 3
+                && !this.worldObj.getBlock(targetPosition.posX, targetPosition.posY, targetPosition.posZ)
+                    .getMaterial()
+                    .equals(Material.water));
     }
 
     public boolean atTargetPosition() {
-        return this.targetPosition == null || this.getDistance((double)this.targetPosition.posX, (double)this.targetPosition.posY, (double)this.targetPosition.posZ) < 2.0;
+        return this.targetPosition == null || this.getDistance(
+            (double) this.targetPosition.posX,
+            (double) this.targetPosition.posY,
+            (double) this.targetPosition.posZ) < 2.0;
     }
 
     public void moveEntityWithHeading(final float par1, final float par2) {
@@ -114,19 +120,20 @@ public class EntityAerial extends EntityLiving
             this.motionX *= 0.800000011920929;
             this.motionY *= 0.800000011920929;
             this.motionZ *= 0.800000011920929;
-        }
-        else if (this.handleLavaMovement()) {
+        } else if (this.handleLavaMovement()) {
             this.moveFlying(par1, par2, 0.02f);
             this.moveEntity(this.motionX, this.motionY, this.motionZ);
             this.motionX *= 0.5;
             this.motionY *= 0.5;
             this.motionZ *= 0.5;
-        }
-        else {
+        } else {
             float var3 = 0.91f;
             if (this.onGround) {
                 var3 = 0.54600006f;
-                final Block block = this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.boundingBox.minY) - 1, MathHelper.floor_double(this.posZ));
+                final Block block = this.worldObj.getBlock(
+                    MathHelper.floor_double(this.posX),
+                    MathHelper.floor_double(this.boundingBox.minY) - 1,
+                    MathHelper.floor_double(this.posZ));
                 if (block != null) {
                     var3 = block.slipperiness * 0.91f;
                 }
@@ -136,7 +143,10 @@ public class EntityAerial extends EntityLiving
             var3 = 0.91f;
             if (this.onGround) {
                 var3 = 0.54600006f;
-                final Block block2 = this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.boundingBox.minY) - 1, MathHelper.floor_double(this.posZ));
+                final Block block2 = this.worldObj.getBlock(
+                    MathHelper.floor_double(this.posX),
+                    MathHelper.floor_double(this.boundingBox.minY) - 1,
+                    MathHelper.floor_double(this.posZ));
                 if (block2 != null) {
                     var3 = block2.slipperiness * 0.91f;
                 }
@@ -160,7 +170,7 @@ public class EntityAerial extends EntityLiving
     protected void adjustRotationToWaypoint() {
         final double var8 = this.targetPosition.posX - this.posX;
         final double var9 = this.targetPosition.posZ - this.posZ;
-        final float var10 = (float)(Math.atan2(var9, var8) * 180.0 / 3.141592653589793);
+        final float var10 = (float) (Math.atan2(var9, var8) * 180.0 / 3.141592653589793);
         float var11 = MathHelper.wrapAngleTo180_float(var10 - this.rotationYaw);
         if (var11 > 30.0f) {
             var11 = 30.0f;

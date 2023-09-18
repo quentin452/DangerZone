@@ -1,12 +1,11 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
 
-public class EntityAISmoothSwimming extends EntityAIBase
-{
+public class EntityAISmoothSwimming extends EntityAIBase {
+
     private EntityLiving theEntity;
     private boolean smootherSwimming;
 
@@ -14,7 +13,8 @@ public class EntityAISmoothSwimming extends EntityAIBase
         this.smootherSwimming = false;
         this.theEntity = par1EntityLiving;
         this.setMutexBits(4);
-        par1EntityLiving.getNavigator().setCanSwim(true);
+        par1EntityLiving.getNavigator()
+            .setCanSwim(true);
     }
 
     public EntityAISmoothSwimming(final EntityLiving par1EntityLiving, final boolean smootherSwimming) {
@@ -27,8 +27,10 @@ public class EntityAISmoothSwimming extends EntityAIBase
     }
 
     public void updateTask() {
-        if (this.theEntity.getRNG().nextFloat() < 0.8f) {
-            this.theEntity.getJumpHelper().setJumping();
+        if (this.theEntity.getRNG()
+            .nextFloat() < 0.8f) {
+            this.theEntity.getJumpHelper()
+                .setJumping();
         }
     }
 }

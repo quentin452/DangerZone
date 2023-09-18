@@ -1,12 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
-
 import net.minecraft.entity.EntityLivingBase;
 
-public class EntityAIOwnerHurtByTarget extends EntityAITarget
-{
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
+
+public class EntityAIOwnerHurtByTarget extends EntityAITarget {
+
     EntityGenericTameable theDefendingTameable;
     EntityLivingBase theOwnerAttacker;
 

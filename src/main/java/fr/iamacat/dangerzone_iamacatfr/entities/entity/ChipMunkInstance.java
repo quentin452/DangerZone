@@ -10,7 +10,6 @@ import net.minecraft.init.Items;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-
 public class ChipMunkInstance extends EntityCreature implements IAnimals {
 
     public ChipMunkInstance(World par1World) {
@@ -22,7 +21,8 @@ public class ChipMunkInstance extends EntityCreature implements IAnimals {
         this.stepHeight = 1;
 
         // squirrel AI
-        this.getNavigator().setAvoidsWater(true);
+        this.getNavigator()
+            .setAvoidsWater(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIPanic(this, 1.38F));
         this.tasks.addTask(2, new EntityAITempt(this, 1.0F, Items.wheat_seeds, true));
@@ -40,8 +40,10 @@ public class ChipMunkInstance extends EntityCreature implements IAnimals {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1.0D); // max health
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
+            .setBaseValue(1.0D); // max health
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
+            .setBaseValue(0.3D);
     }
 
     /**
@@ -74,7 +76,8 @@ public class ChipMunkInstance extends EntityCreature implements IAnimals {
     @Override
     public float getBlockPathWeight(int par1, int par2, int par3) {
         // prefer standing on leaves
-        Material underMaterial = this.worldObj.getBlock(par1, par2 - 1, par3).getMaterial();
+        Material underMaterial = this.worldObj.getBlock(par1, par2 - 1, par3)
+            .getMaterial();
         if (underMaterial == Material.leaves) {
             return 12.0F;
         }

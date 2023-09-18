@@ -1,12 +1,12 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.api;
 
-import com.google.common.base.Optional;
 import net.minecraft.potion.Potion;
 
-public enum PotionList
-{
+import com.google.common.base.Optional;
+
+public enum PotionList {
+
     INSTANCE;
 
     public static Optional<? extends Potion> bubbling;

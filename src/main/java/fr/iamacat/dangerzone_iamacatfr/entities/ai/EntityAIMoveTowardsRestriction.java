@@ -1,13 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Vec3;
 
-public class EntityAIMoveTowardsRestriction extends EntityAIBase
-{
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+
+public class EntityAIMoveTowardsRestriction extends EntityAIBase {
+
     private EntityGenericCreature theEntity;
     private double movePosX;
     private double movePosY;
@@ -25,7 +26,14 @@ public class EntityAIMoveTowardsRestriction extends EntityAIBase
             return false;
         }
         final ChunkCoordinates chunkcoordinates = this.theEntity.getHomePosition();
-        final Vec3 vec3 = RandomPositionGenerator.findRandomTargetBlockTowards(this.theEntity, 16, 7, Vec3.createVectorHelper((double)chunkcoordinates.posX, (double)chunkcoordinates.posY, (double)chunkcoordinates.posZ));
+        final Vec3 vec3 = RandomPositionGenerator.findRandomTargetBlockTowards(
+            this.theEntity,
+            16,
+            7,
+            Vec3.createVectorHelper(
+                (double) chunkcoordinates.posX,
+                (double) chunkcoordinates.posY,
+                (double) chunkcoordinates.posZ));
         if (vec3 == null) {
             return false;
         }
@@ -36,10 +44,12 @@ public class EntityAIMoveTowardsRestriction extends EntityAIBase
     }
 
     public boolean continueExecuting() {
-        return !this.theEntity.getNavigator().noPath();
+        return !this.theEntity.getNavigator()
+            .noPath();
     }
 
     public void startExecuting() {
-        this.theEntity.getNavigator().tryMoveToXYZ(this.movePosX, this.movePosY, this.movePosZ, (double)this.movementSpeed);
+        this.theEntity.getNavigator()
+            .tryMoveToXYZ(this.movePosX, this.movePosY, this.movePosZ, (double) this.movementSpeed);
     }
 }

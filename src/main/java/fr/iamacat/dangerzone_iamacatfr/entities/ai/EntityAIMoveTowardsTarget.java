@@ -1,16 +1,16 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericAnimal;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.Vec3;
 
-public class EntityAIMoveTowardsTarget extends EntityAIBase
-{
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericAnimal;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+
+public class EntityAIMoveTowardsTarget extends EntityAIBase {
+
     private EntityGenericAnimal theEntity;
     private EntityLivingBase targetEntity;
     private double movePosX;
@@ -31,10 +31,15 @@ public class EntityAIMoveTowardsTarget extends EntityAIBase
         if (this.targetEntity == null) {
             return false;
         }
-        if (this.targetEntity.getDistanceSqToEntity((Entity)this.theEntity) > this.maxTargetDistance * this.maxTargetDistance) {
+        if (this.targetEntity.getDistanceSqToEntity((Entity) this.theEntity)
+            > this.maxTargetDistance * this.maxTargetDistance) {
             return false;
         }
-        final Vec3 var1 = RandomPositionGenerator.findRandomTargetBlockTowards((EntityGenericCreature)this.theEntity, 16, 7, Vec3.createVectorHelper(this.targetEntity.posX, this.targetEntity.posY, this.targetEntity.posZ));
+        final Vec3 var1 = RandomPositionGenerator.findRandomTargetBlockTowards(
+            (EntityGenericCreature) this.theEntity,
+            16,
+            7,
+            Vec3.createVectorHelper(this.targetEntity.posX, this.targetEntity.posY, this.targetEntity.posZ));
         if (var1 == null) {
             return false;
         }
@@ -45,7 +50,10 @@ public class EntityAIMoveTowardsTarget extends EntityAIBase
     }
 
     public boolean continueExecuting() {
-        return !this.theEntity.getNavigator().noPath() && this.targetEntity.isEntityAlive() && this.targetEntity.getDistanceSqToEntity((Entity)this.theEntity) < this.maxTargetDistance * this.maxTargetDistance;
+        return !this.theEntity.getNavigator()
+            .noPath() && this.targetEntity.isEntityAlive()
+            && this.targetEntity.getDistanceSqToEntity((Entity) this.theEntity)
+                < this.maxTargetDistance * this.maxTargetDistance;
     }
 
     public void resetTask() {
@@ -53,6 +61,7 @@ public class EntityAIMoveTowardsTarget extends EntityAIBase
     }
 
     public void startExecuting() {
-        this.theEntity.getNavigator().tryMoveToXYZ(this.movePosX, this.movePosY, this.movePosZ, (double)this.speed);
+        this.theEntity.getNavigator()
+            .tryMoveToXYZ(this.movePosX, this.movePosY, this.movePosZ, (double) this.speed);
     }
 }

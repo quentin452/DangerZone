@@ -1,6 +1,10 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.network.packet;
+
+import java.io.IOException;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -11,13 +15,9 @@ import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
 
-import java.io.IOException;
+public class PZPacketPlaySound implements IMessage, IMessageHandler<PZPacketPlaySound, IMessage> {
 
-public class PZPacketPlaySound implements IMessage, IMessageHandler<PZPacketPlaySound, IMessage>
-{
     private int posX;
     private int posY;
     private int posZ;
@@ -37,7 +37,8 @@ public class PZPacketPlaySound implements IMessage, IMessageHandler<PZPacketPlay
         }
         final EntityPlayer player = DangerZone.packetProxy.getClientPlayer();
         final World worldObj = player.worldObj;
-        worldObj.playSound(message.posX, (double)message.posY, (double)message.posZ, message.sound, 1.0f, 1.0f, false);
+        worldObj
+            .playSound(message.posX, (double) message.posY, (double) message.posZ, message.sound, 1.0f, 1.0f, false);
         return null;
     }
 
@@ -65,8 +66,7 @@ public class PZPacketPlaySound implements IMessage, IMessageHandler<PZPacketPlay
         final ByteBufOutputStream data = new ByteBufOutputStream(buffer);
         try {
             this.writeData(data);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             DangerLogger.LOGGER.error("Error writing packet %s to ByteBufOutputStream", this);
             e.printStackTrace();
         }
@@ -76,8 +76,7 @@ public class PZPacketPlaySound implements IMessage, IMessageHandler<PZPacketPlay
         final ByteBufInputStream byteStream = new ByteBufInputStream(buffer);
         try {
             this.readData(byteStream);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             DangerLogger.LOGGER.error("Error reading packet %s from ByteBufInputStream", this);
             e.printStackTrace();
         }

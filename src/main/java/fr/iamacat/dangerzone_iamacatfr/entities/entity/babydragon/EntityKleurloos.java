@@ -396,11 +396,11 @@ public class EntityKleurloos extends EntityTameable {
     }
 
     public boolean isAngry() {
-        return (this.dataWatcher.getWatchableObjectByte(16) & 0x2) != 0x0;
+        return (this.dataWatcher.getWatchableObjectInt(16) & 0x2) != 0x0;
     }
 
     public void setAngry(final boolean p_70916_1_) {
-        final byte b0 = this.dataWatcher.getWatchableObjectByte(16);
+        final int b0 = this.dataWatcher.getWatchableObjectInt(16);
         if (p_70916_1_) {
             this.dataWatcher.updateObject(16, (Object) (byte) (b0 | 0x2));
         } else {
@@ -409,7 +409,7 @@ public class EntityKleurloos extends EntityTameable {
     }
 
     public int getCollarColor() {
-        return this.dataWatcher.getWatchableObjectByte(20) & 0xF;
+        return this.dataWatcher.getWatchableObjectInt(20) & 0xF;
     }
 
     public void setCollarColor(final int p_82185_1_) {
@@ -451,7 +451,7 @@ public class EntityKleurloos extends EntityTameable {
     }
 
     public boolean func_70922_bv() {
-        return this.dataWatcher.getWatchableObjectByte(19) == 1;
+        return this.dataWatcher.getWatchableObjectInt(19) == 1;
     }
 
     protected boolean canDespawn() {

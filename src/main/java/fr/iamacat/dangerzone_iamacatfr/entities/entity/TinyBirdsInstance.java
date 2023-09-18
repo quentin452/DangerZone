@@ -120,7 +120,7 @@ public class TinyBirdsInstance extends BirdsInstance {
     }
 
     public int getBirdType() {
-        return this.dataWatcher.getWatchableObjectByte(16);
+        return this.dataWatcher.getWatchableObjectInt(16);
     }
 
     public void setBirdType(int par1) {
@@ -308,11 +308,11 @@ public class TinyBirdsInstance extends BirdsInstance {
     }
 
     public boolean isBirdLanded() {
-        return (this.dataWatcher.getWatchableObjectByte(DATA_BIRDFLAGS) & 1) != 0;
+        return (this.dataWatcher.getWatchableObjectInt(DATA_BIRDFLAGS) & 1) != 0;
     }
 
     public void setIsBirdLanded(boolean par1) {
-        byte b0 = this.dataWatcher.getWatchableObjectByte(DATA_BIRDFLAGS);
+        int b0 = this.dataWatcher.getWatchableObjectInt(DATA_BIRDFLAGS);
 
         if (par1) {
             this.dataWatcher.updateObject(DATA_BIRDFLAGS, (byte) (b0 | 1));

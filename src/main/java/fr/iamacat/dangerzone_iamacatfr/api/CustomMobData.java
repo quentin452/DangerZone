@@ -1,18 +1,17 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.api;
 
+import java.util.*;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityProperties;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandom;
 
-import java.util.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityProperties;
 
-public class CustomMobData
-{
+public class CustomMobData {
+
     public String mobName;
     public final HashMap<String, Object> customData;
     public int secondarySpawnRate;
@@ -40,7 +39,12 @@ public class CustomMobData
     }
 
     public void addLootToMob(final ItemStack itemStack, final int weight) {
-        this.lootItems.add(new WeightedItemStack(Item.itemRegistry.getNameForObject((Object)itemStack.getItem()), itemStack.getItemDamage(), itemStack.stackSize, weight));
+        this.lootItems.add(
+            new WeightedItemStack(
+                Item.itemRegistry.getNameForObject((Object) itemStack.getItem()),
+                itemStack.getItemDamage(),
+                itemStack.stackSize,
+                weight));
     }
 
     public void addLootToMob(final String itemID, final int itemDamage, final int stackSize, final int weight) {
@@ -49,8 +53,9 @@ public class CustomMobData
 
     public ItemStack getLootItem(final Random rand) {
         if (this.lootItems != null && !this.lootItems.isEmpty()) {
-            final WeightedItemStack stack = (WeightedItemStack)WeightedRandom.getRandomItem(rand, (Collection)this.lootItems);
-            final Item item = (Item)Item.itemRegistry.getObject(stack.itemID);
+            final WeightedItemStack stack = (WeightedItemStack) WeightedRandom
+                .getRandomItem(rand, (Collection) this.lootItems);
+            final Item item = (Item) Item.itemRegistry.getObject(stack.itemID);
             if (item != null) {
                 return new ItemStack(item, stack.stackSize, stack.itemDamage);
             }
@@ -70,8 +75,8 @@ public class CustomMobData
         return items;
     }
 
-    public static class WeightedItemStack extends WeightedRandom.Item
-    {
+    public static class WeightedItemStack extends WeightedRandom.Item {
+
         public final String itemID;
         public final int itemDamage;
         public final int stackSize;

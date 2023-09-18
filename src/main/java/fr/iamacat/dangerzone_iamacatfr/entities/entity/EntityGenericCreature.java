@@ -1,11 +1,8 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import java.util.Random;
 
-import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
-import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.IEntityLivingData;
@@ -16,10 +13,12 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Random;
+import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
+import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIMoveTowardsRestriction;
 
-public abstract class EntityGenericCreature extends EntityAerial
-{
+public abstract class EntityGenericCreature extends EntityAerial {
+
     private PathEntity pathToEntity;
     public boolean useVarTexture;
     protected Entity entityToAttack;
@@ -104,11 +103,12 @@ public abstract class EntityGenericCreature extends EntityAerial
 
     protected void updateLeashedState() {
         super.updateLeashedState();
-        if (this.getLeashed() && this.getLeashedToEntity() != null && this.getLeashedToEntity().worldObj == this.worldObj) {
+        if (this.getLeashed() && this.getLeashedToEntity() != null
+            && this.getLeashedToEntity().worldObj == this.worldObj) {
             final Entity entity = this.getLeashedToEntity();
-            this.setHomeArea((int)entity.posX, (int)entity.posY, (int)entity.posZ, 5);
+            this.setHomeArea((int) entity.posX, (int) entity.posY, (int) entity.posZ, 5);
             final float f = this.getDistanceToEntity(entity);
-            if (this instanceof EntityGenericTameable && ((EntityGenericTameable)this).isSitting()) {
+            if (this instanceof EntityGenericTameable && ((EntityGenericTameable) this).isSitting()) {
                 if (f > 10.0f) {
                     this.clearLeashed(true, true);
                 }
@@ -116,12 +116,14 @@ public abstract class EntityGenericCreature extends EntityAerial
             }
             if (!this.field_110180_bt) {
                 this.tasks.addTask(2, this.field_110178_bs);
-                this.getNavigator().setAvoidsWater(false);
+                this.getNavigator()
+                    .setAvoidsWater(false);
                 this.field_110180_bt = true;
             }
             this.func_142017_o(f);
             if (this.leashPathCooldown == 0 && f > 4.0f) {
-                final boolean foundPath = this.getNavigator().tryMoveToEntityLiving(entity, 1.0);
+                final boolean foundPath = this.getNavigator()
+                    .tryMoveToEntityLiving(entity, 1.0);
                 if (!foundPath) {
                     this.leashPathCooldown = 20;
                 }
@@ -137,22 +139,21 @@ public abstract class EntityGenericCreature extends EntityAerial
             if (f > 10.0f) {
                 this.clearLeashed(true, true);
             }
-        }
-        else if (!this.getLeashed() && this.field_110180_bt) {
+        } else if (!this.getLeashed() && this.field_110180_bt) {
             this.field_110180_bt = false;
             this.tasks.removeTask(this.field_110178_bs);
-            this.getNavigator().setAvoidsWater(true);
+            this.getNavigator()
+                .setAvoidsWater(true);
             this.detachHome();
         }
     }
 
-    protected void func_142017_o(final float par1) {
-    }
+    protected void func_142017_o(final float par1) {}
 
     public int getMaxSpawnedInChunk() {
-        final CustomEntityList entityEntry = CustomEntityList.getByName(EntityList.getEntityString((Entity)this));
+        final CustomEntityList entityEntry = CustomEntityList.getByName(EntityList.getEntityString((Entity) this));
         if (entityEntry != null) {
-            return ((CustomMobData)entityEntry.modData.get()).maxSpawnInChunk;
+            return ((CustomMobData) entityEntry.modData.get()).maxSpawnInChunk;
         }
         return super.getMaxSpawnedInChunk();
     }
@@ -161,20 +162,23 @@ public abstract class EntityGenericCreature extends EntityAerial
         return 0.0f;
     }
 
-    protected void attackEntity(final Entity par1Entity, final float par2) {
-    }
+    protected void attackEntity(final Entity par1Entity, final float par2) {}
 
     public boolean isWithinHomeDistanceCurrentPosition() {
-        return this.isWithinHomeDistance(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ));
+        return this.isWithinHomeDistance(
+            MathHelper.floor_double(this.posX),
+            MathHelper.floor_double(this.posY),
+            MathHelper.floor_double(this.posZ));
     }
 
     public boolean isWithinHomeDistance(final int par1, final int par2, final int par3) {
-        return this.maximumHomeDistance == -1.0f || this.homePosition.getDistanceSquared(par1, par2, par3) < this.maximumHomeDistance * this.maximumHomeDistance;
+        return this.maximumHomeDistance == -1.0f || this.homePosition.getDistanceSquared(par1, par2, par3)
+            < this.maximumHomeDistance * this.maximumHomeDistance;
     }
 
     public void setHomeArea(final int par1, final int par2, final int par3, final int par4) {
         this.homePosition.set(par1, par2, par3);
-        this.maximumHomeDistance = (float)par4;
+        this.maximumHomeDistance = (float) par4;
     }
 
     public ChunkCoordinates getHomePosition() {
@@ -195,7 +199,7 @@ public abstract class EntityGenericCreature extends EntityAerial
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(16, (Object)0);
+        this.dataWatcher.addObject(16, (Object) 0);
     }
 
     public void writeEntityToNBT(final NBTTagCompound par1nbtTagCompound) {
@@ -213,7 +217,7 @@ public abstract class EntityGenericCreature extends EntityAerial
     }
 
     public void setTextureBase(final int textureBase) {
-        this.dataWatcher.updateObject(16, (Object)textureBase);
+        this.dataWatcher.updateObject(16, (Object) textureBase);
     }
 
     public IEntityLivingData onSpawnWithEgg(IEntityLivingData iEntityLivingData) {

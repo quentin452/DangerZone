@@ -1,6 +1,7 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.items;
+
+import java.util.List;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -14,10 +15,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import java.util.List;
+public abstract class SubItemPotion {
 
-public abstract class SubItemPotion
-{
     public final Item item;
     public final int subID;
     public final String baseName;
@@ -29,7 +28,8 @@ public abstract class SubItemPotion
     }
 
     public String getDisplayName(final ItemStack itemStack) {
-        return StatCollector.translateToLocal(this.baseName).trim() + " Potion";
+        return StatCollector.translateToLocal(this.baseName)
+            .trim() + " Potion";
     }
 
     public abstract void register();
@@ -50,7 +50,8 @@ public abstract class SubItemPotion
 
     public abstract boolean isEffectInstant(final int p0);
 
-    public abstract void addInformation(final ItemStack p0, final EntityPlayer p1, final List<String> p2, final boolean p3);
+    public abstract void addInformation(final ItemStack p0, final EntityPlayer p1, final List<String> p2,
+        final boolean p3);
 
     public ItemStack onEaten(final ItemStack itemStack, final World world, final EntityPlayer player) {
         if (!player.capabilities.isCreativeMode) {
@@ -78,17 +79,20 @@ public abstract class SubItemPotion
             if (!player.capabilities.isCreativeMode) {
                 --itemStack.stackSize;
             }
-            world.playSoundAtEntity((Entity)player, "random.bow", 0.5f, 0.4f / (world.rand.nextFloat() * 0.4f + 0.8f));
+            world.playSoundAtEntity((Entity) player, "random.bow", 0.5f, 0.4f / (world.rand.nextFloat() * 0.4f + 0.8f));
             if (!world.isRemote) {
-                world.spawnEntityInWorld((Entity)this.getEntityPotion(itemStack, world, player));
+                world.spawnEntityInWorld((Entity) this.getEntityPotion(itemStack, world, player));
             }
             return itemStack;
         }
-        player.setItemInUse(itemStack, itemStack.getItem().getMaxItemUseDuration(itemStack));
+        player.setItemInUse(
+            itemStack,
+            itemStack.getItem()
+                .getMaxItemUseDuration(itemStack));
         return itemStack;
     }
 
     protected EntityPotion getEntityPotion(final ItemStack itemStack, final World world, final EntityPlayer player) {
-        return new EntityPotion(world, (EntityLivingBase)player, itemStack);
+        return new EntityPotion(world, (EntityLivingBase) player, itemStack);
     }
 }

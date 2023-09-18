@@ -4,10 +4,11 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public interface IMultiPart {
-// for bosses
-	World getWorld();
 
-	boolean attackEntityFromPart(EntityPart entity, DamageSource source, float damage);
+    // for bosses
+    World getWorld();
 
-	EntityPart getDefaultPart();
+    boolean attackEntityFromPart(EntityPart entity, DamageSource source, float damage);
+
+    EntityPart getDefaultPart();
 }

@@ -1,15 +1,15 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericWaterMob;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Vec3;
 
-public class EntityAIPanicSwim extends EntityAIBase
-{
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericWaterMob;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
+
+public class EntityAIPanicSwim extends EntityAIBase {
+
     private EntityGenericWaterMob entity;
     private double xPosition;
     private double yPosition;
@@ -32,22 +32,26 @@ public class EntityAIPanicSwim extends EntityAIBase
         if (this.entity.getEntityState() != EntityStates.fleeing) {
             return false;
         }
-        final Vec3 var1 = RandomPositionGenerator.swimRandomlyTowardHeightLevel(this.entity, 10, 7, this.entity.getMaxFlightHeight());
+        final Vec3 var1 = RandomPositionGenerator
+            .swimRandomlyTowardHeightLevel(this.entity, 10, 7, this.entity.getMaxFlightHeight());
         if (var1 == null) {
             return false;
         }
         this.xPosition = var1.xCoord;
         this.yPosition = var1.yCoord;
         this.zPosition = var1.zCoord;
-        return this.entity.isTargetPositionValid(new ChunkCoordinates((int)this.xPosition, (int)this.yPosition, (int)this.zPosition));
+        return this.entity.isTargetPositionValid(
+            new ChunkCoordinates((int) this.xPosition, (int) this.yPosition, (int) this.zPosition));
     }
 
     public void startExecuting() {
-        this.entity.getNavigator().tryMoveToXYZ(this.xPosition, this.yPosition, this.zPosition, this.speed);
+        this.entity.getNavigator()
+            .tryMoveToXYZ(this.xPosition, this.yPosition, this.zPosition, this.speed);
     }
 
     public boolean continueExecuting() {
-        return !this.entity.getNavigator().noPath();
+        return !this.entity.getNavigator()
+            .noPath();
     }
 
     public void resetTask() {

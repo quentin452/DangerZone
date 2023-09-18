@@ -1,12 +1,12 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.api;
 
-import com.google.common.base.Optional;
 import net.minecraft.block.Block;
 
-public enum BlockList
-{
+import com.google.common.base.Optional;
+
+public enum BlockList {
+
     instance;
 
     public static Optional<? extends Block> palmHoloTree;
@@ -43,31 +43,31 @@ public enum BlockList
         BlockList.palmHoloTree = Optional.absent();
         BlockList.aloeVera = Optional.absent();
         BlockList.wateredDirt = Optional.absent();
-        BlockList.tumbleweed =Optional.absent();
+        BlockList.tumbleweed = Optional.absent();
         BlockList.jasper = Optional.absent();
         BlockList.palmTreeLog = Optional.absent();
         BlockList.palmTreePlank = Optional.absent();
-        BlockList.palmTreeSlab =  Optional.absent();
-        BlockList.palmTreeDoubleSlab =  Optional.absent();
-        BlockList.palmTreeStairs =  Optional.absent();
+        BlockList.palmTreeSlab = Optional.absent();
+        BlockList.palmTreeDoubleSlab = Optional.absent();
+        BlockList.palmTreeStairs = Optional.absent();
         BlockList.palmTreeLeaves = Optional.absent();
         BlockList.palmTreeSapling = Optional.absent();
         BlockList.coconut = Optional.absent();
-        BlockList.nightBloom =  Optional.absent();
-        BlockList.creeperBlossom =  Optional.absent();
+        BlockList.nightBloom = Optional.absent();
+        BlockList.creeperBlossom = Optional.absent();
         BlockList.spawnerGrass = Optional.absent();
-        BlockList.quickSand =  Optional.absent();
+        BlockList.quickSand = Optional.absent();
         BlockList.spike_ivory = Optional.absent();
         BlockList.spike_wood = Optional.absent();
         BlockList.spike_stone = Optional.absent();
         BlockList.spike_iron = Optional.absent();
-        BlockList.campfire =  Optional.absent();
+        BlockList.campfire = Optional.absent();
         BlockList.mobHeads = Optional.absent();
         BlockList.tombstone = Optional.absent();
-        BlockList.universalFlowerPot =  Optional.absent();
+        BlockList.universalFlowerPot = Optional.absent();
         BlockList.customBrewingStand = Optional.absent();
-        BlockList.limitedMobSpawner =  Optional.absent();
-        BlockList.brewingStandSingle =  Optional.absent();
-        BlockList.brewingStandTriple =  Optional.absent();
+        BlockList.limitedMobSpawner = Optional.absent();
+        BlockList.brewingStandSingle = Optional.absent();
+        BlockList.brewingStandTriple = Optional.absent();
     }
 }

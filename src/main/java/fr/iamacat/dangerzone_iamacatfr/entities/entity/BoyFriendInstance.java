@@ -197,11 +197,11 @@ public class BoyFriendInstance extends EntityMob {
     }
 
     public boolean isTamed() {
-        return (this.dataWatcher.getWatchableObjectByte(16) & 4) != 0;
+        return (this.dataWatcher.getWatchableObjectInt(16) & 4) != 0;
     }
 
     public void setTamed(boolean p_70903_1_) {
-        byte b0 = this.dataWatcher.getWatchableObjectByte(16);
+        int b0 = this.dataWatcher.getWatchableObjectInt(16);
 
         if (p_70903_1_) {
             this.dataWatcher.updateObject(16, (byte) (b0 | 4));
@@ -211,11 +211,11 @@ public class BoyFriendInstance extends EntityMob {
     }
 
     public boolean isSitting() {
-        return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
+        return (this.dataWatcher.getWatchableObjectInt(16) & 1) != 0;
     }
 
     public void setSitting(boolean p_70904_1_) {
-        byte b0 = this.dataWatcher.getWatchableObjectByte(16);
+        int b0 = this.dataWatcher.getWatchableObjectInt(16);
 
         if (p_70904_1_) {
             this.dataWatcher.updateObject(16, (byte) (b0 | 1));

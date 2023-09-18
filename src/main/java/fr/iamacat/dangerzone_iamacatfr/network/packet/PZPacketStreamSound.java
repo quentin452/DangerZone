@@ -1,6 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.network.packet;
 
+import java.io.IOException;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -11,13 +15,9 @@ import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
 
-import java.io.IOException;
+public class PZPacketStreamSound implements IMessage, IMessageHandler<PZPacketStreamSound, IMessage> {
 
-public class PZPacketStreamSound implements IMessage, IMessageHandler<PZPacketStreamSound, IMessage>
-{
     private int posX;
     private int posY;
     private int posZ;
@@ -45,8 +45,7 @@ public class PZPacketStreamSound implements IMessage, IMessageHandler<PZPacketSt
         final ByteBufOutputStream data = new ByteBufOutputStream(buffer);
         try {
             this.writeData(data);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             DangerLogger.LOGGER.error("Error writing packet %s to ByteBufOutputStream", this);
             e.printStackTrace();
         }
@@ -56,8 +55,7 @@ public class PZPacketStreamSound implements IMessage, IMessageHandler<PZPacketSt
         final ByteBufInputStream byteStream = new ByteBufInputStream(buffer);
         try {
             this.readData(byteStream);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             DangerLogger.LOGGER.error("Error reading packet %s from ByteBufInputStream", this);
             e.printStackTrace();
         }

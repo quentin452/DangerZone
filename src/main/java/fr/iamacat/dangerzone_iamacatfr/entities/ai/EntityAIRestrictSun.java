@@ -1,12 +1,12 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
 import net.minecraft.entity.ai.EntityAIBase;
 
-public class EntityAIRestrictSun extends EntityAIBase
-{
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+
+public class EntityAIRestrictSun extends EntityAIBase {
+
     private EntityGenericCreature theEntity;
 
     public EntityAIRestrictSun(final EntityGenericCreature p_i1652_1_) {
@@ -18,10 +18,12 @@ public class EntityAIRestrictSun extends EntityAIBase
     }
 
     public void startExecuting() {
-        this.theEntity.getNavigator().setAvoidSun(true);
+        this.theEntity.getNavigator()
+            .setAvoidSun(true);
     }
 
     public void resetTask() {
-        this.theEntity.getNavigator().setAvoidSun(false);
+        this.theEntity.getNavigator()
+            .setAvoidSun(false);
     }
 }

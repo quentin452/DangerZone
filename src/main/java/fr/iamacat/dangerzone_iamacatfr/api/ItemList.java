@@ -1,12 +1,12 @@
 
-
 package fr.iamacat.dangerzone_iamacatfr.api;
 
-import com.google.common.base.Optional;
 import net.minecraft.item.Item;
 
-public enum ItemList
-{
+import com.google.common.base.Optional;
+
+public enum ItemList {
+
     instance;
 
     public static Optional<? extends Item> ankh;

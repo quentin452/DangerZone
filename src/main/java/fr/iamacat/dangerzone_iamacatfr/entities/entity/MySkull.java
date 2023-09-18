@@ -2,7 +2,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -37,7 +36,7 @@ public class MySkull extends EntityMob implements IMob {
     private int lastY;
     private int stuck_count;
     private GenericTargetSorter TargetSorter;
-    private float moveSpeed;
+    private final float moveSpeed;
     private int dmgDelay;
     private int boatPosRotationIncrements;
     private double boatX;
@@ -62,15 +61,15 @@ public class MySkull extends EntityMob implements IMob {
             .setAvoidsWater(true);
         this.experienceValue = 1000;
         this.isImmuneToFire = true;
-        this.TargetSorter = new GenericTargetSorter((Entity) this);
+        this.TargetSorter = new GenericTargetSorter(this);
     }
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
-            .setBaseValue((double) this.mygetMaxHealth());
+            .setBaseValue(this.mygetMaxHealth());
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
-            .setBaseValue((double) this.moveSpeed);
+            .setBaseValue(this.moveSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
             .setBaseValue(1.0);
     }
@@ -166,7 +165,7 @@ public class MySkull extends EntityMob implements IMob {
             this.rotationPitch += (float) ((this.boatPitch - this.rotationPitch) / this.boatPosRotationIncrements);
             double d7 = MathHelper.wrapAngleTo180_double(this.boatYaw - this.rotationYaw);
             if (this.riddenByEntity != null) {
-                d7 = MathHelper.wrapAngleTo180_double((double) (this.riddenByEntity.rotationYaw - this.rotationYaw));
+                d7 = MathHelper.wrapAngleTo180_double(this.riddenByEntity.rotationYaw - this.rotationYaw);
             }
             this.setRotation(this.rotationYaw += (float) (d7 / this.boatPosRotationIncrements), this.rotationPitch);
             this.rotationYawHead = this.rotationYaw;
@@ -238,18 +237,18 @@ public class MySkull extends EntityMob implements IMob {
             }
             this.stuck_count = 0;
         } else if (this.worldObj.rand.nextInt(10) == 0 && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) {
-            EntityPlayer target = null;
+            EntityPlayer target;
             target = (EntityPlayer) this.worldObj.findNearestEntityWithinAABB(
-                (Class) EntityPlayer.class,
+                EntityPlayer.class,
                 this.boundingBox.expand(65.0, 30.0, 65.0),
-                (Entity) this);
+                this);
             if (target != null) {
                 if (!target.capabilities.isCreativeMode) {
                     if (this.getEntitySenses()
-                        .canSee((Entity) target)) {
+                        .canSee(target)) {
                         this.currentFlightTarget.set((int) target.posX, (int) target.posY + 4, (int) target.posZ);
                         if (this.worldObj.rand.nextInt(4) == 1 || this.worldObj.rand.nextInt(5) == 1) {
-                            this.firecanon((EntityLivingBase) target);
+                            this.firecanon(target);
                         }
                     }
                 } else {
@@ -258,7 +257,7 @@ public class MySkull extends EntityMob implements IMob {
             }
             if (target == null && this.worldObj.rand.nextInt(3) == 0) {
                 EntityLivingBase e = null;
-                EntityLivingBase f = null;
+                EntityLivingBase f;
                 f = this.findSomethingToAttack();
                 if (e == null) {
                     e = f;
@@ -268,7 +267,7 @@ public class MySkull extends EntityMob implements IMob {
                     (this.currentFlightTarget = new ChunkCoordinates((int) e.posX, (int) e.posY, (int) e.posZ))
                         .set((int) e.posX, (int) e.posY + 5, (int) e.posZ);
                     this.firecanon(e);
-                    if (this.getDistanceSqToEntity((Entity) e) < (18.0f + e.width / 2.0f) * (18.0f + e.width / 2.0f)) {
+                    if (this.getDistanceSqToEntity(e) < (18.0f + e.width / 2.0f) * (18.0f + e.width / 2.0f)) {
                         final int down2 = 0;
                         int newz2 = this.rand.nextInt(5) + 6;
                         newz2 *= zdir;
@@ -279,7 +278,7 @@ public class MySkull extends EntityMob implements IMob {
                             (int) this.posY + this.rand.nextInt(3) - 1 - down2,
                             (int) this.posZ + newz2);
                     }
-                    if (this.getDistanceSqToEntity((Entity) e)
+                    if (this.getDistanceSqToEntity(e)
                         < (100.0f + e.width / 2.0f) * (100.0f + e.width / 2.0f)) {
                         this.findSomethingToAttack();
                     }
@@ -402,7 +401,7 @@ public class MySkull extends EntityMob implements IMob {
         }
         MySkull target = null;
         target = (MySkull) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MySkull.class,
+            (Class<MySkull>) MySkull.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
             (Entity) this);
         return target == null;
@@ -469,18 +468,18 @@ public class MySkull extends EntityMob implements IMob {
         final float r3 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
         bf = new BetterFireball(
             this.worldObj,
-            (EntityLivingBase) this,
+            this,
             e.posX - cx + r1,
             e.posY + e.height / 2.0f - (this.posY + yoff) + r2,
             e.posZ - cz + r3);
         bf.setLocationAndAngles(cx, this.posY + yoff, cz, this.rotationYaw, 0.0f);
         bf.setPosition(cx, this.posY + yoff, cz);
         bf.setPhoenix();
-        this.worldObj.playSoundAtEntity((Entity) this, Tags.MODID + ":slap", 3.0f, 1.0f);
-        this.worldObj.spawnEntityInWorld((Entity) bf);
+        this.worldObj.playSoundAtEntity(this, Tags.MODID + ":slap", 3.0f, 1.0f);
+        this.worldObj.spawnEntityInWorld(bf);
     }
 
-    private boolean isSuitableTarget(final EntityLivingBase par1EntityLiving, final boolean par2) {
+    private boolean isSuitableTarget(final EntityLivingBase par1EntityLiving) {
         if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
             return false;
         }
@@ -494,7 +493,7 @@ public class MySkull extends EntityMob implements IMob {
             return false;
         }
         if (!this.getEntitySenses()
-            .canSee((Entity) par1EntityLiving)) {
+            .canSee(par1EntityLiving)) {
             return false;
         }
         if (par1EntityLiving instanceof MySkull) {
@@ -517,15 +516,15 @@ public class MySkull extends EntityMob implements IMob {
 
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(45.0, 30.0, 45.0));
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(45.0, 30.0, 45.0));
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
-        Entity var7 = null;
-        EntityLivingBase var8 = null;
+        Entity var7;
+        EntityLivingBase var8;
         while (var6.hasNext()) {
             var7 = (Entity) var6.next();
             var8 = (EntityLivingBase) var7;
-            if (this.isSuitableTarget(var8, false)) {
+            if (this.isSuitableTarget(var8)) {
                 return var8;
             }
         }

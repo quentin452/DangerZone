@@ -83,7 +83,7 @@ public class EntityExHillsDragon extends EntityTameable {
                 .setBaseValue(999.0);
         } else {
             this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
-                .setBaseValue(20.0);
+                .setBaseValue(200.0);
         }
     }
 
@@ -133,18 +133,18 @@ public class EntityExHillsDragon extends EntityTameable {
     protected void fall(final float p_70069_1_) {}
 
     protected String getLivingSound() {
-        return this.isAngry() ? Tags.MODID + ":mob.tinydragon.tinydragon"
+        return this.isAngry() ? Tags.MODID + ":tinydragon"
             : ((this.rand.nextInt(3) == 0) ? ((this.isTamed() && this.dataWatcher.getWatchableObjectFloat(18) < 10.0f)
-                ? Tags.MODID + ":mob.tinydragon.tinydragon"
-                : Tags.MODID + ":mob.tinydragon.tinydragon") : Tags.MODID + ":mob.tinydragon.tinydragon");
+                ? Tags.MODID + ":tinydragon"
+                : Tags.MODID + ":tinydragon") : Tags.MODID + ":tinydragon");
     }
 
     protected String getHurtSound() {
-        return Tags.MODID + ":mob.tinydragon.tinydragon";
+        return Tags.MODID + ":tinydragon";
     }
 
     protected String getDeathSound() {
-        return Tags.MODID + ":mob.tinydragon.tinydragon";
+        return Tags.MODID + ":tinydragon";
     }
 
     protected float getSoundVolume() {
@@ -295,7 +295,7 @@ public class EntityExHillsDragon extends EntityTameable {
                 .setBaseValue(200.0);
         } else {
             this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
-                .setBaseValue(20.0);
+                .setBaseValue(200.0);
         }
     }
 
@@ -397,24 +397,24 @@ public class EntityExHillsDragon extends EntityTameable {
     }
 
     public boolean isAngry() {
-        return (this.dataWatcher.getWatchableObjectInt(16) & 0x2) != 0x0;
+        return (this.dataWatcher.getWatchableObjectByte(16) & 0x2) != 0x0;
     }
 
     public void setAngry(final boolean p_70916_1_) {
-        final int b0 = this.dataWatcher.getWatchableObjectInt(16);
+        final int b0 = this.dataWatcher.getWatchableObjectByte(16);
         if (p_70916_1_) {
-            this.dataWatcher.updateObject(16, (Object) (byte) (b0 | 0x2));
+            this.dataWatcher.updateObject(16, (byte) (b0 | 0x2));
         } else {
-            this.dataWatcher.updateObject(16, (Object) (byte) (b0 & 0xFFFFFFFD));
+            this.dataWatcher.updateObject(16,  (byte) (b0 & 0xFFFFFFFD));
         }
     }
 
     public int getCollarColor() {
-        return this.dataWatcher.getWatchableObjectInt(20) & 0xF;
+        return this.dataWatcher.getWatchableObjectByte(20) & 0xF;
     }
 
     public void setCollarColor(final int p_82185_1_) {
-        this.dataWatcher.updateObject(20, (Object) (byte) (p_82185_1_ & 0xF));
+        this.dataWatcher.updateObject(20,  (byte) (p_82185_1_ & 0xF));
     }
 
     public EntityExHillsDragon createChild(final EntityAgeable p_90011_1_) {
@@ -452,7 +452,7 @@ public class EntityExHillsDragon extends EntityTameable {
     }
 
     public boolean func_70922_bv() {
-        return this.dataWatcher.getWatchableObjectInt(19) == 1;
+        return this.dataWatcher.getWatchableObjectByte(19) == 1;
     }
 
     protected boolean canDespawn() {

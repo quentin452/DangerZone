@@ -60,8 +60,8 @@ public class TinyBirdsInstance extends BirdsInstance {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(DATA_BIRDTYPE, (byte) 0);
-        this.dataWatcher.addObject(DATA_BIRDFLAGS, (byte) 0);
+        this.dataWatcher.addObject(DATA_BIRDTYPE,  0);
+        this.dataWatcher.addObject(DATA_BIRDFLAGS, 0);
     }
 
     /**
@@ -124,7 +124,7 @@ public class TinyBirdsInstance extends BirdsInstance {
     }
 
     public void setBirdType(int par1) {
-        this.dataWatcher.updateObject(DATA_BIRDTYPE, (byte) par1);
+        this.dataWatcher.updateObject(DATA_BIRDTYPE,par1);
     }
 
     /**
@@ -132,7 +132,8 @@ public class TinyBirdsInstance extends BirdsInstance {
      */
     @Override
     protected String getLivingSound() {
-        return Tags.MODID + ":mob.tinybird.chirp";
+
+        return Tags.MODID + ":tinybirdchirp0";
     }
 
     /**
@@ -140,7 +141,7 @@ public class TinyBirdsInstance extends BirdsInstance {
      */
     @Override
     protected String getHurtSound() {
-        return Tags.MODID + ":mob.tinybird.hurt";
+        return Tags.MODID + ":tinybirdhurt0";
     }
 
     /**
@@ -148,7 +149,7 @@ public class TinyBirdsInstance extends BirdsInstance {
      */
     @Override
     protected String getDeathSound() {
-        return Tags.MODID + ":mob.tinybird.hurt";
+        return Tags.MODID + ":tinybirdhurt1";
     }
 
     /**
@@ -315,9 +316,9 @@ public class TinyBirdsInstance extends BirdsInstance {
         int b0 = this.dataWatcher.getWatchableObjectInt(DATA_BIRDFLAGS);
 
         if (par1) {
-            this.dataWatcher.updateObject(DATA_BIRDFLAGS, (byte) (b0 | 1));
+            this.dataWatcher.updateObject(DATA_BIRDFLAGS, (b0 | 1));
         } else {
-            this.dataWatcher.updateObject(DATA_BIRDFLAGS, (byte) (b0 & -2));
+            this.dataWatcher.updateObject(DATA_BIRDFLAGS,  (b0 & -2));
         }
     }
 

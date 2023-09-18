@@ -61,7 +61,7 @@ public class EntityAFightorFlight {
 
     public void updateEntityAFF(final World worldobj, final ArrayList<Item> temptItem) {
         ItemStack var1 = null;
-        this.entityplayer = this.worldObj.getClosestPlayerToEntity((Entity) this.entity, this.aggroRange);
+        this.entityplayer = this.worldObj.getClosestPlayerToEntity(this.entity, this.aggroRange);
         this.temptingItem = false;
         if (this.entityplayer != null && !temptItem.isEmpty()) {
             var1 = this.entityplayer.getCurrentEquippedItem();
@@ -77,21 +77,21 @@ public class EntityAFightorFlight {
             }
         }
         if (this.aggroRange != 0.0 && !this.temptingItem && !((EntityGenericTameable) this.entity).isTamed()) {
-            if (this.entityplayer != null && this.entity.canEntityBeSeen((Entity) this.entityplayer)) {
+            if (this.entityplayer != null && this.entity.canEntityBeSeen( this.entityplayer)) {
                 if (this.aggroLevel > 0.0f) {
                     final Random rand = new Random();
                     final int dieRoll = rand.nextInt(100);
                     if (this.aggroLevel >= dieRoll) {
                         if (this.entity.getAngerLevel() == 0 && this.entity.getFleeTick() == 0) {
-                            this.entity.tasks.removeTask((EntityAIBase) this.aiEntityAvoidEntity);
+                            this.entity.tasks.removeTask(this.aiEntityAvoidEntity);
                             this.entity.setAngerLevel(400);
                         }
                     } else if (this.entity.getAngerLevel() == 0 && this.entity.getFleeTick() == 0) {
-                        this.entity.tasks.addTask(1, (EntityAIBase) this.aiEntityAvoidEntity);
+                        this.entity.tasks.addTask(1,  this.aiEntityAvoidEntity);
                         this.entity.setFleeTick(400);
                     }
                 } else {
-                    this.entity.tasks.addTask(1, (EntityAIBase) this.aiEntityAvoidEntity);
+                    this.entity.tasks.addTask(1,  this.aiEntityAvoidEntity);
                     this.entity.setFleeTick(400);
                 }
             } else {

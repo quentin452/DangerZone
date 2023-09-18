@@ -2,7 +2,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,7 +19,6 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
-import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
@@ -212,7 +210,7 @@ public class TrevorPhillips extends EntityMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.44999998807907104, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
@@ -301,22 +299,22 @@ public class TrevorPhillips extends EntityMob {
             && this.worldObj.rand.nextInt(8) == 1) {
             EntityLivingBase e = null;
             if (this.worldObj.rand.nextInt(50) == 1) {
-                this.setAttackTarget((EntityLivingBase) null);
+                this.setAttackTarget(null);
             }
             e = this.getAttackTarget();
             if (e != null && !e.isEntityAlive()) {
-                this.setAttackTarget((EntityLivingBase) null);
+                this.setAttackTarget(null);
                 e = null;
             }
             if (e == null) {
                 e = this.findSomethingToAttack();
             }
             if (e != null) {
-                this.faceEntity((Entity) e, 10.0f, 10.0f);
-                if (this.getDistanceSqToEntity((Entity) e) < 256.0) {
-                    if (this.getDistanceSqToEntity((Entity) e) < (8.5f + e.width / 2.0f) * (8.5f + e.width / 2.0f)) {
-                        this.trevorSmash(this.posX, this.posY, this.posZ, 7.0, 1);
-                        this.attackEntityAsMob((Entity) e);
+                this.faceEntity(e, 10.0f, 10.0f);
+                if (this.getDistanceSqToEntity(e) < 256.0) {
+                    if (this.getDistanceSqToEntity(e) < (8.5f + e.width / 2.0f) * (8.5f + e.width / 2.0f)) {
+                        this.trevorSmash(this.posX, this.posY, this.posZ, 7.0);
+                        this.attackEntityAsMob(e);
                     } else {
                         final double rr = Math.atan2(e.posZ - this.posZ, e.posX - this.posX);
                         final double rhdir = Math.toRadians((this.rotationYawHead + 90.0f) % 360.0f);
@@ -327,18 +325,18 @@ public class TrevorPhillips extends EntityMob {
                         }
                         rdd = Math.abs(rdd);
                         if (rdd < 0.5) {
-                            if (this.getDistanceSqToEntity((Entity) e) > 285.0) {
+                            if (this.getDistanceSqToEntity( e) > 285.0) {
                                 this.reload_ticker = 30;
-                                this.worldObj.playSoundAtEntity((Entity) this, Tags.MODID + ":slap", 3.5f, 1.0f);
+                                this.worldObj.playSoundAtEntity( this, Tags.MODID + ":slap", 3.5f, 1.0f);
                             } else {
                                 this.reload_ticker = 10;
-                                this.worldObj.playSoundAtEntity((Entity) this, Tags.MODID + ":slap", 2.5f, 1.0f);
+                                this.worldObj.playSoundAtEntity(this, Tags.MODID + ":slap", 2.5f, 1.0f);
                             }
                         }
                         this.setAttacking(1);
                     }
                     this.getNavigator()
-                        .tryMoveToEntityLiving((Entity) e, 0.75);
+                        .tryMoveToEntityLiving(e, 0.75);
                     if (this.worldObj.rand.nextInt(4) == 0) {
                         double dx = e.posX;
                         double dz = e.posZ;
@@ -408,7 +406,7 @@ public class TrevorPhillips extends EntityMob {
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
             .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(16.0, 16.0, 16.0));
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         for (final Object var7 : var5) {
             final EntityLivingBase var8 = (EntityLivingBase) var7;
             if (this.isSuitableTarget(var8, false)) {
@@ -435,7 +433,7 @@ public class TrevorPhillips extends EntityMob {
     }
 
     private EntityLivingBase trevorSmash(final double X, final double Y, final double Z,
-                                         final double damage, final int knock) {
+                                         final double damage) {
         final AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(X - 8.0, Y - 2.0, Z - 8.0, X + 8.0, Y + 2.0, Z + 8.0);
         final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, this.TargetSorter);
@@ -446,14 +444,13 @@ public class TrevorPhillips extends EntityMob {
             var7 = (Entity) var6.next();
             var8 = (EntityLivingBase) var7;
             if (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && var8 != null
-                && var8 != this
                 && !(var8 instanceof TrevorPhillips)
                 && var8.isEntityAlive()) {
                 DamageSource var9 = null;
-                var9 = DamageSource.setExplosionSource((Explosion) null);
+                var9 = DamageSource.setExplosionSource(null);
                 var9.setExplosion();
-                var8.attackEntityFrom(var9, (float) damage / 1.0f);
-                var8.attackEntityFrom(DamageSource.fall, (float) damage / 1.0f);
+                var8.attackEntityFrom(var9, (float) damage);
+                var8.attackEntityFrom(DamageSource.fall, (float) damage);
                 final double ks = 0.05;
                 final double inair = 0.1;
                 final float f3 = (float) Math.atan2(var8.posZ - this.posZ, var8.posX - this.posX);
@@ -488,11 +485,11 @@ public class TrevorPhillips extends EntityMob {
         if (this.worldObj.isDaytime()) {
             return false;
         }
-        TrevorPhillips target = null;
+        TrevorPhillips target;
         target = (TrevorPhillips) this.worldObj.findNearestEntityWithinAABB(
-            (Class) TrevorPhillips.class,
+            TrevorPhillips.class,
             this.boundingBox.expand(128.0, 64.0, 128.0),
-            (Entity) this);
+            this);
         return target == null;
     }
 }

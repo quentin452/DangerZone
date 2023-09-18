@@ -42,31 +42,31 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
         this.setSize(0.6f, 0.8f);
         this.getNavigator()
             .setAvoidsWater(true);
-        this.tasks.addTask(1, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(2, (EntityAIBase) this.aiSit);
-        this.tasks.addTask(3, (EntityAIBase) new EntityAILeapAtTarget((EntityLiving) this, 0.4f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, 1.0, true));
-        this.tasks.addTask(5, (EntityAIBase) new EntityAIFollowOwner((EntityTameable) this, 1.0, 10.0f, 2.0f));
-        this.tasks.addTask(6, (EntityAIBase) new EntityAIMate((EntityAnimal) this, 1.0));
-        this.tasks.addTask(7, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+        this.tasks.addTask(1,  new EntityAISwimming( this));
+        this.tasks.addTask(2,  this.aiSit);
+        this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4f));
+        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, 1.0, true));
+        this.tasks.addTask(5,  new EntityAIFollowOwner(this, 1.0, 10.0f, 2.0f));
+        this.tasks.addTask(6, new EntityAIMate(this, 1.0));
+        this.tasks.addTask(7, new EntityAIWander(this, 1.0));
         this.tasks.addTask(
             8,
-            (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
+          new EntityAITempt(this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
         this.tasks.addTask(
             9,
-            (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
+           new EntityAITempt( this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
         this.tasks.addTask(
             10,
-            (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(11, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
+           new EntityAIWatchClosest( this, EntityPlayer.class, 8.0f));
+        this.tasks.addTask(11, new EntityAILookIdle(this));
         this.isImmuneToFire = true;
         this.experienceValue = 10;
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIOwnerHurtByTarget((EntityTameable) this));
-        this.targetTasks.addTask(2, (EntityAIBase) new EntityAIOwnerHurtTarget((EntityTameable) this));
-        this.targetTasks.addTask(3, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, true));
+        this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
+        this.targetTasks.addTask(2,  new EntityAIOwnerHurtTarget(this));
+        this.targetTasks.addTask(3,  new EntityAIHurtByTarget(this, true));
         this.targetTasks.addTask(
             4,
-            (EntityAIBase) new EntityAITargetNonTamed((EntityTameable) this, (Class) EntitySheep.class, 200, false));
+            new EntityAITargetNonTamed(this, EntitySheep.class, 200, false));
         this.setTamed(false);
     }
 
@@ -83,7 +83,7 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
                 .setBaseValue(999.0);
         } else {
             this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
-                .setBaseValue(20.0);
+                .setBaseValue(200.0);
         }
     }
 
@@ -107,8 +107,8 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
     protected void entityInit() {
         super.entityInit();
         this.dataWatcher.addObject(18, this.getHealth());
-        this.dataWatcher.addObject(19, (byte) 0);
-        this.dataWatcher.addObject(20, (byte) BlockColored.func_150032_b(1));
+        this.dataWatcher.addObject(19, 0);
+        this.dataWatcher.addObject(20, BlockColored.func_150032_b(1));
     }
 
     protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_,
@@ -119,32 +119,32 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
     public void writeEntityToNBT(final NBTTagCompound p_70014_1_) {
         super.writeEntityToNBT(p_70014_1_);
         p_70014_1_.setBoolean("Angry", this.isAngry());
-        p_70014_1_.setByte("CollarColor", (byte) this.getCollarColor());
+        p_70014_1_.setInteger("CollarColor",  this.getCollarColor());
     }
 
     public void readEntityFromNBT(final NBTTagCompound p_70037_1_) {
         super.readEntityFromNBT(p_70037_1_);
         this.setAngry(p_70037_1_.getBoolean("Angry"));
         if (p_70037_1_.hasKey("CollarColor", 99)) {
-            this.setCollarColor(p_70037_1_.getByte("CollarColor"));
+            this.setCollarColor(p_70037_1_.getInteger("CollarColor"));
         }
     }
 
     protected void fall(final float p_70069_1_) {}
 
     protected String getLivingSound() {
-        return this.isAngry() ? Tags.MODID + ":mob.tinydragon.tinydragon"
+        return this.isAngry() ? Tags.MODID + ":tinydragon"
             : ((this.rand.nextInt(3) == 0) ? ((this.isTamed() && this.dataWatcher.getWatchableObjectFloat(18) < 10.0f)
-                ? Tags.MODID + ":mob.tinydragon.tinydragon"
-                : Tags.MODID + ":mob.tinydragon.tinydragon") : Tags.MODID + ":mob.tinydragon.tinydragon");
+                ? Tags.MODID + ":tinydragon"
+                : Tags.MODID + ":tinydragon") : Tags.MODID + ":tinydragon");
     }
 
     protected String getHurtSound() {
-        return Tags.MODID + ":mob.tinydragon.tinydragon";
+        return Tags.MODID + ":tinydragon";
     }
 
     protected String getDeathSound() {
-        return Tags.MODID + ":mob.tinydragon.tinydragon";
+        return Tags.MODID + ":tinydragon";
     }
 
     protected float getSoundVolume() {
@@ -180,7 +180,7 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
             this.field_70928_h = true;
             this.timeWolfIsShaking = 0.0f;
             this.prevTimeWolfIsShaking = 0.0f;
-            this.worldObj.setEntityState((Entity) this, (byte) 8);
+            this.worldObj.setEntityState(this, (byte) 8);
         }
     }
 
@@ -224,7 +224,7 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
                     this.worldObj.spawnParticle(
                         "splash",
                         this.posX + f2,
-                        (double) (f + 0.8f),
+                        f + 0.8f,
                         this.posZ + f3,
                         this.motionX,
                         this.motionY,
@@ -292,7 +292,7 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
         super.setTamed(p_70903_1_);
         if (p_70903_1_) {
             this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
-                .setBaseValue(20.0);
+                .setBaseValue(200.0);
         } else {
             this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
                 .setBaseValue(200.0);
@@ -332,12 +332,12 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
                     }
                 }
             }
-            if (this.func_152114_e((EntityLivingBase) p_70085_1_) && !this.worldObj.isRemote
+            if (this.func_152114_e(p_70085_1_) && !this.worldObj.isRemote
                 && !this.isBreedingItem(itemstack)) {
                 this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
-                this.setPathToEntity((PathEntity) null);
-                this.setTarget((Entity) null);
+                this.setPathToEntity(null);
+                this.setTarget(null);
                 this.setAttackTarget(null);
             }
         } else if (itemstack != null && itemstack.getItem() == ItemInitDangerZone.rainbowOpalChunk && !this.isAngry()) {
@@ -346,12 +346,12 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
                 --itemStack3.stackSize;
             }
             if (itemstack.stackSize <= 0) {
-                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
             }
             if (!this.worldObj.isRemote) {
                 if (this.rand.nextInt(3) == 0) {
                     this.setTamed(true);
-                    this.setPathToEntity((PathEntity) null);
+                    this.setPathToEntity(null);
                     this.setAttackTarget(null);
                     this.aiSit.setSitting(true);
                     this.setHealth(999.0f);
@@ -359,10 +359,10 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
                         p_70085_1_.getUniqueID()
                             .toString());
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState((Entity) this, (byte) 7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 } else {
                     this.playTameEffect(false);
-                    this.worldObj.setEntityState((Entity) this, (byte) 6);
+                    this.worldObj.setEntityState(this, (byte) 6);
                 }
             }
             return true;
@@ -397,24 +397,27 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
     }
 
     public boolean isAngry() {
-        return (this.dataWatcher.getWatchableObjectInt(16) & 0x2) != 0x0;
+        byte byteValue = this.dataWatcher.getWatchableObjectByte(16);
+        return ((int) byteValue & 0x2) != 0x0;
     }
 
     public void setAngry(final boolean p_70916_1_) {
-        final int b0 = this.dataWatcher.getWatchableObjectInt(16);
+        int intValue = this.dataWatcher.getWatchableObjectInt(16);
         if (p_70916_1_) {
-            this.dataWatcher.updateObject(16, (Object) (byte) (b0 | 0x2));
+            intValue |= 0x2;
         } else {
-            this.dataWatcher.updateObject(16, (Object) (byte) (b0 & 0xFFFFFFFD));
+            intValue &= 0xFFFFFFFD;
         }
+        this.dataWatcher.updateObject(16, intValue);
     }
 
+
     public int getCollarColor() {
-        return this.dataWatcher.getWatchableObjectInt(20) & 0xF;
+        return this.dataWatcher.getWatchableObjectByte(20) & 0xF;
     }
 
     public void setCollarColor(final int p_82185_1_) {
-        this.dataWatcher.updateObject(20, (Object) (byte) (p_82185_1_ & 0xF));
+        this.dataWatcher.updateObject(20, (byte) (p_82185_1_ & 0xF));
     }
 
     public EntityDiamondDragon createChild(final EntityAgeable p_90011_1_) {
@@ -430,9 +433,9 @@ public class EntityDiamondDragon extends DecoyCaveDragonTameable {
 
     public void func_70918_i(final boolean p_70918_1_) {
         if (p_70918_1_) {
-            this.dataWatcher.updateObject(19, (Object) 1);
+            this.dataWatcher.updateObject(19, 1);
         } else {
-            this.dataWatcher.updateObject(19, (Object) 0);
+            this.dataWatcher.updateObject(19, 0);
         }
     }
 

@@ -7,6 +7,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.WhaleRenderer;
 import fr.iamacat.dangerzone_iamacatfr.items.IrukandjiArrows;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
@@ -968,6 +969,19 @@ public class EntityInitDangerZone {
             ChipMunkInstance.class,
             "ChipMunkInstance",
             ChipMunkInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int WhaleInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(WhaleRenderer.WhaleInstance.class, "WhaleInstance", WhaleInstance);
+
+        EntityRegistry.registerModEntity(
+            WhaleRenderer.WhaleInstance.class,
+            "WhaleInstance",
+            WhaleInstance, // Use the chosen unique ID
             Tags.MODID,
             32,
             1,

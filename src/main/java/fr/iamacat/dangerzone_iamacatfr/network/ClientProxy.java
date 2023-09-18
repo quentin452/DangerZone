@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.render.unfinished.RenderTFGeneri
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -139,6 +140,12 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(
             ChipMunkInstance.class,
             new RenderTFGenericLiving(new ChipmunkModel(), 1.0F, ":textures/entity/squirrel2.png"));
+
+        RenderingRegistry.registerEntityRenderingHandler(WhaleRenderer.WhaleInstance.class, new RenderLiving(new WhaleRenderer.ModelWhale(), 0.0f) {
+            protected ResourceLocation getEntityTexture(final Entity par1Entity) {
+                return new ResourceLocation(Tags.MODID +":textures/entity/BelugaTexture.png");
+            }
+        });
 
     }
 

@@ -7,6 +7,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.WhaleRenderer;
 import fr.iamacat.dangerzone_iamacatfr.spawnable.SpawnEggs;
 import fr.iamacat.dangerzone_iamacatfr.util.Constants;
 
@@ -300,10 +301,10 @@ public class SpawnEggInitDangerZone {
         Constants.FlounderSPawnEgg = FlounderSPawnEgg;
         GameRegistry.registerItem(Constants.FlounderSPawnEgg, "Flounder Egg");
 
-        SpawnEggs WhaleSpawnEgg = new SpawnEggs(WhaleInstance.class);
+        SpawnEggs WhaleSpawnEgg = new SpawnEggs(WhaleRenderer.WhaleInstance.class);
         WhaleSpawnEgg.setUnlocalizedName("whale_egg");
         Constants.WhaleSpawnEgg = WhaleSpawnEgg;
-        GameRegistry.registerItem(Constants.WhaleSpawnEgg, "Whale Egg");
+        GameRegistry.registerItem(Constants.WhaleSpawnEgg, "WhaleInstance Egg");
 
         SpawnEggs SkateSpawnEgg = new SpawnEggs(SkateInstance.class);
         SkateSpawnEgg.setUnlocalizedName("skate_egg");

@@ -25,7 +25,7 @@ public class EntityAIFollowParent extends EntityAIBase {
             return false;
         }
         final List<EntityGenericBreedable> var1 = this.childAnimal.worldObj.getEntitiesWithinAABB(
-            (Class) this.childAnimal.getClass(),
+             this.childAnimal.getClass(),
             this.childAnimal.boundingBox.expand(8.0, 4.0, 8.0));
         EntityGenericBreedable var2 = null;
         double var3 = Double.MAX_VALUE;

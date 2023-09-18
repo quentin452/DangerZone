@@ -187,7 +187,7 @@ public class MyCloud extends EntityAmbientCreature {
 
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(8.0, 5.0, 8.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(8.0, 5.0, 8.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

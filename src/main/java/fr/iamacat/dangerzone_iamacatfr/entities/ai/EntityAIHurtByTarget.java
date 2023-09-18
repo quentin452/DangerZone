@@ -18,7 +18,7 @@ public class EntityAIHurtByTarget extends EntityAITarget {
 
     public EntityAIHurtByTarget(final EntityGenericCreature par1EntityLiving, final boolean shouldCallAllies,
         final boolean shouldCheckSight) {
-        super((EntityLiving) par1EntityLiving, 16.0f, shouldCheckSight);
+        super( par1EntityLiving, 16.0f, shouldCheckSight);
         this.fleeChance = 0;
         this.shouldCallAllies = shouldCallAllies;
         this.setMutexBits(1);
@@ -40,7 +40,7 @@ public class EntityAIHurtByTarget extends EntityAITarget {
         this.entityPathNavigate = this.taskOwner.getAITarget();
         if (this.shouldCallAllies) {
             final List<EntityLiving> var1 = this.taskOwner.worldObj.getEntitiesWithinAABB(
-                (Class) this.taskOwner.getClass(),
+                 this.taskOwner.getClass(),
                 AxisAlignedBB
                     .getBoundingBox(
                         this.taskOwner.posX,

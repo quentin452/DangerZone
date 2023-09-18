@@ -64,28 +64,28 @@ public abstract class DecoyOverworldDragonTameable extends EntityTameable {
     protected void addBasicAI() {
         this.getNavigator()
             .setAvoidsWater(true);
-        this.tasks.addTask(1, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(2, (EntityAIBase) this.aiSit);
-        this.tasks.addTask(3, (EntityAIBase) new EntityAILeapAtTarget((EntityLiving) this, 0.4f));
+        this.tasks.addTask(1, new EntityAISwimming( this));
+        this.tasks.addTask(2, this.aiSit);
+        this.tasks.addTask(3, new EntityAILeapAtTarget( this, 0.4f));
         this.tasks.addTask(
             4,
-            (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, this.getMoveSpeed() * 5.0, true));
+            new EntityAIAttackOnCollide( this, this.getMoveSpeed() * 5.0, true));
         this.tasks.addTask(
             5,
-            (EntityAIBase) new EntityAIFollowOwner((EntityTameable) this, this.getMoveSpeed() * 5.0, 4.0f, 16.0f));
-        this.tasks.addTask(6, (EntityAIBase) new EntityAIMate((EntityAnimal) this, 1.0));
-        this.tasks.addTask(7, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+            new EntityAIFollowOwner((EntityTameable) this, this.getMoveSpeed() * 5.0, 4.0f, 16.0f));
+        this.tasks.addTask(6, new EntityAIMate((EntityAnimal) this, 1.0));
+        this.tasks.addTask(7, new EntityAIWander( this, 1.0));
         this.tasks
-            .addTask(9, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(9, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIOwnerHurtByTarget((EntityTameable) this));
-        this.targetTasks.addTask(2, (EntityAIBase) new EntityAIOwnerHurtTarget((EntityTameable) this));
-        this.targetTasks.addTask(3, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, true));
+            .addTask(9, new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
+        this.tasks.addTask(9, new EntityAILookIdle( this));
+        this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget((EntityTameable) this));
+        this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget((EntityTameable) this));
+        this.targetTasks.addTask(3, new EntityAIHurtByTarget( this, true));
         this.targetTasks.addTask(
             6,
-            (EntityAIBase) new EntityAINearestAttackableTarget(
-                (EntityCreature) this,
-                (Class) EntityLiving.class,
+            new EntityAINearestAttackableTarget(
+                 this,
+                 EntityLiving.class,
                 0,
                 false,
                 true,
@@ -95,16 +95,16 @@ public abstract class DecoyOverworldDragonTameable extends EntityTameable {
     protected void addAttackingAI() {
         this.tasks.addTask(
             5,
-            (EntityAIBase) new EntityAIAttackOnCollide(
-                (EntityCreature) this,
-                (Class) EntityPlayer.class,
+            new EntityAIAttackOnCollide(
+                 this,
+                 EntityPlayer.class,
                 this.getMoveSpeed(),
                 false));
         this.targetTasks.addTask(
             6,
-            (EntityAIBase) new EntityAINearestAttackableTarget(
-                (EntityCreature) this,
-                (Class) EntityPlayer.class,
+            new EntityAINearestAttackableTarget(
+                 this,
+                 EntityPlayer.class,
                 0,
                 true));
     }

@@ -56,15 +56,15 @@ public class MyArcticScorpion extends EntityMob {
         this.fireResistance = 100;
         this.renderDistanceWeight = 1.0;
         this.isImmuneToFire = true;
-        this.TargetSorter = new GenericTargetSorter((Entity) this);
+        this.TargetSorter = new GenericTargetSorter(this);
         this.renderdata = new RenderInfo();
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(2, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+        this.tasks.addTask(0, new EntityAISwimming( this));
+        this.tasks.addTask(2, new EntityAIWander( this, 1.0));
         this.tasks.addTask(
             3,
-            (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 12.0f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, false));
+            new EntityAIWatchClosest( this,  EntityPlayer.class, 12.0f));
+        this.tasks.addTask(4, new EntityAILookIdle( this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
     }
 
     protected void entityInit() {
@@ -86,11 +86,11 @@ public class MyArcticScorpion extends EntityMob {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
-            .setBaseValue((double) this.mygetMaxHealth());
+            .setBaseValue(this.mygetMaxHealth());
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
-            .setBaseValue((double) this.moveSpeed);
+            .setBaseValue(this.moveSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance)
-            .setBaseValue((double) this.knockResistance);
+            .setBaseValue(this.knockResistance);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
             .setBaseValue(125.0);
     }
@@ -100,9 +100,9 @@ public class MyArcticScorpion extends EntityMob {
     }
 
     public void onUpdate() {
-        EntityLivingBase e = null;
+        EntityLivingBase e;
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
-            .setBaseValue((double) this.moveSpeed);
+            .setBaseValue(this.moveSpeed);
         super.onUpdate();
         e = this.findSomethingToAttack();
         if (e != null) {
@@ -111,49 +111,49 @@ public class MyArcticScorpion extends EntityMob {
                 e.posX,
                 this.posY + 1.25,
                 e.posZ,
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
             this.worldObj.spawnParticle(
                 "fireworksSpark",
                 e.posX,
                 this.posY + 1.25,
                 e.posZ,
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
+                this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat(),
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
             this.worldObj.spawnParticle(
                 "fireworksSpark",
                 e.posX,
                 this.posY + 1.25,
                 e.posZ,
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
+                this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat(),
+                this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat(),
+                this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
             this.worldObj.spawnParticle(
                 "fireworksSpark",
                 e.posX,
                 this.posY + 1.25,
                 e.posZ,
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
+                 (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
             this.worldObj.spawnParticle(
                 "fireworksSpark",
                 e.posX,
                 this.posY + 1.25,
                 e.posZ,
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
+                this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat(),
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
+                (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
             this.worldObj.spawnParticle(
                 "fireworksSpark",
                 e.posX,
                 this.posY + 1.25,
                 e.posZ,
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
-                (double) (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
+                 (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
+                 (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()),
+               (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()));
             final double a = Math.atan2(e.posZ - this.posZ, e.posX - this.posX);
         }
     }
@@ -313,8 +313,8 @@ public class MyArcticScorpion extends EntityMob {
         boolean ret = false;
         if (par1Entity != null && par1Entity instanceof EntityDragon) {
             final EntityDragon dr = (EntityDragon) par1Entity;
-            DamageSource var3 = null;
-            var3 = DamageSource.setExplosionSource((Explosion) null);
+            DamageSource var3;
+            var3 = DamageSource.setExplosionSource(null);
             var3.setExplosion();
             dr.attackEntityFromPart(dr.dragonPartHead, var3, 125.0f);
             ret = true;
@@ -358,7 +358,7 @@ public class MyArcticScorpion extends EntityMob {
                 this.setAttackTarget((EntityLivingBase) e);
                 this.setTarget(e);
                 this.getNavigator()
-                    .tryMoveToEntityLiving((Entity) e, 1.2);
+                    .tryMoveToEntityLiving(e, 1.2);
             }
             if (e != null && e instanceof EntityPlayer && this.getHealth() < this.getMaxHealth() * 9.0f / 10.0f) {
                 this.atcgothit = 1;
@@ -376,7 +376,7 @@ public class MyArcticScorpion extends EntityMob {
     }
 
     protected void updateAITasks() {
-        EntityLivingBase e = null;
+        EntityLivingBase e;
         if (this.isDead) {
             return;
         }
@@ -387,33 +387,33 @@ public class MyArcticScorpion extends EntityMob {
         if (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.worldObj.rand.nextInt(4) == 0) {
             e = this.getAttackTarget();
             if (e != null && !e.isEntityAlive()) {
-                this.setAttackTarget((EntityLivingBase) null);
+                this.setAttackTarget(null);
                 e = null;
             }
             if (e == null) {
                 e = this.findSomethingToAttack();
             }
             if (e != null) {
-                this.faceEntity((Entity) e, 10.0f, 10.0f);
+                this.faceEntity(e, 10.0f, 10.0f);
                 if (this.worldObj.rand.nextInt(40) == 1) {
                     this.MagicExplode(e);
                 } else {
                     this.Pinch(this.posX, this.posY, this.posZ, 6.5, 125.0, 1);
                 }
-                this.faceEntity((Entity) e, 10.0f, 10.0f);
+                this.faceEntity(e, 10.0f, 10.0f);
                 this.setAttacking(1);
-                if (this.getDistanceSqToEntity((Entity) e) < (10.5 + e.width / 2.0f) * (10.5f + e.width / 2.0f)) {
-                    this.attackEntityAsMob((Entity) e);
+                if (this.getDistanceSqToEntity(e) < (10.5 + e.width / 2.0f) * (10.5f + e.width / 2.0f)) {
+                    this.attackEntityAsMob(e);
                     if (!this.worldObj.isRemote) {
                         if (this.worldObj.rand.nextInt(9) == 1) {
-                            this.worldObj.playSoundAtEntity((Entity) e, Tags.MODID + ":pincer_a", 3.0f, 0.8f);
+                            this.worldObj.playSoundAtEntity(e, Tags.MODID + ":pincer_a1", 3.0f, 0.8f);
                         } else {
-                            this.worldObj.playSoundAtEntity((Entity) e, Tags.MODID + ":pincer_a", 3.0f, 0.8f);
+                            this.worldObj.playSoundAtEntity(e, Tags.MODID + ":pincer_a2", 3.0f, 0.8f);
                         }
                     }
                 } else {
                     this.getNavigator()
-                        .tryMoveToEntityLiving((Entity) e, 1.8);
+                        .tryMoveToEntityLiving(e, 1.8);
                 }
             } else {
                 this.setAttacking(0);
@@ -426,17 +426,17 @@ public class MyArcticScorpion extends EntityMob {
 
     public static Entity spawnCreature(final World par0World, final String par1, final double par2, final double par4,
         final double par6) {
-        Entity var8 = null;
+        Entity var8;
         var8 = EntityList.createEntityByName(par1, par0World);
         if (var8 != null) {
             var8.setLocationAndAngles(par2, par4, par6, par0World.rand.nextFloat() * 360.0f, 0.0f);
             par0World.spawnEntityInWorld(var8);
-            ((EntityLiving) var8).playLivingSound();
+             ((EntityLiving) var8).playLivingSound();
         }
         return var8;
     }
 
-    private boolean isSuitableTarget(final EntityLivingBase par1EntityLiving, final boolean par2) {
+    private boolean isSuitableTarget(final EntityLivingBase par1EntityLiving) {
         if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
             return false;
         }
@@ -449,11 +449,11 @@ public class MyArcticScorpion extends EntityMob {
         if (!par1EntityLiving.isEntityAlive()) {
             return false;
         }
-        if (MobUtils.isPony((Entity) par1EntityLiving)) {
+        if (MobUtils.isPony(par1EntityLiving)) {
             return false;
         }
         if (!this.getEntitySenses()
-            .canSee((Entity) par1EntityLiving)) {
+            .canSee(par1EntityLiving)) {
             return false;
         }
         if (MobUtils.isIgnoreable(par1EntityLiving)) {
@@ -524,15 +524,15 @@ public class MyArcticScorpion extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(48.0, 12.0, 48.0));
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(48.0, 12.0, 48.0));
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
-        Entity var7 = null;
-        EntityLivingBase var8 = null;
+        Entity var7;
+        EntityLivingBase var8;
         while (var6.hasNext()) {
             var7 = (Entity) var6.next();
             var8 = (EntityLivingBase) var7;
-            if (this.isSuitableTarget(var8, false)) {
+            if (this.isSuitableTarget(var8)) {
                 return var8;
             }
         }
@@ -546,7 +546,7 @@ public class MyArcticScorpion extends EntityMob {
                     final Block bid = this.worldObj
                         .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
                             .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
@@ -561,11 +561,11 @@ public class MyArcticScorpion extends EntityMob {
         if (this.worldObj.isDaytime()) {
             return false;
         }
-        MyArcticScorpion target = null;
+        MyArcticScorpion target;
         target = (MyArcticScorpion) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyArcticScorpion.class,
+            MyArcticScorpion.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
-            (Entity) this);
+            this);
         return target == null;
     }
 
@@ -573,8 +573,8 @@ public class MyArcticScorpion extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
         EntityLivingBase var8 = null;
@@ -587,8 +587,8 @@ public class MyArcticScorpion extends EntityMob {
                 && !(var8 instanceof MyArcticScorpion)
                 && !(var8 instanceof MyWindigo)
                 && !(var8 instanceof MyDarkness)) {
-                DamageSource var9 = null;
-                var9 = DamageSource.setExplosionSource((Explosion) null);
+                DamageSource var9;
+                var9 = DamageSource.setExplosionSource(null);
                 var9.setExplosion();
                 var8.attackEntityFrom(var9, 175.0f);
                 var8.attackEntityFrom(DamageSource.inWall, 175.0f);
@@ -645,7 +645,7 @@ public class MyArcticScorpion extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;
@@ -661,8 +661,8 @@ public class MyArcticScorpion extends EntityMob {
                 DamageSource var9;
                 var9 = DamageSource.setExplosionSource(null);
                 var9.setExplosion();
-                var8.attackEntityFrom(var9, (float) damage / 1.0f);
-                var8.attackEntityFrom(DamageSource.magic, (float) damage / 1.0f);
+                var8.attackEntityFrom(var9, (float) damage);
+                var8.attackEntityFrom(DamageSource.magic, (float) damage);
                 this.worldObj.playSoundAtEntity(
                     var8,
                     "random.explode",
@@ -694,6 +694,6 @@ public class MyArcticScorpion extends EntityMob {
     }
 
     public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+        this.dataWatcher.updateObject(20, (byte) par1);
     }
 }

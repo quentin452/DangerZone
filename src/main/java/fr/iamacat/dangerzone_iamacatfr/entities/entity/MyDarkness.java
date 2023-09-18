@@ -166,7 +166,7 @@ public class MyDarkness extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -364,7 +364,7 @@ public class MyDarkness extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -394,7 +394,7 @@ public class MyDarkness extends EntityMob {
 
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(64.0, 32.0, 64.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(64.0, 32.0, 64.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

@@ -72,7 +72,7 @@ public class TermiteAntNest extends BlockGrass {
         if (var8 != null) {
             var8.setLocationAndAngles(par2, par4, par6, par0World.rand.nextFloat() * 360.0f, 0.0f);
             par0World.spawnEntityInWorld(var8);
-            ((EntityLiving) var8).playLivingSound();
+             ((EntityLiving) var8).playLivingSound();
         }
         return var8;
     }

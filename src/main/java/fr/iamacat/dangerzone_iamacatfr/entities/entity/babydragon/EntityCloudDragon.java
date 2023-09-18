@@ -41,31 +41,31 @@ public class EntityCloudDragon extends DecoySkyDragonTameable {
         this.setSize(0.6f, 0.8f);
         this.getNavigator()
             .setAvoidsWater(true);
-        this.tasks.addTask(1, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(2, (EntityAIBase) this.aiSit);
-        this.tasks.addTask(3, (EntityAIBase) new EntityAILeapAtTarget((EntityLiving) this, 0.4f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, 1.0, true));
-        this.tasks.addTask(5, (EntityAIBase) new EntityAIFollowOwner((EntityTameable) this, 1.0, 10.0f, 2.0f));
-        this.tasks.addTask(6, (EntityAIBase) new EntityAIMate((EntityAnimal) this, 1.0));
-        this.tasks.addTask(7, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+        this.tasks.addTask(1, new EntityAISwimming( this));
+        this.tasks.addTask(2, this.aiSit);
+        this.tasks.addTask(3, new EntityAILeapAtTarget( this, 0.4f));
+        this.tasks.addTask(4, new EntityAIAttackOnCollide( this, 1.0, true));
+        this.tasks.addTask(5, new EntityAIFollowOwner( this, 1.0, 10.0f, 2.0f));
+        this.tasks.addTask(6, new EntityAIMate( this, 1.0));
+        this.tasks.addTask(7, new EntityAIWander( this, 1.0));
         this.tasks.addTask(
             8,
-            (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
+            new EntityAITempt( this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
         this.tasks.addTask(
             9,
-            (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
+            new EntityAITempt( this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
         this.tasks.addTask(
             10,
-            (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(11, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
+            new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
+        this.tasks.addTask(11, new EntityAILookIdle( this));
         this.isImmuneToFire = true;
         this.experienceValue = 10;
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIOwnerHurtByTarget((EntityTameable) this));
-        this.targetTasks.addTask(2, (EntityAIBase) new EntityAIOwnerHurtTarget((EntityTameable) this));
-        this.targetTasks.addTask(3, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, true));
+        this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
+        this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
+        this.targetTasks.addTask(3, new EntityAIHurtByTarget( this, true));
         this.targetTasks.addTask(
             4,
-            (EntityAIBase) new EntityAITargetNonTamed((EntityTameable) this, (Class) EntitySheep.class, 200, false));
+            new EntityAITargetNonTamed(this,  EntitySheep.class, 200, false));
         this.setTamed(false);
     }
 
@@ -312,7 +312,7 @@ public class EntityCloudDragon extends DecoySkyDragonTameable {
                         this.heal((float) itemfood.func_150905_g(itemstack));
                         if (itemstack.stackSize <= 0) {
                             p_70085_1_.inventory
-                                .setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+                                .setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
                         }
                         return true;
                     }
@@ -323,7 +323,7 @@ public class EntityCloudDragon extends DecoySkyDragonTameable {
                         if (!p_70085_1_.capabilities.isCreativeMode) {
                             if (--itemstack.stackSize <= 0) {
                                 p_70085_1_.inventory
-                                    .setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+                                    .setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
                             }
                         }
                         return true;
@@ -400,9 +400,9 @@ public class EntityCloudDragon extends DecoySkyDragonTameable {
     public void setAngry(final boolean p_70916_1_) {
         final int b0 = this.dataWatcher.getWatchableObjectByte(16);
         if (p_70916_1_) {
-            this.dataWatcher.updateObject(16, (Object) (byte) (b0 | 0x2));
+            this.dataWatcher.updateObject(16, (byte) (b0 | 0x2));
         } else {
-            this.dataWatcher.updateObject(16, (Object) (byte) (b0 & 0xFFFFFFFD));
+            this.dataWatcher.updateObject(16,  (byte) (b0 & 0xFFFFFFFD));
         }
     }
 
@@ -411,7 +411,7 @@ public class EntityCloudDragon extends DecoySkyDragonTameable {
     }
 
     public void setCollarColor(final int p_82185_1_) {
-        this.dataWatcher.updateObject(20, (Object) (byte) (p_82185_1_ & 0xF));
+        this.dataWatcher.updateObject(20, (byte) (p_82185_1_ & 0xF));
     }
 
     public EntityCloudDragon createChild(final EntityAgeable p_90011_1_) {
@@ -427,9 +427,9 @@ public class EntityCloudDragon extends DecoySkyDragonTameable {
 
     public void func_70918_i(final boolean p_70918_1_) {
         if (p_70918_1_) {
-            this.dataWatcher.updateObject(19, (Object) 1);
+            this.dataWatcher.updateObject(19,  1);
         } else {
-            this.dataWatcher.updateObject(19, (Object) 0);
+            this.dataWatcher.updateObject(19, 0);
         }
     }
 
@@ -449,7 +449,7 @@ public class EntityCloudDragon extends DecoySkyDragonTameable {
     }
 
     public boolean func_70922_bv() {
-        return this.dataWatcher.getWatchableObjectByte(19) == 1;
+        return this.dataWatcher.getWatchableObjectInt(19) == 1;
     }
 
     public String mobName() {

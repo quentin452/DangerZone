@@ -63,15 +63,15 @@ public class MyUrsaMAJOR extends EntityMob {
             .setAvoidsWater(true);
         this.experienceValue = 10000;
         this.renderDistanceWeight = 16.0;
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(1, (EntityAIBase) new EntityAIMoveThroughVillage((EntityCreature) this, 1.0, false));
-        this.wander = new EntityAIWander((EntityCreature) this, 1.0);
-        this.tasks.addTask(2, (EntityAIBase) this.wander);
+        this.tasks.addTask(0, new EntityAISwimming( this));
+        this.tasks.addTask(1, new EntityAIMoveThroughVillage( this, 1.0, false));
+        this.wander = new EntityAIWander( this, 1.0);
+        this.tasks.addTask(2, this.wander);
         this.tasks.addTask(
             3,
-            (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityLiving.class, 50.0f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, false));
+            new EntityAIWatchClosest( this,  EntityLiving.class, 50.0f));
+        this.tasks.addTask(4, new EntityAILookIdle( this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
         this.TargetSorter = new GenericTargetSorter((Entity) this);
         this.fireResistance = 10000;
         this.isImmuneToFire = true;
@@ -430,7 +430,7 @@ public class MyUrsaMAJOR extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 30.0, Z - dist, X + dist, Y + 30.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -473,7 +473,7 @@ public class MyUrsaMAJOR extends EntityMob {
         EntityLivingBase ret = null;
         int vf = 0;
         var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(64.0, 40.0, 64.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(64.0, 40.0, 64.0));
         if (var5 == null) {
             return null;
         }
@@ -716,7 +716,7 @@ public class MyUrsaMAJOR extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 20.0, Z - dist, X + dist, Y + 20.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

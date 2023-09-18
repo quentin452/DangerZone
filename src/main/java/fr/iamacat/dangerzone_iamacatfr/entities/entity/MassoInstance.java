@@ -26,17 +26,17 @@ public class MassoInstance extends EntityTameable {
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true));
         this.tasks.addTask(1, new EntityAIAvoidEntity(this, BaryonyxInstance.class, 8.0f, 0.8, 0.8));
-        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntitySpino.class,
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity(this, EntitySpino.class,
         // 8.0f, 0.8, 0.8));
-        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this,
-        // (Class)EntityDromaeosaurus.class, 8.0f, 0.6, 0.6));
-        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this,
-        // (Class)EntityMegalodon.class, 8.0f, 0.8, 0.8));
-        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntityTylo.class,
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity(this,
+        // EntityDromaeosaurus.class, 8.0f, 0.6, 0.6));
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity(this,
+        // EntityMegalodon.class, 8.0f, 0.8, 0.8));
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity(this, EntityTylo.class,
         // 8.0f, 0.8, 0.8));
-        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this,
-        // (Class)EntityQuetzalcoatlus.class, 8.0f, 0.8, 0.8));
-        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this, (Class)EntityCryo.class,
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity(this,
+        // EntityQuetzalcoatlus.class, 8.0f, 0.8, 0.8));
+        // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity(this, EntityCryo.class,
         // 8.0f, 0.8, 0.8));
     }
 

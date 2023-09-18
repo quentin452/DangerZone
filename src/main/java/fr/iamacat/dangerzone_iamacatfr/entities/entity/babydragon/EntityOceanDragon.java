@@ -42,31 +42,31 @@ public class EntityOceanDragon extends EntityTameable {
         this.setSize(0.6f, 0.8f);
         this.getNavigator()
             .setAvoidsWater(true);
-        this.tasks.addTask(1, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(2, (EntityAIBase) this.aiSit);
-        this.tasks.addTask(3, (EntityAIBase) new EntityAILeapAtTarget((EntityLiving) this, 0.4f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, 1.0, true));
-        this.tasks.addTask(5, (EntityAIBase) new EntityAIFollowOwner((EntityTameable) this, 1.0, 10.0f, 2.0f));
-        this.tasks.addTask(6, (EntityAIBase) new EntityAIMate((EntityAnimal) this, 1.0));
-        this.tasks.addTask(7, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+        this.tasks.addTask(1, new EntityAISwimming( this));
+        this.tasks.addTask(2, this.aiSit);
+        this.tasks.addTask(3, new EntityAILeapAtTarget( this, 0.4f));
+        this.tasks.addTask(4, new EntityAIAttackOnCollide( this, 1.0, true));
+        this.tasks.addTask(5, new EntityAIFollowOwner( this, 1.0, 10.0f, 2.0f));
+        this.tasks.addTask(6, new EntityAIMate(this, 1.0));
+        this.tasks.addTask(7, new EntityAIWander( this, 1.0));
         this.tasks.addTask(
             8,
-            (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
+            new EntityAITempt( this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
         this.tasks.addTask(
             9,
-            (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
+            new EntityAITempt( this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
         this.tasks.addTask(
             10,
-            (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(11, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
+            new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
+        this.tasks.addTask(11, new EntityAILookIdle( this));
         this.isImmuneToFire = true;
         this.experienceValue = 10;
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIOwnerHurtByTarget((EntityTameable) this));
-        this.targetTasks.addTask(2, (EntityAIBase) new EntityAIOwnerHurtTarget((EntityTameable) this));
-        this.targetTasks.addTask(3, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, true));
+        this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget( this));
+        this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget( this));
+        this.targetTasks.addTask(3, new EntityAIHurtByTarget( this, true));
         this.targetTasks.addTask(
             4,
-            (EntityAIBase) new EntityAITargetNonTamed((EntityTameable) this, (Class) EntitySheep.class, 200, false));
+            new EntityAITargetNonTamed( this,  EntitySheep.class, 200, false));
         this.setTamed(false);
     }
 
@@ -101,7 +101,7 @@ public class EntityOceanDragon extends EntityTameable {
     }
 
     protected void updateAITick() {
-        this.dataWatcher.updateObject(18, (Object) this.getHealth());
+        this.dataWatcher.updateObject(18, this.getHealth());
     }
 
     protected void entityInit() {
@@ -180,7 +180,7 @@ public class EntityOceanDragon extends EntityTameable {
             this.field_70928_h = true;
             this.timeWolfIsShaking = 0.0f;
             this.prevTimeWolfIsShaking = 0.0f;
-            this.worldObj.setEntityState((Entity) this, (byte) 8);
+            this.worldObj.setEntityState( this, (byte) 8);
         }
     }
 
@@ -313,7 +313,7 @@ public class EntityOceanDragon extends EntityTameable {
                         this.heal((float) itemfood.func_150905_g(itemstack));
                         if (itemstack.stackSize <= 0) {
                             p_70085_1_.inventory
-                                .setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+                                .setInventorySlotContents(p_70085_1_.inventory.currentItem,null);
                         }
                         return true;
                     }
@@ -325,7 +325,7 @@ public class EntityOceanDragon extends EntityTameable {
                             final ItemStack itemStack2 = itemstack;
                             if (--itemStack2.stackSize <= 0) {
                                 p_70085_1_.inventory
-                                    .setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+                                    .setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
                             }
                         }
                         return true;
@@ -346,12 +346,12 @@ public class EntityOceanDragon extends EntityTameable {
                 --itemStack3.stackSize;
             }
             if (itemstack.stackSize <= 0) {
-                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, (ItemStack) null);
+                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, null);
             }
             if (!this.worldObj.isRemote) {
                 if (this.rand.nextInt(3) == 0) {
                     this.setTamed(true);
-                    this.setPathToEntity((PathEntity) null);
+                    this.setPathToEntity(null);
                     this.setAttackTarget(null);
                     this.aiSit.setSitting(true);
                     this.setHealth(999.0f);
@@ -359,10 +359,10 @@ public class EntityOceanDragon extends EntityTameable {
                         p_70085_1_.getUniqueID()
                             .toString());
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState((Entity) this, (byte) 7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 } else {
                     this.playTameEffect(false);
-                    this.worldObj.setEntityState((Entity) this, (byte) 6);
+                    this.worldObj.setEntityState(this, (byte) 6);
                 }
             }
             return true;
@@ -403,9 +403,9 @@ public class EntityOceanDragon extends EntityTameable {
     public void setAngry(final boolean p_70916_1_) {
         final int b0 = this.dataWatcher.getWatchableObjectByte(16);
         if (p_70916_1_) {
-            this.dataWatcher.updateObject(16, (Object) (byte) (b0 | 0x2));
+            this.dataWatcher.updateObject(16, (byte) (b0 | 0x2));
         } else {
-            this.dataWatcher.updateObject(16, (Object) (byte) (b0 & 0xFFFFFFFD));
+            this.dataWatcher.updateObject(16,  (byte) (b0 & 0xFFFFFFFD));
         }
     }
 
@@ -414,7 +414,7 @@ public class EntityOceanDragon extends EntityTameable {
     }
 
     public void setCollarColor(final int p_82185_1_) {
-        this.dataWatcher.updateObject(20, (Object) (byte) (p_82185_1_ & 0xF));
+        this.dataWatcher.updateObject(20, (byte) (p_82185_1_ & 0xF));
     }
 
     public EntityOceanDragon createChild(final EntityAgeable p_90011_1_) {
@@ -430,9 +430,9 @@ public class EntityOceanDragon extends EntityTameable {
 
     public void func_70918_i(final boolean p_70918_1_) {
         if (p_70918_1_) {
-            this.dataWatcher.updateObject(19, (Object) 1);
+            this.dataWatcher.updateObject(19, 1);
         } else {
-            this.dataWatcher.updateObject(19, (Object) 0);
+            this.dataWatcher.updateObject(19,0);
         }
     }
 

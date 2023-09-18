@@ -29,7 +29,7 @@ public class RenderSpikezilla extends RenderLiving {
 
     public void renderSPIKE(final MySpikezilla par1EntityMolenoid, final double par2, final double par4,
         final double par6, final float par8, final float par9) {
-        super.doRender((EntityLiving) par1EntityMolenoid, par2, par4, par6, par8, par9);
+        super.doRender( par1EntityMolenoid, par2, par4, par6, par8, par9);
     }
 
     public void doRenderLiving(final EntityLiving par1EntityLiving, final double par2, final double par4,

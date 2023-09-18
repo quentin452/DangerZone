@@ -267,7 +267,7 @@ public class MySkullBoss extends EntityMob implements IMob {
         } else if (this.worldObj.rand.nextInt(10) == 0 && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) {
             EntityPlayer target = null;
             target = (EntityPlayer) this.worldObj.findNearestEntityWithinAABB(
-                (Class) EntityPlayer.class,
+                 EntityPlayer.class,
                 this.boundingBox.expand(65.0, 30.0, 65.0),
                 (Entity) this);
             if (target != null) {
@@ -484,7 +484,7 @@ public class MySkullBoss extends EntityMob implements IMob {
         }
         MySkullBoss target = null;
         target = (MySkullBoss) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MySkullBoss.class,
+             MySkullBoss.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
             (Entity) this);
         return target == null;
@@ -609,7 +609,7 @@ public class MySkullBoss extends EntityMob implements IMob {
 
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(65.0, 30.0, 65.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(65.0, 30.0, 65.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;

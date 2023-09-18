@@ -21,7 +21,7 @@ public class EntityAINearestAttackableTarget extends EntityAITarget {
     int targetChance;
     private final IEntitySelector entitySelector;
     EnumSet<EntityStates> setOfValidStates;
-    private EntityAINearestAttackableTargetSorter theNearestAttackableTargetSorter;
+    private final EntityAINearestAttackableTargetSorter theNearestAttackableTargetSorter;
 
     public EntityAINearestAttackableTarget(final EntityGenericCreature par1EntityLiving,
         final EnumSet<EntityStates> setOfValidStates, final Class par2Class, final float par3, final int par4,
@@ -32,7 +32,7 @@ public class EntityAINearestAttackableTarget extends EntityAITarget {
     public EntityAINearestAttackableTarget(final EntityGenericCreature par1EntityLiving,
         final EnumSet<EntityStates> setOfValidStates, final Class par2Class, final float par3, final int par4,
         final boolean par5, final boolean par6) {
-        this((EntityLiving) par1EntityLiving, setOfValidStates, par2Class, par3, par4, par5, par6, null);
+        this( par1EntityLiving, setOfValidStates, par2Class, par3, par4, par5, par6, null);
     }
 
     public EntityAINearestAttackableTarget(final EntityLiving par1, final EnumSet<EntityStates> setOfValidStates,
@@ -43,7 +43,7 @@ public class EntityAINearestAttackableTarget extends EntityAITarget {
         this.targetClass = par2;
         this.targetDistance = par3;
         this.targetChance = par4;
-        this.theNearestAttackableTargetSorter = new EntityAINearestAttackableTargetSorter(this, (Entity) par1);
+        this.theNearestAttackableTargetSorter = new EntityAINearestAttackableTargetSorter(this, par1);
         this.entitySelector = par7IEntitySelector;
         this.setMutexBits(1);
     }
@@ -67,7 +67,7 @@ public class EntityAINearestAttackableTarget extends EntityAITarget {
         } else {
             final List<Entity> var2 = this.taskOwner.worldObj.selectEntitiesWithinAABB(
                 this.targetClass,
-                this.taskOwner.boundingBox.expand((double) this.targetDistance, 4.0, (double) this.targetDistance),
+                this.taskOwner.boundingBox.expand(this.targetDistance, 4.0, this.targetDistance),
                 this.entitySelector);
             Collections.sort(var2, this.theNearestAttackableTargetSorter);
 

@@ -65,7 +65,7 @@ public final class Spawner {
             customMobSpawnList = new List[biomeList.size()];
             customAquaticSpawnList = new List[biomeList.size()];
             entityClasses = new List[3];
-            vanillaClassList = new ArrayList<Class>();
+            vanillaClassList = new ArrayList<>();
             vanillaClassList.add(EntityChicken.class);
             vanillaClassList.add(EntityCow.class);
             vanillaClassList.add(EntityPig.class);

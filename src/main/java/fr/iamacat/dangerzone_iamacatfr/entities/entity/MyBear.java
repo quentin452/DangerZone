@@ -42,13 +42,13 @@ public class MyBear extends EntityMob {
         this.fireResistance = 100;
         this.renderDistanceWeight = 1.0;
         this.TargetSorter = new GenericTargetSorter((Entity) this);
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(1, (EntityAIBase) new EntityAIMoveThroughVillage((EntityCreature) this, 1.0, false));
-        this.tasks.addTask(2, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+        this.tasks.addTask(0, new EntityAISwimming( this));
+        this.tasks.addTask(1, new EntityAIMoveThroughVillage( this, 1.0, false));
+        this.tasks.addTask(2, new EntityAIWander( this, 1.0));
         this.tasks
-            .addTask(3, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityLiving.class, 8.0f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, false));
+            .addTask(3, new EntityAIWatchClosest( this,  EntityLiving.class, 8.0f));
+        this.tasks.addTask(4, new EntityAILookIdle( this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
     }
 
     protected void applyEntityAttributes() {
@@ -336,7 +336,7 @@ public class MyBear extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(18.0, 9.0, 18.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(18.0, 9.0, 18.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

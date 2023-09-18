@@ -231,7 +231,7 @@ public class MyDashCloud extends MyCloud implements IMob {
         } else if (this.worldObj.rand.nextInt(10) == 0 && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) {
             EntityPlayer target = null;
             target = (EntityPlayer) this.worldObj.findNearestEntityWithinAABB(
-                (Class) EntityPlayer.class,
+                 EntityPlayer.class,
                 this.boundingBox.expand(6.0, 32.0, 6.0),
                 (Entity) this);
             if (target != null) {
@@ -340,7 +340,7 @@ public class MyDashCloud extends MyCloud implements IMob {
         }
         MyDashCloud target = null;
         target = (MyDashCloud) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyDashCloud.class,
+             MyDashCloud.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
             (Entity) this);
         return target == null;
@@ -360,7 +360,7 @@ public class MyDashCloud extends MyCloud implements IMob {
         if (var8 != null) {
             var8.setLocationAndAngles(par2, par4, par6, par0World.rand.nextFloat() * 360.0f, 0.0f);
             par0World.spawnEntityInWorld(var8);
-            ((EntityLiving) var8).playLivingSound();
+             ((EntityLiving) var8).playLivingSound();
         }
         return var8;
     }
@@ -397,7 +397,7 @@ public class MyDashCloud extends MyCloud implements IMob {
 
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(128.0, 64.0, 128.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(128.0, 64.0, 128.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

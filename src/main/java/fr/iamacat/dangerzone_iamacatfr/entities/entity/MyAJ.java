@@ -65,15 +65,15 @@ public class MyAJ extends EntityTameable {
         this.renderDistanceWeight = 12.0;
         this.TargetSorter = new GenericTargetSorter((Entity) this);
         this.renderdata = new RenderInfo();
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(1, (EntityAIBase) new EntityAIMate((EntityAnimal) this, 1.0));
-        this.tasks.addTask(2, (EntityAIBase) new AIFollowOwner((EntityTameable) this, 1.0f, 20.0f, 5.0f));
+        this.tasks.addTask(0, new EntityAISwimming( this));
+        this.tasks.addTask(1, new EntityAIMate((EntityAnimal) this, 1.0));
+        this.tasks.addTask(2, new AIFollowOwner((EntityTameable) this, 1.0f, 20.0f, 5.0f));
         this.tasks
-            .addTask(3, (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.200000047683716, Items.fish, false));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAIWander(this, 1.0));
+            .addTask(3, new EntityAITempt( this, 1.200000047683716, Items.fish, false));
+        this.tasks.addTask(4, new EntityAIWander(this, 1.0));
         this.tasks
-            .addTask(5, (EntityAIBase) new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
-        this.tasks.addTask(6, (EntityAIBase) new EntityAILookIdle(this));
+            .addTask(5, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
+        this.tasks.addTask(6, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
     }
 
@@ -575,7 +575,7 @@ public class MyAJ extends EntityTameable {
             return null;
         }
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(32.0, 16.0, 32.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(32.0, 16.0, 32.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -697,7 +697,7 @@ public class MyAJ extends EntityTameable {
             return false;
         }
         target = (MyAJ) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyAJ.class,
+             MyAJ.class,
             this.boundingBox.expand(256.0, 256.0, 256.0),
             (Entity) this);
         return target == null;
@@ -707,7 +707,7 @@ public class MyAJ extends EntityTameable {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

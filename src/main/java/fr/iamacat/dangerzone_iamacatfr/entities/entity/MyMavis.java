@@ -65,16 +65,16 @@ public class MyMavis extends EntityTameable {
         this.isImmuneToFire = true;
         this.TargetSorter = new GenericTargetSorter((Entity) this);
         this.renderdata = new RenderInfo();
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(1, (EntityAIBase) new EntityAIMate((EntityAnimal) this, 1.0));
-        this.tasks.addTask(2, (EntityAIBase) new EntityAIFollowOwner((EntityTameable) this, 2.0, 10.0f, 2.0f));
+        this.tasks.addTask(0, new EntityAISwimming( this));
+        this.tasks.addTask(1, new EntityAIMate((EntityAnimal) this, 1.0));
+        this.tasks.addTask(2, new EntityAIFollowOwner((EntityTameable) this, 2.0, 10.0f, 2.0f));
         this.tasks
-            .addTask(3, (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.200000047683716, Items.fish, false));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+            .addTask(3, new EntityAITempt( this, 1.200000047683716, Items.fish, false));
+        this.tasks.addTask(4, new EntityAIWander( this, 1.0));
         this.tasks
-            .addTask(5, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(6, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, false));
+            .addTask(5, new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
+        this.tasks.addTask(6, new EntityAILookIdle( this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
     }
 
     protected void applyEntityAttributes() {
@@ -561,7 +561,7 @@ public class MyMavis extends EntityTameable {
             return null;
         }
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(14.0, 4.0, 14.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(14.0, 4.0, 14.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -616,7 +616,7 @@ public class MyMavis extends EntityTameable {
             return false;
         }
         target = (MyMavis) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyMavis.class,
+             MyMavis.class,
             this.boundingBox.expand(16.0, 5.0, 16.0),
             (Entity) this);
         return target == null;

@@ -213,7 +213,7 @@ public class LongHit extends EntityThrowable {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
         EntityLivingBase var8 = null;

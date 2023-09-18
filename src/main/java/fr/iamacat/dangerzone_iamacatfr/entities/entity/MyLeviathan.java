@@ -310,7 +310,7 @@ public class MyLeviathan extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(16.0, 10.0, 16.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(16.0, 10.0, 16.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -427,7 +427,7 @@ public class MyLeviathan extends EntityMob {
         }
         MyLeviathan target = null;
         target = (MyLeviathan) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyLeviathan.class,
+             MyLeviathan.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
             (Entity) this);
         return target == null;

@@ -51,16 +51,16 @@ public class MyCentipede extends EntityMob {
         this.isImmuneToFire = false;
         this.TargetSorter = new GenericTargetSorter((Entity) this);
         this.renderdata = new RenderInfo();
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
+        this.tasks.addTask(0, new EntityAISwimming( this));
         this.tasks.addTask(
             1,
-            (EntityAIBase) new EntityAIMoveThroughVillage((EntityCreature) this, 0.8999999761581421, false));
-        this.tasks.addTask(2, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+            new EntityAIMoveThroughVillage( this, 0.8999999761581421, false));
+        this.tasks.addTask(2, new EntityAIWander( this, 1.0));
         this.tasks.addTask(
             3,
-            (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 10.0f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, false));
+            new EntityAIWatchClosest( this,  EntityPlayer.class, 10.0f));
+        this.tasks.addTask(4, new EntityAILookIdle( this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
     }
 
     protected void entityInit() {
@@ -361,7 +361,7 @@ public class MyCentipede extends EntityMob {
         if (var8 != null) {
             var8.setLocationAndAngles(par2, par4, par6, par0World.rand.nextFloat() * 360.0f, 0.0f);
             par0World.spawnEntityInWorld(var8);
-            ((EntityLiving) var8).playLivingSound();
+             ((EntityLiving) var8).playLivingSound();
         }
         return var8;
     }
@@ -450,7 +450,7 @@ public class MyCentipede extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(12.0, 7.0, 12.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(12.0, 7.0, 12.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -500,7 +500,7 @@ public class MyCentipede extends EntityMob {
         }
         MyCentipede target = null;
         target = (MyCentipede) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyCentipede.class,
+             MyCentipede.class,
             this.boundingBox.expand(16.0, 6.0, 16.0),
             (Entity) this);
         return target == null;

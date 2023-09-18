@@ -1391,7 +1391,7 @@ public class FairyInstance extends EntityAnimal {
                                     break;
                                 }
                             } else {
-                                this.setTarget((Entity) scary);
+                                this.setTarget(scary);
                                 break;
                             }
                         }
@@ -1404,7 +1404,7 @@ public class FairyInstance extends EntityAnimal {
 
                         if (creature.getHealth() > 0 && creature.getEntityToAttack() != null
                             && creature.getEntityToAttack() == ruler) {
-                            this.setTarget((Entity) creature);
+                            this.setTarget(creature);
                             break;
                         }
                     } else if (entity instanceof EntityTNTPrimed && !hasPath()) {

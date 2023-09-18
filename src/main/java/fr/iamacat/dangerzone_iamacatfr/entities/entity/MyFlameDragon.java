@@ -88,22 +88,22 @@ public class MyFlameDragon extends EntityTameable {
         this.isImmuneToFire = true;
         this.setSitting(false);
         this.renderDistanceWeight = 10.0;
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
+        this.tasks.addTask(0, new EntityAISwimming( this));
         this.tasks
-            .addTask(1, (EntityAIBase) new EntityAIFollowOwner((EntityTameable) this, 1.100000023841858, 16.0f, 2.0f));
-        // this.tasks.addTask(2, (EntityAIBase)new EntityAITempt((EntityCreature)this, 1.25, Basic.phoenixFeather,
+            .addTask(1, new EntityAIFollowOwner((EntityTameable) this, 1.100000023841858, 16.0f, 2.0f));
+        // this.tasks.addTask(2, (EntityAIBase)new EntityAITempt(this, 1.25, Basic.phoenixFeather,
         // false));
-        this.tasks.addTask(3, (EntityAIBase) new EntityAIWander((EntityCreature) this, 0.75));
+        this.tasks.addTask(3, new EntityAIWander( this, 0.75));
         this.tasks
-            .addTask(4, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityLiving.class, 9.0f));
-        this.tasks.addTask(5, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
+            .addTask(4, new EntityAIWatchClosest( this,  EntityLiving.class, 9.0f));
+        this.tasks.addTask(5, new EntityAILookIdle( this));
         /*
          * if (Basic.Snap == 0) {
-         * this.targetTasks.addTask(1, (EntityAIBase)new EntityAINearestAttackableTarget((EntityCreature)this,
-         * (Class)EntityLiving.class, 0, true, false, IMob.mobSelector));
+         * this.targetTasks.addTask(1, (EntityAIBase)new EntityAINearestAttackableTarget(this,
+         * EntityLiving.class, 0, true, false, IMob.mobSelector));
          * }
          */
-        this.targetTasks.addTask(2, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, false));
+        this.targetTasks.addTask(2, new EntityAIHurtByTarget( this, false));
         this.riddenByEntity = null;
         this.TargetSorter = new GenericTargetSorter((Entity) this);
         this.renderdata = new RenderInfo();
@@ -496,7 +496,7 @@ public class MyFlameDragon extends EntityTameable {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(40.0, 40.0, 40.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(40.0, 40.0, 40.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -553,7 +553,7 @@ public class MyFlameDragon extends EntityTameable {
         }
         MyFlameDragon target = null;
         target = (MyFlameDragon) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyFlameDragon.class,
+             MyFlameDragon.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
             (Entity) this);
         return target == null;
@@ -1223,7 +1223,7 @@ public class MyFlameDragon extends EntityTameable {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -1253,7 +1253,7 @@ public class MyFlameDragon extends EntityTameable {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -1283,7 +1283,7 @@ public class MyFlameDragon extends EntityTameable {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

@@ -104,18 +104,18 @@ public class FreezeBall extends EntityFireball {
     }
 
     public void onUpdate() {
-        Vec3 var15 = null;
-        Vec3 var16 = null;
-        MovingObjectPosition var17 = null;
-        Entity var18 = null;
-        List var19 = null;
-        double var20 = 0.0;
-        Entity var21 = null;
+        Vec3 var15 ;
+        Vec3 var16;
+        MovingObjectPosition var17 ;
+        Entity var18 ;
+        List var19 ;
+        double var20 ;
+        Entity var21 ;
         final float var22 = 0.3f;
-        double var23 = 0.0;
-        float var24 = 0.0f;
-        float var25 = 0.0f;
-        float var26 = 0.0f;
+        double var23 ;
+        float var24 ;
+        float var25 ;
+        float var26 ;
         if (this.j >= 600 || this.au >= 600) {
             this.setDead();
             return;
@@ -150,7 +150,7 @@ public class FreezeBall extends EntityFireball {
             }
             var18 = null;
             var19 = this.worldObj.getEntitiesWithinAABBExcludingEntity(
-                (Entity) this,
+                this,
                 this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ)
                     .expand(1.0, 1.0, 1.0));
             var20 = 0.0;
@@ -316,7 +316,7 @@ public class FreezeBall extends EntityFireball {
                 final Entity e = par1MovingObjectPosition.entityHit;
                 if (e instanceof EntityLiving) {
                     final EntityLiving el = (EntityLiving) e;
-                    if (el.width * el.height > 30.0f && !MobUtils.isPony((Entity) el)
+                    if (el.width * el.height > 30.0f && !MobUtils.isPony(el)
                         && !(el instanceof MyMLPHydra)
                         && !(el instanceof MyLeviathan)
                         && !(el instanceof MyKingbowser)) {
@@ -325,18 +325,18 @@ public class FreezeBall extends EntityFireball {
                 }
                 if (!this.small) {
                     par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        DamageSource.causeFireballDamage(this, this.a),
                         650.0f);
                     par1MovingObjectPosition.entityHit.setFire(32);
                 }
                 if (this.huge) {
                     par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        DamageSource.causeFireballDamage(this, this.a),
                         7500.0f);
                     par1MovingObjectPosition.entityHit.setFire(120);
                 } else {
                     par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        DamageSource.causeFireballDamage(this, this.a),
                         250.0f);
                     par1MovingObjectPosition.entityHit.setFire(10);
                 }

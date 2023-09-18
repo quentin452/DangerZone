@@ -48,13 +48,13 @@ public class DemonSpiderEntity extends EntityMob {
         this.fireResistance = 100;
         this.renderDistanceWeight = 12.0;
         this.TargetSorter = new GenericTargetSorter((Entity) this);
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(1, new EntityAIMoveThroughVillage((EntityCreature) this, 1.0, false));
-        this.tasks.addTask(2, new EntityAIWander((EntityCreature) this, 1.0));
+        this.tasks.addTask(0, new EntityAISwimming( this));
+        this.tasks.addTask(1, new EntityAIMoveThroughVillage( this, 1.0, false));
+        this.tasks.addTask(2, new EntityAIWander( this, 1.0));
         this.tasks
-            .addTask(3, new EntityAIWatchClosest((EntityLiving) this, (Class<EntityPlayer>) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, false));
+            .addTask(3, new EntityAIWatchClosest( this, (Class<EntityPlayer>) EntityPlayer.class, 8.0f));
+        this.tasks.addTask(4, new EntityAILookIdle( this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
     }
 
     protected void applyEntityAttributes() {

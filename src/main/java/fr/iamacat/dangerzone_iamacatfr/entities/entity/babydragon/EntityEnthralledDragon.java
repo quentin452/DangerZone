@@ -42,31 +42,31 @@ public class EntityEnthralledDragon extends DecoyCaveDragonTameable {
         this.setSize(0.6f, 0.8f);
         this.getNavigator()
             .setAvoidsWater(true);
-        this.tasks.addTask(1, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(2, (EntityAIBase) this.aiSit);
-        this.tasks.addTask(3, (EntityAIBase) new EntityAILeapAtTarget((EntityLiving) this, 0.4f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, 1.0, true));
-        this.tasks.addTask(5, (EntityAIBase) new EntityAIFollowOwner((EntityTameable) this, 1.0, 10.0f, 2.0f));
-        this.tasks.addTask(6, (EntityAIBase) new EntityAIMate((EntityAnimal) this, 1.0));
-        this.tasks.addTask(7, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+        this.tasks.addTask(1, new EntityAISwimming( this));
+        this.tasks.addTask(2, this.aiSit);
+        this.tasks.addTask(3, new EntityAILeapAtTarget( this, 0.4f));
+        this.tasks.addTask(4, new EntityAIAttackOnCollide( this, 1.0, true));
+        this.tasks.addTask(5, new EntityAIFollowOwner((EntityTameable) this, 1.0, 10.0f, 2.0f));
+        this.tasks.addTask(6, new EntityAIMate((EntityAnimal) this, 1.0));
+        this.tasks.addTask(7, new EntityAIWander( this, 1.0));
         this.tasks.addTask(
             8,
-            (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
+            new EntityAITempt( this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
         this.tasks.addTask(
             9,
-            (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
+            new EntityAITempt( this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
         this.tasks.addTask(
             10,
-            (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(11, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
+            new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
+        this.tasks.addTask(11, new EntityAILookIdle( this));
         this.isImmuneToFire = true;
         this.experienceValue = 10;
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIOwnerHurtByTarget((EntityTameable) this));
-        this.targetTasks.addTask(2, (EntityAIBase) new EntityAIOwnerHurtTarget((EntityTameable) this));
-        this.targetTasks.addTask(3, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, true));
+        this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget((EntityTameable) this));
+        this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget((EntityTameable) this));
+        this.targetTasks.addTask(3, new EntityAIHurtByTarget( this, true));
         this.targetTasks.addTask(
             4,
-            (EntityAIBase) new EntityAITargetNonTamed((EntityTameable) this, (Class) EntitySheep.class, 200, false));
+            new EntityAITargetNonTamed((EntityTameable) this,  EntitySheep.class, 200, false));
         this.setTamed(false);
     }
 
@@ -133,18 +133,18 @@ public class EntityEnthralledDragon extends DecoyCaveDragonTameable {
     protected void fall(final float p_70069_1_) {}
 
     protected String getLivingSound() {
-        return this.isAngry() ? Tags.MODID + ":tinydragon.enthralled"
+        return this.isAngry() ? Tags.MODID + ":enthralled"
             : ((this.rand.nextInt(3) == 0) ? ((this.isTamed() && this.dataWatcher.getWatchableObjectFloat(18) < 10.0f)
-                ? Tags.MODID + ":tinydragon.enthralled"
-                : Tags.MODID + ":tinydragon.enthralled") : Tags.MODID + ":tinydragon.enthralled");
+                ? Tags.MODID + ":enthralled"
+                : Tags.MODID + ":enthralled") : Tags.MODID + ":enthralled");
     }
 
     protected String getHurtSound() {
-        return Tags.MODID + ":tinydragon.enthralled";
+        return Tags.MODID + ":enthralled";
     }
 
     protected String getDeathSound() {
-        return Tags.MODID + ":tinydragon.enthralled";
+        return Tags.MODID + ":enthralled";
     }
 
     protected float getSoundVolume() {

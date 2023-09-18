@@ -137,6 +137,8 @@
 "MedHerbDeath": {"category": "master","sounds": [{"name": "MedHerbDeath","stream": false}]},
 "MassoHurt": {"category": "master","sounds": [{"name": "MassoHurt","stream": false}]},
 "Masso1": {"category": "master","sounds": [{"name": "Masso1","stream": false}]},
-
+"pincer_a2": {"category": "master","sounds": [{"name": "pincer_a2","stream": false}]},
+"pincer_a1": {"category": "master","sounds": [{"name": "pincer_a1","stream": false}]},
+"howl_h1": {"category": "master","sounds": [{"name": "howl_h1","stream": false}]},
 "slap": {"category": "master","sounds": [{"name": "slap","stream": false}]}
 }

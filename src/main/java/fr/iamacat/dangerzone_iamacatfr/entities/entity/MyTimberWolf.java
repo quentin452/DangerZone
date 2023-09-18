@@ -46,15 +46,15 @@ public class MyTimberWolf extends EntityMob {
         this.renderDistanceWeight = 12.0;
         this.TargetSorter = new GenericTargetSorter((Entity) this);
         this.renderdata = new RenderInfo();
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
+        this.tasks.addTask(0, new EntityAISwimming( this));
         this.tasks.addTask(
             1,
-            (EntityAIBase) new EntityAIMoveThroughVillage((EntityCreature) this, 0.8999999761581421, false));
-        this.tasks.addTask(2, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+            new EntityAIMoveThroughVillage( this, 0.8999999761581421, false));
+        this.tasks.addTask(2, new EntityAIWander( this, 1.0));
         this.tasks
-            .addTask(3, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, false));
+            .addTask(3, new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
+        this.tasks.addTask(4, new EntityAILookIdle( this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
     }
 
     protected void entityInit() {
@@ -272,7 +272,7 @@ public class MyTimberWolf extends EntityMob {
                 this.setAttackTarget((EntityLivingBase) e);
                 this.setTarget(e);
                 this.getNavigator()
-                    .tryMoveToEntityLiving((Entity) e, 1.2);
+                    .tryMoveToEntityLiving(e, 1.2);
             }
         }
         return ret;
@@ -290,35 +290,35 @@ public class MyTimberWolf extends EntityMob {
         if (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.worldObj.rand.nextInt(4) == 0) {
             e = this.getAttackTarget();
             if (e != null && !e.isEntityAlive()) {
-                this.setAttackTarget((EntityLivingBase) null);
+                this.setAttackTarget(null);
                 e = null;
             }
             if (this.worldObj.rand.nextInt(100) == 0) {
-                this.setAttackTarget((EntityLivingBase) null);
+                this.setAttackTarget(null);
             }
             if (e == null) {
                 e = this.findSomethingToAttack();
             }
             if (e != null) {
-                this.faceEntity((Entity) e, 10.0f, 10.0f);
-                if (this.getDistanceSqToEntity((Entity) e) < (5.0f + e.width / 2.0f) * (5.0f + e.width / 2.0f)) {
+                this.faceEntity(e, 10.0f, 10.0f);
+                if (this.getDistanceSqToEntity(e) < (5.0f + e.width / 2.0f) * (5.0f + e.width / 2.0f)) {
                     this.setAttacking(1);
                     if (this.worldObj.rand.nextInt(1) == 1 || this.worldObj.rand.nextInt(2) == 1) {
-                        this.attackEntityAsMob((Entity) e);
+                        this.attackEntityAsMob(e);
                         if (!this.worldObj.isRemote) {
                             if (this.worldObj.rand.nextInt(3) == 1) {
-                                this.worldObj.playSoundAtEntity((Entity) e, "", 1.4f, 1.0f);
+                                this.worldObj.playSoundAtEntity(e, "", 1.4f, 1.0f);
                             } else {
-                                this.worldObj.playSoundAtEntity((Entity) e, "", 1.0f, 1.0f);
+                                this.worldObj.playSoundAtEntity(e, "", 1.0f, 1.0f);
                             }
                         }
                     }
                 } else {
                     this.getNavigator()
-                        .tryMoveToEntityLiving((Entity) e, 1.2);
+                        .tryMoveToEntityLiving(e, 1.2);
                 }
                 if (this.worldObj.rand.nextInt(30) == 1 && this.getHealth() < 15.0f) {
-                    this.worldObj.playSoundAtEntity((Entity) e, Tags.MODID + ":howl_h", 3.0f, 1.0f);
+                    this.worldObj.playSoundAtEntity(e, Tags.MODID + ":howl_h1", 3.0f, 1.0f);
                     final EntityCreature newent = (EntityCreature) spawnCreature(
                         this.worldObj,
                         "MyTimberWolf",
@@ -334,7 +334,7 @@ public class MyTimberWolf extends EntityMob {
 
     public static Entity spawnCreature(final World par0World, final String par1, final double par2, final double par4,
         final double par6) {
-        Entity var8 = null;
+        Entity var8;
         var8 = EntityList.createEntityByName(par1, par0World);
         if (var8 != null) {
             var8.setLocationAndAngles(par2, par4, par6, par0World.rand.nextFloat() * 360.0f, 0.0f);
@@ -358,7 +358,7 @@ public class MyTimberWolf extends EntityMob {
             return false;
         }
         if (!this.getEntitySenses()
-            .canSee((Entity) par1EntityLiving)) {
+            .canSee(par1EntityLiving)) {
             return false;
         }
         if (MobUtils.isIgnoreable(par1EntityLiving)) {
@@ -428,11 +428,11 @@ public class MyTimberWolf extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(24.0, 6.0, 24.0));
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(24.0, 6.0, 24.0));
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
-        Entity var7 = null;
-        EntityLivingBase var8 = null;
+        Entity var7;
+        EntityLivingBase var8;
         while (var6.hasNext()) {
             var7 = (Entity) var6.next();
             var8 = (EntityLivingBase) var7;
@@ -448,7 +448,7 @@ public class MyTimberWolf extends EntityMob {
     }
 
     public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+        this.dataWatcher.updateObject(20, (byte) par1);
     }
 
     public boolean getCanSpawnHere() {
@@ -476,11 +476,11 @@ public class MyTimberWolf extends EntityMob {
         if (this.posY < 50.0) {
             return false;
         }
-        MyTimberWolf target = null;
+        MyTimberWolf target;
         target = (MyTimberWolf) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyTimberWolf.class,
+             MyTimberWolf.class,
             this.boundingBox.expand(20.0, 6.0, 20.0),
-            (Entity) this);
+            this);
         return target == null;
     }
 }

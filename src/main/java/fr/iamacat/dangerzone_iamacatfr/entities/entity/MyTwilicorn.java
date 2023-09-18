@@ -82,13 +82,13 @@ public class MyTwilicorn extends EntityTameable {
         this.getNavigator()
             .setAvoidsWater(true);
         this.setSitting(false);
-        this.tasks.addTask(1, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(2, (EntityAIBase) new AIFollowOwner((EntityTameable) this, 1.75f, 16.0f, 2.5f));
-        // this.tasks.addTask(3, (EntityAIBase)new EntityAITempt((EntityCreature)this, 1.25, Basic.twilightStar,
+        this.tasks.addTask(1, new EntityAISwimming( this));
+        this.tasks.addTask(2, new AIFollowOwner((EntityTameable) this, 1.75f, 16.0f, 2.5f));
+        // this.tasks.addTask(3, (EntityAIBase)new EntityAITempt(this, 1.25, Basic.twilightStar,
         // false));
         this.tasks
-            .addTask(4, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityLiving.class, 6.0f));
-        this.tasks.addTask(7, (EntityAIBase) new EntityAIMoveIndoors((EntityCreature) this));
+            .addTask(4, new EntityAIWatchClosest( this,  EntityLiving.class, 6.0f));
+        this.tasks.addTask(7, new EntityAIMoveIndoors( this));
         this.TargetSorter = new GenericTargetSorter((Entity) this);
         this.experienceValue = 7555;
     }
@@ -1606,7 +1606,7 @@ public class MyTwilicorn extends EntityTameable {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(72.0, 36.0, 72.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(72.0, 36.0, 72.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -1721,7 +1721,7 @@ public class MyTwilicorn extends EntityTameable {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

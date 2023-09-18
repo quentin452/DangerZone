@@ -111,11 +111,6 @@ public class SpawnEggInitDangerZone {
         Constants.LeonopteryxSpawnEgg = LeonopteryxSpawnEgg;
         GameRegistry.registerItem(Constants.LeonopteryxSpawnEgg, "Leonopteryx Egg");
 
-        SpawnEggs EmperorScorpionEgg = new SpawnEggs(EmperorScorpionInstance.class);
-        EmperorScorpionEgg.setUnlocalizedName("emperor_scorpion_egg");
-        Constants.EmperorScorpionEgg = EmperorScorpionEgg;
-        GameRegistry.registerItem(Constants.EmperorScorpionEgg, "Emperor Scorpion Egg");
-
         SpawnEggs ThePrincessSpawnEgg = new SpawnEggs(ThePrincessInstance.class);
         ThePrincessSpawnEgg.setUnlocalizedName("the_princess_egg");
         Constants.ThePrincessSpawnEgg = ThePrincessSpawnEgg;

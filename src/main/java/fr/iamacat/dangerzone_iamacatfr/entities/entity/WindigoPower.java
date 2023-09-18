@@ -50,7 +50,7 @@ public class WindigoPower extends EntityThrowable {
                 return;
             }
             final Entity e = par1MovingObjectPosition.entityHit;
-            e.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase) this.getThrower()), 750.0f);
+            e.attackEntityFrom(DamageSource.causeMobDamage(this.getThrower()), 750.0f);
             final float var2 = 40.0f;
             if (MobUtils.isPony(par1MovingObjectPosition.entityHit)) {
                 this.setDead();

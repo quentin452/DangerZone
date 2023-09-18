@@ -18,29 +18,29 @@ public class BaryonyxInstance extends EntityMob {
     public BaryonyxInstance(final World par1World) {
         super(par1World);
         this.setSize(this.width * 2.5f, this.height * 2.5f);
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
+        this.tasks.addTask(0, new EntityAISwimming( this));
         this.tasks.addTask(
             1,
-            (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, (Class) EntityPlayer.class, 0.4, false));
+            new EntityAIAttackOnCollide( this,  EntityPlayer.class, 0.4, false));
         this.tasks.addTask(
             1,
-            (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, (Class) MassoInstance.class, 0.4, false));
-        this.tasks.addTask(2, (EntityAIBase) new EntityAIWander((EntityCreature) this, 0.4));
+            new EntityAIAttackOnCollide( this,  MassoInstance.class, 0.4, false));
+        this.tasks.addTask(2, new EntityAIWander( this, 0.4));
         this.tasks
-            .addTask(3, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 6.0f));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, true));
+            .addTask(3, new EntityAIWatchClosest( this,  EntityPlayer.class, 6.0f));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, true));
         this.targetTasks.addTask(
             2,
-            (EntityAIBase) new EntityAINearestAttackableTarget(
-                (EntityCreature) this,
-                (Class) EntityPlayer.class,
+            new EntityAINearestAttackableTarget(
+                 this,
+                 EntityPlayer.class,
                 0,
                 true));
         this.targetTasks.addTask(
             2,
-            (EntityAIBase) new EntityAINearestAttackableTarget(
-                (EntityCreature) this,
-                (Class) MassoInstance.class,
+            new EntityAINearestAttackableTarget(
+                 this,
+                 MassoInstance.class,
                 0,
                 true));
     }

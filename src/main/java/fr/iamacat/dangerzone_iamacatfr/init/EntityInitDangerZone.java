@@ -671,7 +671,18 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
+        int EntityAetherDragon = EntityRegistry.findGlobalUniqueEntityId();
 
+        EntityRegistry.registerGlobalEntityID(EntityAetherDragon.class, "EntityAetherDragon", EntityAetherDragon);
+
+        EntityRegistry.registerModEntity(
+            EntityAetherDragon.class,
+            "EntityAetherDragon",
+            EntityAetherDragon, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
         int EntityJugleDragon = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(EntityJungleDragon.class, "EntityJugleDragon", EntityJugleDragon);
@@ -759,7 +770,7 @@ public class EntityInitDangerZone {
         EntityRegistry.registerModEntity(
             EntityOceanDragon.class,
             "EntityOceanDragon",
-            AttackSquidInstance, // Use the chosen unique ID
+            EntityOceanDragon, // Use the chosen unique ID
             Tags.MODID,
             32,
             1,

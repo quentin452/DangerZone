@@ -468,7 +468,7 @@ public class MyWindigo extends EntityMob {
 
     private void msgToPlayers(final String s) {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityPlayer.class, this.boundingBox.expand(80.0, 64.0, 80.0));
+            .getEntitiesWithinAABB( EntityPlayer.class, this.boundingBox.expand(80.0, 64.0, 80.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -481,7 +481,7 @@ public class MyWindigo extends EntityMob {
 
     private EntityPlayer findNearestPlayer() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityPlayer.class, this.boundingBox.expand(80.0, 64.0, 80.0));
+            .getEntitiesWithinAABB( EntityPlayer.class, this.boundingBox.expand(80.0, 64.0, 80.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -1213,7 +1213,7 @@ public class MyWindigo extends EntityMob {
         }
         MyWindigo target = null;
         target = (MyWindigo) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyWindigo.class,
+             MyWindigo.class,
             this.boundingBox.expand(256.0, 256.0, 256.0),
             (Entity) this);
         return target == null;
@@ -1222,7 +1222,7 @@ public class MyWindigo extends EntityMob {
     public boolean TooMany() {
         MyDarkness target = null;
         target = (MyDarkness) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyDarkness.class,
+             MyDarkness.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
             (Entity) this);
         return target != null;
@@ -1342,7 +1342,7 @@ public class MyWindigo extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(128.0, 128.0, 128.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(128.0, 128.0, 128.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -1404,7 +1404,7 @@ public class MyWindigo extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;

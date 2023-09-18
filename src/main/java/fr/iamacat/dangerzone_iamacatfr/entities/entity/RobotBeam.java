@@ -118,18 +118,18 @@ public class RobotBeam extends EntityFireball {
     }
 
     public void onUpdate() {
-        Vec3 var15 = null;
-        Vec3 var16 = null;
-        MovingObjectPosition var17 = null;
-        Entity var18 = null;
-        List var19 = null;
-        double var20 = 0.0;
-        Entity var21 = null;
+        Vec3 var15;
+        Vec3 var16;
+        MovingObjectPosition var17;
+        Entity var18 ;
+        List var19;
+        double var20 ;
+        Entity var21 ;
         final float var22 = 0.3f;
-        double var23 = 0.0;
-        float var24 = 0.0f;
-        float var25 = 0.0f;
-        float var26 = 0.0f;
+        double var23 ;
+        float var24 ;
+        float var25 ;
+        float var26 ;
         if (this.j >= 600 || this.au >= 600) {
             this.setDead();
             return;
@@ -164,7 +164,7 @@ public class RobotBeam extends EntityFireball {
             }
             var18 = null;
             var19 = this.worldObj.getEntitiesWithinAABBExcludingEntity(
-                (Entity) this,
+               this,
                 this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ)
                     .expand(1.0, 1.0, 1.0));
             var20 = 0.0;
@@ -190,9 +190,9 @@ public class RobotBeam extends EntityFireball {
                     var17 = null;
                     break;
                 }
-                if (var21.canBeCollidedWith() && (!var21.isEntityEqual((Entity) this.a) || this.au >= 25)) {
+                if (var21.canBeCollidedWith() && (!var21.isEntityEqual(this.a) || this.au >= 25)) {
                     final AxisAlignedBB var29 = var21.boundingBox
-                        .expand((double) var22, (double) var22, (double) var22);
+                        .expand(var22,  var22, var22);
                     final MovingObjectPosition var30 = var29.calculateIntercept(var15, var16);
                     if (var30 != null) {
                         var23 = var15.distanceTo(var30.hitVec);
@@ -330,27 +330,27 @@ public class RobotBeam extends EntityFireball {
                 final Entity e = par1MovingObjectPosition.entityHit;
                 if (e instanceof EntityLiving) {
                     final EntityLiving el = (EntityLiving) e;
-                    if (el.width * el.height > 30.0f && !MobUtils.isPony((Entity) el) && !(el instanceof MyMLPHydra)) {
+                    if (el.width * el.height > 30.0f && !MobUtils.isPony(el) && !(el instanceof MyMLPHydra)) {
                         el.setHealth(el.getHealth() / 24.0f);
                     }
                 }
                 if (!this.small) {
                     par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        DamageSource.causeFireballDamage(this, this.a),
                         120.0f);
                 }
                 if (this.huge) {
                     par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        DamageSource.causeFireballDamage(this,  this.a),
                         7500.0f);
                 }
                 if (this.tiny) {
                     par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        DamageSource.causeFireballDamage( this, this.a),
                         80.0f);
                 } else {
                     par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        DamageSource.causeFireballDamage(this,  this.a),
                         250.0f);
                 }
             } else {
@@ -386,7 +386,7 @@ public class RobotBeam extends EntityFireball {
             }
             if (!this.small) {
                 this.worldObj.newExplosion(
-                    (Entity) null,
+                    null,
                     this.posX,
                     this.posY,
                     this.posZ,

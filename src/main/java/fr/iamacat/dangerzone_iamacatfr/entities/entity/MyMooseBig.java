@@ -52,13 +52,13 @@ public class MyMooseBig extends EntityMob {
         this.fireResistance = 100;
         this.renderDistanceWeight = 12.0;
         this.TargetSorter = new GenericTargetSorter((Entity) this);
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(1, (EntityAIBase) new EntityAIMoveThroughVillage((EntityCreature) this, 1.0, false));
-        this.tasks.addTask(2, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+        this.tasks.addTask(0, new EntityAISwimming( this));
+        this.tasks.addTask(1, new EntityAIMoveThroughVillage( this, 1.0, false));
+        this.tasks.addTask(2, new EntityAIWander( this, 1.0));
         this.tasks
-            .addTask(3, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(4, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, false));
+            .addTask(3, new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
+        this.tasks.addTask(4, new EntityAILookIdle( this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
     }
 
     protected void applyEntityAttributes() {
@@ -302,7 +302,7 @@ public class MyMooseBig extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB((Class) EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -414,7 +414,7 @@ public class MyMooseBig extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(32.0, 8.0, 32.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(32.0, 8.0, 32.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -456,7 +456,7 @@ public class MyMooseBig extends EntityMob {
         }
         MyMooseBig target = null;
         target = (MyMooseBig) this.worldObj.findNearestEntityWithinAABB(
-            (Class) MyMooseBig.class,
+             MyMooseBig.class,
             this.boundingBox.expand(16.0, 6.0, 16.0),
             (Entity) this);
         return target == null;

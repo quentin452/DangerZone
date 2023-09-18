@@ -292,7 +292,7 @@ public class MyPowerOrbs extends EntityLiving {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB((Class) EntityLivingBase.class, this.boundingBox.expand(32.0, 24.0, 32.0));
+            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(32.0, 24.0, 32.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

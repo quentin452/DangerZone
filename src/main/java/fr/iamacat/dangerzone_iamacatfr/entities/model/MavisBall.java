@@ -15,22 +15,39 @@ import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 
 public class MavisBall extends EntityThrowable implements IProjectile {
 
+    private final double randomX;
+    private final double randomY;
+    private final double randomZ;
+
     public MavisBall(final World par1World) {
         super(par1World);
         this.setSize(1.2f, 1.2f);
+        this.randomX = this.rand.nextGaussian() / 10.0;
+        this.randomY = this.rand.nextGaussian() / 10.0;
+        this.randomZ = this.rand.nextGaussian() / 10.0;
     }
 
-    public MavisBall(final World par1World, final EntityLivingBase par3EntityPlayer) {
+    public MavisBall(final World par1World, final EntityLivingBase par3EntityPlayer, double randomX, double randomY, double randomZ) {
         super(par1World, par3EntityPlayer);
+        this.randomX = randomX;
+        this.randomY = randomY;
+        this.randomZ = randomZ;
     }
 
-    public MavisBall(final World par1World, final EntityLivingBase par2EntityLiving, final int par3) {
+    public MavisBall(final World par1World, final EntityLivingBase par2EntityLiving, final int par3, double randomX, double randomY, double randomZ) {
         super(par1World, par2EntityLiving);
+        this.randomX = randomX;
+        this.randomY = randomY;
+        this.randomZ = randomZ;
     }
 
-    public MavisBall(final World par1World, final double par2, final double par4, final double par6) {
+    public MavisBall(final World par1World, final double par2, final double par4, final double par6, double randomX, double randomY, double randomZ) {
         super(par1World, par2, par4, par6);
+        this.randomX = randomX;
+        this.randomY = randomY;
+        this.randomZ = randomZ;
     }
+
 
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
         if (par1MovingObjectPosition.entityHit != null) {
@@ -87,17 +104,17 @@ public class MavisBall extends EntityThrowable implements IProjectile {
                 this.posX,
                 this.posY,
                 this.posZ,
-                this.worldObj.rand.nextGaussian() / 10.0,
-                this.worldObj.rand.nextGaussian() / 10.0,
-                this.worldObj.rand.nextGaussian() / 10.0);
+                this.randomX,
+                this.randomY,
+                this.randomZ);
             this.worldObj.spawnParticle(
                 "magicCrit",
                 this.posX,
                 this.posY,
                 this.posZ,
-                this.worldObj.rand.nextGaussian() / 10.0,
-                this.worldObj.rand.nextGaussian() / 10.0,
-                this.worldObj.rand.nextGaussian() / 10.0);
+                this.randomX,
+                this.randomY,
+                this.randomZ);
         }
     }
 }

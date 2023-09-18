@@ -498,7 +498,7 @@ public class MyUrsaMAJOR extends EntityMob {
     }
 
     public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+        this.dataWatcher.updateObject(20, par1);
     }
 
     private ItemStack dropItemRand(final Item index, final int par1) {

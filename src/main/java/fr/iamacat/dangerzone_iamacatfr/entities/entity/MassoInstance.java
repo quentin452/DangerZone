@@ -63,17 +63,17 @@ public class MassoInstance extends EntityTameable {
     }
 
     protected String getLivingSound() {
-        this.playSound(Tags.MODID + ":mob.masso.Masso", this.getSoundVolume(), this.getSoundPitch());
+        this.playSound(Tags.MODID + ":Masso1", this.getSoundVolume(), this.getSoundPitch());
         return null;
     }
 
     protected String getHurtSound() {
-        this.playSound(Tags.MODID + ":mob.masso.MassoHurt", this.getSoundVolume(), this.getSoundPitch());
+        this.playSound(Tags.MODID + ":MassoHurt", this.getSoundVolume(), this.getSoundPitch());
         return null;
     }
 
     protected String getDeathSound() {
-        this.playSound(Tags.MODID + ":mob.other.MedHerbDeath", this.getSoundVolume(), this.getSoundPitch());
+        this.playSound(Tags.MODID + ":MedHerbDeath", this.getSoundVolume(), this.getSoundPitch());
         return null;
     }
 

@@ -72,9 +72,9 @@ public class MyAJ extends EntityTameable {
             .addTask(3, (EntityAIBase) new EntityAITempt((EntityCreature) this, 1.200000047683716, Items.fish, false));
         this.tasks.addTask(4, (EntityAIBase) new EntityAIWander(this, 1.0));
         this.tasks
-            .addTask(5, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(6, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, false));
+            .addTask(5, (EntityAIBase) new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
+        this.tasks.addTask(6, (EntityAIBase) new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
     }
 
     protected void applyEntityAttributes() {

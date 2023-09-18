@@ -123,5 +123,20 @@
 "cf_h": {"category": "master","sounds": [{"name": "cf_h","stream": false}]},
 "cf_l": {"category": "master","sounds": [{"name": "cf_l","stream": false}]},
 "cf_r": {"category": "master","sounds": [{"name": "cf_r","stream": false}]},
+"t_s": {"category": "master","sounds": [{"name": "t_s","stream": false}]},
+"co_h": {"category": "master","sounds": [{"name": "co_h","stream": false}]},
+"co_l": {"category": "master","sounds": [{"name": "co_l","stream": false}]},
+"beaverliving": {"category": "master","sounds": [{"name": "beaverliving","stream": false}]},
+"li_d": {"category": "master","sounds": [{"name": "li_d","stream": false}]},
+"li_h": {"category": "master","sounds": [{"name": "li_h","stream": false}]},
+"li_l": {"category": "master","sounds": [{"name": "li_l","stream": false}]},
+"li_l2": {"category": "master","sounds": [{"name": "li_l2","stream": false}]},
+"baryliving1": {"category": "master","sounds": [{"name": "baryliving1","stream": false}]},
+"baryhurt": {"category": "master","sounds": [{"name": "baryhurt","stream": false}]},
+"largecarndeath": {"category": "master","sounds": [{"name": "largecarndeath","stream": false}]},
+"MedHerbDeath": {"category": "master","sounds": [{"name": "MedHerbDeath","stream": false}]},
+"MassoHurt": {"category": "master","sounds": [{"name": "MassoHurt","stream": false}]},
+"Masso1": {"category": "master","sounds": [{"name": "Masso1","stream": false}]},
+
 "slap": {"category": "master","sounds": [{"name": "slap","stream": false}]}
 }

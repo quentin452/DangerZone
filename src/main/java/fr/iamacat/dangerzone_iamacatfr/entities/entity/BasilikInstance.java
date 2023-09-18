@@ -17,28 +17,28 @@ public class BasilikInstance extends EntityMob {
         this.setSize(1.0f, 3.0f);
         this.getNavigator()
             .setBreakDoors(true);
-        this.tasks.addTask(0, (EntityAIBase) new EntityAISwimming((EntityLiving) this));
-        this.tasks.addTask(1, (EntityAIBase) new EntityAIBreakDoor((EntityLiving) this));
+        this.tasks.addTask(0, new EntityAISwimming((EntityLiving) this));
+        this.tasks.addTask(1, new EntityAIBreakDoor((EntityLiving) this));
         this.tasks.addTask(
             2,
-            (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, (Class) EntityPlayer.class, 1.0, false));
+            (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, EntityPlayer.class, 1.0, false));
         this.tasks.addTask(
             3,
-            (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, (Class) EntityVillager.class, 1.0, true));
+            (EntityAIBase) new EntityAIAttackOnCollide((EntityCreature) this, EntityVillager.class, 1.0, true));
         this.tasks.addTask(4, (EntityAIBase) new EntityAIMoveTowardsRestriction((EntityCreature) this, 1.0));
         this.tasks.addTask(5, (EntityAIBase) new EntityAIMoveThroughVillage((EntityCreature) this, 1.0, false));
         this.tasks.addTask(6, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
         this.tasks
-            .addTask(7, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
+            .addTask(7, (EntityAIBase) new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
         this.tasks.addTask(8, (EntityAIBase) new EntityAILookIdle((EntityLiving) this));
         // this.tasks.addTask(9, (EntityAIBase)new EntityAIAvoidEntity((EntityCreature)this,
         // (Class)EntityFungleCrab.class, 6.0f, 1.0, 1.2));
-        this.targetTasks.addTask(1, (EntityAIBase) new EntityAIHurtByTarget((EntityCreature) this, true));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget((EntityCreature) this, true));
         this.targetTasks.addTask(
             2,
-            (EntityAIBase) new EntityAINearestAttackableTarget(
-                (EntityCreature) this,
-                (Class) EntityPlayer.class,
+            new EntityAINearestAttackableTarget(
+                this,
+                EntityPlayer.class,
                 0,
                 true));
     }

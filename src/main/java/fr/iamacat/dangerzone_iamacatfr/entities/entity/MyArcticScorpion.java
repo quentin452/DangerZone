@@ -631,9 +631,9 @@ public class MyArcticScorpion extends EntityMob {
             this.worldObj
                 .addWeatherEffect((Entity) new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
             this.worldObj
-                .addWeatherEffect((Entity) new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
+                .addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
             this.worldObj
-                .addWeatherEffect((Entity) new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
+                .addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
             this.worldObj
                 .addWeatherEffect((Entity) new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
             this.worldObj

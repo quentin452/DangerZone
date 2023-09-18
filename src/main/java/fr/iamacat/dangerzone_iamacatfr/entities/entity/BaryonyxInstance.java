@@ -56,17 +56,17 @@ public class BaryonyxInstance extends EntityMob {
     }
 
     protected String getLivingSound() {
-        this.playSound(Tags.MODID + ":mob.baryonyx.baryliving", this.getSoundVolume(), this.getSoundPitch());
+        this.playSound(Tags.MODID + ":baryliving1", this.getSoundVolume(), this.getSoundPitch());
         return null;
     }
 
     protected String getHurtSound() {
-        this.playSound(Tags.MODID + ":mob.baryonyx.baryhurt", this.getSoundVolume(), this.getSoundPitch());
+        this.playSound(Tags.MODID + ":baryhurt", this.getSoundVolume(), this.getSoundPitch());
         return null;
     }
 
     protected String getDeathSound() {
-        this.playSound(Tags.MODID + ":mob.other.largecarndeath", this.getSoundVolume(), this.getSoundPitch());
+        this.playSound(Tags.MODID + ":largecarndeath", this.getSoundVolume(), this.getSoundPitch());
         return null;
     }
 

@@ -1,5 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -125,7 +126,7 @@ public class AlosaurusInstance extends EntityDungeonMob {
             ent.setDead();
             this.worldObj.playSoundAtEntity(
                 ent,
-                "dungeonmobs:t_s",
+                Tags.MODID + ":t_s",
                 1.0F,
                 1.0F / (this.getRNG()
                     .nextFloat() * 0.4F + 0.8F));
@@ -142,15 +143,15 @@ public class AlosaurusInstance extends EntityDungeonMob {
     }
 
     protected String getLivingSound() {
-        return "dungeonmobs:co_l";
+        return Tags.MODID + ":co_l";
     }
 
     protected String getHurtSound() {
-        return "dungeonmobs:co_h";
+        return Tags.MODID + ":co_h";
     }
 
     protected String getDeathSound() {
-        return "dungeonmobs:co_h";
+        return Tags.MODID + ":co_h";
     }
 
     public void onEntityUpdate() {

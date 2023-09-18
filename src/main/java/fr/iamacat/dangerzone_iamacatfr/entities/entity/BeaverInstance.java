@@ -69,7 +69,7 @@ public class BeaverInstance extends EntityGenericAnimal implements IAnimals {
     }
 
     protected String getHurtSound() {
-        return Tags.MODID + ":sounds/mob/beaverliving.ogg";
+        return Tags.MODID + ":beaverliving";
     }
 
     public int getTalkInterval() {

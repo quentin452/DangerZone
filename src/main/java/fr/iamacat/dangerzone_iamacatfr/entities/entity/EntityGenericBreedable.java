@@ -106,19 +106,12 @@ public abstract class EntityGenericBreedable extends EntityGenericAgeable {
             final Constructor<?> ctor = thisClass.getConstructor(World.class);
             try {
                 object = ctor.newInstance(this.worldObj);
-            } catch (InstantiationException e) {
+            } catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
+                     InvocationTargetException e) {
                 e.printStackTrace();
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
-            } catch (InvocationTargetException e4) {
-                e4.printStackTrace();
             }
-        } catch (NoSuchMethodException e5) {
+        } catch (NoSuchMethodException | SecurityException e5) {
             e5.printStackTrace();
-        } catch (SecurityException e6) {
-            e6.printStackTrace();
         }
         return (EntityGenericBreedable) object;
     }

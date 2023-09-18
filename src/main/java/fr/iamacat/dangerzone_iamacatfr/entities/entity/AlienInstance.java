@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -119,16 +120,16 @@ public class AlienInstance extends EntityDungeonMob {
     }
 
     protected String getLivingSound() {
-        if (this.isTwin()) return "dungeonmobs:li_l";
-        else return "dungeonmobs:li_l2";
+        if (this.isTwin()) return Tags.MODID +":li_l";
+        else return Tags.MODID +":li_l2";
     }
 
     protected String getHurtSound() {
-        return "dungeonmobs:li_h";
+        return Tags.MODID +":li_h";
     }
 
     protected String getDeathSound() {
-        return "dungeonmobs:li_d";
+        return Tags.MODID +":li_d";
     }
 
     public int getTwinID() {

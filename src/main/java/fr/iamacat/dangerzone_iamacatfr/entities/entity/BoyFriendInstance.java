@@ -4,15 +4,18 @@ import java.util.Random;
 import java.util.UUID;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.scoreboard.Team;
 import net.minecraft.server.management.PreYggdrasilConverter;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -20,14 +23,10 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
-public class BoyFriendInstance extends EntityMob {
+public class BoyFriendInstance extends EntityTameable {
 
     private boolean isTamed;
     public ResourceLocation textureName;
-    ResourceLocation[] textures;
-
-    private static final Random random = new Random();
-
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
@@ -35,59 +34,84 @@ public class BoyFriendInstance extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
             .setBaseValue(0.600000011920929D);
     }
-
+    private int skinVariant;
     public BoyFriendInstance(World world) {
         super(world);
 
-        textures = new ResourceLocation[27]; // numbers of textures
+        // Choisissez aléatoirement la variante de la texture
+        this.skinVariant = world.rand.nextInt(27);
 
-        for (int i = 0; i < textures.length; i++) {
-            textures[i] = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend" + i + ".png");
-        }
+        // Utilisez la variante pour initialiser la DataWatcher
+        this.dataWatcher.addObject(27, this.skinVariant);
 
-        // Utilisez la variable statique random pour générer la texture aléatoire une seule fois
-        textureName = textures[random.nextInt(textures.length)];
+        this.setSize(1.0F, 1.8F);
+    }
+    public int getSkin() {
+        return this.dataWatcher.getWatchableObjectInt(27);
+    }
+
+    public void setSkin(int entity) {
+        this.dataWatcher.updateObject(27, entity);
+    }
+    @Override
+    public EntityAgeable createChild(EntityAgeable p_90011_1_) {
+        return null;
     }
 
     @Override
     public boolean interact(EntityPlayer player) {
         if (!player.isSneaking()) {
+            System.out.println("Interacting without sneaking...");
             // Essayez d'apprivoiser la Girlfriend
             if (this.attemptTame(player)) {
+                System.out.println("Attempted to tame Girlfriend.");
                 return true;
             }
             // D'autres interactions si nécessaire
+        } else {
+            System.out.println("Interacting while sneaking...");
         }
 
         // D'autres interactions si nécessaire lorsque le joueur sneake
         return super.interact(player);
     }
 
+
     public boolean attemptTame(EntityPlayer player) {
         ItemStack heldItem = player.inventory.getCurrentItem();
 
         if (heldItem != null && Block.getBlockFromItem(heldItem.getItem()) == Blocks.deadbush && !isTamed) {
-            // Vous pouvez vérifier d'autres conditions si nécessaire
-            isTamed = true;
-            this.setTamed(true);
+            // Définir le pourcentage de chance de réussite (par exemple, 50%)
+            double successChance = 0.5;
 
-            // Retirez l'objet utilisé pour l'apprivoisement (red rose)
-            if (!player.capabilities.isCreativeMode) {
-                heldItem.stackSize--;
-                if (heldItem.stackSize <= 0) {
-                    player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+            // Générer un nombre aléatoire entre 0 et 1
+            double randomValue = worldObj.rand.nextDouble();
+
+            // Vérifier si l'apprivoisement réussit en fonction du pourcentage de chance
+            if (randomValue <= successChance) {
+                // Réussi
+                isTamed = true;
+                this.setTamed(true);
+
+                // Retirez l'objet utilisé pour l'apprivoisement (red rose)
+                if (!player.capabilities.isCreativeMode) {
+                    heldItem.stackSize--;
+                    if (heldItem.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
                 }
+
+                // Jouez l'effet d'apprivoisement
+                this.playTameEffect(true);
+
+                // Définissez le propriétaire (si vous le souhaitez)
+                this.func_152115_b(player.getUniqueID().toString());
+
+                return true;
+            } else {
+                // Échec
+                // Vous pouvez ajouter un effet ou un message d'échec ici si vous le souhaitez
             }
-
-            // Jouez l'effet d'apprivoisement
-            this.playTameEffect(true);
-
-            // Définissez le propriétaire (si vous voulez)
-            this.func_152115_b(
-                player.getUniqueID()
-                    .toString());
-
-            return true;
         }
 
         return false;
@@ -95,8 +119,8 @@ public class BoyFriendInstance extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(16, (byte) 0);
-        this.dataWatcher.addObject(17, "");
+        this.dataWatcher.addObject(18, (byte) 0);
+        this.dataWatcher.addObject(19, "");
     }
 
     /**
@@ -104,8 +128,7 @@ public class BoyFriendInstance extends EntityMob {
      */
     public void writeEntityToNBT(NBTTagCompound tagCompound) {
         super.writeEntityToNBT(tagCompound);
-        // Écrivez les données de l'entité dans NBT (si nécessaire)
-        textureName = new ResourceLocation(tagCompound.getString("Texture"));
+        tagCompound.setInteger("Variant", this.getSkin());
 
         if (this.func_152113_b() == null) {
             tagCompound.setString("OwnerUUID", "");
@@ -121,8 +144,8 @@ public class BoyFriendInstance extends EntityMob {
      */
     public void readEntityFromNBT(NBTTagCompound tagCompund) {
         super.readEntityFromNBT(tagCompund);
-        // Lisez les données de l'entité depuis NBT (si nécessaire)
-        tagCompund.setString("Texture", textureName.toString());
+        this.setSkin(tagCompund.getInteger("Variant"));
+
 
         String s = "";
 
@@ -201,7 +224,7 @@ public class BoyFriendInstance extends EntityMob {
     }
 
     public void setTamed(boolean p_70903_1_) {
-        int b0 = this.dataWatcher.getWatchableObjectInt(16);
+        int b0 = this.dataWatcher.getWatchableObjectByte(16);
 
         if (p_70903_1_) {
             this.dataWatcher.updateObject(16, (byte) (b0 | 4));
@@ -211,11 +234,11 @@ public class BoyFriendInstance extends EntityMob {
     }
 
     public boolean isSitting() {
-        return (this.dataWatcher.getWatchableObjectInt(16) & 1) != 0;
+        return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
     }
 
     public void setSitting(boolean p_70904_1_) {
-        int b0 = this.dataWatcher.getWatchableObjectInt(16);
+        int b0 = this.dataWatcher.getWatchableObjectByte(16);
 
         if (p_70904_1_) {
             this.dataWatcher.updateObject(16, (byte) (b0 | 1));

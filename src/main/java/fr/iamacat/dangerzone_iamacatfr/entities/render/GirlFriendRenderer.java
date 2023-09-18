@@ -3,6 +3,9 @@ package fr.iamacat.dangerzone_iamacatfr.entities.render;
 import java.util.Map;
 import java.util.UUID;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BoyFriendInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.ButterflyInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -30,7 +33,92 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.GirlFriendInstance;
 
 @SideOnly(Side.CLIENT)
 public class GirlFriendRenderer extends RenderLiving {
+    private static final ResourceLocation texture0 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend0.png");
+    private static final ResourceLocation texture1 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend1.png");
 
+    private static final ResourceLocation texture2 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend2.png");
+    private static final ResourceLocation texture3 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend3.png");
+    private static final ResourceLocation texture4 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend4.png");
+    private static final ResourceLocation texture5 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend5.png");
+    private static final ResourceLocation texture6 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend6.png");
+    private static final ResourceLocation texture7 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend7.png");
+    private static final ResourceLocation texture8 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend8.png");
+    private static final ResourceLocation texture9 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend9.png");
+    private static final ResourceLocation texture10 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend10.png");
+    private static final ResourceLocation texture11 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend11.png");
+
+    private static final ResourceLocation texture12 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend12.png");
+    private static final ResourceLocation texture13 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend13.png");
+    private static final ResourceLocation texture14 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend14.png");
+    private static final ResourceLocation texture15 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend15.png");
+    private static final ResourceLocation texture16 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend16.png");
+    private static final ResourceLocation texture17 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend17.png");
+    private static final ResourceLocation texture18 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend18.png");
+    private static final ResourceLocation texture19 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend19.png");
+    private static final ResourceLocation texture20 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend20.png");
+    private static final ResourceLocation texture21 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend21.png");
+
+    private static final ResourceLocation texture22 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend22.png");
+    private static final ResourceLocation texture23 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend23.png");
+    private static final ResourceLocation texture24 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend24.png");
+    private static final ResourceLocation texture25 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend25.png");
+    private static final ResourceLocation texture26 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend26.png");
+    private static final ResourceLocation texture27 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend27.png");
+    private static final ResourceLocation texture28 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend28.png");
+    private static final ResourceLocation texture29 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend29.png");
+    private static final ResourceLocation texture30= new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend30.png");
+    private static final ResourceLocation texture31 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend31.png");
+
+    private static final ResourceLocation texture32 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend32.png");
+    private static final ResourceLocation texture33 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend33.png");
+    private static final ResourceLocation texture34 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend34.png");
+    private static final ResourceLocation texture35 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend35.png");
+    private static final ResourceLocation texture36 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend36.png");
+    private static final ResourceLocation texture37 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend37.png");
+    private static final ResourceLocation texture38 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend38.png");
+    private static final ResourceLocation texture39 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend39.png");
+    private static final ResourceLocation texture40 = new ResourceLocation(
+        Tags.MODID + ":textures/entity/girlfriend40.png");
     public ModelBiped modelBipedMain;
     protected float field_77070_b;
     protected ModelBiped field_82423_g;
@@ -151,11 +239,97 @@ public class GirlFriendRenderer extends RenderLiving {
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
 
+    protected ResourceLocation getEntityTexture(GirlFriendInstance entity) {
+        switch (entity.getDataWatcher()
+            .getWatchableObjectInt(31)) {
+            case 0:
+                return texture1;
+            case 1:
+                return texture2;
+            case 2:
+                return texture3;
+            case 3:
+                return texture4;
+            case 4:
+                return texture5;
+            case 5:
+                return texture6;
+            case 6:
+                return texture7;
+            case 7:
+                return texture8;
+            case 8:
+                return texture9;
+            case 9:
+                return texture10;
+            case 10:
+                return texture11;
+            case 11:
+                return texture12;
+            case 12:
+                return texture13;
+            case 13:
+                return texture14;
+            case 14:
+                return texture15;
+            case 15:
+                return texture16;
+            case 16:
+                return texture17;
+            case 17:
+                return texture18;
+            case 18:
+                return texture19;
+            case 19:
+                return texture20;
+            case 20:
+                return texture21;
+            case 21:
+                return texture22;
+            case 22:
+                return texture23;
+            case 23:
+                return texture24;
+            case 24:
+                return texture25;
+            case 25:
+                return texture26;
+            case 26:
+                return texture27;
+            case 27:
+                return texture28;
+            case 28:
+                return texture29;
+            case 29:
+                return texture30;
+            case 30:
+                return texture31;
+            case 31:
+                return texture32;
+            case 32:
+                return texture33;
+            case 33:
+                return texture34;
+            case 34:
+                return texture35;
+            case 35:
+                return texture36;
+            case 36:
+                return texture37;
+            case 37:
+                return texture38;
+            case 38:
+                return texture39;
+            case 39:
+                return texture40;
+            default:
+                return texture0;
+        }
+    }
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return ((GirlFriendInstance) entity).textureName;
+        return this.getEntityTexture((GirlFriendInstance) entity);
     }
-
     protected void renderEquippedItems(GirlFriendInstance p_77029_1_, float p_77029_2_) {
         GL11.glColor3f(1.0F, 1.0F, 1.0F);
         super.renderEquippedItems(p_77029_1_, p_77029_2_);
@@ -331,5 +505,4 @@ public class GirlFriendRenderer extends RenderLiving {
 
         return resourcelocation;
     }
-    /* =================================== FORGE END =========================================== */
 }

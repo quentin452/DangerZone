@@ -32,10 +32,10 @@ public class RenderRainbowCannon extends Render {
     }
 
     private void func_77026_a(final Tessellator par1Tessellator, final int par2, final float par3) {
-        final float var3 = (par2 % 16 * 16 + 0) / 16.0f;
+        final float var3 = (par2 % 16 * 16) / 16.0f;
         final float var4 = (par2 % 16 * 16 + 16) / 16.0f;
-        final float var5 = (par2 / 16 * 16 + 0) / 16.0f;
-        final float var6 = (par2 / 16 * 16 + 16) / 16.0f;
+        final float var5 = ((float) par2 / 16 * 16 + 0) / 16.0f;
+        final float var6 = ((float) par2 / 16 * 16 + 16) / 16.0f;
         final float var7 = 1.0f;
         final float var8 = 0.5f;
         final float var9 = 0.25f;

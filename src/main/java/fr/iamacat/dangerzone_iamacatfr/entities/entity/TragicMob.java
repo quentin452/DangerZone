@@ -49,9 +49,9 @@ public abstract class TragicMob extends EntityMob {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(13, Byte.valueOf((byte) 0));
-        this.dataWatcher.addObject(14, Byte.valueOf((byte) 0));
-        this.dataWatcher.addObject(15, Integer.valueOf(0));
+        this.dataWatcher.addObject(13, (byte) 0);
+        this.dataWatcher.addObject(14, (byte) 0);
+        this.dataWatcher.addObject(15, 0);
     }
 
     public int getCorruptionTicks() {
@@ -159,11 +159,11 @@ public abstract class TragicMob extends EntityMob {
                 PotionEffect effect = new PotionEffect(this.supportID, 300, this.supportAmp);
                 this.addPotionEffect(effect);
 
-                List<Entity> list = this.worldObj
+                List list = this.worldObj
                     .getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(32.0, 32.0, 32.0));
 
-                for (Entity e : list) {
-                    if (e instanceof EntityMob && this.canEntityBeSeen(e) && ((EntityMob) e).getAttackTarget() != this)
+                for (Object e : list) {
+                    if (e instanceof EntityMob && this.canEntityBeSeen((Entity) e) && ((EntityMob) e).getAttackTarget() != this)
                         ((EntityMob) e).addPotionEffect(effect);
                 }
             }
@@ -182,11 +182,11 @@ public abstract class TragicMob extends EntityMob {
             if (entityplayer != null && this.canEntityBeSeen(entityplayer)) {
                 result = entityplayer;
             } else {
-                List<Entity> list = this.worldObj
+                List list = this.worldObj
                     .getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(16.0, 16.0, 16.0));
 
                 for (int i = 0; i < list.size(); i++) {
-                    Entity entity = list.get(i);
+                    Entity entity = (Entity) list.get(i);
 
                     if (this.canEntityBeSeen(entity) && entity != this) {
                         if (!(entity instanceof EntityWither) && !(entity instanceof EntityDragon)
@@ -411,9 +411,7 @@ public abstract class TragicMob extends EntityMob {
 
     @Override
     public boolean canAttackClass(Class par1Class) {
-        return super.canAttackClass(par1Class) && par1Class != TragicBoss.class && this instanceof TragicMiniBoss
-            ? par1Class != this.getLesserForm()
-            : true;
+        return !super.canAttackClass(par1Class) || par1Class == TragicBoss.class || !(this instanceof TragicMiniBoss) || par1Class != this.getLesserForm();
     }
 
     @Override

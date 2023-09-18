@@ -1,20 +1,27 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions.teleporter.SafeTeleporter;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityAmbientCreature;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 public class ButterflyInstance extends EntityAmbientCreature {
+
+
 
     private ChunkCoordinates spawnPosition;
 
@@ -144,39 +151,38 @@ public class ButterflyInstance extends EntityAmbientCreature {
         }
     }
 
-    public boolean interact(EntityPlayer p_70085_1_) {
-        ItemStack itemstack = p_70085_1_.inventory.getCurrentItem();
-        int i = this.getSkin();
-
-        if (super.interact(p_70085_1_)) {
-            return true;
-        }
-        /*
-         * else if (itemstack != null && itemstack.getItem() == WildMobsModItems.bugNet)
-         * {
-         * ItemStack itemstack1 = new ItemStack(WildMobsModItems.butterfly, 1, i);
-         * if (!p_70085_1_.inventory.addItemStackToInventory(itemstack1))
-         * {
-         * p_70085_1_.dropPlayerItemWithRandomChoice(itemstack1, false);
-         * this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1015, (int)this.posX, (int)this.posY, (int)this.posZ,
-         * 0);
-         * itemstack.damageItem(1, p_70085_1_);
-         * this.isDead = true;
-         * return true;
-         * }
-         * else
-         * {
-         * this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1015, (int)this.posX, (int)this.posY, (int)this.posZ,
-         * 0);
-         * itemstack.damageItem(1, p_70085_1_);
-         * this.isDead = true;
-         * return true;
-         * }
-         * }
-         */
-        else {
+    public boolean interact(final EntityPlayer player) {
+        if (!(player instanceof EntityPlayerMP)) {
             return false;
         }
+
+        ItemStack heldItem = player.inventory.getCurrentItem();
+
+        if (heldItem != null && heldItem.stackSize > 0) {
+            // Player is holding an item, do not teleport
+            return false;
+        }
+
+        int targetDimensionId = player.dimension;
+        int destinationDimensionId;
+
+        if (targetDimensionId != DimensionInitDangerZone.ChaosDimensionId) {
+            destinationDimensionId = DimensionInitDangerZone.ChaosDimensionId;
+        } else {
+            destinationDimensionId = 0;
+        }
+
+        MinecraftServer server = MinecraftServer.getServer();
+        WorldServer targetWorld = server.worldServerForDimension(targetDimensionId);
+        WorldServer destinationWorld = server.worldServerForDimension(destinationDimensionId);
+
+        if (targetWorld != null && destinationWorld != null) {
+            SafeTeleporter teleporter = new SafeTeleporter(destinationWorld, destinationDimensionId, player.worldObj);
+            server.getConfigurationManager()
+                .transferPlayerToDimension((EntityPlayerMP) player, destinationDimensionId, teleporter);
+        }
+
+        return true;
     }
 
     public EnumCreatureAttribute getCreatureAttribute() {

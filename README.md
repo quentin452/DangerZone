@@ -18,14 +18,14 @@ Thx to twilight forest for the code
 
 Thx to Dungeon Mobs for the code
 
-Thx to Fairy for the the code
+Thx to Fairy for the code
 
-Thx to Plantology for the the code
+Thx to Plantology for the code
 
-Thx to ProjectZulu for the the code
+Thx to ProjectZulu for the code
 
-Thx to TragicMC2 for the the code
+Thx to TragicMC2 for the code
 
-Thx to Wild Mobs for the the code
+Thx to Wild Mobs for the code
 
 Thx to MLP Mythical Creatures for the code

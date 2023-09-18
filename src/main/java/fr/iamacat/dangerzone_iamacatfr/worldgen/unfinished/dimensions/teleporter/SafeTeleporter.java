@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -32,8 +33,8 @@ public class SafeTeleporter extends Teleporter {
     }
 
     public void placeInPortal(final Entity par1Entity, final double par2, final double par4, final double par6,
-        final float par8) {
-        // Handle portal placement here if needed
+                              final float par8) {
+        this.justPutMe(par1Entity);
     }
 
     public boolean placeInExistingPortal(final Entity par1Entity, final double par2, final double par4,

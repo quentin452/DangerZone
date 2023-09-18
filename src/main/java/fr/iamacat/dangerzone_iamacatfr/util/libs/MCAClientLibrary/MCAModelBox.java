@@ -1,5 +1,5 @@
 
-package fr.iamacat.dangerzone_iamacatfr.MCAClientLibrary;
+package fr.iamacat.dangerzone_iamacatfr.util.libs.MCAClientLibrary;
 
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;

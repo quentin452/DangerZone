@@ -1,10 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.angeldragon;
 
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.Channel;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.KeyFrame;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Quaternion;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Vector3f;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.animation.Channel;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.animation.KeyFrame;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math.Quaternion;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math.Vector3f;
 
 public class ChannelLook extends Channel {
 

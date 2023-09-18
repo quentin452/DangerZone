@@ -3,9 +3,9 @@ package fr.iamacat.dangerzone_iamacatfr.angeldragon;
 
 import java.util.HashMap;
 
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.IMCAnimatedEntity;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.AnimationHandler;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.Channel;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.IMCAnimatedEntity;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.animation.AnimationHandler;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.animation.Channel;
 
 public class AnimationHandlerAngelDragon extends AnimationHandler {
 
@@ -26,14 +26,14 @@ public class AnimationHandlerAngelDragon extends AnimationHandler {
     }
 
     @Override
-    public void fireAnimationEventClientSide(fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.Channel p0,
-        float p1, float p2) {
+    public void fireAnimationEventClientSide(Channel p0,
+                                             float p1, float p2) {
 
     }
 
     @Override
-    public void fireAnimationEventServerSide(fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation.Channel p0,
-        float p1, float p2) {
+    public void fireAnimationEventServerSide(Channel p0,
+                                             float p1, float p2) {
 
     }
 

@@ -1,5 +1,5 @@
 
-package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation;
+package fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.animation;
 
 import java.util.HashMap;
 import java.util.Map;

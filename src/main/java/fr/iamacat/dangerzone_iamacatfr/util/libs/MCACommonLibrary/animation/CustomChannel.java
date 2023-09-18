@@ -1,10 +1,10 @@
 
-package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation;
+package fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.animation;
 
 import java.util.HashMap;
 
-import fr.iamacat.dangerzone_iamacatfr.MCAClientLibrary.MCAModelRenderer;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.IMCAnimatedEntity;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCAClientLibrary.MCAModelRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.IMCAnimatedEntity;
 
 public class CustomChannel extends Channel {
 

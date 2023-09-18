@@ -1,5 +1,5 @@
 
-package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary;
+package fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary;
 
 public class MCAVersionChecker {
 

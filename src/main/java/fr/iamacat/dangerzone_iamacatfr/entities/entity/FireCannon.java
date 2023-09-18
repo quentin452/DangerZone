@@ -12,7 +12,7 @@ import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
 public class FireCannon extends EntityThrowable {
 
     private float my_rotation;
-    private int my_index;
+    private final int my_index;
 
     public FireCannon(final World par1World) {
         super(par1World);
@@ -73,16 +73,6 @@ public class FireCannon extends EntityThrowable {
                 this.worldObj.rand.nextGaussian());
         }
         this.playSound("random.explode", 1.5f, 1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);
-        if (!this.worldObj.isRemote) {
-            this.worldObj.createExplosion(
-                this,
-                this.posX,
-                this.posY,
-                this.posZ,
-                4.0f,
-                this.worldObj.getGameRules()
-                    .getGameRuleBooleanValue("mobGriefing"));
-        }
         if (!this.worldObj.isRemote) {
             this.setDead();
         }

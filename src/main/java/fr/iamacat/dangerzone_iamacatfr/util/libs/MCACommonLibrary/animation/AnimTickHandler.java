@@ -1,5 +1,5 @@
 
-package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation;
+package fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.animation;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.IMCAnimatedEntity;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.IMCAnimatedEntity;
 
 public class AnimTickHandler {
 

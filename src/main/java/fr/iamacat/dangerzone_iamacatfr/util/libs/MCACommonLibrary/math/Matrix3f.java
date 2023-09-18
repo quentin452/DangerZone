@@ -1,5 +1,5 @@
 
-package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math;
+package fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math;
 
 import java.io.Serializable;
 import java.nio.FloatBuffer;

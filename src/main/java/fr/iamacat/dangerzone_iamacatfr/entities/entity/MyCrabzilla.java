@@ -94,7 +94,7 @@ public class MyCrabzilla extends EntityTameable {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (Object) 0);
+        this.dataWatcher.addObject(20, (byte) 0);
         if (this.renderdata == null) {
             this.renderdata = new RenderInfo();
         }

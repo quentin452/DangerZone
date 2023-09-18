@@ -1,10 +1,10 @@
 
-package fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.animation;
+package fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.animation;
 
 import java.util.HashMap;
 
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Quaternion;
-import fr.iamacat.dangerzone_iamacatfr.MCACommonLibrary.math.Vector3f;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math.Quaternion;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math.Vector3f;
 
 public class KeyFrame {
 

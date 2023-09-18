@@ -8,7 +8,7 @@ public class InputConfusedMovement extends MovementInput {
 
     protected MovementInput underlyingMovementInput;
     private boolean confused = false;
-    private int confValue = 1;
+    private int confValue;
 
     public InputConfusedMovement(MovementInput interceptedInput) {
         underlyingMovementInput = interceptedInput;

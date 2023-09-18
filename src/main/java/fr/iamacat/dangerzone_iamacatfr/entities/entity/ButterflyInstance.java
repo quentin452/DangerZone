@@ -21,7 +21,6 @@ public class ButterflyInstance extends EntityAmbientCreature {
     @Override
     protected void entityInit() {
         super.entityInit();
-        // this.dataWatcher.addObject(20, Byte.valueOf((byte)0));
     }
 
     private int skinVariant;
@@ -33,7 +32,7 @@ public class ButterflyInstance extends EntityAmbientCreature {
         this.skinVariant = world.rand.nextInt(14);
 
         // Utilisez la variante pour initialiser la DataWatcher
-        this.dataWatcher.addObject(20, (byte) this.skinVariant);
+        this.dataWatcher.addObject(20, this.skinVariant);
     }
 
     public IEntityLivingData onSpawnWithEgg(IEntityLivingData entity) {
@@ -57,7 +56,7 @@ public class ButterflyInstance extends EntityAmbientCreature {
     }
 
     public void setSkin(int entity) {
-        this.dataWatcher.updateObject(20, Byte.valueOf((byte) entity));
+        this.dataWatcher.updateObject(20, entity);
     }
 
     /**

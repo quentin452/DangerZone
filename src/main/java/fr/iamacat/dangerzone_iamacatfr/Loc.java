@@ -66,7 +66,7 @@ public enum Loc {
 
     public final String key;
 
-    private Loc(String key) {
+    Loc(String key) {
         this.key = key;
     }
 

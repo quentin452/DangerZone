@@ -22,7 +22,7 @@ public class FairyEventListener {
         SET_FAIRY_NAME(0, PacketSetFairyName.class);
 
         public final byte packet_id;
-        protected final Class<? extends FairyPacket> packet_class;
+        private final Class<? extends FairyPacket> packet_class;
 
         private PacketType(final int id, Class<? extends FairyPacket> clazz) {
             packet_id = (byte) id;

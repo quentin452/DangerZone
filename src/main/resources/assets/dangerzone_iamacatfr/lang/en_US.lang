@@ -105,6 +105,7 @@ entity.FireCannon.name=Fire Cannon
 entity.RainbowCannon.name=Rainbow Cannon
 entity.ProjectileApples.name=Projectile Apples
 
+item.MarvisOrb.name=Marvis Orb Egg
 item.Masso Egg.name=Masso Egg
 item.SunspotUrchin.name=Sunsport Urchin
 item.ThunderStaff.name=Thunder Staff

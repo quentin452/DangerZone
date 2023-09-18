@@ -48,13 +48,12 @@ public class MyWindigo extends EntityMob {
     private int gothitcount;
     private int backoff_timer;
     private int guard_mode;
-    private volatile int head_found;
     private int wing_sound;
     private int hugemob;
     private int isEnd;
     private int dialogTimer;
     private int gothit;
-    private int mad;
+    private final int mad;
     private int MobBattleMode;
 
     public MyWindigo(final World par1World) {
@@ -73,7 +72,6 @@ public class MyWindigo extends EntityMob {
         this.gothitcount = 0;
         this.backoff_timer = 0;
         this.guard_mode = 0;
-        this.head_found = 0;
         this.wing_sound = 0;
         this.hugemob = 0;
         this.isEnd = 0;
@@ -88,11 +86,11 @@ public class MyWindigo extends EntityMob {
         this.isImmuneToFire = true;
         this.fireResistance = 5000;
         this.noClip = false;
-        this.TargetSorter = new GenericTargetSorter((Entity) this);
+        this.TargetSorter = new GenericTargetSorter(this);
         this.renderDistanceWeight = 12.0;
-        this.tasks.addTask(2, (EntityAIBase) new EntityAIWander((EntityCreature) this, 1.0));
+        this.tasks.addTask(2, new EntityAIWander(this, 1.0));
         this.tasks
-            .addTask(3, (EntityAIBase) new EntityAIWatchClosest((EntityLiving) this, (Class) EntityPlayer.class, 8.0f));
+            .addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
     }
 
     protected void applyEntityAttributes() {
@@ -108,9 +106,9 @@ public class MyWindigo extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (Object) 0);
-        // this.dataWatcher.addObject(21, (Object)Basic.Snap);
-        this.dataWatcher.addObject(22, (Object) this.isEnd);
+        this.dataWatcher.addObject(20, 0);
+        this.dataWatcher.addObject(21, 0);
+        this.dataWatcher.addObject(22, this.isEnd);
     }
 
     public int getPlayNicely() {
@@ -176,7 +174,7 @@ public class MyWindigo extends EntityMob {
      */
 
     private ItemStack dropItemRand(final Item index, final int par1) {
-        EntityItem var3 = null;
+        EntityItem var3;
         final ItemStack is = new ItemStack(index, par1, 0);
         var3 = new EntityItem(
             this.worldObj,
@@ -187,13 +185,13 @@ public class MyWindigo extends EntityMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.75, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
 
     private ItemStack dropBlockRand(final Block index, final int par1) {
-        EntityItem var3 = null;
+        EntityItem var3;
         final ItemStack is = new ItemStack(index, par1, 0);
         var3 = new EntityItem(
             this.worldObj,
@@ -204,7 +202,7 @@ public class MyWindigo extends EntityMob {
         final float f3 = (float) Math.atan2(rand.nextInt() - this.posZ, rand.nextInt() - this.posX);
         var3.addVelocity(Math.cos(f3) * 0.25, 0.75, Math.sin(f3) * 0.25);
         if (var3 != null) {
-            this.worldObj.spawnEntityInWorld((Entity) var3);
+            this.worldObj.spawnEntityInWorld(var3);
         }
         return is;
     }
@@ -335,16 +333,16 @@ public class MyWindigo extends EntityMob {
         }
         this.noClip = false;
         this.motionY *= 0.6;
-        if (this.getHealth() < this.mygetMaxHealth() * 2 / 3) {
+        if (this.getHealth() < (float) (this.mygetMaxHealth() * 2) / 3) {
             this.attdam = 750.0;
         }
-        if (this.getHealth() < this.mygetMaxHealth() / 2) {
+        if (this.getHealth() < (float) this.mygetMaxHealth() / 2) {
             this.attdam = 1000.0;
         }
-        if (this.getHealth() < this.mygetMaxHealth() / 4) {
+        if (this.getHealth() < (float) this.mygetMaxHealth() / 4) {
             this.attdam = 1250.0;
         }
-        if (this.getHealth() < this.mygetMaxHealth() / 8) {
+        if (this.getHealth() < (float) this.mygetMaxHealth() / 8) {
             this.attdam = 1750.0;
         }
         if (this.worldObj.isRemote) {
@@ -1465,7 +1463,7 @@ public class MyWindigo extends EntityMob {
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var2);
+            this.worldObj.spawnEntityInWorld(var2);
             --this.stream_count;
         } else {
             this.setAttacking(0);
@@ -1497,7 +1495,7 @@ public class MyWindigo extends EntityMob {
                 1.0f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) bf);
+            this.worldObj.spawnEntityInWorld(bf);
             for (int i = 0; i < 10; ++i) {
                 final float r1 = 10.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r2 = 10.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
@@ -1511,12 +1509,12 @@ public class MyWindigo extends EntityMob {
                 bf.setLocationAndAngles(cx, this.posY + yoff, cz, this.rotationYaw, 0.0f);
                 bf.setPosition(cx, this.posY + yoff, cz);
                 this.worldObj.playSoundAtEntity(
-                    (Entity) this,
+                    this,
                     "random.explode",
                     1.0f,
                     1.0f / (this.getRNG()
                         .nextFloat() * 0.4f + 0.8f));
-                this.worldObj.spawnEntityInWorld((Entity) bf);
+                this.worldObj.spawnEntityInWorld(bf);
             }
             --this.stream_count;
         }
@@ -1527,15 +1525,15 @@ public class MyWindigo extends EntityMob {
             return;
         }
         final float var2 = 1000.0f;
-        e.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase) this), var2);
+        e.attackEntityFrom(DamageSource.causeMobDamage(this), var2);
         for (int var3 = 0; var3 < 20; ++var3) {}
         this.worldObj.playSoundAtEntity(
-            (Entity) e,
+            e,
             "random.explode",
             1.5f,
             1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);
         if (!this.worldObj.isRemote) {}
-        this.worldObj.addWeatherEffect((Entity) new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
-        this.worldObj.addWeatherEffect((Entity) new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
+        this.worldObj.addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
+        this.worldObj.addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
     }
 }

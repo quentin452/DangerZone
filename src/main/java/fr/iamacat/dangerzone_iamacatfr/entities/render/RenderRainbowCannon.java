@@ -45,13 +45,13 @@ public class RenderRainbowCannon extends Render {
         par1Tessellator.startDrawingQuads();
         par1Tessellator.setNormal(0.0f, 1.0f, 0.0f);
         par1Tessellator
-            .addVertexWithUV((double) (0.0f - var8), (double) (0.0f - var9), 0.0, (double) var3, (double) var6);
+            .addVertexWithUV(0.0f - var8,  (0.0f - var9), 0.0,  var3,  var6);
         par1Tessellator
-            .addVertexWithUV((double) (var7 - var8), (double) (0.0f - var9), 0.0, (double) var4, (double) var6);
+            .addVertexWithUV(var7 - var8,  (0.0f - var9), 0.0,  var4,  var6);
         par1Tessellator
-            .addVertexWithUV((double) (var7 - var8), (double) (var7 - var9), 0.0, (double) var4, (double) var5);
+            .addVertexWithUV(var7 - var8, var7 - var9, 0.0,  var4,  var5);
         par1Tessellator
-            .addVertexWithUV((double) (0.0f - var8), (double) (var7 - var9), 0.0, (double) var3, (double) var5);
+            .addVertexWithUV(0.0f - var8, var7 - var9, 0.0,  var3, var5);
         par1Tessellator.draw();
     }
 

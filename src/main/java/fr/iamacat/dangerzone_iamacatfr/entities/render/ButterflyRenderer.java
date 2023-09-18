@@ -48,8 +48,6 @@ public class ButterflyRenderer extends RenderLiving {
     }
 
     protected ResourceLocation getEntityTexture(ButterflyInstance entity) {
-        int type = entity.getDataWatcher()
-            .getWatchableObjectInt(20);
         switch (entity.getDataWatcher()
             .getWatchableObjectInt(20)) {
             case 0:
@@ -61,24 +59,22 @@ public class ButterflyRenderer extends RenderLiving {
             case 3:
                 return limeTextures;
             case 4:
-                return orangeTextures;
-            case 5:
                 return purpleTextures;
-            case 6:
+            case 5:
                 return redTextures;
-            case 7:
+            case 6:
                 return whiteTextures;
-            case 8:
+            case 7:
                 return yellowTextures;
-            case 9:
+            case 8:
                 return cyanTextures;
-            case 10:
+            case 9:
                 return brownTextures;
-            case 11:
+            case 10:
                 return blackTextures;
-            case 12:
+            case 11:
                 return greenTextures;
-            case 13:
+            case 12:
                 return grayTextures;
             default:
                 return orangeTextures;

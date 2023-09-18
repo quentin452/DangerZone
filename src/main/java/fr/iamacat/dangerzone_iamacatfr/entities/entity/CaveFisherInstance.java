@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import java.util.Iterator;
 import java.util.List;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -109,15 +110,15 @@ public class CaveFisherInstance extends EntityDungeonMob {
     }
 
     protected String getLivingSound() {
-        return "dangerzone_iamacatfr/sounds/cf_l";
+        return Tags.MODID +":cf_l";
     }
 
     protected String getHurtSound() {
-        return "dangerzone_iamacatfr/sounds/cf_h";
+        return Tags.MODID +":cf_h";
     }
 
     protected String getDeathSound() {
-        return "dangerzone_iamacatfr/sounds/cf_d";
+        return Tags.MODID +":cf_d";
     }
 
     protected void playStepSound(int par1, int par2, int par3, int par4) {
@@ -245,7 +246,7 @@ public class CaveFisherInstance extends EntityDungeonMob {
 
             if (this.grabTimer == (foo * 3) - 16) this.worldObj.playSoundAtEntity(
                 this,
-                "dangerzone_iamacatfr/sounds/cf_c",
+                Tags.MODID +":cf_c",
                 1.0F,
                 (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
 
@@ -266,7 +267,7 @@ public class CaveFisherInstance extends EntityDungeonMob {
 
                     this.worldObj.playSoundAtEntity(
                         this,
-                        "dangerzone_iamacatfr/sounds/cf_r",
+                        Tags.MODID +":cf_r",
                         1.0F,
                         (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
 
@@ -325,7 +326,7 @@ public class CaveFisherInstance extends EntityDungeonMob {
         ent.motionY /= 2.0D;
         ent.motionZ /= 2.0D;
         ent.motionX -= x / (double) var7 * (double) var8;
-        ent.motionY += (double) var8;
+        ent.motionY += var8;
         ent.motionZ -= z / (double) var7 * (double) var8;
 
         if (ent.motionY > 0.4000000059604645D) {

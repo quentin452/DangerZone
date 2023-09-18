@@ -118,5 +118,10 @@
 "tinybirdchirp0": {"category": "master","sounds": [{"name": "tinybirdchirp0","stream": false}]},
 "tinydragon": {"category": "master","sounds": [{"name": "tinydragon","stream": false}]},
 "enthralled": {"category": "master","sounds": [{"name": "enthralled","stream": false}]},
+"cf_c": {"category": "master","sounds": [{"name": "cf_c","stream": false}]},
+"cf_d": {"category": "master","sounds": [{"name": "cf_d","stream": false}]},
+"cf_h": {"category": "master","sounds": [{"name": "cf_h","stream": false}]},
+"cf_l": {"category": "master","sounds": [{"name": "cf_l","stream": false}]},
+"cf_r": {"category": "master","sounds": [{"name": "cf_r","stream": false}]},
 "slap": {"category": "master","sounds": [{"name": "slap","stream": false}]}
 }

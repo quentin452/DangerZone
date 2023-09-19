@@ -97,7 +97,7 @@ public class AlosaurusInstance extends EntityDungeonMob {
             if (!cow.capabilities.isCreativeMode) {
                 this.worldObj.playSoundAtEntity(
                     ent,
-                    "dungeonmobs:t_s",
+                    Tags.MODID + ":t_s",
                     1.0F,
                     1.0F / (this.getRNG()
                         .nextFloat() * 0.4F + 0.8F));

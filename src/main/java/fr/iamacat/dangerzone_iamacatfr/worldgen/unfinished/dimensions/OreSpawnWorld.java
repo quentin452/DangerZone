@@ -5,6 +5,10 @@ import cpw.mods.fml.common.IWorldGenerator;
 import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.items.ItemAppleSeed;
+import fr.iamacat.dangerzone_iamacatfr.items.OmgMagicApple;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.trees.Trees;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -316,14 +320,14 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public void generateRuby(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (DangerZone.Ruby_stats.rate <= 0) {
+        if (10 <= 0) {
             return;
         }
-        for (int patchy = DangerZone.Ruby_stats.rate + random.nextInt(7), i = 0; i < patchy; ++i) {
+        for (int patchy = 10 + random.nextInt(7), i = 0; i < patchy; ++i) {
             final int randPosX = 3 + chunkX + random.nextInt(10);
             final int randPosY = random.nextInt(128);
             final int randPosZ = 3 + chunkZ + random.nextInt(10);
-            if (randPosY <= DangerZone.Ruby_stats.maxdepth && randPosY >= DangerZone.Ruby_stats.mindepth) {
+            if (randPosY <= 50 && randPosY >=0) {
                 for (int m = randPosY; m > 5; --m) {
                     Block bid = world.getBlock(randPosX, m, randPosZ);
                     if (bid == Blocks.lava || bid == Blocks.flowing_lava) {
@@ -339,8 +343,8 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public void generateOres(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (DangerZone.SpawnOres_stats.rate > 0) {
-            int patchy = DangerZone.SpawnOres_stats.rate + random.nextInt(20);
+        if (28 > 0) {
+            int patchy = 28 + random.nextInt(20);
             if (random.nextInt(20) == 0) {
                 patchy += 30;
             }
@@ -348,8 +352,8 @@ public class OreSpawnWorld implements IWorldGenerator {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= DangerZone.SpawnOres_stats.maxdepth
-                    && randPosY >= DangerZone.SpawnOres_stats.mindepth) {
+                if (randPosY <=128
+                    && randPosY >= 50) {
                     if (random.nextInt(104) < 7) {
                         final int j = random.nextInt(7);
                         Block b = Blocks.air;
@@ -383,7 +387,7 @@ public class OreSpawnWorld implements IWorldGenerator {
                                 break;
                             }
                         }
-                        new WorldGenMinable(b, DangerZone.SpawnOres_stats.clumpsize)
+                        new WorldGenMinable(b, 4)
                             .generate(world, random, randPosX, randPosY, randPosZ);
                     } else {
                         final int j = random.nextInt(98);
@@ -782,79 +786,67 @@ public class OreSpawnWorld implements IWorldGenerator {
                                 break;
                             }
                         }
-                        new WorldGenMinable(b, DangerZone.SpawnOres_stats.clumpsize)
+                        new WorldGenMinable(b, 4)
                             .generate(world, random, randPosX, randPosY, randPosZ);
                     }
                 }
             }
         }
-        if (DangerZone.Uranium_stats.rate > 0) {
-            int patchy = DangerZone.Uranium_stats.rate + random.nextInt(9);
+        if (3 > 0) {
+            int patchy = 3 + random.nextInt(9);
             for (int i = 0; i < patchy; ++i) {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= DangerZone.Uranium_stats.maxdepth && randPosY >= DangerZone.Uranium_stats.mindepth) {
-                    new WorldGenMinable(DangerZone.MyOreUraniumBlock, DangerZone.Uranium_stats.clumpsize)
+                if (randPosY <= 30 && randPosY >= 0) {
+                    new WorldGenMinable(BlockInitDangerZone.UraniumBlockOre,4)
                         .generate(world, random, randPosX, randPosY, randPosZ);
                 }
             }
         }
-        if (DangerZone.Titanium_stats.rate > 0) {
-            int patchy = DangerZone.Titanium_stats.rate + random.nextInt(9);
-            if (DangerZone.LessOre != 0) {
-                patchy /= 3;
-            }
+        if (3 > 0) {
+            int patchy = 3 + random.nextInt(9);
             for (int i = 0; i < patchy; ++i) {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= DangerZone.Titanium_stats.maxdepth && randPosY >= DangerZone.Titanium_stats.mindepth) {
-                    new WorldGenMinable(DangerZone.MyOreTitaniumBlock, DangerZone.Titanium_stats.clumpsize)
+                if (randPosY <= 20 && randPosY >= 0) {
+                    new WorldGenMinable(BlockInitDangerZone.TitaniumBlockOre, 4)
                         .generate(world, random, randPosX, randPosY, randPosZ);
                 }
             }
         }
-        if (DangerZone.Amethyst_stats.rate > 0) {
-            int patchy = DangerZone.Amethyst_stats.rate + random.nextInt(12);
-            if (DangerZone.LessOre != 0) {
-                patchy /= 3;
-            }
+        if (2 > 0) {
+            int patchy = 2 + random.nextInt(12);
             for (int i = 0; i < patchy; ++i) {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= DangerZone.Amethyst_stats.maxdepth && randPosY >= DangerZone.Amethyst_stats.mindepth) {
-                    new WorldGenMinable(DangerZone.MyOreAmethystBlock, DangerZone.Amethyst_stats.clumpsize)
+                if (randPosY <= 25 && randPosY >=0) {
+                    new WorldGenMinable(BlockInitDangerZone.AmethystBlockOre, 6)
                         .generate(world, random, randPosX, randPosY, randPosZ);
                 }
             }
         }
-        if (DangerZone.Salt_stats.rate > 0) {
-            int patchy = DangerZone.Salt_stats.rate + random.nextInt(9);
-            if (DangerZone.LessOre != 0) {
-                patchy /= 3;
-            }
+        if (5 > 0) {
+            int patchy = 5 + random.nextInt(9);
             for (int i = 0; i < patchy; ++i) {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= DangerZone.Salt_stats.maxdepth && randPosY >= DangerZone.Salt_stats.mindepth) {
-                    new WorldGenMinable(DangerZone.MyOreSaltBlock, DangerZone.Salt_stats.clumpsize)
+                if (randPosY <= 128 && randPosY >= 50) {
+                    new WorldGenMinable(BlockInitDangerZone.SaltOre, 12)
                         .generate(world, random, randPosX, randPosY, randPosZ);
                 }
             }
         }
         int patchy = 4 + random.nextInt(4);
-        if (DangerZone.LessOre != 0) {
-            patchy /= 2;
-        }
         for (int i = 0; i < patchy; ++i) {
             final int randPosX = 3 + chunkX + random.nextInt(10);
             final int randPosY = random.nextInt(128);
             final int randPosZ = 3 + chunkZ + random.nextInt(10);
             if (randPosY <= 50 && randPosY >= 5) {
-                new WorldGenMinable(DangerZone.RedAntTroll, 4).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockInitDangerZone.TrollBlock1, 4).generate(world, random, randPosX, randPosY, randPosZ);
             }
         }
 
@@ -864,24 +856,24 @@ public class OreSpawnWorld implements IWorldGenerator {
             final int randPosY = random.nextInt(128);
             final int randPosZ = 3 + chunkZ + random.nextInt(10);
             if (randPosY <= 50 && randPosY >= 5) {
-                new WorldGenMinable(DangerZone.TermiteTroll, 4).generate(world, random, randPosX, randPosY, randPosZ);
+                new WorldGenMinable(BlockInitDangerZone.TermiteTroll, 4).generate(world, random, randPosX, randPosY, randPosZ);
             }
         }
 
-        if (DangerZone.Ruby_stats.rate > 0) {
-            patchy = DangerZone.Ruby_stats.rate + random.nextInt(5);
+        if (10 > 0) {
+            patchy = 10 + random.nextInt(5);
             for (int i = 0; i < patchy; ++i) {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= DangerZone.Ruby_stats.maxdepth && randPosY >= DangerZone.Ruby_stats.mindepth) {
+                if (randPosY <= 50 && randPosY >= 0) {
                     for (int m = randPosY; m > 5; --m) {
                         Block bid = world.getBlock(randPosX, m, randPosZ);
                         if (bid == Blocks.lava || bid == Blocks.flowing_lava) {
                             bid = world.getBlock(randPosX, m - 1, randPosZ);
                             if (bid == Blocks.stone) {
                                 DangerZone
-                                    .setBlockFast(world, randPosX, m - 1, randPosZ, DangerZone.MyOreRubyBlock, 0, 2);
+                                    .setBlockFast(world, randPosX, m - 1, randPosZ, BlockInitDangerZone.RubyBlockOre, 0, 2);
                                 break;
                             }
                         }
@@ -889,85 +881,85 @@ public class OreSpawnWorld implements IWorldGenerator {
                 }
             }
         }
-            if (DangerZone.Diamond_stats.rate > 0) {
-                for (int i = 0; i < DangerZone.Diamond_stats.rate; ++i) {
+            if (4 > 0) {
+                for (int i = 0; i < 4; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= DangerZone.Diamond_stats.maxdepth
-                        && randPosY >= DangerZone.Diamond_stats.mindepth) {
-                        new WorldGenMinable(Blocks.diamond_ore, DangerZone.Diamond_stats.clumpsize)
+                    if (randPosY <= 30
+                        && randPosY >= 0) {
+                        new WorldGenMinable(Blocks.diamond_ore, 6)
                             .generate(world, random, randPosX, randPosY, randPosZ);
                     }
                 }
             }
-            if (DangerZone.BlkDiamond_stats.rate > 0) {
-                for (int i = 0; i < DangerZone.BlkDiamond_stats.rate; ++i) {
+            if (2 > 0) {
+                for (int i = 0; i < 2; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= DangerZone.BlkDiamond_stats.maxdepth
-                        && randPosY >= DangerZone.BlkDiamond_stats.mindepth) {
-                        new WorldGenMinable(Blocks.diamond_block, DangerZone.BlkDiamond_stats.clumpsize)
+                    if (randPosY <= 20
+                        && randPosY >= 0) {
+                        new WorldGenMinable(Blocks.diamond_block, 4)
                             .generate(world, random, randPosX, randPosY, randPosZ);
                     }
                 }
             }
-            if (DangerZone.Emerald_stats.rate > 0) {
-                for (int i = 0; i < DangerZone.Emerald_stats.rate; ++i) {
+            if (4 > 0) {
+                for (int i = 0; i < 4; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= DangerZone.Emerald_stats.maxdepth
-                        && randPosY >= DangerZone.Emerald_stats.mindepth) {
-                        new WorldGenMinable(Blocks.emerald_ore, DangerZone.Emerald_stats.clumpsize)
+                    if (randPosY <= 40
+                        && randPosY >= 0) {
+                        new WorldGenMinable(Blocks.emerald_ore,6)
                             .generate(world, random, randPosX, randPosY, randPosZ);
                     }
                 }
             }
-            if (DangerZone.BlkEmerald_stats.rate > 0) {
-                for (int i = 0; i < DangerZone.BlkEmerald_stats.rate; ++i) {
+            if (2 > 0) {
+                for (int i = 0; i < 2; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= DangerZone.BlkEmerald_stats.maxdepth
-                        && randPosY >= DangerZone.BlkEmerald_stats.mindepth) {
-                        new WorldGenMinable(Blocks.emerald_block, DangerZone.BlkEmerald_stats.clumpsize)
+                    if (randPosY <= 20
+                        && randPosY >= 0) {
+                        new WorldGenMinable(Blocks.emerald_block, 4)
                             .generate(world, random, randPosX, randPosY, randPosZ);
                     }
                 }
             }
-            if (DangerZone.Gold_stats.rate > 0) {
-                for (int i = 0; i < DangerZone.Gold_stats.rate; ++i) {
+            if (2 > 0) {
+                for (int i = 0; i < 2; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= DangerZone.Gold_stats.maxdepth && randPosY >= DangerZone.Gold_stats.mindepth) {
-                        new WorldGenMinable(Blocks.gold_ore, DangerZone.Gold_stats.clumpsize)
+                    if (randPosY <= 40 && randPosY >=0) {
+                        new WorldGenMinable(Blocks.gold_ore, 4)
                             .generate(world, random, randPosX, randPosY, randPosZ);
                     }
                 }
             }
-            if (DangerZone.BlkGold_stats.rate > 0) {
-                for (int i = 0; i < DangerZone.BlkGold_stats.rate; ++i) {
+            if (2 > 0) {
+                for (int i = 0; i < 2; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= DangerZone.BlkGold_stats.maxdepth
-                        && randPosY >= DangerZone.BlkGold_stats.mindepth) {
-                        new WorldGenMinable(Blocks.gold_block, DangerZone.BlkGold_stats.clumpsize)
+                    if (randPosY <= 25
+                        && randPosY >= 0) {
+                        new WorldGenMinable(Blocks.gold_block, 4)
                             .generate(world, random, randPosX, randPosY, randPosZ);
                     }
                 }
             }
-            if (DangerZone.BlkRuby_stats.rate > 0) {
-                for (int i = 0; i < DangerZone.BlkRuby_stats.rate; ++i) {
+            if (1 > 0) {
+                for (int i = 0; i < 1; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= DangerZone.BlkRuby_stats.maxdepth
-                        && randPosY >= DangerZone.BlkRuby_stats.mindepth) {
-                        new WorldGenMinable(DangerZone.MyBlockRubyBlock, DangerZone.BlkRuby_stats.clumpsize)
+                    if (randPosY <= 15
+                        && randPosY >= 0) {
+                        new WorldGenMinable(BlockInitDangerZone.RubyBlock, 2)
                             .generate(world, random, randPosX, randPosY, randPosZ);
                     }
                 }
@@ -979,7 +971,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             return;
         }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == DangerZone.DimensionID || b.biomeName.equals("Forest")
+        if (world.provider.dimensionId == DimensionInitDangerZone.UtopiaDimensionId|| b.biomeName.equals("Forest")
             || b.biomeName.equals("ForestHills")
             || b.biomeName.equals("Birch Forest Hills")
             || b.biomeName.equals("Birch Forest")) {
@@ -987,7 +979,7 @@ public class OreSpawnWorld implements IWorldGenerator {
                 for (int posX = chunkX + random.nextInt(16), posZ = chunkZ + random.nextInt(16), posY = 100; posY > 40
                     && world.isAirBlock(posX, posY, posZ); --posY) {
                     if (world.getBlock(posX, posY - 1, posZ) == Blocks.grass) {
-                        DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyStrawberryPlant, 0, 2);
+                        DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockStrawberry, 0, 2);
                         break;
                     }
                 }
@@ -1049,15 +1041,9 @@ public class OreSpawnWorld implements IWorldGenerator {
         if (random.nextInt(35) != 1) {
             return;
         }
-        if (DangerZone.LessLag == 1) {
-            nc = 5;
-        }
-        if (DangerZone.LessLag == 2) {
-            nc = 3;
-        }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == DangerZone.DimensionID
-            || world.provider.dimensionId == DangerZone.DimensionID3
+        if (world.provider.dimensionId == DimensionInitDangerZone.UtopiaDimensionId
+            || world.provider.dimensionId == DimensionInitDangerZone.VillageDimensionId
             || b.biomeName.equals("Plains")) {
             for (int j = 0; j < nc; ++j) {
                 final int posX = chunkX + random.nextInt(16);
@@ -1076,19 +1062,19 @@ public class OreSpawnWorld implements IWorldGenerator {
                         }
                         int corn_height = random.nextInt(5);
                         if (++corn_height == 1) {
-                            DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyCornPlant1, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockCorn1, 0, 2);
                         }
                         if (corn_height == 2) {
-                            DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyCornPlant2, 0, 2);
-                            DangerZone.setBlockFast(world, posX, posY + 1, posZ, DangerZone.MyCornPlant1, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockCorn2, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY + 1, posZ, BlockInitDangerZone.BlockCorn1, 0, 2);
                         }
                         if (corn_height > 2) {
-                            DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyCornPlant2, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockCorn2, 0, 2);
                             for (int i = 1; i < corn_height; ++i) {
-                                DangerZone.setBlockFast(world, posX, posY + i, posZ, DangerZone.MyCornPlant4, 0, 2);
+                                DangerZone.setBlockFast(world, posX, posY + i, posZ, BlockInitDangerZone.BlockCorn4, 0, 2);
                             }
                             DangerZone
-                                .setBlockFast(world, posX, posY + corn_height, posZ, DangerZone.MyCornPlant1, 0, 2);
+                                .setBlockFast(world, posX, posY + corn_height, posZ, BlockInitDangerZone.BlockCorn1, 0, 2);
                             break;
                         }
                         break;
@@ -1106,8 +1092,8 @@ public class OreSpawnWorld implements IWorldGenerator {
             return;
         }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == DangerZone.DimensionID
-            || world.provider.dimensionId == DangerZone.DimensionID3
+        if (world.provider.dimensionId == DimensionInitDangerZone.UtopiaDimensionId
+            || world.provider.dimensionId == DimensionInitDangerZone.VillageDimensionId
             || b.biomeName.equals("Plains")) {
             for (int j = 0; j < 5; ++j) {
                 final int posX = chunkX + random.nextInt(16);
@@ -1126,19 +1112,19 @@ public class OreSpawnWorld implements IWorldGenerator {
                         }
                         int corn_height = random.nextInt(3);
                         if (++corn_height == 1) {
-                            DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyTomatoPlant1, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockTomato1, 0, 2);
                         }
                         if (corn_height == 2) {
-                            DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyTomatoPlant2, 0, 2);
-                            DangerZone.setBlockFast(world, posX, posY + 1, posZ, DangerZone.MyTomatoPlant1, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockTomato2, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY + 1, posZ, BlockInitDangerZone.BlockTomato1, 0, 2);
                         }
                         if (corn_height > 2) {
-                            DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyTomatoPlant3, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockTomato3, 0, 2);
                             for (int i = 1; i < corn_height; ++i) {
-                                DangerZone.setBlockFast(world, posX, posY + i, posZ, DangerZone.MyTomatoPlant4, 0, 2);
+                                DangerZone.setBlockFast(world, posX, posY + i, posZ, BlockInitDangerZone.BlockTomato4, 0, 2);
                             }
                             DangerZone
-                                .setBlockFast(world, posX, posY + corn_height, posZ, DangerZone.MyTomatoPlant1, 0, 2);
+                                .setBlockFast(world, posX, posY + corn_height, posZ, BlockInitDangerZone.BlockTomato1, 0, 2);
                             break;
                         }
                         break;
@@ -1151,12 +1137,9 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public void addButterfliesAndMoths(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (random.nextInt(10 + DangerZone.LessLag * 2) != 0) {
-            return;
-        }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == DangerZone.DimensionID
-            || world.provider.dimensionId == DangerZone.DimensionID6
+        if (world.provider.dimensionId == DimensionInitDangerZone.UtopiaDimensionId
+            || world.provider.dimensionId ==  DimensionInitDangerZone.ChaosDimensionId
             || b.biomeName.equals("Forest")
             || b.biomeName.equals("ForestHills")
             || b.biomeName.equals("River")
@@ -1175,14 +1158,14 @@ public class OreSpawnWorld implements IWorldGenerator {
                     if (world.getBlock(posX, posY - 1, posZ) == Blocks.grass) {
                         which = random.nextInt(3);
                         if (which == 0) {
-                            DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyButterflyPlant, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockButterflyPlant, 0, 2);
                             break;
                         }
                         if (which == 1) {
-                            DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyMothPlant, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockMothPlant, 0, 2);
                             break;
                         }
-                        DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyFireflyPlant, 0, 2);
+                        DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockFireflyPlant, 0, 2);
                         break;
                     } else {
                         --posY;
@@ -1398,9 +1381,6 @@ public class OreSpawnWorld implements IWorldGenerator {
         if (random.nextInt(350) != 0) {
             return false;
         }
-        if (DangerZone.SpiderDriverEnable == 0) {
-            return false;
-        }
         for (int i = 0; i < 4; ++i) {
             final int posX = chunkX + random.nextInt(16);
             final int posZ = chunkZ + random.nextInt(16);
@@ -1506,24 +1486,21 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public void addMosquitos(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (random.nextInt(25 + DangerZone.LessLag * 2) != 0) {
-            return;
-        }
-        if ((world.provider.dimensionId == DangerZone.DimensionID
-            || world.provider.dimensionId == DangerZone.DimensionID3) && random.nextInt(3) != 0) {
+        if ((world.provider.dimensionId == DimensionInitDangerZone.UtopiaDimensionId
+            || world.provider.dimensionId == DimensionInitDangerZone.VillageDimensionId) && random.nextInt(3) != 0) {
             return;
         }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == DangerZone.DimensionID
-            || world.provider.dimensionId == DangerZone.DimensionID2
-            || world.provider.dimensionId == DangerZone.DimensionID3
+        if (world.provider.dimensionId == DimensionInitDangerZone.UtopiaDimensionId
+            || world.provider.dimensionId == DimensionInitDangerZone.MiningDimensionId
+            || world.provider.dimensionId == DimensionInitDangerZone.VillageDimensionId
             || b.biomeName.equals("Jungle")
             || b.biomeName.equals("Swampland")) {
             for (int i = 0; i < 2; ++i) {
                 for (int posX = chunkX + random.nextInt(16), posZ = chunkZ + random.nextInt(16), posY = 100; posY > 40
                     && world.isAirBlock(posX, posY, posZ); --posY) {
                     if (world.getBlock(posX, posY - 1, posZ) == Blocks.grass) {
-                        DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyMosquitoPlant, 0, 2);
+                        DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockMosquitoPlant, 0, 2);
                         break;
                     }
                 }
@@ -1540,7 +1517,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             final int posZ = chunkZ + random.nextInt(16);
             for (int posY = 90; posY > 20; --posY) {
                 if (world.isAirBlock(posX, posY, posZ) && world.getBlock(posX, posY - 1, posZ) == Blocks.netherrack) {
-                    DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyMosquitoPlant, 0, 2);
+                    DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockMosquitoPlant, 0, 2);
                     break;
                 }
             }
@@ -1548,9 +1525,6 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public void addNetherAnts(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (DangerZone.RedAntEnable == 0) {
-            return;
-        }
         if (random.nextInt(25) != 0) {
             return;
         }
@@ -1559,7 +1533,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             final int posZ = chunkZ + random.nextInt(16);
             for (int posY = 90; posY > 20; --posY) {
                 if (world.isAirBlock(posX, posY, posZ) && world.getBlock(posX, posY - 1, posZ) == Blocks.netherrack) {
-                    DangerZone.setBlockFast(world, posX, posY - 1, posZ, DangerZone.MyRedAntBlock, 0, 2);
+                    DangerZone.setBlockFast(world, posX, posY - 1, posZ, BlockInitDangerZone.RedAntNest, 0, 2);
                     break;
                 }
             }
@@ -1567,16 +1541,8 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public void addAnts(final World world, final Random random, final int chunkX, final int chunkZ, int redfreq) {
-        if (DangerZone.RedAntEnable == 0 && DangerZone.BlackAntEnable == 0
-            && DangerZone.RainbowAntEnable == 0
-            && DangerZone.UnstableAntEnable == 0) {
-            return;
-        }
         if (redfreq < 2) {
             redfreq = 2;
-        }
-        if (random.nextInt(30 + DangerZone.LessLag * 4) != 0) {
-            return;
         }
         for (int i = 0; i < 4; ++i) {
             final int posX = chunkX + random.nextInt(16);
@@ -1586,25 +1552,14 @@ public class OreSpawnWorld implements IWorldGenerator {
                 if (world.getBlock(posX, posY - 1, posZ) == Blocks.grass) {
                     if (random.nextInt(redfreq) == 0) {
                         final int which = random.nextInt(4);
-                        if (which == 0 && DangerZone.RedAntEnable != 0) {
-                            DangerZone.setBlockFast(world, posX, posY - 1, posZ, DangerZone.MyRedAntBlock, 0, 2);
-                        }
-                        if (which == 1 && DangerZone.RainbowAntEnable != 0) {
-                            DangerZone.setBlockFast(world, posX, posY - 1, posZ, DangerZone.MyRainbowAntBlock, 0, 2);
-                        }
-                        if (which == 2 && DangerZone.UnstableAntEnable != 0) {
-                            DangerZone.setBlockFast(world, posX, posY - 1, posZ, DangerZone.MyUnstableAntBlock, 0, 2);
-                        }
-                        if (which == 3 && DangerZone.TermiteEnable != 0) {
-                            DangerZone.setBlockFast(world, posX, posY - 1, posZ, DangerZone.TermiteBlock, 0, 2);
-                        }
+                            DangerZone.setBlockFast(world, posX, posY - 1, posZ, BlockInitDangerZone.RedAntNest, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY - 1, posZ, BlockInitDangerZone.RainbowAntNest, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY - 1, posZ, BlockInitDangerZone.UnstablenAntNest, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY - 1, posZ, BlockInitDangerZone.TermiteNest, 0, 2);
                         break;
                     }
-                    if (DangerZone.BlackAntEnable != 0) {
-                        DangerZone.setBlockFast(world, posX, posY - 1, posZ, DangerZone.MyAntBlock, 0, 2);
+                        DangerZone.setBlockFast(world, posX, posY - 1, posZ, BlockInitDangerZone.BrownAntNest, 0, 2);
                         break;
-                    }
-                    break;
                 } else {
                     --posY;
                 }
@@ -1683,9 +1638,6 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public void addUnstableAnts(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (DangerZone.UnstableAntEnable == 0) {
-            return;
-        }
         if (random.nextInt(30) != 0) {
             return;
         }
@@ -1693,7 +1645,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             for (int posX = chunkX + random.nextInt(16), posZ = chunkZ + random.nextInt(16), posY = 20; posY > 2
                 && world.isAirBlock(posX, posY, posZ); --posY) {
                 if (world.getBlock(posX, posY - 1, posZ) == Blocks.grass) {
-                    DangerZone.setBlockFast(world, posX, posY - 1, posZ, DangerZone.MyUnstableAntBlock, 0, 2);
+                    DangerZone.setBlockFast(world, posX, posY - 1, posZ, BlockInitDangerZone.UnstablenAntNest, 0, 2);
                     break;
                 }
             }
@@ -1701,9 +1653,6 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public void addCrystalTermites(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (DangerZone.TermiteEnable == 0) {
-            return;
-        }
         if (random.nextInt(40) != 0) {
             return;
         }
@@ -1712,8 +1661,8 @@ public class OreSpawnWorld implements IWorldGenerator {
             final int posZ = chunkZ + random.nextInt(16);
             for (int posY = 100; posY > 50; --posY) {
                 if (world.isAirBlock(posX, posY, posZ)
-                    && world.getBlock(posX, posY - 1, posZ) == DangerZone.CrystalGrass) {
-                    DangerZone.setBlockFast(world, posX, posY - 1, posZ, DangerZone.CrystalTermiteBlock, 0, 2);
+                    && world.getBlock(posX, posY - 1, posZ) == BlockInitDangerZone.CrystalGrass) {
+                    DangerZone.setBlockFast(world, posX, posY - 1, posZ, BlockInitDangerZone.CrystalTermiteBlock, 0, 2);
                     break;
                 }
             }
@@ -1721,9 +1670,6 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public boolean addRotatorStation(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (DangerZone.RotatorEnable == 0) {
-            return false;
-        }
         if (random.nextInt(150) != 0) {
             return false;
         }
@@ -1732,7 +1678,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             final int posZ = chunkZ + random.nextInt(16);
             for (int posY = 100; posY > 50; --posY) {
                 if (world.isAirBlock(posX, posY, posZ)
-                    && world.getBlock(posX, posY - 1, posZ) == DangerZone.CrystalGrass) {
+                    && world.getBlock(posX, posY - 1, posZ) == BlockInitDangerZone.CrystalGrass) {
                     DangerZone.MyDungeon.makeRotatorStation(world, posX, posY, posZ);
                     OreSpawnWorld.recently_placed = 50;
                     return true;
@@ -1743,9 +1689,6 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public boolean addRoundRotator(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (DangerZone.RotatorEnable == 0) {
-            return false;
-        }
         if (random.nextInt(150) != 0) {
             return false;
         }
@@ -1754,7 +1697,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             final int posZ = chunkZ + random.nextInt(16);
             for (int posY = 100; posY > 50; --posY) {
                 if (world.isAirBlock(posX, posY, posZ)
-                    && world.getBlock(posX, posY - 1, posZ) == DangerZone.CrystalGrass) {
+                    && world.getBlock(posX, posY - 1, posZ) == BlockInitDangerZone.CrystalGrass) {
                     DangerZone.MyDungeon.makeRoundRotator(world, posX, posY, posZ);
                     OreSpawnWorld.recently_placed = 50;
                     return true;
@@ -1765,9 +1708,6 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public boolean addUrchinSpawner(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (DangerZone.UrchinEnable == 0) {
-            return false;
-        }
         if (random.nextInt(180) != 0) {
             return false;
         }
@@ -1776,7 +1716,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             final int posZ = chunkZ + random.nextInt(16);
             for (int posY = 100; posY > 50; --posY) {
                 if (world.isAirBlock(posX, posY, posZ)
-                    && world.getBlock(posX, posY - 1, posZ) == DangerZone.CrystalGrass) {
+                    && world.getBlock(posX, posY - 1, posZ) == BlockInitDangerZone.CrystalGrass) {
                     DangerZone.MyDungeon.makeUrchinSpawner(world, posX, posY, posZ);
                     OreSpawnWorld.recently_placed = 50;
                     return true;
@@ -1795,7 +1735,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             final int posZ = chunkZ + random.nextInt(16);
             for (int posY = 100; posY > 50; --posY) {
                 if (world.isAirBlock(posX, posY, posZ)
-                    && world.getBlock(posX, posY - 1, posZ) == DangerZone.CrystalGrass) {
+                    && world.getBlock(posX, posY - 1, posZ) == BlockInitDangerZone.CrystalGrass) {
                     DangerZone.MyDungeon.makeCrystalHauntedHouse(world, posX, posY, posZ);
                     OreSpawnWorld.recently_placed = 50;
                     return true;
@@ -1814,7 +1754,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             final int posZ = chunkZ + random.nextInt(16);
             for (int posY = 100; posY > 50; --posY) {
                 if (world.isAirBlock(posX, posY, posZ)
-                    && world.getBlock(posX, posY - 1, posZ) == DangerZone.CrystalGrass) {
+                    && world.getBlock(posX, posY - 1, posZ) == BlockInitDangerZone.CrystalGrass) {
                     DangerZone.MyDungeon.makeCrystalBattleTower(world, posX, posY, posZ);
                     OreSpawnWorld.recently_placed = 50;
                     return true;
@@ -1825,9 +1765,6 @@ public class OreSpawnWorld implements IWorldGenerator {
     }
 
     public void addIrukandji(final World world, final Random random, final int chunkX, final int chunkZ) {
-        if (DangerZone.IrukandjiEnable == 0) {
-            return;
-        }
         if (random.nextInt(80) != 0) {
             return;
         }
@@ -1924,12 +1861,9 @@ public class OreSpawnWorld implements IWorldGenerator {
     public void addIslands(final World world, final Random random, final int chunkX, final int chunkZ) {
         final int posX = 2 + chunkX + random.nextInt(12);
         final int posZ = 2 + chunkZ + random.nextInt(12);
-        if (random.nextInt(10 + DangerZone.LessLag * 2) != 1) {
-            return;
-        }
         for (int posY = 20; posY > 2 && world.isAirBlock(posX, posY, posZ); --posY) {
             if (world.getBlock(posX, posY - 1, posZ) == Blocks.grass) {
-                DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyIslandBlock, 0, 2);
+                DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.IslandBlock, 0, 2);
                 break;
             }
         }
@@ -1947,28 +1881,19 @@ public class OreSpawnWorld implements IWorldGenerator {
         if (random.nextInt(15 + freq) != 0) {
             return false;
         }
-        if (DangerZone.LessLag == 1) {
-            howmany /= 2;
-        }
-        if (DangerZone.LessLag == 2) {
-            howmany /= 4;
-            if (howmany < 1) {
-                return false;
-            }
-        }
         for (int i = 0; i < howmany; ++i) {
             for (int posX = 2 + chunkX + random.nextInt(12), posZ = 2 + chunkZ + random.nextInt(12),
                 posY = 100; posY > 50 && world.isAirBlock(posX, posY, posZ); --posY) {
                 if (world.getBlock(posX, posY - 1, posZ) == Blocks.grass) {
-                    final ItemAppleSeed a = (ItemAppleSeed) DangerZone.MyAppleSeed;
+                    final ItemAppleSeed a = (ItemAppleSeed) ItemInitDangerZone.ItemAppleSeed;
                     if (which < 8) {
                         a.makeTree(world, posX, posY - 1, posZ, BlockInitDangerZone.BlockAppleLeaves, chunk);
                     }
                     if (which == 8) {
-                        a.makeTree(world, posX, posY - 1, posZ, DangerZone.MyCherryLeaves, chunk);
+                        a.makeTree(world, posX, posY - 1, posZ, BlockInitDangerZone.BlockScaryLeaves2, chunk);
                     }
                     if (which == 9) {
-                        a.makeTree(world, posX, posY - 1, posZ, DangerZone.MyPeachLeaves, chunk);
+                        a.makeTree(world, posX, posY - 1, posZ, BlockInitDangerZone.BlockScaryLeaves3, chunk);
                     }
                     added = true;
                     break;
@@ -1984,18 +1909,12 @@ public class OreSpawnWorld implements IWorldGenerator {
         if (random.nextInt(50) != 0) {
             return false;
         }
-        if (DangerZone.LessLag == 1 && random.nextInt(2) != 0) {
-            return false;
-        }
-        if (DangerZone.LessLag == 2 && random.nextInt(4) != 0) {
-            return false;
-        }
         for (int i = 0; i < 3 && made_one == 0; ++i) {
             final int posX = 4 + chunkX + random.nextInt(8);
             final int posZ = 4 + chunkZ + random.nextInt(8);
             for (int posY = 127; posY > 50 && made_one == 0; --posY) {
                 if (world.isAirBlock(posX, posY, posZ) && world.getBlock(posX, posY - 1, posZ) == Blocks.grass) {
-                    final ItemMagicApple a = (ItemMagicApple) DangerZone.MagicApple;
+                    final OmgMagicApple a = (OmgMagicApple) ItemInitDangerZone.OmgMagicApple;
                     final int tree_type = random.nextInt(4);
                     int tree_radius = 6 - random.nextInt(2);
                     boolean no_critters = false;
@@ -2043,8 +1962,8 @@ public class OreSpawnWorld implements IWorldGenerator {
                                 posY - 1,
                                 posZ,
                                 Blocks.obsidian,
-                                DangerZone.MyBlockRubyBlock,
-                                DangerZone.MyBlockAmethystBlock,
+                                BlockInitDangerZone.RubyBlock,
+                                BlockInitDangerZone.AmethystBlock,
                                 -1,
                                 tree_radius,
                                 no_critters,
@@ -2091,9 +2010,9 @@ public class OreSpawnWorld implements IWorldGenerator {
             return;
         }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == DangerZone.DimensionID
-            || world.provider.dimensionId == DangerZone.DimensionID2
-            || world.provider.dimensionId == DangerZone.DimensionID6
+        if (world.provider.dimensionId == DimensionInitDangerZone.UtopiaDimensionId
+            || world.provider.dimensionId == DimensionInitDangerZone.MiningDimensionId
+            || world.provider.dimensionId == DimensionInitDangerZone.ChaosDimensionId
             || b.biomeName.equals("River")
             || b.biomeName.equals("Swampland")) {
             for (int i = 0; i < 8; ++i) {
@@ -2112,11 +2031,11 @@ public class OreSpawnWorld implements IWorldGenerator {
                             break;
                         }
                         if (what == 2) {
-                            DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyRadishPlant, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockRadish, 0, 2);
                             break;
                         }
                         if (what == 3) {
-                            DangerZone.setBlockFast(world, posX, posY, posZ, DangerZone.MyLettucePlant1, 0, 2);
+                            DangerZone.setBlockFast(world, posX, posY, posZ, BlockInitDangerZone.BlockLettuce1, 0, 2);
                             break;
                         }
                         if (what == 4) {
@@ -2126,7 +2045,7 @@ public class OreSpawnWorld implements IWorldGenerator {
                             }
                             break;
                         } else {
-                            if (random.nextInt(50) == 1 && DangerZone.enableduplicatortree != 0) {
+                            if (random.nextInt(50) == 1) {
                                 DangerZone.setBlockFast(
                                     world,
                                     posX,
@@ -2151,14 +2070,11 @@ public class OreSpawnWorld implements IWorldGenerator {
         if (random.nextInt(5) != 0) {
             return;
         }
-        if (DangerZone.RockEnable == 0) {
-            return;
-        }
         for (int howmany = 3 + random.nextInt(10), i = 0; i < howmany; ++i) {
             for (int posX = chunkX + random.nextInt(16), posZ = chunkZ + random.nextInt(16), posY = 110; posY > 40
                 && world.getBlock(posX, posY, posZ) == Blocks.air; --posY) {
                 final Block bid = world.getBlock(posX, posY - 1, posZ);
-                if (bid == Blocks.grass || bid == Blocks.sand || bid == DangerZone.CrystalGrass) {
+                if (bid == Blocks.grass || bid == Blocks.sand || bid == BlockInitDangerZone.CrystalGrass) {
                     this.spawnCreature(world, "Rock", posX, posY, posZ);
                     break;
                 }
@@ -2766,7 +2682,7 @@ public class OreSpawnWorld implements IWorldGenerator {
         if (random.nextInt(30) != 0) {
             return false;
         }
-        if (world.provider.dimensionId == DangerZone.DimensionID) {
+        if (world.provider.dimensionId == DimensionInitDangerZone.UtopiaDimensionId) {
             final int dir = 0;
             final int what = random.nextInt(2);
             for (int i = 0; i < nc; ++i) {

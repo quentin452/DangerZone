@@ -12,7 +12,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
 import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericTameableInstance;
 import io.netty.buffer.ByteBuf;
 
 public class PZPacketNameSync implements IMessage, IMessageHandler<PZPacketNameSync, IMessage> {
@@ -33,8 +33,8 @@ public class PZPacketNameSync implements IMessage, IMessageHandler<PZPacketNameS
         }
         final EntityPlayer player = (EntityPlayer) ctx.getServerHandler().playerEntity;
         final Entity entity = player.worldObj.getEntityByID(message.entityIdToBeNamed);
-        if (entity != null && entity instanceof EntityGenericTameable) {
-            ((EntityGenericTameable) entity).setEntityTamed(message.RentityName);
+        if (entity != null && entity instanceof GenericTameableInstance) {
+            ((GenericTameableInstance) entity).setEntityTamed(message.RentityName);
         }
         return null;
     }

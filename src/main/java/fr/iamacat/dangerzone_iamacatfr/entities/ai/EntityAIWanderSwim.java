@@ -5,19 +5,19 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Vec3;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericWaterMob;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericWaterMobInstance;
 
 public class EntityAIWanderSwim extends EntityAIBase {
 
-    private EntityGenericWaterMob entity;
+    private GenericWaterMobInstance entity;
     private double xPosition;
     private double yPosition;
     private double zPosition;
     private float speed;
     private double maxDepth;
 
-    public EntityAIWanderSwim(final EntityGenericWaterMob par1EntityCreature, final float speed,
-        final double maxDepth) {
+    public EntityAIWanderSwim(final GenericWaterMobInstance par1EntityCreature, final float speed,
+                              final double maxDepth) {
         this.entity = par1EntityCreature;
         this.speed = speed;
         this.maxDepth = maxDepth;

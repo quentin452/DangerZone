@@ -240,7 +240,7 @@ item.RobotLaserCharge.name=Robot Laser Charge
 entity.Irukandji Arrows DangerZone.name=Irukandji Arrows
 item.SkateBow.name=Skate Bow
 item.ItemIrukandjiArrow.name=Irukandji Arrow
-item.ItemAcid.name=Item Acid
+item.ItemAcid.name=Acid
 item.BattleAxe.name=Battle Axe
 item.BigBerthaSword.name=Big Bertha
 item.BigHammer.name=Big Hammer
@@ -403,7 +403,7 @@ item.rubbr_ducky_egg.name=Spawn Rubber Ducky
 item.mavisOrb.name=Mavis Orb
 item.PhoenixFeather.name=Phoenix Feather
 item.DarkCrystal.name=Dark Crystal
-item.TwilightStar.name=Twilight Star
+item.TwilightStarModel.name=Twilight Star
 
 item.Entity Aether Dragon Egg.name=Aether Dragon Egg
 item.Entity Alps Dragon Egg.name=Alps Dragon Egg

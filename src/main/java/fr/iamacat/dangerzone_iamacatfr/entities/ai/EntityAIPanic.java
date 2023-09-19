@@ -4,12 +4,12 @@ package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.Vec3;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 
 public class EntityAIPanic extends EntityAIBase {
 
-    private EntityGenericCreature theEntityCreature;
+    private GenericCreatureInstance theEntityCreature;
     private float speed;
     private double randPosX;
     private double randPosY;
@@ -17,7 +17,7 @@ public class EntityAIPanic extends EntityAIBase {
     boolean shouldHop;
     int slimeJumpDelay;
 
-    public EntityAIPanic(final EntityGenericCreature par1EntityCreature, final float par2) {
+    public EntityAIPanic(final GenericCreatureInstance par1EntityCreature, final float par2) {
         this.shouldHop = false;
         this.slimeJumpDelay = 0;
         this.theEntityCreature = par1EntityCreature;
@@ -25,7 +25,7 @@ public class EntityAIPanic extends EntityAIBase {
         this.setMutexBits(1);
     }
 
-    public EntityAIPanic(final EntityGenericCreature par1EntityCreature, final float par2, final boolean shouldHop) {
+    public EntityAIPanic(final GenericCreatureInstance par1EntityCreature, final float par2, final boolean shouldHop) {
         this(par1EntityCreature, par2);
         this.shouldHop = shouldHop;
     }

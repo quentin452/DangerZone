@@ -11,13 +11,13 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 
 public class EntityAIVultureFollow extends EntityAIBase {
 
     World worldObj;
-    EntityGenericCreature attacker;
+    GenericCreatureInstance attacker;
     EntityLivingBase entityTarget;
     int attackTick;
     float moveSpeed;
@@ -29,8 +29,8 @@ public class EntityAIVultureFollow extends EntityAIBase {
     int heightToFollow;
     private EnumSet<EntityStates> setOfValidStates;
 
-    public EntityAIVultureFollow(final EntityGenericCreature par1EntityLiving, final Class par2Class, final float par3,
-        final boolean par4, final float attackDistanceSq) {
+    public EntityAIVultureFollow(final GenericCreatureInstance par1EntityLiving, final Class par2Class, final float par3,
+                                 final boolean par4, final float attackDistanceSq) {
         this.heightToFollow = 10;
         this.setOfValidStates = EnumSet.allOf(EntityStates.class);
         this.attackTick = 0;
@@ -43,17 +43,17 @@ public class EntityAIVultureFollow extends EntityAIBase {
         this.attackDistanceSq = attackDistanceSq;
     }
 
-    public EntityAIVultureFollow(final EntityGenericCreature par1EntityLiving, final Class par2Class, final float par3,
-        final boolean par4) {
+    public EntityAIVultureFollow(final GenericCreatureInstance par1EntityLiving, final Class par2Class, final float par3,
+                                 final boolean par4) {
         this(par1EntityLiving, par2Class, par3, par4, par1EntityLiving.width * 2.0f * par1EntityLiving.width * 2.0f);
     }
 
-    public EntityAIVultureFollow(final EntityGenericCreature par1EntityLiving, final float par2, final boolean par3) {
+    public EntityAIVultureFollow(final GenericCreatureInstance par1EntityLiving, final float par2, final boolean par3) {
         this(par1EntityLiving, null, par2, par3);
     }
 
-    public EntityAIVultureFollow(final EntityGenericCreature par1EntityLiving, final float par2, final boolean par3,
-        final float attackDistanceSq) {
+    public EntityAIVultureFollow(final GenericCreatureInstance par1EntityLiving, final float par2, final boolean par3,
+                                 final float attackDistanceSq) {
         this(par1EntityLiving, null, par2, par3, attackDistanceSq);
     }
 

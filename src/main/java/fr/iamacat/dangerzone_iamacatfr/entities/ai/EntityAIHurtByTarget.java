@@ -7,17 +7,17 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.AxisAlignedBB;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAIHurtByTarget extends EntityAITarget {
 
     boolean shouldCallAllies;
     EntityLivingBase entityPathNavigate;
     int fleeChance;
-    EntityGenericCreature genericTaskOwner;
+    GenericCreatureInstance genericTaskOwner;
 
-    public EntityAIHurtByTarget(final EntityGenericCreature par1EntityLiving, final boolean shouldCallAllies,
-        final boolean shouldCheckSight) {
+    public EntityAIHurtByTarget(final GenericCreatureInstance par1EntityLiving, final boolean shouldCallAllies,
+                                final boolean shouldCheckSight) {
         super( par1EntityLiving, 16.0f, shouldCheckSight);
         this.fleeChance = 0;
         this.shouldCallAllies = shouldCallAllies;

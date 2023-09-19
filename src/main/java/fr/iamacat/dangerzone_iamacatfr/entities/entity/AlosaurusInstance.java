@@ -12,12 +12,12 @@ import net.minecraft.world.World;
 import fr.iamacat.dangerzone_iamacatfr.DungeonMobsDamageSource;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 
-public class AlosaurusInstance extends EntityDungeonMob {
+public class AlosaurusInstance extends DungeonMobInstance {
 
     private boolean ignoreHeight;
     private int stoneChance;
 
-    private EntityPetrified stonedPlayer;
+    private PetrifiedInstance stonedPlayer;
     private boolean incoming;
     private boolean waitTick;
 
@@ -102,7 +102,7 @@ public class AlosaurusInstance extends EntityDungeonMob {
                     1.0F / (this.getRNG()
                         .nextFloat() * 0.4F + 0.8F));
 
-                EntityPetrified foo = new EntityPetrified(this.worldObj);
+                PetrifiedInstance foo = new PetrifiedInstance(this.worldObj);
                 EntityPlayer bar = (EntityPlayer) ent;
 
                 foo.setLocationAndAngles(bar.posX, bar.posY, bar.posZ, bar.rotationYaw, bar.rotationPitch);

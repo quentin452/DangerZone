@@ -156,7 +156,7 @@ public class DangerZoneConfig extends Configuration {
             0,
             Integer.MAX_VALUE,
             "Dark Crystal Projectile Damage");
-        MeteorStrikeDamage = getInt("DarkCrystalDamage", "general", 350, 0, Integer.MAX_VALUE, "Meteor Strike Damage");
+        MeteorStrikeDamage = getInt("DarkCrystalDamage", "general", 350, 0, Integer.MAX_VALUE, "MeteorModel Strike Damage");
 
     }
 

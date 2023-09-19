@@ -5,17 +5,17 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Vec3;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAIFlyingWander extends EntityAIBase {
 
-    private EntityGenericCreature entity;
+    private GenericCreatureInstance entity;
     private double xPosition;
     private double yPosition;
     private double zPosition;
     private float speed;
 
-    public EntityAIFlyingWander(final EntityGenericCreature par1EntityCreature, final float speed) {
+    public EntityAIFlyingWander(final GenericCreatureInstance par1EntityCreature, final float speed) {
         this.entity = par1EntityCreature;
         this.speed = speed;
         this.setMutexBits(1);

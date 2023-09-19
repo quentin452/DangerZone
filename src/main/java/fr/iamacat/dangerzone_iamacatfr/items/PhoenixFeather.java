@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.PhoenixArrow;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.PhoenixArrowInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class PhoenixFeather extends Item {
@@ -42,18 +42,18 @@ public class PhoenixFeather extends Item {
         }
         final double xzoff = 0.4;
         final double yoff = 1.25;
-        final PhoenixArrow lb = new PhoenixArrow(par2World, (EntityLivingBase) par3EntityPlayer);
+        final PhoenixArrowInstance lb = new PhoenixArrowInstance(par2World, (EntityLivingBase) par3EntityPlayer);
         lb.setLocationAndAngles(
             par3EntityPlayer.posX - xzoff * Math.sin(Math.toRadians(par3EntityPlayer.rotationYawHead + 45.0f)),
             par3EntityPlayer.posY + yoff,
             par3EntityPlayer.posZ + xzoff * Math.cos(Math.toRadians(par3EntityPlayer.rotationYawHead + 45.0f)),
             par3EntityPlayer.rotationYawHead,
             par3EntityPlayer.rotationPitch);
-        final PhoenixArrow phoenixArrow = lb;
+        final PhoenixArrowInstance phoenixArrow = lb;
         phoenixArrow.motionX *= 1.8;
-        final PhoenixArrow phoenixArrow2 = lb;
+        final PhoenixArrowInstance phoenixArrow2 = lb;
         phoenixArrow2.motionY *= 1.8;
-        final PhoenixArrow phoenixArrow3 = lb;
+        final PhoenixArrowInstance phoenixArrow3 = lb;
         phoenixArrow3.motionZ *= 1.8;
         par2World.spawnEntityInWorld((Entity) lb);
         par1ItemStack.damageItem(1, (EntityLivingBase) par3EntityPlayer);

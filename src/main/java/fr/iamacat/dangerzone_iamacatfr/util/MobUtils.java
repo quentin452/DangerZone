@@ -11,16 +11,16 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 public class MobUtils {
 
     public static boolean isPony(final Entity e) {
-        return e instanceof EntityLivingBase && (e instanceof MyTwilicorn || e instanceof MyWindigo
-            || e instanceof MyArcticScorpion
-            || e instanceof MyDarkness
-            || e instanceof MyTwilightMagic
-            || e instanceof MyDashCloud);
+        return e instanceof EntityLivingBase && (e instanceof TwilicornInstance || e instanceof WindigoInstance
+            || e instanceof ArcticScorpionInstance
+            || e instanceof DarknessInstance
+            || e instanceof TwilightMagicInstance
+            || e instanceof DashCloudInstance);
     }
 
     public static boolean isWindy(final Entity e) {
         return e instanceof EntityLivingBase
-            && (e instanceof MyWindigo || e instanceof MyArcticScorpion || e instanceof MyPowerOrbs);
+            && (e instanceof WindigoInstance || e instanceof ArcticScorpionInstance || e instanceof PowerOrbsInstance);
     }
 
     public static boolean isAttackableNonMob(final EntityLivingBase par1EntityLiving) {

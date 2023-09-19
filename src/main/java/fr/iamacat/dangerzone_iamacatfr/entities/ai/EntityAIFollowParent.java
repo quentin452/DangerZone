@@ -6,16 +6,16 @@ import java.util.List;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIBase;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericBreedable;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericBreedableInstance;
 
 public class EntityAIFollowParent extends EntityAIBase {
 
-    EntityGenericBreedable childAnimal;
-    EntityGenericBreedable parentAnimal;
+    GenericBreedableInstance childAnimal;
+    GenericBreedableInstance parentAnimal;
     float field_75347_c;
     private int field_75345_d;
 
-    public EntityAIFollowParent(final EntityGenericBreedable par1EntityAnimal, final float par2) {
+    public EntityAIFollowParent(final GenericBreedableInstance par1EntityAnimal, final float par2) {
         this.childAnimal = par1EntityAnimal;
         this.field_75347_c = par2;
     }
@@ -24,12 +24,12 @@ public class EntityAIFollowParent extends EntityAIBase {
         if (this.childAnimal.getGrowingAge() >= 0) {
             return false;
         }
-        final List<EntityGenericBreedable> var1 = this.childAnimal.worldObj.getEntitiesWithinAABB(
+        final List<GenericBreedableInstance> var1 = this.childAnimal.worldObj.getEntitiesWithinAABB(
              this.childAnimal.getClass(),
             this.childAnimal.boundingBox.expand(8.0, 4.0, 8.0));
-        EntityGenericBreedable var2 = null;
+        GenericBreedableInstance var2 = null;
         double var3 = Double.MAX_VALUE;
-        for (final EntityGenericBreedable var5 : var1) {
+        for (final GenericBreedableInstance var5 : var1) {
             if (var5.getGrowingAge() >= 0) {
                 final double var6 = this.childAnimal.getDistanceSqToEntity(var5);
                 if (var6 > var3) {

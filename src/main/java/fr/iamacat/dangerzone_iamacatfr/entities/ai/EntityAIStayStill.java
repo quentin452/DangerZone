@@ -3,15 +3,15 @@ package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
 import net.minecraft.entity.ai.EntityAIBase;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericAnimal;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericAnimalInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 
 public class EntityAIStayStill extends EntityAIBase {
 
-    private EntityGenericAnimal theEntity;
+    private GenericAnimalInstance theEntity;
     EntityStates triggeringState;
 
-    public EntityAIStayStill(final EntityGenericAnimal par1EntityTameable, final EntityStates triggeringState) {
+    public EntityAIStayStill(final GenericAnimalInstance par1EntityTameable, final EntityStates triggeringState) {
         this.theEntity = par1EntityTameable;
         this.setMutexBits(5);
         this.triggeringState = triggeringState;

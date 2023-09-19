@@ -26,7 +26,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 
-public class CaveFisherInstance extends EntityDungeonMob {
+public class CaveFisherInstance extends DungeonMobInstance {
 
     private int stringTimer;
     private int grabTimer;

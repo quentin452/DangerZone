@@ -38,7 +38,7 @@ public class FireCannon extends EntityThrowable {
     }
 
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
-        if (par1MovingObjectPosition.entityHit instanceof MyKingbowser) {
+        if (par1MovingObjectPosition.entityHit instanceof KingbowserInstance) {
             return;
         }
         if (par1MovingObjectPosition.entityHit != null) {

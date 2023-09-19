@@ -17,8 +17,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIWatchTarget;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityDarkCrystal;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityDirectedLightning;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DarkCrystalInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DirectedLightningInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityDarkEnergy;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityDarkLightning;
 import fr.iamacat.dangerzone_iamacatfr.util.DamageHelper;
@@ -37,7 +37,7 @@ public class BeeInstance extends TragicBoss implements IMultiPart {
     public EntityPart enyvilClaw;
     public EntityPart enyvilClaw2;
 
-    public EntityDarkCrystal crystal;
+    public DarkCrystalInstance crystal;
     public int crystalBuffer;
 
     public BeeInstance(World par1World) {
@@ -254,13 +254,13 @@ public class BeeInstance extends TragicBoss implements IMultiPart {
         super.onDeath(src);
 
         if (!this.worldObj.isRemote) {
-            List<EntityDarkCrystal> list = this.worldObj
-                .getEntitiesWithinAABB(EntityDarkCrystal.class, this.boundingBox.expand(128.0D, 128.0D, 128.0D));
+            List<DarkCrystalInstance> list = this.worldObj
+                .getEntitiesWithinAABB(DarkCrystalInstance.class, this.boundingBox.expand(128.0D, 128.0D, 128.0D));
             Iterator ite = list.iterator();
-            EntityDarkCrystal crystal;
+            DarkCrystalInstance crystal;
 
             while (ite.hasNext()) {
-                crystal = (EntityDarkCrystal) ite.next();
+                crystal = (DarkCrystalInstance) ite.next();
                 crystal.attackEntityFrom(DamageSource.causeMobDamage(this), 10000.0F);
             }
         }
@@ -420,7 +420,7 @@ public class BeeInstance extends TragicBoss implements IMultiPart {
                     double d0 = this.posX + getIntegerInRange(6, 22);
                     double d1 = this.posZ + getIntegerInRange(6, 22);
                     double d2 = this.worldObj.getTopSolidOrLiquidBlock((int) d0, (int) d1);
-                    this.worldObj.spawnEntityInWorld(new EntityDirectedLightning(this.worldObj, d0, d2, d1, this));
+                    this.worldObj.spawnEntityInWorld(new DirectedLightningInstance(this.worldObj, d0, d2, d1, this));
                     // this.worldObj.createExplosion(this, d0, d2, d1, rand.nextFloat() * 3.0F + 1.5F,
                     // this.getMobGriefing());
                 }
@@ -474,8 +474,8 @@ public class BeeInstance extends TragicBoss implements IMultiPart {
 
     private void updateCrystal() {
         Entity entity = this.worldObj.getEntityByID(this.getCrystalID());
-        if (entity != null && entity instanceof EntityDarkCrystal && !entity.isDead) {
-            this.crystal = (EntityDarkCrystal) entity;
+        if (entity != null && entity instanceof DarkCrystalInstance && !entity.isDead) {
+            this.crystal = (DarkCrystalInstance) entity;
         } else {
             this.crystal = null;
         }
@@ -494,13 +494,13 @@ public class BeeInstance extends TragicBoss implements IMultiPart {
             }
         } else {
             float f = 32.0F;
-            List list = this.worldObj.getEntitiesWithinAABB(EntityDarkCrystal.class, this.boundingBox.expand(f, f, f));
-            EntityDarkCrystal crystal = null;
+            List list = this.worldObj.getEntitiesWithinAABB(DarkCrystalInstance.class, this.boundingBox.expand(f, f, f));
+            DarkCrystalInstance crystal = null;
             double d0 = Double.MAX_VALUE;
             Iterator iterator = list.iterator();
 
             while (iterator.hasNext()) {
-                EntityDarkCrystal crystal1 = (EntityDarkCrystal) iterator.next();
+                DarkCrystalInstance crystal1 = (DarkCrystalInstance) iterator.next();
                 double d1 = crystal1.getDistanceSqToEntity(this);
 
                 if (d1 < d0) {
@@ -520,15 +520,15 @@ public class BeeInstance extends TragicBoss implements IMultiPart {
     public void createNewCrystals() {
         if (this.crystalBuffer > 0) return;
 
-        List<EntityDarkCrystal> list = this.worldObj
-            .getEntitiesWithinAABB(EntityDarkCrystal.class, this.boundingBox.expand(64.0D, 64.0D, 64.0D));
+        List<DarkCrystalInstance> list = this.worldObj
+            .getEntitiesWithinAABB(DarkCrystalInstance.class, this.boundingBox.expand(64.0D, 64.0D, 64.0D));
         if (list.size() >= 5) return;
 
         if (!this.worldObj.isRemote) this.playSound(Tags.MODID + ":boss.enyvil.summon", 0.6F, 1.0F);
 
         int amt = rand.nextInt(this.worldObj.difficultySetting.getDifficultyId() + 1) + 2;
         for (int i = 0; i < amt; i++) {
-            EntityDarkCrystal crystal = new EntityDarkCrystal(this.worldObj, this);
+            DarkCrystalInstance crystal = new DarkCrystalInstance(this.worldObj, this);
             crystal.setPosition(
                 this.posX + getIntegerInRange(4, 12),
                 this.posY + Math.abs(getIntegerInRange(4, 12)),
@@ -643,12 +643,12 @@ public class BeeInstance extends TragicBoss implements IMultiPart {
             || !this.worldObj.isRemote && this.getAttackTarget() == null) return;
 
         float f = 32.0F;
-        List list = this.worldObj.getEntitiesWithinAABB(EntityDarkCrystal.class, this.boundingBox.expand(f, f, f));
-        EntityDarkCrystal crystal = null;
+        List list = this.worldObj.getEntitiesWithinAABB(DarkCrystalInstance.class, this.boundingBox.expand(f, f, f));
+        DarkCrystalInstance crystal = null;
         Iterator iterator = list.iterator();
 
         while (iterator.hasNext()) {
-            crystal = (EntityDarkCrystal) iterator.next();
+            crystal = (DarkCrystalInstance) iterator.next();
             if (this.worldObj.isRemote) {
                 if (this.getClientSideTarget()
                     .canEntityBeSeen(crystal)) break;

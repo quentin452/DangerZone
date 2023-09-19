@@ -7,8 +7,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityDarkCrystal;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityDirectedLightning;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DarkCrystalInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DirectedLightningInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.WorldHelper;
 
@@ -35,11 +35,11 @@ public class EntityDarkLightning extends EntityProjectile {
             // spawn particles on impact with something
         } else {
             if (var1.entityHit != null && !(var1.entityHit instanceof BeeInstance)
-                && !(var1.entityHit instanceof EntityDarkCrystal)
+                && !(var1.entityHit instanceof DarkCrystalInstance)
                 && !(var1.entityHit instanceof EntityDarkLightning)) {
                 var1.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.shootingEntity), 5.0F);
                 this.worldObj.spawnEntityInWorld(
-                    new EntityDirectedLightning(
+                    new DirectedLightningInstance(
                         this.worldObj,
                         var1.entityHit.posX,
                         var1.entityHit.posY,
@@ -62,7 +62,7 @@ public class EntityDarkLightning extends EntityProjectile {
             && !this.worldObj.isRemote) {
             int y = WorldHelper.getDistanceToGround(this);
             this.worldObj.spawnEntityInWorld(
-                new EntityDirectedLightning(this.worldObj, this.posX, this.posY - y, this.posZ, this));
+                new DirectedLightningInstance(this.worldObj, this.posX, this.posY - y, this.posZ, this));
         }
 
         if (!this.worldObj.isRemote && this.ticksExisted >= 120) this.setDead();

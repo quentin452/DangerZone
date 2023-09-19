@@ -11,14 +11,14 @@ import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.util.Vec3;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericTameableInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 
 public class EntityAIAvoidEntity extends EntityAIBase {
 
     public final IEntitySelector field_98218_a;
-    private EntityGenericCreature theEntity;
+    private GenericCreatureInstance theEntity;
     private double farSpeed;
     private double nearSpeed;
     private Entity closestLivingEntity;
@@ -29,8 +29,8 @@ public class EntityAIAvoidEntity extends EntityAIBase {
     private boolean shouldHop;
     private int slimeJumpDelay;
 
-    public EntityAIAvoidEntity(final EntityGenericCreature par1, final Class par2, final float par3, final double par4,
-        final double par5) {
+    public EntityAIAvoidEntity(final GenericCreatureInstance par1, final Class par2, final float par3, final double par4,
+                               final double par5) {
         this.field_98218_a = (IEntitySelector) new IEntitySelector() {
 
             public boolean isEntityApplicable(final Entity p_82704_1_) {
@@ -49,15 +49,15 @@ public class EntityAIAvoidEntity extends EntityAIBase {
         this.setMutexBits(1);
     }
 
-    public EntityAIAvoidEntity(final EntityGenericCreature par1, final Class par2, final float par3, final double par4,
-        final double par5, final boolean shouldHop) {
+    public EntityAIAvoidEntity(final GenericCreatureInstance par1, final Class par2, final float par3, final double par4,
+                               final double par5, final boolean shouldHop) {
         this(par1, par2, par3, par4, par5);
         this.shouldHop = shouldHop;
     }
 
     public boolean shouldExecute() {
         if (this.targetEntityClass == EntityPlayer.class) {
-            if (this.theEntity instanceof EntityGenericTameable && ((EntityGenericTameable) this.theEntity).isTamed()) {
+            if (this.theEntity instanceof GenericTameableInstance && ((GenericTameableInstance) this.theEntity).isTamed()) {
                 return false;
             }
             this.closestLivingEntity = (Entity) this.theEntity.worldObj

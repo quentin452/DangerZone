@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandom;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityProperties;
+import fr.iamacat.dangerzone_iamacatfr.util.EntityProperties;
 
 public class CustomMobData {
 

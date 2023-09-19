@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import java.util.EnumSet;
 
+import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -14,7 +15,7 @@ import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.*;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
-public class BeaverInstance extends EntityGenericAnimal implements IAnimals {
+public class BeaverInstance extends GenericAnimalInstance implements IAnimals {
 
     private EntityAFightorFlight EAFF;
     private CustomEntityList entityEntry;

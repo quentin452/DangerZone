@@ -11,7 +11,7 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
 import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
 import fr.iamacat.dangerzone_iamacatfr.DangerZone;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericTameableInstance;
 import io.netty.buffer.ByteBuf;
 
 public class PZPacketTameParticle implements IMessage, IMessageHandler<PZPacketTameParticle, IMessage> {
@@ -31,8 +31,8 @@ public class PZPacketTameParticle implements IMessage, IMessageHandler<PZPacketT
         }
         final EntityPlayer player = DangerZone.packetProxy.getClientPlayer();
         final Entity entity = player.worldObj.getEntityByID(message.entityIdToTriggerEffect);
-        if (entity != null && entity instanceof EntityGenericTameable) {
-            ((EntityGenericTameable) entity).playTameEffect(message.tameingSuccess);
+        if (entity != null && entity instanceof GenericTameableInstance) {
+            ((GenericTameableInstance) entity).playTameEffect(message.tameingSuccess);
         }
         return null;
     }

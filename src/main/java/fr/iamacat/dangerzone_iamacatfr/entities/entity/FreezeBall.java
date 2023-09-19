@@ -160,11 +160,11 @@ public class FreezeBall extends EntityFireball {
                     var17 = null;
                     break;
                 }
-                if (var21 instanceof BetterFireball) {
+                if (var21 instanceof BetterFireballInstance) {
                     var17 = null;
                     break;
                 }
-                if (var21 instanceof MyMLPHydra) {
+                if (var21 instanceof HydraInstance) {
                     var17 = null;
                     break;
                 }
@@ -172,8 +172,8 @@ public class FreezeBall extends EntityFireball {
                     var17 = null;
                     break;
                 }
-                if (this.notme != 0 && (var21 instanceof EntityPlayer || var21 instanceof MyFlameDragon
-                    || var21 instanceof MyTwilicorn)) {
+                if (this.notme != 0 && (var21 instanceof EntityPlayer || var21 instanceof FlameDragonInstance
+                    || var21 instanceof TwilicornInstance)) {
                     var17 = null;
                     break;
                 }
@@ -302,13 +302,13 @@ public class FreezeBall extends EntityFireball {
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
         if (!this.worldObj.isRemote) {
             if (par1MovingObjectPosition.entityHit != null) {
-                if (par1MovingObjectPosition.entityHit instanceof BetterFireball) {
+                if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstance) {
                     return;
                 }
-                if (par1MovingObjectPosition.entityHit instanceof MyTwilicorn) {
+                if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
                     return;
                 }
-                if (this.notme != 0 && (par1MovingObjectPosition.entityHit instanceof MyFlameDragon
+                if (this.notme != 0 && (par1MovingObjectPosition.entityHit instanceof FlameDragonInstance
                     || par1MovingObjectPosition.entityHit instanceof EntityPlayer)) {
                     this.setDead();
                     return;
@@ -317,9 +317,9 @@ public class FreezeBall extends EntityFireball {
                 if (e instanceof EntityLiving) {
                     final EntityLiving el = (EntityLiving) e;
                     if (el.width * el.height > 30.0f && !MobUtils.isPony(el)
-                        && !(el instanceof MyMLPHydra)
-                        && !(el instanceof MyLeviathan)
-                        && !(el instanceof MyKingbowser)) {
+                        && !(el instanceof HydraInstance)
+                        && !(el instanceof LeviathanInstance)
+                        && !(el instanceof KingbowserInstance)) {
                         el.setHealth(el.getHealth() / 24.0f);
                     }
                 }

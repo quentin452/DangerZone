@@ -4,8 +4,6 @@ package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 import java.util.ArrayList;
 import java.util.Random;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,15 +11,15 @@ import net.minecraft.world.World;
 
 import fr.iamacat.dangerzone_iamacatfr.angeldragon.EntityAIAvoidEntity;
 import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericTameableInstance;
 
 public class EntityAFightorFlight {
 
     private int isHurt;
     private float aggroLevel;
     private double aggroRange;
-    private EntityGenericCreature entity;
+    private GenericCreatureInstance entity;
     private EntityAIAvoidEntity aiEntityAvoidEntity;
     private World worldObj;
     private CustomEntityList entityEntry;
@@ -34,8 +32,8 @@ public class EntityAFightorFlight {
         this.isHurt = 0;
     }
 
-    public EntityAFightorFlight setEntity(final EntityGenericCreature par1, final World par2, final float par3,
-        final double par4) {
+    public EntityAFightorFlight setEntity(final GenericCreatureInstance par1, final World par2, final float par3,
+                                          final double par4) {
         this.entity = par1;
         this.worldObj = par2;
         this.aggroLevel = par3;
@@ -44,8 +42,8 @@ public class EntityAFightorFlight {
         return this;
     }
 
-    public EntityAFightorFlight setEntity(final EntityGenericCreature par1, final World par2, final float par3,
-        final double par4, final boolean shouldHop) {
+    public EntityAFightorFlight setEntity(final GenericCreatureInstance par1, final World par2, final float par3,
+                                          final double par4, final boolean shouldHop) {
         this.entity = par1;
         this.worldObj = par2;
         this.aggroLevel = par3;
@@ -76,7 +74,7 @@ public class EntityAFightorFlight {
                 }
             }
         }
-        if (this.aggroRange != 0.0 && !this.temptingItem && !((EntityGenericTameable) this.entity).isTamed()) {
+        if (this.aggroRange != 0.0 && !this.temptingItem && !((GenericTameableInstance) this.entity).isTamed()) {
             if (this.entityplayer != null && this.entity.canEntityBeSeen( this.entityplayer)) {
                 if (this.aggroLevel > 0.0f) {
                     final Random rand = new Random();

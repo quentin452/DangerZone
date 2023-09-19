@@ -10,8 +10,8 @@ import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.pathfinding.PathPoint;
 import net.minecraft.util.MathHelper;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericTameableInstance;
 
 public abstract class EntityAITarget extends EntityAIBase {
 
@@ -101,20 +101,20 @@ public abstract class EntityAITarget extends EntityAIBase {
                 return false;
             }
         } else
-            if (this.taskOwner instanceof EntityGenericTameable && ((EntityGenericTameable) this.taskOwner).isTamed()) {
-                if (par1EntityLiving instanceof EntityGenericTameable
-                    && ((EntityGenericTameable) par1EntityLiving).isTamed()) {
+            if (this.taskOwner instanceof GenericTameableInstance && ((GenericTameableInstance) this.taskOwner).isTamed()) {
+                if (par1EntityLiving instanceof GenericTameableInstance
+                    && ((GenericTameableInstance) par1EntityLiving).isTamed()) {
                     return false;
                 }
-                if (par1EntityLiving == ((EntityGenericTameable) this.taskOwner).getOwner()) {
+                if (par1EntityLiving == ((GenericTameableInstance) this.taskOwner).getOwner()) {
                     return false;
                 }
             } else if (par1EntityLiving instanceof EntityPlayer && !par2
                 && ((EntityPlayer) par1EntityLiving).capabilities.disableDamage) {
                     return false;
                 }
-        if (this.taskOwner instanceof EntityGenericCreature
-            && !((EntityGenericCreature) this.taskOwner).isWithinHomeDistance(
+        if (this.taskOwner instanceof GenericCreatureInstance
+            && !((GenericCreatureInstance) this.taskOwner).isWithinHomeDistance(
                 MathHelper.floor_double(par1EntityLiving.posX),
                 MathHelper.floor_double(par1EntityLiving.posY),
                 MathHelper.floor_double(par1EntityLiving.posZ))) {

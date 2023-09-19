@@ -29,7 +29,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIFollowTwin;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIMonsterPanic;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 
-public class AlienInstance extends EntityDungeonMob {
+public class AlienInstance extends DungeonMobInstance {
 
     private int twinID;
     private int twinEntityID;

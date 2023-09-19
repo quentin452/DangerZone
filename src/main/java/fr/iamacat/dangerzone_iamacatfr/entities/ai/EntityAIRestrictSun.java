@@ -3,13 +3,13 @@ package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
 import net.minecraft.entity.ai.EntityAIBase;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAIRestrictSun extends EntityAIBase {
 
-    private EntityGenericCreature theEntity;
+    private GenericCreatureInstance theEntity;
 
-    public EntityAIRestrictSun(final EntityGenericCreature p_i1652_1_) {
+    public EntityAIRestrictSun(final GenericCreatureInstance p_i1652_1_) {
         this.theEntity = p_i1652_1_;
     }
 

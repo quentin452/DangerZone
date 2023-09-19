@@ -9,19 +9,19 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericBreedable;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericBreedableInstance;
 
 public class EntityAIMate extends EntityAIBase {
 
-    private EntityGenericBreedable theAnimal;
+    private GenericBreedableInstance theAnimal;
     World theWorld;
-    private EntityGenericBreedable targetMate;
+    private GenericBreedableInstance targetMate;
     int spawnBabyDelay;
     float moveSpeed;
     boolean shouldHop;
     int slimeJumpDelay;
 
-    public EntityAIMate(final EntityGenericBreedable par1EntityAnimal, final float par2) {
+    public EntityAIMate(final GenericBreedableInstance par1EntityAnimal, final float par2) {
         this.spawnBabyDelay = 0;
         this.shouldHop = false;
         this.slimeJumpDelay = 0;
@@ -31,7 +31,7 @@ public class EntityAIMate extends EntityAIBase {
         this.setMutexBits(3);
     }
 
-    public EntityAIMate(final EntityGenericBreedable par1EntityAnimal, final float par2, final boolean shouldHop) {
+    public EntityAIMate(final GenericBreedableInstance par1EntityAnimal, final float par2, final boolean shouldHop) {
         this(par1EntityAnimal, par2);
         this.shouldHop = shouldHop;
     }
@@ -70,12 +70,12 @@ public class EntityAIMate extends EntityAIBase {
         }
     }
 
-    private EntityGenericBreedable getNearbyMate() {
+    private GenericBreedableInstance getNearbyMate() {
         final float var1 = 8.0f;
-        final List<EntityGenericBreedable> var2 = this.theWorld.getEntitiesWithinAABB(
+        final List<GenericBreedableInstance> var2 = this.theWorld.getEntitiesWithinAABB(
             this.theAnimal.getClass(),
             this.theAnimal.boundingBox.expand((double) var1, (double) var1, (double) var1));
-        for (final EntityGenericBreedable var4 : var2) {
+        for (final GenericBreedableInstance var4 : var2) {
             if (this.theAnimal.canMateWith(var4)) {
                 return var4;
             }
@@ -84,7 +84,7 @@ public class EntityAIMate extends EntityAIBase {
     }
 
     private void spawnBaby() {
-        final EntityGenericBreedable var1 = this.theAnimal.getBabyAnimalEntity(this.targetMate);
+        final GenericBreedableInstance var1 = this.theAnimal.getBabyAnimalEntity(this.targetMate);
         if (var1 != null) {
             this.theAnimal.setGrowingAge(6000);
             this.targetMate.setGrowingAge(6000);

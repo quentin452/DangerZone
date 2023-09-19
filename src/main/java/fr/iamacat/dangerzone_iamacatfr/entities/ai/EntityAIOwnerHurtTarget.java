@@ -3,14 +3,14 @@ package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
 import net.minecraft.entity.EntityLivingBase;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericTameable;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericTameableInstance;
 
 public class EntityAIOwnerHurtTarget extends EntityAITarget {
 
-    EntityGenericTameable theDefendingTameable;
+    GenericTameableInstance theDefendingTameable;
     EntityLivingBase theTarget;
 
-    public EntityAIOwnerHurtTarget(final EntityGenericTameable par1EntityTameable) {
+    public EntityAIOwnerHurtTarget(final GenericTameableInstance par1EntityTameable) {
         super(par1EntityTameable, 32.0f, false);
         this.theDefendingTameable = par1EntityTameable;
         this.setMutexBits(1);

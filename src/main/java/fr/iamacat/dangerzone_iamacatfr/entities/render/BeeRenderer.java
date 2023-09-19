@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.BeeModel;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
-public class BeeRenderer extends RenderBoss {
+public class BeeRenderer extends BossRenderer {
 
     private static final ResourceLocation texture = new ResourceLocation(Tags.MODID + ":textures/entity/BeeNWasp.png");
 

@@ -6,12 +6,12 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.Vec3;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericAnimal;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericAnimalInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAIMoveTowardsTarget extends EntityAIBase {
 
-    private EntityGenericAnimal theEntity;
+    private GenericAnimalInstance theEntity;
     private EntityLivingBase targetEntity;
     private double movePosX;
     private double movePosY;
@@ -19,7 +19,7 @@ public class EntityAIMoveTowardsTarget extends EntityAIBase {
     private float speed;
     private float maxTargetDistance;
 
-    public EntityAIMoveTowardsTarget(final EntityGenericAnimal par1EntityCreature, final float par2, final float par3) {
+    public EntityAIMoveTowardsTarget(final GenericAnimalInstance par1EntityCreature, final float par2, final float par3) {
         this.theEntity = par1EntityCreature;
         this.speed = par2;
         this.maxTargetDistance = par3;
@@ -36,7 +36,7 @@ public class EntityAIMoveTowardsTarget extends EntityAIBase {
             return false;
         }
         final Vec3 var1 = RandomPositionGenerator.findRandomTargetBlockTowards(
-            (EntityGenericCreature) this.theEntity,
+            (GenericCreatureInstance) this.theEntity,
             16,
             7,
             Vec3.createVectorHelper(this.targetEntity.posX, this.targetEntity.posY, this.targetEntity.posZ));

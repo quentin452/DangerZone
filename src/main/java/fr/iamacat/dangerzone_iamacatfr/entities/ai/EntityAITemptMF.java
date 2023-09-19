@@ -9,11 +9,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAITemptMF extends EntityAIBase {
 
-    private EntityGenericCreature temptedEntity;
+    private GenericCreatureInstance temptedEntity;
     private float speed;
     private double targetX;
     private double targetY;
@@ -30,8 +30,8 @@ public class EntityAITemptMF extends EntityAIBase {
     private boolean scaredByPlayerMovement;
     private boolean field_75286_m;
 
-    public EntityAITemptMF(final EntityGenericCreature par1EntityCreature, final float par2, final ArrayList<Item> par3,
-        final boolean par4) {
+    public EntityAITemptMF(final GenericCreatureInstance par1EntityCreature, final float par2, final ArrayList<Item> par3,
+                           final boolean par4) {
         this.shouldHop = false;
         this.slimeJumpDelay = 0;
         this.returnVal = false;
@@ -43,8 +43,8 @@ public class EntityAITemptMF extends EntityAIBase {
         this.setMutexBits(3);
     }
 
-    public EntityAITemptMF(final EntityGenericCreature par1EntityCreature, final float par2, final ArrayList<Item> par3,
-        final boolean par4, final boolean shouldHop) {
+    public EntityAITemptMF(final GenericCreatureInstance par1EntityCreature, final float par2, final ArrayList<Item> par3,
+                           final boolean par4, final boolean shouldHop) {
         this(par1EntityCreature, par2, par3, par4);
         this.shouldHop = shouldHop;
     }

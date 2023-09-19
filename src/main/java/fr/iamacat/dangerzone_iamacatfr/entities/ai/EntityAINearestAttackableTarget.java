@@ -11,8 +11,8 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 
 public class EntityAINearestAttackableTarget extends EntityAITarget {
 
@@ -23,13 +23,13 @@ public class EntityAINearestAttackableTarget extends EntityAITarget {
     EnumSet<EntityStates> setOfValidStates;
     private final EntityAINearestAttackableTargetSorter theNearestAttackableTargetSorter;
 
-    public EntityAINearestAttackableTarget(final EntityGenericCreature par1EntityLiving,
+    public EntityAINearestAttackableTarget(final GenericCreatureInstance par1EntityLiving,
         final EnumSet<EntityStates> setOfValidStates, final Class par2Class, final float par3, final int par4,
         final boolean par5) {
         this(par1EntityLiving, setOfValidStates, par2Class, par3, par4, par5, false);
     }
 
-    public EntityAINearestAttackableTarget(final EntityGenericCreature par1EntityLiving,
+    public EntityAINearestAttackableTarget(final GenericCreatureInstance par1EntityLiving,
         final EnumSet<EntityStates> setOfValidStates, final Class par2Class, final float par3, final int par4,
         final boolean par5, final boolean par6) {
         this( par1EntityLiving, setOfValidStates, par2Class, par3, par4, par5, par6, null);
@@ -50,7 +50,7 @@ public class EntityAINearestAttackableTarget extends EntityAITarget {
 
     public boolean shouldExecute() {
         if (this.setOfValidStates != null
-            && !this.setOfValidStates.contains(((EntityGenericCreature) this.taskOwner).getEntityState())) {
+            && !this.setOfValidStates.contains(((GenericCreatureInstance) this.taskOwner).getEntityState())) {
             return false;
         }
         if (this.targetChance > 0 && this.taskOwner.getRNG()
@@ -86,8 +86,8 @@ public class EntityAINearestAttackableTarget extends EntityAITarget {
 
     @Override
     public boolean continueExecuting() {
-        return (((EntityGenericCreature) this.taskOwner).getEntityState() == EntityStates.attacking
-            || ((EntityGenericCreature) this.taskOwner).getEntityState() == EntityStates.looking)
+        return (((GenericCreatureInstance) this.taskOwner).getEntityState() == EntityStates.attacking
+            || ((GenericCreatureInstance) this.taskOwner).getEntityState() == EntityStates.looking)
             && super.continueExecuting();
     }
 

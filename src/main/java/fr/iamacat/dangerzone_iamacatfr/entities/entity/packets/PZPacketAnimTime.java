@@ -12,7 +12,7 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
 import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
 import fr.iamacat.dangerzone_iamacatfr.DangerZone;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 import io.netty.buffer.ByteBuf;
 
 public class PZPacketAnimTime implements IMessage, IMessageHandler<PZPacketAnimTime, IMessage> {
@@ -33,8 +33,8 @@ public class PZPacketAnimTime implements IMessage, IMessageHandler<PZPacketAnimT
         final EntityPlayer player = DangerZone.packetProxy.getClientPlayer();
         final World worldObj = player.worldObj;
         final Entity entity = worldObj.getEntityByID(message.entityIDtoSync);
-        if (entity != null && entity instanceof EntityGenericCreature) {
-            ((EntityGenericCreature) entity).setAnimTime(message.animTime);
+        if (entity != null && entity instanceof GenericCreatureInstance) {
+            ((GenericCreatureInstance) entity).setAnimTime(message.animTime);
         }
         return null;
     }

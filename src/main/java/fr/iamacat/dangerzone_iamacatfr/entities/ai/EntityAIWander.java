@@ -4,11 +4,11 @@ package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.Vec3;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAIWander extends EntityAIBase {
 
-    private EntityGenericCreature entity;
+    private GenericCreatureInstance entity;
     private double xPosition;
     private double yPosition;
     private double zPosition;
@@ -17,7 +17,7 @@ public class EntityAIWander extends EntityAIBase {
     boolean shouldHop;
     int slimeJumpDelay;
 
-    public EntityAIWander(final EntityGenericCreature par1EntityCreature, final float speed, final int chanceToMove) {
+    public EntityAIWander(final GenericCreatureInstance par1EntityCreature, final float speed, final int chanceToMove) {
         this.shouldHop = false;
         this.slimeJumpDelay = 0;
         this.entity = par1EntityCreature;
@@ -26,8 +26,8 @@ public class EntityAIWander extends EntityAIBase {
         this.chanceToMove = chanceToMove;
     }
 
-    public EntityAIWander(final EntityGenericCreature par1EntityCreature, final float speed, final int chanceToMove,
-        final boolean shouldHop) {
+    public EntityAIWander(final GenericCreatureInstance par1EntityCreature, final float speed, final int chanceToMove,
+                          final boolean shouldHop) {
         this(par1EntityCreature, speed, chanceToMove);
         this.shouldHop = shouldHop;
     }

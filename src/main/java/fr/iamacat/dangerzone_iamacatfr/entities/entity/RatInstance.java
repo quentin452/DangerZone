@@ -17,7 +17,7 @@ import net.minecraft.world.WorldProviderHell;
 
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 
-public class RatInstance extends EntityDungeonMob {
+public class RatInstance extends DungeonMobInstance {
 
     public List<int[]> blocksConverted;
 

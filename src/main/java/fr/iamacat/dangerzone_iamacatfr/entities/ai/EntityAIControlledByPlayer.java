@@ -13,11 +13,11 @@ import net.minecraft.pathfinding.PathFinder;
 import net.minecraft.pathfinding.PathPoint;
 import net.minecraft.util.MathHelper;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericRideable;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericRideableInstance;
 
 public class EntityAIControlledByPlayer extends EntityAIBase {
 
-    private final EntityGenericRideable thisEntity;
+    private final GenericRideableInstance thisEntity;
     private final float maxSpeed;
     private float currentSpeed;
     private float maxRotation;
@@ -25,7 +25,7 @@ public class EntityAIControlledByPlayer extends EntityAIBase {
     private int speedBoostTime;
     private int maxSpeedBoostTime;
 
-    public EntityAIControlledByPlayer(final EntityGenericRideable par1EntityLiving, final float par2) {
+    public EntityAIControlledByPlayer(final GenericRideableInstance par1EntityLiving, final float par2) {
         this.currentSpeed = 0.0f;
         this.maxRotation = 10.0f;
         this.speedBoosted = false;
@@ -59,7 +59,7 @@ public class EntityAIControlledByPlayer extends EntityAIBase {
 
     public void updateTask() {
         final EntityPlayer var1 = (EntityPlayer) this.thisEntity.riddenByEntity;
-        final EntityGenericRideable var2 = this.thisEntity;
+        final GenericRideableInstance var2 = this.thisEntity;
         float var3;
         if (var2.shouldIgnorePlayerRot()) {
             var3 = 0.0f;

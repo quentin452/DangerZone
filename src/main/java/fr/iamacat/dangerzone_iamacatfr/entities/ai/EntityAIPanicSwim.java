@@ -5,12 +5,12 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Vec3;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericWaterMob;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericWaterMobInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 
 public class EntityAIPanicSwim extends EntityAIBase {
 
-    private EntityGenericWaterMob entity;
+    private GenericWaterMobInstance entity;
     private double xPosition;
     private double yPosition;
     private double zPosition;
@@ -19,7 +19,7 @@ public class EntityAIPanicSwim extends EntityAIBase {
     boolean shouldHop;
     int slimeJumpDelay;
 
-    public EntityAIPanicSwim(final EntityGenericWaterMob par1EntityCreature, final float par2, final double maxDepth) {
+    public EntityAIPanicSwim(final GenericWaterMobInstance par1EntityCreature, final float par2, final double maxDepth) {
         this.shouldHop = false;
         this.slimeJumpDelay = 0;
         this.entity = par1EntityCreature;

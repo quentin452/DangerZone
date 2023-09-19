@@ -11,19 +11,19 @@ import net.minecraft.util.Vec3;
 import net.minecraft.village.Village;
 import net.minecraft.village.VillageDoorInfo;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAIMoveThroughVillage extends EntityAIBase {
 
-    private EntityGenericCreature theEntity;
+    private GenericCreatureInstance theEntity;
     private double movementSpeed;
     private PathEntity entityPathNavigate;
     private VillageDoorInfo doorInfo;
     private boolean isNocturnal;
     private List<VillageDoorInfo> doorList;
 
-    public EntityAIMoveThroughVillage(final EntityGenericCreature p_i1638_1_, final double p_i1638_2_,
-        final boolean p_i1638_4_) {
+    public EntityAIMoveThroughVillage(final GenericCreatureInstance p_i1638_1_, final double p_i1638_2_,
+                                      final boolean p_i1638_4_) {
         this.doorList = new ArrayList<VillageDoorInfo>();
         this.theEntity = p_i1638_1_;
         this.movementSpeed = p_i1638_2_;

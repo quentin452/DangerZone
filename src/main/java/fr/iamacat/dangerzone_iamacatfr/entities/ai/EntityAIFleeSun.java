@@ -8,18 +8,18 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericCreature;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAIFleeSun extends EntityAIBase {
 
-    private EntityGenericCreature theCreature;
+    private GenericCreatureInstance theCreature;
     private double shelterX;
     private double shelterY;
     private double shelterZ;
     private double movementSpeed;
     private World theWorld;
 
-    public EntityAIFleeSun(final EntityGenericCreature p_i1623_1_, final double p_i1623_2_) {
+    public EntityAIFleeSun(final GenericCreatureInstance p_i1623_1_, final double p_i1623_2_) {
         this.theCreature = p_i1623_1_;
         this.movementSpeed = p_i1623_2_;
         this.theWorld = p_i1623_1_.worldObj;

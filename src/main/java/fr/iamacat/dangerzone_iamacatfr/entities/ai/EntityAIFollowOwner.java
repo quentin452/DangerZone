@@ -9,12 +9,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityGenericAnimal;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityStates;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericAnimalInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 
 public class EntityAIFollowOwner extends EntityAIBase {
 
-    private EntityGenericAnimal thePet;
+    private GenericAnimalInstance thePet;
     private EntityLivingBase theOwner;
     World theWorld;
     private float moveSpeed;
@@ -24,8 +24,8 @@ public class EntityAIFollowOwner extends EntityAIBase {
     float minDist;
     private boolean field_75344_i;
 
-    public EntityAIFollowOwner(final EntityGenericAnimal par1EntityTameable, final float par2, final float par3,
-        final float par4) {
+    public EntityAIFollowOwner(final GenericAnimalInstance par1EntityTameable, final float par2, final float par3,
+                               final float par4) {
         this.thePet = par1EntityTameable;
         this.theWorld = par1EntityTameable.worldObj;
         this.moveSpeed = par2;

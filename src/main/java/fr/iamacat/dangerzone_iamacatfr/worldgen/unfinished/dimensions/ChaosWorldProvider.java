@@ -14,7 +14,7 @@ public class ChaosWorldProvider extends WorldProvider {
 
     @Override
     public IChunkProvider createChunkGenerator() {
-        return new UtopiaChunkProvider(worldObj, getSeed());
+        return new ChaosChunkProvider(worldObj, getSeed());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions.teleporter;
 
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -56,6 +57,7 @@ public class SafeTeleporter extends Teleporter {
             || block == Blocks.cobblestone
             || block == Blocks.sand
             || block == Blocks.sandstone
+            || block == BlockInitDangerZone.CrystalStone
             || block == Blocks.farmland);
     }
 

@@ -22,6 +22,7 @@ public class DimensionInitDangerZone {
 
         DimensionManager.registerProviderType(ChaosDimensionId, ChaosWorldProvider.class, false);
         DimensionManager.registerDimension(ChaosDimensionId, ChaosDimensionId);
+
         DimensionManager.registerProviderType(CrystalDimensionId, CrystalWorldProvider.class, false);
         DimensionManager.registerDimension(CrystalDimensionId, CrystalDimensionId);
 

@@ -59,11 +59,6 @@ public class MySpikezilla extends EntityMob {
         this.wander = null;
         this.head_found = 0;
         this.largemob = 0;
-        /*
-         * if (Basic.Snap == 0) {
-         this.setSize(8.0f, 35.0f);
-         * }
-         */
         this.setSize(8.0f, 35.0f);
         this.getNavigator()
             .setAvoidsWater(true);
@@ -1042,14 +1037,6 @@ public class MySpikezilla extends EntityMob {
             0.5f,
             1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);
         if (!this.worldObj.isRemote) {
-            this.worldObj.createExplosion(
-                this,
-                e.posX,
-                e.posY,
-                e.posZ,
-                16.5f,
-                this.worldObj.getGameRules()
-                    .getGameRuleBooleanValue("mobGriefing"));
             this.worldObj.spawnParticle(
                 "largerflame",
                 this.posX + this.rand.nextFloat() - this.rand.nextFloat(),

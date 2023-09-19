@@ -1,26 +1,73 @@
+
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.AppleCowInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.CrystalCowInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EnchantedGoldenAppleCowInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GoldenAppleCowInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelCow;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
-@SideOnly(Side.CLIENT)
+
 public class EnchantedGoldenAppleCowRenderer extends RenderLiving {
 
-    public EnchantedGoldenAppleCowRenderer(ModelBase p_i1253_1_, float p_i1253_2_) {
-        super(p_i1253_1_, p_i1253_2_);
+    protected ModelCow model;
+    private static final ResourceLocation texture3;
+    private static final ResourceLocation texture1;
+    private static final ResourceLocation texture2;
+
+    public EnchantedGoldenAppleCowRenderer(final ModelCow par1ModelBase, final float par2) {
+        super(par1ModelBase, par2);
+        this.model = (ModelCow) this.mainModel;
     }
 
-    protected ResourceLocation getEntityTexture(EntityCow entity) {
-        return new ResourceLocation(Tags.MODID, "textures/entity/enchanted_golden_apple_cow.png");
+    public void renderEnchantedCow(final AppleCowInstance par1EntityEnchantedCow, final double par2, final double par4,
+                                   final double par6, final float par8, final float par9) {
+        super.doRender(par1EntityEnchantedCow, par2, par4, par6, par8, par9);
     }
 
-    protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
-        return this.getEntityTexture((EntityCow) p_110775_1_);
+    public void doRender(final EntityLiving par1EntityLiving, final double par2, final double par4, final double par6,
+        final float par8, final float par9) {
+        this.renderEnchantedCow((AppleCowInstance) par1EntityLiving, par2, par4, par6, par8, par9);
+    }
+
+    public void doRender(final Entity par1Entity, final double par2, final double par4, final double par6,
+        final float par8, final float par9) {
+        this.renderEnchantedCow((AppleCowInstance) par1Entity, par2, par4, par6, par8, par9);
+    }
+
+    public int shouldRenderPass(final EntityLivingBase par1EntityLiving, final int par2, final float par3) {
+        if (par1EntityLiving instanceof EnchantedGoldenAppleCowInstance && par2 == 3) {
+            this.setRenderPassModel((ModelBase) this.model);
+            GL11.glColor3f(1.0f, 1.0f, 1.0f);
+            return 31;
+        }
+        return -1;
+    }
+
+    protected ResourceLocation getEntityTexture(final Entity entity) {
+        if (entity instanceof EnchantedGoldenAppleCowInstance) {
+            return EnchantedGoldenAppleCowRenderer.texture2;
+        }
+        if (entity instanceof GoldenAppleCowInstance) {
+            return EnchantedGoldenAppleCowRenderer.texture2;
+        }
+        if (entity instanceof CrystalCowInstance) {
+            return EnchantedGoldenAppleCowRenderer.texture3;
+        }
+        return EnchantedGoldenAppleCowRenderer.texture1;
+    }
+
+    static {
+        texture3 = new ResourceLocation(Tags.MODID + ":crystal_cow.png");
+        texture1 = new ResourceLocation(Tags.MODID + ":red_cow.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":gold_cow.png");
     }
 }

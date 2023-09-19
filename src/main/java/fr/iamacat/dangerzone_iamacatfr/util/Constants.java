@@ -84,8 +84,6 @@ public class Constants {
     public static SpawnEggs StinkBugSpawnEgg;
     public static SpawnEggs AttackSquidSpawnEgg;
     public static SpawnEggs AlienSpawnEgg;
-    public static SpawnEggs SmallNightMareSpawnEgg;
-    public static SpawnEggs LargeNightMareSpawnEgg;
     public static SpawnEggs MobzillaSpawnEgg;
     public static SpawnEggs OstrichSpawnEgg;
     public static SpawnEggs BeeSpawnEgg;
@@ -218,4 +216,6 @@ public class Constants {
     public static SpawnEggs MyMoose;
 
     public static SpawnEggs MyUrsaMAJOR;
+    public static SpawnEggs TrooperBugSpawnEgg;
+
 }

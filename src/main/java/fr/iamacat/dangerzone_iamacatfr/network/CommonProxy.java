@@ -1,9 +1,14 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
 import cpw.mods.fml.common.network.FMLEventChannel;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import cpw.mods.fml.relauncher.Side;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyFishHookInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.other.RiderControlMessage;
+import fr.iamacat.dangerzone_iamacatfr.entities.other.RiderControlMessageHandler;
 import fr.iamacat.dangerzone_iamacatfr.event.PacketSetFairyName;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -87,5 +92,24 @@ public class CommonProxy {
         final S13PacketDestroyEntities packet = new S13PacketDestroyEntities(eid);
         sendToAllPlayers(packet);
         entity.setDead();
+    }
+
+    private SimpleNetworkWrapper network;
+
+    public SimpleNetworkWrapper getNetwork() {
+        return this.network;
+    }
+
+    public void registerRenderThings() {}
+
+    public void registerKeyboardInput() {}
+
+    public void registerNetworkStuff() {
+        (this.network = NetworkRegistry.INSTANCE.newSimpleChannel("RiderControls"))
+            .registerMessage(RiderControlMessageHandler.class, RiderControlMessage.class, 0, Side.SERVER);
+    }
+
+    public int setArmorPrefix(final String string) {
+        return 0;
     }
 }

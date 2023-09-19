@@ -6,6 +6,6 @@ import net.minecraft.item.Item;
 public class TitaniumIngot extends Item {
 
     public TitaniumIngot() {
-        this.setTextureName(Tags.MODID + ":ingoturanium");
+        this.setTextureName(Tags.MODID + ":ingottitanium");
     }
 }

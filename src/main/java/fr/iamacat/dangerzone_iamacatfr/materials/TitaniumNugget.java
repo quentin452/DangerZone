@@ -1,4 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.materials;
 
-public class TitaniumNugget {
+import net.minecraft.item.Item;
+
+public class TitaniumNugget extends Item {
 }

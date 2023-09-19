@@ -1,8 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GhostInstance;
 import net.minecraft.entity.ai.EntityAIBase;
-
 public class EntityAIGhostFly extends EntityAIBase {
 
     private final GhostInstance entity;

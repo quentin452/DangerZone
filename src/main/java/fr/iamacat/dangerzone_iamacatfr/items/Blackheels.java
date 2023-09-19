@@ -1,6 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.BlackHeelsInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

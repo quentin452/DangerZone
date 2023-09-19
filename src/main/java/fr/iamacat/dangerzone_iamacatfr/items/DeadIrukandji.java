@@ -1,6 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.DeadIrukandjInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Irukandji;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -20,7 +20,7 @@ public class DeadIrukandji extends Item {
         }
         world.playSoundAtEntity(entityPlayer, "random.bow", 3.0f, 1.0f);
         if (!world.isRemote) {
-            world.spawnEntityInWorld(new DeadIrukandjInstance(world, entityPlayer));
+            world.spawnEntityInWorld(new Irukandji(world, entityPlayer));
         }
         return stack;
     }

@@ -1,6 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
 import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,7 +10,6 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class WaterBallInstance extends EntityThrowable {
-    // todo fix none model are sended when throwed
 
     private float my_rotation;
     private final int my_index;
@@ -91,16 +89,16 @@ public class WaterBallInstance extends EntityThrowable {
         float var2 = 16.0f;
         if (par1MovingObjectPosition.entityHit != null) {
             if (isAcid != 0) {
-                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof JumpyBugInstance
-                    || par1MovingObjectPosition.entityHit instanceof SpitInstance;
+                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof TrooperBug
+                    || par1MovingObjectPosition.entityHit instanceof SpitBug;
                 setEntityDeadIfCondition(par1MovingObjectPosition.entityHit, shouldSetDead);
             } else {
-                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof RoboJefferyInstance
-                    || par1MovingObjectPosition.entityHit instanceof RoboPounderInstance
-                    || par1MovingObjectPosition.entityHit instanceof RoboGunnerInstance
-                    || par1MovingObjectPosition.entityHit instanceof RoboWarriorInstance
-                    || par1MovingObjectPosition.entityHit instanceof RoboSniperInstance
-                    || par1MovingObjectPosition.entityHit instanceof SpiderRobotInstance;
+                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof GiantRobot
+                    || par1MovingObjectPosition.entityHit instanceof Robot2
+                    || par1MovingObjectPosition.entityHit instanceof Robot3
+                    || par1MovingObjectPosition.entityHit instanceof Robot4
+                    || par1MovingObjectPosition.entityHit instanceof Robot5
+                    || par1MovingObjectPosition.entityHit instanceof SpiderRobot;
                 setEntityDeadIfCondition(par1MovingObjectPosition.entityHit, shouldSetDead);
 
                 if (par1MovingObjectPosition.entityHit instanceof DragonInstance) {

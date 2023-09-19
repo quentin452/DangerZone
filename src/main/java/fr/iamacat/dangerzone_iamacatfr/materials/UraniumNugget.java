@@ -1,4 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.materials;
 
-public class UraniumNugget {
+import net.minecraft.item.Item;
+
+public class UraniumNugget extends Item {
 }

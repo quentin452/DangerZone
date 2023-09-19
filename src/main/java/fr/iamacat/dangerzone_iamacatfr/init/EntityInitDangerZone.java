@@ -263,42 +263,13 @@ public class EntityInitDangerZone {
             1,
             true);
 
-        int BlackHeelsInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry
-            .registerGlobalEntityID(BlackHeelsInstance.class, "Black Heels Entity DangerZone", BlackHeelsInstance);
-
-        EntityRegistry.registerModEntity(
-            BlackHeelsInstance.class,
-            "Black Heels Entity DangerZone",
-            BlackHeelsInstance, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
-
-        int BootsInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(BootsInstance.class, "Boots DangerZone", BootsInstance);
-
-        EntityRegistry.registerModEntity(
-            BootsInstance.class,
-            "Boots DangerZone",
-            BootsInstance, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
-
         int DeadIrukandjInstance = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(
-            DeadIrukandjInstance.class,
-            "Dead Irukandji Entity DangerZone",
-            DeadIrukandjInstance);
+        EntityRegistry
+            .registerGlobalEntityID(Irukandji.class, "Dead Irukandji Entity DangerZone", DeadIrukandjInstance);
 
         EntityRegistry.registerModEntity(
-            DeadIrukandjInstance.class,
+            Irukandji.class,
             "Dead Irukandji Entity DangerZone",
             DeadIrukandjInstance, // Use the chosen unique ID
             Tags.MODID,
@@ -360,19 +331,6 @@ public class EntityInitDangerZone {
             16,
             1,
             true);
-        int SlippersInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(SlippersInstance.class, "SlippersInstance", SlippersInstance);
-
-        EntityRegistry.registerModEntity(
-            SlippersInstance.class,
-            "SlippersInstance",
-            SlippersInstance, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
-        int AlienInstance = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(AlienInstance.class, "AlienInstance", AlienInstance);
 
@@ -1700,6 +1658,1266 @@ public class EntityInitDangerZone {
             1,
             true);
 
+        int RedAntRobotInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(RedAntRobotInstance.class, "RedAntRobotInstance", RedAntRobotInstance);
+
+        EntityRegistry.registerModEntity(
+            RedAntRobotInstance.class,
+            "RedAntRobotInstance",
+            RedAntRobotInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int BandPInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.BandPInstance.class,
+            "BandPInstance",
+            BandPInstance);
+
+        EntityRegistry.registerModEntity(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.BandPInstance.class,
+            "BandPInstance",
+            BandPInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int BasiliskInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BasiliskInstance.class, "BasiliskInstance", BasiliskInstance);
+
+        EntityRegistry.registerModEntity(
+            BasiliskInstance.class,
+            "BasiliskInstance",
+            BasiliskInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int BrutalflyInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BrutalflyInstance.class, "BrutalflyInstance", BrutalflyInstance);
+
+        EntityRegistry.registerModEntity(
+            BrutalflyInstance.class,
+            "BrutalflyInstance",
+            BrutalflyInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int CamarasaurusInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CamarasaurusInstance.class, "CamarasaurusInstance", CamarasaurusInstance);
+
+        EntityRegistry.registerModEntity(
+            CamarasaurusInstance.class,
+            "CamarasaurusInstance",
+            CamarasaurusInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int CassowaryInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CassowaryInstance.class, "CassowaryInstance", CassowaryInstance);
+
+        EntityRegistry.registerModEntity(
+            CassowaryInstance.class,
+            "CassowaryInstance",
+            CassowaryInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int CaterKillerInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CaterKillerInstance.class, "CaterKillerInstance", CaterKillerInstance);
+
+        EntityRegistry.registerModEntity(
+            CaterKillerInstance.class,
+            "CaterKillerInstance",
+            CaterKillerInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int CephadromeInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CephadromeInstance.class, "CephadromeInstance", CephadromeInstance);
+
+        EntityRegistry.registerModEntity(
+            CephadromeInstance.class,
+            "CephadromeInstance",
+            CephadromeInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int CliffRacerInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CliffRacerInstance.class, "CliffRacerInstance", CliffRacerInstance);
+
+        EntityRegistry.registerModEntity(
+            CliffRacerInstance.class,
+            "CliffRacerInstance",
+            CliffRacerInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int CloudSharkInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CloudSharkInstance.class, "CloudSharkInstance", CloudSharkInstance);
+
+        EntityRegistry.registerModEntity(
+            CloudSharkInstance.class,
+            "CloudSharkInstance",
+            CloudSharkInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int CockateilInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CockateilInstance.class, "CockateilInstance", CockateilInstance);
+
+        EntityRegistry.registerModEntity(
+            CockateilInstance.class,
+            "CockateilInstance",
+            CockateilInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int CreepingHorrorInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry
+            .registerGlobalEntityID(CreepingHorrorInstance.class, "CreepingHorrorInstance", CreepingHorrorInstance);
+
+        EntityRegistry.registerModEntity(
+            CreepingHorrorInstance.class,
+            "CreepingHorrorInstance",
+            CreepingHorrorInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int CricketInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CricketInstance.class, "CricketInstance", CricketInstance);
+
+        EntityRegistry.registerModEntity(
+            CricketInstance.class,
+            "CricketInstance",
+            CricketInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Cryolophosaurus = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CryolophosaurusInstance.class, "Cryolophosaurus", Cryolophosaurus);
+
+        EntityRegistry.registerModEntity(
+            CryolophosaurusInstance.class,
+            "Cryolophosaurus",
+            Cryolophosaurus, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int DeadIrukandjiInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry
+            .registerGlobalEntityID(DeadIrukandjiInstance.class, "DeadIrukandjiInstance", DeadIrukandjiInstance);
+
+        EntityRegistry.registerModEntity(
+            DeadIrukandjiInstance.class,
+            "DeadIrukandjiInstance",
+            DeadIrukandjiInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int DragonInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(DragonInstance.class, "DragonInstance", DragonInstance);
+
+        EntityRegistry.registerModEntity(
+            DragonInstance.class,
+            "DragonInstance",
+            DragonInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int DragonflyInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(DragonflyInstance.class, "DragonflyInstance", DragonflyInstance);
+
+        EntityRegistry.registerModEntity(
+            DragonflyInstance.class,
+            "DragonflyInstance",
+            DragonflyInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int DungeonBeastInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(DungeonBeastInstance.class, "DungeonBeastInstance", DungeonBeastInstance);
+
+        EntityRegistry.registerModEntity(
+            DungeonBeastInstance.class,
+            "DungeonBeastInstance",
+            DungeonBeastInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int EasterBunnyInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(EasterBunnyInstance.class, "EasterBunnyInstance", EasterBunnyInstance);
+
+        EntityRegistry.registerModEntity(
+            EasterBunnyInstance.class,
+            "EasterBunnyInstance",
+            EasterBunnyInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int HoverboardInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(HoverboardInstance.class, "HoverboardInstance", HoverboardInstance);
+
+        EntityRegistry.registerModEntity(
+            HoverboardInstance.class,
+            "HoverboardInstance",
+            HoverboardInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int EmperorScorpion = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(EmperorScorpion.class, "EmperorScorpion", EmperorScorpion);
+
+        EntityRegistry.registerModEntity(
+            EmperorScorpion.class,
+            "EmperorScorpion",
+            EmperorScorpion, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int EnderKnight = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(EnderKnight.class, "EnderKnight", EnderKnight);
+
+        EntityRegistry.registerModEntity(
+            EnderKnight.class,
+            "EnderKnight",
+            EnderKnight, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int EnderReaper = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(EnderReaper.class, "EnderReaper", EnderReaper);
+
+        EntityRegistry.registerModEntity(
+            EnderReaper.class,
+            "EnderReaper",
+            EnderReaper, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int CageInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CageInstance.class, "CageInstance", CageInstance);
+
+        EntityRegistry.registerModEntity(
+            CageInstance.class,
+            "CageInstance",
+            CageInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int CannonFodderInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(CannonFodderInstance.class, "CannonFodderInstance", CannonFodderInstance);
+
+        EntityRegistry.registerModEntity(
+            CannonFodderInstance.class,
+            "CannonFodderInstance",
+            CannonFodderInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int LunaMothInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(LunaMothInstance.class, "LunaMothInstance", LunaMothInstance);
+
+        EntityRegistry.registerModEntity(
+            LunaMothInstance.class,
+            "LunaMothInstance",
+            LunaMothInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int EntityThrownRockInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(
+            EntityThrownRockInstance.class,
+            "EntityThrownRockInstance",
+            EntityThrownRockInstance);
+
+        EntityRegistry.registerModEntity(
+            EntityThrownRockInstance.class,
+            "EntityThrownRockInstance",
+            EntityThrownRockInstance, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int Firefly = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Firefly.class, "Firefly", Firefly);
+
+        EntityRegistry.registerModEntity(
+            Firefly.class,
+            "Firefly",
+            Firefly, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int Flounder = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Flounder.class, "Flounder", Flounder);
+
+        EntityRegistry.registerModEntity(
+            Flounder.class,
+            "Flounder",
+            Flounder, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Frog = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Frog.class, "Frog", Frog);
+
+        EntityRegistry.registerModEntity(
+            Frog.class,
+            "Frog",
+            Frog, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int GammaMetroid = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(GammaMetroid.class, "GammaMetroid", GammaMetroid);
+
+        EntityRegistry.registerModEntity(
+            GammaMetroid.class,
+            "GammaMetroid",
+            GammaMetroid, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Gazelle = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Gazelle.class, "Gazelle", Gazelle);
+
+        EntityRegistry.registerModEntity(
+            Gazelle.class,
+            "Gazelle",
+            Gazelle, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int GiantRobot = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(GiantRobot.class, "GiantRobot", GiantRobot);
+
+        EntityRegistry.registerModEntity(
+            GiantRobot.class,
+            "GiantRobot",
+            GiantRobot, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Godzilla = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Godzilla.class, "Godzilla", Godzilla);
+
+        EntityRegistry.registerModEntity(
+            Godzilla.class,
+            "Godzilla",
+            Godzilla, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int GodzillaHead = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(GodzillaHead.class, "GodzillaHead", GodzillaHead);
+
+        EntityRegistry.registerModEntity(
+            GodzillaHead.class,
+            "GodzillaHead",
+            GodzillaHead, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int GoldFish = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(GoldFish.class, "GoldFish", GoldFish);
+
+        EntityRegistry.registerModEntity(
+            GoldFish.class,
+            "GoldFish",
+            GoldFish, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int Hammerhead = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Hammerhead.class, "Hammerhead", Hammerhead);
+
+        EntityRegistry.registerModEntity(
+            Hammerhead.class,
+            "Hammerhead",
+            Hammerhead, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int HerculesBeetle = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(HerculesBeetle.class, "HerculesBeetle", HerculesBeetle);
+
+        EntityRegistry.registerModEntity(
+            HerculesBeetle.class,
+            "HerculesBeetle",
+            HerculesBeetle, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Hydrolisc = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Hydrolisc.class, "Hydrolisc", Hydrolisc);
+
+        EntityRegistry.registerModEntity(
+            Hydrolisc.class,
+            "Hydrolisc",
+            Hydrolisc, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int IceBall = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(IceBall.class, "IceBall", IceBall);
+
+        EntityRegistry.registerModEntity(
+            IceBall.class,
+            "IceBall",
+            IceBall, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Kraken = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Kraken.class, "Kraken", Kraken);
+
+        EntityRegistry.registerModEntity(
+            Kraken.class,
+            "Kraken",
+            Kraken, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int InkSack = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(InkSack.class, "InkSack", InkSack);
+
+        EntityRegistry.registerModEntity(
+            InkSack.class,
+            "InkSack",
+            InkSack, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Island = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Island.class, "Island", Island);
+
+        EntityRegistry.registerModEntity(
+            Island.class,
+            "Island",
+            Island, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int IslandToo = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(IslandToo.class, "IslandToo", IslandToo);
+
+        EntityRegistry.registerModEntity(
+            IslandToo.class,
+            "IslandToo",
+            IslandToo, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int KingHead = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(KingHead.class, "KingHead", KingHead);
+
+        EntityRegistry.registerModEntity(
+            KingHead.class,
+            "KingHead",
+            KingHead, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Kyuubi = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Kyuubi.class, "Kyuubi", Kyuubi);
+
+        EntityRegistry.registerModEntity(
+            Kyuubi.class,
+            "Kyuubi",
+            Kyuubi, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int LeafMonster = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(LeafMonster.class, "LeafMonster", LeafMonster);
+
+        EntityRegistry.registerModEntity(
+            LeafMonster.class,
+            "LeafMonster",
+            LeafMonster, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Leon = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Leon.class, "Leon", Leon);
+
+        EntityRegistry.registerModEntity(
+            Leon.class,
+            "Leon",
+            Leon, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int Lizard = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Lizard.class, "Lizard", Lizard);
+
+        EntityRegistry.registerModEntity(
+            Lizard.class,
+            "Lizard",
+            Lizard, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int LurkingTerror = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(LurkingTerror.class, "LurkingTerror", LurkingTerror);
+
+        EntityRegistry.registerModEntity(
+            LurkingTerror.class,
+            "LurkingTerror",
+            LurkingTerror, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Mantis = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Mantis.class, "Mantis", Mantis);
+
+        EntityRegistry.registerModEntity(
+            Mantis.class,
+            "Mantis",
+            Mantis, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int MantisClaw = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(MantisClaw.class, "MantisClaw", MantisClaw);
+
+        EntityRegistry.registerModEntity(
+            MantisClaw.class,
+            "MantisClaw",
+            MantisClaw, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Molenoid = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Molenoid.class, "Molenoid", Molenoid);
+
+        EntityRegistry.registerModEntity(
+            Molenoid.class,
+            "Molenoid",
+            Molenoid, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int Mothra = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Mothra.class, "Mothra", Mothra);
+
+        EntityRegistry.registerModEntity(
+            Mothra.class,
+            "Mothra",
+            Mothra, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int Robot1 = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Robot1.class, "Robot1", Robot1);
+
+        EntityRegistry.registerModEntity(
+            Robot1.class,
+            "Robot1",
+            Robot1, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Robot2 = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Robot2.class, "Robot2", Robot2);
+
+        EntityRegistry.registerModEntity(
+            Robot2.class,
+            "Robot2",
+            Robot2, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Robot3 = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Robot3.class, "Robot3", Robot3);
+
+        EntityRegistry.registerModEntity(
+            Robot3.class,
+            "Robot3",
+            Robot3, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Robot4 = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Robot4.class, "Robot4", Robot4);
+
+        EntityRegistry.registerModEntity(
+            Robot4.class,
+            "Robot4",
+            Robot4, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Robot5 = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Robot5.class, "Robot5", Robot5);
+
+        EntityRegistry.registerModEntity(
+            Robot5.class,
+            "Robot5",
+            Robot5, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Nastysaurus = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Nastysaurus.class, "Nastysaurus", Nastysaurus);
+
+        EntityRegistry.registerModEntity(
+            Nastysaurus.class,
+            "Nastysaurus",
+            Nastysaurus, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Ostrich = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Ostrich.class, "Ostrich", Ostrich);
+
+        EntityRegistry.registerModEntity(
+            Ostrich.class,
+            "Ostrich",
+            Ostrich, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int WormLarge = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(WormLarge.class, "WormLarge", WormLarge);
+
+        EntityRegistry.registerModEntity(
+            WormLarge.class,
+            "WormLarge",
+            WormLarge, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int WormMedium = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(WormMedium.class, "WormMedium", WormMedium);
+
+        EntityRegistry.registerModEntity(
+            WormMedium.class,
+            "WormMedium",
+            WormMedium, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int WormSmall = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(WormSmall.class, "WormSmall", WormSmall);
+
+        EntityRegistry.registerModEntity(
+            WormSmall.class,
+            "WormSmall",
+            WormSmall, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Rat = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Rat.class, "Rat", Rat);
+
+        EntityRegistry.registerModEntity(
+            Rat.class,
+            "Rat",
+            Rat, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Peacock = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Peacock.class, "Peacock", Peacock);
+
+        EntityRegistry.registerModEntity(
+            Peacock.class,
+            "Peacock",
+            Peacock, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int PitchBlack = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(PitchBlack.class, "PitchBlack", PitchBlack);
+
+        EntityRegistry.registerModEntity(
+            PitchBlack.class,
+            "PitchBlack",
+            PitchBlack, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Pointysaurus = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Pointysaurus.class, "Pointysaurus", Pointysaurus);
+
+        EntityRegistry.registerModEntity(
+            Pointysaurus.class,
+            "Pointysaurus",
+            Pointysaurus, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int PurplePower = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(PurplePower.class, "PurplePower", PurplePower);
+
+        EntityRegistry.registerModEntity(
+            PurplePower.class,
+            "PurplePower",
+            PurplePower, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int QueenHead = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(QueenHead.class, "QueenHead", QueenHead);
+
+        EntityRegistry.registerModEntity(
+            QueenHead.class,
+            "QueenHead",
+            QueenHead, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int RockBase = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(RockBase.class, "RockBase", RockBase);
+
+        EntityRegistry.registerModEntity(
+            RockBase.class,
+            "RockBase",
+            RockBase, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Rotator = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Rotator.class, "Rotator", Rotator);
+
+        EntityRegistry.registerModEntity(
+            Rotator.class,
+            "Rotator",
+            Rotator, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int TheKing = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(TheKing.class, "TheKing", TheKing);
+
+        EntityRegistry.registerModEntity(
+            TheKing.class,
+            "TheKing",
+            TheKing, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int ThePrince = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(ThePrince.class, "ThePrince", ThePrince);
+
+        EntityRegistry.registerModEntity(
+            ThePrince.class,
+            "ThePrince",
+            ThePrince, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int ThePrinceAdult = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(ThePrinceAdult.class, "ThePrinceAdult", ThePrinceAdult);
+
+        EntityRegistry.registerModEntity(
+            ThePrinceAdult.class,
+            "ThePrinceAdult",
+            ThePrinceAdult, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int ThePrincess = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(ThePrincess.class, "ThePrincess", ThePrincess);
+
+        EntityRegistry.registerModEntity(
+            ThePrincess.class,
+            "ThePrincess",
+            ThePrincess, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int ThePrinceTeen = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(ThePrinceTeen.class, "ThePrinceTeen", ThePrinceTeen);
+
+        EntityRegistry.registerModEntity(
+            ThePrinceTeen.class,
+            "ThePrinceTeen",
+            ThePrinceTeen, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int TerribleTerror = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(TerribleTerror.class, "TerribleTerror", TerribleTerror);
+
+        EntityRegistry.registerModEntity(
+            TerribleTerror.class,
+            "TerribleTerror",
+            TerribleTerror, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int TheQueen = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(TheQueen.class, "TheQueen", TheQueen);
+
+        EntityRegistry.registerModEntity(
+            TheQueen.class,
+            "TheQueen",
+            TheQueen, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int RubberDucky = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(RubberDucky.class, "RubberDucky", RubberDucky);
+
+        EntityRegistry.registerModEntity(
+            RubberDucky.class,
+            "RubberDucky",
+            RubberDucky, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int RubyBird = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(RubyBird.class, "RubyBird", RubyBird);
+
+        EntityRegistry.registerModEntity(
+            RubyBird.class,
+            "RubyBird",
+            RubyBird, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Scorpion = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Scorpion.class, "Scorpion", Scorpion);
+
+        EntityRegistry.registerModEntity(
+            Scorpion.class,
+            "Scorpion",
+            Scorpion, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int SeaMonster = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(SeaMonster.class, "SeaMonster", SeaMonster);
+
+        EntityRegistry.registerModEntity(
+            SeaMonster.class,
+            "SeaMonster",
+            SeaMonster, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Vortex = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Vortex.class, "Vortex", Vortex);
+
+        EntityRegistry.registerModEntity(
+            Vortex.class,
+            "Vortex",
+            Vortex, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int WaterDragon = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(WaterDragon.class, "WaterDragon", WaterDragon);
+
+        EntityRegistry.registerModEntity(
+            WaterDragon.class,
+            "WaterDragon",
+            WaterDragon, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int TRex = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(TRex.class, "TRex", TRex);
+
+        EntityRegistry.registerModEntity(
+            TRex.class,
+            "TRex",
+            TRex, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Triffid = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Triffid.class, "Triffid", Triffid);
+
+        EntityRegistry.registerModEntity(
+            Triffid.class,
+            "Triffid",
+            Triffid, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int SeaViper = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(SeaViper.class, "SeaViper", SeaViper);
+
+        EntityRegistry.registerModEntity(
+            SeaViper.class,
+            "SeaViper",
+            SeaViper, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Shoes = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Shoes.class, "Shoes", Shoes);
+
+        EntityRegistry.registerModEntity(
+            Shoes.class,
+            "Shoes",
+            Shoes, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Skate = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Skate.class, "Skate", Skate);
+
+        EntityRegistry.registerModEntity(
+            Skate.class,
+            "Skate",
+            Skate, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int SpiderDriver = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(SpiderDriver.class, "SpiderDriver", SpiderDriver);
+
+        EntityRegistry.registerModEntity(
+            SpiderDriver.class,
+            "SpiderDriver",
+            SpiderDriver, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int SpiderRobot = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(SpiderRobot.class, "SpiderRobot", SpiderRobot);
+
+        EntityRegistry.registerModEntity(
+            SpiderRobot.class,
+            "SpiderRobot",
+            SpiderRobot, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int SpitBug = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(SpitBug.class, "SpitBug", SpitBug);
+
+        EntityRegistry.registerModEntity(
+            SpitBug.class,
+            "SpitBug",
+            SpitBug, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Spyro = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Spyro.class, "Spyro", Spyro);
+
+        EntityRegistry.registerModEntity(
+            Spyro.class,
+            "Spyro",
+            Spyro, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int StinkBug = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(StinkBug.class, "StinkBug", StinkBug);
+
+        EntityRegistry.registerModEntity(
+            StinkBug.class,
+            "StinkBug",
+            StinkBug, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Stinky = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Stinky.class, "Stinky", Stinky);
+
+        EntityRegistry.registerModEntity(
+            Stinky.class,
+            "Stinky",
+            Stinky, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int SunspotUrchin = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(SunspotUrchin.class, "SunspotUrchin", SunspotUrchin);
+
+        EntityRegistry.registerModEntity(
+            SunspotUrchin.class,
+            "SunspotUrchin",
+            SunspotUrchin, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int ThunderBolt = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(ThunderBolt.class, "ThunderBolt", ThunderBolt);
+
+        EntityRegistry.registerModEntity(
+            ThunderBolt.class,
+            "ThunderBolt",
+            ThunderBolt, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int TrooperBug = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(TrooperBug.class, "TrooperBug", TrooperBug);
+
+        EntityRegistry.registerModEntity(
+            TrooperBug.class,
+            "TrooperBug",
+            TrooperBug, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int UltimateArrow = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(UltimateArrow.class, "UltimateArrow", UltimateArrow);
+
+        EntityRegistry.registerModEntity(
+            ThunderBolt.class,
+            "ThunderBolt",
+            ThunderBolt, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int Urchin = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(Urchin.class, "Urchin", Urchin);
+
+        EntityRegistry.registerModEntity(
+            Urchin.class,
+            "Urchin",
+            Urchin, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int VelocityRaptor = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(VelocityRaptor.class, "VelocityRaptor", VelocityRaptor);
+
+        EntityRegistry.registerModEntity(
+            VelocityRaptor.class,
+            "VelocityRaptor",
+            VelocityRaptor, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
     }
 
 }

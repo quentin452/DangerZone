@@ -1,62 +1,51 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import com.google.common.collect.Multimap;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import net.minecraft.enchantment.Enchantment;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.world.World;
 
-// todo fix reach + make a model to make the item larger
 public class BigHammer extends ItemSword {
 
-    private final float field_150934_a;
+    private int weaponDamage;
+    private final Item.ToolMaterial toolMaterial;
 
-    public BigHammer(ToolMaterial p_i45356_1_) {
-        super(p_i45356_1_);
-        this.setTextureName(Tags.MODID + ":bighammer");
-        this.field_150934_a = 8.0F + p_i45356_1_.getDamageVsEntity();
+    public BigHammer(final ToolMaterial par2EnumToolMaterial) {
+        super(par2EnumToolMaterial);
+        this.toolMaterial = par2EnumToolMaterial;
+        this.weaponDamage = 15;
+        this.maxStackSize = 1;
+        this.setMaxDamage(9000);
+        this.setCreativeTab(CreativeTabs.tabCombat);
     }
 
-    @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side,
-        float hitX, float hitY, float hitZ) {
-        if (!stack.isItemEnchanted()) {
-            stack.addEnchantment(Enchantment.knockback, 5);
-            stack.addEnchantment(Enchantment.baneOfArthropods, 1);
-            stack.addEnchantment(Enchantment.fireAspect, 1);
+    public String getMaterialName() {
+        return "AMETHYST";
+    }
+
+    public boolean hitEntity(final ItemStack par1ItemStack, final EntityLivingBase par2EntityLiving,
+                             final EntityLivingBase par3EntityLiving) {
+        final int var2 = 5;
+        if (par2EntityLiving != null && !par2EntityLiving.worldObj.isRemote) {
+            par2EntityLiving.addVelocity(0.0, Math.abs(par2EntityLiving.worldObj.rand.nextFloat() * 2.0f / 3.0f), 0.0);
         }
-        return super.onItemUse(stack, player, world, x, y, z, side, hitX, hitY, hitZ);
+        par1ItemStack.damageItem(1, par3EntityLiving);
+        return true;
     }
 
-    @Override
-    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
-        if (!stack.isItemEnchanted()) {
-            stack.addEnchantment(Enchantment.knockback, 5);
-            stack.addEnchantment(Enchantment.baneOfArthropods, 1);
-            stack.addEnchantment(Enchantment.fireAspect, 1);
-        }
-        return super.onEntitySwing(entityLiving, stack);
+    public int getMaxItemUseDuration(final ItemStack par1ItemStack) {
+        return 3000;
     }
 
-    @Override
-    public void onCreated(ItemStack stack, World world, EntityPlayer player) {
-        if (!stack.isItemEnchanted()) {
-            stack.addEnchantment(Enchantment.knockback, 5);
-            stack.addEnchantment(Enchantment.baneOfArthropods, 1);
-            stack.addEnchantment(Enchantment.fireAspect, 1);
-        }
-    }
-
-    public Multimap getItemAttributeModifiers() {
-        Multimap multimap = super.getItemAttributeModifiers();
-        multimap.put(
-            SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),
-            new AttributeModifier(field_111210_e, "Weapon modifier", this.field_150934_a, 0));
-        return multimap;
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(final IIconRegister iconRegister) {
+        this.itemIcon = iconRegister.registerIcon(
+            Tags.MODID + ":" + this.getUnlocalizedName()
+                .substring(5));
     }
 }

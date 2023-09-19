@@ -1,6 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericWaterMobInstance;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -8,8 +9,6 @@ import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericWaterMobInstance;
 
 public class EntityAIAttackOnCollideWater extends EntityAIBase {
 
@@ -25,7 +24,7 @@ public class EntityAIAttackOnCollideWater extends EntityAIBase {
     float attackDistanceSq;
 
     public EntityAIAttackOnCollideWater(final GenericWaterMobInstance par1EntityLiving, final Class par2Class,
-                                        final float par3, final boolean par4, final float attackDistanceSq) {
+        final float par3, final boolean par4, final float attackDistanceSq) {
         this.attackTick = 0;
         this.attacker = par1EntityLiving;
         this.worldObj = par1EntityLiving.worldObj;
@@ -37,17 +36,17 @@ public class EntityAIAttackOnCollideWater extends EntityAIBase {
     }
 
     public EntityAIAttackOnCollideWater(final GenericWaterMobInstance par1EntityLiving, final Class par2Class,
-                                        final float par3, final boolean par4) {
+        final float par3, final boolean par4) {
         this(par1EntityLiving, par2Class, par3, par4, par1EntityLiving.width * 2.0f * par1EntityLiving.width * 2.0f);
     }
 
     public EntityAIAttackOnCollideWater(final GenericWaterMobInstance par1EntityLiving, final float par2,
-                                        final boolean par3) {
+        final boolean par3) {
         this(par1EntityLiving, null, par2, par3);
     }
 
     public EntityAIAttackOnCollideWater(final GenericWaterMobInstance par1EntityLiving, final float par2,
-                                        final boolean par3, final float attackDistanceSq) {
+        final boolean par3, final float attackDistanceSq) {
         this(par1EntityLiving, null, par2, par3, attackDistanceSq);
     }
 

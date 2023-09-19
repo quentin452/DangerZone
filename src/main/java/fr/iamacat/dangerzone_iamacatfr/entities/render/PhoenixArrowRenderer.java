@@ -21,6 +21,7 @@ import org.lwjgl.opengl.GL12;
 import java.util.Objects;
 
 public class PhoenixArrowRenderer extends Render {
+
     private static TextureMap textureMap;
     @SideOnly(Side.CLIENT)
     protected IIcon itemIcon;
@@ -47,7 +48,8 @@ public class PhoenixArrowRenderer extends Render {
     public void registerIcons(IIconRegister register) {
         if (register != null) {
             itemIcon = register.registerIcon(getIconString());
-            textureMap = Minecraft.getMinecraft().getTextureMapBlocks();
+            textureMap = Minecraft.getMinecraft()
+                .getTextureMapBlocks();
         }
     }
 
@@ -56,7 +58,8 @@ public class PhoenixArrowRenderer extends Render {
         return Tags.MODID + ":textures/items/phoenixfeather";
     }
 
-    public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+    public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_,
+        float p_76986_9_) {
         IIcon iicon = this.getIconFromDamage(this.field_94150_f);
 
         if (iicon != null) {

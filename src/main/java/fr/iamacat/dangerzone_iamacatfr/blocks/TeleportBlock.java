@@ -1,13 +1,13 @@
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class TeleportBlock extends Block {
 

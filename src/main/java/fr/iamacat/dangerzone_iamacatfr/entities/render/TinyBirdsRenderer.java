@@ -1,13 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.TinyBirdsInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class TinyBirdsRenderer extends BirdsRenderer {

@@ -1,13 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 
 public class DarkCrystalInstance extends Entity {
 

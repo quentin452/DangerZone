@@ -1,7 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -15,6 +13,8 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.FishingHooks;
+
+import java.util.List;
 
 public class FairyFishHookInstance extends Entity {
 
@@ -140,7 +140,7 @@ public class FairyFishHookInstance extends Entity {
         par5 += this.rand.nextGaussian() * 0.007499999832361937D * (double) par8;
         par1 *= par7;
         par3 *= par7;
-        par5 *=par7;
+        par5 *= par7;
         this.motionX = par1;
         this.motionY = par3;
         this.motionZ = par5;

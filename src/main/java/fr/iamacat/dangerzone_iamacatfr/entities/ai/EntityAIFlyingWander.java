@@ -1,11 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Vec3;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAIFlyingWander extends EntityAIBase {
 

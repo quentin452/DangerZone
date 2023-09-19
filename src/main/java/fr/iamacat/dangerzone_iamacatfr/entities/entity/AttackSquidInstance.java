@@ -1,5 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.AICustomAttackPlayer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -9,8 +10,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.AICustomAttackPlayer;
 
 public class AttackSquidInstance extends EntityMob {
 

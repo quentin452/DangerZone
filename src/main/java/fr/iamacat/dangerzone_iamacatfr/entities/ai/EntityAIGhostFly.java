@@ -1,6 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.TinyBirdsInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance;
 import net.minecraft.entity.ai.EntityAIBase;
 

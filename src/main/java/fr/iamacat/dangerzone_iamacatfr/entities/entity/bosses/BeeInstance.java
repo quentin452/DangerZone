@@ -1,9 +1,13 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIWatchTarget;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DarkCrystalInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DirectedLightningInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityDarkEnergy;
+import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityDarkLightning;
+import fr.iamacat.dangerzone_iamacatfr.util.DamageHelper;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import fr.iamacat.dangerzone_iamacatfr.util.WorldHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -16,14 +20,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIWatchTarget;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.DarkCrystalInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.DirectedLightningInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityDarkEnergy;
-import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityDarkLightning;
-import fr.iamacat.dangerzone_iamacatfr.util.DamageHelper;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import fr.iamacat.dangerzone_iamacatfr.util.WorldHelper;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class BeeInstance extends TragicBoss implements IMultiPart {
 
@@ -494,7 +493,8 @@ public class BeeInstance extends TragicBoss implements IMultiPart {
             }
         } else {
             float f = 32.0F;
-            List list = this.worldObj.getEntitiesWithinAABB(DarkCrystalInstance.class, this.boundingBox.expand(f, f, f));
+            List list = this.worldObj
+                .getEntitiesWithinAABB(DarkCrystalInstance.class, this.boundingBox.expand(f, f, f));
             DarkCrystalInstance crystal = null;
             double d0 = Double.MAX_VALUE;
             Iterator iterator = list.iterator();

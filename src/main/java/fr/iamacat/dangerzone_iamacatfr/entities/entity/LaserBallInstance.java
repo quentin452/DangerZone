@@ -1,5 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,9 +9,6 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
-import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 
 // todo fix getting white square when throwing the entity instead of an item
 public class LaserBallInstance extends EntityThrowable {

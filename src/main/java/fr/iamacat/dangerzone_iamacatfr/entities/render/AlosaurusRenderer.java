@@ -1,15 +1,14 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.util.ResourceLocation;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.AlosaurusInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.AlosaurusModel;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class AlosaurusRenderer extends RenderLiving {

@@ -1,8 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -14,7 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import java.util.List;
 
 public class RobotBeamInstance extends EntityFireball {
 
@@ -54,7 +53,7 @@ public class RobotBeamInstance extends EntityFireball {
     protected void entityInit() {}
 
     public RobotBeamInstance(final World par1World, final EntityLivingBase par2EntityLiving, final double par3,
-                             final double par5, final double par7) {
+        final double par5, final double par7) {
         super(par1World);
         this.e = -1;
         this.f = -1;
@@ -121,15 +120,15 @@ public class RobotBeamInstance extends EntityFireball {
         Vec3 var15;
         Vec3 var16;
         MovingObjectPosition var17;
-        Entity var18 ;
+        Entity var18;
         List var19;
-        double var20 ;
-        Entity var21 ;
+        double var20;
+        Entity var21;
         final float var22 = 0.3f;
-        double var23 ;
-        float var24 ;
-        float var25 ;
-        float var26 ;
+        double var23;
+        float var24;
+        float var25;
+        float var26;
         if (this.j >= 600 || this.au >= 600) {
             this.setDead();
             return;
@@ -164,7 +163,7 @@ public class RobotBeamInstance extends EntityFireball {
             }
             var18 = null;
             var19 = this.worldObj.getEntitiesWithinAABBExcludingEntity(
-               this,
+                this,
                 this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ)
                     .expand(1.0, 1.0, 1.0));
             var20 = 0.0;
@@ -191,8 +190,7 @@ public class RobotBeamInstance extends EntityFireball {
                     break;
                 }
                 if (var21.canBeCollidedWith() && (!var21.isEntityEqual(this.a) || this.au >= 25)) {
-                    final AxisAlignedBB var29 = var21.boundingBox
-                        .expand(var22,  var22, var22);
+                    final AxisAlignedBB var29 = var21.boundingBox.expand(var22, var22, var22);
                     final MovingObjectPosition var30 = var29.calculateIntercept(var15, var16);
                     if (var30 != null) {
                         var23 = var15.distanceTo(var30.hitVec);
@@ -335,23 +333,19 @@ public class RobotBeamInstance extends EntityFireball {
                     }
                 }
                 if (!this.small) {
-                    par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage(this, this.a),
-                        120.0f);
+                    par1MovingObjectPosition.entityHit
+                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 120.0f);
                 }
                 if (this.huge) {
-                    par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage(this,  this.a),
-                        7500.0f);
+                    par1MovingObjectPosition.entityHit
+                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 7500.0f);
                 }
                 if (this.tiny) {
-                    par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage( this, this.a),
-                        80.0f);
+                    par1MovingObjectPosition.entityHit
+                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 80.0f);
                 } else {
-                    par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage(this,  this.a),
-                        250.0f);
+                    par1MovingObjectPosition.entityHit
+                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 250.0f);
                 }
             } else {
                 int i = par1MovingObjectPosition.blockX;

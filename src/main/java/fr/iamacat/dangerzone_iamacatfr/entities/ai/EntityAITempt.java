@@ -1,13 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAITempt extends EntityAIBase {
 
@@ -28,7 +27,7 @@ public class EntityAITempt extends EntityAIBase {
     private boolean field_75286_m;
 
     public EntityAITempt(final GenericCreatureInstance par1EntityCreature, final float par2, final Item par3,
-                         final boolean par4) {
+        final boolean par4) {
         this.shouldHop = false;
         this.slimeJumpDelay = 0;
         this.delayTemptCounter = 0;
@@ -40,7 +39,7 @@ public class EntityAITempt extends EntityAIBase {
     }
 
     public EntityAITempt(final GenericCreatureInstance par1EntityCreature, final float par2, final Item par3,
-                         final boolean par4, final boolean shouldHop) {
+        final boolean par4, final boolean shouldHop) {
         this(par1EntityCreature, par2, par3, par4);
         this.shouldHop = shouldHop;
     }

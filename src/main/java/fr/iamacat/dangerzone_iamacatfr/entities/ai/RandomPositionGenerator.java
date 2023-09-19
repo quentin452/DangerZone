@@ -1,24 +1,23 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import java.util.Random;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import java.util.Random;
 
 public class RandomPositionGenerator {
 
     private static Vec3 staticVector;
 
     public static Vec3 findRandomTarget(final GenericCreatureInstance par0EntityCreature, final int par1,
-                                        final int par2) {
+        final int par2) {
         return findRandomTargetBlock(par0EntityCreature, par1, par2, null);
     }
 
     public static Vec3 findRandomTargetBlockTowards(final GenericCreatureInstance par0EntityCreature, final int par1,
-                                                    final int par2, final Vec3 par3Vec3) {
+        final int par2, final Vec3 par3Vec3) {
         RandomPositionGenerator.staticVector.xCoord = par3Vec3.xCoord - par0EntityCreature.posX;
         RandomPositionGenerator.staticVector.yCoord = par3Vec3.yCoord - par0EntityCreature.posY;
         RandomPositionGenerator.staticVector.zCoord = par3Vec3.zCoord - par0EntityCreature.posZ;
@@ -26,7 +25,7 @@ public class RandomPositionGenerator {
     }
 
     public static Vec3 findRandomTargetBlockAwayFrom(final GenericCreatureInstance par0EntityCreature, final int par1,
-                                                     final int par2, final Vec3 par3Vec3) {
+        final int par2, final Vec3 par3Vec3) {
         RandomPositionGenerator.staticVector.xCoord = par0EntityCreature.posX - par3Vec3.xCoord;
         RandomPositionGenerator.staticVector.yCoord = par0EntityCreature.posY - par3Vec3.yCoord;
         RandomPositionGenerator.staticVector.zCoord = par0EntityCreature.posZ - par3Vec3.zCoord;
@@ -34,17 +33,17 @@ public class RandomPositionGenerator {
     }
 
     public static Vec3 flyRandomlyTowardHeightLevel(final GenericCreatureInstance par0EntityCreature, final int par1,
-                                                    final int par2, final int heightLevel) {
+        final int par2, final int heightLevel) {
         return flyToRandomTargetBlockAtHeight(par0EntityCreature, par1, par2, null, heightLevel);
     }
 
     public static Vec3 swimRandomlyTowardHeightLevel(final GenericCreatureInstance par0EntityCreature, final int par1,
-                                                     final int par2, final int heightLevel) {
+        final int par2, final int heightLevel) {
         return swimToRandomTargetBlockAtHeight(par0EntityCreature, par1, par2, null, heightLevel);
     }
 
     private static Vec3 findRandomTargetBlock(final GenericCreatureInstance par0EntityCreature, final int par1,
-                                              final int par2, final Vec3 par3Vec3) {
+        final int par2, final Vec3 par3Vec3) {
         final Random var4 = par0EntityCreature.getRNG();
         boolean var5 = false;
         int var6 = 0;
@@ -91,7 +90,7 @@ public class RandomPositionGenerator {
     }
 
     private static Vec3 flyToRandomTargetBlockAtHeight(final GenericCreatureInstance entity, final int par1,
-                                                       final int par2, final Vec3 par3Vec3, final int heightLevel) {
+        final int par2, final Vec3 par3Vec3, final int heightLevel) {
         final Random var4 = entity.getRNG();
         boolean var5 = false;
         int var6 = 0;
@@ -147,7 +146,7 @@ public class RandomPositionGenerator {
     }
 
     private static Vec3 swimToRandomTargetBlockAtHeight(final GenericCreatureInstance entity, final int par1,
-                                                        final int par2, final Vec3 par3Vec3, final int heightLevel) {
+        final int par2, final Vec3 par3Vec3, final int heightLevel) {
         final Random var4 = entity.getRNG();
         boolean var5 = false;
         int var6 = 0;

@@ -1,5 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
+import com.google.common.collect.Multimap;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -8,10 +10,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.world.World;
-
-import com.google.common.collect.Multimap;
-
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 // todo fix reach + make a model to make the item larger
 public class BigBerthaSword extends ItemSword {

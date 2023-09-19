@@ -1,11 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,7 +15,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 public class TwilightMagicInstance extends EntityMob {
 
@@ -216,7 +215,7 @@ public class TwilightMagicInstance extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -373,7 +372,7 @@ public class TwilightMagicInstance extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(128.0, 64.0, 128.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(128.0, 64.0, 128.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

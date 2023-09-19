@@ -1,7 +1,10 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
-import java.util.List;
-
+import cpw.mods.fml.common.network.FMLEventChannel;
+import cpw.mods.fml.common.network.internal.FMLProxyPacket;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyFishHookInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
+import fr.iamacat.dangerzone_iamacatfr.event.PacketSetFairyName;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -12,11 +15,7 @@ import net.minecraft.network.play.server.S1BPacketEntityAttach;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 
-import cpw.mods.fml.common.network.FMLEventChannel;
-import cpw.mods.fml.common.network.internal.FMLProxyPacket;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyFishHookInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
-import fr.iamacat.dangerzone_iamacatfr.event.PacketSetFairyName;
+import java.util.List;
 
 public class CommonProxy {
 

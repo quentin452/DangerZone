@@ -1,8 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions.teleporter;
 
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -11,10 +8,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+
+import java.util.List;
+import java.util.Random;
 
 public class SafeTeleporter extends Teleporter {
     // todo fix sometimes can be teleported underground / in blocks
@@ -33,7 +32,7 @@ public class SafeTeleporter extends Teleporter {
     }
 
     public void placeInPortal(final Entity par1Entity, final double par2, final double par4, final double par6,
-                              final float par8) {
+        final float par8) {
         this.justPutMe(par1Entity);
     }
 

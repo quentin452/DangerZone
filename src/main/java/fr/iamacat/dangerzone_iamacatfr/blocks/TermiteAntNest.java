@@ -1,7 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -15,9 +16,7 @@ import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
 
 public class TermiteAntNest extends BlockGrass {
 
@@ -72,7 +71,7 @@ public class TermiteAntNest extends BlockGrass {
         if (var8 != null) {
             var8.setLocationAndAngles(par2, par4, par6, par0World.rand.nextFloat() * 360.0f, 0.0f);
             par0World.spawnEntityInWorld(var8);
-             ((EntityLiving) var8).playLivingSound();
+            ((EntityLiving) var8).playLivingSound();
         }
         return var8;
     }

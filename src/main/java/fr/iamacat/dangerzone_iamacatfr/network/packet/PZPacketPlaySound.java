@@ -1,11 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.network.packet;
 
-import java.io.IOException;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -15,6 +10,10 @@ import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
+
+import java.io.IOException;
 
 public class PZPacketPlaySound implements IMessage, IMessageHandler<PZPacketPlaySound, IMessage> {
 

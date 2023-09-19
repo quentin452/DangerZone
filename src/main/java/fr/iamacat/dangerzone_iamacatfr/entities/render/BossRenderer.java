@@ -1,14 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.TragicBoss;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.BossStatus;
-
 import org.lwjgl.opengl.GL11;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.TragicBoss;
 
 public abstract class BossRenderer extends RenderLiving {
 

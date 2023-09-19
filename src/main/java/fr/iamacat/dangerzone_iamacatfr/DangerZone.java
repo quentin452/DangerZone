@@ -1,14 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr;
 
-import java.io.File;
-import java.util.List;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.world.WorldServer;
-import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -23,6 +14,14 @@ import fr.iamacat.dangerzone_iamacatfr.init.*;
 import fr.iamacat.dangerzone_iamacatfr.network.ISidedProxy;
 import fr.iamacat.dangerzone_iamacatfr.network.PZPacketHandler;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraft.entity.Entity;
+import net.minecraft.world.WorldServer;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
+
+import java.io.File;
+import java.util.List;
 
 @Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = Tags.MCVERSION)
 public class DangerZone {

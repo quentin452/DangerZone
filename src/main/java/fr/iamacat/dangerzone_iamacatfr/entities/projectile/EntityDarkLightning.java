@@ -1,16 +1,15 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.projectile;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DarkCrystalInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DirectedLightningInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.WorldHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.DarkCrystalInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.DirectedLightningInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.WorldHelper;
 
 public class EntityDarkLightning extends EntityProjectile {
 

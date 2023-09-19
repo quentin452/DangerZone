@@ -1,10 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,7 +23,9 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 public class SkullBossInstance extends EntityMob implements IMob {
 
@@ -265,7 +264,7 @@ public class SkullBossInstance extends EntityMob implements IMob {
         } else if (this.worldObj.rand.nextInt(10) == 0 && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) {
             EntityPlayer target = null;
             target = (EntityPlayer) this.worldObj.findNearestEntityWithinAABB(
-                 EntityPlayer.class,
+                EntityPlayer.class,
                 this.boundingBox.expand(65.0, 30.0, 65.0),
                 (Entity) this);
             if (target != null) {
@@ -296,8 +295,7 @@ public class SkullBossInstance extends EntityMob implements IMob {
                             this.firecanon(e);
                             this.MeteorStrike(e);
                         }
-                        if (this.getDistanceSqToEntity(e)
-                            < (15.0f + e.width / 2.0f) * (15.0f + e.width / 2.0f)) {
+                        if (this.getDistanceSqToEntity(e) < (15.0f + e.width / 2.0f) * (15.0f + e.width / 2.0f)) {
                             final int down2 = 0;
                             int newz2 = this.rand.nextInt(5) + 6;
                             newz2 *= zdir;
@@ -481,10 +479,8 @@ public class SkullBossInstance extends EntityMob implements IMob {
             }
         }
         SkullBossInstance target = null;
-        target = (SkullBossInstance) this.worldObj.findNearestEntityWithinAABB(
-             SkullBossInstance.class,
-            this.boundingBox.expand(64.0, 32.0, 64.0),
-            this);
+        target = (SkullBossInstance) this.worldObj
+            .findNearestEntityWithinAABB(SkullBossInstance.class, this.boundingBox.expand(64.0, 32.0, 64.0), this);
         return target == null;
     }
 
@@ -607,7 +603,7 @@ public class SkullBossInstance extends EntityMob implements IMob {
 
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(65.0, 30.0, 65.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(65.0, 30.0, 65.0));
         Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;

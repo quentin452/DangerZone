@@ -1,8 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Iterator;
-import java.util.List;
-
+import cpw.mods.fml.client.FMLClientHandler;
+import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.Entity;
@@ -22,9 +22,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.Helper;
+import java.util.Iterator;
+import java.util.List;
 
 public class CaveFisherInstance extends DungeonMobInstance {
 
@@ -110,15 +109,15 @@ public class CaveFisherInstance extends DungeonMobInstance {
     }
 
     protected String getLivingSound() {
-        return Tags.MODID +":cf_l";
+        return Tags.MODID + ":cf_l";
     }
 
     protected String getHurtSound() {
-        return Tags.MODID +":cf_h";
+        return Tags.MODID + ":cf_h";
     }
 
     protected String getDeathSound() {
-        return Tags.MODID +":cf_d";
+        return Tags.MODID + ":cf_d";
     }
 
     protected void playStepSound(int par1, int par2, int par3, int par4) {
@@ -246,7 +245,7 @@ public class CaveFisherInstance extends DungeonMobInstance {
 
             if (this.grabTimer == (foo * 3) - 16) this.worldObj.playSoundAtEntity(
                 this,
-                Tags.MODID +":cf_c",
+                Tags.MODID + ":cf_c",
                 1.0F,
                 (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
 
@@ -267,7 +266,7 @@ public class CaveFisherInstance extends DungeonMobInstance {
 
                     this.worldObj.playSoundAtEntity(
                         this,
-                        Tags.MODID +":cf_r",
+                        Tags.MODID + ":cf_r",
                         1.0F,
                         (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F + 1.0F);
 

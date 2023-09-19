@@ -917,12 +917,13 @@ public class SpawnEggInitDangerZone {
         Constants.LaserBallMLP = LaserBallMLP;
         GameRegistry.registerItem(Constants.LaserBallMLP, "Laser Ball MLP Egg");
 
-       /* SpawnEggs MavisBallInstance = new SpawnEggs(fr.iamacat.dangerzone_iamacatfr.entities.entity.MavisBallInstance.class);
-        MavisBallInstance.setUnlocalizedName("Mavis Ball Egg");
-        Constants.MavisBallInstance = MolenoidSpawnEgg;
-        GameRegistry.registerItem(Constants.MavisBallInstance, "Mavis Ball Egg");
-
-        */
+        /*
+         * SpawnEggs MavisBallInstance = new
+         * SpawnEggs(fr.iamacat.dangerzone_iamacatfr.entities.entity.MavisBallInstance.class);
+         * MavisBallInstance.setUnlocalizedName("Mavis Ball Egg");
+         * Constants.MavisBallInstance = MolenoidSpawnEgg;
+         * GameRegistry.registerItem(Constants.MavisBallInstance, "Mavis Ball Egg");
+         */
 
         SpawnEggs TwilicornArrow = new SpawnEggs(TwilicornArrowInstance.class);
         TwilicornArrow.setUnlocalizedName("Twilicorn Arrow Egg");

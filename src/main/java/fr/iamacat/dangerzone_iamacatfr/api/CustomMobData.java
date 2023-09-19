@@ -1,14 +1,13 @@
 
 package fr.iamacat.dangerzone_iamacatfr.api;
 
-import java.util.*;
-
+import fr.iamacat.dangerzone_iamacatfr.util.EntityProperties;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandom;
 
-import fr.iamacat.dangerzone_iamacatfr.util.EntityProperties;
+import java.util.*;
 
 public class CustomMobData {
 

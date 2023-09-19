@@ -1,10 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import net.minecraft.entity.ai.EntityAIBase;
-
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericAnimalInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
+import net.minecraft.entity.ai.EntityAIBase;
 
 public class EntityAIStayStill extends EntityAIBase {
 

@@ -1,11 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.util.Vec3;
-
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.util.Vec3;
 
 public class EntityAIPanic extends EntityAIBase {
 

@@ -1,18 +1,17 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.iamacat.dangerzone_iamacatfr.blocks.ItemIrukandjiArrow;
-import fr.iamacat.dangerzone_iamacatfr.items.*;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
+import fr.iamacat.dangerzone_iamacatfr.items.*;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.ArmorMaterialModded;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.util.ToolMaterialModded;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 
 public class ItemInitDangerZone {
 

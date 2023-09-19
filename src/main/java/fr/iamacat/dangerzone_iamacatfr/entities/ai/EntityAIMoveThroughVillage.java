@@ -1,9 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.MathHelper;
@@ -11,7 +9,8 @@ import net.minecraft.util.Vec3;
 import net.minecraft.village.Village;
 import net.minecraft.village.VillageDoorInfo;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntityAIMoveThroughVillage extends EntityAIBase {
 
@@ -23,7 +22,7 @@ public class EntityAIMoveThroughVillage extends EntityAIBase {
     private List<VillageDoorInfo> doorList;
 
     public EntityAIMoveThroughVillage(final GenericCreatureInstance p_i1638_1_, final double p_i1638_2_,
-                                      final boolean p_i1638_4_) {
+        final boolean p_i1638_4_) {
         this.doorList = new ArrayList<VillageDoorInfo>();
         this.theEntity = p_i1638_1_;
         this.movementSpeed = p_i1638_2_;

@@ -1,10 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
-
+import cpw.mods.fml.common.network.NetworkRegistry;
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketTameParticle;
 import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -12,10 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.common.network.NetworkRegistry;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
-import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketTameParticle;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 
 public abstract class GenericTameableInstance extends GenericRideableInstance {
 

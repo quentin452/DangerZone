@@ -1,8 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.network;
 
-import net.minecraft.entity.player.EntityPlayerMP;
-
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -11,6 +9,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.packets.*;
 import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketPlaySound;
 import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketStreamSound;
 import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketTameParticle;
+import net.minecraft.entity.player.EntityPlayerMP;
 
 public class PZPacketHandler {
 

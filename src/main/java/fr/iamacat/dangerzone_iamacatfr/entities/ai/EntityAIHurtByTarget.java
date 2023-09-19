@@ -1,13 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.AxisAlignedBB;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import java.util.List;
 
 public class EntityAIHurtByTarget extends EntityAITarget {
 
@@ -17,8 +16,8 @@ public class EntityAIHurtByTarget extends EntityAITarget {
     GenericCreatureInstance genericTaskOwner;
 
     public EntityAIHurtByTarget(final GenericCreatureInstance par1EntityLiving, final boolean shouldCallAllies,
-                                final boolean shouldCheckSight) {
-        super( par1EntityLiving, 16.0f, shouldCheckSight);
+        final boolean shouldCheckSight) {
+        super(par1EntityLiving, 16.0f, shouldCheckSight);
         this.fleeChance = 0;
         this.shouldCallAllies = shouldCallAllies;
         this.setMutexBits(1);
@@ -40,7 +39,7 @@ public class EntityAIHurtByTarget extends EntityAITarget {
         this.entityPathNavigate = this.taskOwner.getAITarget();
         if (this.shouldCallAllies) {
             final List<EntityLiving> var1 = this.taskOwner.worldObj.getEntitiesWithinAABB(
-                 this.taskOwner.getClass(),
+                this.taskOwner.getClass(),
                 AxisAlignedBB
                     .getBoundingBox(
                         this.taskOwner.posX,

@@ -1,14 +1,13 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import java.util.Random;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import java.util.Random;
 
 public class EntityAIFleeSun extends EntityAIBase {
 

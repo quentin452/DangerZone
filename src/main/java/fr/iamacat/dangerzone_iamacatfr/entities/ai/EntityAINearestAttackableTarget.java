@@ -1,18 +1,17 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.List;
 
 public class EntityAINearestAttackableTarget extends EntityAITarget {
 
@@ -32,7 +31,7 @@ public class EntityAINearestAttackableTarget extends EntityAITarget {
     public EntityAINearestAttackableTarget(final GenericCreatureInstance par1EntityLiving,
         final EnumSet<EntityStates> setOfValidStates, final Class par2Class, final float par3, final int par4,
         final boolean par5, final boolean par6) {
-        this( par1EntityLiving, setOfValidStates, par2Class, par3, par4, par5, par6, null);
+        this(par1EntityLiving, setOfValidStates, par2Class, par3, par4, par5, par6, null);
     }
 
     public EntityAINearestAttackableTarget(final EntityLiving par1, final EnumSet<EntityStates> setOfValidStates,

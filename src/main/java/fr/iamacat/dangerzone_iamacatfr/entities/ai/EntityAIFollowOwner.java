@@ -1,6 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericAnimalInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -8,9 +10,6 @@ import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericAnimalInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 
 public class EntityAIFollowOwner extends EntityAIBase {
 
@@ -25,7 +24,7 @@ public class EntityAIFollowOwner extends EntityAIBase {
     private boolean field_75344_i;
 
     public EntityAIFollowOwner(final GenericAnimalInstance par1EntityTameable, final float par2, final float par3,
-                               final float par4) {
+        final float par4) {
         this.thePet = par1EntityTameable;
         this.theWorld = par1EntityTameable.worldObj;
         this.moveSpeed = par2;

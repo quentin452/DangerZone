@@ -1,17 +1,15 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render.babydragon;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityAlpsDragon;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.babydragon.ModelTinyDragon;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityAlpsDragon;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.babydragon.ModelTinyDragon;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderAlpsDragon extends RenderLiving {
 

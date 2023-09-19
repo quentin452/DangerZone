@@ -1,6 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericTameableInstance;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
@@ -9,9 +11,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.pathfinding.PathPoint;
 import net.minecraft.util.MathHelper;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericTameableInstance;
 
 public abstract class EntityAITarget extends EntityAIBase {
 
@@ -100,8 +99,8 @@ public abstract class EntityAITarget extends EntityAIBase {
             if (par1EntityLiving == ((EntityTameable) this.taskOwner).getOwner()) {
                 return false;
             }
-        } else
-            if (this.taskOwner instanceof GenericTameableInstance && ((GenericTameableInstance) this.taskOwner).isTamed()) {
+        } else if (this.taskOwner instanceof GenericTameableInstance
+            && ((GenericTameableInstance) this.taskOwner).isTamed()) {
                 if (par1EntityLiving instanceof GenericTameableInstance
                     && ((GenericTameableInstance) par1EntityLiving).isTamed()) {
                     return false;

@@ -1,10 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.AIFollowOwner;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -23,9 +22,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.AIFollowOwner;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 public class CrabzillaInstance extends EntityTameable {
 
@@ -65,16 +64,14 @@ public class CrabzillaInstance extends EntityTameable {
         this.renderDistanceWeight = 12.0;
         this.TargetSorter = new GenericTargetSorterInstance((Entity) this);
         this.renderdata = new InfoRenderer();
-        this.tasks.addTask(0, new EntityAISwimming( this));
+        this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIMate((EntityAnimal) this, 1.0));
         this.tasks.addTask(2, new AIFollowOwner((EntityTameable) this, 2.0f, 10.0f, 2.0f));
-        this.tasks
-            .addTask(3, new EntityAITempt( this, 1.200000047683716, Items.fish, false));
-        this.tasks.addTask(4, new EntityAIWander( this, 1.0));
-        this.tasks
-            .addTask(5, new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
-        this.tasks.addTask(6, new EntityAILookIdle( this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
+        this.tasks.addTask(3, new EntityAITempt(this, 1.200000047683716, Items.fish, false));
+        this.tasks.addTask(4, new EntityAIWander(this, 1.0));
+        this.tasks.addTask(5, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
+        this.tasks.addTask(6, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
     }
 
     protected void applyEntityAttributes() {
@@ -559,7 +556,7 @@ public class CrabzillaInstance extends EntityTameable {
             return null;
         }
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(64.0, 64.0, 64.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(64.0, 64.0, 64.0));
         Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;
@@ -613,10 +610,8 @@ public class CrabzillaInstance extends EntityTameable {
         if (!this.worldObj.isDaytime()) {
             return false;
         }
-        target = (CrabzillaInstance) this.worldObj.findNearestEntityWithinAABB(
-             CrabzillaInstance.class,
-            this.boundingBox.expand(256.0, 256.0, 256.0),
-            this);
+        target = (CrabzillaInstance) this.worldObj
+            .findNearestEntityWithinAABB(CrabzillaInstance.class, this.boundingBox.expand(256.0, 256.0, 256.0), this);
         return target == null;
     }
 
@@ -624,7 +619,7 @@ public class CrabzillaInstance extends EntityTameable {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;

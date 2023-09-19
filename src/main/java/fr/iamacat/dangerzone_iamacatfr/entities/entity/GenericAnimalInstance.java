@@ -1,9 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collection;
-import java.util.List;
-
+import cpw.mods.fml.common.network.NetworkRegistry;
+import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
+import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.packets.PZPacketAnimTime;
 import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
@@ -15,15 +18,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
-
 import org.apache.logging.log4j.Level;
 
-import cpw.mods.fml.common.network.NetworkRegistry;
-import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
-import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
-import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.packets.PZPacketAnimTime;
+import java.util.Collection;
+import java.util.List;
 
 public class GenericAnimalInstance extends GenericTameableInstance {
 

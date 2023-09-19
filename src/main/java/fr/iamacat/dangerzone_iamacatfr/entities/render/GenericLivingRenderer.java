@@ -12,7 +12,7 @@ public class GenericLivingRenderer extends RenderLiving implements WrapperRender
     public final ResourceLocation livingTexture;
 
     public GenericLivingRenderer(final ModelBase modelBase, final float shadowSize,
-                                 final ResourceLocation livingTexture) {
+        final ResourceLocation livingTexture) {
         super(modelBase, shadowSize);
         this.livingTexture = livingTexture;
     }

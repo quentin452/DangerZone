@@ -1,8 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import java.util.List;
 
 public class HydraFireballInstance extends EntityFireball {
 
@@ -47,7 +46,7 @@ public class HydraFireballInstance extends EntityFireball {
     protected void entityInit() {}
 
     public HydraFireballInstance(final World par1World, final EntityLivingBase par2EntityLiving, final double par3,
-                                 final double par5, final double par7) {
+        final double par5, final double par7) {
         super(par1World);
         this.e = -1;
         this.f = -1;

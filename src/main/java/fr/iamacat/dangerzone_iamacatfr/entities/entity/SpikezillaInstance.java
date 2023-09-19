@@ -1,12 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -27,9 +29,9 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 public class SpikezillaInstance extends EntityMob {
 
@@ -62,13 +64,13 @@ public class SpikezillaInstance extends EntityMob {
         this.getNavigator()
             .setAvoidsWater(true);
         this.experienceValue = 25000;
-        this.tasks.addTask(0, new EntityAISwimming( this));
-        this.tasks.addTask(1, new EntityAIMoveThroughVillage( this, 1.0, false));
-        this.wander = new EntityAIWander( this, 1.0);
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIMoveThroughVillage(this, 1.0, false));
+        this.wander = new EntityAIWander(this, 1.0);
         this.tasks.addTask(2, this.wander);
-        this.tasks.addTask(4, new EntityAILookIdle( this));
-        this.tasks.addTask(5, new EntityAIWander( this, 1.0));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
+        this.tasks.addTask(4, new EntityAILookIdle(this));
+        this.tasks.addTask(5, new EntityAIWander(this, 1.0));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
         this.TargetSorter = new GenericTargetSorterInstance(this);
         this.fireResistance = 10000;
         this.isImmuneToFire = true;
@@ -89,7 +91,7 @@ public class SpikezillaInstance extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (byte)0);
+        this.dataWatcher.addObject(20, (byte) 0);
         // this.dataWatcher.addObject(21, Basic.Snap);
         if (this.renderdata == null) {
             this.renderdata = new InfoRenderer();
@@ -509,7 +511,7 @@ public class SpikezillaInstance extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;
@@ -538,7 +540,7 @@ public class SpikezillaInstance extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;
@@ -570,8 +572,7 @@ public class SpikezillaInstance extends EntityMob {
         EntityLivingBase var8 = null;
         EntityLivingBase ret = null;
         int vf = 0;
-        var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(64.0, 0.0, 64.0));
+        var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(64.0, 0.0, 64.0));
         if (var5 == null) {
             return null;
         }
@@ -618,10 +619,8 @@ public class SpikezillaInstance extends EntityMob {
             }
         }
         SpikezillaInstance target;
-        target = (SpikezillaInstance) this.worldObj.findNearestEntityWithinAABB(
-             SpikezillaInstance.class,
-            this.boundingBox.expand(72.0, 36.0, 72.0),
-            this);
+        target = (SpikezillaInstance) this.worldObj
+            .findNearestEntityWithinAABB(SpikezillaInstance.class, this.boundingBox.expand(72.0, 36.0, 72.0), this);
         return target == null;
     }
 
@@ -634,7 +633,7 @@ public class SpikezillaInstance extends EntityMob {
     }
 
     private ItemStack dropItemRand(final Item index, final int par1) {
-        EntityItem var3 ;
+        EntityItem var3;
         final ItemStack is = new ItemStack(index, par1, 0);
         var3 = new EntityItem(
             this.worldObj,

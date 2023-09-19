@@ -1,11 +1,10 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemFishingRod;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.ItemFishingRod;
 
 public class UltimateFishingRod extends ItemFishingRod {
 

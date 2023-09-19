@@ -1,11 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
-
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.TwilyMagicInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
 
 public class TwilyMagic2Renderer extends TwilyMagicRenderer {
 

@@ -1,10 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,7 +23,9 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 public class SkullInstance extends EntityMob implements IMob {
 
@@ -238,10 +237,8 @@ public class SkullInstance extends EntityMob implements IMob {
             this.stuck_count = 0;
         } else if (this.worldObj.rand.nextInt(10) == 0 && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) {
             EntityPlayer target;
-            target = (EntityPlayer) this.worldObj.findNearestEntityWithinAABB(
-                EntityPlayer.class,
-                this.boundingBox.expand(65.0, 30.0, 65.0),
-                this);
+            target = (EntityPlayer) this.worldObj
+                .findNearestEntityWithinAABB(EntityPlayer.class, this.boundingBox.expand(65.0, 30.0, 65.0), this);
             if (target != null) {
                 if (!target.capabilities.isCreativeMode) {
                     if (this.getEntitySenses()
@@ -278,8 +275,7 @@ public class SkullInstance extends EntityMob implements IMob {
                             (int) this.posY + this.rand.nextInt(3) - 1 - down2,
                             (int) this.posZ + newz2);
                     }
-                    if (this.getDistanceSqToEntity(e)
-                        < (100.0f + e.width / 2.0f) * (100.0f + e.width / 2.0f)) {
+                    if (this.getDistanceSqToEntity(e) < (100.0f + e.width / 2.0f) * (100.0f + e.width / 2.0f)) {
                         this.findSomethingToAttack();
                     }
                 }
@@ -400,10 +396,8 @@ public class SkullInstance extends EntityMob implements IMob {
             }
         }
         SkullInstance target;
-        target = (SkullInstance) this.worldObj.findNearestEntityWithinAABB(
-            SkullInstance.class,
-            this.boundingBox.expand(64.0, 32.0, 64.0),
-            this);
+        target = (SkullInstance) this.worldObj
+            .findNearestEntityWithinAABB(SkullInstance.class, this.boundingBox.expand(64.0, 32.0, 64.0), this);
         return target == null;
     }
 

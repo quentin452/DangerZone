@@ -1,10 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIFollowTwin;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIMonsterPanic;
+import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -25,9 +23,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIFollowTwin;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIMonsterPanic;
-import fr.iamacat.dangerzone_iamacatfr.util.Helper;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 
 public class AlienInstance extends DungeonMobInstance {
 
@@ -120,16 +119,16 @@ public class AlienInstance extends DungeonMobInstance {
     }
 
     protected String getLivingSound() {
-        if (this.isTwin()) return Tags.MODID +":li_l";
-        else return Tags.MODID +":li_l2";
+        if (this.isTwin()) return Tags.MODID + ":li_l";
+        else return Tags.MODID + ":li_l2";
     }
 
     protected String getHurtSound() {
-        return Tags.MODID +":li_h";
+        return Tags.MODID + ":li_h";
     }
 
     protected String getDeathSound() {
-        return Tags.MODID +":li_d";
+        return Tags.MODID + ":li_d";
     }
 
     public int getTwinID() {

@@ -1,8 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import java.util.List;
-import java.util.Random;
-
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,7 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.List;
+import java.util.Random;
 
 public class ExperienceCatcher extends Item {
 

@@ -1,32 +1,28 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Random;
-import java.util.UUID;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.scoreboard.Team;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.UUID;
 
 public class GirlFriendInstance extends EntityTameable {
 
     private boolean isTamed;
     public ResourceLocation textureName;
     private int skinVariant;
+
     public GirlFriendInstance(World world) {
         super(world);
 
@@ -38,6 +34,7 @@ public class GirlFriendInstance extends EntityTameable {
 
         this.setSize(1.0F, 1.8F);
     }
+
     public int getSkin() {
         return this.dataWatcher.getWatchableObjectInt(31);
     }
@@ -45,6 +42,7 @@ public class GirlFriendInstance extends EntityTameable {
     public void setSkin(int entity) {
         this.dataWatcher.updateObject(31, entity);
     }
+
     @Override
     public EntityAgeable createChild(EntityAgeable p_90011_1_) {
         return null;
@@ -69,7 +67,6 @@ public class GirlFriendInstance extends EntityTameable {
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
         this.setSkin(compound.getInteger("Variant"));
-
 
         // Lisez d'autres données de l'entité depuis NBT (si nécessaire)
         if (compound.hasKey("OwnerUUID", 8)) {
@@ -129,7 +126,9 @@ public class GirlFriendInstance extends EntityTameable {
                 this.playTameEffect(true);
 
                 // Définissez le propriétaire (si vous le souhaitez)
-                this.func_152115_b(player.getUniqueID().toString());
+                this.func_152115_b(
+                    player.getUniqueID()
+                        .toString());
 
                 return true;
             } else {

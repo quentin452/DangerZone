@@ -1,23 +1,14 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIGhostFly;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAITFBirdFly;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.BirdsInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAITempt;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.DamageSource;
@@ -49,10 +40,10 @@ public class GhostInstance extends BirdsInstance {
         this.getNavigator()
             .setAvoidsWater(true);
         this.tasks.addTask(0, new EntityAIGhostFly(this));
-      //  this.tasks.addTask(1, new EntityAITempt(this, 1.0F, Items.wheat_seeds, true));
-       // this.tasks.addTask(2, new EntityAIWander(this, 1.0F));
-      //  this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 6F));
-     //   this.tasks.addTask(4, new EntityAILookIdle(this));
+        // this.tasks.addTask(1, new EntityAITempt(this, 1.0F, Items.wheat_seeds, true));
+        // this.tasks.addTask(2, new EntityAIWander(this, 1.0F));
+        // this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 6F));
+        // this.tasks.addTask(4, new EntityAILookIdle(this));
 
         setIsBirdLanded(true);
     }
@@ -60,7 +51,7 @@ public class GhostInstance extends BirdsInstance {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(DATA_BIRDTYPE,  0);
+        this.dataWatcher.addObject(DATA_BIRDTYPE, 0);
         this.dataWatcher.addObject(DATA_BIRDFLAGS, 0);
     }
 
@@ -112,7 +103,7 @@ public class GhostInstance extends BirdsInstance {
     }
 
     public void setBirdType(int par1) {
-        this.dataWatcher.updateObject(DATA_BIRDTYPE,par1);
+        this.dataWatcher.updateObject(DATA_BIRDTYPE, par1);
     }
 
     /**
@@ -240,7 +231,7 @@ public class GhostInstance extends BirdsInstance {
 
             if (this.currentFlightTarget == null || this.rand.nextInt(30) == 0
                 || this.currentFlightTarget.getDistanceSquared((int) this.posX, (int) this.posY, (int) this.posZ)
-                < 4.0F) {
+                    < 4.0F) {
                 int yTarget = this.currentFlightTime < 100 ? 2 : 4;
 
                 this.currentFlightTarget = new ChunkCoordinates(
@@ -284,7 +275,7 @@ public class GhostInstance extends BirdsInstance {
 
         return this.hurtTime > 0 || (closestPlayer != null
             && (closestPlayer.inventory.getCurrentItem() == null || closestPlayer.inventory.getCurrentItem()
-            .getItem() != Items.wheat_seeds));
+                .getItem() != Items.wheat_seeds));
     }
 
     /**
@@ -310,7 +301,7 @@ public class GhostInstance extends BirdsInstance {
         if (par1) {
             this.dataWatcher.updateObject(DATA_BIRDFLAGS, (b0 | 1));
         } else {
-            this.dataWatcher.updateObject(DATA_BIRDFLAGS,  (b0 & -2));
+            this.dataWatcher.updateObject(DATA_BIRDFLAGS, (b0 & -2));
         }
     }
 

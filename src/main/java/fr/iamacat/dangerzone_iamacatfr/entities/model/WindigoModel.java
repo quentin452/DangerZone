@@ -2,15 +2,13 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.WindigoInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
-
 import org.lwjgl.opengl.GL11;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
 
 public class WindigoModel extends ModelBase {
 

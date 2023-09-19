@@ -1,8 +1,9 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Calendar;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.TragicBoss;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.minibosses.TragicMiniBoss;
+import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityProjectile;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.*;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.boss.EntityWither;
@@ -21,10 +22,8 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.TragicBoss;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.minibosses.TragicMiniBoss;
-import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityProjectile;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Calendar;
+import java.util.List;
 
 public abstract class TragicMob extends EntityMob {
 
@@ -163,8 +162,8 @@ public abstract class TragicMob extends EntityMob {
                     .getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(32.0, 32.0, 32.0));
 
                 for (Object e : list) {
-                    if (e instanceof EntityMob && this.canEntityBeSeen((Entity) e) && ((EntityMob) e).getAttackTarget() != this)
-                        ((EntityMob) e).addPotionEffect(effect);
+                    if (e instanceof EntityMob && this.canEntityBeSeen((Entity) e)
+                        && ((EntityMob) e).getAttackTarget() != this) ((EntityMob) e).addPotionEffect(effect);
                 }
             }
         }
@@ -411,7 +410,9 @@ public abstract class TragicMob extends EntityMob {
 
     @Override
     public boolean canAttackClass(Class par1Class) {
-        return !super.canAttackClass(par1Class) || par1Class == TragicBoss.class || !(this instanceof TragicMiniBoss) || par1Class != this.getLesserForm();
+        return !super.canAttackClass(par1Class) || par1Class == TragicBoss.class
+            || !(this instanceof TragicMiniBoss)
+            || par1Class != this.getLesserForm();
     }
 
     @Override

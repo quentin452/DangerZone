@@ -1,13 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DashInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.DashInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
 
 public class RainbowDashModel extends ModelBase {
 

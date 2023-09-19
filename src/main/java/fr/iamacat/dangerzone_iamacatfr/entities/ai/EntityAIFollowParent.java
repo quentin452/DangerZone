@@ -1,12 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericBreedableInstance;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIBase;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericBreedableInstance;
+import java.util.List;
 
 public class EntityAIFollowParent extends EntityAIBase {
 
@@ -24,9 +23,8 @@ public class EntityAIFollowParent extends EntityAIBase {
         if (this.childAnimal.getGrowingAge() >= 0) {
             return false;
         }
-        final List<GenericBreedableInstance> var1 = this.childAnimal.worldObj.getEntitiesWithinAABB(
-             this.childAnimal.getClass(),
-            this.childAnimal.boundingBox.expand(8.0, 4.0, 8.0));
+        final List<GenericBreedableInstance> var1 = this.childAnimal.worldObj
+            .getEntitiesWithinAABB(this.childAnimal.getClass(), this.childAnimal.boundingBox.expand(8.0, 4.0, 8.0));
         GenericBreedableInstance var2 = null;
         double var3 = Double.MAX_VALUE;
         for (final GenericBreedableInstance var5 : var1) {

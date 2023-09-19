@@ -1,13 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericAnimalInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.Vec3;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericAnimalInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
 
 public class EntityAIMoveTowardsTarget extends EntityAIBase {
 
@@ -19,7 +18,8 @@ public class EntityAIMoveTowardsTarget extends EntityAIBase {
     private float speed;
     private float maxTargetDistance;
 
-    public EntityAIMoveTowardsTarget(final GenericAnimalInstance par1EntityCreature, final float par2, final float par3) {
+    public EntityAIMoveTowardsTarget(final GenericAnimalInstance par1EntityCreature, final float par2,
+        final float par3) {
         this.theEntity = par1EntityCreature;
         this.speed = par2;
         this.maxTargetDistance = par3;

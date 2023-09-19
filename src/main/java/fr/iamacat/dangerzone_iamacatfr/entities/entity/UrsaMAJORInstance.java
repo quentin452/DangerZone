@@ -1,15 +1,18 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -27,11 +30,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 public class UrsaMAJORInstance extends EntityMob {
 
@@ -63,15 +65,13 @@ public class UrsaMAJORInstance extends EntityMob {
             .setAvoidsWater(true);
         this.experienceValue = 10000;
         this.renderDistanceWeight = 16.0;
-        this.tasks.addTask(0, new EntityAISwimming( this));
-        this.tasks.addTask(1, new EntityAIMoveThroughVillage( this, 1.0, false));
-        this.wander = new EntityAIWander( this, 1.0);
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIMoveThroughVillage(this, 1.0, false));
+        this.wander = new EntityAIWander(this, 1.0);
         this.tasks.addTask(2, this.wander);
-        this.tasks.addTask(
-            3,
-            new EntityAIWatchClosest( this,  EntityLiving.class, 50.0f));
-        this.tasks.addTask(4, new EntityAILookIdle( this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
+        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityLiving.class, 50.0f));
+        this.tasks.addTask(4, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
         this.TargetSorter = new GenericTargetSorterInstance((Entity) this);
         this.fireResistance = 10000;
         this.isImmuneToFire = true;
@@ -430,7 +430,7 @@ public class UrsaMAJORInstance extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 30.0, Z - dist, X + dist, Y + 30.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -472,8 +472,7 @@ public class UrsaMAJORInstance extends EntityMob {
         EntityLivingBase var8 = null;
         EntityLivingBase ret = null;
         int vf = 0;
-        var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(64.0, 40.0, 64.0));
+        var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(64.0, 40.0, 64.0));
         if (var5 == null) {
             return null;
         }
@@ -716,7 +715,7 @@ public class UrsaMAJORInstance extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 20.0, Z - dist, X + dist, Y + 20.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

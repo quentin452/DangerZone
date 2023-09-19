@@ -1,13 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Random;
-import java.util.UUID;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -15,18 +13,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.scoreboard.Team;
 import net.minecraft.server.management.PreYggdrasilConverter;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.UUID;
 
 public class BoyFriendInstance extends EntityTameable {
 
     private boolean isTamed;
     public ResourceLocation textureName;
+
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
@@ -34,7 +30,9 @@ public class BoyFriendInstance extends EntityTameable {
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
             .setBaseValue(0.600000011920929D);
     }
+
     private int skinVariant;
+
     public BoyFriendInstance(World world) {
         super(world);
 
@@ -46,6 +44,7 @@ public class BoyFriendInstance extends EntityTameable {
 
         this.setSize(1.0F, 1.8F);
     }
+
     public int getSkin() {
         return this.dataWatcher.getWatchableObjectInt(27);
     }
@@ -53,6 +52,7 @@ public class BoyFriendInstance extends EntityTameable {
     public void setSkin(int entity) {
         this.dataWatcher.updateObject(27, entity);
     }
+
     @Override
     public EntityAgeable createChild(EntityAgeable p_90011_1_) {
         return null;
@@ -75,7 +75,6 @@ public class BoyFriendInstance extends EntityTameable {
         // D'autres interactions si nécessaire lorsque le joueur sneake
         return super.interact(player);
     }
-
 
     public boolean attemptTame(EntityPlayer player) {
         ItemStack heldItem = player.inventory.getCurrentItem();
@@ -105,7 +104,9 @@ public class BoyFriendInstance extends EntityTameable {
                 this.playTameEffect(true);
 
                 // Définissez le propriétaire (si vous le souhaitez)
-                this.func_152115_b(player.getUniqueID().toString());
+                this.func_152115_b(
+                    player.getUniqueID()
+                        .toString());
 
                 return true;
             } else {
@@ -145,7 +146,6 @@ public class BoyFriendInstance extends EntityTameable {
     public void readEntityFromNBT(NBTTagCompound tagCompund) {
         super.readEntityFromNBT(tagCompund);
         this.setSkin(tagCompund.getInteger("Variant"));
-
 
         String s = "";
 

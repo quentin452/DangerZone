@@ -1,10 +1,9 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
 
 public abstract interface ISidedProxy {
 

@@ -1,9 +1,16 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockColored;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityGhast;
@@ -18,15 +25,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EntityAetherDragon extends DecoySkyDragonTameable {
 
@@ -42,31 +43,23 @@ public class EntityAetherDragon extends DecoySkyDragonTameable {
         this.setSize(0.6f, 0.8f);
         this.getNavigator()
             .setAvoidsWater(true);
-        this.tasks.addTask(1, new EntityAISwimming( this));
+        this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, this.aiSit);
-        this.tasks.addTask(3, new EntityAILeapAtTarget( this, 0.4f));
-        this.tasks.addTask(4, new EntityAIAttackOnCollide( this, 1.0, true));
+        this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4f));
+        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, 1.0, true));
         this.tasks.addTask(5, new EntityAIFollowOwner((EntityTameable) this, 1.0, 10.0f, 2.0f));
         this.tasks.addTask(6, new EntityAIMate((EntityAnimal) this, 1.0));
-        this.tasks.addTask(7, new EntityAIWander( this, 1.0));
-        this.tasks.addTask(
-            8,
-            new EntityAITempt( this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
-        this.tasks.addTask(
-            9,
-            new EntityAITempt( this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
-        this.tasks.addTask(
-            10,
-            new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
-        this.tasks.addTask(11, new EntityAILookIdle( this));
+        this.tasks.addTask(7, new EntityAIWander(this, 1.0));
+        this.tasks.addTask(8, new EntityAITempt(this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
+        this.tasks.addTask(9, new EntityAITempt(this, 1.2, ItemInitDangerZone.rainbowOpalChunk, false));
+        this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
+        this.tasks.addTask(11, new EntityAILookIdle(this));
         this.isImmuneToFire = true;
         this.experienceValue = 10;
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget((EntityTameable) this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget((EntityTameable) this));
-        this.targetTasks.addTask(3, new EntityAIHurtByTarget( this, true));
-        this.targetTasks.addTask(
-            4,
-            new EntityAITargetNonTamed((EntityTameable) this,  EntitySheep.class, 200, false));
+        this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
+        this.targetTasks.addTask(4, new EntityAITargetNonTamed((EntityTameable) this, EntitySheep.class, 200, false));
         this.setTamed(false);
     }
 
@@ -134,9 +127,10 @@ public class EntityAetherDragon extends DecoySkyDragonTameable {
 
     protected String getLivingSound() {
         return this.isAngry() ? Tags.MODID + ":tinydragon"
-            : ((this.rand.nextInt(3) == 0) ? ((this.isTamed() && this.dataWatcher.getWatchableObjectFloat(18) < 10.0f)
-                ? Tags.MODID + ":tinydragon"
-                : Tags.MODID + ":tinydragon") : Tags.MODID + ":tinydragon");
+            : ((this.rand.nextInt(3) == 0)
+                ? ((this.isTamed() && this.dataWatcher.getWatchableObjectFloat(18) < 10.0f) ? Tags.MODID + ":tinydragon"
+                    : Tags.MODID + ":tinydragon")
+                : Tags.MODID + ":tinydragon");
     }
 
     protected String getHurtSound() {
@@ -332,11 +326,10 @@ public class EntityAetherDragon extends DecoySkyDragonTameable {
                     }
                 }
             }
-            if (this.func_152114_e(p_70085_1_) && !this.worldObj.isRemote
-                && !this.isBreedingItem(itemstack)) {
+            if (this.func_152114_e(p_70085_1_) && !this.worldObj.isRemote && !this.isBreedingItem(itemstack)) {
                 this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
-                this.setPathToEntity( null);
+                this.setPathToEntity(null);
                 this.setTarget(null);
                 this.setAttackTarget(null);
             }
@@ -362,7 +355,7 @@ public class EntityAetherDragon extends DecoySkyDragonTameable {
                     this.worldObj.setEntityState(this, (byte) 7);
                 } else {
                     this.playTameEffect(false);
-                    this.worldObj.setEntityState( this, (byte) 6);
+                    this.worldObj.setEntityState(this, (byte) 6);
                 }
             }
             return true;
@@ -403,9 +396,9 @@ public class EntityAetherDragon extends DecoySkyDragonTameable {
     public void setAngry(final boolean p_70916_1_) {
         final int b0 = this.dataWatcher.getWatchableObjectByte(16);
         if (p_70916_1_) {
-            this.dataWatcher.updateObject(16,  (byte) (b0 | 0x2));
+            this.dataWatcher.updateObject(16, (byte) (b0 | 0x2));
         } else {
-            this.dataWatcher.updateObject(16,  (byte) (b0 & 0xFFFFFFFD));
+            this.dataWatcher.updateObject(16, (byte) (b0 & 0xFFFFFFFD));
         }
     }
 
@@ -414,7 +407,7 @@ public class EntityAetherDragon extends DecoySkyDragonTameable {
     }
 
     public void setCollarColor(final int p_82185_1_) {
-        this.dataWatcher.updateObject(20,  (byte) (p_82185_1_ & 0xF));
+        this.dataWatcher.updateObject(20, (byte) (p_82185_1_ & 0xF));
     }
 
     public EntityAetherDragon createChild(final EntityAgeable p_90011_1_) {

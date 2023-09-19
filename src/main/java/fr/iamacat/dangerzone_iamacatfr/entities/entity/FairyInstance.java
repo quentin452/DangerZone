@@ -1,9 +1,15 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.lang.reflect.Method;
-import java.util.Collections;
-import java.util.List;
-
+import cpw.mods.fml.relauncher.ReflectionHelper;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.Loc;
+import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.FairyJob;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.FairyGroupGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSign;
 import net.minecraft.block.material.Material;
@@ -34,16 +40,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.EmptyChunk;
 
-import cpw.mods.fml.relauncher.ReflectionHelper;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
-import fr.iamacat.dangerzone_iamacatfr.Loc;
-import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.FairyJob;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.FairyGroupGenerator;
+import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.List;
 
 public class FairyInstance extends EntityAnimal {
 

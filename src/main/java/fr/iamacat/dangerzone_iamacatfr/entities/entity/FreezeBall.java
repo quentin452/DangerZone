@@ -1,8 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -14,7 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import java.util.List;
 
 public class FreezeBall extends EntityFireball {
 
@@ -104,18 +103,18 @@ public class FreezeBall extends EntityFireball {
     }
 
     public void onUpdate() {
-        Vec3 var15 ;
+        Vec3 var15;
         Vec3 var16;
-        MovingObjectPosition var17 ;
-        Entity var18 ;
-        List var19 ;
-        double var20 ;
-        Entity var21 ;
+        MovingObjectPosition var17;
+        Entity var18;
+        List var19;
+        double var20;
+        Entity var21;
         final float var22 = 0.3f;
-        double var23 ;
-        float var24 ;
-        float var25 ;
-        float var26 ;
+        double var23;
+        float var24;
+        float var25;
+        float var26;
         if (this.j >= 600 || this.au >= 600) {
             this.setDead();
             return;
@@ -324,20 +323,17 @@ public class FreezeBall extends EntityFireball {
                     }
                 }
                 if (!this.small) {
-                    par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage(this, this.a),
-                        650.0f);
+                    par1MovingObjectPosition.entityHit
+                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 650.0f);
                     par1MovingObjectPosition.entityHit.setFire(32);
                 }
                 if (this.huge) {
-                    par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage(this, this.a),
-                        7500.0f);
+                    par1MovingObjectPosition.entityHit
+                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 7500.0f);
                     par1MovingObjectPosition.entityHit.setFire(120);
                 } else {
-                    par1MovingObjectPosition.entityHit.attackEntityFrom(
-                        DamageSource.causeFireballDamage(this, this.a),
-                        250.0f);
+                    par1MovingObjectPosition.entityHit
+                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 250.0f);
                     par1MovingObjectPosition.entityHit.setFire(10);
                 }
             } else {

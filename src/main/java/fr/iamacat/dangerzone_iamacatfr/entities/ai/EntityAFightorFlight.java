@@ -1,18 +1,17 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import java.util.ArrayList;
-import java.util.Random;
-
+import fr.iamacat.dangerzone_iamacatfr.angeldragon.EntityAIAvoidEntity;
+import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericTameableInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.angeldragon.EntityAIAvoidEntity;
-import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericTameableInstance;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class EntityAFightorFlight {
 
@@ -33,7 +32,7 @@ public class EntityAFightorFlight {
     }
 
     public EntityAFightorFlight setEntity(final GenericCreatureInstance par1, final World par2, final float par3,
-                                          final double par4) {
+        final double par4) {
         this.entity = par1;
         this.worldObj = par2;
         this.aggroLevel = par3;
@@ -43,7 +42,7 @@ public class EntityAFightorFlight {
     }
 
     public EntityAFightorFlight setEntity(final GenericCreatureInstance par1, final World par2, final float par3,
-                                          final double par4, final boolean shouldHop) {
+        final double par4, final boolean shouldHop) {
         this.entity = par1;
         this.worldObj = par2;
         this.aggroLevel = par3;
@@ -75,7 +74,7 @@ public class EntityAFightorFlight {
             }
         }
         if (this.aggroRange != 0.0 && !this.temptingItem && !((GenericTameableInstance) this.entity).isTamed()) {
-            if (this.entityplayer != null && this.entity.canEntityBeSeen( this.entityplayer)) {
+            if (this.entityplayer != null && this.entity.canEntityBeSeen(this.entityplayer)) {
                 if (this.aggroLevel > 0.0f) {
                     final Random rand = new Random();
                     final int dieRoll = rand.nextInt(100);
@@ -85,11 +84,11 @@ public class EntityAFightorFlight {
                             this.entity.setAngerLevel(400);
                         }
                     } else if (this.entity.getAngerLevel() == 0 && this.entity.getFleeTick() == 0) {
-                        this.entity.tasks.addTask(1,  this.aiEntityAvoidEntity);
+                        this.entity.tasks.addTask(1, this.aiEntityAvoidEntity);
                         this.entity.setFleeTick(400);
                     }
                 } else {
-                    this.entity.tasks.addTask(1,  this.aiEntityAvoidEntity);
+                    this.entity.tasks.addTask(1, this.aiEntityAvoidEntity);
                     this.entity.setFleeTick(400);
                 }
             } else {

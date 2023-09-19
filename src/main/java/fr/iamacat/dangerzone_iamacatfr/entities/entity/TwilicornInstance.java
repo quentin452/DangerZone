@@ -1,11 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.AIFollowOwner;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIMoveIndoors;
@@ -26,8 +23,10 @@ import net.minecraft.util.*;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.AIFollowOwner;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 public class TwilicornInstance extends EntityTameable {
 
@@ -81,13 +80,12 @@ public class TwilicornInstance extends EntityTameable {
         this.getNavigator()
             .setAvoidsWater(true);
         this.setSitting(false);
-        this.tasks.addTask(1, new EntityAISwimming( this));
+        this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new AIFollowOwner((EntityTameable) this, 1.75f, 16.0f, 2.5f));
         // this.tasks.addTask(3, (EntityAIBase)new EntityAITempt(this, 1.25, Basic.twilightStar,
         // false));
-        this.tasks
-            .addTask(4, new EntityAIWatchClosest( this,  EntityLiving.class, 6.0f));
-        this.tasks.addTask(7, new EntityAIMoveIndoors( this));
+        this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityLiving.class, 6.0f));
+        this.tasks.addTask(7, new EntityAIMoveIndoors(this));
         this.TargetSorter = new GenericTargetSorterInstance((Entity) this);
         this.experienceValue = 7555;
     }
@@ -1605,7 +1603,7 @@ public class TwilicornInstance extends EntityTameable {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(72.0, 36.0, 72.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(72.0, 36.0, 72.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -1720,7 +1718,7 @@ public class TwilicornInstance extends EntityTameable {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

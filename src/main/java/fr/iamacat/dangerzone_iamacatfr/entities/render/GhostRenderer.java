@@ -9,8 +9,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
-public class GhostRenderer extends RenderLiving
-{
+public class GhostRenderer extends RenderLiving {
+
     public static ResourceLocation texture;
 
     public GhostRenderer(final ModelBase par1ModelBase, final float par2) {

@@ -1,18 +1,16 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.IronWillInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.IronWillModel;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.IronWillInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.IronWillModel;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class IronWillRenderer extends RenderLiving {
 
@@ -28,8 +26,8 @@ public class IronWillRenderer extends RenderLiving {
     }
 
     public void renderMyIronWill(final IronWillInstance par1EntityMyIronWill, final double par2, final double par4,
-                                 final double par6, final float par8, final float par9) {
-        super.doRender( par1EntityMyIronWill, par2, par4, par6, par8, par9);
+        final double par6, final float par8, final float par9) {
+        super.doRender(par1EntityMyIronWill, par2, par4, par6, par8, par9);
     }
 
     public void doRenderLiving(final EntityLiving par1EntityLiving, final double par2, final double par4,

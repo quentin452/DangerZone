@@ -1,6 +1,23 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
+import fr.iamacat.dangerzone_iamacatfr.InputConfusedMovement;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.babydragon.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.unfinished.RenderTFGenericLiving;
+import fr.iamacat.dangerzone_iamacatfr.gui.FairyGui;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Helper;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderFireball;
@@ -13,25 +30,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
-import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
-import fr.iamacat.dangerzone_iamacatfr.InputConfusedMovement;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.MavisBallModel;
-import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.babydragon.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.unfinished.RenderTFGenericLiving;
-import fr.iamacat.dangerzone_iamacatfr.gui.FairyGui;
-import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.Helper;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class ClientProxy implements ISidedProxy {
 
@@ -157,85 +155,116 @@ public class ClientProxy implements ISidedProxy {
                     return new ResourceLocation(Tags.MODID + ":textures/entity/BelugaTexture.png");
                 }
             });
-        RenderingRegistry
-            .registerEntityRenderingHandler(TwilightMobInstance.class, new TwilightMobInstance.RenderTheMob(new PonyRobotModel(), 1.5f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            TwilightMobInstance.class,
+            new TwilightMobInstance.RenderTheMob(new PonyRobotModel(), 1.5f));
         RenderingRegistry.registerEntityRenderingHandler(
             DemonSpiderInstance.class,
             new BlackWidowRenderer(new BlackWidowModel(0.96f), 1.0f, 1.0f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(LeviathanInstance.class, new LeviathanRenderer(new LeviathanModel(1.0f), 1.0f, 1.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            LeviathanInstance.class,
+            new LeviathanRenderer(new LeviathanModel(1.0f), 1.0f, 1.0f));
         RenderingRegistry.registerEntityRenderingHandler(
             ThunderHoovesInstance.class,
             new ThunderHoovesRenderer(new ChiefThunderHoovesModel(1.0f), 1.8f, 1.8f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(TwilicornInstance.class, new TwilicornRenderer(new TwilicornModel(0.85f), 0.75f, 0.75f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(KingbowserInstance.class, new KingbowserInstance.RenderTheMob6(new KingbowserModel(), 1.0f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(CentipedeInstance.class, new CentipedeRenderer(new CentipedeModel(1.0f), 1.0f, 1.0f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(HydraInstance.class, new HydraInstance.RenderTheMob8(new HydraModel(), 30.0f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(WindigoInstance.class, new WindigoRenderer(new WindigoModel(30.0f), 1.0f, 1.0f));
-        RenderingRegistry.registerEntityRenderingHandler(MooseInstance.class, new MooseInstance.RenderTheMob10(new MooseModel(), 2.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            TwilicornInstance.class,
+            new TwilicornRenderer(new TwilicornModel(0.85f), 0.75f, 0.75f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            KingbowserInstance.class,
+            new KingbowserInstance.RenderTheMob6(new KingbowserModel(), 1.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            CentipedeInstance.class,
+            new CentipedeRenderer(new CentipedeModel(1.0f), 1.0f, 1.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            HydraInstance.class,
+            new HydraInstance.RenderTheMob8(new HydraModel(), 30.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            WindigoInstance.class,
+            new WindigoRenderer(new WindigoModel(30.0f), 1.0f, 1.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            MooseInstance.class,
+            new MooseInstance.RenderTheMob10(new MooseModel(), 2.0f));
         RenderingRegistry.registerEntityRenderingHandler(
             BuffaloInstance.class,
             new BuffaloInstance.RenderTheMob11(new BufalloModel(), 4.0f));
-        RenderingRegistry.registerEntityRenderingHandler(DarknessInstance.class, new LeechRenderer(new LeechModel(), 1.2f, 1.2f));
+        RenderingRegistry
+            .registerEntityRenderingHandler(DarknessInstance.class, new LeechRenderer(new LeechModel(), 1.2f, 1.2f));
         RenderingRegistry.registerEntityRenderingHandler(
             TwilightMagicInstance.class,
             new TwiMagicRenderer(new TwilicornOrbsModel(0.8f), 0.8f, 0.8f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            FlameDragonInstance.class,
+            new FlameDragonRenderer(new GarbleModel(7.5f), 2.2f, 2.2f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            MooseBigInstance.class,
+            new MooseBigInstance.RenderTheMob15(new MooseBigModel(), 1.5f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            CragadileInstance.class,
+            new CragadileRenderer(new CragadileModel(1.0f), 1.0f, 1.0f));
         RenderingRegistry
-            .registerEntityRenderingHandler(FlameDragonInstance.class, new FlameDragonRenderer(new GarbleModel(7.5f), 2.2f, 2.2f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(MooseBigInstance.class, new MooseBigInstance.RenderTheMob15(new MooseBigModel(), 1.5f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(CragadileInstance.class, new CragadileRenderer(new CragadileModel(1.0f), 1.0f, 1.0f));
-        RenderingRegistry.registerEntityRenderingHandler(BearInstance.class, new BearInstance.RenderTheMob17(new BearModel(), 3.0f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(ToughGuyInstance.class, new ToughGuyInstance.RenderTheMob18(new ToughGuyModel(), 2.5f));
-        RenderingRegistry.registerEntityRenderingHandler(MavisInstance.class, new MavisInstance.RenderTheMob19(new MavisModel(), 1.0f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(UrsaMAJORInstance.class, new UrsaMAJORInstance.RenderTheMob21(new UrsaMAJORModel(), 32.0f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(PhoenixInstance.class, new PhoenixRenderer(new PhoenixModel(6.0f), 1.0f, 1.0f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(DashInstance.class, new DashRenderer(new RainbowDashModel(0.85f), 0.75f, 0.75f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(ManticoreInstance.class, new ManticoreInstance.RenderTheMob24(new ManticoreModel(), 4.5f));
+            .registerEntityRenderingHandler(BearInstance.class, new BearInstance.RenderTheMob17(new BearModel(), 3.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            ToughGuyInstance.class,
+            new ToughGuyInstance.RenderTheMob18(new ToughGuyModel(), 2.5f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            MavisInstance.class,
+            new MavisInstance.RenderTheMob19(new MavisModel(), 1.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            UrsaMAJORInstance.class,
+            new UrsaMAJORInstance.RenderTheMob21(new UrsaMAJORModel(), 32.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            PhoenixInstance.class,
+            new PhoenixRenderer(new PhoenixModel(6.0f), 1.0f, 1.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            DashInstance.class,
+            new DashRenderer(new RainbowDashModel(0.85f), 0.75f, 0.75f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            ManticoreInstance.class,
+            new ManticoreInstance.RenderTheMob24(new ManticoreModel(), 4.5f));
         RenderingRegistry.registerEntityRenderingHandler(
             RainbowCentipedeInstance.class,
             new RainbowCentipedeRenderer(new GiantCentipedeModel(0.52f), 1.0f, 1.0f));
         RenderingRegistry.registerEntityRenderingHandler(
             ParaspriteInstance.class,
             new ParaspriteRenderer(new ParaspriteModel(0.25f), 0.25f, 0.25f));
-        RenderingRegistry.registerEntityRenderingHandler(AJInstance.class, new AJRenderer(new AppleJackModel(1.0f), 0.85f, 0.85f));
+        RenderingRegistry
+            .registerEntityRenderingHandler(AJInstance.class, new AJRenderer(new AppleJackModel(1.0f), 0.85f, 0.85f));
         RenderingRegistry.registerEntityRenderingHandler(
             ArcticScorpionInstance.class,
             new ArcticScorpionRenderer(new ArcticScorpionModel(6.0f), 1.0f, 1.0f));
         RenderingRegistry.registerEntityRenderingHandler(
             TimberWolfInstance.class,
             new TimberWolfRenderer(new TimberWolfModel(0.85f), 0.85f, 0.85f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(CockatriceInstance.class, new CockatriceRenderer(new CockatriceModel(1.1f), 1.1f, 1.1f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(IronWillInstance.class, new IronWillRenderer(new IronWillModel(1.6f), 1.6f, 1.6f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(CrabzillaInstance.class, new CrabzillaRenderer(new CrabzillaModel(1.0f), 1.0f, 1.0f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(DashCloudInstance.class, new DashCloudRenderer(new DashCloudModel(2.0f), 2.0f, 2.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            CockatriceInstance.class,
+            new CockatriceRenderer(new CockatriceModel(1.1f), 1.1f, 1.1f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            IronWillInstance.class,
+            new IronWillRenderer(new IronWillModel(1.6f), 1.6f, 1.6f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            CrabzillaInstance.class,
+            new CrabzillaRenderer(new CrabzillaModel(1.0f), 1.0f, 1.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            DashCloudInstance.class,
+            new DashCloudRenderer(new DashCloudModel(2.0f), 2.0f, 2.0f));
         RenderingRegistry.registerEntityRenderingHandler(
             TrevorPhillipsInstance.class,
             new TrevorPhillipsRenderer(new ModelBiped(1.0f), 1.0f, 1.0f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            SkullBossInstance.class,
+            new SkullBossRenderer(new SkullofDoomModel(), 1.0f, 1.0f));
         RenderingRegistry
-            .registerEntityRenderingHandler(SkullBossInstance.class, new SkullBossRenderer(new SkullofDoomModel(), 1.0f, 1.0f));
-        RenderingRegistry.registerEntityRenderingHandler(SkullInstance.class, new SkullRenderer(new SkullofDoomModel(), 0.5f, 0.5f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(YakPrinceInstance.class, new YakPrinceRenderer(new PrinceYakFurModel(), 1.2f, 1.2f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(SpikezillaInstance.class, new SpikezillaRenderer(new SpikezillaModel(), 0.9f, 0.9f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(RhinocerosInstance.class, new RhinoRenderer(new RhinocerosModel(), 1.0f, 1.0f));
+            .registerEntityRenderingHandler(SkullInstance.class, new SkullRenderer(new SkullofDoomModel(), 0.5f, 0.5f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            YakPrinceInstance.class,
+            new YakPrinceRenderer(new PrinceYakFurModel(), 1.2f, 1.2f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            SpikezillaInstance.class,
+            new SpikezillaRenderer(new SpikezillaModel(), 0.9f, 0.9f));
+        RenderingRegistry.registerEntityRenderingHandler(
+            RhinocerosInstance.class,
+            new RhinoRenderer(new RhinocerosModel(), 1.0f, 1.0f));
         RenderingRegistry.registerEntityRenderingHandler(TwilightCannonInstance.class, new RangedRenderer());
         RenderingRegistry.registerEntityRenderingHandler(LaserBallSecondInstance.class, new RangedRenderer());
         RenderingRegistry
@@ -243,8 +272,9 @@ public class ClientProxy implements ISidedProxy {
 
         RenderingRegistry.registerEntityRenderingHandler(TwilicornArrowInstance.class, new TwilightMagicRenderer());
 
-        RenderingRegistry
-            .registerEntityRenderingHandler(PhoenixArrowInstance.class, new PhoenixArrowRenderer(ItemInitDangerZone.phoenixFeather));
+        RenderingRegistry.registerEntityRenderingHandler(
+            PhoenixArrowInstance.class,
+            new PhoenixArrowRenderer(ItemInitDangerZone.phoenixFeather));
 
         RenderingRegistry.registerEntityRenderingHandler(TwilyMagicInstance.class, new TwilyMagic2Renderer());
         RenderingRegistry.registerEntityRenderingHandler(
@@ -264,8 +294,8 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(RainbowCannonInstance.class, new RainbowCannonRenderer());
         RenderingRegistry.registerEntityRenderingHandler(ProjectileApplesInstance.class, new ApplesRenderer());
 
-        RenderingRegistry.registerEntityRenderingHandler(GhostInstance.class, new GhostRenderer(new ModelBiped(), 0.0f));
-
+        RenderingRegistry
+            .registerEntityRenderingHandler(GhostInstance.class, new GhostRenderer(new ModelBiped(), 0.0f));
 
     }
 

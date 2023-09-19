@@ -1,13 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.projectile;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EntityDarkEnergy extends EntityProjectile {
 

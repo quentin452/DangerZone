@@ -1,13 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class UltimateSword extends ItemSword {
 

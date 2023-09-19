@@ -1,8 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Random;
-
+import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
+import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIMoveTowardsRestriction;
 import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -14,9 +15,7 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
-import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAIMoveTowardsRestriction;
+import java.util.Random;
 
 public abstract class GenericCreatureInstance extends AerialInstance {
 

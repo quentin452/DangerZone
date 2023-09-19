@@ -1,6 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.Entity;
@@ -22,11 +26,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EntityAngelDragon extends DecoySkyDragonTameable {
 

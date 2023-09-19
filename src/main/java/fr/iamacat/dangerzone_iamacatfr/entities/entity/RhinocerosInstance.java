@@ -1,13 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
@@ -21,9 +22,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 public class RhinocerosInstance extends EntityMob {
 
@@ -47,16 +49,12 @@ public class RhinocerosInstance extends EntityMob {
         this.renderDistanceWeight = 12.0;
         this.TargetSorter = new GenericTargetSorterInstance((Entity) this);
         this.renderdata = new InfoRenderer();
-        this.tasks.addTask(0, new EntityAISwimming( this));
-        this.tasks.addTask(
-            1,
-            new EntityAIMoveThroughVillage( this, 0.8999999761581421, false));
-        this.tasks.addTask(2, new EntityAIWander( this, 1.0));
-        this.tasks.addTask(
-            3,
-            new EntityAIWatchClosest( this,  EntityPlayer.class, 12.0f));
-        this.tasks.addTask(4, new EntityAILookIdle( this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIMoveThroughVillage(this, 0.8999999761581421, false));
+        this.tasks.addTask(2, new EntityAIWander(this, 1.0));
+        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 12.0f));
+        this.tasks.addTask(4, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
     }
 
     protected void entityInit() {
@@ -378,7 +376,7 @@ public class RhinocerosInstance extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(24.0, 6.0, 24.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(24.0, 6.0, 24.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

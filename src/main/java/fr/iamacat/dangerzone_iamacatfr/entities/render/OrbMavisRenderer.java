@@ -1,25 +1,23 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.MavisBallInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 @SideOnly(Side.CLIENT)
 public class OrbMavisRenderer extends Render {
 
     public static ResourceLocation texture;
 
-    public void renderBall(final MavisBallInstance par1EntityArrow, final double par2, final double par4, final double par6,
-                           final float par8, final float par9) {
+    public void renderBall(final MavisBallInstance par1EntityArrow, final double par2, final double par4,
+        final double par6, final float par8, final float par9) {
         this.bindTexture(OrbMavisRenderer.texture);
         GL11.glPushMatrix();
         GL11.glTranslatef((float) par2, (float) par4, (float) par6);

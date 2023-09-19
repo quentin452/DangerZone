@@ -1,8 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.LinkedList;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,7 +13,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderHell;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Helper;
+import java.util.LinkedList;
+import java.util.List;
 
 public class RatInstance extends DungeonMobInstance {
 

@@ -1,11 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -31,11 +31,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 public class HydraInstance extends EntityMob {
 
@@ -72,15 +71,13 @@ public class HydraInstance extends EntityMob {
         this.getNavigator()
             .setAvoidsWater(true);
         this.experienceValue = 10000;
-        this.tasks.addTask(0, new EntityAISwimming( this));
-        this.tasks.addTask(1, new EntityAIMoveThroughVillage( this, 1.0, false));
-        this.wander = new EntityAIWander( this, 1.0);
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIMoveThroughVillage(this, 1.0, false));
+        this.wander = new EntityAIWander(this, 1.0);
         this.tasks.addTask(2, this.wander);
-        this.tasks.addTask(
-            3,
-            new EntityAIWatchClosest( this,  EntityLiving.class, 50.0f));
-        this.tasks.addTask(4, new EntityAILookIdle( this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
+        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityLiving.class, 50.0f));
+        this.tasks.addTask(4, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
         this.TargetSorter = new GenericTargetSorterInstance((Entity) this);
         this.fireResistance = 10000;
         this.isImmuneToFire = true;
@@ -508,7 +505,7 @@ public class HydraInstance extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -542,7 +539,7 @@ public class HydraInstance extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -580,8 +577,7 @@ public class HydraInstance extends EntityMob {
         EntityLivingBase var8 = null;
         EntityLivingBase ret = null;
         int vf = 0;
-        var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(64.0, 40.0, 64.0));
+        var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(64.0, 40.0, 64.0));
         if (var5 == null) {
             return null;
         }
@@ -634,10 +630,8 @@ public class HydraInstance extends EntityMob {
             return false;
         }
         HydraInstance target = null;
-        target = (HydraInstance) this.worldObj.findNearestEntityWithinAABB(
-             HydraInstance.class,
-            this.boundingBox.expand(72.0, 36.0, 72.0),
-            (Entity) this);
+        target = (HydraInstance) this.worldObj
+            .findNearestEntityWithinAABB(HydraInstance.class, this.boundingBox.expand(72.0, 36.0, 72.0), (Entity) this);
         return target == null;
     }
 

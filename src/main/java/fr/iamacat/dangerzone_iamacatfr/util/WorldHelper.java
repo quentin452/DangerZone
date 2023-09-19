@@ -1,9 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.util;
 
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Set;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -12,6 +8,10 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Set;
 
 public class WorldHelper {
 
@@ -24,7 +24,7 @@ public class WorldHelper {
     /**
      * Returns randomly selected blocks in the set range, with the total attempts passed in, starting at the coordinates
      * passed in
-     * 
+     *
      * @param world
      * @param range
      * @param passes
@@ -37,7 +37,7 @@ public class WorldHelper {
     /**
      * Returns randomly selected blocks in the set range, this one allows the ability to change the chance it picks any
      * block
-     * 
+     *
      * @param world
      * @param range
      * @param passes
@@ -60,7 +60,7 @@ public class WorldHelper {
 
     /**
      * Returns randomly selected entities within the range set for the entity passed in
-     * 
+     *
      * @param world
      * @param range
      * @return
@@ -71,7 +71,7 @@ public class WorldHelper {
 
     /**
      * Returns randomly selected entities within the range set for the entity passed in, with random chance to ignore it
-     * 
+     *
      * @param world
      * @param entity
      * @param range
@@ -85,7 +85,7 @@ public class WorldHelper {
 
     /**
      * Universally useful method to get if mob griefing is enabled, less typing to use this
-     * 
+     *
      * @param world
      * @return
      */
@@ -97,7 +97,7 @@ public class WorldHelper {
     /**
      * Universal method for getting the current difficulty setting, useful for switches (not much of a time saver but
      * here if it's ever needed)
-     * 
+     *
      * @param world
      * @return
      */
@@ -108,7 +108,7 @@ public class WorldHelper {
     /**
      * The x, y, z coordinates to be passed in should be for the origin of the circle, returns mappings with coordinates
      * of every block in the circle's area
-     * 
+     *
      * @param world
      * @param radius
      * @param x
@@ -140,7 +140,7 @@ public class WorldHelper {
     /**
      * The x, y, z coordinates to be passed in should be the origin of the sphere, returns mappings with coordinates of
      * every block in the sphere's area
-     * 
+     *
      * @param world
      * @param radius
      * @param x
@@ -175,7 +175,7 @@ public class WorldHelper {
 
     /**
      * Get a MovingObjectPosition based on the input entity's motion and rotation for the specified distance
-     * 
+     *
      * @param ent
      * @param distance
      * @return
@@ -206,7 +206,7 @@ public class WorldHelper {
 
     /**
      * Get a vector based on the input entity's motion and rotation for the specified distance
-     * 
+     *
      * @param ent
      * @param distance
      * @return
@@ -217,7 +217,7 @@ public class WorldHelper {
 
     /**
      * Get a vector based on the input entity's motion and rotation
-     * 
+     *
      * @param ent
      * @param distance
      * @return

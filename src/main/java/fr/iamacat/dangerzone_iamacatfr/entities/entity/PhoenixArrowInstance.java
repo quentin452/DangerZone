@@ -43,15 +43,13 @@ public class PhoenixArrowInstance extends EntityThrowable {
                 for (int i = 0; i < maxParticles; ++i) {
                     this.worldObj.spawnParticle(
 
-
                         "flame",
                         this.posX + this.rand.nextFloat() - this.rand.nextFloat(),
                         this.posY + this.rand.nextFloat() - this.rand.nextFloat(),
                         this.posZ + this.rand.nextFloat(),
                         0.0,
                         0.0,
-                        0.0
-                    );
+                        0.0);
                     this.worldObj.spawnParticle(
                         "flame",
                         this.posX + this.rand.nextFloat() - this.rand.nextFloat(),
@@ -59,8 +57,7 @@ public class PhoenixArrowInstance extends EntityThrowable {
                         this.posZ + this.rand.nextFloat() - this.rand.nextFloat(),
                         0.0,
                         0.0,
-                        0.0
-                    );
+                        0.0);
                     this.worldObj.spawnParticle(
                         "flame",
                         this.posX,
@@ -68,8 +65,7 @@ public class PhoenixArrowInstance extends EntityThrowable {
                         this.posZ,
                         this.worldObj.rand.nextGaussian(),
                         this.worldObj.rand.nextGaussian(),
-                        this.worldObj.rand.nextGaussian()
-                    );
+                        this.worldObj.rand.nextGaussian());
                 }
 
                 this.playSound("random.explode", 1.5f, 1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);

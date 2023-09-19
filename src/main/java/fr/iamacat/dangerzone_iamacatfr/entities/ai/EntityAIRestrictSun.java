@@ -1,9 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import net.minecraft.entity.ai.EntityAIBase;
-
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericCreatureInstance;
+import net.minecraft.entity.ai.EntityAIBase;
 
 public class EntityAIRestrictSun extends EntityAIBase {
 

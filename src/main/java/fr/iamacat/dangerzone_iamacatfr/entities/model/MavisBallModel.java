@@ -1,6 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.MavisInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
@@ -9,9 +11,6 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.MavisInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 
 public class MavisBallModel extends EntityThrowable implements IProjectile {
 
@@ -27,27 +26,29 @@ public class MavisBallModel extends EntityThrowable implements IProjectile {
         this.randomZ = this.rand.nextGaussian() / 10.0;
     }
 
-    public MavisBallModel(final World par1World, final EntityLivingBase par3EntityPlayer, double randomX, double randomY, double randomZ) {
+    public MavisBallModel(final World par1World, final EntityLivingBase par3EntityPlayer, double randomX,
+        double randomY, double randomZ) {
         super(par1World, par3EntityPlayer);
         this.randomX = randomX;
         this.randomY = randomY;
         this.randomZ = randomZ;
     }
 
-    public MavisBallModel(final World par1World, final EntityLivingBase par2EntityLiving, final int par3, double randomX, double randomY, double randomZ) {
+    public MavisBallModel(final World par1World, final EntityLivingBase par2EntityLiving, final int par3,
+        double randomX, double randomY, double randomZ) {
         super(par1World, par2EntityLiving);
         this.randomX = randomX;
         this.randomY = randomY;
         this.randomZ = randomZ;
     }
 
-    public MavisBallModel(final World par1World, final double par2, final double par4, final double par6, double randomX, double randomY, double randomZ) {
+    public MavisBallModel(final World par1World, final double par2, final double par4, final double par6,
+        double randomX, double randomY, double randomZ) {
         super(par1World, par2, par4, par6);
         this.randomX = randomX;
         this.randomY = randomY;
         this.randomZ = randomZ;
     }
-
 
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
         if (par1MovingObjectPosition.entityHit != null) {
@@ -99,22 +100,10 @@ public class MavisBallModel extends EntityThrowable implements IProjectile {
     public void onUpdate() {
         super.onUpdate();
         for (int mx = 16, i = 0; i < mx; ++i) {
-            this.worldObj.spawnParticle(
-                "portal",
-                this.posX,
-                this.posY,
-                this.posZ,
-                this.randomX,
-                this.randomY,
-                this.randomZ);
-            this.worldObj.spawnParticle(
-                "magicCrit",
-                this.posX,
-                this.posY,
-                this.posZ,
-                this.randomX,
-                this.randomY,
-                this.randomZ);
+            this.worldObj
+                .spawnParticle("portal", this.posX, this.posY, this.posZ, this.randomX, this.randomY, this.randomZ);
+            this.worldObj
+                .spawnParticle("magicCrit", this.posX, this.posY, this.posZ, this.randomX, this.randomY, this.randomZ);
         }
     }
 }

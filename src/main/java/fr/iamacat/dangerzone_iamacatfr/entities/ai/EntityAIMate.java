@@ -1,15 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import java.util.List;
-import java.util.Random;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericBreedableInstance;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GenericBreedableInstance;
+import java.util.List;
+import java.util.Random;
 
 public class EntityAIMate extends EntityAIBase {
 

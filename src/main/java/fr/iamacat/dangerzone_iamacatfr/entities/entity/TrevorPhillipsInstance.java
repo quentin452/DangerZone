@@ -1,12 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
@@ -21,9 +23,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 public class TrevorPhillipsInstance extends EntityMob {
 
@@ -49,15 +51,12 @@ public class TrevorPhillipsInstance extends EntityMob {
         this.renderDistanceWeight = 12.0;
         this.TargetSorter = new GenericTargetSorterInstance((Entity) this);
         this.renderdata = new InfoRenderer();
-        this.tasks.addTask(0, new EntityAISwimming( this));
-        this.tasks.addTask(1, new EntityAIWander( this, 1.0));
-        this.tasks.addTask(
-            2,
-            new EntityAIMoveThroughVillage( this, 0.8999999761581421, false));
-        this.tasks
-            .addTask(3, new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
-        this.tasks.addTask(4, new EntityAILookIdle( this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIWander(this, 1.0));
+        this.tasks.addTask(2, new EntityAIMoveThroughVillage(this, 0.8999999761581421, false));
+        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
+        this.tasks.addTask(4, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
         // this.setCurrentItemOrArmor(0, new ItemStack(Basic.dagger));
     }
 
@@ -325,9 +324,9 @@ public class TrevorPhillipsInstance extends EntityMob {
                         }
                         rdd = Math.abs(rdd);
                         if (rdd < 0.5) {
-                            if (this.getDistanceSqToEntity( e) > 285.0) {
+                            if (this.getDistanceSqToEntity(e) > 285.0) {
                                 this.reload_ticker = 30;
-                                this.worldObj.playSoundAtEntity( this, Tags.MODID + ":slap", 3.5f, 1.0f);
+                                this.worldObj.playSoundAtEntity(this, Tags.MODID + ":slap", 3.5f, 1.0f);
                             } else {
                                 this.reload_ticker = 10;
                                 this.worldObj.playSoundAtEntity(this, Tags.MODID + ":slap", 2.5f, 1.0f);
@@ -405,7 +404,7 @@ public class TrevorPhillipsInstance extends EntityMob {
 
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(16.0, 16.0, 16.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(16.0, 16.0, 16.0));
         Collections.sort((List<Object>) var5, this.TargetSorter);
         for (final Object var7 : var5) {
             final EntityLivingBase var8 = (EntityLivingBase) var7;
@@ -432,8 +431,7 @@ public class TrevorPhillipsInstance extends EntityMob {
         this.dataWatcher.updateObject(21, par1);
     }
 
-    private EntityLivingBase trevorSmash(final double X, final double Y, final double Z,
-                                         final double damage) {
+    private EntityLivingBase trevorSmash(final double X, final double Y, final double Z, final double damage) {
         final AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(X - 8.0, Y - 2.0, Z - 8.0, X + 8.0, Y + 2.0, Z + 8.0);
         final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, this.TargetSorter);

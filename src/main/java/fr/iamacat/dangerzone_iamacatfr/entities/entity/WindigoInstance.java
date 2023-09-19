@@ -1,13 +1,15 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.boss.EntityDragon;
@@ -26,10 +28,10 @@ import net.minecraft.util.*;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 public class WindigoInstance extends EntityMob {
 
@@ -88,8 +90,7 @@ public class WindigoInstance extends EntityMob {
         this.TargetSorter = new GenericTargetSorterInstance(this);
         this.renderDistanceWeight = 12.0;
         this.tasks.addTask(2, new EntityAIWander(this, 1.0));
-        this.tasks
-            .addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
+        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
     }
 
     protected void applyEntityAttributes() {
@@ -467,7 +468,7 @@ public class WindigoInstance extends EntityMob {
 
     private void msgToPlayers(final String s) {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityPlayer.class, this.boundingBox.expand(80.0, 64.0, 80.0));
+            .getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(80.0, 64.0, 80.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -480,7 +481,7 @@ public class WindigoInstance extends EntityMob {
 
     private EntityPlayer findNearestPlayer() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityPlayer.class, this.boundingBox.expand(80.0, 64.0, 80.0));
+            .getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(80.0, 64.0, 80.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -1212,7 +1213,7 @@ public class WindigoInstance extends EntityMob {
         }
         WindigoInstance target = null;
         target = (WindigoInstance) this.worldObj.findNearestEntityWithinAABB(
-             WindigoInstance.class,
+            WindigoInstance.class,
             this.boundingBox.expand(256.0, 256.0, 256.0),
             (Entity) this);
         return target == null;
@@ -1221,7 +1222,7 @@ public class WindigoInstance extends EntityMob {
     public boolean TooMany() {
         DarknessInstance target = null;
         target = (DarknessInstance) this.worldObj.findNearestEntityWithinAABB(
-             DarknessInstance.class,
+            DarknessInstance.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
             (Entity) this);
         return target != null;
@@ -1341,7 +1342,7 @@ public class WindigoInstance extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(128.0, 128.0, 128.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(128.0, 128.0, 128.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -1403,7 +1404,7 @@ public class WindigoInstance extends EntityMob {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7;

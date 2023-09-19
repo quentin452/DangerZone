@@ -1,8 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Iterator;
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,6 +10,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class LongHitInstance extends EntityThrowable {
 
@@ -75,8 +75,7 @@ public class LongHitInstance extends EntityThrowable {
         }
         if (par1MovingObjectPosition.entityHit != null && this.getThrower() != null) {
             final Entity e = par1MovingObjectPosition.entityHit;
-            if (this.hit_type == 0 && this.getDistanceSqToEntity(this.getThrower()) < 95.0
-                && e != this.getThrower()) {
+            if (this.hit_type == 0 && this.getDistanceSqToEntity(this.getThrower()) < 95.0 && e != this.getThrower()) {
                 e.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.getThrower()), 600.0f);
                 e.setFire(60);
                 final double ks = 1.25;
@@ -87,8 +86,7 @@ public class LongHitInstance extends EntityThrowable {
                 }
                 e.addVelocity(Math.cos(f3) * ks, inair, Math.sin(f3) * ks);
             }
-            if (this.hit_type == 2 && this.getDistanceSqToEntity(this.getThrower()) < 250.0
-                && e != this.getThrower()) {
+            if (this.hit_type == 2 && this.getDistanceSqToEntity(this.getThrower()) < 250.0 && e != this.getThrower()) {
                 e.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.getThrower()), 750.0f);
                 final double ks = 2.75;
                 double inair = 0.35;
@@ -98,8 +96,7 @@ public class LongHitInstance extends EntityThrowable {
                 }
                 e.addVelocity(Math.cos(f3) * ks, inair, Math.sin(f3) * ks);
             }
-            if (this.hit_type == 3 && this.getDistanceSqToEntity(this.getThrower()) < 64.0
-                && e != this.getThrower()) {
+            if (this.hit_type == 3 && this.getDistanceSqToEntity(this.getThrower()) < 64.0 && e != this.getThrower()) {
                 e.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.getThrower()), 55.0f);
                 final double ks = 1.25;
                 double inair = 0.65;
@@ -132,8 +129,7 @@ public class LongHitInstance extends EntityThrowable {
                 }
                 e.addVelocity(Math.cos(f3) * ks, inair, Math.sin(f3) * ks);
             }
-            if (this.hit_type == 5 && this.getDistanceSqToEntity(this.getThrower()) < 250.0
-                && e != this.getThrower()) {
+            if (this.hit_type == 5 && this.getDistanceSqToEntity(this.getThrower()) < 250.0 && e != this.getThrower()) {
                 e.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.getThrower()), 700.0f);
                 final double ks = 2.75;
                 double inair = 0.35;
@@ -143,8 +139,7 @@ public class LongHitInstance extends EntityThrowable {
                 }
                 e.addVelocity(Math.cos(f3) * ks, inair, Math.sin(f3) * ks);
             }
-            if (this.hit_type == 6 && this.getDistanceSqToEntity(this.getThrower()) < 85.0
-                && e != this.getThrower()) {
+            if (this.hit_type == 6 && this.getDistanceSqToEntity(this.getThrower()) < 85.0 && e != this.getThrower()) {
                 e.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.getThrower()), 950.0f);
                 final double ks = 1.0;
                 double inair = 0.45;
@@ -154,8 +149,7 @@ public class LongHitInstance extends EntityThrowable {
                 }
                 e.addVelocity(Math.cos(f3) * ks, inair, Math.sin(f3) * ks);
             }
-            if (this.hit_type == 7 && this.getDistanceSqToEntity(this.getThrower()) < 250.0
-                && e != this.getThrower()) {
+            if (this.hit_type == 7 && this.getDistanceSqToEntity(this.getThrower()) < 250.0 && e != this.getThrower()) {
                 e.attackEntityFrom(DamageSource.outOfWorld, 175.0f);
                 if (e != null) {
                     this.doSplashDamage(e.posX, e.posY, e.posZ, 8.0, 175.0, 1);
@@ -168,8 +162,7 @@ public class LongHitInstance extends EntityThrowable {
                 }
                 e.addVelocity(Math.cos(f3) * ks, inair, Math.sin(f3) * ks);
             }
-            if (this.hit_type == 8 && this.getDistanceSqToEntity(this.getThrower()) < 750.0
-                && e != this.getThrower()) {
+            if (this.hit_type == 8 && this.getDistanceSqToEntity(this.getThrower()) < 750.0 && e != this.getThrower()) {
                 e.attackEntityFrom(DamageSource.inWall, 2000.0f);
                 if (e != null) {
                     this.doSplashDamage(e.posX, e.posY, e.posZ, 32.0, 2000.0, 1);
@@ -212,7 +205,7 @@ public class LongHitInstance extends EntityThrowable {
         final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
-        final List var5 = this.worldObj.getEntitiesWithinAABB( EntityLivingBase.class, bb);
+        final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         final Iterator var6 = var5.iterator();
         Entity var7;
         EntityLivingBase var8;

@@ -1,13 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
 
 public class FireCannon extends EntityThrowable {
 

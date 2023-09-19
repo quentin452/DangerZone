@@ -1,12 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LargeFlameInstance extends EntityFX {
@@ -14,7 +13,7 @@ public class LargeFlameInstance extends EntityFX {
     private float flameScale;
 
     public LargeFlameInstance(final World par1World, final double par2, final double par4, final double par6,
-                              final double par8, final double par10, final double par12) {
+        final double par8, final double par10, final double par12) {
         super(par1World, par2, par4, par6, par8, par10, par12);
         this.motionX = this.motionX * 0.009999999776482582 + par8;
         this.motionY = this.motionY * 0.009999999776482582 + par10;

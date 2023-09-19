@@ -1,9 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.TragicMob;
+import fr.iamacat.dangerzone_iamacatfr.util.WorldHelper;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,9 +15,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.TragicMob;
-import fr.iamacat.dangerzone_iamacatfr.util.WorldHelper;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 public abstract class TragicBoss extends EntityMob implements IBossDisplayData {
 

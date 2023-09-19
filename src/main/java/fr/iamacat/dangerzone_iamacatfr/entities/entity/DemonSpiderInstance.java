@@ -1,15 +1,15 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
@@ -26,9 +26,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
 public class DemonSpiderInstance extends EntityMob {
 
@@ -48,13 +49,12 @@ public class DemonSpiderInstance extends EntityMob {
         this.fireResistance = 100;
         this.renderDistanceWeight = 12.0;
         this.TargetSorter = new GenericTargetSorterInstance((Entity) this);
-        this.tasks.addTask(0, new EntityAISwimming( this));
-        this.tasks.addTask(1, new EntityAIMoveThroughVillage( this, 1.0, false));
-        this.tasks.addTask(2, new EntityAIWander( this, 1.0));
-        this.tasks
-            .addTask(3, new EntityAIWatchClosest( this, (Class<EntityPlayer>) EntityPlayer.class, 8.0f));
-        this.tasks.addTask(4, new EntityAILookIdle( this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIMoveThroughVillage(this, 1.0, false));
+        this.tasks.addTask(2, new EntityAIWander(this, 1.0));
+        this.tasks.addTask(3, new EntityAIWatchClosest(this, (Class<EntityPlayer>) EntityPlayer.class, 8.0f));
+        this.tasks.addTask(4, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
     }
 
     protected void applyEntityAttributes() {

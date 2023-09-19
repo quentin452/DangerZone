@@ -1541,13 +1541,10 @@ public class EntityInitDangerZone {
             true);
         int MavisBallDangerZone = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(
-            MavisBallInstance.class,
-            "MavisBallDangerZone",
-            MavisBallDangerZone);
+        EntityRegistry.registerGlobalEntityID(MavisBallInstance.class, "MavisBallDangerZone", MavisBallDangerZone);
 
         EntityRegistry.registerModEntity(
-           MavisBallInstance.class,
+            MavisBallInstance.class,
             "MavisBallDangerZone",
             MavisBallDangerZone, // Use the chosen unique ID
             Tags.MODID,
@@ -1604,7 +1601,8 @@ public class EntityInitDangerZone {
             true);
         int WindigoPowerDangerZone = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(WindigoPowerInstance.class, "WindigoPowerDangerZone", WindigoPowerDangerZone);
+        EntityRegistry
+            .registerGlobalEntityID(WindigoPowerInstance.class, "WindigoPowerDangerZone", WindigoPowerDangerZone);
 
         EntityRegistry.registerModEntity(
             WindigoPowerInstance.class,
@@ -1688,7 +1686,10 @@ public class EntityInitDangerZone {
             true);
         int GhostInstance = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance.class, "GhostInstance", GhostInstance);
+        EntityRegistry.registerGlobalEntityID(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance.class,
+            "GhostInstance",
+            GhostInstance);
 
         EntityRegistry.registerModEntity(
             fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance.class,

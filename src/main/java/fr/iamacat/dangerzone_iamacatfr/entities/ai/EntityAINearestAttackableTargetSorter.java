@@ -1,9 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import java.util.Comparator;
-
 import net.minecraft.entity.Entity;
+
+import java.util.Comparator;
 
 public class EntityAINearestAttackableTargetSorter implements Comparator {
 

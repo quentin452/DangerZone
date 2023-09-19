@@ -1,17 +1,15 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ResourceLocation;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.MassoInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public class MassoRenderer extends RenderLiving {
@@ -24,7 +22,7 @@ public class MassoRenderer extends RenderLiving {
 
     public void func_177_a(final MassoInstance entityMasso, final double d, final double d1, final double d2,
         final float f, final float f1) {
-        super.doRender( entityMasso, d, d1, d2, f, f1);
+        super.doRender(entityMasso, d, d1, d2, f, f1);
     }
 
     public void doRenderLiving(final EntityLivingBase entityliving, final double d, final double d1, final double d2,

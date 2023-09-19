@@ -1,9 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.api;
 
-import net.minecraft.item.Item;
-
 import com.google.common.base.Optional;
+import net.minecraft.item.Item;
 
 public enum ItemList {
 

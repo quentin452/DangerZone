@@ -1,20 +1,18 @@
 
 package fr.iamacat.dangerzone_iamacatfr.util.libs.MCAClientLibrary;
 
-import java.nio.FloatBuffer;
-
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.Utils;
 import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math.Matrix4f;
 import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math.Quaternion;
+import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math.Vector3f;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.Tessellator;
-
 import org.lwjgl.opengl.GL11;
 
-import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.Utils;
-import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math.Vector3f;
+import java.nio.FloatBuffer;
 
 public class MCAModelRenderer extends ModelRenderer {
 

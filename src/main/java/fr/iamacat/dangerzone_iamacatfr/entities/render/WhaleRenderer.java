@@ -1,7 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import java.util.Random;
-
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -13,7 +12,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import java.util.Random;
 
 public class WhaleRenderer {
 

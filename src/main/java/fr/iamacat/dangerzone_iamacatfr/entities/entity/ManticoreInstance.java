@@ -1,11 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -27,11 +27,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 public class ManticoreInstance extends EntityMob {
 
@@ -55,15 +54,12 @@ public class ManticoreInstance extends EntityMob {
         this.renderDistanceWeight = 12.0;
         this.TargetSorter = new GenericTargetSorterInstance((Entity) this);
         this.renderdata = new InfoRenderer();
-        this.tasks.addTask(0, new EntityAISwimming( this));
-        this.tasks.addTask(
-            1,
-            new EntityAIMoveThroughVillage( this, 0.8999999761581421, false));
-        this.tasks.addTask(2, new EntityAIWander( this, 1.0));
-        this.tasks
-            .addTask(3, new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
-        this.tasks.addTask(4, new EntityAILookIdle( this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIMoveThroughVillage(this, 0.8999999761581421, false));
+        this.tasks.addTask(2, new EntityAIWander(this, 1.0));
+        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
+        this.tasks.addTask(4, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
     }
 
     protected void entityInit() {
@@ -325,7 +321,7 @@ public class ManticoreInstance extends EntityMob {
         if (var8 != null) {
             var8.setLocationAndAngles(par2, par4, par6, par0World.rand.nextFloat() * 360.0f, 0.0f);
             par0World.spawnEntityInWorld(var8);
-             ((EntityLiving) var8).playLivingSound();
+            ((EntityLiving) var8).playLivingSound();
         }
         return var8;
     }
@@ -375,7 +371,7 @@ public class ManticoreInstance extends EntityMob {
          * }
          */
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(24.0, 6.0, 24.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(24.0, 6.0, 24.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -425,7 +421,7 @@ public class ManticoreInstance extends EntityMob {
         }
         ManticoreInstance target = null;
         target = (ManticoreInstance) this.worldObj.findNearestEntityWithinAABB(
-             ManticoreInstance.class,
+            ManticoreInstance.class,
             this.boundingBox.expand(16.0, 6.0, 16.0),
             (Entity) this);
         return target == null;

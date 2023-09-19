@@ -1,11 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -27,11 +27,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 public class MavisInstance extends EntityTameable {
 
@@ -65,16 +64,14 @@ public class MavisInstance extends EntityTameable {
         this.isImmuneToFire = true;
         this.TargetSorter = new GenericTargetSorterInstance((Entity) this);
         this.renderdata = new InfoRenderer();
-        this.tasks.addTask(0, new EntityAISwimming( this));
+        this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIMate((EntityAnimal) this, 1.0));
         this.tasks.addTask(2, new EntityAIFollowOwner((EntityTameable) this, 2.0, 10.0f, 2.0f));
-        this.tasks
-            .addTask(3, new EntityAITempt( this, 1.200000047683716, Items.fish, false));
-        this.tasks.addTask(4, new EntityAIWander( this, 1.0));
-        this.tasks
-            .addTask(5, new EntityAIWatchClosest( this,  EntityPlayer.class, 8.0f));
-        this.tasks.addTask(6, new EntityAILookIdle( this));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, false));
+        this.tasks.addTask(3, new EntityAITempt(this, 1.200000047683716, Items.fish, false));
+        this.tasks.addTask(4, new EntityAIWander(this, 1.0));
+        this.tasks.addTask(5, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
+        this.tasks.addTask(6, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
     }
 
     protected void applyEntityAttributes() {
@@ -561,7 +558,7 @@ public class MavisInstance extends EntityTameable {
             return null;
         }
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(14.0, 4.0, 14.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(14.0, 4.0, 14.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;
@@ -615,10 +612,8 @@ public class MavisInstance extends EntityTameable {
         if (!this.worldObj.isDaytime()) {
             return false;
         }
-        target = (MavisInstance) this.worldObj.findNearestEntityWithinAABB(
-             MavisInstance.class,
-            this.boundingBox.expand(16.0, 5.0, 16.0),
-            (Entity) this);
+        target = (MavisInstance) this.worldObj
+            .findNearestEntityWithinAABB(MavisInstance.class, this.boundingBox.expand(16.0, 5.0, 16.0), (Entity) this);
         return target == null;
     }
 

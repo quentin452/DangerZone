@@ -1,13 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.materials;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 // todo , make can kill ants/termite when moving on salt ore
 public class SaltOre extends Block {

@@ -1,7 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityWeatherEffect;
@@ -12,7 +11,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.List;
 
 public class DirectedLightningInstance extends EntityWeatherEffect {
 

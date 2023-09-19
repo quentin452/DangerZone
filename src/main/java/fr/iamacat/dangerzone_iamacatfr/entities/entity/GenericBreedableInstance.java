@@ -1,14 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-
 import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 public abstract class GenericBreedableInstance extends GenericAgeableInstance {
 
@@ -107,8 +107,8 @@ public abstract class GenericBreedableInstance extends GenericAgeableInstance {
             final Constructor<?> ctor = thisClass.getConstructor(World.class);
             try {
                 object = ctor.newInstance(this.worldObj);
-            } catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
-                     InvocationTargetException e) {
+            } catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+                | InvocationTargetException e) {
                 e.printStackTrace();
             }
         } catch (NoSuchMethodException | SecurityException e5) {

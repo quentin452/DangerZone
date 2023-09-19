@@ -1,11 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -18,8 +15,10 @@ import net.minecraft.util.*;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 
 public class DashCloudInstance extends CloudInstance implements IMob {
 
@@ -231,7 +230,7 @@ public class DashCloudInstance extends CloudInstance implements IMob {
         } else if (this.worldObj.rand.nextInt(10) == 0 && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) {
             EntityPlayer target = null;
             target = (EntityPlayer) this.worldObj.findNearestEntityWithinAABB(
-                 EntityPlayer.class,
+                EntityPlayer.class,
                 this.boundingBox.expand(6.0, 32.0, 6.0),
                 (Entity) this);
             if (target != null) {
@@ -340,7 +339,7 @@ public class DashCloudInstance extends CloudInstance implements IMob {
         }
         DashCloudInstance target = null;
         target = (DashCloudInstance) this.worldObj.findNearestEntityWithinAABB(
-             DashCloudInstance.class,
+            DashCloudInstance.class,
             this.boundingBox.expand(64.0, 32.0, 64.0),
             (Entity) this);
         return target == null;
@@ -360,7 +359,7 @@ public class DashCloudInstance extends CloudInstance implements IMob {
         if (var8 != null) {
             var8.setLocationAndAngles(par2, par4, par6, par0World.rand.nextFloat() * 360.0f, 0.0f);
             par0World.spawnEntityInWorld(var8);
-             ((EntityLiving) var8).playLivingSound();
+            ((EntityLiving) var8).playLivingSound();
         }
         return var8;
     }
@@ -397,7 +396,7 @@ public class DashCloudInstance extends CloudInstance implements IMob {
 
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(128.0, 64.0, 128.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(128.0, 64.0, 128.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

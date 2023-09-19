@@ -1,5 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -8,8 +9,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 // todo it seem thats doesn't work
 public class TheZooKeeper extends Item {

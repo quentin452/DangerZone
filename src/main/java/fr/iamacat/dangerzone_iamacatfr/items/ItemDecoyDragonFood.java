@@ -1,14 +1,13 @@
 
 package fr.iamacat.dangerzone_iamacatfr.items;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class ItemDecoyDragonFood extends ItemFood {
 

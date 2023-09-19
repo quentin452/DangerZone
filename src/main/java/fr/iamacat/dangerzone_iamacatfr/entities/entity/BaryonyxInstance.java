@@ -1,8 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityLiving;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -11,38 +10,19 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-
 public class BaryonyxInstance extends EntityMob {
 
     public BaryonyxInstance(final World par1World) {
         super(par1World);
         this.setSize(this.width * 2.5f, this.height * 2.5f);
-        this.tasks.addTask(0, new EntityAISwimming( this));
-        this.tasks.addTask(
-            1,
-            new EntityAIAttackOnCollide( this,  EntityPlayer.class, 0.4, false));
-        this.tasks.addTask(
-            1,
-            new EntityAIAttackOnCollide( this,  MassoInstance.class, 0.4, false));
-        this.tasks.addTask(2, new EntityAIWander( this, 0.4));
-        this.tasks
-            .addTask(3, new EntityAIWatchClosest( this,  EntityPlayer.class, 6.0f));
-        this.targetTasks.addTask(1, new EntityAIHurtByTarget( this, true));
-        this.targetTasks.addTask(
-            2,
-            new EntityAINearestAttackableTarget(
-                 this,
-                 EntityPlayer.class,
-                0,
-                true));
-        this.targetTasks.addTask(
-            2,
-            new EntityAINearestAttackableTarget(
-                 this,
-                 MassoInstance.class,
-                0,
-                true));
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, 0.4, false));
+        this.tasks.addTask(1, new EntityAIAttackOnCollide(this, MassoInstance.class, 0.4, false));
+        this.tasks.addTask(2, new EntityAIWander(this, 0.4));
+        this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0f));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, MassoInstance.class, 0, true));
     }
 
     protected void applyEntityAttributes() {

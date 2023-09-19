@@ -1,9 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
-
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 // todo make a model to make the item larger
 public class AttitudeAdjuster extends ItemSword {

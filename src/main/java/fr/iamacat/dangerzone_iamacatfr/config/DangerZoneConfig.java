@@ -1,8 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.config;
 
-import java.io.File;
-
 import net.minecraftforge.common.config.Configuration;
+
+import java.io.File;
 
 public class DangerZoneConfig extends Configuration {
 
@@ -156,7 +156,13 @@ public class DangerZoneConfig extends Configuration {
             0,
             Integer.MAX_VALUE,
             "Dark Crystal Projectile Damage");
-        MeteorStrikeDamage = getInt("DarkCrystalDamage", "general", 350, 0, Integer.MAX_VALUE, "MeteorModel Strike Damage");
+        MeteorStrikeDamage = getInt(
+            "DarkCrystalDamage",
+            "general",
+            350,
+            0,
+            Integer.MAX_VALUE,
+            "MeteorModel Strike Damage");
 
     }
 

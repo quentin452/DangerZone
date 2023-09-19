@@ -1,5 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -7,9 +9,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
-
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class InstantShelter extends Item {
 

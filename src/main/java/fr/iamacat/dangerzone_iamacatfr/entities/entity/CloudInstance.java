@@ -1,8 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import java.util.*;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,6 +18,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+
+import java.util.*;
 
 public class CloudInstance extends EntityAmbientCreature {
 
@@ -187,7 +187,7 @@ public class CloudInstance extends EntityAmbientCreature {
 
     private EntityLivingBase findSomethingToAttack() {
         final List var5 = this.worldObj
-            .getEntitiesWithinAABB( EntityLivingBase.class, this.boundingBox.expand(8.0, 5.0, 8.0));
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(8.0, 5.0, 8.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
         final Iterator var6 = var5.iterator();
         Entity var7 = null;

@@ -1,17 +1,15 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.BetterFireballInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 @SideOnly(Side.CLIENT)
 public class BetterFireballRenderer extends Render {
@@ -44,14 +42,10 @@ public class BetterFireballRenderer extends Render {
         GL11.glRotatef(par3, 0.0f, 0.0f, 1.0f);
         par1Tessellator.startDrawingQuads();
         par1Tessellator.setNormal(0.0f, 1.0f, 0.0f);
-        par1Tessellator
-            .addVertexWithUV( (0.0f - var8), (0.0f - var9), 0.0, var3, var6);
-        par1Tessellator
-            .addVertexWithUV( (var7 - var8),(0.0f - var9), 0.0,  var4,  var6);
-        par1Tessellator
-            .addVertexWithUV((var7 - var8),  (var7 - var9), 0.0,  var4,  var5);
-        par1Tessellator
-            .addVertexWithUV((0.0f - var8), (var7 - var9), 0.0, var3, var5);
+        par1Tessellator.addVertexWithUV((0.0f - var8), (0.0f - var9), 0.0, var3, var6);
+        par1Tessellator.addVertexWithUV((var7 - var8), (0.0f - var9), 0.0, var4, var6);
+        par1Tessellator.addVertexWithUV((var7 - var8), (var7 - var9), 0.0, var4, var5);
+        par1Tessellator.addVertexWithUV((0.0f - var8), (var7 - var9), 0.0, var3, var5);
         par1Tessellator.draw();
     }
 

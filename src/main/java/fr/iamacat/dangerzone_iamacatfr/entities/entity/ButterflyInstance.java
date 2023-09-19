@@ -21,8 +21,6 @@ import net.minecraft.world.WorldServer;
 
 public class ButterflyInstance extends EntityAmbientCreature {
 
-
-
     private ChunkCoordinates spawnPosition;
 
     @Override

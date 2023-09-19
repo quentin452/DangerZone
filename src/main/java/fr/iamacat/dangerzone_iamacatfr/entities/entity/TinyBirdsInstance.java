@@ -1,5 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAITFBirdFly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -17,9 +19,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntityAITFBirdFly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class TinyBirdsInstance extends BirdsInstance {
 
@@ -60,7 +59,7 @@ public class TinyBirdsInstance extends BirdsInstance {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(DATA_BIRDTYPE,  0);
+        this.dataWatcher.addObject(DATA_BIRDTYPE, 0);
         this.dataWatcher.addObject(DATA_BIRDFLAGS, 0);
     }
 
@@ -124,7 +123,7 @@ public class TinyBirdsInstance extends BirdsInstance {
     }
 
     public void setBirdType(int par1) {
-        this.dataWatcher.updateObject(DATA_BIRDTYPE,par1);
+        this.dataWatcher.updateObject(DATA_BIRDTYPE, par1);
     }
 
     /**
@@ -318,7 +317,7 @@ public class TinyBirdsInstance extends BirdsInstance {
         if (par1) {
             this.dataWatcher.updateObject(DATA_BIRDFLAGS, (b0 | 1));
         } else {
-            this.dataWatcher.updateObject(DATA_BIRDFLAGS,  (b0 & -2));
+            this.dataWatcher.updateObject(DATA_BIRDFLAGS, (b0 & -2));
         }
     }
 

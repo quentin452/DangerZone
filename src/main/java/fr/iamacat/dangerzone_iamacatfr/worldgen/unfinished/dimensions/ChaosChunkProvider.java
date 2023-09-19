@@ -20,7 +20,7 @@ public class ChaosChunkProvider  implements IChunkProvider {
     private final long seed;
     private final ChunkProviderGenerate generateProvider;
 
-    public MiningChunkProvider(World world, long seed) {
+    public ChaosChunkProvider(World world, long seed) {
         this.world = world;
         this.seed = seed;
         this.generateProvider = new ChunkProviderGenerate(world, seed, false);

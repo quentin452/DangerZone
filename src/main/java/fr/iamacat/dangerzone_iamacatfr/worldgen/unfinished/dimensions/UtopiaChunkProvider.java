@@ -1,7 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions;
 
-import danger.orespawn.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
@@ -37,19 +37,19 @@ public class UtopiaChunkProvider implements IChunkProvider {
     public NoiseGeneratorOctaves noiseGen5;
     public NoiseGeneratorOctaves noiseGen6;
     public NoiseGeneratorOctaves mobSpawnerNoise;
-    private World worldObj;
+    private final World worldObj;
     private final boolean mapFeaturesEnabled;
-    private WorldType field_147435_p;
+    private final WorldType field_147435_p;
     private final double[] field_147434_q;
     private final float[] parabolicField;
     private double[] stoneNoise;
-    private MapGenBase caveGenerator;
+    private final MapGenBase caveGenerator;
     private ArrayList MyAmbientList;
-    private ArrayList MyCritterList;
-    private MapGenStronghold strongholdGenerator;
-    private MapGenMineshaft mineshaftGenerator;
-    private MapGenScatteredFeature scatteredFeatureGenerator;
-    private MapGenBase ravineGenerator;
+    private final ArrayList MyCritterList;
+    private final MapGenStronghold strongholdGenerator;
+    private final MapGenMineshaft mineshaftGenerator;
+    private final MapGenScatteredFeature scatteredFeatureGenerator;
+    private final MapGenBase ravineGenerator;
     private BiomeGenBase[] biomesForGeneration;
     double[] field_147427_d;
     double[] field_147428_e;
@@ -194,8 +194,8 @@ public class UtopiaChunkProvider implements IChunkProvider {
             abyte,
             this.biomesForGeneration = this.worldObj.getWorldChunkManager()
                 .loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16));
-        this.caveGenerator.func_151539_a((IChunkProvider) this, this.worldObj, par1, par2, ablock);
-        this.ravineGenerator.func_151539_a((IChunkProvider) this, this.worldObj, par1, par2, ablock);
+        this.caveGenerator.func_151539_a(this, this.worldObj, par1, par2, ablock);
+        this.ravineGenerator.func_151539_a(this, this.worldObj, par1, par2, ablock);
         final Chunk chunk = new Chunk(this.worldObj, ablock, abyte, par1, par2);
         DangerZone.Chunker.generateOresInChunk(this.worldObj, this.rand, par1 * 16, par2 * 16, chunk);
         chunk.generateSkylightMap();
@@ -359,11 +359,11 @@ public class UtopiaChunkProvider implements IChunkProvider {
 
     public List getPossibleCreatures(final EnumCreatureType par1EnumCreatureType, final int par2, final int par3,
         final int par4) {
-        List l = null;
-        List m = null;
-        Iterator var2 = null;
-        BiomeGenBase.SpawnListEntry var3 = null;
-        BiomeGenBase var4 = null;
+        List l;
+        List m;
+        Iterator var2;
+        BiomeGenBase.SpawnListEntry var3;
+        BiomeGenBase var4;
         var4 = this.worldObj.getBiomeGenForCoords(par2, par4);
         if (var4 == null) {
             return null;

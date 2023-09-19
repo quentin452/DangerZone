@@ -1,8 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions;
 
-import danger.orespawn.DangerZone;
-import danger.orespawn.worldgen.structures.MapGenMoreVillages;
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dungeons.MapGenMoreVillages;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;

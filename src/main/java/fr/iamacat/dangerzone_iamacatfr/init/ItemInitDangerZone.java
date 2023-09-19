@@ -2,6 +2,7 @@ package fr.iamacat.dangerzone_iamacatfr.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.iamacat.dangerzone_iamacatfr.blocks.ItemIrukandjiArrow;
+import fr.iamacat.dangerzone_iamacatfr.blocks.Lavafoam;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
 import fr.iamacat.dangerzone_iamacatfr.items.*;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
@@ -616,7 +617,6 @@ public class ItemInitDangerZone {
         ItemShoes = new ItemShoes();
         ItemStrawberrySeed = new ItemStrawberrySeed();
         KrakenRepellent = Item.getItemFromBlock(new KrakenRepellent());
-        Lavafoam = Item.getItemFromBlock(new Lavafoam());
         royalsword = new Bertha(toolRoyal);
 
         MyBertha = new Bertha(toolRoyal).setUnlocalizedName("berthasmall");
@@ -884,7 +884,6 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(ItemShoes, "ItemShoes");
         GameRegistry.registerItem(ItemStrawberrySeed, "ItemStrawberrySeed");
         GameRegistry.registerItem(KrakenRepellent, "KrakenRepellent");
-        GameRegistry.registerItem(Lavafoam, "Lavafoam");
         GameRegistry.registerItem(royalsword, "royalsword");
         GameRegistry.registerItem(LavaLovingItem, "LavaLovingItem");
         GameRegistry.registerItem(CrystalSword, "CrystalSword");

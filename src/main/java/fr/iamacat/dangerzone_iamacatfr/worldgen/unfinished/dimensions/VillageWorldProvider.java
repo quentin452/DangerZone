@@ -1,8 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions;
 
-import danger.orespawn.DangerZone;
-import danger.orespawn.worldgen.biomes.BiomeGenUtopianPlains;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.biomes.UtopiaBiomeProvider;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldServer;
@@ -16,10 +16,10 @@ import net.minecraftforge.common.DimensionManager;
 
 public class VillageWorldProvider extends WorldProvider {
 
-    private BiomeGenUtopianPlains MyPlains;
+    private UtopiaBiomeProvider MyPlains;
 
     public VillageWorldProvider() {
-        this.MyPlains = (BiomeGenUtopianPlains) new BiomeGenUtopianPlains(DangerZone.BiomeVillageID).setColor(353825)
+        this.MyPlains = (UtopiaBiomeProvider) new UtopiaBiomeProvider().setColor(353825)
             .setBiomeName("Villages")
             .setTemperatureRainfall(0.7f, 0.5f);
     }
@@ -37,7 +37,7 @@ public class VillageWorldProvider extends WorldProvider {
         this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell((BiomeGenBase) this.MyPlains, 0.5f);
         this.worldChunkMgr.getBiomeGenAt(0, 0)
             .setTemperatureRainfall(0.7f, 0.5f);
-        this.dimensionId = DangerZone.DimensionID3;
+        this.dimensionId = DimensionInitDangerZone.VillageDimensionId;
         BiomeManager.addVillageBiome((BiomeGenBase) this.MyPlains, true);
     }
 

@@ -1,5 +1,5 @@
 
-package fr.iamacat.dangerzone_iamacatfr.items;
+package fr.iamacat.dangerzone_iamacatfr.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -128,6 +128,7 @@ public class BlockInitDangerZone {
     public static Block TermiteTroll;
     public static Block CrystalFlowerRedBlock;
     public static Block CrystalFlowerYellowBlock;
+    public static Block Lavafoam;
 
     public static OreGenericEgg WaterDragonSpawnBlock;
     public static OreGenericEgg EnderKnightSpawnBlock;
@@ -567,6 +568,7 @@ public class BlockInitDangerZone {
         CrystalRat = new OreGenericEgg();
         CrystalFlowerGreenBlock = new MyBlockFlower();
         CrystalFlowerBlueBlock = new MyBlockFlower();
+        Lavafoam = new Lavafoam();
 
     }
 
@@ -796,6 +798,7 @@ public class BlockInitDangerZone {
         GameRegistry.registerBlock(CrystalRat, "CrystalRat");
         GameRegistry.registerBlock(CrystalFlowerGreenBlock, "CrystalFlowerGreenBlock");
         GameRegistry.registerBlock(CrystalFlowerBlueBlock, "CrystalFlowerBlueBlock");
+        GameRegistry.registerBlock(Lavafoam, "Lavafoam");
 
     }
 

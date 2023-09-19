@@ -1,7 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dungeons;
 
-import danger.orespawn.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -54,11 +55,11 @@ public class CrystalMaze {
         for (int k = 0; k < 4; ++k) {
             final int i = world.rand.nextInt(zw * csz);
             final int j = world.rand.nextInt(zw * csz);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + j, yy + 3, zz + i, DangerZone.CrystalStone, 0);
+            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + j, yy + 3, zz + i, BlockInitDangerZone.CrystalStone, 0);
         }
         int i = world.rand.nextInt(zw * csz);
         int j = world.rand.nextInt(zw * csz);
-        DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + j, yy - 1, zz + i, DangerZone.CrystalStone, 0);
+        DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + j, yy - 1, zz + i, BlockInitDangerZone.CrystalStone, 0);
     }
 
     private void makeMaze(final World world, final int xx, final int yy, final int zz, final int xw, final int zw,

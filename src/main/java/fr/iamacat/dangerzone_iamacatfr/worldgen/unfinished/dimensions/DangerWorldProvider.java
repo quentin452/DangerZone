@@ -1,8 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions;
 
-import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.biomes.DangerBiomeProvider;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class DangerWorldProvider extends WorldProvider {
@@ -13,12 +11,17 @@ public class DangerWorldProvider extends WorldProvider {
     }
 
     @Override
-    public IChunkProvider createChunkGenerator() {
-        return new DangerChunkProvider(worldObj, getSeed());
+    public String getWelcomeMessage() {
+        return "Entering the Danger Dimension!";
     }
 
     @Override
-    public BiomeGenBase getBiomeGenForCoords(int x, int z) {
-        return DangerBiomeProvider.danger;
+    public String getDepartMessage() {
+        return "Leaving the Danger Dimension.";
+    }
+
+    @Override
+    public IChunkProvider createChunkGenerator() {
+        return new DangerChunkProvider(worldObj, worldObj.getSeed());
     }
 }

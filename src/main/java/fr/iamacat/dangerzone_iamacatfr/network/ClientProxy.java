@@ -1,5 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderFireball;
@@ -262,6 +263,9 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(FireCannon.class, new RenderMeteor());
         RenderingRegistry.registerEntityRenderingHandler(RainbowCannon.class, new RenderRainbowCannon());
         RenderingRegistry.registerEntityRenderingHandler(ProjectileApples.class, new RenderApples());
+
+        RenderingRegistry.registerEntityRenderingHandler(GhostInstance.class, new GhostRenderer(new ModelBiped(), 0.0f));
+
 
     }
 

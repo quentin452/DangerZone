@@ -5,6 +5,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.WhaleRenderer;
 import fr.iamacat.dangerzone_iamacatfr.items.IrukandjiArrows;
@@ -1681,6 +1682,18 @@ public class EntityInitDangerZone {
             FreezeBall.class,
             "FreezeBall",
             FreezeBall, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int GhostInstance = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance.class, "GhostInstance", GhostInstance);
+
+        EntityRegistry.registerModEntity(
+            fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance.class,
+            "GhostInstance",
+            GhostInstance, // Use the chosen unique ID
             Tags.MODID,
             32,
             1,

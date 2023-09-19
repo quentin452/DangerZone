@@ -221,11 +221,6 @@ public class SpawnEggInitDangerZone {
         Constants.termiteSPawnEgg = termiteSPawnEgg;
         GameRegistry.registerItem(Constants.termiteSPawnEgg, "Termite Egg");
 
-        SpawnEggs GhostPunpkinSkellySpawnEgg = new SpawnEggs(GhostSkeletonInstance.class);
-        GhostPunpkinSkellySpawnEgg.setUnlocalizedName("ghost_pumpkin_skelly_egg");
-        Constants.GhostPunpkinSkellySpawnEgg = GhostPunpkinSkellySpawnEgg;
-        GameRegistry.registerItem(Constants.GhostPunpkinSkellySpawnEgg, "Ghost Pumpkin Skelly Egg");
-
         SpawnEggs ButterflySpawnEgg = new SpawnEggs(ButterflyInstance.class);
         ButterflySpawnEgg.setUnlocalizedName("butterfly_egg");
         Constants.ButterflySpawnEgg = ButterflySpawnEgg;

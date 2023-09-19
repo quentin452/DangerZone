@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.items.CrystalFurnace;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 
 public class BlockInitDangerZone {
 
@@ -42,6 +43,7 @@ public class BlockInitDangerZone {
     public static Block TrollBlock1;
     public static Block TrollBlock2;
     public static Block SaltOre;
+    public static Block CrystalStone;
 
     public static void init() {
 
@@ -145,6 +147,8 @@ public class BlockInitDangerZone {
         SaltOre = new SaltOre();
         SaltOre.setBlockName("SaltOre");
 
+        CrystalStone = new CrystalStone(Material.rock);
+        CrystalStone.setBlockName("CrystalStone");
     }
 
     public static void register() {
@@ -184,6 +188,7 @@ public class BlockInitDangerZone {
         GameRegistry.registerBlock(TrollBlock1, "TrollBlock1");
         GameRegistry.registerBlock(TrollBlock2, "TrollBlock2");
         GameRegistry.registerBlock(SaltOre, "SaltOre");
+        GameRegistry.registerBlock(CrystalStone, "CrystalStone");
 
     }
 

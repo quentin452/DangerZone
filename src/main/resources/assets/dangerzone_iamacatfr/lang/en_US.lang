@@ -572,6 +572,7 @@ tile.AmethystBlockOre.name=Amethyst Ore
 tile.TigersEyeBlockOre.name=Tigers Eye Ore
 tile.RubyBlockOre.name=Ruby Ore
 tile.EnderPearlBlock.name=Ender Pearl Block
+tile.CrystalStone.name=Crystal Stone
 
 tile.ExtremeTorch.name=Extreme Torch
 tile.TeleportBlock.name=Teleport Block

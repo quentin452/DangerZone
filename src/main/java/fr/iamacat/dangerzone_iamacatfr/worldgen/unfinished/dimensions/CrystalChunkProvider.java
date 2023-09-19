@@ -1,5 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions;
 
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
@@ -27,13 +28,27 @@ public class CrystalChunkProvider  implements IChunkProvider {
     }
 
     @Override
-    public boolean chunkExists(int p_73149_1_, int p_73149_2_) {
-        return false;
+    public Chunk provideChunk(int x, int z) {
+        Chunk chunk = this.generateProvider.provideChunk(x, z);
+
+        // Changer tous les blocs de la chunk pour "CrystalStone"
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 256; j++) {
+                for (int k = 0; k < 16; k++) {
+                    Block block = chunk.getBlock(i, j, k);
+                    if (block != Blocks.air) { // Vérifiez si ce n'est pas de l'air
+                        chunk.func_150807_a(i, j, k, BlockInitDangerZone.CrystalStone, 0);
+                    }
+                }
+            }
+        }
+
+        return chunk;
     }
 
     @Override
-    public Chunk provideChunk(int x, int z) {
-        return this.generateProvider.provideChunk(x, z);
+    public boolean chunkExists(int p_73149_1_, int p_73149_2_) {
+        return false;
     }
 
     @Override

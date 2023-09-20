@@ -71,21 +71,21 @@ public class CommonProxy {
         entity.setDead();
     }
 
-    private SimpleNetworkWrapper network;
-
     public SimpleNetworkWrapper getNetwork() {
         return this.network;
     }
-
-    public void registerRenderThings() {}
-
-    public void registerKeyboardInput() {}
 
     public void registerNetworkStuff() {
         (this.network = NetworkRegistry.INSTANCE.newSimpleChannel("RiderControls"))
             .registerMessage(RiderControlMessageHandler.class, RiderControlMessage.class, 0, Side.SERVER);
     }
 
+
+    private SimpleNetworkWrapper network;
+
+    public void registerRenderThings() {}
+
+    public void registerKeyboardInput() {}
     public int setArmorPrefix(final String string) {
         return 0;
     }

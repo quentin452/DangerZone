@@ -122,7 +122,6 @@ public class BlockInitDangerZone {
     public static Block PortalBlock;
     public static Block QueenSpawnerBlock;
     public static Block KrakenRepellent;
-    public static Block CrystalRat;
     public static Block CrystalFairy;
     public static Block TrollBlock1;
     public static Block TermiteTroll;
@@ -135,6 +134,7 @@ public class BlockInitDangerZone {
     public static OreGenericEgg EnderReaperSpawnBlock;
     public static OreGenericEgg EnderManSpawnBlock;
     public static OreGenericEgg EnderDragonSpawnBlock;
+    public static OreBasicStone CrystalRat;
 
     public static OreGenericEgg MySpiderSpawnBlock;
     public static OreGenericEgg MyBatSpawnBlock;
@@ -422,6 +422,7 @@ public class BlockInitDangerZone {
         MyFlowerBlackBlock = new MyBlockFlower(2);
         MyFlowerBlueBlock = new MyBlockFlower(3);
         MyFlowerScaryBlock = new MyBlockFlower(4);
+        CrystalFlowerRedBlock = new MyBlockFlower(5);
 
         OreBasicStone = new OreBasicStone(0, 2.0f, 3.0f);
         OreCrystalCrystal = new OreCrystalCrystal(0, 2.0f, 3.0f, 4.0f);
@@ -433,7 +434,6 @@ public class BlockInitDangerZone {
         QueenSpawnerBlock = new QueenSpawnerBlock();
         KrakenRepellent = new KrakenRepellent();
 
-        CrystalRat = new OreBasicStone(0, 2.0f, 3.0f);
         CrystalFairy = new OreBasicStone(0, 2.0f, 3.0f);
         TrollBlock1 = new OreBasicStone(0, 2.0f, 3.0f);
         TermiteTroll = new OreBasicStone(0, 2.0f, 3.0f);
@@ -563,9 +563,12 @@ public class BlockInitDangerZone {
         MyFrogSpawnBlock = new OreGenericEgg();
         MySpiderDriverSpawnBlock = new OreGenericEgg();
         MyCrabSpawnBlock = new OreGenericEgg();
+        MyZombiePigmanSpawnBlock = new OreGenericEgg();
+        MyWitherSkeletonSpawnBlock = new OreGenericEgg();
         CrystalFlowerYellowBlock = new MyBlockFlower(10);
         BlockScaryLeaves3 = new BlockScaryLeaves(11);
-        CrystalRat = new OreGenericEgg();
+        CrystalFairy = new OreBasicStone(10, 2.0f, 3.0f);
+        CrystalRat = new OreBasicStone(11, 2.0f, 3.0f);
         CrystalFlowerGreenBlock = new MyBlockFlower(4);
         CrystalFlowerBlueBlock = new MyBlockFlower(5);
         Lavafoam = new Lavafoam();
@@ -606,7 +609,7 @@ public class BlockInitDangerZone {
         GameRegistry.registerBlock(SaltOre, "SaltOre");
         GameRegistry.registerBlock(CrystalStone, "CrystalStone");
         GameRegistry.registerBlock(RockBlock, "RockBlock");
-        GameRegistry.registerItem(Item.getItemFromBlock(CrystalGrass), "CrystalGrass");
+        GameRegistry.registerBlock(CrystalGrass, "CrystalGrass");
         GameRegistry.registerBlock(CrystalWood, "CrystalWood");
         GameRegistry.registerBlock(BlockAppleLeaves, "BlockAppleLeaves");
         GameRegistry.registerBlock(BlockButterflyPlant, "BlockButterflyPlant");
@@ -614,8 +617,8 @@ public class BlockInitDangerZone {
         GameRegistry.registerBlock(BlockCorn2, "BlockCorn2");
         GameRegistry.registerBlock(BlockCorn3, "BlockCorn3");
         GameRegistry.registerBlock(BlockCorn4, "BlockCorn4");
-        GameRegistry.registerBlock(BlockCrystalLeaves3, "BlockCrystalLeaves");
-        GameRegistry.registerBlock(BlockCrystalLeaves2, "BlockCrystalLeaves");
+        GameRegistry.registerBlock(BlockCrystalLeaves3, "BlockCrystalLeaves3");
+        GameRegistry.registerBlock(BlockCrystalLeaves2, "BlockCrystalLeaves2");
         GameRegistry.registerBlock(BlockCrystalLeaves, "BlockCrystalLeaves");
         GameRegistry.registerBlock(BlockCrystalPlant, "BlockCrystalPlant");
         GameRegistry.registerBlock(BlockCrystalPlant2, "BlockCrystalPlant2");
@@ -793,9 +796,7 @@ public class BlockInitDangerZone {
         GameRegistry.registerBlock(MyFrogSpawnBlock, "MyFrogSpawnBlock");
         GameRegistry.registerBlock(MySpiderDriverSpawnBlock, "MySpiderDriverSpawnBlock");
         GameRegistry.registerBlock(MyCrabSpawnBlock, "MyCrabSpawnBlock");
-        GameRegistry.registerBlock(CrystalFlowerRedBlock, "CrystalFlowerRedBlock");
         GameRegistry.registerBlock(BlockScaryLeaves3, "BlockScaryLeaves3");
-        GameRegistry.registerBlock(CrystalRat, "CrystalRat");
         GameRegistry.registerBlock(CrystalFlowerGreenBlock, "CrystalFlowerGreenBlock");
         GameRegistry.registerBlock(CrystalFlowerBlueBlock, "CrystalFlowerBlueBlock");
         GameRegistry.registerBlock(Lavafoam, "Lavafoam");

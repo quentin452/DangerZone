@@ -303,20 +303,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-        int SunspotUrchinInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry
-            .registerGlobalEntityID(SunspotUrchinInstance.class, "SunspotUrchinInstance", SunspotUrchinInstance);
-
-        EntityRegistry.registerModEntity(
-            SunspotUrchinInstance.class,
-            "SunspotUrchinInstance",
-            SunspotUrchinInstance, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
-
         int AlienInstance = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(AlienInstance.class, "AlienInstance", AlienInstance);
 
@@ -2162,11 +2148,11 @@ public class EntityInitDangerZone {
             true);
         int InkSack = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(InkSack.class, "InkSack", InkSack);
+        EntityRegistry.registerGlobalEntityID(InkSack.class, "InkSackDangerZone", InkSack);
 
         EntityRegistry.registerModEntity(
             InkSack.class,
-            "InkSack",
+            "InkSackDangerZone",
             InkSack, // Use the chosen unique ID
             Tags.MODID,
             32,
@@ -2822,11 +2808,11 @@ public class EntityInitDangerZone {
             true);
         int SunspotUrchin = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(SunspotUrchin.class, "SunspotUrchin", SunspotUrchin);
+        EntityRegistry.registerGlobalEntityID(SunspotUrchin.class, "SunspotUrchinDangerZone", SunspotUrchin);
 
         EntityRegistry.registerModEntity(
             SunspotUrchin.class,
-            "SunspotUrchin",
+            "SunspotUrchinDangerZone",
             SunspotUrchin, // Use the chosen unique ID
             Tags.MODID,
             32,

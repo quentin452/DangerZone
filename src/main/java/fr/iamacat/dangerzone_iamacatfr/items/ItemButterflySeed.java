@@ -19,7 +19,7 @@ public class ItemButterflySeed extends ItemSeeds {
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID +":" + this.getUnlocalizedName()
                 .substring(5));
     }
 }

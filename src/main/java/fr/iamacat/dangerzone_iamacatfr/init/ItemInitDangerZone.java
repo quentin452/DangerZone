@@ -127,7 +127,6 @@ public class ItemInitDangerZone {
     public static Item BigHammer;
     public static Item Blackheels;
     public static Item Boots;
-    public static Item DeadIrukandji;
     public static Item ExperienceCatcher;
     public static Item GameController;
     public static Item InstantGarden;
@@ -273,7 +272,6 @@ public class ItemInitDangerZone {
     public static Item ItemRock;
     public static Item ItemShoes;
     public static Item ItemStrawberrySeed;
-    public static Item KrakenRepellent;
     public static Item Lavafoam;
     public static Item LavaLovingItem;
     public static Item CrystalSword;
@@ -400,7 +398,7 @@ public class ItemInitDangerZone {
         RedAntRobotKit = new RedAntRobotKit().setUnlocalizedName("RedAntRobotKit");
         SpiderRobotKit = new SpiderRobotKit().setUnlocalizedName("SpiderRobotKit");
         DeadStinkBug = new DeadStinkBug().setUnlocalizedName("DeadStinkBug");
-        DuctTape ductTape = (fr.iamacat.dangerzone_iamacatfr.items.DuctTape) new DuctTape(Blocks.stone).setUnlocalizedName("DuctTape");
+        DuctTape = new DuctTape(Blocks.stone).setUnlocalizedName("DuctTape");
         KrakenTooth = new KrakenTooth().setUnlocalizedName("KrakenTooth");
         TrexTooth = new TrexTooth().setUnlocalizedName("TrexTooth");
         WormTooth = new WormTooth().setUnlocalizedName("WormTooth");
@@ -657,7 +655,6 @@ public class ItemInitDangerZone {
 
         ItemStrawberrySeed= new ItemStrawberrySeed(
          210,BlockInitDangerZone.BlockStrawberry, Blocks.farmland);
-        KrakenRepellent = Item.getItemFromBlock(new KrakenRepellent());
         royalsword = new Bertha(toolRoyal);
 
         MyBertha = new Bertha(toolRoyal).setUnlocalizedName("berthasmall");
@@ -678,7 +675,7 @@ public class ItemInitDangerZone {
 
        ItemShoes1 = new ItemShoes( 249, 3).setUnlocalizedName("blackheels");
        ItemShoes2 = new ItemShoes(250, 4).setUnlocalizedName("slippers");
-        ItemShoes3 = new ItemShoes(251, 5).setUnlocalizedName("boots");
+        ItemShoes3 = new ItemShoes(251, 5).setUnlocalizedName("boots3");
         CrystalHoe = new CrystalHoe(342,toolCRYSTALSTONE);
 
        MyCherrySeed = new ItemAppleSeed()
@@ -686,6 +683,7 @@ public class ItemInitDangerZone {
         MyPeachSeed = new ItemAppleSeed()
             .setUnlocalizedName("peachtree_seed");
 
+        ItemRock = new ItemRock().setUnlocalizedName("rocksmall1");
        MySmallRock = new ItemRock().setUnlocalizedName("rocksmall");
         MyRock = new ItemRock().setUnlocalizedName("rock");
        MyRedRock = new ItemRock().setUnlocalizedName("rockred");
@@ -702,6 +700,12 @@ public class ItemInitDangerZone {
        MyPurpleRock = new ItemRock().setUnlocalizedName("rockpurple");
        MySpikeyRock = new ItemRock().setUnlocalizedName("rockspikey");
        MyTNTRock = new ItemRock().setUnlocalizedName("rocktnt");
+        BigBerthaBlade = new Salt().setUnlocalizedName("bbblade");
+        BigBerthaGuard = new Salt().setUnlocalizedName("bbguard");
+        BigBerthaHandle = new Salt().setUnlocalizedName("bbhandle");
+        BigBerthaSword = new Salt().setUnlocalizedName("BigBerthaSword");
+        LavaLovingItem = new Salt().setUnlocalizedName("LavaLovingItem");
+
     }
 
     public static void register() {
@@ -828,8 +832,6 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(TigersEyeHelmet, "TigersEyeHelmet");
         GameRegistry.registerItem(TigersEyeLeggings, "TigersEyeLeggings");
         GameRegistry.registerItem(UltimateSword, "UltimateSword");
-        GameRegistry.registerItem(UltimateSword, "UltimateSword");
-
         GameRegistry.registerItem(UltimateShovel, "UltimateShovel");
         GameRegistry.registerItem(UltimatePickaxe, "UltimatePickaxe");
         GameRegistry.registerItem(UltimateHoe, "UltimateHoe");
@@ -929,7 +931,6 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(ItemRock, "ItemRock");
         GameRegistry.registerItem(ItemShoes, "ItemShoes");
         GameRegistry.registerItem(ItemStrawberrySeed, "ItemStrawberrySeed");
-        GameRegistry.registerItem(KrakenRepellent, "KrakenRepellent");
         GameRegistry.registerItem(royalsword, "royalsword");
         GameRegistry.registerItem(LavaLovingItem, "LavaLovingItem");
         GameRegistry.registerItem(CrystalSword, "CrystalSword");
@@ -942,7 +943,7 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(CrystalAxe, "CrystalAxe");
         GameRegistry.registerItem(ItemShoes1, "ItemShoes1");
         GameRegistry.registerItem(ItemShoes2, "ItemShoes2");
-        GameRegistry.registerItem(ItemShoes, "ItemShoes3");
+        GameRegistry.registerItem(ItemShoes3, "ItemShoes3");
         GameRegistry.registerItem(CrystalShovel, "CrystalShovel");
         GameRegistry.registerItem(MyChainsaw, "MyChainsaw");
         GameRegistry.registerItem(MyQueenBattleAxe, "MyQueenBattleAxe");

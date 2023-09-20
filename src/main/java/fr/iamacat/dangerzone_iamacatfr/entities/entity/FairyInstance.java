@@ -2,6 +2,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -373,15 +374,15 @@ public class FairyInstance extends EntityAmbientCreature {
     }
 
     static {
-        texture0 = new ResourceLocation("orespawn", "fairytexture.png");
-        texture1 = new ResourceLocation("orespawn", "fairytexture2.png");
-        texture2 = new ResourceLocation("orespawn", "fairytexture3.png");
-        texture3 = new ResourceLocation("orespawn", "fairytexture4.png");
-        texture4 = new ResourceLocation("orespawn", "fairytexture5.png");
-        texture5 = new ResourceLocation("orespawn", "fairytexture6.png");
-        texture6 = new ResourceLocation("orespawn", "fairytexture7.png");
-        texture7 = new ResourceLocation("orespawn", "fairytexture8.png");
-        texture8 = new ResourceLocation("orespawn", "fairytexture9.png");
+        texture0 = new ResourceLocation(Tags.MODID+ "fairytexture.png");
+        texture1 = new ResourceLocation(Tags.MODID+ "fairytexture2.png");
+        texture2 = new ResourceLocation(Tags.MODID+ "fairytexture3.png");
+        texture3 = new ResourceLocation(Tags.MODID+ "fairytexture4.png");
+        texture4 = new ResourceLocation(Tags.MODID+ "fairytexture5.png");
+        texture5 = new ResourceLocation(Tags.MODID+ "fairytexture6.png");
+        texture6 = new ResourceLocation(Tags.MODID+ "fairytexture7.png");
+        texture7 = new ResourceLocation(Tags.MODID+ "fairytexture8.png");
+        texture8 = new ResourceLocation(Tags.MODID+ "fairytexture9.png");
     }
 }
 

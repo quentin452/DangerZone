@@ -1874,7 +1874,7 @@ public class RecipeHandler {
             BlockInitDangerZone.CrystalCoal,
             ItemInitDangerZone.ItemCrystalSticks);
         GameRegistry.addRecipe(
-            new ItemStack(ItemInitDangerZone.KrakenRepellent, 1),
+            new ItemStack(BlockInitDangerZone.KrakenRepellent, 1),
             "D D",
             "STS",
             "D D",

@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions;
 
 import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Constants;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.biomes.UtopiaBiomeProvider;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldProvider;
@@ -15,13 +16,20 @@ import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.DimensionManager;
 
 public class VillageWorldProvider extends WorldProvider {
-
     private UtopiaBiomeProvider MyPlains;
 
     public VillageWorldProvider() {
-        this.MyPlains = (UtopiaBiomeProvider) new UtopiaBiomeProvider().setColor(353825)
-            .setBiomeName("Villages")
+        this.MyPlains = (UtopiaBiomeProvider) new UtopiaBiomeProvider(Constants.BiomeVillageID).setColor(353825)
+            .setBiomeName("Utopia")
             .setTemperatureRainfall(0.7f, 0.5f);
+    }
+
+    public void registerWorldChunkManager() {
+        this.MyPlains.setVillageCreatures();
+        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell((BiomeGenBase) this.MyPlains, 0.5f);
+        this.worldChunkMgr.getBiomeGenAt(0, 0)
+            .setTemperatureRainfall(0.7f, 0.5f);
+        this.dimensionId = DimensionInitDangerZone.UtopiaDimensionId;
     }
 
     public String getDimensionName() {
@@ -30,15 +38,6 @@ public class VillageWorldProvider extends WorldProvider {
 
     public boolean canRespawnHere() {
         return true;
-    }
-
-    public void registerWorldChunkManager() {
-        this.MyPlains.setVillageCreatures();
-        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell((BiomeGenBase) this.MyPlains, 0.5f);
-        this.worldChunkMgr.getBiomeGenAt(0, 0)
-            .setTemperatureRainfall(0.7f, 0.5f);
-        this.dimensionId = DimensionInitDangerZone.VillageDimensionId;
-        BiomeManager.addVillageBiome((BiomeGenBase) this.MyPlains, true);
     }
 
     public void setWorldTime(final long time) {

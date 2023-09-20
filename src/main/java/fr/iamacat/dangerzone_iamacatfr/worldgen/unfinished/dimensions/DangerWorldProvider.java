@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions;
 
 import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Constants;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.biomes.UtopiaBiomeProvider;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldProvider;
@@ -14,11 +15,10 @@ import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.DimensionManager;
 
 public class DangerWorldProvider extends WorldProvider {
-
     private UtopiaBiomeProvider MyPlains;
 
     public DangerWorldProvider() {
-        this.MyPlains = (UtopiaBiomeProvider) new UtopiaBiomeProvider().setColor(353825)
+        this.MyPlains = (UtopiaBiomeProvider) new UtopiaBiomeProvider(Constants.BiomeIslandsID).setColor(353825)
             .setBiomeName("Islands")
             .setTemperatureRainfall(0.7f, 0.5f);
     }
@@ -33,7 +33,6 @@ public class DangerWorldProvider extends WorldProvider {
 
     public void registerWorldChunkManager() {
         this.MyPlains.setIslandCreatures();
-        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell((BiomeGenBase) this.MyPlains, 0.01f);
         this.worldChunkMgr.getBiomeGenAt(0, 0)
             .setTemperatureRainfall(0.8f, 0.01f);
         this.dimensionId = DimensionInitDangerZone.DangerDimensionId;

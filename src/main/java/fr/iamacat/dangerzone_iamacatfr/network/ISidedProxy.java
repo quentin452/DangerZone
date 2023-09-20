@@ -1,5 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,6 +36,15 @@ public abstract interface ISidedProxy {
     void sendFairyRename(FairyInstance fairy, String nameText);
 
     EntityPlayer getClientPlayer();
+
+    void registerKeyboardInput();
+
+    void registerNetworkStuff();
+
+    int setArmorPrefix(String string);
+
+    SimpleNetworkWrapper getNetwork();
+
 
     // public abstract void onMobModsPacketToClient(String paramString, int paramInt);
 

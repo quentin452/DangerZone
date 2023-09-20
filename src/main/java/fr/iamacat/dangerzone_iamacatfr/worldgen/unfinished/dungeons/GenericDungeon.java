@@ -3957,7 +3957,7 @@ public class GenericDungeon {
             if (world.rand.nextInt(2) == 0) {
                 chest.setInventorySlotContents(10, new ItemStack(ItemInitDangerZone.CrystalAxe));
             }
-            chest.setInventorySlotContents(11, new ItemStack(ItemInitDangerZone.KrakenRepellent));
+            chest.setInventorySlotContents(11, new ItemStack(BlockInitDangerZone.KrakenRepellent));
             if (world.rand.nextInt(2) == 0) {
                 chest.setInventorySlotContents(13, new ItemStack(Blocks.chest));
             }

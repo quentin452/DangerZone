@@ -10,7 +10,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class UtopiaBiomeProvider extends BiomeGenBase {
 
-    public UtopiaBiomeProvider() {
+    public UtopiaBiomeProvider(final int par1) {
         super(par1);
             this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(Gazelle.class, 10, 2, 4));
             this.spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(Firefly.class, 15, 3, 6));

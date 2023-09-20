@@ -218,4 +218,10 @@ public class Constants {
     public static SpawnEggs MyUrsaMAJOR;
     public static SpawnEggs TrooperBugSpawnEgg;
 
+    public static int BiomeUtopiaID = 150;
+    public static int BiomeIslandsID= 151;
+    public static int BiomeMiningID= 152;
+    public static int BiomeCrystalID= 153;
+    public static int BiomeVillageID= 154;
+    public static int BiomeChaosID=155;
 }

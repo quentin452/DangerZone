@@ -3,7 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.network;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
-import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import fr.iamacat.dangerzone_iamacatfr.InputConfusedMovement;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
@@ -29,7 +29,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -64,10 +63,11 @@ public class ClientProxy implements ISidedProxy {
             BirdsInstance.class,
             new BirdsRenderer(new BirdsModel(), 1.0F, "tinybirdbrown.png"));
 
-        registerEntityRenderingHandler(CaveFisherInstance.class, new CaveFisherRenderer(new CaveFisherModel(), 1.0F));
+        registerEntityRenderingHandler(CaveFisherInstance.class, new CaveFisherRenderer(new CaveFisherModel(0.62f), 1.0F));
         registerEntityRenderingHandler(EyeRayInstance.class, new EyeRayRenderer(new EyeRayModel(), 1.0F));
 
-        registerEntityRenderingHandler(FairyInstance.class, new FairyRenderer(new FairyModel(), 1.0F));
+        RenderingRegistry
+            .registerEntityRenderingHandler(FairyInstance.class, new FairyRenderer(new FairyModel(1.5f), 0.1f, 0.35f));
         registerEntityRenderingHandler(
             CrabInstance.class,
             new CrabRenderer(new CrabModel(1.0f), 0.625F, ":textures/entity/helmetcrab.png"));
@@ -305,8 +305,8 @@ public class ClientProxy implements ISidedProxy {
         registerEntityRenderingHandler(Kyuubi.class, new RenderKyuubi(new ModelKyuubi(0.5f), 0.1f, 1.0f));
         registerEntityRenderingHandler(Scorpion.class, new RenderScorpion(new ModelScorpion(0.62f), 0.35f, 0.75f));
         registerEntityRenderingHandler(
-            CaveFisher.class,
-            new RenderCaveFisher(new ModelCaveFisher(0.62f), 0.35f, 0.75f));
+            CaveFisherInstance.class,
+            new RenderCaveFisher(new CaveFisherModel(0.62f), 0.35f, 0.75f));
         registerEntityRenderingHandler(
             WaterDragon.class,
             new RenderWaterDragon(new ModelWaterDragon(0.5f), 0.85f, 1.1f));
@@ -383,7 +383,6 @@ public class ClientProxy implements ISidedProxy {
             HerculesBeetle.class,
             new RenderHerculesBeetle(new ModelHerculesBeetle(1.0f), 0.99f, 1.1f));
         registerEntityRenderingHandler(Stinky.class, new RenderStinky(new ModelStinky(0.65f), 0.75f, 1.0f));
-        registerEntityRenderingHandler(Coin.class, new RenderCoin(new ModelCoin(0.22f), 0.75f, 0.125f));
         registerEntityRenderingHandler(TheKing.class, new RenderTheKing(new ModelTheKing(0.65f), 1.9f, 2.1f));
         registerEntityRenderingHandler(TheQueen.class, new RenderTheQueen(new ModelTheQueen(0.65f), 1.9f, 2.0f));
         registerEntityRenderingHandler(ThePrince.class, new RenderThePrince(new ModelThePrince(0.65f), 0.75f, 0.75f));
@@ -435,28 +434,21 @@ public class ClientProxy implements ISidedProxy {
             RedAntRobotInstance.class,
             new RenderAntRobot(new ModelAntRobot(1.0f), 0.99f, 1.0f));
         registerEntityRenderingHandler(CrabInstance.class, new RenderCrab(new CrabModel(1.0f), 0.99f, 1.0f));
-        MinecraftForgeClient.registerItemRenderer(DangerZone.MyBertha, (IItemRenderer) new RenderBertha());
-        MinecraftForgeClient.registerItemRenderer(DangerZone.MySlice, (IItemRenderer) new RenderSlice());
-        MinecraftForgeClient.registerItemRenderer(DangerZone.MyRoyal, (IItemRenderer) new RenderRoyal());
-        MinecraftForgeClient.registerItemRenderer(DangerZone.MySquidZooka, (IItemRenderer) new RenderSquidZooka());
-        MinecraftForgeClient.registerItemRenderer(DangerZone.MyHammy, (IItemRenderer) new RenderHammy());
-        MinecraftForgeClient.registerItemRenderer(DangerZone.MyBattleAxe, (IItemRenderer) new RenderBattleAxe());
-        MinecraftForgeClient.registerItemRenderer(DangerZone.MyChainsaw, (IItemRenderer) new RenderChainsaw());
+        MinecraftForgeClient.registerItemRenderer(ItemInitDangerZone.MyBertha, new RenderBertha());
+        MinecraftForgeClient.registerItemRenderer(ItemInitDangerZone.MySlice, new RenderSlice());
+        MinecraftForgeClient.registerItemRenderer(ItemInitDangerZone.royalsword, new RenderRoyal());
+        MinecraftForgeClient.registerItemRenderer(ItemInitDangerZone.SquidZooka, new RenderSquidZooka());
+        MinecraftForgeClient.registerItemRenderer(ItemInitDangerZone.MyHammy, new RenderHammy());
+        MinecraftForgeClient.registerItemRenderer(ItemInitDangerZone.BattleAxe, new RenderBattleAxe());
+        MinecraftForgeClient.registerItemRenderer(ItemInitDangerZone.MyChainsaw, new RenderChainsaw());
         MinecraftForgeClient
-            .registerItemRenderer(DangerZone.MyQueenBattleAxe, (IItemRenderer) new RenderQueenBattleAxe());
+            .registerItemRenderer(ItemInitDangerZone.MyQueenBattleAxe, new RenderQueenBattleAxe());
 
     }
 
     @Override
     public void openRenameGUI(FairyInstance fairy) {
-        DangerLogger.LOGGER.info("ClientProxy.openRenameGUI");
 
-        if (fairy.isRuler(getCurrentPlayer())) {
-            DangerLogger.LOGGER.info("ClientProxy.openRenameGUI: current player is ruler, displaying gui");
-            fairy.setNameEnabled(false);
-            Minecraft.getMinecraft()
-                .displayGuiScreen(new FairyGui(fairy));
-        }
     }
 
     @Override
@@ -541,14 +533,19 @@ public class ClientProxy implements ISidedProxy {
 
     @Override
     public void registerNetworkStuff() {
-        super.registerNetworkStuff();
         FMLCommonHandler.instance()
             .bus()
             .register((Object) new RiderControl(this.getNetwork()));
     }
 
+
     @Override
     public int setArmorPrefix(final String string) {
         return RenderingRegistry.addNewArmourRendererPrefix(string);
+    }
+
+    @Override
+    public SimpleNetworkWrapper getNetwork() {
+        return null;
     }
 }

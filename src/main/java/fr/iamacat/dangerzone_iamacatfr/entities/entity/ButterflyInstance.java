@@ -1,7 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions.teleporter.SafeTeleporter;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions.teleporter.SafeTeleporter;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IEntityLivingData;

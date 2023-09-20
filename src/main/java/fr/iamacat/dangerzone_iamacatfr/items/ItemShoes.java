@@ -16,8 +16,7 @@ public class ItemShoes extends Item {
 
     private int my_id;
 
-    public ItemShoes(final int i, final int j) {
-        this.my_id = 0;
+    public ItemShoes(final int j, int i) {
         this.my_id = j;
         this.maxStackSize = 64;
         this.setCreativeTab(CreativeTabs.tabDecorations);

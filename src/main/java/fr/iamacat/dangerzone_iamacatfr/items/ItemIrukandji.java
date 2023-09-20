@@ -3,6 +3,8 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DeadIrukandjiInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,7 +14,7 @@ import net.minecraft.world.World;
 
 public class ItemIrukandji extends Item {
 
-    public ItemIrukandji(final int i) {
+    public ItemIrukandji() {
         this.maxStackSize = 64;
         this.setCreativeTab(CreativeTabs.tabCombat);
     }
@@ -24,7 +26,7 @@ public class ItemIrukandji extends Item {
         }
         par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 3.0f, 1.0f);
         if (!par2World.isRemote) {
-            par2World.spawnEntityInWorld(new DeadIrukandji(par2World, par3EntityPlayer));
+            par2World.spawnEntityInWorld(new DeadIrukandjiInstance(par2World, par3EntityPlayer));
         }
         return par1ItemStack;
     }

@@ -36,7 +36,7 @@ public class WindigoPowerInstance extends EntityThrowable {
             if (par1MovingObjectPosition.entityHit instanceof ArcticScorpionInstance) {
                 return;
             }
-            if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstance) {
+            if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstancemMLP) {
                 return;
             }
             if (par1MovingObjectPosition.entityHit instanceof DarknessInstance) {

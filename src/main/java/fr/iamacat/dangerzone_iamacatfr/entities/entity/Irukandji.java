@@ -1,8 +1,12 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -11,6 +15,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -30,7 +35,7 @@ public class Irukandji extends EntityMob {
     private int ty;
     private int tz;
 
-    public Irukandji(final World par1World) {
+    public Irukandji(final World par1World, EntityPlayer entityPlayer) {
         super(par1World);
         this.TargetSorter = null;
         this.buddy = null;
@@ -60,7 +65,7 @@ public class Irukandji extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
             .setBaseValue(this.moveSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
-            .setBaseValue(OreSpawnMain.Irukandji_stats.attack);
+            .setBaseValue(20);
     }
 
     protected void entityInit() {
@@ -83,11 +88,11 @@ public class Irukandji extends EntityMob {
     }
 
     public int mygetMaxHealth() {
-        return OreSpawnMain.Irukandji_stats.health;
+        return 1;
     }
 
     public int getTotalArmorValue() {
-        return OreSpawnMain.Irukandji_stats.defense;
+        return 0;
     }
 
     protected boolean isAIEnabled() {
@@ -108,11 +113,11 @@ public class Irukandji extends EntityMob {
     }
 
     protected String getHurtSound() {
-        return tags.modid + ":little_splt";
+        return Tags.MODID + ":little_splt";
     }
 
     protected String getDeathSound() {
-        return tags.modid + ":ratdead";
+        return Tags.MODID + ":ratdead";
     }
 
     protected float getSoundVolume() {
@@ -124,7 +129,7 @@ public class Irukandji extends EntityMob {
     }
 
     protected Item getDropItem() {
-        return OreSpawnMain.MyIrukandji;
+        return ItemInitDangerZone.ItemIrukandji;
     }
 
     public void initCreature() {}
@@ -322,9 +327,6 @@ public class Irukandji extends EntityMob {
     }
 
     private EntityLivingBase findSomethingToAttack() {
-        if (OreSpawnMain.PlayNicely != 0) {
-            return null;
-        }
         final List var5 = this.worldObj
             .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(6.0, 4.0, 6.0));
         Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);

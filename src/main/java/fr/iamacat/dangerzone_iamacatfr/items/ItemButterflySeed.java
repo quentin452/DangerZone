@@ -11,7 +11,7 @@ import net.minecraft.item.ItemSeeds;
 
 public class ItemButterflySeed extends ItemSeeds {
 
-    public ItemButterflySeed(final Block par2, final Block par3) {
+    public ItemButterflySeed(final int par1, final Block par2, final Block par3) {
         super(par2, par3);
         this.setCreativeTab(CreativeTabs.tabDecorations);
     }
@@ -19,8 +19,7 @@ public class ItemButterflySeed extends ItemSeeds {
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon(
-            Tags.MODID + ":"
-                + this.getUnlocalizedName()
-                    .substring(5));
+            "OreSpawn:" + this.getUnlocalizedName()
+                .substring(5));
     }
 }

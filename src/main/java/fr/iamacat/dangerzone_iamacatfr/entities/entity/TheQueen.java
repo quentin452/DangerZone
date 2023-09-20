@@ -227,16 +227,16 @@ public class TheQueen extends EntityMob {
         }
         this.noClip = true;
         this.motionY *= 0.6;
-        if (this.player_hit_count < 10 && this.getHealth() < this.mygetMaxHealth() * 3 / 4) {
+        if (this.player_hit_count < 10 && this.getHealth() < (float) (this.mygetMaxHealth() * 3) / 4) {
             this.attdam = 225 * 20;
         }
-        if (this.player_hit_count < 10 && this.getHealth() < this.mygetMaxHealth() / 2) {
+        if (this.player_hit_count < 10 && this.getHealth() < (float) this.mygetMaxHealth() / 2) {
             this.attdam = 225 * 100;
         }
-        if (this.player_hit_count < 10 && this.getHealth() < this.mygetMaxHealth() / 3) {
+        if (this.player_hit_count < 10 && this.getHealth() < (float) this.mygetMaxHealth() / 3) {
             this.attdam =225 * 500;
         }
-        if (this.player_hit_count < 10 && this.getHealth() < this.mygetMaxHealth() / 4) {
+        if (this.player_hit_count < 10 && this.getHealth() < (float) this.mygetMaxHealth() / 4) {
             this.attdam = 225 * 1000;
         }
         if (this.worldObj.isRemote && this.getPower() > 800) {
@@ -842,11 +842,11 @@ public class TheQueen extends EntityMob {
     private void firecanon(final EntityLivingBase e) {
         final double yoff = 14.0;
         final double xzoff = 32.0;
-        BetterFireballInstance bf = null;
+        BetterFireballInstanceOrespawn bf = null;
         final double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw));
         final double cz = this.posZ + xzoff * Math.cos(Math.toRadians(this.rotationYaw));
         if (this.stream_count > 0) {
-            bf = new BetterFireballInstance(
+            bf = new BetterFireballInstanceOrespawn(
                 this.worldObj,
                 this,
                 e.posX - cx,
@@ -866,7 +866,7 @@ public class TheQueen extends EntityMob {
                 final float r1 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r2 = 3.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r3 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
-                bf = new BetterFireballInstance(
+                bf = new BetterFireballInstanceOrespawn(
                     this.worldObj,
                     this,
                     e.posX - cx + r1,

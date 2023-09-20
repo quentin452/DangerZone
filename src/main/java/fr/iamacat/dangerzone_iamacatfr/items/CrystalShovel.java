@@ -9,7 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemTool;
 
 import java.util.Set;
@@ -18,7 +17,7 @@ public class CrystalShovel extends ItemTool {
 
     public static final Set blocksEffectiveAgainst;
 
-    public CrystalShovel(final int par1, final Item.ToolMaterial par2) {
+    public CrystalShovel(int i, final ToolMaterial par2) {
         super(1.0f, par2, CrystalShovel.blocksEffectiveAgainst);
         this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabTools);

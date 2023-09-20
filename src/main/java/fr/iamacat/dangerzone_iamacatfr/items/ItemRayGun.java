@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class ItemRayGun extends Item {
 
-    public ItemRayGun() {
+    public ItemRayGun(int i) {
         this.maxStackSize = 1;
         this.setMaxDamage(50);
         this.setCreativeTab(CreativeTabs.tabCombat);

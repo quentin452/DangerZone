@@ -2,6 +2,9 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BerthaHit;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BoyfriendInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GirlfriendInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -44,7 +47,7 @@ public class SliceSword extends ItemSword {
 
     public boolean onLeftClickEntity(final ItemStack stack, final EntityPlayer player, final Entity entity) {
         return entity != null
-            && (entity instanceof EntityPlayer || entity instanceof Girlfriend || entity instanceof Boyfriend);
+            && (entity instanceof EntityPlayer || entity instanceof GirlfriendInstance || entity instanceof BoyfriendInstance);
     }
 
     public boolean onEntitySwing(final EntityLivingBase entityLiving, final ItemStack stack) {

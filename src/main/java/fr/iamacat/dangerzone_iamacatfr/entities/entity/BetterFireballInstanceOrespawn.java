@@ -1,8 +1,9 @@
-
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityFireball;
@@ -13,7 +14,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class BetterFireballInstance extends EntityFireball {
+public class BetterFireballInstanceOrespawn extends EntityFireball {
 
     private int xTile;
     private int yTile;
@@ -30,7 +31,7 @@ public class BetterFireballInstance extends EntityFireball {
     private int notme;
     private boolean small;
 
-    public BetterFireballInstance(final World par1World) {
+    public BetterFireballInstanceOrespawn(final World par1World) {
         super(par1World);
         this.xTile = -1;
         this.yTile = -1;
@@ -46,8 +47,8 @@ public class BetterFireballInstance extends EntityFireball {
 
     protected void entityInit() {}
 
-    public BetterFireballInstance(final World par1World, final EntityLivingBase par2EntityLiving, final double par3,
-        final double par5, final double par7) {
+    public BetterFireballInstanceOrespawn(final World par1World, final EntityLivingBase par2EntityLiving, final double par3,
+                          final double par5, final double par7) {
         super(par1World);
         this.xTile = -1;
         this.yTile = -1;
@@ -152,7 +153,7 @@ public class BetterFireballInstance extends EntityFireball {
                     var17 = null;
                     break;
                 }
-                if (var21 instanceof BetterFireballInstance) {
+                if (var21 instanceof BetterFireballInstanceOrespawn) {
                     var17 = null;
                     break;
                 }
@@ -165,7 +166,7 @@ public class BetterFireballInstance extends EntityFireball {
                     break;
                 }
                 if (this.notme != 0
-                    && (var21 instanceof EntityPlayer || var21 instanceof Dragon || var21 instanceof Mothra)) {
+                    && (var21 instanceof EntityPlayer || var21 instanceof DragonInstance || var21 instanceof Mothra)) {
                     var17 = null;
                     break;
                 }
@@ -236,13 +237,13 @@ public class BetterFireballInstance extends EntityFireball {
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
         if (!this.worldObj.isRemote) {
             if (par1MovingObjectPosition.entityHit != null) {
-                if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstance) {
+                if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstanceOrespawn) {
                     return;
                 }
                 if (par1MovingObjectPosition.entityHit instanceof Mothra) {
                     return;
                 }
-                if (this.notme != 0 && (par1MovingObjectPosition.entityHit instanceof Dragon
+                if (this.notme != 0 && (par1MovingObjectPosition.entityHit instanceof DragonInstance
                     || par1MovingObjectPosition.entityHit instanceof EntityPlayer)) {
                     this.setDead();
                     return;

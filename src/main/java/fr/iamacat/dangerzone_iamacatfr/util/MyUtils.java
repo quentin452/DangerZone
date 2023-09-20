@@ -36,16 +36,19 @@ public class MyUtils {
     }
 
     public static boolean isIgnoreable(final EntityLivingBase par1EntityLiving) {
-        return par1EntityLiving instanceof RockBase || par1EntityLiving instanceof EntityAnt
-            || par1EntityLiving instanceof EntityButterfly
+        return par1EntityLiving instanceof RockBase
+            || par1EntityLiving instanceof ButterflyInstance
             || par1EntityLiving instanceof EntityMosquito
             || par1EntityLiving instanceof DragonflyInstance
             || par1EntityLiving instanceof Firefly
             || par1EntityLiving instanceof CricketInstance
             || par1EntityLiving instanceof CockateilInstance
-            || par1EntityLiving instanceof Termite
-            || par1EntityLiving instanceof Ghost
-            || par1EntityLiving instanceof GhostSkelly
+            || par1EntityLiving instanceof UnstableAntInstance
+            || par1EntityLiving instanceof BrownAntInstance
+            || par1EntityLiving instanceof RedAntInstance
+            || par1EntityLiving instanceof RainbowAntInstance
+            || par1EntityLiving instanceof TermiteInstance
+            || par1EntityLiving instanceof GhostInstance
             || par1EntityLiving instanceof HoverboardInstance;
     }
 }

@@ -4,7 +4,6 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityFireball;
@@ -15,7 +14,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class RobotBeamInstance extends EntityFireball {
+public class BetterFireballInstancemMLP extends EntityFireball {
 
     private int e;
     private int f;
@@ -33,8 +32,13 @@ public class RobotBeamInstance extends EntityFireball {
     private boolean small;
     private boolean tiny;
     private boolean huge;
+    private boolean wind;
+    private boolean noexplode;
+    private boolean large;
+    private boolean bowza;
+    private boolean haidra;
 
-    public RobotBeamInstance(final World par1World) {
+    public BetterFireballInstancemMLP(final World par1World) {
         super(par1World);
         this.e = -1;
         this.f = -1;
@@ -47,13 +51,18 @@ public class RobotBeamInstance extends EntityFireball {
         this.small = false;
         this.tiny = false;
         this.huge = false;
+        this.wind = false;
+        this.noexplode = false;
+        this.large = false;
+        this.bowza = false;
+        this.haidra = false;
         this.setSize(2.0f, 2.0f);
     }
 
     protected void entityInit() {}
 
-    public RobotBeamInstance(final World par1World, final EntityLivingBase par2EntityLiving, final double par3,
-        final double par5, final double par7) {
+    public BetterFireballInstancemMLP(final World par1World, final EntityLivingBase par2EntityLiving, final double par3,
+                                      final double par5, final double par7) {
         super(par1World);
         this.e = -1;
         this.f = -1;
@@ -66,6 +75,11 @@ public class RobotBeamInstance extends EntityFireball {
         this.small = false;
         this.tiny = false;
         this.huge = false;
+        this.wind = false;
+        this.noexplode = false;
+        this.large = false;
+        this.bowza = false;
+        this.haidra = false;
         this.a = par2EntityLiving;
         this.setSize(1.0f, 1.0f);
         this.setLocationAndAngles(
@@ -91,11 +105,12 @@ public class RobotBeamInstance extends EntityFireball {
     }
 
     public void setBig() {
+        this.large = true;
         this.field_92012_e = 6;
     }
 
-    public void setReallyBig() {
-        this.field_92012_e = 12;
+    public void setVeryBig() {
+        this.field_92012_e = 9;
     }
 
     public void setSmall() {
@@ -104,10 +119,16 @@ public class RobotBeamInstance extends EntityFireball {
         this.field_92012_e = 1;
     }
 
-    public void setRobot() {
-        this.tiny = true;
-        this.setSize(0.0125f, 0.0125f);
-        this.field_92012_e = 1;
+    public void setWind() {
+        this.wind = true;
+        this.setSize(18.0f, 18.0f);
+        this.field_92012_e = 7;
+    }
+
+    public void setBowser() {
+        this.bowza = true;
+        this.setSize(0.3125f, 0.3125f);
+        this.field_92012_e = 4;
     }
 
     public void setHuge() {
@@ -116,19 +137,48 @@ public class RobotBeamInstance extends EntityFireball {
         this.field_92012_e = 16;
     }
 
+    public void setHydra() {
+        this.haidra = true;
+        this.setSize(3.0f, 3.0f);
+        this.field_92012_e = 4;
+    }
+
+    public void setHydra2() {
+        this.large = true;
+        this.setSize(8.0f, 8.0f);
+        this.field_92012_e = 12;
+    }
+
+    public void setWOW() {
+        this.huge = true;
+        this.setSize(4.0f, 4.0f);
+        this.field_92012_e = 24;
+    }
+
+    public void setMagic() {
+        this.huge = true;
+        this.setSize(10.0f, 10.0f);
+        this.field_92012_e = 2;
+    }
+
+    public void setPhoenix() {
+        this.setSize(2.0f, 2.0f);
+        this.field_92012_e = 1;
+    }
+
     public void onUpdate() {
-        Vec3 var15;
-        Vec3 var16;
-        MovingObjectPosition var17;
-        Entity var18;
-        List var19;
-        double var20;
-        Entity var21;
+        Vec3 var15 = null;
+        Vec3 var16 = null;
+        MovingObjectPosition var17 = null;
+        Entity var18 = null;
+        List var19 = null;
+        double var20 = 0.0;
+        Entity var21 = null;
         final float var22 = 0.3f;
-        double var23;
-        float var24;
-        float var25;
-        float var26;
+        double var23 = 0.0;
+        float var24 = 0.0f;
+        float var25 = 0.0f;
+        float var26 = 0.0f;
         if (this.j >= 600 || this.au >= 600) {
             this.setDead();
             return;
@@ -142,7 +192,7 @@ public class RobotBeamInstance extends EntityFireball {
             if (this.i) {
                 final Block var27 = this.worldObj.getBlock(this.e, this.f, this.g);
                 if (var27 != Blocks.air) {
-                    ++this.j;
+                    ++this.au;
                 }
                 this.i = false;
                 this.motionX *= this.rand.nextFloat() * 0.2f;
@@ -163,7 +213,7 @@ public class RobotBeamInstance extends EntityFireball {
             }
             var18 = null;
             var19 = this.worldObj.getEntitiesWithinAABBExcludingEntity(
-                this,
+                (Entity) this,
                 this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ)
                     .expand(1.0, 1.0, 1.0));
             var20 = 0.0;
@@ -185,12 +235,14 @@ public class RobotBeamInstance extends EntityFireball {
                     var17 = null;
                     break;
                 }
-                if (this.notme != 0 && var21 instanceof EntityPlayer) {
+                if (this.notme != 0 && (var21 instanceof EntityPlayer || var21 instanceof FlameDragonInstance
+                    || var21 instanceof TwilicornInstance)) {
                     var17 = null;
                     break;
                 }
-                if (var21.canBeCollidedWith() && (!var21.isEntityEqual(this.a) || this.au >= 25)) {
-                    final AxisAlignedBB var29 = var21.boundingBox.expand(var22, var22, var22);
+                if (var21.canBeCollidedWith() && (!var21.isEntityEqual((Entity) this.a) || this.au >= 25)) {
+                    final AxisAlignedBB var29 = var21.boundingBox
+                        .expand((double) var22, (double) var22, (double) var22);
                     final MovingObjectPosition var30 = var29.calculateIntercept(var15, var16);
                     if (var30 != null) {
                         var23 = var15.distanceTo(var30.hitVec);
@@ -248,7 +300,7 @@ public class RobotBeamInstance extends EntityFireball {
             this.motionX *= var25;
             this.motionY *= var25;
             this.motionZ *= var25;
-            this.worldObj.spawnParticle("fireworksSpark", this.posX, this.posY + 0.5, this.posZ, 0.0, 0.0, 0.0);
+            this.worldObj.spawnParticle("fireworksSpark", this.posX, this.posY + 0.75, this.posZ, 0.0, 0.0, 0.0);
             this.setPosition(this.posX, this.posY, this.posZ);
         }
         if (this.huge) {
@@ -259,33 +311,105 @@ public class RobotBeamInstance extends EntityFireball {
                     this.posX,
                     this.posY,
                     this.posZ,
-                    this.worldObj.rand.nextGaussian() / 50.0,
-                    this.worldObj.rand.nextGaussian() / 50.0,
-                    this.worldObj.rand.nextGaussian() / 50.0);
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
                 this.worldObj.spawnParticle(
                     "portal",
                     this.posX,
                     this.posY,
                     this.posZ,
-                    this.worldObj.rand.nextGaussian() / 50.0,
-                    this.worldObj.rand.nextGaussian() / 50.0,
-                    this.worldObj.rand.nextGaussian() / 50.0);
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
                 this.worldObj.spawnParticle(
                     "witchMagic",
                     this.posX,
                     this.posY,
                     this.posZ,
-                    this.worldObj.rand.nextGaussian() / 50.0,
-                    this.worldObj.rand.nextGaussian() / 50.0,
-                    this.worldObj.rand.nextGaussian() / 50.0);
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
                 this.worldObj.spawnParticle(
                     "portal",
                     this.posX,
                     this.posY,
                     this.posZ,
-                    this.worldObj.rand.nextGaussian() / 50.0,
-                    this.worldObj.rand.nextGaussian() / 50.0,
-                    this.worldObj.rand.nextGaussian() / 50.0);
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
+                this.worldObj.spawnParticle(
+                    "fireworksSpark",
+                    this.posX,
+                    this.posY,
+                    this.posZ,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
+                this.worldObj.spawnParticle(
+                    "fireworksSpark",
+                    this.posX,
+                    this.posY,
+                    this.posZ,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
+                this.worldObj.spawnParticle(
+                    "fireworksSpark",
+                    this.posX,
+                    this.posY,
+                    this.posZ,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
+                this.worldObj.spawnParticle(
+                    "fireworksSpark",
+                    this.posX,
+                    this.posY,
+                    this.posZ,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
+                this.worldObj.spawnParticle(
+                    "fireworksSpark",
+                    this.posX,
+                    this.posY,
+                    this.posZ,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
+                this.worldObj.spawnParticle(
+                    "fireworksSpark",
+                    this.posX,
+                    this.posY,
+                    this.posZ,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
+                this.worldObj.spawnParticle(
+                    "fireworksSpark",
+                    this.posX,
+                    this.posY,
+                    this.posZ,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
+                this.worldObj.spawnParticle(
+                    "fireworksSpark",
+                    this.posX,
+                    this.posY,
+                    this.posZ,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
+                this.worldObj.spawnParticle(
+                    "fireworksSpark",
+                    this.posX,
+                    this.posY,
+                    this.posZ,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0,
+                    this.worldObj.rand.nextGaussian() / 1.0);
             }
         }
         if (this.small) {
@@ -320,32 +444,64 @@ public class RobotBeamInstance extends EntityFireball {
                 if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
                     return;
                 }
-                if (this.notme != 0 && (par1MovingObjectPosition.entityHit instanceof TwilightMobInstance
-                    || par1MovingObjectPosition.entityHit instanceof EntityPlayer)) {
+                if (par1MovingObjectPosition.entityHit instanceof FlameDragonInstance && this.large) {
+                    return;
+                }
+                if (this.tiny && par1MovingObjectPosition.entityHit instanceof KingbowserInstance) {
                     this.setDead();
                     return;
                 }
                 final Entity e = par1MovingObjectPosition.entityHit;
-                if (e instanceof EntityLiving) {
-                    final EntityLiving el = (EntityLiving) e;
-                    if (el.width * el.height > 30.0f && !MobUtils.isPony(el) && !(el instanceof HydraInstance)) {
-                        el.setHealth(el.getHealth() / 24.0f);
-                    }
-                }
                 if (!this.small) {
-                    par1MovingObjectPosition.entityHit
-                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 120.0f);
+                    par1MovingObjectPosition.entityHit.attackEntityFrom(
+                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        120.0f);
+                    par1MovingObjectPosition.entityHit.setFire(32);
                 }
                 if (this.huge) {
-                    par1MovingObjectPosition.entityHit
-                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 7500.0f);
+                    par1MovingObjectPosition.entityHit.attackEntityFrom(
+                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        7500.0f);
+                    par1MovingObjectPosition.entityHit.setFire(120);
+                }
+                if (this.wind) {
+                    par1MovingObjectPosition.entityHit.attackEntityFrom(
+                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        9750.0f);
+                }
+                if (this.bowza) {
+                    par1MovingObjectPosition.entityHit.attackEntityFrom(
+                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        345.0f);
                 }
                 if (this.tiny) {
-                    par1MovingObjectPosition.entityHit
-                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 80.0f);
+                    par1MovingObjectPosition.entityHit.attackEntityFrom(
+                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        80.0f);
+                    par1MovingObjectPosition.entityHit.setFire(12);
+                }
+                if (this.large) {
+                    par1MovingObjectPosition.entityHit.attackEntityFrom(
+                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        950.0f);
+                    par1MovingObjectPosition.entityHit.setFire(60);
+                }
+                if (this.noexplode) {
+                    par1MovingObjectPosition.entityHit.attackEntityFrom(
+                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        450.0f);
+                    par1MovingObjectPosition.entityHit.setFire(60);
+                }
+                if (this.haidra) {
+                    par1MovingObjectPosition.entityHit.attackEntityFrom(
+                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        950.0f);
+                    par1MovingObjectPosition.entityHit.setFire(60);
                 } else {
-                    par1MovingObjectPosition.entityHit
-                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.a), 250.0f);
+                    par1MovingObjectPosition.entityHit.attackEntityFrom(
+                        DamageSource.causeFireballDamage((EntityFireball) this, (Entity) this.a),
+                        250.0f);
+                    par1MovingObjectPosition.entityHit.setFire(10);
                 }
             } else {
                 int i = par1MovingObjectPosition.blockX;
@@ -377,10 +533,17 @@ public class RobotBeamInstance extends EntityFireball {
                         break;
                     }
                 }
+                if (this.wind) {
+                    if (this.worldObj.isAirBlock(i, j, k)) {
+                        this.worldObj.setBlock(i, j, k, Blocks.ice);
+                    }
+                } else if (this.worldObj.isAirBlock(i, j, k)) {
+                    this.worldObj.setBlock(i, j, k, (Block) Blocks.fire);
+                }
             }
             if (!this.small) {
                 this.worldObj.newExplosion(
-                    null,
+                    (Entity) null,
                     this.posX,
                     this.posY,
                     this.posZ,

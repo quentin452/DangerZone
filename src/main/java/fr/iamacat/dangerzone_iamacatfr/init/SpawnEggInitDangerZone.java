@@ -954,7 +954,7 @@ public class SpawnEggInitDangerZone {
         Constants.MyMagic = MyMagic;
         GameRegistry.registerItem(Constants.MyMagic, "My Magic Egg");
 
-        SpawnEggs BetterFireball = new SpawnEggs(BetterFireballInstance.class);
+        SpawnEggs BetterFireball = new SpawnEggs(BetterFireballInstancemMLP.class);
         BetterFireball.setUnlocalizedName("Better Fireball Egg");
         Constants.BetterFireball = BetterFireball;
         GameRegistry.registerItem(Constants.BetterFireball, "Better Fireball Egg");

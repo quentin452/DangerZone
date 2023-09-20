@@ -2,314 +2,167 @@ package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class FairyModel extends ModelBiped {
+public class FairyModel extends ModelBase {
 
-    public FairyModel() {
-        this(0.0F);
+    private float wingspeed;
+    ModelRenderer head;
+    ModelRenderer chest;
+    ModelRenderer waist;
+    ModelRenderer hips;
+    ModelRenderer lleg1;
+    ModelRenderer lleg2;
+    ModelRenderer rleg;
+    ModelRenderer b1;
+    ModelRenderer b2;
+    ModelRenderer larm;
+    ModelRenderer rarm;
+    ModelRenderer lwing2;
+    ModelRenderer lwing1;
+    ModelRenderer rwing2;
+    ModelRenderer rwing1;
+
+    public FairyModel(final float f1) {
+        this.wingspeed = 1.0f;
+        this.wingspeed = f1;
+        this.textureWidth = 64;
+        this.textureHeight = 64;
+        (this.head = new ModelRenderer((ModelBase) this, 0, 0)).addBox(-2.5f, -5.0f, -2.5f, 5, 5, 5);
+        this.head.setRotationPoint(0.0f, 0.0f, 0.0f);
+        this.head.setTextureSize(64, 64);
+        this.head.mirror = true;
+        this.setRotation(this.head, 0.0f, 0.0f, 0.0f);
+        (this.chest = new ModelRenderer((ModelBase) this, 31, 5)).addBox(-3.5f, 0.0f, -1.0f, 7, 4, 3);
+        this.chest.setRotationPoint(0.0f, 0.0f, 0.0f);
+        this.chest.setTextureSize(64, 64);
+        this.chest.mirror = true;
+        this.setRotation(this.chest, 0.0f, 0.0f, 0.0f);
+        (this.waist = new ModelRenderer((ModelBase) this, 33, 13)).addBox(-2.5f, 4.0f, -1.0f, 5, 3, 3);
+        this.waist.setRotationPoint(0.0f, 0.0f, 0.0f);
+        this.waist.setTextureSize(64, 64);
+        this.waist.mirror = true;
+        this.setRotation(this.waist, 0.0f, 0.0f, 0.0f);
+        (this.hips = new ModelRenderer((ModelBase) this, 31, 20)).addBox(-3.0f, 7.0f, -1.0f, 6, 4, 4);
+        this.hips.setRotationPoint(0.0f, 0.0f, 0.0f);
+        this.hips.setTextureSize(64, 64);
+        this.hips.mirror = true;
+        this.setRotation(this.hips, 0.0f, 0.0f, 0.0f);
+        (this.lleg1 = new ModelRenderer((ModelBase) this, 53, 8)).addBox(0.0f, 0.0f, 0.0f, 2, 7, 2);
+        this.lleg1.setRotationPoint(1.0f, 10.0f, 0.0f);
+        this.lleg1.setTextureSize(64, 64);
+        this.lleg1.mirror = true;
+        this.setRotation(this.lleg1, -0.7853982f, 0.0f, 0.0f);
+        (this.lleg2 = new ModelRenderer((ModelBase) this, 53, 18)).addBox(0.0f, 0.0f, 0.0f, 2, 8, 2);
+        this.lleg2.setRotationPoint(1.0f, 15.0f, -5.0f);
+        this.lleg2.setTextureSize(64, 64);
+        this.lleg2.mirror = true;
+        this.setRotation(this.lleg2, 0.7679449f, 0.0f, 0.0f);
+        (this.rleg = new ModelRenderer((ModelBase) this, 51, 30)).addBox(-3.0f, 0.0f, 0.0f, 2, 13, 2);
+        this.rleg.setRotationPoint(0.0f, 11.0f, 0.0f);
+        this.rleg.setTextureSize(64, 64);
+        this.rleg.mirror = true;
+        this.setRotation(this.rleg, 0.0f, 0.0f, 0.0f);
+        (this.b1 = new ModelRenderer((ModelBase) this, 42, 1)).addBox(1.0f, 1.0f, -2.0f, 2, 2, 1);
+        this.b1.setRotationPoint(0.0f, 1.0f, 0.0f);
+        this.b1.setTextureSize(64, 64);
+        this.b1.mirror = true;
+        this.setRotation(this.b1, 0.0f, 0.0f, 0.0f);
+        (this.b2 = new ModelRenderer((ModelBase) this, 32, 1)).addBox(-3.0f, 2.0f, -2.0f, 2, 2, 1);
+        this.b2.setRotationPoint(0.0f, 0.0f, 0.0f);
+        this.b2.setTextureSize(64, 64);
+        this.b2.mirror = true;
+        this.setRotation(this.b2, 0.0f, 0.0f, 0.0f);
+        (this.larm = new ModelRenderer((ModelBase) this, 7, 14)).addBox(0.0f, 0.0f, 0.0f, 1, 10, 1);
+        this.larm.setRotationPoint(3.0f, 0.0f, 0.0f);
+        this.larm.setTextureSize(64, 64);
+        this.larm.mirror = true;
+        this.setRotation(this.larm, -0.0174533f, 0.0f, -0.122173f);
+        (this.rarm = new ModelRenderer((ModelBase) this, 2, 14)).addBox(-1.0f, 0.0f, 0.0f, 1, 10, 1);
+        this.rarm.setRotationPoint(-3.0f, 0.0f, 0.0f);
+        this.rarm.setTextureSize(64, 64);
+        this.rarm.mirror = true;
+        this.setRotation(this.rarm, -0.0174533f, 0.0f, 0.122173f);
+        (this.lwing2 = new ModelRenderer((ModelBase) this, 0, 47)).addBox(0.0f, -9.0f, 0.0f, 26, 16, 0);
+        this.lwing2.setRotationPoint(2.0f, 0.0f, 2.0f);
+        this.lwing2.setTextureSize(64, 64);
+        this.lwing2.mirror = true;
+        this.setRotation(this.lwing2, 0.0f, -0.5934119f, 0.0f);
+        (this.lwing1 = new ModelRenderer((ModelBase) this, 0, 30)).addBox(0.0f, -7.0f, 0.0f, 24, 16, 0);
+        this.lwing1.setRotationPoint(2.0f, 3.0f, 2.0f);
+        this.lwing1.setTextureSize(64, 64);
+        this.lwing1.mirror = true;
+        this.setRotation(this.lwing1, 0.0f, -0.8203047f, 0.0f);
+        (this.rwing2 = new ModelRenderer((ModelBase) this, 0, 30)).addBox(0.0f, -7.0f, 0.0f, 24, 16, 0);
+        this.rwing2.setRotationPoint(-2.0f, 3.0f, 2.0f);
+        this.rwing2.setTextureSize(64, 64);
+        this.rwing2.mirror = true;
+        this.setRotation(this.rwing2, 0.0f, -2.356194f, 0.0f);
+        (this.rwing1 = new ModelRenderer((ModelBase) this, 0, 47)).addBox(0.0f, -9.0f, 0.0f, 26, 16, 0);
+        this.rwing1.setRotationPoint(-2.0f, 0.0f, 2.0f);
+        this.rwing1.setTextureSize(64, 64);
+        this.rwing1.mirror = true;
+        this.setRotation(this.rwing1, 0.0f, -2.548181f, 0.0f);
     }
 
-    public FairyModel(final float f) {
-        this(f, 0.0F);
+    public void render(final Entity entity, final float f, final float f1, final float f2, final float f3,
+                       final float f4, final float f5) {
+        final FairyInstance fly = (FairyInstance) entity;
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        float onoff = 0.0f;
+        this.lwing1.rotateAngleY = -0.6f + MathHelper.cos(f2 * this.wingspeed) * 3.1415927f * 0.35f;
+        this.rwing1.rotateAngleY = -2.55f - MathHelper.cos(f2 * this.wingspeed) * 3.1415927f * 0.35f;
+        this.lwing2.rotateAngleY = -0.6f + MathHelper.cos(f2 * this.wingspeed * 0.85f) * 3.1415927f * 0.25f;
+        this.rwing2.rotateAngleY = -2.55f - MathHelper.cos(f2 * this.wingspeed * 0.85f) * 3.1415927f * 0.25f;
+        this.head.rotateAngleY = (float) Math.toRadians(f3) * 0.45f;
+        if (this.head.rotateAngleY > 0.45f) {
+            this.head.rotateAngleY = 0.45f;
+        }
+        if (this.head.rotateAngleY < -0.45f) {
+            this.head.rotateAngleY = -0.45f;
+        }
+        this.head.rotateAngleX = (float) Math.toRadians(f4);
+        this.larm.rotateAngleX = -0.2f + MathHelper.cos(f2 * this.wingspeed * 0.15f) * 3.1415927f * 0.05f;
+        this.rarm.rotateAngleX = -0.2f + MathHelper.cos(f2 * this.wingspeed * 0.12f) * 3.1415927f * 0.05f;
+        this.larm.rotateAngleZ = -0.15f + MathHelper.cos(f2 * this.wingspeed * 0.1f) * 3.1415927f * 0.03f;
+        this.rarm.rotateAngleZ = 0.15f + MathHelper.cos(f2 * this.wingspeed * 0.11f) * 3.1415927f * 0.03f;
+        this.lwing2.render(f5);
+        this.lwing1.render(f5);
+        this.rwing2.render(f5);
+        this.rwing1.render(f5);
+        onoff = fly.getBlink();
+        OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, onoff, 240.0f);
+        GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+        this.head.render(f5);
+        this.chest.render(f5);
+        this.waist.render(f5);
+        this.hips.render(f5);
+        this.lleg1.render(f5);
+        this.lleg2.render(f5);
+        this.rleg.render(f5);
+        this.b1.render(f5);
+        this.b2.render(f5);
+        this.larm.render(f5);
+        this.rarm.render(f5);
     }
 
-    public FairyModel(final float f, final float f1) {
-        heldItemLeft = 0;
-        heldItemRight = 0;
-        isSneak = false;
-        flymode = showCrown = false;
-        bipedHead = new ModelRenderer(this, 0, 0);
-        bipedHead.addBox(-3F, -6F, -3F, 6, 6, 6, f);
-        bipedHead.setRotationPoint(0.0F, 0.0F + f1, 0.0F);
-        strand = (new ModelRenderer(this)).setTextureSize((byte) 64, (byte) 32);
-        strand.setTextureOffset(0, 20)
-            .addBox(-3F, -5F, 3F, 6, 3, 1, f);
-        strand.setTextureOffset(24, 0)
-            .addBox(-4F, -5F, -3F, 1, 3, 6, f);
-        strand.setTextureOffset(24, 0)
-            .addBox(3F, -5F, -3F, 1, 3, 6, f);
-        strand.setRotationPoint(0.0F, 0.0F + f1, 0.0F);
-        strand2 = (new ModelRenderer(this)).setTextureSize((byte) 64, (byte) 32);
-        strand2.setTextureOffset(13, 23)
-            .addBox(-5F, -2.5F, 1.5F, 10, 3, 3, f);
-        strand2.setRotationPoint(0F, 0F + f1, 0F);
-        strand.addChild(strand2);
-        strand3 = (new ModelRenderer(this)).setTextureSize((byte) 64, (byte) 32);
-        strand3.setTextureOffset(13, 23)
-            .addBox(-3F, -1.5F, -1.5F, 3, 3, 3, f - 0.5F);
-        strand3.setTextureOffset(13, 23)
-            .addBox(-5.25F, -1.5F, -1.5F, 3, 3, 3, f - 0.25F);
-        strand3.setRotationPoint(-2F, -1.75F + f1, 3F);
-        strand3.rotateAngleZ = -1.0F;
-        strand3.rotateAngleY = 0.5F;
-        strand3.isHidden = true;
-        strand.addChild(strand3);
-        strand4 = (new ModelRenderer(this)).setTextureSize((byte) 64, (byte) 32);
-        strand4.mirror = true;
-        strand4.setTextureOffset(13, 23)
-            .addBox(0F, -1.5F, -1.5F, 3, 3, 3, f - 0.5F);
-        strand4.setTextureOffset(13, 23)
-            .addBox(2.25F, -1.5F, -1.5F, 3, 3, 3, f - 0.25F);
-        strand4.setRotationPoint(2F, -1.75F + f1, 3F);
-        strand4.rotateAngleZ = 1.0F;
-        strand4.rotateAngleY = -0.5F;
-        strand4.isHidden = true;
-        strand.addChild(strand4);
-        // jaw = new ModelRenderer(this, "jaw");
-        // jaw.setRotationPoint(0.0F, 4F, 8F + f);
-        // jaw.addBox("jaw", -6F, 0.0F, -16F, 12, 4, 16);
-        // head.addChild(jaw);
-        crown = new ModelRenderer(this, 37, 14);
-        crown.addBox(-3F, -6.75F, -3F, 6, 3, 6, f + 0.25F);
-        crown.setRotationPoint(0.0F, 0.0F + f1, 0.0F);
-        bipedBody = (new ModelRenderer(this)).setTextureSize((byte) 64, (byte) 32);
-        bipedBody.setTextureOffset(8, 12)
-            .addBox(-2F, 0.0F, -1F, 4, 6, 2, f);
-        bipedBody.setTextureOffset(15, 20)
-            .addBox(-2F, 1.0F, -2F, 4, 2, 1, f);
-        bipedBody.setRotationPoint(0.0F, 0.0F + f1, 0.0F);
-        wingRight = new ModelRenderer(this, 27, 9);
-        wingRight.addBox(0F, -0.75F, -1.0F, 5, 4, 1, f + 0.25F);
-        wingRight.setRotationPoint(0.5F, 0.0F + f1, 1.0F);
-        wingLeft = new ModelRenderer(this, 27, 9);
-        wingLeft.mirror = true;
-        wingLeft.addBox(-5F, -0.75F, -1.0F, 5, 4, 1, f + 0.25F);
-        wingLeft.setRotationPoint(-0.5F, 0.0F + f1, 1.0F);
-        bipedRightArm = new ModelRenderer(this, 0, 12);
-        bipedRightArm.addBox(-1F, -1F, -1F, 2, 6, 2, f);
-        bipedRightArm.setRotationPoint(-5F, 1.0F + f1, 0.0F);
-        bipedLeftArm = new ModelRenderer(this, 0, 12);
-        bipedLeftArm.mirror = true;
-        bipedLeftArm.addBox(-1F, -1F, -1F, 2, 6, 2, f);
-        bipedLeftArm.setRotationPoint(5F, 1.0F + f1, 0.0F);
-        bipedRightLeg = new ModelRenderer(this, 20, 12);
-        bipedRightLeg.addBox(-1F, 0.0F, -1F, 2, 6, 2, f);
-        bipedRightLeg.setRotationPoint(-1F, 18F + f1, 0.0F);
-        bipedLeftLeg = new ModelRenderer(this, 20, 12);
-        bipedLeftLeg.mirror = true;
-        bipedLeftLeg.addBox(-1F, 0.0F, -1F, 2, 6, 2, f);
-        bipedLeftLeg.setRotationPoint(1.0F, 18F + f1, 0.0F);
+    private void setRotation(final ModelRenderer model, final float x, final float y, final float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
     }
 
-    @Override
-    public void render(final Entity e, final float f, final float f1, final float f2, final float f3, final float f4,
-        final float f5) {
-        GL11.glPushMatrix();
-        setRotationAngles(f, f1, f2, f3, f4, f5);
-        bipedHead.render(f5);
-        bipedBody.render(f5);
-        bipedRightArm.render(f5);
-        bipedLeftArm.render(f5);
-        bipedRightLeg.render(f5);
-        bipedLeftLeg.render(f5);
-
-        if (!rogueParts) {
-            strand2.isHidden = hairType;
-            strand3.isHidden = !hairType;
-            strand4.isHidden = !hairType;
-            strand.render(f5);
-        }
-
-        if (showCrown && !rogueParts) {
-            crown.render(f5);
-        }
-
-        if (!scoutWings && !rogueParts) {
-            wingLeft.render(f5);
-            wingRight.render(f5);
-        }
-
-        GL11.glPopMatrix();
+    public void setRotationAngles(final float par1, final float par2, final float par3, final float par4,
+                                  final float par5, final float par6, final Entity par7Entity) {
+        super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);
     }
-
-    public void setRotationAngles(final float f, final float f1, final float f2, final float f3, final float f4,
-        final float f5) {
-        bipedHead.rotateAngleY = f3 / (180F / (float) Math.PI);
-        bipedHead.rotateAngleX = f4 / (180F / (float) Math.PI);
-        strand.rotateAngleY = bipedHead.rotateAngleY;
-        strand.rotateAngleX = bipedHead.rotateAngleX;
-        crown.rotateAngleY = bipedHead.rotateAngleY;
-        crown.rotateAngleX = bipedHead.rotateAngleX;
-
-        if (!flymode) {
-            bipedRightArm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 2.0F * f1 * 0.5F;
-            bipedLeftArm.rotateAngleX = MathHelper.cos(f * 0.6662F) * 2.0F * f1 * 0.5F;
-            bipedRightLeg.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-            bipedLeftLeg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
-        } else {
-            bipedRightArm.rotateAngleX = 0.0F;
-            bipedLeftArm.rotateAngleX = 0.0F;
-            bipedRightLeg.rotateAngleX = 0.0F;
-            bipedLeftLeg.rotateAngleX = 0.0F;
-        }
-
-        bipedRightArm.rotateAngleZ = 0.05F;
-        bipedLeftArm.rotateAngleZ = -0.05F;
-        bipedRightLeg.rotateAngleY = 0.0F;
-        bipedLeftLeg.rotateAngleY = 0.0F;
-        bipedRightLeg.rotateAngleZ = 0.0F;
-        bipedLeftLeg.rotateAngleZ = 0.0F;
-
-        if ((isRiding || isSneak) && !flymode) {
-            bipedRightArm.rotateAngleX += -((float) Math.PI / 5F);
-            bipedLeftArm.rotateAngleX += -((float) Math.PI / 5F);
-            bipedRightLeg.rotateAngleX = -((float) Math.PI * 2F / 5F);
-            bipedLeftLeg.rotateAngleX = -((float) Math.PI * 2F / 5F);
-            bipedRightLeg.rotateAngleY = ((float) Math.PI / 10F);
-            bipedLeftLeg.rotateAngleY = -((float) Math.PI / 10F);
-
-            if (isSneak) {
-                bipedRightLeg.rotateAngleX = -((float) Math.PI / 2F);
-                bipedLeftLeg.rotateAngleX = -((float) Math.PI / 2F);
-            }
-        }
-
-        if (heldItemLeft != 0) {
-            bipedLeftArm.rotateAngleX = bipedLeftArm.rotateAngleX * 0.5F - ((float) Math.PI / 10F);
-        }
-
-        if (heldItemRight != 0) {
-            bipedRightArm.rotateAngleX = bipedRightArm.rotateAngleX * 0.5F - ((float) Math.PI / 10F);
-        }
-
-        bipedRightArm.rotateAngleY = 0.0F;
-        bipedLeftArm.rotateAngleY = 0.0F;
-
-        if (onGround > -9990F) {
-            float f6 = onGround;
-            bipedBody.rotateAngleY = MathHelper.sin(MathHelper.sqrt_float(f6) * (float) Math.PI * 2.0F) * 0.2F;
-            wingLeft.rotateAngleY = wingRight.rotateAngleY = MathHelper
-                .sin(MathHelper.sqrt_float(f6) * (float) Math.PI * 2.0F) * 0.2F;
-            bipedRightArm.rotationPointZ = MathHelper.sin(bipedBody.rotateAngleY) * 5F;
-            bipedRightArm.rotationPointX = -MathHelper.cos(bipedBody.rotateAngleY) * 5F + 2.0F;
-            bipedLeftArm.rotationPointZ = -MathHelper.sin(bipedBody.rotateAngleY) * 5F;
-            bipedLeftArm.rotationPointX = MathHelper.cos(bipedBody.rotateAngleY) * 5F - 2.0F;
-            bipedRightArm.rotateAngleY += bipedBody.rotateAngleY;
-            bipedLeftArm.rotateAngleY += bipedBody.rotateAngleY;
-            bipedLeftArm.rotateAngleX += bipedBody.rotateAngleY;
-            f6 = 1.0F - onGround;
-            f6 *= f6;
-            f6 *= f6;
-            f6 = 1.0F - f6;
-            final float f8 = MathHelper.sin(f6 * (float) Math.PI);
-            final float f9 = MathHelper.sin(onGround * (float) Math.PI) * -(bipedHead.rotateAngleX - 0.7F) * 0.75F;
-            bipedRightArm.rotateAngleX -= f8 * 1.2D + f9;
-            bipedRightArm.rotateAngleY += bipedBody.rotateAngleY * 2.0F;
-            bipedRightArm.rotateAngleZ = MathHelper.sin(onGround * (float) Math.PI) * -0.4F;
-        }
-
-        if (flymode) {
-            final float f7 = (float) Math.PI;
-            bipedBody.rotateAngleX = f7 / 2.0F;
-            bipedBody.rotationPointY = 19F;
-            wingLeft.rotateAngleX = f7 / 2.0F;
-            wingRight.rotateAngleX = f7 / 2.0F;
-            wingLeft.rotationPointY = 17.5F;
-            wingRight.rotationPointY = 17.5F;
-            wingLeft.rotationPointZ = 1.0F;
-            wingRight.rotationPointZ = 1.0F;
-            bipedRightLeg.rotationPointZ = 0.0F;
-            bipedLeftLeg.rotationPointZ = 0.0F;
-            bipedRightArm.rotationPointY = 19F;
-            bipedLeftArm.rotationPointY = 19F;
-            bipedRightLeg.rotationPointY = 18F;
-            bipedLeftLeg.rotationPointY = 18F;
-            bipedRightLeg.rotationPointZ = 6F;
-            bipedLeftLeg.rotationPointZ = 6F;
-            bipedHead.rotationPointZ = -3F;
-            bipedHead.rotationPointY = 19.75F;
-            strand.rotationPointZ = -3F;
-            strand.rotationPointY = 19.75F;
-            crown.rotationPointZ = -3F;
-            crown.rotationPointY = 19.75F;
-        } else {
-            bipedBody.rotateAngleX = 0.0F;
-            bipedBody.rotationPointY = 12F;
-            wingLeft.rotateAngleX = 0.0F;
-            wingRight.rotateAngleX = 0.0F;
-            wingLeft.rotationPointY = 12.5F;
-            wingRight.rotationPointY = 12.5F;
-            wingLeft.rotationPointZ = 1.0F;
-            wingRight.rotationPointZ = 1.0F;
-            bipedRightLeg.rotationPointZ = 0.0F;
-            bipedLeftLeg.rotationPointZ = 0.0F;
-
-            if (isRiding) {
-                bipedRightArm.rotationPointY = 13F;
-                bipedLeftArm.rotationPointY = 13F;
-            } else {
-                bipedRightArm.rotationPointY = 13F;
-                bipedLeftArm.rotationPointY = 13F;
-            }
-
-            bipedRightLeg.rotationPointY = 18F;
-            bipedLeftLeg.rotationPointY = 18F;
-            bipedRightLeg.rotationPointZ = 0.0F;
-            bipedLeftLeg.rotationPointZ = 0.0F;
-            bipedHead.rotationPointZ = 0.0F;
-            bipedHead.rotationPointY = 12F;
-            strand.rotationPointZ = 0.0F;
-            strand.rotationPointY = 12F;
-            crown.rotationPointZ = 0.0F;
-            crown.rotationPointY = 12F;
-        }
-
-        if (flymode) {
-            bipedRightArm.rotateAngleZ += MathHelper.cos(f2 * 0.09F) * 0.1F + 0.05F;
-            bipedLeftArm.rotateAngleZ -= MathHelper.cos(f2 * 0.09F) * 0.1F + 0.05F;
-            bipedRightArm.rotateAngleX += MathHelper.sin(f2 * 0.067F) * 0.1F;
-            bipedLeftArm.rotateAngleX -= MathHelper.sin(f2 * 0.067F) * 0.1F;
-            bipedRightLeg.rotateAngleZ += MathHelper.cos(f2 * 0.09F) * 0.1F + 0.05F;
-            bipedLeftLeg.rotateAngleZ -= MathHelper.cos(f2 * 0.09F) * 0.1F + 0.05F;
-            bipedRightLeg.rotateAngleX = 0.1F;
-            bipedLeftLeg.rotateAngleX = 0.1F;
-        } else {
-            bipedRightArm.rotateAngleZ += MathHelper.cos(f2 * 0.09F) * 0.05F + 0.05F;
-            bipedLeftArm.rotateAngleZ -= MathHelper.cos(f2 * 0.09F) * 0.05F + 0.05F;
-            bipedRightArm.rotateAngleX += MathHelper.sin(f2 * 0.067F) * 0.05F;
-            bipedLeftArm.rotateAngleX -= MathHelper.sin(f2 * 0.067F) * 0.05F;
-        }
-
-        if (flymode) {
-            wingLeft.rotateAngleY = 0.1F;
-            wingRight.rotateAngleY = -0.1F;
-            wingLeft.rotateAngleY += Math.sin(sinage) / 6F;
-            wingRight.rotateAngleY -= Math.sin(sinage) / 6F;
-            wingLeft.rotateAngleZ = 0.5F;
-            wingRight.rotateAngleZ = -0.5F;
-        } else {
-            wingLeft.rotateAngleY = 0.6F;
-            wingRight.rotateAngleY = -0.6F;
-            wingLeft.rotateAngleY += Math.sin(sinage) / 3F;
-            wingRight.rotateAngleY -= Math.sin(sinage) / 3F;
-            wingLeft.rotateAngleZ = 0.125F;
-            wingRight.rotateAngleZ = -0.125F;
-        }
-
-        wingLeft.rotateAngleZ += Math.cos(sinage) / (flymode ? 3F : 8F);
-        wingRight.rotateAngleZ -= Math.cos(sinage) / (flymode ? 3F : 8F);
-    }
-
-    @Override
-    public void renderEars(final float f) {}
-
-    @Override
-    public void renderCloak(final float f) {}
-
-    public ModelRenderer strand, strand2, strand3, strand4;
-    public ModelRenderer crown;
-    public ModelRenderer wingLeft;
-    public ModelRenderer wingRight;
-    public boolean flymode;
-    public boolean showCrown;
-    public boolean scoutWings;
-    public boolean rogueParts;
-    public boolean hairType;
-    public float sinage;
 }

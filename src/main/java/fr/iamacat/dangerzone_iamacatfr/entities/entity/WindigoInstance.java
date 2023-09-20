@@ -1079,11 +1079,11 @@ public class WindigoInstance extends EntityMob {
     private void firecanon(final EntityLivingBase e) {
         final double yoff = 14.0;
         final double xzoff = 36.0;
-        BetterFireballInstance bf = null;
+        BetterFireballInstancemMLP bf = null;
         final double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw));
         final double cz = this.posZ + xzoff * Math.cos(Math.toRadians(this.rotationYaw));
         if (this.stream_count > 0) {
-            bf = new BetterFireballInstance(
+            bf = new BetterFireballInstancemMLP(
                 this.worldObj,
                 (EntityLivingBase) this,
                 e.posX - cx,
@@ -1091,7 +1091,7 @@ public class WindigoInstance extends EntityMob {
                 e.posZ - cz);
             bf.setLocationAndAngles(cx, this.posY + yoff, cz, this.rotationYaw, 0.0f);
             bf.setPosition(cx, this.posY + yoff, cz);
-            bf.setHuge();
+            bf.setBig();
             this.worldObj.playSoundAtEntity(
                 (Entity) this,
                 "random.explode",
@@ -1103,7 +1103,7 @@ public class WindigoInstance extends EntityMob {
                 final float r1 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r2 = 3.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r3 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
-                bf = new BetterFireballInstance(
+                bf = new BetterFireballInstancemMLP(
                     this.worldObj,
                     (EntityLivingBase) this,
                     e.posX - cx + r1,
@@ -1476,11 +1476,11 @@ public class WindigoInstance extends EntityMob {
     private void windchill(final EntityLivingBase e) {
         final double yoff = 1.75;
         final double xzoff = 1.5;
-        BetterFireballInstance bf = null;
+        BetterFireballInstancemMLP bf = null;
         final double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw));
         final double cz = this.posZ + xzoff * Math.cos(Math.toRadians(this.rotationYaw));
         if (this.stream_count > 0) {
-            bf = new BetterFireballInstance(
+            bf = new BetterFireballInstancemMLP(
                 this.worldObj,
                 (EntityLivingBase) this,
                 e.posX - cx,
@@ -1500,7 +1500,7 @@ public class WindigoInstance extends EntityMob {
                 final float r1 = 10.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r2 = 10.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r3 = 10.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
-                bf = new BetterFireballInstance(
+                bf = new BetterFireballInstancemMLP(
                     this.worldObj,
                     (EntityLivingBase) this,
                     e.posX - cx + r1,

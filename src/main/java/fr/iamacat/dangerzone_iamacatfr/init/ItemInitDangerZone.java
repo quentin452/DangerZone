@@ -2,7 +2,6 @@ package fr.iamacat.dangerzone_iamacatfr.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.iamacat.dangerzone_iamacatfr.blocks.ItemIrukandjiArrow;
-import fr.iamacat.dangerzone_iamacatfr.blocks.Lavafoam;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalShard;
 import fr.iamacat.dangerzone_iamacatfr.items.*;
 import fr.iamacat.dangerzone_iamacatfr.materials.*;
@@ -10,6 +9,7 @@ import fr.iamacat.dangerzone_iamacatfr.util.ArmorMaterialModded;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.util.ToolMaterialModded;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -307,7 +307,32 @@ public class ItemInitDangerZone {
     public static Item MySpikeyRock;
     public static Item MyTNTRock;
 
+    static Item.ToolMaterial toolCRYSTALWOOD;
+    static Item.ToolMaterial toolCRYSTALSTONE;
+    static Item.ToolMaterial toolCRYSTALPINK;
+
     public static void init() {
+        toolCRYSTALWOOD = EnumHelper.addToolMaterial(
+            "CRYSTALWOOD",
+            2,
+            300,
+            (float)3,
+            (float)2,
+           15);
+      toolCRYSTALSTONE = EnumHelper.addToolMaterial(
+            "CRYSTALSTONE",
+          3,
+           800,
+            (float)6,
+            (float)5,
+      45);
+      toolCRYSTALPINK = EnumHelper.addToolMaterial(
+            "CRYSTALPINK",
+            4,
+           1100,
+            (float) 10,
+            (float)7,
+            65);
 
         toolBERTHA = EnumHelper.addToolMaterial("BERTHA", 3, 9000, (float) 15, (float) 496, 100);
         toolRoyal = EnumHelper.addToolMaterial("ROYAL", 3, 10000, (float) 15, (float) 746, 150);
@@ -375,7 +400,7 @@ public class ItemInitDangerZone {
         RedAntRobotKit = new RedAntRobotKit().setUnlocalizedName("RedAntRobotKit");
         SpiderRobotKit = new SpiderRobotKit().setUnlocalizedName("SpiderRobotKit");
         DeadStinkBug = new DeadStinkBug().setUnlocalizedName("DeadStinkBug");
-        DuctTape = new DuctTape().setUnlocalizedName("DuctTape");
+        DuctTape ductTape = (fr.iamacat.dangerzone_iamacatfr.items.DuctTape) new DuctTape(Blocks.stone).setUnlocalizedName("DuctTape");
         KrakenTooth = new KrakenTooth().setUnlocalizedName("KrakenTooth");
         TrexTooth = new TrexTooth().setUnlocalizedName("TrexTooth");
         WormTooth = new WormTooth().setUnlocalizedName("WormTooth");
@@ -443,13 +468,12 @@ public class ItemInitDangerZone {
         SkateBow = new SkateBow().setUnlocalizedName("SkateBow");
         ItemAcid = new Acid().setUnlocalizedName("ItemAcid");
         ItemIrukandjiArrow = new ItemIrukandjiArrow().setUnlocalizedName("ItemIrukandjiArrow");
-        BattleAxe = new UltimateSword(ToolMaterialModded.BATTLEAXE).setUnlocalizedName("BattleAxe");
+        BattleAxe = new UltimateSword(toolBATTLE).setUnlocalizedName("BattleAxe");
         BigHammer = new BigHammer(ToolMaterialModded.BIGHAMMER).setUnlocalizedName("BigHammer");
-        Blackheels = new Blackheels().setUnlocalizedName("Blackheels");
+        Blackheels = new ItemShoes(51,3).setUnlocalizedName("Blackheels");
         Boots = new Boots().setUnlocalizedName("Boots");
-        DeadIrukandji = new DeadIrukandji().setUnlocalizedName("DeadIrukandji");
         ExperienceCatcher = new ExperienceCatcher().setUnlocalizedName("ExperienceCatcher");
-        GameController = new ItemShoes().setUnlocalizedName("GameController");
+        GameController = new ItemShoes(50, 2).setUnlocalizedName("GameController");
         InstantGarden = new InstantGarden().setUnlocalizedName("InstantGarden");
         Wrench = new Wrench().setUnlocalizedName("Wrench");
         MantisClaw = new MantisClaw(ToolMaterialModded.MantisClaw).setUnlocalizedName("MantisClaw");
@@ -592,7 +616,7 @@ public class ItemInitDangerZone {
         ExtraLargeZooCage = new ExtraLargeZooCage().setUnlocalizedName("ExtraLargeZooCage");
         TheZooKeeper = new TheZooKeeper().setUnlocalizedName("TheZooKeeper");
         SquidZooka = new SquidZooka().setUnlocalizedName("SquidZooka");
-        Slippers = new ItemShoes().setUnlocalizedName("Slippers");
+        Slippers = new ItemShoes(5, 2).setUnlocalizedName("Slippers");
         mavisOrb = new MavisOrb().setTextureName(Tags.MODID + ":MavisOrb")
             .setUnlocalizedName("MavisOrb");
         phoenixFeather = new PhoenixFeather();
@@ -601,21 +625,38 @@ public class ItemInitDangerZone {
         Bertha = new Bertha(toolBERTHA).setUnlocalizedName("berthasmall");
 
         ItemAppleSeed = new ItemAppleSeed();
-        ItemButterflySeed = new ItemButterflySeed();
-        ItemCornCob = new ItemCornCob();
+        ItemButterflySeed = new ItemButterflySeed(
+            212,
+            BlockInitDangerZone.BlockButterflyPlant,
+            Blocks.farmland).setUnlocalizedName("butterfly_seed");
+        ItemCornCob = new ItemCornCob(
+            185,
+            6,
+            0.75f,
+            BlockInitDangerZone.BlockCorn1,
+            Blocks.farmland).setUnlocalizedName("corn_seed");
         ItemCreeperLauncher = new ItemCreeperLauncher();
         ItemCrystalSticks = new ItemCrystalSticks();
         Hoverboard = new Hoverboard();
         ItemExperienceTreeSeed = new ItemExperienceTreeSeed();
-        ItemFireflySeed = new ItemFireflySeed();
+       ItemFireflySeed = new ItemFireflySeed(
+            215,
+            BlockInitDangerZone.BlockFireflyPlant,
+            Blocks.farmland).setUnlocalizedName("firefly_seed");
         ItemIceBall = new ItemIceBall();
         ItemIrukandji = new ItemIrukandji();
-        ItemMosquitoSeed = new ItemMosquitoSeed();
-        ItemMothSeed = new ItemMothSeed();
-        ItemRayGun = new ItemRayGun();
-        ItemRock = new ItemRock();
-        ItemShoes = new ItemShoes();
-        ItemStrawberrySeed = new ItemStrawberrySeed();
+       ItemMosquitoSeed = new ItemMosquitoSeed(
+            214,
+            BlockInitDangerZone.BlockMosquitoPlant,
+            Blocks.farmland).setUnlocalizedName("mosquito_seed");
+     ItemMothSeed = new ItemMothSeed(213,BlockInitDangerZone.BlockMothPlant,
+            Blocks.farmland);
+        ItemRayGun = new ItemRayGun(243).setUnlocalizedName("RayGun");
+       BlueFish= new BlueFish();
+       ItemShoes= new ItemShoes( 248, 2).setUnlocalizedName("redheels");
+
+        ItemStrawberrySeed= new ItemStrawberrySeed(
+         210,BlockInitDangerZone.BlockStrawberry, Blocks.farmland);
         KrakenRepellent = Item.getItemFromBlock(new KrakenRepellent());
         royalsword = new Bertha(toolRoyal);
 
@@ -623,38 +664,44 @@ public class ItemInitDangerZone {
         MySlice = new Bertha(toolRoyal).setUnlocalizedName("slicesmall");
         royalsword = new Bertha(toolRoyal).setUnlocalizedName("royalsmall");
         MyHammy = new Bertha(toolRoyal).setUnlocalizedName("hammysmall");
-        CrystalSword = new CrystalSword();
+       CrystalSword = new CrystalSword( 329, toolCRYSTALWOOD)
+            .setUnlocalizedName("crystalwoodsword");
         TitaniumNugget = new TitaniumNugget();
         UraniumNugget = new UraniumNugget();
-        CrystalPickaxe = new CrystalPickaxe();
-        CrystalAxe = new CrystalAxe();
-        ItemShoes1 = new ItemShoes();
-        ItemShoes2 = new ItemShoes();
-        ItemShoes3 = new ItemShoes();
-        CrystalShovel = new CrystalShovel();
-        CrystalHoe = new CrystalHoe();
+        CrystalPickaxe = new CrystalPickaxe(
+          330,
+           toolCRYSTALWOOD).setUnlocalizedName("crystalwoodpickaxe");
+        CrystalShovel = new CrystalShovel(
+             331,
+           toolCRYSTALWOOD).setUnlocalizedName("crystalwoodshovel");
+        CrystalAxe = new CrystalAxe(338, toolCRYSTALPINK);
 
-       MyCherrySeed = new ItemAppleSeed(OreSpawnMain.BaseItemID + 217)
+       ItemShoes1 = new ItemShoes( 249, 3).setUnlocalizedName("blackheels");
+       ItemShoes2 = new ItemShoes(250, 4).setUnlocalizedName("slippers");
+        ItemShoes3 = new ItemShoes(251, 5).setUnlocalizedName("boots");
+        CrystalHoe = new CrystalHoe(342,toolCRYSTALSTONE);
+
+       MyCherrySeed = new ItemAppleSeed()
             .setUnlocalizedName("cherrytree_seed");
-        MyPeachSeed = new ItemAppleSeed(OreSpawnMain.BaseItemID + 218)
+        MyPeachSeed = new ItemAppleSeed()
             .setUnlocalizedName("peachtree_seed");
 
-        OreSpawnMain.MySmallRock = new ItemRock(OreSpawnMain.BaseItemID + 436).setUnlocalizedName("rocksmall");
-        OreSpawnMain.MyRock = new ItemRock(OreSpawnMain.BaseItemID + 435).setUnlocalizedName("rock");
-        OreSpawnMain.MyRedRock = new ItemRock(OreSpawnMain.BaseItemID + 437).setUnlocalizedName("rockred");
-        OreSpawnMain.MyCrystalRedRock = new ItemRock(OreSpawnMain.BaseItemID + 443)
+       MySmallRock = new ItemRock().setUnlocalizedName("rocksmall");
+        MyRock = new ItemRock().setUnlocalizedName("rock");
+       MyRedRock = new ItemRock().setUnlocalizedName("rockred");
+        MyCrystalRedRock = new ItemRock()
             .setUnlocalizedName("rockcrystalred");
-        OreSpawnMain.MyCrystalGreenRock = new ItemRock(OreSpawnMain.BaseItemID + 444)
+       MyCrystalGreenRock = new ItemRock()
             .setUnlocalizedName("rockcrystalgreen");
-        OreSpawnMain.MyCrystalBlueRock = new ItemRock(OreSpawnMain.BaseItemID + 445)
+      MyCrystalBlueRock = new ItemRock()
             .setUnlocalizedName("rockcrystalblue");
-        OreSpawnMain.MyCrystalTNTRock = new ItemRock(OreSpawnMain.BaseItemID + 446)
+        MyCrystalTNTRock = new ItemRock()
             .setUnlocalizedName("rockcrystaltnt");
-        OreSpawnMain.MyGreenRock = new ItemRock(OreSpawnMain.BaseItemID + 438).setUnlocalizedName("rockgreen");
-        OreSpawnMain.MyBlueRock = new ItemRock(OreSpawnMain.BaseItemID + 439).setUnlocalizedName("rockblue");
-        OreSpawnMain.MyPurpleRock = new ItemRock(OreSpawnMain.BaseItemID + 440).setUnlocalizedName("rockpurple");
-        OreSpawnMain.MySpikeyRock = new ItemRock(OreSpawnMain.BaseItemID + 441).setUnlocalizedName("rockspikey");
-        OreSpawnMain.MyTNTRock = new ItemRock(OreSpawnMain.BaseItemID + 442).setUnlocalizedName("rocktnt");
+        MyGreenRock = new ItemRock().setUnlocalizedName("rockgreen");
+       MyBlueRock = new ItemRock().setUnlocalizedName("rockblue");
+       MyPurpleRock = new ItemRock().setUnlocalizedName("rockpurple");
+       MySpikeyRock = new ItemRock().setUnlocalizedName("rockspikey");
+       MyTNTRock = new ItemRock().setUnlocalizedName("rocktnt");
     }
 
     public static void register() {
@@ -753,7 +800,6 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(BigHammer, "BigHammer");
         GameRegistry.registerItem(Blackheels, "Blackheels");
         GameRegistry.registerItem(Boots, "Boots");
-        GameRegistry.registerItem(DeadIrukandji, "DeadIrukandji");
         GameRegistry.registerItem(ExperienceCatcher, "ExperienceCatcher");
         GameRegistry.registerItem(GameController, "GameController");
         GameRegistry.registerItem(InstantGarden, "InstantGarden");

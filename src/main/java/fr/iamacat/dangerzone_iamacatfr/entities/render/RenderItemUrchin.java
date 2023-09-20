@@ -17,8 +17,8 @@ public class RenderItemUrchin extends RenderSpinner {
             final SunspotUrchin var2 = (SunspotUrchin) par1Entity;
             this.spinItemIconIndex = var2.getUrchinIndex();
         }
-        if (par1Entity instanceof WaterBallInstance) {
-            final WaterBallInstance var3 = (WaterBallInstance) par1Entity;
+        if (par1Entity instanceof WaterBallInstanceOrespawn) {
+            final WaterBallInstanceOrespawn var3 = (WaterBallInstanceOrespawn) par1Entity;
             this.spinItemIconIndex = var3.getWaterBallIndex();
         }
         if (par1Entity instanceof InkSack) {

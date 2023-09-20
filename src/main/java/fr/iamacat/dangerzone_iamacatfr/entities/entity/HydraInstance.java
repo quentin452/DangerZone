@@ -680,11 +680,11 @@ public class HydraInstance extends EntityMob {
     private void firebreath(final EntityLivingBase e) {
         final double yoff = 29.0;
         final double xzoff = 22.0;
-        BetterFireballInstance bf = null;
+        BetterFireballInstancemMLP bf = null;
         final double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw));
         final double cz = this.posZ + xzoff * Math.cos(Math.toRadians(this.rotationYaw));
         if (this.stream_count > 0) {
-            bf = new BetterFireballInstance(
+            bf = new BetterFireballInstancemMLP(
                 this.worldObj,
                 (EntityLivingBase) this,
                 e.posX - cx,
@@ -693,20 +693,20 @@ public class HydraInstance extends EntityMob {
             bf.setLocationAndAngles(cx, this.posY + yoff, cz, this.rotationYaw, 0.0f);
             bf.setPosition(cx, this.posY + yoff, cz);
             bf.setHydra();
-            this.worldObj.spawnEntityInWorld((Entity) bf);
+            this.worldObj.spawnEntityInWorld(bf);
             for (int i = 0; i < 15; ++i) {
                 final float r1 = 10.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r2 = 8.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r3 = 6.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
-                bf = new BetterFireballInstance(
+                bf = new BetterFireballInstancemMLP(
                     this.worldObj,
-                    (EntityLivingBase) this,
+                    this,
                     e.posX - cx + r1,
                     e.posY + e.height / 2.0f - (this.posY + yoff) + r2,
                     e.posZ - cz + r3);
                 bf.setLocationAndAngles(cx, this.posY + yoff, cz, this.rotationYaw, 0.0f);
                 bf.setPosition(cx, this.posY + yoff, cz);
-                this.worldObj.spawnEntityInWorld((Entity) bf);
+                this.worldObj.spawnEntityInWorld(bf);
             }
             --this.stream_count;
         }
@@ -766,11 +766,11 @@ public class HydraInstance extends EntityMob {
     private void firecannon(final EntityLivingBase e) {
         final double yoff = 29.0;
         final double xzoff = 22.0;
-        BetterFireballInstance bf = null;
+        BetterFireballInstancemMLP bf = null;
         final double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw));
         final double cz = this.posZ + xzoff * Math.cos(Math.toRadians(this.rotationYaw));
         if (this.stream_count > 0) {
-            bf = new BetterFireballInstance(
+            bf = new BetterFireballInstancemMLP(
                 this.worldObj,
                 (EntityLivingBase) this,
                 e.posX - cx,
@@ -784,15 +784,15 @@ public class HydraInstance extends EntityMob {
                 final float r1 = 2.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r2 = 2.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r3 = 2.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
-                bf = new BetterFireballInstance(
+                bf = new BetterFireballInstancemMLP(
                     this.worldObj,
-                    (EntityLivingBase) this,
+                    this,
                     e.posX - cx + r1,
                     e.posY + e.height / 2.0f - (this.posY + yoff) + r2,
                     e.posZ - cz + r3);
                 bf.setLocationAndAngles(cx, this.posY + yoff, cz, this.rotationYaw, 0.0f);
                 bf.setPosition(cx, this.posY + yoff, cz);
-                this.worldObj.spawnEntityInWorld((Entity) bf);
+                this.worldObj.spawnEntityInWorld(bf);
             }
             --this.stream_count;
         }

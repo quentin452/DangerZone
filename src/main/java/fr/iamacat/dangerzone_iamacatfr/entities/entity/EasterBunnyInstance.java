@@ -2,6 +2,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Constants;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
@@ -121,11 +123,11 @@ public class EasterBunnyInstance extends EntityAnimal {
         }
         super.updateAITick();
         if (this.worldObj.rand.nextInt(600) == 1) {
-            this.LayAnEgg(1 + this.worldObj.rand.nextInt(3));
+            this.LayAnSpawnEgg(1 + this.worldObj.rand.nextInt(3));
         }
     }
 
-    private ItemStack LayAnEgg(final int par1) {
+    private ItemStack LayAnSpawnEgg(final int par1) {
         EntityItem var3 = null;
         int i = 0;
         Item index = null;
@@ -134,439 +136,433 @@ public class EasterBunnyInstance extends EntityAnimal {
         i = this.worldObj.rand.nextInt(115);
         switch (i) {
             case 5: {
-                index = DangerZone.GirlfriendEgg;
+                index = Constants.Girlfriend;
                 break;
             }
             case 6: {
-                index = DangerZone.RedCowEgg;
+                index = Constants.AppleCowSpawnEgg;
                 break;
             }
             case 7: {
-                index = DangerZone.GoldCowEgg;
+                index = Constants.GoldenAppleCowSpawnEgg;
                 break;
             }
             case 8: {
-                index = DangerZone.EnchantedCowEgg;
+                index = Constants.EnchantedGoldenAppleCowSpawnEgg;
                 break;
             }
             case 9: {
-                index = DangerZone.MOTHRAEgg;
+                index = Constants.MOTHRASpawnEgg;
                 break;
             }
             case 10: {
-                index = DangerZone.AloEgg;
+                index = Constants.AlosaurusSpawnEgg;
                 break;
             }
             case 11: {
-                index = DangerZone.CryoEgg;
+                index = Constants.CryolohosaurusSpawnEgg;
                 break;
             }
             case 12: {
-                index = DangerZone.CamaEgg;
+                index = Constants.CamarasaurusSPawnEgg;
                 break;
             }
             case 13: {
-                index = DangerZone.VeloEgg;
+                index = Constants.VelocityRaptor;
                 break;
             }
             case 14: {
-                index = DangerZone.HydroEgg;
+                index = Constants.HydroliscSpawnEgg;
                 break;
             }
             case 15: {
-                index = DangerZone.BasilEgg;
+                index = Constants.BasiliskSpawnEgg;
                 break;
             }
             case 16: {
-                index = DangerZone.DragonflyEgg;
+                index = Constants.DragonflySpawnEgg;
                 break;
             }
             case 17: {
-                index = DangerZone.EmperorScorpionEgg;
+                index = Constants.EmperorScorpionEgg;
                 break;
             }
             case 18: {
-                index = DangerZone.ScorpionEgg;
+                index = Constants.ScorpionSpawnEgg;
                 break;
             }
             case 19: {
-                index = DangerZone.CaveFisherEgg;
+                index = Constants.CaveFisherSpawnEgg;
                 break;
             }
             case 20: {
-                index = DangerZone.SpyroEgg;
+                index = Constants.BabyDragonSpawnEgg;
                 break;
             }
             case 21: {
-                index = DangerZone.BaryonyxEgg;
+                index = Constants.BrayonyxSPawnEgg;
                 break;
             }
             case 22: {
-                index = DangerZone.GammaMetroidEgg;
+                index = Constants.WtfSpawnEgg;
                 break;
             }
             case 23: {
-                index = DangerZone.CockateilEgg;
+                index = Constants.BirdSpawnEgg;
                 break;
             }
             case 24: {
-                index = DangerZone.KyuubiEgg;
+                index = Constants.KyuubiSpawnEgg;
                 break;
             }
             case 25: {
-                index = DangerZone.AlienEgg;
+                index = Constants.AlienSpawnEgg;
                 break;
             }
             case 26: {
-                index = DangerZone.AttackSquidEgg;
+                index = Constants.AttackSquidSpawnEgg;
                 break;
             }
             case 27: {
-                index = DangerZone.WaterDragonEgg;
+                index = Constants.WaterDragonSpawnEgg;
                 break;
             }
             case 28: {
-                index = DangerZone.CephadromeEgg;
+                index = Constants.CepahdromeSPawnEgg;
                 break;
             }
             case 29: {
-                index = DangerZone.DragonEgg;
+                index = Constants.DragonSpawnEgg;
                 break;
             }
             case 30: {
-                index = DangerZone.KrakenEgg;
+                index = Constants.KrakenSpawnEgg;
                 break;
             }
             case 31: {
-                index = DangerZone.LizardEgg;
+                index = Constants.LizardSPawnEgg;
                 break;
             }
             case 32: {
-                index = DangerZone.BeeEgg;
+                index = Constants.BeeSpawnEgg;
                 break;
             }
             case 33: {
-                index = DangerZone.TrooperBugEgg;
+                index = Constants.TrooperBugSpawnEgg;
                 break;
             }
             case 34: {
-                index = DangerZone.SpitBugEgg;
+                index = Constants.SpitbugSpawnEgg;
                 break;
             }
             case 35: {
-                index = DangerZone.StinkBugEgg;
+                index = Constants.StinkBugSpawnEgg;
                 break;
             }
             case 36: {
-                index = DangerZone.OstrichEgg;
+                index = Constants.OstrichSpawnEgg;
                 break;
             }
             case 37: {
-                index = DangerZone.GazelleEgg;
+                index = Constants.GazelleSpawnEgg;
                 break;
             }
             case 38: {
-                index = DangerZone.ChipmunkEgg;
+                index = Constants.ChipmunkSpawnEgg;
                 break;
             }
             case 39: {
-                index = DangerZone.CreepingHorrorEgg;
+                index = Constants.CreepingHorrorSpawnEgg;
                 break;
             }
             case 40: {
-                index = DangerZone.TerribleTerrorEgg;
+                index = Constants.TerribleTerrorSpawnEgg;
                 break;
             }
             case 41: {
-                index = DangerZone.CliffRacerEgg;
+                index = Constants.CliffRacerSpawnEgg;
                 break;
             }
             case 42: {
-                index = DangerZone.TriffidEgg;
+                index = Constants.TriffidSpawnEgg;
                 break;
             }
             case 43: {
-                index = DangerZone.PitchBlackEgg;
+                index = Constants.NightMareSpawnEgg;
                 break;
             }
             case 44: {
-                index = DangerZone.LurkingTerrorEgg;
+                index = Constants.LurkingTerrorSpawnEgg;
                 break;
             }
             case 45: {
-                index = DangerZone.GodzillaEgg;
+                index = Constants.MobzillaSpawnEgg;
                 break;
             }
             case 46: {
-                index = DangerZone.SmallWormEgg;
+                index = Constants.SmallWormSpawnEgg;
                 break;
             }
             case 47: {
-                index = DangerZone.MediumWormEgg;
+                index = Constants.MediumWormSpawnEgg;
                 break;
             }
             case 48: {
-                index = DangerZone.LargeWormEgg;
+                index = Constants.LargeWormSpawnEgg;
                 break;
             }
             case 49: {
-                index = DangerZone.CassowaryEgg;
+                index = Constants.CassowarySpawnEgg;
                 break;
             }
             case 50: {
-                index = DangerZone.CloudSharkEgg;
+                index = Constants.CloudSharkSpawnEgg;
                 break;
             }
             case 51: {
-                index = DangerZone.GoldFishEgg;
+                index = Constants.GoldFishSpawnEgg;
                 break;
             }
             case 52: {
-                index = DangerZone.LeafMonsterEgg;
+                index = Constants.LeafMonsterSpawnEgg;
                 break;
             }
             case 53: {
-                index = DangerZone.TshirtEgg;
+                index = Constants.TshirtSpawnEgg;
                 break;
             }
             case 54: {
-                index = DangerZone.EnderKnightEgg;
+                index = Constants.EnderKnightSpawnEgg;
                 break;
             }
             case 55: {
-                index = DangerZone.EnderReaperEgg;
+                index = Constants.EnderReaperSpawnEgg;
                 break;
             }
             case 56: {
-                index = DangerZone.BeaverEgg;
+                index = Constants.BeaverSpawnEgg;
                 break;
             }
             case 57: {
-                index = DangerZone.RotatorEgg;
+                index = Constants.RotatorSpawnEgg;
                 break;
             }
             case 58: {
-                index = DangerZone.VortexEgg;
+                index = Constants.VortexSpawnEgg;
                 break;
             }
             case 59: {
-                index = DangerZone.PeacockEgg;
+                index = Constants.PeacockSpawnEgg;
                 break;
             }
             case 60: {
-                index = DangerZone.FairyEgg;
+                index = Constants.FairySpawnEgg;
                 break;
             }
             case 61: {
-                index = DangerZone.DungeonBeastEgg;
+                index = Constants.DungeonBeastSpawnEgg;
                 break;
             }
             case 62: {
-                index = DangerZone.RatEgg;
+                index = Constants.RatSpawnEgg;
                 break;
             }
             case 63: {
-                index = DangerZone.FlounderEgg;
+                index = Constants.FlounderSPawnEgg;
                 break;
             }
             case 64: {
-                index = DangerZone.WhaleEgg;
+                index = Constants.WhaleSpawnEgg;
                 break;
             }
             case 65: {
-                index = DangerZone.IrukandjiEgg;
+                index = Constants.IrukandjiSpawnEgg;
                 break;
             }
             case 66: {
-                index = DangerZone.SkateEgg;
+                index = Constants.SkateSpawnEgg;
                 break;
             }
             case 67: {
-                index = DangerZone.UrchinEgg;
+                index = Constants.crystalUrchinSpawnEgg;
                 break;
             }
             case 68: {
-                index = DangerZone.Robot1Egg;
+                index = Constants.RoboGunnerSpawnEgg;
                 break;
             }
             case 69: {
-                index = DangerZone.Robot2Egg;
+                index = Constants.RoboPounderSpawnEgg;
                 break;
             }
             case 70: {
-                index = DangerZone.Robot3Egg;
+                index = Constants.RoboSniperSpawnEgg;
                 break;
             }
             case 71: {
-                index = DangerZone.Robot4Egg;
+                index = Constants.RoboWarriorSpawnEgg;
                 break;
             }
-            case 72: {
-                index = DangerZone.GhostEgg;
-                break;
-            }
+            case 72:
             case 73: {
-                index = DangerZone.GhostSkellyEgg;
+                index = Constants.GhostSpawnEgg;
                 break;
             }
             case 74: {
-                index = DangerZone.BrownAntEgg;
+                index = Constants.BrownAntSpawnEgg;
                 break;
             }
             case 75: {
-                index = DangerZone.RedAntEgg;
+                index = Constants.RedAntSpawnEgg;
                 break;
             }
             case 76: {
-                index = DangerZone.RainbowAntEgg;
+                index = Constants.RainBowAntSPawnEgg;
                 break;
             }
             case 77: {
-                index = DangerZone.UnstableAntEgg;
+                index = Constants.UnstableAntSpawnEgg;
                 break;
             }
             case 78: {
-                index = DangerZone.TermiteEgg;
+                index = Constants.termiteSPawnEgg;
                 break;
             }
             case 79: {
-                index = DangerZone.ButterflyEgg;
+                index = Constants.ButterflySpawnEgg;
                 break;
             }
             case 80: {
-                index = DangerZone.MothEgg;
+                index = Constants.MothSpawnEgg;
                 break;
             }
             case 81: {
-                index = DangerZone.MosquitoEgg;
+                index = Constants.MosquitoSpawnEgg;
                 break;
             }
             case 82: {
-                index = DangerZone.FireflyEgg;
+                index = Constants.FireflySpawnEgg;
                 break;
             }
             case 83: {
-                index = DangerZone.TRexEgg;
+                index = Constants.TrexSpawnEgg;
                 break;
             }
             case 84: {
-                index = DangerZone.HerculesEgg;
+                index = Constants.HerculesBeetleSPawnEgg;
                 break;
             }
             case 85: {
-                index = DangerZone.MantisEgg;
+                index = Constants.MantisSpawnEgg;
                 break;
             }
             case 86: {
-                index = DangerZone.StinkyEgg;
+                index = Constants.StinkySpawnEgg;
                 break;
             }
             case 87: {
-                index = DangerZone.Robot5Egg;
+                index = Constants.GiantSpiderRobotSpawnEgg;
                 break;
             }
             case 88: {
-                index = DangerZone.CoinEgg;
+                index = Constants.CoinSpawnEgg;
                 break;
             }
             case 89: {
-                index = DangerZone.BoyfriendEgg;
+                index = Constants.Boyfriend;
                 break;
             }
             case 90: {
-                index = DangerZone.TheKingEgg;
+                index = Constants.TheKingSpawnEgg;
                 break;
             }
             case 91: {
-                index = DangerZone.ThePrinceEgg;
+                index = Constants.ThePrinceSpawnEgg;
                 break;
             }
             case 92: {
-                index = DangerZone.EasterBunnyEgg;
+                index = Constants.EasterbunnySpawnEgg;
                 break;
             }
             case 93: {
-                index = DangerZone.MolenoidEgg;
+                index = Constants.MolenoidSpawnEgg;
                 break;
             }
             case 94: {
-                index = DangerZone.SeaMonsterEgg;
+                index = Constants.SeaMonsterSpawnEgg;
                 break;
             }
             case 95: {
-                index = DangerZone.SeaViperEgg;
+                index = Constants.SeaViperSpawnEgg;
                 break;
             }
             case 96: {
-                index = DangerZone.CaterKillerEgg;
+                index = Constants.CaterKillerSpawnEgg;
                 break;
             }
             case 97: {
-                index = DangerZone.LeonEgg;
+                index = Constants.LeonopteryxSpawnEgg;
                 break;
             }
             case 98: {
-                index = DangerZone.HammerheadEgg;
+                index = Constants.HammerheadSpawnEgg;
                 break;
             }
             case 99: {
-                index = DangerZone.RubberDuckyEgg;
+                index = Constants.RubberDuckySpawnegg;
                 break;
             }
             case 100: {
-                index = DangerZone.CrystalCowEgg;
+                index = Constants.CrystalCowSpawnEgg;
                 break;
             }
             case 101: {
-                index = DangerZone.CriminalEgg;
+                index = Constants.CriminalSpawnegg;
                 break;
             }
             case 102: {
-                index = DangerZone.TheQueenEgg;
+                index = Constants.TheQueenSpawnEgg;
                 break;
             }
             case 103: {
-                index = DangerZone.BrutalflyEgg;
+                index = Constants.BrutalflySpawnEgg;
                 break;
             }
             case 104: {
-                index = DangerZone.NastysaurusEgg;
+                index = Constants.NastysaurusSpawnEgg;
                 break;
             }
             case 105: {
-                index = DangerZone.PointysaurusEgg;
+                index = Constants.PointysaurusSpawnEgg;
                 break;
             }
             case 106: {
-                index = DangerZone.CricketEgg;
+                index = Constants.CricketSpawnEgg;
                 break;
             }
             case 107: {
-                index = DangerZone.ThePrincessEgg;
+                index = Constants.ThePrincessSpawnEgg;
                 break;
             }
             case 108: {
-                index = DangerZone.FrogEgg;
+                index = Constants.FrogSpawnEgg;
                 break;
             }
             case 109: {
-                index = DangerZone.JefferyEgg;
+                index = Constants.JefferySpawnEgg;
                 break;
             }
             case 110: {
-                index = DangerZone.AntRobotEgg;
+                index = Constants.RedAntRobot;
                 break;
             }
-            case 111: {
-                index = DangerZone.SpiderRobotEgg;
-                break;
-            }
+            case 111:
             case 112: {
-                index = DangerZone.SpiderDriverEgg;
+                index = Constants.SpiderDriverSpawnEgg;
                 break;
             }
             case 113: {
-                index = DangerZone.CrabEgg;
+                index = Constants.CrabSpawnEgg;
                 break;
             }
             default: {
@@ -611,6 +607,6 @@ public class EasterBunnyInstance extends EntityAnimal {
     }
 
     public boolean isBreedingItem(final ItemStack par1ItemStack) {
-        return par1ItemStack.getItem() == DangerZone.MyCrystalApple;
+        return par1ItemStack.getItem() == ItemInitDangerZone.CrystalAppleItem;
     }
 }

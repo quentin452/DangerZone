@@ -15,9 +15,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class UltimateBow extends Item {
 
-    public UltimateBow(final int par1) {
+    public UltimateBow() {
         this.maxStackSize = 1;
         this.setMaxDamage(1000);
         this.setCreativeTab(CreativeTabs.tabCombat);
@@ -42,6 +44,7 @@ public class UltimateBow extends Item {
 
     public void onPlayerStoppedUsing(final ItemStack par1ItemStack, final World par2World,
         final EntityPlayer par3EntityPlayer, final int par4) {
+        Random rand = new Random();
         final EntityArrow var8 = (EntityArrow) new UltimateArrow(par2World, par3EntityPlayer, 3.0f);
         if (par2World.rand.nextInt(4) == 1) {
             var8.setIsCritical(true);
@@ -58,7 +61,7 @@ public class UltimateBow extends Item {
             par3EntityPlayer,
             "random.bow",
             1.0f,
-            1.0f / (fr.iamacat.dangerzone_iamacatfr.items.copied.UltimateBow.itemRand.nextFloat() * 0.4f + 1.2f)
+            1.0f / (rand.nextFloat() * 0.4f + 1.2f)
                 + 0.5f);
         var8.canBePickedUp = 2;
         if (!par2World.isRemote) {

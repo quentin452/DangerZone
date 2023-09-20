@@ -566,8 +566,8 @@ public class BlockInitDangerZone {
         CrystalFlowerYellowBlock = new MyBlockFlower(10);
         BlockScaryLeaves3 = new BlockScaryLeaves(11);
         CrystalRat = new OreGenericEgg();
-        CrystalFlowerGreenBlock = new MyBlockFlower();
-        CrystalFlowerBlueBlock = new MyBlockFlower();
+        CrystalFlowerGreenBlock = new MyBlockFlower(4);
+        CrystalFlowerBlueBlock = new MyBlockFlower(5);
         Lavafoam = new Lavafoam();
 
     }

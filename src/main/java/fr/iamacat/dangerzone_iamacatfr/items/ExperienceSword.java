@@ -51,7 +51,6 @@ public class ExperienceSword extends ItemSword {
     public void onUpdate(final ItemStack stack, final World par2World, final Entity par3Entity, final int par4,
         final boolean par5) {
         EntityLivingBase e = null;
-        ItemOreSpawnArmor ia = null;
         EntityPlayer p = null;
         this.onUsingTick(stack, null, 0);
         if (this.worldObj == null && !par2World.isRemote) {
@@ -69,10 +68,10 @@ public class ExperienceSword extends ItemSword {
                 final ItemStack is = p.getEquipmentInSlot(i);
                 if (is != null) {
                     final Item it = is.getItem();
-                    if (it != null && it instanceof ItemOreSpawnArmor) {
-                        ia = (ItemOreSpawnArmor) it;
-                        if (ia.get_armor_material() == 4) {
-                            switch (ia.get_armor_type()) {
+                    if (it != null && it instanceof ExperienceSword) {
+                        int level = worldObj.rand.nextInt(2);
+
+                        switch(level) {
                                 case 0: {
                                     if (!par2World.isRemote && p != null && par2World.rand.nextInt(10) == 1) {
                                         p.addExperience(1);
@@ -135,7 +134,6 @@ public class ExperienceSword extends ItemSword {
                 }
             }
         }
-    }
 
     public int getDamageVsEntity(final Entity par1Entity) {
         return this.weaponDamage;

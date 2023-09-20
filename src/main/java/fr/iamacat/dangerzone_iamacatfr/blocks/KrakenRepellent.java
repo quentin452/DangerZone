@@ -3,7 +3,6 @@ package fr.iamacat.dangerzone_iamacatfr.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -18,7 +17,7 @@ import java.util.Random;
 
 public class KrakenRepellent extends BlockTorch {
 
-    public KrakenRepellent(final int par1) {
+    public KrakenRepellent() {
         this.setCreativeTab(CreativeTabs.tabRedstone);
     }
 

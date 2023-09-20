@@ -159,7 +159,7 @@ public class FreezeBall extends EntityFireball {
                     var17 = null;
                     break;
                 }
-                if (var21 instanceof BetterFireballInstance) {
+                if (var21 instanceof BetterFireballInstancemMLP) {
                     var17 = null;
                     break;
                 }
@@ -301,7 +301,7 @@ public class FreezeBall extends EntityFireball {
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
         if (!this.worldObj.isRemote) {
             if (par1MovingObjectPosition.entityHit != null) {
-                if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstance) {
+                if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstancemMLP) {
                     return;
                 }
                 if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {

@@ -1001,13 +1001,13 @@ public class ThePrincess extends EntityTameable {
     private void firecanon(final EntityLivingBase e) {
         final double yoff = 1.0;
         final double xzoff = 3.0;
-        BetterFireballInstance bf = null;
+        BetterFireballInstancemMLP bf = null;
         final double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw));
         final double cz = this.posZ + xzoff * Math.cos(Math.toRadians(this.rotationYaw));
         final float r1 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
         final float r2 = 3.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
         final float r3 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
-        bf = new BetterFireballInstance(
+        bf = new BetterFireballInstancemMLP(
             this.worldObj,
             this,
             e.posX - cx + r1,

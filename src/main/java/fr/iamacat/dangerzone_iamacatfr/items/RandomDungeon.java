@@ -2,6 +2,7 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -54,7 +55,7 @@ public class RandomDungeon extends Item {
             return false;
         }
         if (!world.isRemote) {
-            world.setBlock(clickedX, clickedY + 1, clickedZ, DangerZone.MyDungeonSpawnerBlock, 0, 2);
+            world.setBlock(clickedX, clickedY + 1, clickedZ, BlockInitDangerZone.DungeonSpawnerBlock, 0, 2);
         }
         if (!par2EntityPlayer.capabilities.isCreativeMode) {
             --par1ItemStack.stackSize;

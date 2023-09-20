@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class SquidZooka extends Item {
 
-    public SquidZooka(final int i) {
+    public SquidZooka() {
         this.maxStackSize = 1;
         this.setMaxDamage(100);
         this.setCreativeTab(CreativeTabs.tabCombat);

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class WatterBall extends Item {
 
-    public WatterBall(final int i) {
+    public WatterBall() {
         this.maxStackSize = 64;
         this.setCreativeTab(CreativeTabs.tabCombat);
     }

@@ -5,11 +5,9 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyFishHookInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.other.RiderControlMessage;
 import fr.iamacat.dangerzone_iamacatfr.entities.other.RiderControlMessageHandler;
-import fr.iamacat.dangerzone_iamacatfr.event.PacketSetFairyName;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -48,30 +46,9 @@ public class CommonProxy {
         }
     }
 
-    public void sendFairyMount(final Entity rider, final Entity vehicle) {
-        final Entity newVehicle;
-        if (rider.ridingEntity != null && rider.ridingEntity == vehicle) {
-            newVehicle = null;
-        } else {
-            newVehicle = vehicle;
-        }
-
-        final S1BPacketEntityAttach packet = new S1BPacketEntityAttach(0, rider, newVehicle);
-        sendToAllPlayers(packet);
-
-        if (!(rider instanceof FairyFishHookInstance)) {
-            rider.mountEntity(newVehicle);
-        }
-    }
-
     public void sendChat(EntityPlayerMP player, String s) {
         if (player != null && !s.isEmpty())
             player.playerNetServerHandler.sendPacket(new S02PacketChat(new ChatComponentText(s)));
-    }
-
-    public void sendFairyRename(final FairyInstance fairy, final String name) {
-        final PacketSetFairyName packet = new PacketSetFairyName(fairy, name);
-        sendToServer(packet);
     }
 
     @Deprecated

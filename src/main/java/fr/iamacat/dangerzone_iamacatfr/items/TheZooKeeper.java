@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 
 public class TheZooKeeper extends Item {
 
-    public TheZooKeeper(final int i) {
+    public TheZooKeeper() {
         this.setCreativeTab(CreativeTabs.tabDecorations);
         this.setMaxDamage(1);
     }

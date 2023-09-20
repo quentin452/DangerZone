@@ -5,12 +5,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemHoe;
 
 public class CrystalHoe extends ItemHoe {
 
-    public CrystalHoe(final int par1, final Item.ToolMaterial par2) {
+    public CrystalHoe(int i, final ToolMaterial par2) {
         super(par2);
         this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabTools);

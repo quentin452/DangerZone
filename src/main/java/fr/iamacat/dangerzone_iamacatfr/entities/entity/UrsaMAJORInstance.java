@@ -537,11 +537,11 @@ public class UrsaMAJORInstance extends EntityMob {
     private void firecanon(final EntityLivingBase e) {
         final double yoff = 19.0;
         final double xzoff = 22.0;
-        BetterFireballInstance bf = null;
+        BetterFireballInstancemMLP bf = null;
         final double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw));
         final double cz = this.posZ + xzoff * Math.cos(Math.toRadians(this.rotationYaw));
         if (this.stream_count > 0) {
-            bf = new BetterFireballInstance(
+            bf = new BetterFireballInstancemMLP(
                 this.worldObj,
                 (EntityLivingBase) this,
                 e.posX - cx,
@@ -561,7 +561,7 @@ public class UrsaMAJORInstance extends EntityMob {
                 final float r1 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r2 = 3.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
                 final float r3 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
-                bf = new BetterFireballInstance(
+                bf = new BetterFireballInstancemMLP(
                     this.worldObj,
                     (EntityLivingBase) this,
                     e.posX - cx + r1,

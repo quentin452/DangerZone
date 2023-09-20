@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class ItemExperienceTreeSeed extends Item {
 
-    public ItemExperienceTreeSeed(final int i) {
+    public ItemExperienceTreeSeed() {
         this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabDecorations);
     }

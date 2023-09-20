@@ -1,6 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dungeons;
 
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BasiliskInstance;
+import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -28,29 +32,29 @@ public class BasiliskMaze {
             new WeightedRandomChestContent(DangerZone.CagedGirlfriend, 0, 2, 4, 15),
             new WeightedRandomChestContent(Items.iron_ingot, 0, 2, 20, 20),
             new WeightedRandomChestContent(Items.gold_ingot, 0, 4, 16, 20),
-            new WeightedRandomChestContent(DangerZone.UrniumIngot, 0, 2, 8, 20),
-            new WeightedRandomChestContent(DangerZone.TitaniumIngot, 0, 2, 6, 20),
-            new WeightedRandomChestContent(DangerZone.MySunFish, 0, 2, 8, 20),
-            new WeightedRandomChestContent(DangerZone.MyFireFish, 0, 3, 8, 20),
-            new WeightedRandomChestContent(DangerZone.MyLavaEel, 0, 5, 24, 20),
-            new WeightedRandomChestContent(DangerZone.MyCornDog, 0, 6, 12, 20),
+            new WeightedRandomChestContent(ItemInitDangerZone.UraniumIngot, 0, 2, 8, 20),
+            new WeightedRandomChestContent(ItemInitDangerZone.TitaniumIngot, 0, 2, 6, 20),
+            new WeightedRandomChestContent(ItemInitDangerZone.SunFish, 0, 2, 8, 20),
+            new WeightedRandomChestContent(ItemInitDangerZone.FireFish, 0, 3, 8, 20),
+            new WeightedRandomChestContent(ItemInitDangerZone.LavaEel, 0, 5, 24, 20),
+            new WeightedRandomChestContent(ItemInitDangerZone.CookedCornDog, 0, 6, 12, 20),
             new WeightedRandomChestContent(Items.diamond_pickaxe, 0, 1, 1, 15),
             new WeightedRandomChestContent(Items.diamond_sword, 0, 1, 1, 15),
-            new WeightedRandomChestContent(DangerZone.MyUltimatePickaxe, 0, 1, 1, 15),
-            new WeightedRandomChestContent(DangerZone.MyUltimateSword, 0, 1, 1, 15),
-            new WeightedRandomChestContent(DangerZone.MyUltimateFishingRod, 0, 1, 1, 15),
-            new WeightedRandomChestContent(DangerZone.UltimateBow, 0, 1, 1, 15),
+            new WeightedRandomChestContent(ItemInitDangerZone.UltimatePickaxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(ItemInitDangerZone.UltimateSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(ItemInitDangerZone.UltimateFishingRod, 0, 1, 1, 15),
+            new WeightedRandomChestContent(ItemInitDangerZone.UltimateBow, 0, 1, 1, 15),
             new WeightedRandomChestContent(Items.diamond_chestplate, 0, 1, 1, 15),
             new WeightedRandomChestContent(Items.diamond_helmet, 0, 1, 1, 15),
             new WeightedRandomChestContent(Items.diamond_leggings, 0, 1, 1, 15),
             new WeightedRandomChestContent(Items.diamond_boots, 0, 1, 1, 15),
-            new WeightedRandomChestContent(DangerZone.UltimateChestPlate, 0, 1, 1, 15),
-            new WeightedRandomChestContent(DangerZone.UltimateLeggings, 0, 1, 1, 15),
-            new WeightedRandomChestContent(DangerZone.UltimateHelmet, 0, 1, 1, 15),
-            new WeightedRandomChestContent(DangerZone.UltimateBoots, 0, 1, 1, 15),
-            new WeightedRandomChestContent(DangerZone.RubyIngot, 0, 1, 1, 5),
-            new WeightedRandomChestContent(DangerZone.MyThunderStaff, 0, 1, 1, 5),
-            new WeightedRandomChestContent(DangerZone.MagicApple, 0, 1, 1, 15),
+            new WeightedRandomChestContent(ItemInitDangerZone.UltimateChestplate, 0, 1, 1, 15),
+            new WeightedRandomChestContent(ItemInitDangerZone.UltimateLeggings, 0, 1, 1, 15),
+            new WeightedRandomChestContent(ItemInitDangerZone.UltimateHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent(ItemInitDangerZone.UltimateBoots, 0, 1, 1, 15),
+            new WeightedRandomChestContent(ItemInitDangerZone.RubyIngot, 0, 1, 1, 5),
+            new WeightedRandomChestContent(ItemInitDangerZone.ThunderStaff, 0, 1, 1, 5),
+            new WeightedRandomChestContent(ItemInitDangerZone.OmgMagicApple, 0, 1, 1, 15),
             new WeightedRandomChestContent(Items.golden_apple, 0, 2, 4, 15) };
     }
 
@@ -415,7 +419,7 @@ public class BasiliskMaze {
                 x + 30 + world.rand.nextInt(28) + 1,
                 y,
                 z + world.rand.nextInt(28) + 1,
-                DangerZone.MyRTPBlock,
+                BlockInitDangerZone.TeleportBlock,
                 0,
                 2);
         }
@@ -487,9 +491,9 @@ public class BasiliskMaze {
         for (int k = 0; k < 4; ++k) {
             DangerZone.setBlockFast(world, x - 4, y + 1 + k, z + 29, Blocks.sandstone, 0, 2);
         }
-        DangerZone.setBlockFast(world, x - 3, y + 3, z, DangerZone.ExtremeTorch, 0, 2);
-        DangerZone.setBlockFast(world, x - 3, y + 3, z + 15, DangerZone.ExtremeTorch, 0, 2);
-        DangerZone.setBlockFast(world, x - 3, y + 3, z + 29, DangerZone.ExtremeTorch, 0, 2);
+        DangerZone.setBlockFast(world, x - 3, y + 3, z, BlockInitDangerZone.blocktorch, 0, 2);
+        DangerZone.setBlockFast(world, x - 3, y + 3, z + 15, BlockInitDangerZone.blocktorch, 0, 2);
+        DangerZone.setBlockFast(world, x - 3, y + 3, z + 29, BlockInitDangerZone.blocktorch, 0, 2);
         DangerZone.setBlockFast(world, x + 30, y + 4, z + 2, Blocks.redstone_torch, 0, 2);
         DangerZone.setBlockFast(world, x + 30, y + 4, z + 15, Blocks.redstone_torch, 0, 2);
         DangerZone.setBlockFast(world, x + 30, y + 4, z + 27, Blocks.redstone_torch, 0, 2);
@@ -509,17 +513,17 @@ public class BasiliskMaze {
         Entity ent = null;
         ent = this.spawnCreature(world, "Basilisk", x + 45.0, y + 1.01, z + 15.0);
         if (ent != null) {
-            final Basilisk b = (Basilisk) ent;
+            final BasiliskInstance b = (BasiliskInstance) ent;
             b.func_110163_bv();
         }
         ent = this.spawnCreature(world, "Basilisk", x + 46.0, y + 1.01, z + 15.0);
         if (ent != null) {
-            final Basilisk b = (Basilisk) ent;
+            final BasiliskInstance b = (BasiliskInstance) ent;
             b.func_110163_bv();
         }
         ent = this.spawnCreature(world, "Basilisk", x + 47.0, y + 1.01, z + 15.0);
         if (ent != null) {
-            final Basilisk b = (Basilisk) ent;
+            final BasiliskInstance b = (BasiliskInstance) ent;
             b.func_110163_bv();
         }
     }

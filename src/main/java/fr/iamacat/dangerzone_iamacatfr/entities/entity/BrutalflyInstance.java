@@ -440,7 +440,7 @@ public class BrutalflyInstance extends EntityMob {
                         .nextFloat() * 0.4f + 0.8f));
                 this.worldObj.spawnEntityInWorld(sf);
             } else {
-                final BetterFireballInstance bf = new BetterFireballInstance(
+                final BetterFireballInstancemMLP bf = new BetterFireballInstancemMLP(
                     this.worldObj,
                     this,
                     par1.posX - cx,
@@ -458,7 +458,7 @@ public class BrutalflyInstance extends EntityMob {
                 this.worldObj.spawnEntityInWorld(bf);
             }
         } else {
-            final BetterFireballInstance bf = new BetterFireballInstance(
+            final BetterFireballInstancemMLP bf = new BetterFireballInstancemMLP(
                 this.worldObj,
                 this,
                 par1.posX - cx,

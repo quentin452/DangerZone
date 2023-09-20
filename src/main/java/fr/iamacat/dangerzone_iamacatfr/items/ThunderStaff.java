@@ -16,7 +16,7 @@ public class ThunderStaff extends Item {
 
     private int ticker;
 
-    public ThunderStaff(final int i) {
+    public ThunderStaff() {
         this.ticker = 50;
         this.maxStackSize = 1;
         this.setMaxDamage(50);

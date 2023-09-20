@@ -407,7 +407,7 @@ public class DragonInstance extends EntityTameable {
         this.setSitting(false);
         this.setActivity(1);
         e = par1DamageSource.getEntity();
-        if (e != null && e instanceof BetterFireballInstance && this.dragontype == 0) {
+        if (e != null && e instanceof BetterFireballInstancemMLP && this.dragontype == 0) {
             e.setDead();
             return ret;
         }
@@ -684,7 +684,7 @@ public class DragonInstance extends EntityTameable {
         double obstruction_factor = 0.0;
         final double velocity = Math.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
         EntitySmallFireball sf = null;
-        BetterFireballInstance bf = null;
+        BetterFireballInstancemMLP bf = null;
         IceBall ib = null;
         WaterBallInstance wb = null;
         int toofar = 0;
@@ -789,7 +789,7 @@ public class DragonInstance extends EntityTameable {
                                             .nextFloat() * 0.4f + 0.8f));
                                     this.worldObj.spawnEntityInWorld(sf);
                                 } else {
-                                    bf = new BetterFireballInstance(
+                                    bf = new BetterFireballInstancemMLP(
                                         this.worldObj,
                                         this,
                                         e.posX - cx,
@@ -958,7 +958,7 @@ public class DragonInstance extends EntityTameable {
         double pi = 3.1415926545;
         double deltav = 0.0;
         int dist = 2;
-        BetterFireballInstance bf = null;
+        BetterFireballInstancemMLP bf = null;
         if (this.getActivity() == 0) {
             super.onLivingUpdate();
         } else if (this.isDead) {
@@ -1134,7 +1134,7 @@ public class DragonInstance extends EntityTameable {
                         final double yoff = -0.25;
                         if (this.getDragonType() == 0) {
                             if (pp.moveStrafing > 0.001f) {
-                                bf = new BetterFireballInstance(this.worldObj, this, 0.0, 0.0, 0.0);
+                                bf = new BetterFireballInstancemMLP(this.worldObj, this, 0.0, 0.0, 0.0);
                                 bf.setNotMe();
                                 bf.setSmall();
                                 double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw));
@@ -1150,11 +1150,11 @@ public class DragonInstance extends EntityTameable {
                                 bf.motionX = this.motionX;
                                 bf.motionY = this.motionY;
                                 bf.motionZ = this.motionZ;
-                                final BetterFireballInstance betterFireball = bf;
+                                final BetterFireballInstancemMLP betterFireball = bf;
                                 betterFireball.posX -= this.motionX * 9.0;
-                                final BetterFireballInstance betterFireball2 = bf;
+                                final BetterFireballInstancemMLP betterFireball2 = bf;
                                 betterFireball2.posY -= this.motionY * 9.0;
-                                final BetterFireballInstance betterFireball3 = bf;
+                                final BetterFireballInstancemMLP betterFireball3 = bf;
                                 betterFireball3.posZ -= this.motionZ * 9.0;
                                 this.worldObj.playSoundAtEntity(
                                     this,
@@ -1166,7 +1166,7 @@ public class DragonInstance extends EntityTameable {
                                 this.fireballticker = 10;
                             }
                             if (pp.moveStrafing < -0.001f) {
-                                bf = new BetterFireballInstance(this.worldObj, this, 0.0, 0.0, 0.0);
+                                bf = new BetterFireballInstancemMLP(this.worldObj, this, 0.0, 0.0, 0.0);
                                 bf.setNotMe();
                                 double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw));
                                 double cz = this.posZ + xzoff * Math.cos(Math.toRadians(this.rotationYaw));
@@ -1181,11 +1181,11 @@ public class DragonInstance extends EntityTameable {
                                 bf.motionX = this.motionX;
                                 bf.motionY = this.motionY;
                                 bf.motionZ = this.motionZ;
-                                final BetterFireballInstance betterFireball4 = bf;
+                                final BetterFireballInstancemMLP betterFireball4 = bf;
                                 betterFireball4.posX -= this.motionX * 9.0;
-                                final BetterFireballInstance betterFireball5 = bf;
+                                final BetterFireballInstancemMLP betterFireball5 = bf;
                                 betterFireball5.posY -= this.motionY * 9.0;
-                                final BetterFireballInstance betterFireball6 = bf;
+                                final BetterFireballInstancemMLP betterFireball6 = bf;
                                 betterFireball6.posZ -= this.motionZ * 9.0;
                                 this.worldObj.playSoundAtEntity(
                                     this,

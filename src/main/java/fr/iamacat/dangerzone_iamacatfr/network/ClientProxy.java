@@ -15,7 +15,6 @@ import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderDragon;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.babydragon.*;
-import fr.iamacat.dangerzone_iamacatfr.gui.FairyGui;
 import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Helper;
 import fr.iamacat.dangerzone_iamacatfr.util.KeyHandler;
@@ -69,7 +68,6 @@ public class ClientProxy implements ISidedProxy {
         registerEntityRenderingHandler(EyeRayInstance.class, new EyeRayRenderer(new EyeRayModel(), 1.0F));
 
         registerEntityRenderingHandler(FairyInstance.class, new FairyRenderer(new FairyModel(), 1.0F));
-        registerEntityRenderingHandler(FairyFishHookInstance.class, new FishRenderer());
         registerEntityRenderingHandler(
             CrabInstance.class,
             new CrabRenderer(new CrabModel(1.0f), 0.625F, ":textures/entity/helmetcrab.png"));
@@ -247,7 +245,7 @@ public class ClientProxy implements ISidedProxy {
         registerEntityRenderingHandler(WindigoPowerInstance.class, new WindigoPowerRenderer());
         registerEntityRenderingHandler(LongHitInstance.class, new RangedRenderer());
         registerEntityRenderingHandler(MagicInstance.class, new MagicTextureRenderer());
-        registerEntityRenderingHandler(BetterFireballInstance.class, new RenderFireball(2.0f));
+        registerEntityRenderingHandler(BetterFireballInstancemMLP.class, new RenderFireball(2.0f));
         registerEntityRenderingHandler(
             TwilightFireballInstance.class,
             new RenderSnowball(ItemInitDangerZone.twilightStar));

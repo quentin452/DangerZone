@@ -359,7 +359,7 @@ public class ThePrinceAdult extends EntityTameable {
         this.setSitting(false);
         this.setActivity(1);
         e = par1DamageSource.getEntity();
-        if (e != null && e instanceof BetterFireballInstance) {
+        if (e != null && e instanceof BetterFireballInstancemMLP) {
             e.setDead();
             return ret;
         }
@@ -1049,7 +1049,7 @@ public class ThePrinceAdult extends EntityTameable {
                             yoff -= this.getHead1Ext() * 0.08f;
                             double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw - 10.0f));
                             double cz = this.posZ + xzoff * Math.cos(Math.toRadians(this.rotationYaw - 10.0f));
-                            final BetterFireballInstance bf = new BetterFireballInstance(
+                            final BetterFireballInstancemMLP bf = new BetterFireballInstancemMLP(
                                 this.worldObj,
                                 this,
                                 0.0,
@@ -1068,11 +1068,11 @@ public class ThePrinceAdult extends EntityTameable {
                             bf.motionX = this.motionX;
                             bf.motionY = this.motionY;
                             bf.motionZ = this.motionZ;
-                            final BetterFireballInstance betterFireball = bf;
+                            final BetterFireballInstancemMLP betterFireball = bf;
                             betterFireball.posX -= this.motionX * 3.0;
-                            final BetterFireballInstance betterFireball2 = bf;
+                            final BetterFireballInstancemMLP betterFireball2 = bf;
                             betterFireball2.posY -= this.motionY * 3.0;
-                            final BetterFireballInstance betterFireball3 = bf;
+                            final BetterFireballInstancemMLP betterFireball3 = bf;
                             betterFireball3.posZ -= this.motionZ * 3.0;
                             this.worldObj.playSoundAtEntity(
                                 this,
@@ -1484,13 +1484,13 @@ public class ThePrinceAdult extends EntityTameable {
     private void firecanon(final double x, final double y, final double z) {
         final double yoff = 3.5;
         final double xzoff = 6.0;
-        BetterFireballInstance bf = null;
+        BetterFireballInstancemMLP bf = null;
         final double cx = this.posX - xzoff * Math.sin(Math.toRadians(this.rotationYaw));
         final double cz = this.posZ + xzoff * Math.cos(Math.toRadians(this.rotationYaw));
         final float r1 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
         final float r2 = 3.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
         final float r3 = 5.0f * (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat());
-        bf = new BetterFireballInstance(
+        bf = new BetterFireballInstancemMLP(
             this.worldObj,
             this,
             x - cx + r1,

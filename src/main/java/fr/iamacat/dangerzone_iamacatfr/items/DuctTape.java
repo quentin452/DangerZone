@@ -15,7 +15,7 @@ public class DuctTape extends Item {
 
     private Block field_150935_a;
 
-    public DuctTape(final int par1, final Block par2Block) {
+    public DuctTape(final Block par2Block) {
         this.field_150935_a = par2Block;
     }
 

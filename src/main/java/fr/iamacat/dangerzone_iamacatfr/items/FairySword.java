@@ -3,13 +3,13 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.FairyInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.world.World;
@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class FairySword extends ItemSword {
 
     private int weaponDamage;
-    private final ToolMaterial toolMaterial;
+    private final Item.ToolMaterial toolMaterial;
 
     public FairySword(final ToolMaterial par2EnumToolMaterial) {
         super(par2EnumToolMaterial);
@@ -33,7 +33,7 @@ public class FairySword extends ItemSword {
     }
 
     public boolean hitEntity(final ItemStack par1ItemStack, final EntityLivingBase par2EntityLiving,
-        final EntityLivingBase par3EntityLiving) {
+                             final EntityLivingBase par3EntityLiving) {
         final int var2 = 5;
         if (par2EntityLiving != null && !par2EntityLiving.worldObj.isRemote) {
             for (int num = 1 + par2EntityLiving.worldObj.rand.nextInt(3), i = 0; i < num; ++i) {
@@ -44,11 +44,11 @@ public class FairySword extends ItemSword {
                     "Fairy",
                     par2EntityLiving.posX
                         + (par2EntityLiving.worldObj.rand.nextFloat() - par2EntityLiving.worldObj.rand.nextFloat())
-                            * 0.5,
+                        * 0.5,
                     par2EntityLiving.posY + par2EntityLiving.worldObj.rand.nextFloat() + 0.01,
                     par2EntityLiving.posZ
                         + (par2EntityLiving.worldObj.rand.nextFloat() - par2EntityLiving.worldObj.rand.nextFloat())
-                            * 0.5);
+                        * 0.5);
                 if (r != null) {
                     r.setOwner(par3EntityLiving);
                 }
@@ -59,7 +59,7 @@ public class FairySword extends ItemSword {
     }
 
     public static Entity spawnCreature(final World par0World, final int par1, final String name, final double par2,
-        final double par4, final double par6) {
+                                       final double par4, final double par6) {
         Entity var8 = null;
         if (name == null) {
             var8 = EntityList.createEntityByID(par1, par0World);
@@ -81,8 +81,7 @@ public class FairySword extends ItemSword {
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon(
-            Tags.MODID + ":"
-                + this.getUnlocalizedName()
-                    .substring(5));
+            "OreSpawn:" + this.getUnlocalizedName()
+                .substring(5));
     }
 }

@@ -185,9 +185,11 @@ public class CannonFodderInstance extends EntityTameable {
             if (this instanceof Lizard) {
                 myname = "Lizard";
             }
-            if (this instanceof ChipMunkInstance) {
+          /*  if (this instanceof ChipMunkInstance) {
                 myname = "Chipmunk";
             }
+
+           */
             if (this instanceof VelocityRaptor) {
                 myname = "Velocity Raptor";
             }
@@ -387,10 +389,12 @@ public class CannonFodderInstance extends EntityTameable {
         int pfreq = 5;
         int sfreq = 7;
         float dm = 4.0f;
-        if (this instanceof ChipMunkInstance) {
+        /*if (this instanceof ChipMunkInstance) {
             dm = 3.0f;
             sfreq = 6;
         }
+
+         */
         if (this instanceof Lizard) {
             dm = 6.0f;
             sfreq = 8;

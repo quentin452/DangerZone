@@ -1,6 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.CannonFodderInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.VelocityRaptor;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -308,7 +309,7 @@ public class ModelVelocityRaptor extends ModelBase {
         this.head2.render(f5);
         this.tail1.render(f5);
         this.tail2.render(f5);
-        if (c instanceof EntityCannonFodder && c.get_is_activated() != 0) {
+        if (c instanceof CannonFodderInstance && c.get_is_activated() != 0) {
             this.Hat1.render(f5);
             if (c.get_is_activated() > 1) {
                 this.Hat2.render(f5);

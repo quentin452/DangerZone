@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 public class Wrench extends Item {
 
-    public Wrench(final int i) {
+    public Wrench() {
         this.setCreativeTab(CreativeTabs.tabTools);
         this.setMaxDamage(100);
     }

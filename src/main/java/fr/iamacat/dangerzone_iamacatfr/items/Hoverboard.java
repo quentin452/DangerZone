@@ -3,6 +3,8 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.HoverboardInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;
@@ -13,7 +15,7 @@ import net.minecraft.world.World;
 
 public class Hoverboard extends Item {
 
-    public Hoverboard(final int par1) {
+    public Hoverboard() {
         this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabTransport);
     }
@@ -24,7 +26,7 @@ public class Hoverboard extends Item {
         if (par3World.isRemote) {
             return true;
         }
-        final Elevator elevator = (Elevator) EntityList.createEntityByName("Hoverboard", par3World);
+        final HoverboardInstance elevator = (HoverboardInstance) EntityList.createEntityByName("Hoverboard", par3World);
         elevator.setLocationAndAngles(
             (par4 + 0.5f),
             (par5 + 1.2f),

@@ -39,7 +39,7 @@ public class ProjectileApplesInstance extends EntityThrowable {
             if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
                 return;
             }
-            if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstance) {
+            if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstancemMLP) {
                 return;
             }
             if (par1MovingObjectPosition.entityHit instanceof ProjectileApplesInstance) {

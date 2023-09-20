@@ -3,7 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.BetterFireballInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BetterFireballInstancemMLP;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
@@ -50,7 +50,7 @@ public class BetterFireballRenderer extends Render {
     }
 
     protected ResourceLocation getEntityTexture(final Entity entity) {
-        final BetterFireballInstance r = (BetterFireballInstance) entity;
+        final BetterFireballInstancemMLP r = (BetterFireballInstancemMLP) entity;
         return BetterFireballRenderer.texturebff;
     }
 

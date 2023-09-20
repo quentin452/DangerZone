@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.item.EntityItem;
@@ -133,7 +134,7 @@ public class Mothra extends ButterflyInstance implements IMob {
         ++this.wing_sound;
         if (this.wing_sound > 30) {
             if (!this.worldObj.isRemote) {
-                this.worldObj.playSoundAtEntity(this, tags.modid + ":MothraWings", 1.0f, 1.0f);
+                this.worldObj.playSoundAtEntity(this, Tags.MODID + ":MothraWings", 1.0f, 1.0f);
             }
             this.wing_sound = 0;
         }
@@ -444,7 +445,7 @@ public class Mothra extends ButterflyInstance implements IMob {
                         .nextFloat() * 0.4f + 0.8f));
                 this.worldObj.spawnEntityInWorld(sf);
             } else {
-                final BetterFireballInstance bf = new BetterFireballInstance(
+                final BetterFireballInstancemMLP bf = new BetterFireballInstancemMLP(
                     this.worldObj,
                     this,
                     par1.posX - cx,
@@ -462,7 +463,7 @@ public class Mothra extends ButterflyInstance implements IMob {
                 this.worldObj.spawnEntityInWorld(bf);
             }
         } else {
-            final BetterFireballInstance bf = new BetterFireballInstance(
+            final BetterFireballInstancemMLP bf = new BetterFireballInstancemMLP(
                 this.worldObj,
                 this,
                 par1.posX - cx,

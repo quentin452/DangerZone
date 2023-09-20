@@ -135,7 +135,7 @@ public class EntityInitDangerZone {
 
         int GirlFriend = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(GirlFriendInstance.class, "Girl Friend DangerZone", GirlFriend);
+        EntityRegistry.registerGlobalEntityID(GirlfriendInstance.class, "Girl Friend DangerZone", GirlFriend);
 
         EntityRegistry.registerModEntity(
             TermiteInstance.class,
@@ -148,7 +148,7 @@ public class EntityInitDangerZone {
 
         int BoyFriend = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(BoyFriendInstance.class, "Boy Friend DangerZone", BoyFriend);
+        EntityRegistry.registerGlobalEntityID(BoyfriendInstance.class, "Boy Friend DangerZone", BoyFriend);
 
         EntityRegistry.registerModEntity(
             TermiteInstance.class,
@@ -276,21 +276,6 @@ public class EntityInitDangerZone {
             16,
             1,
             true);
-        int GameControllerInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(
-            GameControllerInstance.class,
-            "GameControllerInstanceDangerZone",
-            GameControllerInstance);
-
-        EntityRegistry.registerModEntity(
-            GameControllerInstance.class,
-            "GameControllerInstanceDangerZone",
-            GameControllerInstance, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
 
         int WaterBallInstance = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -332,6 +317,7 @@ public class EntityInitDangerZone {
             1,
             true);
 
+        int AlienInstance = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(AlienInstance.class, "AlienInstance", AlienInstance);
 
         EntityRegistry.registerModEntity(
@@ -1596,10 +1582,10 @@ public class EntityInitDangerZone {
             true);
         int BetterFireball = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(BetterFireballInstance.class, "BetterFireball", BetterFireball);
+        EntityRegistry.registerGlobalEntityID(BetterFireballInstancemMLP.class, "BetterFireball", BetterFireball);
 
         EntityRegistry.registerModEntity(
-            BetterFireballInstance.class,
+            BetterFireballInstancemMLP.class,
             "BetterFireball",
             BetterFireball, // Use the chosen unique ID
             Tags.MODID,
@@ -1645,12 +1631,12 @@ public class EntityInitDangerZone {
         int GhostInstance = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(
-            fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance.class,
+           GhostInstance.class,
             "GhostInstance",
             GhostInstance);
 
         EntityRegistry.registerModEntity(
-            fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.GhostInstance.class,
+            GhostInstance.class,
             "GhostInstance",
             GhostInstance, // Use the chosen unique ID
             Tags.MODID,
@@ -2297,18 +2283,7 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
-        int MantisClaw = EntityRegistry.findGlobalUniqueEntityId();
 
-        EntityRegistry.registerGlobalEntityID(MantisClaw.class, "MantisClaw", MantisClaw);
-
-        EntityRegistry.registerModEntity(
-            MantisClaw.class,
-            "MantisClaw",
-            MantisClaw, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
         int Molenoid = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(Molenoid.class, "Molenoid", Molenoid);
@@ -2914,6 +2889,31 @@ public class EntityInitDangerZone {
             VelocityRaptor.class,
             "VelocityRaptor",
             VelocityRaptor, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+
+        int BetterFireballInstanceOrespawn = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(BetterFireballInstanceOrespawn.class, "BetterFireballInstanceOrespawn", BetterFireballInstanceOrespawn);
+
+        EntityRegistry.registerModEntity(
+            BetterFireballInstanceOrespawn.class,
+            "BetterFireballInstanceOrespawn",
+            BetterFireballInstanceOrespawn, // Use the chosen unique ID
+            Tags.MODID,
+            32,
+            1,
+            true);
+        int WaterBallInstanceOrespawn = EntityRegistry.findGlobalUniqueEntityId();
+
+        EntityRegistry.registerGlobalEntityID(WaterBallInstanceOrespawn.class, "WaterBallInstanceOrespawn", WaterBallInstanceOrespawn);
+
+        EntityRegistry.registerModEntity(
+            WaterBallInstanceOrespawn.class,
+            "WaterBallInstanceOrespawn",
+            WaterBallInstanceOrespawn, // Use the chosen unique ID
             Tags.MODID,
             32,
             1,

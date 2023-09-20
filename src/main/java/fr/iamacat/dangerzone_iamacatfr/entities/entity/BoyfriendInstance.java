@@ -1,9 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.DangerZone;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
 import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -274,7 +276,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
                             if (this.fight_sound_ticker <= 0) {
                                 if (!this.worldObj.isRemote && this.voice_enable != 0) {
                                     this.worldObj
-                                        .playSoundAtEntity(this, tags.modid + ":b_fight", 0.5f, this.getSoundPitch());
+                                        .playSoundAtEntity(this, Tags.MODID + ":b_fight", 0.5f, this.getSoundPitch());
                                 }
                                 this.fight_sound_ticker = 3;
                             }
@@ -284,7 +286,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
                         --this.taunt_sound_ticker;
                         if (this.taunt_sound_ticker <= 0) {
                             if (!this.worldObj.isRemote && this.voice_enable != 0) {
-                                this.worldObj.playSoundAtEntity(this, tags.modid + ":b_taunt", 0.5f, this.getSoundPitch());
+                                this.worldObj.playSoundAtEntity(this, Tags.MODID + ":b_taunt", 0.5f, this.getSoundPitch());
                             }
                             this.taunt_sound_ticker = 300;
                         }
@@ -298,7 +300,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
                 if (this.had_target != 0) {
                     this.had_target = 0;
                     if (!this.worldObj.isRemote && this.voice_enable != 0) {
-                        this.worldObj.playSoundAtEntity(this, tags.modid + ":b_woohoo", 0.4f, this.getSoundPitch());
+                        this.worldObj.playSoundAtEntity(this, Tags.MODID + ":b_woohoo", 0.4f, this.getSoundPitch());
                     }
                 }
             }
@@ -550,7 +552,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
             par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, null);
             var2 = null;
         }
-        if (var2 != null && (var2.getItem() == Items.cooked_beef || var2.getItem() == DangerZone.MyPeacock)
+        if (var2 != null && (var2.getItem() == Items.cooked_beef || var2.getItem() == ItemInitDangerZone.CookedPeacock)
             && par1EntityPlayer.getDistanceSqToEntity(this) < 16.0) {
             if (!this.isTamed()) {
                 if (!this.worldObj.isRemote) {
@@ -605,7 +607,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
             return true;
         }
         if (this.isTamed() && var2 != null
-            && var2.getItem() == DangerZone.RubyIngot
+            && var2.getItem() == ItemInitDangerZone.RubyIngot
             && par1EntityPlayer.getDistanceSqToEntity(this) < 16.0
             && this.func_152114_e(par1EntityPlayer)) {
             if (!this.worldObj.isRemote) {
@@ -624,7 +626,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
             return true;
         }
         if (this.isTamed() && var2 != null
-            && var2.getItem() == DangerZone.AmethystIngot
+            && var2.getItem() == ItemInitDangerZone.AmethystIngot
             && par1EntityPlayer.getDistanceSqToEntity(this) < 16.0
             && this.func_152114_e(par1EntityPlayer)) {
             if (!this.worldObj.isRemote) {
@@ -643,7 +645,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
             return true;
         }
         if (this.isTamed() && var2 != null
-            && (var2.getItem() == Items.leather || var2.getItem() == DangerZone.MyPeacockFeather)
+            && (var2.getItem() == Items.leather || var2.getItem() == ItemInitDangerZone.PeacockFeather)
             && par1EntityPlayer.getDistanceSqToEntity(this) < 16.0
             && this.func_152114_e(par1EntityPlayer)) {
             if (!this.worldObj.isRemote) {
@@ -712,31 +714,29 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
                 } else {
                     par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, null);
                     final Item itm = var2.getItem();
-                    if (itm instanceof ItemOreSpawnArmor) {
-                        if (itm == DangerZone.EmeraldHelmet || itm == DangerZone.AmethystHelmet
-                            || itm == DangerZone.UltimateHelmet) {
+                        if (itm == ItemInitDangerZone.EmeraldHelmet || itm == ItemInitDangerZone.AmethystHelmet
+                            || itm == ItemInitDangerZone.UltimateHelmet) {
                             final ItemStack v4 = this.getEquipmentInSlot(4);
                             this.setCurrentItemOrArmor(4, var2);
                             this.setCurrentItemOrArmor(0, v4);
                         }
-                        if (itm == DangerZone.EmeraldBody || itm == DangerZone.AmethystBody
-                            || itm == DangerZone.UltimateChestPlate) {
+                        if (itm == ItemInitDangerZone.EmeraldChestplate || itm == ItemInitDangerZone.AmethystChestplate
+                            || itm == ItemInitDangerZone.UltimateChestplate) {
                             final ItemStack v4 = this.getEquipmentInSlot(3);
                             this.setCurrentItemOrArmor(3, var2);
                             this.setCurrentItemOrArmor(0, v4);
                         }
-                        if (itm == DangerZone.EmeraldLegs || itm == DangerZone.AmethystLegs
-                            || itm == DangerZone.UltimateLeggings) {
+                        if (itm == ItemInitDangerZone.EmeraldLeggings || itm == ItemInitDangerZone.AmethystLeggings
+                            || itm == ItemInitDangerZone.UltimateLeggings) {
                             final ItemStack v4 = this.getEquipmentInSlot(2);
                             this.setCurrentItemOrArmor(2, var2);
                             this.setCurrentItemOrArmor(0, v4);
                         }
-                        if (itm == DangerZone.EmeraldBoots || itm == DangerZone.AmethystBoots
-                            || itm == DangerZone.UltimateBoots) {
+                        if (itm == ItemInitDangerZone.EmeraldBoots || itm == ItemInitDangerZone.AmethystBoots
+                            || itm == ItemInitDangerZone.UltimateBoots) {
                             final ItemStack v4 = this.getEquipmentInSlot(1);
                             this.setCurrentItemOrArmor(1, var2);
                             this.setCurrentItemOrArmor(0, v4);
-                        }
                     }
                 }
             }
@@ -809,7 +809,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
                 this.worldObj.setEntityState(this, (byte) 7);
                 String healthMessage = new String();
                 healthMessage = String.format("I have %d health. Thanks for asking!", this.getBoyfriendHealth());
-                par1EntityPlayer.addChatComponentMessage((IChatComponent) new ChatComponentText(healthMessage));
+                par1EntityPlayer.addChatComponentMessage(new ChatComponentText(healthMessage));
             }
             return true;
         }
@@ -818,7 +818,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
 
     public boolean isWheat(final ItemStack par1ItemStack) {
         return par1ItemStack != null
-            && (par1ItemStack.getItem() == Items.cooked_beef || par1ItemStack.getItem() == DangerZone.MyPeacock);
+            && (par1ItemStack.getItem() == Items.cooked_beef || par1ItemStack.getItem() == ItemInitDangerZone.CookedPeacock);
     }
 
     protected boolean canDespawn() {
@@ -829,9 +829,6 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
         if (this.isSitting() || this.voice_enable == 0) {
             return null;
         }
-        if (DangerZone.bro_mode != 0 && this.worldObj.rand.nextInt(2) == 1) {
-            return null;
-        }
         if (this.worldObj.rand.nextInt(11) != 1) {
             return null;
         }
@@ -840,22 +837,22 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
             return null;
         }
         if (this.isInWater() || this.handleLavaMovement()) {
-            return tags.modid + ":b_water";
+            return Tags.MODID + ":b_water";
         }
         if (this.worldObj.rand.nextInt(4) != 0) {
             if (this.posY < 60.0) {
                 return null;
             }
             if (this.worldObj.isThundering()) {
-                return tags.modid + ":b_thunder";
+                return Tags.MODID + ":b_thunder";
             }
             if (this.worldObj.isRaining()) {
-                return tags.modid + ":b_rain";
+                return Tags.MODID + ":b_rain";
             }
             if (!this.worldObj.isDaytime()
                 && this.worldObj.canBlockSeeTheSky((int) this.posX, (int) this.posY, (int) this.posZ)) {
                 if (this.worldObj.rand.nextInt(3) == 0) {
-                    return tags.modid + ":b_dark";
+                    return Tags.MODID + ":b_dark";
                 }
                 return null;
             }
@@ -864,29 +861,20 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
             return null;
         }
         if (this.mygetMaxHealth() > this.getHealth()) {
-            return tags.modid + ":b_hurt";
+            return Tags.MODID + ":b_hurt";
         }
-        if (DangerZone.bro_mode != 0) {
-            return tags.modid + ":bb_happy";
-        }
-        return tags.modid + ":b_happy";
+        return Tags.MODID + ":b_happy";
     }
 
     protected String getHurtSound() {
         if (this.voice_enable == 0) {
             return null;
         }
-        if (DangerZone.bro_mode != 0 && this.worldObj.rand.nextInt(2) == 1) {
-            return null;
-        }
-        return tags.modid + ":b_ow";
+        return Tags.MODID + ":b_ow";
     }
 
     protected String getDeathSound() {
-        if (DangerZone.bro_mode != 0) {
-            return null;
-        }
-        return this.isTamed() ? tags.modid + ":b_death_boyfriend" : tags.modid + ":b_death_single";
+        return this.isTamed() ?Tags.MODID+ ":b_death_boyfriend" :Tags.MODID + ":b_death_single";
     }
 
     protected float getSoundVolume() {
@@ -906,7 +894,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
                 this.dropItem(Item.getItemFromBlock((Block) Blocks.red_flower), 1);
             }
         }
-        final Item v6 = DangerZone.MyItemGameController;
+        final Item v6 = ItemInitDangerZone.GameController;
         var3 = this.worldObj.rand.nextInt(26);
         var3 += 10;
         for (int var5 = 0; var5 < var3; ++var5) {
@@ -942,7 +930,7 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
             return;
         }
         it = this.getCurrentEquippedItem();
-        if (it != null && it.getItem() == DangerZone.UltimateBow) {
+        if (it != null && it.getItem() == ItemInitDangerZone.UltimateBow) {
             final EntityArrow var8 = new UltimateArrow(this.worldObj, this, par1EntityLiving, 2.0f, 10.0f);
             if (this.worldObj.rand.nextInt(4) == 1) {
                 var8.setIsCritical(true);

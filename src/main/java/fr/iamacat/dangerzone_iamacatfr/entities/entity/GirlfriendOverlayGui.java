@@ -209,7 +209,7 @@ public class GirlfriendOverlayGui extends Gui {
         if (entity instanceof AlienInstance) {
             final AlienInstance e6 = (AlienInstance) entity;
             outstring = "Alien!";
-            gfHealth = e6.getAlienHealth() / e6.getMaxHealth();
+            gfHealth = e6.getHealth() / e6.getMaxHealth();
         }
         if (entity instanceof WaterDragon) {
             final WaterDragon e7 = (WaterDragon) entity;

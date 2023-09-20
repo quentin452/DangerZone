@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class ItemIceBall extends Item {
 
-    public ItemIceBall(final int i) {
+    public ItemIceBall() {
         this.maxStackSize = 64;
         this.setCreativeTab(CreativeTabs.tabCombat);
     }

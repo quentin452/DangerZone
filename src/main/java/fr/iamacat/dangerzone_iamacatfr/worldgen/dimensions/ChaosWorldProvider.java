@@ -7,16 +7,20 @@ import fr.iamacat.dangerzone_iamacatfr.worldgen.biomes.UtopiaBiomeProvider;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldServer;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.DimensionManager;
 
 public class ChaosWorldProvider extends WorldProvider {
+
     private UtopiaBiomeProvider MyPlains;
 
     public ChaosWorldProvider() {
         this.MyPlains = (UtopiaBiomeProvider) new UtopiaBiomeProvider(Constants.BiomeChaosID).setColor(353825)
-            .setBiomeName("Islands")
+            .setBiomeName("Chaos")
             .setTemperatureRainfall(0.7f, 0.5f);
     }
 
@@ -30,7 +34,7 @@ public class ChaosWorldProvider extends WorldProvider {
 
     public void registerWorldChunkManager() {
         this.MyPlains.setChaosCreatures();
-
+        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell((BiomeGenBase) this.MyPlains, 0.01f);
         this.worldChunkMgr.getBiomeGenAt(0, 0)
             .setTemperatureRainfall(0.8f, 0.01f);
         this.dimensionId = DimensionInitDangerZone.ChaosDimensionId;
@@ -59,6 +63,6 @@ public class ChaosWorldProvider extends WorldProvider {
     }
 
     public IChunkProvider createChunkGenerator() {
-        return (IChunkProvider) new ChaosChunkProvider(this.worldObj, this.worldObj.getSeed());
+        return new ChaosChunkProvider(this.worldObj, this.worldObj.getSeed());
     }
 }

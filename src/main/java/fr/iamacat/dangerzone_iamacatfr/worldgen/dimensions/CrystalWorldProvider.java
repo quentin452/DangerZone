@@ -7,18 +7,23 @@ import fr.iamacat.dangerzone_iamacatfr.worldgen.biomes.UtopiaBiomeProvider;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldServer;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.DimensionManager;
 
 public class CrystalWorldProvider extends WorldProvider {
+
     private UtopiaBiomeProvider MyPlains;
 
     public CrystalWorldProvider() {
         this.MyPlains = (UtopiaBiomeProvider) new UtopiaBiomeProvider(Constants.BiomeCrystalID).setColor(353825)
-            .setBiomeName("Islands")
+            .setBiomeName("Crystal")
             .setTemperatureRainfall(0.7f, 0.5f);
     }
+
     public String getDimensionName() {
         return "Dimension-Crystal";
     }
@@ -29,7 +34,8 @@ public class CrystalWorldProvider extends WorldProvider {
 
     public void registerWorldChunkManager() {
         this.MyPlains.setCrystalCreatures();
-
+        this.MyPlains.setHeight(new BiomeGenBase.Height(0.1f, 0.5f));
+        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell((BiomeGenBase) this.MyPlains, 0.01f);
         this.worldChunkMgr.getBiomeGenAt(0, 0)
             .setTemperatureRainfall(0.8f, 0.01f);
         this.dimensionId = DimensionInitDangerZone.CrystalDimensionId;
@@ -58,6 +64,6 @@ public class CrystalWorldProvider extends WorldProvider {
     }
 
     public IChunkProvider createChunkGenerator() {
-        return (IChunkProvider) new CrystalChunkProvider(this.worldObj, this.worldObj.getSeed(), true);
+        return new CrystalChunkProvider(this.worldObj, this.worldObj.getSeed(), true);
     }
 }

@@ -234,109 +234,6 @@ public class DangerZone {
         MinecraftForge.EVENT_BUS.register(packetProxy);
     }
 
-    public static FairyInstance getFairy(int fairyID) {
-        for (WorldServer dim : DimensionManager.getWorlds()) {
-            if (dim != null) {
-                List<Entity> entities = dim.loadedEntityList;
-                if (entities != null && !entities.isEmpty()) {
-                    for (Entity entity : entities) {
-                        if (entity instanceof FairyInstance && entity.getEntityId() == fairyID)
-                            return (FairyInstance) entity;
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    public static boolean setBlockSuperFast(final World world, final int par1, final int par2, final int par3,
-        final Block par4, final int par5, final int par6, final Chunk refChunk) {
-        if (par1 < -30000000 || par3 < -30000000 || par1 >= 30000000 || par3 >= 30000000) {
-            return false;
-        }
-        if (par2 < 0) {
-            return false;
-        }
-        if (par2 >= 256) {
-            return false;
-        }
-        final Chunk chunk = world.getChunkFromChunkCoords(par1 >> 4, par3 >> 4);
-        boolean flag = true;
-        if (chunk != refChunk) {
-            Block k1 = Blocks.air;
-            if ((par6 & 0x1) != 0x0) {
-                k1 = chunk.getBlock(par1 & 0xF, par2, par3 & 0xF);
-            }
-            flag = setBlockIDWithMetadataFast(chunk, par1 & 0xF, par2, par3 & 0xF, par4, par5);
-            if (flag) {
-                if ((par6 & 0x2) != 0x0 && (!world.isRemote || (par6 & 0x4) == 0x0)) {
-                    world.markBlockForUpdate(par1, par2, par3);
-                }
-                if (!world.isRemote && (par6 & 0x1) != 0x0) {
-                    world.notifyBlockChange(par1, par2, par3, k1);
-                }
-            }
-        } else {
-            setBlockIDWithMetadataFast(chunk, par1 & 0xF, par2, par3 & 0xF, par4, par5);
-        }
-        return flag;
-    }
-
-    public static boolean setBlockIDWithMetadataFast(final Chunk chunk, final int par1, final int par2, final int par3,
-        final Block par4, final int par5) {
-        if (par1 < -30000000 || par3 < -30000000 || par1 >= 30000000 || par3 >= 30000000) {
-            return false;
-        }
-        if (par2 < 0 || par2 > 255) {
-            return false;
-        }
-        final ExtendedBlockStorage[] mystorage = chunk.getBlockStorageArray();
-        ExtendedBlockStorage extendedblockstorage = mystorage[par2 >> 4];
-        if (extendedblockstorage == null) {
-            if (par4 == Blocks.air) {
-                return false;
-            }
-            final ExtendedBlockStorage[] array = mystorage;
-            final int n = par2 >> 4;
-            final ExtendedBlockStorage extendedBlockStorage = new ExtendedBlockStorage(
-                par2 >> 4 << 4,
-                !chunk.worldObj.provider.hasNoSky);
-            array[n] = extendedBlockStorage;
-            extendedblockstorage = extendedBlockStorage;
-            chunk.setStorageArrays(mystorage);
-        }
-        extendedblockstorage.func_150818_a(par1, par2 & 0xF, par3, par4);
-        extendedblockstorage.setExtBlockMetadata(par1, par2 & 0xF, par3, par5);
-        return true;
-    }
-
-    public static boolean setBlockFast(final World world, final int par1, final int par2, final int par3,
-        final Block par4, final int par5, final int par6) {
-        if (par1 < -30000000 || par3 < -30000000 || par1 >= 30000000 || par3 >= 30000000) {
-            return false;
-        }
-        if (par2 < 0) {
-            return false;
-        }
-        if (par2 >= 256) {
-            return false;
-        }
-        final Chunk chunk = world.getChunkFromChunkCoords(par1 >> 4, par3 >> 4);
-        Block k1 = Blocks.air;
-        if ((par6 & 0x1) != 0x0) {
-            k1 = chunk.getBlock(par1 & 0xF, par2, par3 & 0xF);
-        }
-        final boolean flag = setBlockIDWithMetadataFast(chunk, par1 & 0xF, par2, par3 & 0xF, par4, par5);
-        if (flag) {
-            if ((par6 & 0x2) != 0x0 && (!world.isRemote || (par6 & 0x4) == 0x0)) {
-                world.markBlockForUpdate(par1, par2, par3);
-            }
-            if (!world.isRemote && (par6 & 0x1) != 0x0) {
-                world.notifyBlockChange(par1, par2, par3, k1);
-            }
-        }
-        return flag;
-    }
 
     public void initializeCagesAndEggs() {
         CageEmpty = new CritterCage(160).setUnlocalizedName("cageempty");
@@ -467,55 +364,6 @@ public class DangerZone {
         UltimateSwordMagic = 10;
     }
 
-    public static Block getBlockIDInChunk(final Chunk chunk, final int par1, final int par2, final int par3) {
-        if (par1 < -30000000 || par3 < -30000000 || par1 >= 30000000 || par3 >= 30000000) {
-            return Blocks.air;
-        }
-        if (par1 >> 4 != chunk.xPosition) {
-            return Blocks.air;
-        }
-        if (par3 >> 4 != chunk.zPosition) {
-            return Blocks.air;
-        }
-        if (par2 < 0 || par2 > 255) {
-            return Blocks.air;
-        }
-        return chunk.getBlock(par1 & 0xF, par2, par3 & 0xF);
-    }
-    public static boolean setBlockIDWithMetadataInChunk(final Chunk chunk, int par1, final int par2, int par3,
-                                                        final Block par4, final int par5) {
-        if (par1 < -30000000 || par3 < -30000000 || par1 >= 30000000 || par3 >= 30000000) {
-            return false;
-        }
-        if (par1 >> 4 != chunk.xPosition) {
-            return false;
-        }
-        if (par3 >> 4 != chunk.zPosition) {
-            return false;
-        }
-        if (par2 < 0 || par2 > 255) {
-            return false;
-        }
-        final ExtendedBlockStorage[] mystorage = chunk.getBlockStorageArray();
-        ExtendedBlockStorage extendedblockstorage = mystorage[par2 >> 4];
-        par1 &= 0xF;
-        par3 &= 0xF;
-        if (extendedblockstorage == null) {
-            if (par4 == Blocks.air || par4 == null) {
-                return false;
-            }
-            final int n = par2 >> 4;
-            final ExtendedBlockStorage extendedBlockStorage = new ExtendedBlockStorage(
-                par2 >> 4 << 4,
-                !chunk.worldObj.provider.hasNoSky);
-            mystorage[n] = extendedBlockStorage;
-            extendedblockstorage = extendedBlockStorage;
-            chunk.setStorageArrays(mystorage);
-        }
-        extendedblockstorage.func_150818_a(par1, par2 & 0xF, par3, par4);
-        extendedblockstorage.setExtBlockMetadata(par1, par2 & 0xF, par3, par5);
-        return true;
-    }
     public static Entity getPointedAtEntity(final World world, final EntityPlayer player, final double dist) {
         Entity pointedAt = null;
         if (player != null && world != null) {
@@ -561,4 +409,143 @@ public class DangerZone {
         return pointedAt;
     }
 
+    public static boolean setBlockFast(final World world, final int par1, final int par2, final int par3,
+                                       final Block par4, final int par5, final int par6) {
+        if (par1 < -30000000 || par3 < -30000000 || par1 >= 30000000 || par3 >= 30000000) {
+            return false;
+        }
+        if (par2 < 0) {
+            return false;
+        }
+        if (par2 >= 256) {
+            return false;
+        }
+        final Chunk chunk = world.getChunkFromChunkCoords(par1 >> 4, par3 >> 4);
+        Block k1 = Blocks.air;
+        if ((par6 & 0x1) != 0x0) {
+            k1 = chunk.getBlock(par1 & 0xF, par2, par3 & 0xF);
+        }
+        final boolean flag = setBlockIDWithMetadataFast(chunk, par1 & 0xF, par2, par3 & 0xF, par4, par5);
+        if (flag) {
+            if ((par6 & 0x2) != 0x0 && (!world.isRemote || (par6 & 0x4) == 0x0)) {
+                world.markBlockForUpdate(par1, par2, par3);
+            }
+            if (!world.isRemote && (par6 & 0x1) != 0x0) {
+                world.notifyBlockChange(par1, par2, par3, k1);
+            }
+        }
+        return flag;
+    }
+
+    public static boolean setBlockSuperFast(final World world, final int par1, final int par2, final int par3,
+                                            final Block par4, final int par5, final int par6, final Chunk refChunk) {
+        if (par1 < -30000000 || par3 < -30000000 || par1 >= 30000000 || par3 >= 30000000) {
+            return false;
+        }
+        if (par2 < 0) {
+            return false;
+        }
+        if (par2 >= 256) {
+            return false;
+        }
+        final Chunk chunk = world.getChunkFromChunkCoords(par1 >> 4, par3 >> 4);
+        boolean flag = true;
+        if (chunk != refChunk) {
+            Block k1 = Blocks.air;
+            if ((par6 & 0x1) != 0x0) {
+                k1 = chunk.getBlock(par1 & 0xF, par2, par3 & 0xF);
+            }
+            flag = setBlockIDWithMetadataFast(chunk, par1 & 0xF, par2, par3 & 0xF, par4, par5);
+            if (flag) {
+                if ((par6 & 0x2) != 0x0 && (!world.isRemote || (par6 & 0x4) == 0x0)) {
+                    world.markBlockForUpdate(par1, par2, par3);
+                }
+                if (!world.isRemote && (par6 & 0x1) != 0x0) {
+                    world.notifyBlockChange(par1, par2, par3, k1);
+                }
+            }
+        } else {
+            setBlockIDWithMetadataFast(chunk, par1 & 0xF, par2, par3 & 0xF, par4, par5);
+        }
+        return flag;
+    }
+
+    public static boolean setBlockIDWithMetadataFast(final Chunk chunk, final int par1, final int par2, final int par3,
+                                                     final Block par4, final int par5) {
+        if (par1 < -30000000 || par3 < -30000000 || par1 >= 30000000 || par3 >= 30000000) {
+            return false;
+        }
+        if (par2 < 0 || par2 > 255) {
+            return false;
+        }
+        final ExtendedBlockStorage[] mystorage = chunk.getBlockStorageArray();
+        ExtendedBlockStorage extendedblockstorage = mystorage[par2 >> 4];
+        if (extendedblockstorage == null) {
+            if (par4 == Blocks.air) {
+                return false;
+            }
+            final ExtendedBlockStorage[] array = mystorage;
+            final int n = par2 >> 4;
+            final ExtendedBlockStorage extendedBlockStorage = new ExtendedBlockStorage(
+                par2 >> 4 << 4,
+                !chunk.worldObj.provider.hasNoSky);
+            array[n] = extendedBlockStorage;
+            extendedblockstorage = extendedBlockStorage;
+            chunk.setStorageArrays(mystorage);
+        }
+        extendedblockstorage.func_150818_a(par1, par2 & 0xF, par3, par4);
+        extendedblockstorage.setExtBlockMetadata(par1, par2 & 0xF, par3, par5);
+        return true;
+    }
+
+    public static Block getBlockIDInChunk(final Chunk chunk, final int par1, final int par2, final int par3) {
+        if (par1 < -30000000 || par3 < -30000000 || par1 >= 30000000 || par3 >= 30000000) {
+            return Blocks.air;
+        }
+        if (par1 >> 4 != chunk.xPosition) {
+            return Blocks.air;
+        }
+        if (par3 >> 4 != chunk.zPosition) {
+            return Blocks.air;
+        }
+        if (par2 < 0 || par2 > 255) {
+            return Blocks.air;
+        }
+        return chunk.getBlock(par1 & 0xF, par2, par3 & 0xF);
+    }
+
+    public static boolean setBlockIDWithMetadataInChunk(final Chunk chunk, int par1, final int par2, int par3,
+                                                        final Block par4, final int par5) {
+        if (par1 < -30000000 || par3 < -30000000 || par1 >= 30000000 || par3 >= 30000000) {
+            return false;
+        }
+        if (par1 >> 4 != chunk.xPosition) {
+            return false;
+        }
+        if (par3 >> 4 != chunk.zPosition) {
+            return false;
+        }
+        if (par2 < 0 || par2 > 255) {
+            return false;
+        }
+        final ExtendedBlockStorage[] mystorage = chunk.getBlockStorageArray();
+        ExtendedBlockStorage extendedblockstorage = mystorage[par2 >> 4];
+        par1 &= 0xF;
+        par3 &= 0xF;
+        if (extendedblockstorage == null) {
+            if (par4 == Blocks.air || par4 == null) {
+                return false;
+            }
+            final int n = par2 >> 4;
+            final ExtendedBlockStorage extendedBlockStorage = new ExtendedBlockStorage(
+                par2 >> 4 << 4,
+                !chunk.worldObj.provider.hasNoSky);
+            mystorage[n] = extendedBlockStorage;
+            extendedblockstorage = extendedBlockStorage;
+            chunk.setStorageArrays(mystorage);
+        }
+        extendedblockstorage.func_150818_a(par1, par2 & 0xF, par3, par4);
+        extendedblockstorage.setExtBlockMetadata(par1, par2 & 0xF, par3, par5);
+        return true;
+    }
 }

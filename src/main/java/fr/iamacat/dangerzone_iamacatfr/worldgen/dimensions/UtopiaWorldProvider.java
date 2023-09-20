@@ -24,13 +24,6 @@ public class UtopiaWorldProvider extends WorldProvider {
             .setTemperatureRainfall(0.7f, 0.5f);
     }
 
-    public void registerWorldChunkManager() {
-      //  this.MyPlains.setIslandCreatures();
-        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell((BiomeGenBase) this.MyPlains, 0.5f);
-        this.worldChunkMgr.getBiomeGenAt(0, 0)
-            .setTemperatureRainfall(0.7f, 0.5f);
-        this.dimensionId = DimensionInitDangerZone.UtopiaDimensionId;
-    }
     public String getDimensionName() {
         return "Dimension-Utopia";
     }
@@ -61,7 +54,14 @@ public class UtopiaWorldProvider extends WorldProvider {
         }
     }
 
+    public void registerWorldChunkManager() {
+        this.worldChunkMgr = new WorldChunkManagerHell(this.MyPlains, 0.5f);
+        this.worldChunkMgr.getBiomeGenAt(0, 0)
+            .setTemperatureRainfall(0.7f, 0.5f);
+        this.dimensionId = DimensionInitDangerZone.UtopiaDimensionId;
+    }
+
     public IChunkProvider createChunkGenerator() {
-        return (IChunkProvider) new UtopiaChunkProvider(this.worldObj, this.worldObj.getSeed(), true);
+        return new UtopiaChunkProvider(this.worldObj, this.worldObj.getSeed(), true);
     }
 }

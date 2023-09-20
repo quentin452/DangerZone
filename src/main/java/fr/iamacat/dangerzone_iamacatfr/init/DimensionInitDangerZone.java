@@ -3,7 +3,6 @@ package fr.iamacat.dangerzone_iamacatfr.init;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions.*;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.unfinished.dimensions.*;
 import net.minecraftforge.common.DimensionManager;
 
 public class DimensionInitDangerZone {

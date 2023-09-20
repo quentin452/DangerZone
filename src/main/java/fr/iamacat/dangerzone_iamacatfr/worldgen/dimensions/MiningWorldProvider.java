@@ -15,13 +15,6 @@ import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.DimensionManager;
 
 public class MiningWorldProvider extends WorldProvider {
-    private UtopiaBiomeProvider MyPlains;
-
-    public MiningWorldProvider() {
-        this.MyPlains = (UtopiaBiomeProvider) new UtopiaBiomeProvider(Constants.BiomeMiningID).setColor(353825)
-            .setBiomeName("Utopia")
-            .setTemperatureRainfall(0.7f, 0.5f);
-    }
 
     public String getDimensionName() {
         return "Dimension-Extreme";
@@ -32,8 +25,7 @@ public class MiningWorldProvider extends WorldProvider {
     }
 
     public void registerWorldChunkManager() {
-     //   this.MyPlains.setIslandCreatures();
-        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell(BiomeGenBase.extremeHills, 0.01f);
+        this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.extremeHills, 0.01f);
         this.worldChunkMgr.getBiomeGenAt(0, 0)
             .setTemperatureRainfall(0.8f, 0.01f);
         this.dimensionId = DimensionInitDangerZone.MiningDimensionId;
@@ -62,6 +54,6 @@ public class MiningWorldProvider extends WorldProvider {
     }
 
     public IChunkProvider createChunkGenerator() {
-        return (IChunkProvider) new MiningChunkProvider(this.worldObj, this.worldObj.getSeed(), true);
+        return new MiningChunkProvider(this.worldObj, this.worldObj.getSeed(), true);
     }
 }

@@ -12,23 +12,17 @@ import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.storage.WorldInfo;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.DimensionManager;
 
 public class VillageWorldProvider extends WorldProvider {
+
     private UtopiaBiomeProvider MyPlains;
 
     public VillageWorldProvider() {
         this.MyPlains = (UtopiaBiomeProvider) new UtopiaBiomeProvider(Constants.BiomeVillageID).setColor(353825)
-            .setBiomeName("Utopia")
+            .setBiomeName("Villages")
             .setTemperatureRainfall(0.7f, 0.5f);
-    }
-
-    public void registerWorldChunkManager() {
-        this.MyPlains.setVillageCreatures();
-        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell((BiomeGenBase) this.MyPlains, 0.5f);
-        this.worldChunkMgr.getBiomeGenAt(0, 0)
-            .setTemperatureRainfall(0.7f, 0.5f);
-        this.dimensionId = DimensionInitDangerZone.UtopiaDimensionId;
     }
 
     public String getDimensionName() {
@@ -37,6 +31,15 @@ public class VillageWorldProvider extends WorldProvider {
 
     public boolean canRespawnHere() {
         return true;
+    }
+
+    public void registerWorldChunkManager() {
+        this.MyPlains.setVillageCreatures();
+        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell((BiomeGenBase) this.MyPlains, 0.5f);
+        this.worldChunkMgr.getBiomeGenAt(0, 0)
+            .setTemperatureRainfall(0.7f, 0.5f);
+        this.dimensionId = DimensionInitDangerZone.VillageDimensionId;
+        BiomeManager.addVillageBiome(this.MyPlains, true);
     }
 
     public void setWorldTime(final long time) {
@@ -62,6 +65,6 @@ public class VillageWorldProvider extends WorldProvider {
     }
 
     public IChunkProvider createChunkGenerator() {
-        return (IChunkProvider) new VillageChunkProvider(this.worldObj, this.worldObj.getSeed(), true);
+        return new VillageChunkProvider(this.worldObj, this.worldObj.getSeed(), true);
     }
 }

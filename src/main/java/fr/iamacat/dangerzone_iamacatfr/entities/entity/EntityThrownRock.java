@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -267,7 +268,7 @@ public class EntityThrownRock extends EntityThrowable {
                                 this.worldObj.setBlock(x + i, y + j, z + k, Blocks.air);
                             }
                             if (played == 0) {
-                                this.worldObj.playSoundEffect(x, y, z, "orespawn:glassdead", 1.0f, 1.0f);
+                                this.worldObj.playSoundEffect(x, y, z, Tags.MODID + ":glassdead", 1.0f, 1.0f);
                                 ++played;
                             }
                         }

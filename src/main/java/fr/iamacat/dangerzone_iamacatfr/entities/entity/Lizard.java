@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -129,11 +130,11 @@ public class Lizard extends EntityCannonFodder {
     }
 
     protected String getHurtSound() {
-        return "orespawn:alo_hurt";
+        return Tags.MODID + ":alo_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:alo_death";
+        return Tags.MODID + ":alo_death";
     }
 
     protected float getSoundVolume() {

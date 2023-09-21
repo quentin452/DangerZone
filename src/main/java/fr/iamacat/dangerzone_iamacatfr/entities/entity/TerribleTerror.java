@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -65,15 +66,15 @@ public class TerribleTerror extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "orespawn:terribleterror_living";
+        return Tags.MODID + ":terribleterror_living";
     }
 
     protected String getHurtSound() {
-        return "orespawn:terribleterror_hit";
+        return Tags.MODID + ":terribleterror_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:terribleterror_dead";
+        return Tags.MODID + ":terribleterror_dead";
     }
 
     public int mygetMaxHealth() {

@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -171,15 +172,15 @@ public class Triffid extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "orespawn:triffid_living";
+        return Tags.MODID + ":triffid_living";
     }
 
     protected String getHurtSound() {
-        return "orespawn:triffid_hit";
+        return Tags.MODID + ":triffid_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:triffid_dead";
+        return Tags.MODID + ":triffid_dead";
     }
 
     protected float getSoundVolume() {

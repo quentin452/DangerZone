@@ -264,86 +264,86 @@ public class ItemOreSpawnArmor extends ItemArmor {
     public String getArmorTexture(final ItemStack armor, final Entity e, final int slot, final String layer) {
         if (this.armor_type == 0 || this.armor_type == 1 || this.armor_type == 3) {
             if (this.armor_material == 0) {
-                return "orespawn:ultimate_1.png";
+                return Tags.MODID + ":ultimate_1.png";
             }
             if (this.armor_material == 1) {
-                return "orespawn:lavaeel_1.png";
+                return Tags.MODID + ":lavaeel_1.png";
             }
             if (this.armor_material == 2) {
-                return "orespawn:mothscale_1.png";
+                return Tags.MODID + ":mothscale_1.png";
             }
             if (this.armor_material == 4) {
-                return "orespawn:experience_1.png";
+                return Tags.MODID + ":experience_1.png";
             }
             if (this.armor_material == 5) {
-                return "orespawn:ruby_1.png";
+                return Tags.MODID + ":ruby_1.png";
             }
             if (this.armor_material == 6) {
-                return "orespawn:amethyst_1.png";
+                return Tags.MODID + ":amethyst_1.png";
             }
             if (this.armor_material == 7) {
-                return "orespawn:pink_1.png";
+                return Tags.MODID + ":pink_1.png";
             }
             if (this.armor_material == 8) {
-                return "orespawn:tigerseye_1.png";
+                return Tags.MODID + ":tigerseye_1.png";
             }
             if (this.armor_material == 9) {
-                return "orespawn:peacock_1.png";
+                return Tags.MODID + ":peacock_1.png";
             }
             if (this.armor_material == 10) {
-                return "orespawn:mobzilla_1.png";
+                return Tags.MODID + ":mobzilla_1.png";
             }
             if (this.armor_material == 11) {
-                return "orespawn:royal_1.png";
+                return Tags.MODID + ":royal_1.png";
             }
             if (this.armor_material == 12) {
-                return "orespawn:lapis_1.png";
+                return Tags.MODID + ":lapis_1.png";
             }
             if (this.armor_material == 13) {
-                return "orespawn:queen_1.png";
+                return Tags.MODID + ":queen_1.png";
             }
-            return "orespawn:emerald_1.png";
+            return Tags.MODID + ":emerald_1.png";
         } else {
             if (this.armor_material == 0) {
-                return "orespawn:ultimate_2.png";
+                return Tags.MODID + ":ultimate_2.png";
             }
             if (this.armor_material == 1) {
-                return "orespawn:lavaeel_2.png";
+                return Tags.MODID + ":lavaeel_2.png";
             }
             if (this.armor_material == 2) {
-                return "orespawn:mothscale_2.png";
+                return Tags.MODID + ":mothscale_2.png";
             }
             if (this.armor_material == 4) {
-                return "orespawn:experience_2.png";
+                return Tags.MODID + ":experience_2.png";
             }
             if (this.armor_material == 5) {
-                return "orespawn:ruby_2.png";
+                return Tags.MODID + ":ruby_2.png";
             }
             if (this.armor_material == 6) {
-                return "orespawn:amethyst_2.png";
+                return Tags.MODID + ":amethyst_2.png";
             }
             if (this.armor_material == 7) {
-                return "orespawn:pink_2.png";
+                return Tags.MODID + ":pink_2.png";
             }
             if (this.armor_material == 8) {
-                return "orespawn:tigerseye_2.png";
+                return Tags.MODID + ":tigerseye_2.png";
             }
             if (this.armor_material == 9) {
-                return "orespawn:peacock_2.png";
+                return Tags.MODID + ":peacock_2.png";
             }
             if (this.armor_material == 10) {
-                return "orespawn:mobzilla_2.png";
+                return Tags.MODID + ":mobzilla_2.png";
             }
             if (this.armor_material == 11) {
-                return "orespawn:royal_2.png";
+                return Tags.MODID + ":royal_2.png";
             }
             if (this.armor_material == 12) {
-                return "orespawn:lapis_2.png";
+                return Tags.MODID + ":lapis_2.png";
             }
             if (this.armor_material == 13) {
-                return "orespawn:queen_2.png";
+                return Tags.MODID + ":queen_2.png";
             }
-            return "orespawn:emerald_2.png";
+            return Tags.MODID + ":emerald_2.png";
         }
     }
 

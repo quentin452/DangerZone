@@ -7,11 +7,21 @@ import fr.iamacat.dangerzone_iamacatfr.items.CrystalCow;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BiomeGenUtopianPlains extends BiomeGenBase {
+    List<SpawnListEntry> spawnableCreatureList;
+    List<SpawnListEntry> spawnableMonsterList;
+    List<SpawnListEntry> spawnableCaveCreatureList;
+    List<SpawnListEntry> spawnableWaterCreatureList;
 
     public BiomeGenUtopianPlains(final int par1) {
         super(par1);
+        spawnableCreatureList = new ArrayList<>();
+        spawnableMonsterList = new ArrayList<>();
+        spawnableCaveCreatureList = new ArrayList<>();
+        spawnableWaterCreatureList = new ArrayList<>();
+
         if (OreSpawnMain.GazelleEnable != 0) {
             this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(Gazelle.class, 10, 2, 4));
         }
@@ -65,14 +75,6 @@ public class BiomeGenUtopianPlains extends BiomeGenBase {
     }
 
     public void setIslandCreatures() {
-        this.spawnableCreatureList = null;
-        this.spawnableMonsterList = null;
-        this.spawnableWaterCreatureList = null;
-        this.spawnableCaveCreatureList = null;
-        this.spawnableCreatureList = new ArrayList();
-        this.spawnableMonsterList = new ArrayList();
-        this.spawnableWaterCreatureList = new ArrayList();
-        this.spawnableCaveCreatureList = new ArrayList();
         if (OreSpawnMain.ButterflyEnable != 0) {
             this.spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityButterfly.class, 5, 2, 6));
         }
@@ -124,14 +126,6 @@ public class BiomeGenUtopianPlains extends BiomeGenBase {
     }
 
     public void setCrystalCreatures() {
-        this.spawnableCreatureList = null;
-        this.spawnableMonsterList = null;
-        this.spawnableWaterCreatureList = null;
-        this.spawnableCaveCreatureList = null;
-        this.spawnableCreatureList = new ArrayList();
-        this.spawnableMonsterList = new ArrayList();
-        this.spawnableWaterCreatureList = new ArrayList();
-        this.spawnableCaveCreatureList = new ArrayList();
         if (OreSpawnMain.CowEnable != 0) {
             this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(CrystalCow.class, 1, 1, 4));
         }
@@ -257,14 +251,6 @@ public class BiomeGenUtopianPlains extends BiomeGenBase {
     }
 
     public void setChaosCreatures() {
-        this.spawnableCreatureList = null;
-        this.spawnableMonsterList = null;
-        this.spawnableWaterCreatureList = null;
-        this.spawnableCaveCreatureList = null;
-        this.spawnableCreatureList = new ArrayList();
-        this.spawnableMonsterList = new ArrayList();
-        this.spawnableWaterCreatureList = new ArrayList();
-        this.spawnableCaveCreatureList = new ArrayList();
         this.theBiomeDecorator.flowersPerChunk = 2;
         this.theBiomeDecorator.grassPerChunk = 4;
         this.theBiomeDecorator.treesPerChunk = 1;

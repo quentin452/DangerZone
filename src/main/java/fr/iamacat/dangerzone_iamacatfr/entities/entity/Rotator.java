@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalCow;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -108,11 +109,11 @@ public class Rotator extends EntityMob {
     }
 
     protected String getHurtSound() {
-        return "orespawn:glasshit";
+        return Tags.MODID + ":glasshit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:glassdead";
+        return Tags.MODID + ":glassdead";
     }
 
     public boolean canBePushed() {

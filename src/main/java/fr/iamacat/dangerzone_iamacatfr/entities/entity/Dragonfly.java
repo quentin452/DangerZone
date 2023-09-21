@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -71,15 +72,15 @@ public class Dragonfly extends EntityAnimal {
     }
 
     protected String getLivingSound() {
-        return "orespawn:dragonfly_living";
+        return Tags.MODID + ":dragonfly_living";
     }
 
     protected String getHurtSound() {
-        return "orespawn:dragonfly_hurt";
+        return Tags.MODID + ":dragonfly_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:dragonfly_death";
+        return Tags.MODID + ":dragonfly_death";
     }
 
     public boolean canBePushed() {

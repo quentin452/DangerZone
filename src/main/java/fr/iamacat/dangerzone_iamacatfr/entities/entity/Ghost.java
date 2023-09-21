@@ -1,6 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -57,7 +58,7 @@ public class Ghost extends EntityAmbientCreature {
 
     protected String getLivingSound() {
         if (this.worldObj.rand.nextInt(2) == 0) {
-            return "orespawn:ghost_sound";
+            return Tags.MODID + ":ghost_sound";
         }
         return null;
     }

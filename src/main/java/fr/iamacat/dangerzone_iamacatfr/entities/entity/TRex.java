@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -94,17 +95,17 @@ public class TRex extends EntityMob {
 
     protected String getLivingSound() {
         if (this.rand.nextInt(4) == 0) {
-            return "orespawn:trex_living";
+            return Tags.MODID + ":trex_living";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:alo_hurt";
+        return Tags.MODID + ":alo_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:trex_death";
+        return Tags.MODID + ":trex_death";
     }
 
     protected float getSoundVolume() {

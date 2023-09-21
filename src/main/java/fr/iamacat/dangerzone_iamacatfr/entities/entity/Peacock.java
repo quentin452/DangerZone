@@ -5,6 +5,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -136,15 +137,15 @@ public class Peacock extends EntityAnimal {
         if (this.worldObj.rand.nextInt(8) != 1) {
             return null;
         }
-        return "orespawn:peacocklive";
+        return Tags.MODID + ":peacocklive";
     }
 
     protected String getHurtSound() {
-        return "orespawn:peacockhit";
+        return Tags.MODID + ":peacockhit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:peacockdead";
+        return Tags.MODID + ":peacockdead";
     }
 
     protected float getSoundVolume() {

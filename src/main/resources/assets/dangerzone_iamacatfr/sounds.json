@@ -144,5 +144,6 @@
 "er_d": {"category": "master","sounds": [{"name": "er_d","stream": false}]},
 "fanfare": {"category": "master","sounds": [{"name": "fanfare","stream": false}]},
 "bosshurt": {"category": "master","sounds": [{"name": "bosshurt","stream": false}]},
+"frog": {"category": "master","sounds": [{"name": "frog","stream": false}]},
 "slap": {"category": "master","sounds": [{"name": "slap","stream": false}]}
 }

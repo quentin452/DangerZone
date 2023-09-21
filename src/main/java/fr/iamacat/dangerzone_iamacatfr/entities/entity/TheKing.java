@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -144,15 +145,15 @@ public class TheKing extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "orespawn:king_living";
+        return Tags.MODID + ":king_living";
     }
 
     protected String getHurtSound() {
-        return "orespawn:king_hit";
+        return Tags.MODID + ":king_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:trex_death";
+        return Tags.MODID + ":trex_death";
     }
 
     public boolean canBePushed() {
@@ -239,7 +240,7 @@ public class TheKing extends EntityMob {
         ++this.wing_sound;
         if (this.wing_sound > 30) {
             if (!this.worldObj.isRemote) {
-                this.worldObj.playSoundAtEntity(this, "orespawn:MothraWings", 1.75f, 0.75f);
+                this.worldObj.playSoundAtEntity(this, Tags.MODID + ":MothraWings", 1.75f, 0.75f);
             }
             this.wing_sound = 0;
         }

@@ -4775,102 +4775,47 @@ public class GenericDungeon
 
     public void makeCephadromeAltar(final World world, final int cposx, final int cposy, final int cposz) {
         Block bid = Blocks.air;
-        final int meta = 0;
-        int width = 4;
-        int length = 4;
         int j = 0;
-        bid = Blocks.cobblestone;
-        for (int i = -width; i <= width; ++i) {
-            for (int k = -length; k <= length; ++k) {
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
-            }
-        }
-        width = 3;
-        length = 3;
-        j = 1;
-        bid = Blocks.cobblestone;
-        for (int i = -width; i <= width; ++i) {
-            for (int k = -length; k <= length; ++k) {
-                bid = Blocks.cobblestone;
-                if (k == 0 || i == 0) {
-                    bid = Blocks.stonebrick;
-                }
-                if ((k == -length || k == length) && (i == -width || i == width)) {
-                    bid = Blocks.stonebrick;
-                }
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
-            }
-        }
-        width = 3;
-        length = 3;
-        j = 2;
-        for (int i = -width; i <= width; ++i) {
-            for (int k = -length; k <= length; ++k) {
-                bid = Blocks.air;
-                if ((k == -length || k == length) && (i == -width || i == width)) {
-                    bid = Blocks.stonebrick;
-                }
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
-            }
-        }
-        width = 3;
-        length = 3;
-        j = 3;
-        for (int i = -width; i <= width; ++i) {
-            for (int k = -length; k <= length; ++k) {
-                bid = Blocks.air;
-                if ((k == -length || k == length) && (i == -width || i == width)) {
-                    bid = Blocks.end_stone;
-                }
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
-            }
-        }
-        width = 3;
-        length = 3;
-        j = 4;
-        for (int i = -width; i <= width; ++i) {
-            for (int k = -length; k <= length; ++k) {
-                bid = Blocks.air;
-                if ((k == -length || k == length) && (i == -width || i == width)) {
-                    bid = OreSpawnMain.ExtremeTorch;
-                }
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
-            }
-        }
-        width = 2;
-        length = 2;
-        j = 2;
-        bid = Blocks.cobblestone;
-        for (int i = -width; i <= width; ++i) {
-            for (int k = -length; k <= length; ++k) {
-                bid = Blocks.cobblestone;
-                if (k == 0 || i == 0) {
-                    bid = Blocks.stonebrick;
-                }
-                if ((k == -length || k == length) && (i == -width || i == width)) {
-                    bid = Blocks.stonebrick;
-                }
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
-            }
-        }
-        width = 1;
-        length = 1;
-        j = 3;
-        bid = Blocks.cobblestone;
-        for (int i = -width; i <= width; ++i) {
-            for (int k = -length; k <= length; ++k) {
-                bid = Blocks.cobblestone;
-                if (k == 0 && i == 0) {
-                    bid = OreSpawnMain.MyEyeOfEnderBlock;
-                }
-                if ((k == -length || k == length) && (i == -width || i == width)) {
-                    bid = Blocks.end_stone;
-                }
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
-            }
-        }
-    }
 
+        // Base layer
+        for (int i = -3; i <= 3; ++i) {
+            for (int k = -3; k <= 3; ++k) {
+                bid = Blocks.cobblestone;
+                if (k == 0 || i == 0) {
+                    bid = Blocks.stonebrick;
+                }
+                if ((k == -3 || k == 3) && (i == -3 || i == 3)) {
+                    bid = Blocks.stonebrick;
+                }
+                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
+            }
+        }
+
+        // Upper layers
+        for (int layer = 1; layer <= 4; ++layer) {
+            j = layer;
+            int width = 3 - layer;
+            int length = 3 - layer;
+
+            for (int i = -width; i <= width; ++i) {
+                for (int k = -length; k <= length; ++k) {
+                    bid = Blocks.air;
+                    if ((k == -length || k == length) && (i == -width || i == width)) {
+                        if (layer == 4) {
+                            bid = OreSpawnMain.ExtremeTorch;
+                        } else {
+                            bid = Blocks.end_stone;
+                        }
+                    }
+                    OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
+                }
+            }
+        }
+
+        // Eye of Ender
+        j = 3;
+        OreSpawnMain.setBlockFast(world, cposx, cposy + j, cposz, OreSpawnMain.MyEyeOfEnderBlock, 0, 2);
+    }
     public void makeCrystalBattleTower(final World world, final int cposx, final int cposy, final int cposz) {
         TileEntityMobSpawner tileentitymobspawner = null;
         TileEntityChest chest = null;
@@ -6296,79 +6241,78 @@ public class GenericDungeon
     }
 
     public void makeRainbow(final World world, final int cposx, final int cposy, final int cposz) {
-        int width = 12;
-        int depth = 1;
-        int blk_color = 0;
-        TileEntityMobSpawner tileentitymobspawner = null;
-        TileEntityChest chest = null;
-        WeightedRandomChestContent[] chestContents = null;
+        int width;
+        int depth;
+        int blk_color;
+        TileEntityMobSpawner tileentitymobspawner;
+        TileEntityChest chest;
+        WeightedRandomChestContent[] chestContents;
         blk_color = 0;
         int j = 35;
         width = 12;
         depth = 1;
+
+        // Créez l'arc-en-ciel en utilisant une seule opération par type de bloc
         for (int i = -width; i < width; ++i) {
             for (int k = -depth; k <= depth; ++k) {
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, Blocks.stained_hardened_clay, blk_color, 2);
+                Block block = Blocks.air;
+                if (i == -width || i == width - 1 || k == -depth || k == depth) {
+                    block = Blocks.stained_hardened_clay;
+                }
+                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, block, blk_color, 2);
             }
         }
-        int k = 0;
-        for (int i = -width + 1; i < width; i += 3) {
-            OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, Blocks.water, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + i, cposy + j - 1, cposz + k, (Block)Blocks.flowing_water, 0, 2);
-        }
+
         width = 13;
         depth = 2;
         j = 26;
+        int k = 0;
         for (int i = -width; i < width; ++i) {
             for (k = -depth; k <= depth; ++k) {
                 Block blk = Blocks.air;
-                if (i == -width || i == width - 1) {
-                    blk = Blocks.stained_hardened_clay;
-                }
-                if (k == -depth || k == depth) {
+                if (i == -width || i == width - 1 || k == -depth || k == depth) {
                     blk = Blocks.stained_hardened_clay;
                 }
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, blk, blk_color, 2);
             }
         }
+
         width = 14;
         depth = 3;
         j = 27;
         for (int i = -width; i < width; ++i) {
             for (k = -depth; k <= depth; ++k) {
                 Block blk = Blocks.air;
-                if (i == -width || i == width - 1) {
-                    blk = Blocks.stained_hardened_clay;
-                }
-                if (k == -depth || k == depth) {
+                if (i == -width || i == width - 1 || k == -depth || k == depth) {
                     blk = Blocks.stained_hardened_clay;
                 }
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, blk, blk_color, 2);
             }
         }
+
         width = 13;
         depth = 2;
         j = 28;
         for (int i = -width; i < width; ++i) {
             for (k = -depth; k <= depth; ++k) {
                 Block blk = Blocks.air;
-                if (i == -width || i == width - 1) {
-                    blk = Blocks.stained_hardened_clay;
-                }
-                if (k == -depth || k == depth) {
+                if (i == -width || i == width - 1 || k == -depth || k == depth) {
                     blk = Blocks.stained_hardened_clay;
                 }
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, blk, blk_color, 2);
             }
         }
+
         j = 29;
         width = 12;
         depth = 1;
         for (int i = -width; i < width; ++i) {
             for (k = -depth; k <= depth; ++k) {
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, Blocks.stained_hardened_clay, blk_color, 2);
+                Block block = Blocks.stained_hardened_clay;
+                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, block, blk_color, 2);
             }
         }
+
         j = 30;
         for (int m = 3; m < 11; ++m) {
             blk_color = this.blkcolors[m - 3];
@@ -6380,6 +6324,8 @@ public class GenericDungeon
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + m, cposz, Blocks.stained_hardened_clay, blk_color, 2);
             }
         }
+
+        // Créez les blocs des coffres et des spawners en une seule opération
         world.setBlock(cposx + 2, cposy + j, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 2, cposy + j, cposz);
         if (tileentitymobspawner != null) {
@@ -6400,28 +6346,20 @@ public class GenericDungeon
         if (tileentitymobspawner != null) {
             tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
         }
-        world.setBlock(cposx + 2, cposy + j + 2, cposz, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 2, cposy + j + 2, cposz);
-        if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
-        }
-        world.setBlock(cposx - 3, cposy + j + 2, cposz, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 3, cposy + j + 2, cposz);
-        if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
-        }
+
+        // Créez les coffres et leurs contenus en une seule opération
         chestContents = this.RainbowContentsList;
         world.setBlock(cposx, cposy + j, cposz, (Block)Blocks.chest);
         world.setBlockMetadataWithNotify(cposx, cposy + j, cposz, 2, 3);
         chest = this.getChestTileEntity(world, cposx, cposy + j, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 10 + world.rand.nextInt(5));
+            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, chest, 10 + world.rand.nextInt(5));
         }
         world.setBlock(cposx - 1, cposy + j, cposz, (Block)Blocks.chest);
         world.setBlockMetadataWithNotify(cposx - 1, cposy + j, cposz, 2, 3);
         chest = this.getChestTileEntity(world, cposx - 1, cposy + j, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 10 + world.rand.nextInt(5));
+            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, chest, 10 + world.rand.nextInt(5));
         }
     }
 
@@ -6491,38 +6429,46 @@ public class GenericDungeon
             world.setBlock(cposx - 3, cposy + 1 + j, cposz - 3, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 3, cposy + 1 + j, cposz - 3);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Lurking Terror");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Lurking Terror");
             }
             world.setBlock(cposx - 3, cposy + 1 + j, cposz + width + 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 3, cposy + 1 + j, cposz + width + 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Lurking Terror");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Lurking Terror");
             }
             world.setBlock(cposx + width + 2, cposy + 1 + j, cposz - 3, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width + 2, cposy + 1 + j, cposz - 3);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Lurking Terror");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Lurking Terror");
             }
             world.setBlock(cposx + width + 2, cposy + 1 + j, cposz + width + 2, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width + 2, cposy + 1 + j, cposz + width + 2);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width + 2, cposy + 1 + j, cposz + width + 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Lurking Terror");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Lurking Terror");
             }
         }
         world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Emperor Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Emperor Scorpion");
         }
         world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Emperor Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Emperor Scorpion");
         }
         world.setBlock(cposx + width / 2, cposy + 4, cposz + width / 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 4, cposz + width / 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Emperor Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Emperor Scorpion");
         }
         int j = height;
         this.buildLevelQ(world, cposx + 1, cposy + j, cposz + 1, width - 2, 10, 4, "Rotator", 1, -1, 5, 1, level);
@@ -6550,9 +6496,20 @@ public class GenericDungeon
         for (int i = 0; i < platformwidth; ++i) {
             j = height;
             for (int k = -(platformwidth / 2); k <= platformwidth / 2; ++k) {
-                this.FastSetBlock(world, cposx + i - 20, cposy + j, cposz + k + width / 2, OreSpawnMain.MyBlockAmethystBlock);
-                if ((i == 0 || i == platformwidth - 1 || k == -(platformwidth / 2) || k == platformwidth / 2) && (i != 0 || k < -1 || k > 1)) {
-                    this.FastSetBlock(world, cposx + i - 20, cposy + j + 1, cposz + k + width / 2, Blocks.nether_brick_fence);
+                this.FastSetBlock(
+                    world,
+                    cposx + i - 20,
+                    cposy + j,
+                    cposz + k + width / 2,
+                    OreSpawnMain.MyBlockAmethystBlock);
+                if ((i == 0 || i == platformwidth - 1 || k == -(platformwidth / 2) || k == platformwidth / 2)
+                    && (i != 0 || k < -1 || k > 1)) {
+                    this.FastSetBlock(
+                        world,
+                        cposx + i - 20,
+                        cposy + j + 1,
+                        cposz + k + width / 2,
+                        Blocks.nether_brick_fence);
                 }
             }
         }
@@ -6562,17 +6519,25 @@ public class GenericDungeon
                 if (i == -3 || i == -10) {
                     if (k != -2 && k != 2) {
                         this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.air);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.netherrack);
                         this.FastSetBlock(world, cposx + i, cposy + j + 2, cposz + k + width / 2, Blocks.netherrack);
-                        this.FastSetBlock(world, cposx + i, cposy + j + 3, cposz + k + width / 2, (Block)Blocks.fire);
+                        this.FastSetBlock(world, cposx + i, cposy + j + 3, cposz + k + width / 2, (Block) Blocks.fire);
                     }
-                }
-                else {
-                    this.FastSetBlock(world, cposx + i, cposy + j, cposz + k + width / 2, OreSpawnMain.MyBlockAmethystBlock);
+                } else {
+                    this.FastSetBlock(
+                        world,
+                        cposx + i,
+                        cposy + j,
+                        cposz + k + width / 2,
+                        OreSpawnMain.MyBlockAmethystBlock);
                     if (k == -2 || k == 2) {
-                        this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.nether_brick_fence);
+                        this.FastSetBlock(
+                            world,
+                            cposx + i,
+                            cposy + j + 1,
+                            cposz + k + width / 2,
+                            Blocks.nether_brick_fence);
                     }
                 }
             }
@@ -6586,17 +6551,25 @@ public class GenericDungeon
                 if (j == 0) {
                     if (k != -2 && k != 2) {
                         this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.air);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.netherrack);
                         this.FastSetBlock(world, cposx + i, cposy + j + 2, cposz + k + width / 2, Blocks.netherrack);
-                        this.FastSetBlock(world, cposx + i, cposy + j + 3, cposz + k + width / 2, (Block)Blocks.fire);
+                        this.FastSetBlock(world, cposx + i, cposy + j + 3, cposz + k + width / 2, (Block) Blocks.fire);
                     }
-                }
-                else {
-                    this.FastSetBlock(world, cposx + i, cposy + j, cposz + k + width / 2, OreSpawnMain.MyBlockAmethystBlock);
+                } else {
+                    this.FastSetBlock(
+                        world,
+                        cposx + i,
+                        cposy + j,
+                        cposz + k + width / 2,
+                        OreSpawnMain.MyBlockAmethystBlock);
                     if (k == -2 || k == 2) {
-                        this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.nether_brick_fence);
+                        this.FastSetBlock(
+                            world,
+                            cposx + i,
+                            cposy + j + 1,
+                            cposz + k + width / 2,
+                            Blocks.nether_brick_fence);
                     }
                 }
             }
@@ -6612,14 +6585,17 @@ public class GenericDungeon
                     i -= span / 2;
                     k -= span / 2;
                     world.setBlock(cposx + i + width / 2, cposy + j, cposz + k + width / 2, Blocks.mob_spawner, 0, 2);
-                    tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i + width / 2, cposy + j, cposz + k + width / 2);
+                    tileentitymobspawner = this
+                        .getSpawnerTileEntity(world, cposx + i + width / 2, cposy + j, cposz + k + width / 2);
                     if (tileentitymobspawner != null) {
-                        tileentitymobspawner.func_145881_a().setEntityName("Large Worm");
+                        tileentitymobspawner.func_145881_a()
+                            .setEntityName("Large Worm");
                     }
                 }
             }
         }
     }
+
 
     public void buildLevelQ(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height, final int pw, final String critter, final int stepside, final int stepoff, final int holelen, final int decor, final int level) {
         for (int i = -pw; i < width + pw; ++i) {

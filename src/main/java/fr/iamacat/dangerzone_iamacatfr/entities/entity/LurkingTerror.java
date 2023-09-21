@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -107,15 +108,15 @@ public class LurkingTerror extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "orespawn:lurkinghorror_living";
+        return Tags.MODID + ":lurkinghorror_living";
     }
 
     protected String getHurtSound() {
-        return "orespawn:lurkinghorror_hit";
+        return Tags.MODID + ":lurkinghorror_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:lurkinghorror_dead";
+        return Tags.MODID + ":lurkinghorror_dead";
     }
 
     public int mygetMaxHealth() {

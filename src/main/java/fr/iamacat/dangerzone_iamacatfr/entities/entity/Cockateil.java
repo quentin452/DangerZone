@@ -115,17 +115,17 @@ public class Cockateil extends EntityAnimal {
 
     protected String getLivingSound() {
         if (this.worldObj.isDaytime() && !this.worldObj.isRaining()) {
-            return "orespawn:birds";
+            return Tags.MODID + ":birds";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:duck_hurt";
+        return Tags.MODID + ":duck_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:duck_hurt";
+        return Tags.MODID + ":duck_hurt";
     }
 
     public boolean canBePushed() {

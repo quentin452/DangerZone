@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -86,15 +87,15 @@ public class CreepingHorror extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "orespawn:creepinghorror_living";
+        return Tags.MODID + ":creepinghorror_living";
     }
 
     protected String getHurtSound() {
-        return "orespawn:creepinghorror_hit";
+        return Tags.MODID + ":creepinghorror_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:creepinghorror_dead";
+        return Tags.MODID + ":creepinghorror_dead";
     }
 
     protected float getSoundVolume() {

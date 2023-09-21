@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -125,11 +126,11 @@ public class CaveFisher extends EntityMob {
     }
 
     protected String getHurtSound() {
-        return "orespawn:cryo_hurt";
+        return Tags.MODID + ":cryo_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:cryo_death";
+        return Tags.MODID + ":cryo_death";
     }
 
     protected float getSoundVolume() {

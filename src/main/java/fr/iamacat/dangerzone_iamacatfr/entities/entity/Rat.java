@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -108,15 +109,15 @@ public class Rat extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "orespawn:ratlive";
+        return Tags.MODID + ":ratlive";
     }
 
     protected String getHurtSound() {
-        return "orespawn:rathit";
+        return Tags.MODID + ":rathit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:ratdead";
+        return Tags.MODID + ":ratdead";
     }
 
     protected float getSoundVolume() {

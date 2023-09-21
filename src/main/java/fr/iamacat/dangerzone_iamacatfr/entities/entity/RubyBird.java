@@ -1,6 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.world.World;
 
 public class RubyBird extends Cockateil {
@@ -17,7 +18,7 @@ public class RubyBird extends Cockateil {
 
     protected String getLivingSound() {
         if (this.worldObj.isDaytime() && !this.worldObj.isRaining()) {
-            return "orespawn:rubybird";
+            return Tags.MODID + ":rubybird";
         }
         return null;
     }

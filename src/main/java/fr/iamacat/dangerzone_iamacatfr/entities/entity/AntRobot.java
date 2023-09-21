@@ -7,6 +7,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderSpiderRobotInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -843,7 +844,7 @@ public class AntRobot extends EntityLiving {
             --this.playing;
         }
         if (this.riddenByEntity != null && this.playing == 0 && this.worldObj.rand.nextInt(80) == 1) {
-            this.worldObj.playSoundAtEntity(this, "orespawn:robotspider", 0.35f, 1.0f);
+            this.worldObj.playSoundAtEntity(this, Tags.MODID + ":robotspider", 0.35f, 1.0f);
             this.playing = 125;
         }
         if (this.worldObj.isRemote) {
@@ -1092,7 +1093,7 @@ public class AntRobot extends EntityLiving {
         if (!this.worldObj.isRemote && this.riddenByEntity == null
             && par1EntityPlayer.getDistanceSqToEntity(this) < 16.0) {
             par1EntityPlayer.mountEntity(this);
-            this.worldObj.playSoundAtEntity(this, "orespawn:robotspidermount", 0.45f, 1.0f);
+            this.worldObj.playSoundAtEntity(this, Tags.MODID + ":robotspidermount", 0.45f, 1.0f);
         }
         return true;
     }

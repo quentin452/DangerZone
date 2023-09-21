@@ -9,6 +9,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -262,17 +263,17 @@ public class ThePrinceAdult extends EntityTameable {
             return null;
         }
         if (this.getActivity() == 1 && this.riddenByEntity == null) {
-            return "orespawn:king_living";
+            return Tags.MODID + ":king_living";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:king_hit";
+        return Tags.MODID + ":king_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:trex_death";
+        return Tags.MODID + ":trex_death";
     }
 
     protected float getSoundVolume() {
@@ -663,7 +664,7 @@ public class ThePrinceAdult extends EntityTameable {
             ++this.wing_sound;
             if (this.wing_sound > 30) {
                 if (!this.worldObj.isRemote) {
-                    this.worldObj.playSoundAtEntity(this, "orespawn:MothraWings", 0.5f, 1.0f);
+                    this.worldObj.playSoundAtEntity(this, Tags.MODID + ":MothraWings", 0.5f, 1.0f);
                 }
                 this.wing_sound = 0;
             }

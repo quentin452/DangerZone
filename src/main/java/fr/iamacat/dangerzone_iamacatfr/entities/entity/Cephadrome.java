@@ -7,6 +7,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -190,17 +191,17 @@ public class Cephadrome extends EntityCreature {
 
     public String getLivingSound() {
         if (this.getActivity() != 1 && this.rand.nextInt(6) == 1) {
-            return "orespawn:MothraWings";
+            return Tags.MODID + ":MothraWings";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:alo_hurt";
+        return Tags.MODID + ":alo_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:alo_death";
+        return Tags.MODID + ":alo_death";
     }
 
     protected float getSoundVolume() {
@@ -692,7 +693,7 @@ public class Cephadrome extends EntityCreature {
             ++this.wing_sound;
             if (this.wing_sound > 22) {
                 if (!this.worldObj.isRemote) {
-                    this.worldObj.playSoundAtEntity(this, "orespawn:MothraWings", 0.5f, 1.0f);
+                    this.worldObj.playSoundAtEntity(this, Tags.MODID + ":MothraWings", 0.5f, 1.0f);
                 }
                 this.wing_sound = 0;
             }

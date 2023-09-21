@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -394,15 +395,15 @@ public class Spyro extends EntityTameable {
         if (this.getActivity() != 2) {
             return null;
         }
-        return "orespawn:roar";
+        return Tags.MODID + ":roar";
     }
 
     protected String getHurtSound() {
-        return "orespawn:duck_hurt";
+        return Tags.MODID + ":duck_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:cryo_death";
+        return Tags.MODID + ":cryo_death";
     }
 
     protected float getSoundVolume() {

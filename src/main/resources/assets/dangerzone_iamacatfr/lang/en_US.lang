@@ -142,7 +142,7 @@ entity.Tiny Bird DangerZone.name=Tiny Bird
 
 item.MavisOrb.name=Mavis Orb Egg
 item.Masso Egg.name=Masso Egg
-item.SunspotUrchin.name=Sunsport Urchin
+item.sunspoturchin2.name=Sunsport Urchin
 item.ThunderStaff.name=Thunder Staff
 item.NetherTracker.name=Nether Tracker
 item.WaterBall.name=Water Ball
@@ -1310,3 +1310,4 @@ entity.Termite.name=Termite
 entity.Mobzilla.name=Godzilla
 entity.Gazelle.name=Gazelle
 entity.Attack Squid.name=Attack Squid
+entity.GirlFriend.name=Girl Friend

@@ -317,7 +317,7 @@ public class Girlfriend extends EntityTameable implements IRangedAttackMob {
                             if (this.fight_sound_ticker <= 0) {
                                 if (!this.worldObj.isRemote && this.voice_enable != 0) {
                                     this.worldObj
-                                        .playSoundAtEntity(this, "orespawn:o_fight", 0.5f, this.getSoundPitch());
+                                        .playSoundAtEntity(this, Tags.MODID + ":o_fight", 0.5f, this.getSoundPitch());
                                 }
                                 this.fight_sound_ticker = 3;
                             }
@@ -329,7 +329,7 @@ public class Girlfriend extends EntityTameable implements IRangedAttackMob {
                             if (this.taunt_sound_ticker <= 0) {
                                 if (!this.worldObj.isRemote && this.voice_enable != 0) {
                                     this.worldObj
-                                        .playSoundAtEntity(this, "orespawn:o_taunt", 0.5f, this.getSoundPitch());
+                                        .playSoundAtEntity(this, Tags.MODID + ":o_taunt", 0.5f, this.getSoundPitch());
                                 }
                                 this.taunt_sound_ticker = 300;
                             }
@@ -343,7 +343,7 @@ public class Girlfriend extends EntityTameable implements IRangedAttackMob {
                 if (this.had_target != 0) {
                     this.had_target = 0;
                     if (!this.worldObj.isRemote && this.voice_enable != 0) {
-                        this.worldObj.playSoundAtEntity(this, "orespawn:o_woohoo", 0.4f, this.getSoundPitch());
+                        this.worldObj.playSoundAtEntity(this, Tags.MODID + ":o_woohoo", 0.4f, this.getSoundPitch());
                     }
                 }
             }
@@ -934,22 +934,22 @@ public class Girlfriend extends EntityTameable implements IRangedAttackMob {
             return null;
         }
         if (this.isInWater() || this.handleLavaMovement()) {
-            return "orespawn:o_water";
+            return Tags.MODID + ":o_water";
         }
         if (this.rand.nextInt(4) != 0) {
             if (this.posY < 60.0) {
                 return null;
             }
             if (this.worldObj.isThundering()) {
-                return "orespawn:o_thunder";
+                return Tags.MODID + ":o_thunder";
             }
             if (this.worldObj.isRaining()) {
-                return "orespawn:o_rain";
+                return Tags.MODID + ":o_rain";
             }
             if (!this.worldObj.isDaytime()
                 && this.worldObj.canBlockSeeTheSky((int) this.posX, (int) this.posY, (int) this.posZ)) {
                 if (this.worldObj.rand.nextInt(3) == 0) {
-                    return "orespawn:o_dark";
+                    return Tags.MODID + ":o_dark";
                 }
                 return null;
             }
@@ -958,20 +958,20 @@ public class Girlfriend extends EntityTameable implements IRangedAttackMob {
             return null;
         }
         if (this.mygetMaxHealth() > this.getHealth() || (OreSpawnMain.valentines_day != 0 && this.feelingBetter == 0)) {
-            return "orespawn:o_hurt";
+            return Tags.MODID + ":o_hurt";
         }
-        return "orespawn:o_happy";
+        return Tags.MODID + ":o_happy";
     }
 
     protected String getHurtSound() {
         if (this.voice_enable == 0) {
             return null;
         }
-        return "orespawn:o_ow";
+        return Tags.MODID + ":o_ow";
     }
 
     protected String getDeathSound() {
-        return this.isTamed() ? "orespawn:o_death_girlfriend" : "orespawn:o_death_single";
+        return this.isTamed() ? Tags.MODID + ":o_death_girlfriend" : Tags.MODID + ":o_death_single";
     }
 
     protected float getSoundVolume() {

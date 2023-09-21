@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -168,7 +169,7 @@ public class Crab extends EntityMob {
     }
 
     protected String getHurtSound() {
-        return "orespawn:leaves_hit";
+        return Tags.MODID + ":leaves_hit";
     }
 
     protected String getDeathSound() {
@@ -402,9 +403,9 @@ public class Crab extends EntityMob {
                         this.attackEntityAsMob(e);
                         if (!this.worldObj.isRemote) {
                             if (this.worldObj.rand.nextInt(3) == 1) {
-                                this.worldObj.playSoundAtEntity(e, "orespawn:scorpion_attack", 0.75f, 1.5f);
+                                this.worldObj.playSoundAtEntity(e, Tags.MODID + ":scorpion_attack", 0.75f, 1.5f);
                             } else {
-                                this.worldObj.playSoundAtEntity(e, "orespawn:scorpion_living", 0.75f, 1.5f);
+                                this.worldObj.playSoundAtEntity(e, Tags.MODID + ":scorpion_living", 0.75f, 1.5f);
                             }
                         }
                     }

@@ -282,7 +282,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                             if (this.fight_sound_ticker <= 0) {
                                 if (!this.worldObj.isRemote && this.voice_enable != 0) {
                                     this.worldObj
-                                        .playSoundAtEntity(this, "orespawn:b_fight", 0.5f, this.getSoundPitch());
+                                        .playSoundAtEntity(this, Tags.MODID + ":b_fight", 0.5f, this.getSoundPitch());
                                 }
                                 this.fight_sound_ticker = 3;
                             }
@@ -294,7 +294,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                             if (this.taunt_sound_ticker <= 0) {
                                 if (!this.worldObj.isRemote && this.voice_enable != 0) {
                                     this.worldObj
-                                        .playSoundAtEntity(this, "orespawn:b_taunt", 0.5f, this.getSoundPitch());
+                                        .playSoundAtEntity(this, Tags.MODID + ":b_taunt", 0.5f, this.getSoundPitch());
                                 }
                                 this.taunt_sound_ticker = 300;
                             }
@@ -308,7 +308,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 if (this.had_target != 0) {
                     this.had_target = 0;
                     if (!this.worldObj.isRemote && this.voice_enable != 0) {
-                        this.worldObj.playSoundAtEntity(this, "orespawn:b_woohoo", 0.4f, this.getSoundPitch());
+                        this.worldObj.playSoundAtEntity(this, Tags.MODID + ":b_woohoo", 0.4f, this.getSoundPitch());
                     }
                 }
             }
@@ -850,22 +850,22 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
             return null;
         }
         if (this.isInWater() || this.handleLavaMovement()) {
-            return "orespawn:b_water";
+            return Tags.MODID + ":b_water";
         }
         if (this.worldObj.rand.nextInt(4) != 0) {
             if (this.posY < 60.0) {
                 return null;
             }
             if (this.worldObj.isThundering()) {
-                return "orespawn:b_thunder";
+                return Tags.MODID + ":b_thunder";
             }
             if (this.worldObj.isRaining()) {
-                return "orespawn:b_rain";
+                return Tags.MODID + ":b_rain";
             }
             if (!this.worldObj.isDaytime()
                 && this.worldObj.canBlockSeeTheSky((int) this.posX, (int) this.posY, (int) this.posZ)) {
                 if (this.worldObj.rand.nextInt(3) == 0) {
-                    return "orespawn:b_dark";
+                    return Tags.MODID + ":b_dark";
                 }
                 return null;
             }
@@ -874,12 +874,12 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
             return null;
         }
         if (this.mygetMaxHealth() > this.getHealth()) {
-            return "orespawn:b_hurt";
+            return Tags.MODID + ":b_hurt";
         }
         if (OreSpawnMain.bro_mode != 0) {
-            return "orespawn:bb_happy";
+            return Tags.MODID + ":bb_happy";
         }
-        return "orespawn:b_happy";
+        return Tags.MODID + ":b_happy";
     }
 
     protected String getHurtSound() {
@@ -889,14 +889,14 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
         if (OreSpawnMain.bro_mode != 0 && this.worldObj.rand.nextInt(2) == 1) {
             return null;
         }
-        return "orespawn:b_ow";
+        return Tags.MODID + ":b_ow";
     }
 
     protected String getDeathSound() {
         if (OreSpawnMain.bro_mode != 0) {
             return null;
         }
-        return this.isTamed() ? "orespawn:b_death_boyfriend" : "orespawn:b_death_single";
+        return this.isTamed() ? Tags.MODID + ":b_death_boyfriend" : Tags.MODID + ":b_death_single";
     }
 
     protected float getSoundVolume() {

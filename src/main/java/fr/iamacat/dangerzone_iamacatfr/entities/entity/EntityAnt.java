@@ -173,10 +173,10 @@ public class EntityAnt extends EntityAnimal {
     }
 
     static {
-        texture1 = new ResourceLocation(Tags.MODID+":ant.png");
-        texture2 = new ResourceLocation(Tags.MODID+":red_ant.png");
-        texture3 = new ResourceLocation(Tags.MODID+":rainbow_ant.png");
-        texture4 = new ResourceLocation(Tags.MODID+":unstableant.png");
-        texture5 = new ResourceLocation(Tags.MODID+":termite.png");
+        texture1 = new ResourceLocation(Tags.MODID+":textures/entity/ant.png");
+        texture2 = new ResourceLocation(Tags.MODID+":textures/entity/red_ant.png");
+        texture3 = new ResourceLocation(Tags.MODID+":textures/entity/rainbow_ant.png");
+        texture4 = new ResourceLocation(Tags.MODID+":textures/entity/unstableant.png");
+        texture5 = new ResourceLocation(Tags.MODID+":textures/entity/termite.png");
     }
 }

@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -210,17 +211,17 @@ public class RubberDucky extends EntityTameable {
 
     protected String getLivingSound() {
         if (this.worldObj.rand.nextInt(10) == 1) {
-            return "orespawn:duck_hurt";
+            return Tags.MODID + ":duck_hurt";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:duck_hurt";
+        return Tags.MODID + ":duck_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:duck_hurt";
+        return Tags.MODID + ":duck_hurt";
     }
 
     protected float getSoundVolume() {

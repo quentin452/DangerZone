@@ -5773,7 +5773,7 @@ public class OreSpawnMain {
             final GregorianCalendar gcalendar = new GregorianCalendar();
             final int nowmonth = gcalendar.get(2);
             final int nowday = gcalendar.get(5);
-            if (nowmonth == 9 && nowday == 31) {
+           if (nowmonth == 9 && nowday == 31) {
                 EntityRegistry.addSpawn(GhostSkelly.class, 15, 3, 6, EnumCreatureType.ambient, BiomeGenBase.beach);
                 EntityRegistry.addSpawn(GhostSkelly.class, 15, 3, 6, EnumCreatureType.ambient, BiomeGenBase.extremeHills);
                 EntityRegistry

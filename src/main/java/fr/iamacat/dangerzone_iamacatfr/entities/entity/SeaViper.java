@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -153,17 +154,17 @@ public class SeaViper extends EntityMob {
 
     protected String getLivingSound() {
         if (this.rand.nextInt(2) == 0) {
-            return "orespawn:seaviper_living";
+            return Tags.MODID + ":seaviper_living";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:seaviper_hit";
+        return Tags.MODID + ":seaviper_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:seaviper_death";
+        return Tags.MODID + ":seaviper_death";
     }
 
     protected float getSoundVolume() {

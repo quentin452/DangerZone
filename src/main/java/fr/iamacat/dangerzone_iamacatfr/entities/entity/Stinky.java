@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -244,11 +245,11 @@ public class Stinky extends EntityTameable {
     }
 
     protected String getHurtSound() {
-        return "orespawn:duck_hurt";
+        return Tags.MODID + ":duck_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:cryo_death";
+        return Tags.MODID + ":cryo_death";
     }
 
     protected float getSoundVolume() {
@@ -356,7 +357,7 @@ public class Stinky extends EntityTameable {
             this.dropItemFront(Items.coal, 1);
         }
         if (!this.worldObj.isRemote && this.worldObj.rand.nextInt(2000) == 2) {
-            this.playSound("orespawn:fart", 1.0f, 1.5f);
+            this.playSound(Tags.MODID + ":fart", 1.0f, 1.5f);
             if (this.skin_color == 0) {
                 this.dropItemRear(Items.blaze_powder, 1);
             }

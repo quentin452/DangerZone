@@ -7,6 +7,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
@@ -165,17 +166,17 @@ public class Godzilla extends EntityMob {
 
     protected String getLivingSound() {
         if (this.worldObj.rand.nextInt(5) == 0) {
-            return "orespawn:godzilla_living";
+            return Tags.MODID + ":godzilla_living";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:alo_hurt";
+        return Tags.MODID + ":alo_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:godzilla_death";
+        return Tags.MODID + ":godzilla_death";
     }
 
     protected float getSoundVolume() {

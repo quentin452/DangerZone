@@ -64,7 +64,7 @@ public class UltimateSword extends ItemSword {
     public boolean onEntitySwing(final EntityLivingBase entityLiving, final ItemStack stack) {
         if (this == OreSpawnMain.MyChainsaw && entityLiving != null && this.swingtimer == 0) {
             entityLiving
-                .playSound("orespawn:chainsawshort", 1.0f, entityLiving.worldObj.rand.nextFloat() * 0.2f + 0.9f);
+                .playSound(Tags.MODID + ":chainsawshort", 1.0f, entityLiving.worldObj.rand.nextFloat() * 0.2f + 0.9f);
             this.swingtimer = 50;
         }
         return false;

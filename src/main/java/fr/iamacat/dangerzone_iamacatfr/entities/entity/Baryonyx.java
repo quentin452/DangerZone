@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -91,11 +92,11 @@ public class Baryonyx extends EntityAnimal {
     }
 
     protected String getHurtSound() {
-        return "orespawn:duck_hurt";
+        return Tags.MODID + ":duck_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:duck_hurt";
+        return Tags.MODID + ":duck_hurt";
     }
 
     protected float getSoundVolume() {

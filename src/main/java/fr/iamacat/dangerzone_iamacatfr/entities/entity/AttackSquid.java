@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
@@ -123,11 +124,11 @@ public class AttackSquid extends EntityMob {
     }
 
     protected String getHurtSound() {
-        return "orespawn:squid_hurt";
+        return Tags.MODID + ":squid_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:squid_death";
+        return Tags.MODID + ":squid_death";
     }
 
     public static Entity spawnCreature(final World par0World, final String par1, final double par2, final double par4,

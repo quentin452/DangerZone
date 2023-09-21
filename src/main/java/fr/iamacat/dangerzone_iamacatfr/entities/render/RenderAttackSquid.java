@@ -54,6 +54,6 @@ public class RenderAttackSquid extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":AttackSquid.png");
+        texture = new ResourceLocation(Tags.MODID+":textures/entity/AttackSquid.png");
     }
 }

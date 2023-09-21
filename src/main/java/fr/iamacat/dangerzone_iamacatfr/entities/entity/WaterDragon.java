@@ -7,6 +7,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
@@ -262,11 +263,11 @@ public class WaterDragon extends EntityTameable {
     }
 
     protected String getHurtSound() {
-        return "orespawn:waterdragon_hurt";
+        return Tags.MODID + ":waterdragon_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:waterdragon_death";
+        return Tags.MODID + ":waterdragon_death";
     }
 
     protected float getSoundVolume() {

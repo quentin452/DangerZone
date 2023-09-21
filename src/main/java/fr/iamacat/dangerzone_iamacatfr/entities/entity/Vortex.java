@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalCow;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -73,7 +74,7 @@ public class Vortex extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "orespawn:vortexlive";
+        return Tags.MODID + ":vortexlive";
     }
 
     protected String getHurtSound() {
@@ -81,7 +82,7 @@ public class Vortex extends EntityMob {
     }
 
     protected String getDeathSound() {
-        return "orespawn:vortexlive";
+        return Tags.MODID + ":vortexlive";
     }
 
     public boolean canBePushed() {

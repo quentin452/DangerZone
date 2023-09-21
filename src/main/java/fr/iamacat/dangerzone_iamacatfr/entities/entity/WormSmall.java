@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -62,7 +63,7 @@ public class WormSmall extends EntityMob {
     }
 
     protected String getHurtSound() {
-        return "orespawn:little_splat";
+        return Tags.MODID + ":little_splat";
     }
 
     protected String getDeathSound() {

@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -148,17 +149,17 @@ public class SeaMonster extends EntityMob {
 
     protected String getLivingSound() {
         if (this.rand.nextInt(3) == 0) {
-            return "orespawn:seamonster_living";
+            return Tags.MODID + ":seamonster_living";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:seamonster_hit";
+        return Tags.MODID + ":seamonster_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:seamonster_death";
+        return Tags.MODID + ":seamonster_death";
     }
 
     protected float getSoundVolume() {

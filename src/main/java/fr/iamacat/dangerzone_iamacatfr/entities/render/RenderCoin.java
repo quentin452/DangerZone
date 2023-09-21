@@ -53,6 +53,6 @@ public class RenderCoin extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":Cointexture.png");
+        texture = new ResourceLocation(Tags.MODID+":textures/entity/Cointexture.png");
     }
 }

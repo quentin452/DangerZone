@@ -9,6 +9,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -216,17 +217,17 @@ public class Leon extends EntityTameable {
             return null;
         }
         if (this.getActivity() == 1 && this.riddenByEntity == null) {
-            return "orespawn:leon_living";
+            return Tags.MODID + ":leon_living";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:leon_hit";
+        return Tags.MODID + ":leon_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:leon_death";
+        return Tags.MODID + ":leon_death";
     }
 
     protected float getSoundVolume() {
@@ -529,7 +530,7 @@ public class Leon extends EntityTameable {
             ++this.wing_sound;
             if (this.wing_sound > 20) {
                 if (!this.worldObj.isRemote) {
-                    this.worldObj.playSoundAtEntity(this, "orespawn:MothraWings", 0.5f, 1.0f);
+                    this.worldObj.playSoundAtEntity(this, Tags.MODID + ":MothraWings", 0.5f, 1.0f);
                 }
                 this.wing_sound = 0;
             }

@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -90,15 +91,15 @@ public class Mantis extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "orespawn:Beebuzz";
+        return Tags.MODID + ":Beebuzz";
     }
 
     protected String getHurtSound() {
-        return "orespawn:dragonfly_hurt";
+        return Tags.MODID + ":dragonfly_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:alo_death";
+        return Tags.MODID + ":alo_death";
     }
 
     public boolean canBePushed() {

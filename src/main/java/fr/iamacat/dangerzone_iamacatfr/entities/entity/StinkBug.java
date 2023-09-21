@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -126,7 +127,7 @@ public class StinkBug extends EntityAnimal {
     }
 
     protected String getDeathSound() {
-        return "orespawn:fart";
+        return Tags.MODID + ":fart";
     }
 
     protected float getSoundVolume() {

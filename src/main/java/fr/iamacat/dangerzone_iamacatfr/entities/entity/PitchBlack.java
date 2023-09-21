@@ -7,6 +7,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -220,15 +221,15 @@ public class PitchBlack extends EntityMob {
         if (this.worldObj.rand.nextInt(5) != 2) {
             return null;
         }
-        return "orespawn:pitchblack_living";
+        return Tags.MODID + ":pitchblack_living";
     }
 
     protected String getHurtSound() {
-        return "orespawn:pitchblack_hit";
+        return Tags.MODID + ":pitchblack_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:pitchblack_dead";
+        return Tags.MODID + ":pitchblack_dead";
     }
 
     public int mygetMaxHealth() {
@@ -248,7 +249,7 @@ public class PitchBlack extends EntityMob {
         ++this.wing_sound;
         if (this.wing_sound > 20) {
             if (!this.worldObj.isRemote) {
-                this.worldObj.playSoundAtEntity(this, "orespawn:MothraWings", 1.0f, 1.0f);
+                this.worldObj.playSoundAtEntity(this, Tags.MODID + ":MothraWings", 1.0f, 1.0f);
             }
             this.wing_sound = 0;
         }

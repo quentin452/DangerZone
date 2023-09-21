@@ -344,7 +344,7 @@ public class Elevator extends EntityLiving {
             --this.playing;
         }
         if (this.riddenByEntity != null && this.playing == 0 && this.worldObj.rand.nextInt(80) == 1) {
-            this.worldObj.playSoundAtEntity(this.riddenByEntity, "orespawn:hover", 0.45f, 1.0f);
+            this.worldObj.playSoundAtEntity(this.riddenByEntity, Tags.MODID + ":hover", 0.45f, 1.0f);
             this.playing = 55;
         }
         if (!this.worldObj.isRemote) {

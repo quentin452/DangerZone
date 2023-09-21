@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -326,11 +327,11 @@ public class Gazelle extends EntityTameable {
     }
 
     protected String getHurtSound() {
-        return "orespawn:scorpion_hit";
+        return Tags.MODID + ":scorpion_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:cryo_death";
+        return Tags.MODID + ":cryo_death";
     }
 
     protected float getSoundVolume() {

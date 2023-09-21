@@ -8,6 +8,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIAvoidEntity;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -282,11 +283,11 @@ public class Ostrich extends EntityCannonFodder {
     }
 
     protected String getHurtSound() {
-        return "orespawn:cryo_hurt";
+        return Tags.MODID + ":cryo_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:cryo_death";
+        return Tags.MODID + ":cryo_death";
     }
 
     protected float getSoundVolume() {

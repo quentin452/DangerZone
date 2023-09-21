@@ -647,7 +647,7 @@ public class SpawnEggInitDangerZone {
         Constants.StinkBugSpawnEgg = StinkBugSpawnEgg;
         GameRegistry.registerItem(Constants.StinkBugSpawnEgg, "Stink Bug Egg");
 
-        SpawnEggs AttackSquidSpawnEgg = new SpawnEggs(AttackSquidInstance.class);
+        SpawnEggs AttackSquidSpawnEgg = new SpawnEggs(AttackSquid.class);
         AttackSquidSpawnEgg.setUnlocalizedName("attacksquid_egg");
         Constants.AttackSquidSpawnEgg = AttackSquidSpawnEgg;
         GameRegistry.registerItem(Constants.AttackSquidSpawnEgg, "Attack Squid Egg");

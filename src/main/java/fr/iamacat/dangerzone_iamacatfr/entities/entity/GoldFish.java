@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -60,7 +61,7 @@ public class GoldFish extends EntityAnimal {
     }
 
     protected String getDeathSound() {
-        return "orespawn:little_splat";
+        return Tags.MODID + ":little_splat";
     }
 
     public boolean canBePushed() {

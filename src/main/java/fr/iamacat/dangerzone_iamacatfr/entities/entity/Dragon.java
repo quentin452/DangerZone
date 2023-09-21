@@ -8,6 +8,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -310,17 +311,17 @@ public class Dragon extends EntityTameable {
             return null;
         }
         if (this.getAttacking() == 1 && this.riddenByEntity == null) {
-            return "orespawn:roar";
+            return Tags.MODID + ":roar";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:alo_hurt";
+        return Tags.MODID + ":alo_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:alo_death";
+        return Tags.MODID + ":alo_death";
     }
 
     protected float getSoundVolume() {
@@ -652,7 +653,7 @@ public class Dragon extends EntityTameable {
             ++this.wing_sound;
             if (this.wing_sound > 20) {
                 if (!this.worldObj.isRemote) {
-                    this.worldObj.playSoundAtEntity(this, "orespawn:MothraWings", 0.5f, 1.0f);
+                    this.worldObj.playSoundAtEntity(this, Tags.MODID + ":MothraWings", 0.5f, 1.0f);
                 }
                 this.wing_sound = 0;
             }

@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -86,7 +87,7 @@ public class GhostSkelly extends EntityAmbientCreature {
 
     protected String getLivingSound() {
         if (this.worldObj.rand.nextInt(2) == 0) {
-            return "orespawn:chain_rattles";
+            return Tags.MODID + ":chain_rattles";
         }
         return null;
     }

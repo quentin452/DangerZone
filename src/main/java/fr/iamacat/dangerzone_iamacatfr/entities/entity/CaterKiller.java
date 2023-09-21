@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
@@ -121,17 +122,17 @@ public class CaterKiller extends EntityMob {
 
     protected String getLivingSound() {
         if (this.rand.nextInt(3) == 0) {
-            return "orespawn:caterkiller_living";
+            return Tags.MODID + ":caterkiller_living";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:caterkiller_hit";
+        return Tags.MODID + ":caterkiller_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:caterkiller_death";
+        return Tags.MODID + ":caterkiller_death";
     }
 
     protected float getSoundVolume() {

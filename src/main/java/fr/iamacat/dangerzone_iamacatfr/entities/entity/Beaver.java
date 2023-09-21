@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -251,7 +252,7 @@ public class Beaver extends EntityAnimal {
                         this.breakRecursor(this.worldObj, this.tx, this.ty, this.tz, this.tx, this.ty, this.tz, i);
                     }
                     this.heal(1.0f);
-                    this.playSound("orespawn:chainsaw", 1.0f, this.worldObj.rand.nextFloat() * 0.2f + 0.9f);
+                    this.playSound(Tags.MODID + ":chainsaw", 1.0f, this.worldObj.rand.nextFloat() * 0.2f + 0.9f);
                 }
             }
         }
@@ -300,11 +301,11 @@ public class Beaver extends EntityAnimal {
     }
 
     protected String getHurtSound() {
-        return "orespawn:scorpion_hit";
+        return Tags.MODID + ":scorpion_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:cryo_death";
+        return Tags.MODID + ":cryo_death";
     }
 
     protected float getSoundVolume() {

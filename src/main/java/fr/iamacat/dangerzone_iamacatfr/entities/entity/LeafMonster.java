@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -131,11 +132,11 @@ public class LeafMonster extends EntityMob {
     }
 
     protected String getHurtSound() {
-        return "orespawn:leaves_hit";
+        return Tags.MODID + ":leaves_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:leaves_death";
+        return Tags.MODID + ":leaves_death";
     }
 
     protected float getSoundVolume() {

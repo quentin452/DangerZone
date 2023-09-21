@@ -7,6 +7,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalCow;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -180,15 +181,15 @@ public class Urchin extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "orespawn:kyuubi_living";
+        return Tags.MODID + ":kyuubi_living";
     }
 
     protected String getHurtSound() {
-        return "orespawn:glasshit";
+        return Tags.MODID + ":glasshit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:glassdead";
+        return Tags.MODID + ":glassdead";
     }
 
     protected float getSoundVolume() {

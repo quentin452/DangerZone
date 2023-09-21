@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.item.EntityItem;
@@ -132,7 +133,7 @@ public class Mothra extends EntityButterfly implements IMob {
         ++this.wing_sound;
         if (this.wing_sound > 30) {
             if (!this.worldObj.isRemote) {
-                this.worldObj.playSoundAtEntity(this, "orespawn:MothraWings", 1.0f, 1.0f);
+                this.worldObj.playSoundAtEntity(this, Tags.MODID + ":MothraWings", 1.0f, 1.0f);
             }
             this.wing_sound = 0;
         }

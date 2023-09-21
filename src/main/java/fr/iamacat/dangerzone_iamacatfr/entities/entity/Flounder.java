@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -90,7 +91,7 @@ public class Flounder extends EntityAnimal {
     }
 
     protected String getDeathSound() {
-        return "orespawn:ratdead";
+        return Tags.MODID + ":ratdead";
     }
 
     protected float getSoundVolume() {

@@ -66,8 +66,8 @@ public class RenderEnchantedCow extends RenderLiving {
     }
 
     static {
-        texture3 = new ResourceLocation(Tags.MODID+":crystal_cow.png");
-        texture1 = new ResourceLocation(Tags.MODID+":red_cow.png");
-        texture2 = new ResourceLocation(Tags.MODID+":gold_cow.png");
+        texture3 = new ResourceLocation(Tags.MODID+":textures/entity/crystal_cow.png");
+        texture1 = new ResourceLocation(Tags.MODID+":textures/entity/red_cow.png");
+        texture2 = new ResourceLocation(Tags.MODID+":textures/entity/gold_cow.png");
     }
 }

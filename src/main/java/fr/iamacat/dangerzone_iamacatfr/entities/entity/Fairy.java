@@ -156,11 +156,11 @@ public class Fairy extends EntityAmbientCreature {
     }
 
     protected String getHurtSound() {
-        return "orespawn:rat_hit";
+        return Tags.MODID + ":rat_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:big_splat";
+        return Tags.MODID + ":big_splat";
     }
 
     public boolean canBePushed() {

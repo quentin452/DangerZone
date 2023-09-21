@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -204,17 +205,17 @@ public class GammaMetroid extends EntityTameable {
 
     protected String getLivingSound() {
         if (this.worldObj.rand.nextInt(5) == 1) {
-            return "orespawn:wtf_living";
+            return Tags.MODID + ":wtf_living";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:duck_hurt";
+        return Tags.MODID + ":duck_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:alo_death";
+        return Tags.MODID + ":alo_death";
     }
 
     protected float getSoundVolume() {

@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
@@ -199,7 +200,7 @@ public class Kraken extends EntityMob {
 
     protected String getLivingSound() {
         if (this.rand.nextInt(5) == 0) {
-            return "orespawn:kraken_living";
+            return Tags.MODID + ":kraken_living";
         }
         return null;
     }
@@ -209,7 +210,7 @@ public class Kraken extends EntityMob {
     }
 
     protected String getDeathSound() {
-        return "orespawn:alo_death";
+        return Tags.MODID + ":alo_death";
     }
 
     protected float getSoundVolume() {

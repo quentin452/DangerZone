@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIPanic;
@@ -104,7 +105,7 @@ public class Cricket extends EntityAnimal {
             }
             this.setSinging(this.singing = 40);
         }
-        return "orespawn:cricket";
+        return Tags.MODID + ":cricket";
     }
 
     protected String getHurtSound() {

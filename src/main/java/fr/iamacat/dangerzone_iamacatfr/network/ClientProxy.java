@@ -74,9 +74,6 @@ public class ClientProxy implements ISidedProxy {
 
         RenderingRegistry
             .registerEntityRenderingHandler(AlosaurusInstance.class, new AlosaurusRenderer(new AlosaurusModel(), 0.5f));
-        RenderingRegistry.registerEntityRenderingHandler(
-            AttackSquidInstance.class,
-            new AttackSquidRenderer(new AttackSquidModel(), 0.5f));
 
         RenderingRegistry.registerEntityRenderingHandler(EntityBirchDragon.class, new RenderBirchDragon());
         RenderingRegistry.registerEntityRenderingHandler(EntityBlazeDragon.class, new RenderBlazeDragon());
@@ -499,9 +496,9 @@ public class ClientProxy implements ISidedProxy {
             Beaver.class,
             (Render) new RenderBeaver(new ModelBeaver(0.5f), 0.15f, 0.75f));
         RenderingRegistry
-            .registerEntityRenderingHandler(Termite.class, (Render) new RenderAnt(new ModelAnt(), 0.15f, 0.35f));
+            .registerEntityRenderingHandler(Termite.class, new RenderAnt(new ModelAnt(), 0.15f, 0.35f));
         RenderingRegistry
-            .registerEntityRenderingHandler(Fairy.class, (Render) new RenderFairy(new ModelFairy(1.5f), 0.1f, 0.35f));
+            .registerEntityRenderingHandler(Fairy.class, new RenderFairy(new ModelFairy(1.5f), 0.1f, 0.35f));
         RenderingRegistry.registerEntityRenderingHandler(
             Peacock.class,
             (Render) new RenderPeacock(new ModelPeacock(0.75f), 0.25f, 1.0f));

@@ -219,7 +219,6 @@ public class WorldHelper {
      * Get a vector based on the input entity's motion and rotation
      *
      * @param ent
-     * @param distance
      * @return
      */
     public static Vec3 getVecFromEntity(Entity ent) {

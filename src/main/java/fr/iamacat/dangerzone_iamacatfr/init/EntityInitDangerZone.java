@@ -200,19 +200,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-        int AttackSquidInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(AttackSquidInstance.class, "AttackSquidInstance", AttackSquidInstance);
-
-        EntityRegistry.registerModEntity(
-            AttackSquidInstance.class,
-            "AttackSquidInstance",
-            AttackSquidInstance, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-
         int EntityAlpsDragon = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(

@@ -7,6 +7,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -130,17 +131,17 @@ public class Robot3 extends EntityMob {
 
     protected String getLivingSound() {
         if (this.rand.nextInt(4) == 0) {
-            return "orespawn:robot_living";
+            return Tags.MODID + ":robot_living";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:robot_hurt";
+        return Tags.MODID + ":robot_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:robot_death";
+        return Tags.MODID + ":robot_death";
     }
 
     protected float getSoundVolume() {

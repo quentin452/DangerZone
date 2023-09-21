@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -127,11 +128,11 @@ public class Scorpion extends EntityMob {
     }
 
     protected String getHurtSound() {
-        return "orespawn:scorpion_hit";
+        return Tags.MODID + ":scorpion_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:cryo_death";
+        return Tags.MODID + ":cryo_death";
     }
 
     protected float getSoundVolume() {
@@ -177,7 +178,7 @@ public class Scorpion extends EntityMob {
                     if (this.worldObj.rand.nextInt(5) == 0 || this.worldObj.rand.nextInt(6) == 1) {
                         this.attackEntityAsMob(e);
                         if (!this.worldObj.isRemote && this.worldObj.rand.nextInt(3) == 1) {
-                            this.worldObj.playSoundAtEntity(e, "orespawn:scorpion_attack", 0.75f, 1.5f);
+                            this.worldObj.playSoundAtEntity(e, Tags.MODID + ":scorpion_attack", 0.75f, 1.5f);
                         }
                     }
                 } else {

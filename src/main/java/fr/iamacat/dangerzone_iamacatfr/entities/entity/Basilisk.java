@@ -5,6 +5,7 @@ import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -112,17 +113,17 @@ public class Basilisk extends EntityMob {
 
     protected String getLivingSound() {
         if (this.rand.nextInt(2) == 0) {
-            return "orespawn:basilisk_living";
+            return Tags.MODID + ":basilisk_living";
         }
         return null;
     }
 
     protected String getHurtSound() {
-        return "orespawn:alo_hurt";
+        return Tags.MODID + ":alo_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:emperorscorpion_death";
+        return Tags.MODID + ":emperorscorpion_death";
     }
 
     protected float getSoundVolume() {

@@ -32,7 +32,7 @@ public class RockBase extends EntityLiving {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (Object) 0);
+        this.dataWatcher.addObject(20, 0);
     }
 
     protected void applyEntityAttributes() {

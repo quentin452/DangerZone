@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -177,15 +178,15 @@ public class Frog extends EntityAnimal {
             }
             this.setSinging(this.singing = 35);
         }
-        return "orespawn:frog";
+        return Tags.MODID + ":frog";
     }
 
     protected String getHurtSound() {
-        return "orespawn:scorpion_hit";
+        return Tags.MODID + ":scorpion_hit";
     }
 
     protected String getDeathSound() {
-        return "orespawn:big_splat";
+        return Tags.MODID + ":big_splat";
     }
 
     protected float getSoundVolume() {

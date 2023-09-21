@@ -129,8 +129,9 @@ public class OreSpawnWorld implements IWorldGenerator {
             return;
         }
         if (world.provider.dimensionId == OreSpawnMain.DimensionID4) {
-            if (OreSpawnWorld.recently_placed == 0 && random.nextInt(100) == 0
-                && this.D4BigSpaceCheck(world, chunkX * 16, 7, chunkZ * 16)) {
+          // if (OreSpawnWorld.recently_placed == 0 && random.nextInt(100) == 0
+          //      && this.D4BigSpaceCheck(world, chunkX * 16, 7, chunkZ * 16)) {
+                if (OreSpawnWorld.recently_placed == 0 && random.nextInt(100) == 0) {
                 final int i = random.nextInt(19);
                 if (i < 3) {
                     this.addD4Castle(world, random, chunkX * 16, chunkZ * 16);
@@ -2494,26 +2495,36 @@ public class OreSpawnWorld implements IWorldGenerator {
         if (OreSpawnMain.LessLag != 0 && random.nextInt(2) != 0) {
             return false;
         }
+
         final int posX = chunkX + random.nextInt(8);
         final int posZ = chunkZ + random.nextInt(8);
+
+        // Reduce the size of the region to check for grass blocks
+        final int checkRadius = 16;
+
         for (int posY = 20; posY > 4; --posY) {
             Block bid = world.getBlock(posX, posY, posZ);
             if (bid == Blocks.grass) {
-                for (int x = -20; x < 33; ++x) {
-                    for (int z = -4; z < 33; ++z) {
+                // Check a smaller region for air blocks
+                boolean isRegionClear = true;
+                for (int x = -checkRadius; x <= checkRadius && isRegionClear; ++x) {
+                    for (int z = -checkRadius; z <= checkRadius && isRegionClear; ++z) {
                         bid = world.getBlock(posX + x, posY + 18, posZ + z);
                         if (bid != Blocks.air) {
-                            return false;
+                            isRegionClear = false;
                         }
                     }
                 }
-                if (random.nextInt(2) == 1) {
-                    OreSpawnMain.MyDungeon.makeEnormousCastle(world, posX, posY, posZ);
-                } else {
-                    OreSpawnMain.MyDungeon.makeEnormousCastleQ(world, posX, posY, posZ);
+
+                if (isRegionClear) {
+                    if (random.nextInt(2) == 1) {
+                        OreSpawnMain.MyDungeon.makeEnormousCastle(world, posX, posY, posZ);
+                    } else {
+                        OreSpawnMain.MyDungeon.makeEnormousCastleQ(world, posX, posY, posZ);
+                    }
+                    OreSpawnWorld.recently_placed = 50;
+                    return true;
                 }
-                OreSpawnWorld.recently_placed = 50;
-                return true;
             }
         }
         return false;
@@ -2601,13 +2612,14 @@ public class OreSpawnWorld implements IWorldGenerator {
         final int posX = chunkX + random.nextInt(8);
         final int posZ = chunkZ + random.nextInt(8);
         for (int posY = 20; posY > 4; --posY) {
-            Block bid = world.getBlock(posX, posY, posZ);
-            if (bid == Blocks.grass) {
-                for (int x = -20; x < 30; ++x) {
-                    for (int z = -20; z < 300; ++z) {
-                        bid = world.getBlock(posX + x, posY + 18, posZ + z);
-                        if (bid != Blocks.air) {
-                            return false;
+            if (world.getBlock(posX, posY, posZ) == Blocks.grass) {
+                // Vérifiez un espace plus restreint
+                for (int x = -5; x < 6; ++x) {
+                    for (int z = -5; z < 6; ++z) {
+                        for (int y = 0; y < 18; ++y) {
+                            if (!world.isAirBlock(posX + x, posY + y, posZ + z)) {
+                                return false;
+                            }
                         }
                     }
                 }
@@ -2618,7 +2630,6 @@ public class OreSpawnWorld implements IWorldGenerator {
         }
         return false;
     }
-
     public boolean addD4EnderCastle(final World world, final Random random, final int chunkX, final int chunkZ) {
         if (OreSpawnMain.LessLag != 0 && random.nextInt(2) != 0) {
             return false;
@@ -3030,7 +3041,7 @@ public class OreSpawnWorld implements IWorldGenerator {
 
     private Entity spawnCreature(final World par0World, final String par1, double par2, final double par4,
         double par6) {
-        Entity var8 = null;
+        Entity var8;
         var8 = EntityList.createEntityByName(par1, par0World);
         if (var8 != null) {
             if (par2 > 0.0) {

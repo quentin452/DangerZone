@@ -6,6 +6,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
@@ -141,11 +142,11 @@ public class EmperorScorpion extends EntityMob {
     }
 
     protected String getHurtSound() {
-        return "orespawn:alo_hurt";
+        return Tags.MODID + ":alo_hurt";
     }
 
     protected String getDeathSound() {
-        return "orespawn:emperorscorpion_death";
+        return Tags.MODID + ":emperorscorpion_death";
     }
 
     protected float getSoundVolume() {
@@ -438,9 +439,9 @@ public class EmperorScorpion extends EntityMob {
                         this.attackEntityAsMob(e);
                         if (!this.worldObj.isRemote) {
                             if (this.worldObj.rand.nextInt(3) == 1) {
-                                this.worldObj.playSoundAtEntity(e, "orespawn:scorpion_attack", 1.4f, 1.0f);
+                                this.worldObj.playSoundAtEntity(e, Tags.MODID + ":scorpion_attack", 1.4f, 1.0f);
                             } else {
-                                this.worldObj.playSoundAtEntity(e, "orespawn:scorpion_living", 1.0f, 1.0f);
+                                this.worldObj.playSoundAtEntity(e, Tags.MODID + ":scorpion_living", 1.0f, 1.0f);
                             }
                         }
                     }

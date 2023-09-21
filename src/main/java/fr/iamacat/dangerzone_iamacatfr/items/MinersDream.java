@@ -2,7 +2,7 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -104,7 +104,7 @@ public class MinersDream extends Item {
                     targetX + k * deltaX,
                     playerPosY,
                     targetZ + k * deltaZ,
-                    BlockInitDangerZone.blocktorch,
+                    OreSpawnMain.ExtremeTorch,
                     0,
                     2);
             }

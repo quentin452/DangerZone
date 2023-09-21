@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
 import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,7 +31,7 @@ public class PZPacketFollowerMasterData implements IMessage, IMessageHandler<PZP
         if (ctx.side != Side.CLIENT) {
             return null;
         }
-        final EntityPlayer player = DangerZone.packetProxy.getClientPlayer();
+        final EntityPlayer player = OreSpawnMain.packetproxy.getClientPlayer();
         final World worldObj = player.worldObj;
         final Entity childEntity = worldObj.getEntityByID(message.childEntityID);
         final Entity masterEntity = worldObj.getEntityByID(message.masterEntityID);

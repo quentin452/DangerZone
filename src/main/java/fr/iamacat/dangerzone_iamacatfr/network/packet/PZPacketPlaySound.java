@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
 import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
@@ -34,7 +34,7 @@ public class PZPacketPlaySound implements IMessage, IMessageHandler<PZPacketPlay
         if (ctx.side != Side.CLIENT) {
             return null;
         }
-        final EntityPlayer player = DangerZone.packetProxy.getClientPlayer();
+        final EntityPlayer player = OreSpawnMain.packetproxy.getClientPlayer();
         final World worldObj = player.worldObj;
         worldObj
             .playSound(message.posX, (double) message.posY, (double) message.posZ, message.sound, 1.0f, 1.0f, false);

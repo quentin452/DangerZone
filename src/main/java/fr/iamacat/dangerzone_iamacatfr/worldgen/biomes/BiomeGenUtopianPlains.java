@@ -1,12 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.biomes;
 
-import java.util.ArrayList;
-
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.items.CrystalCow;
 import net.minecraft.world.biome.BiomeGenBase;
 
-import danger.orespawn.entities.entityinstance.*;
-import danger.orespawn.items.CrystalCow;
+import java.util.ArrayList;
 
 public class BiomeGenUtopianPlains extends BiomeGenBase {
 

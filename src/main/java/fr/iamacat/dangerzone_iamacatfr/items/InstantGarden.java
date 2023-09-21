@@ -1,7 +1,12 @@
+
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -10,70 +15,259 @@ import net.minecraft.world.World;
 
 public class InstantGarden extends Item {
 
-    private static final int WIDTH = 5; // Largeur du champ de culture
-    private static final int LENGTH = 5; // Longueur du champ de culture
-
-    public InstantGarden() {
+    public InstantGarden(final int i) {
         this.maxStackSize = 16;
-        this.setTextureName(Tags.MODID + ":instantgarden");
+        this.setCreativeTab(CreativeTabs.tabRedstone);
     }
 
-    public boolean onItemUse(final ItemStack itemStack, final EntityPlayer player, final World world, final int targetX,
-        final int targetY, final int targetZ, final int side, final float hitX, final float hitY, final float hitZ) {
-
-        final int playerX = (int) player.posX;
-        final int playerY = (int) player.posY - 1;
-        final int playerZ = (int) player.posZ;
-
+    public boolean onItemUse(final ItemStack par1ItemStack, final EntityPlayer Player, final World world,
+        final int cposx, final int cposy, final int cposz, final int par7, final float par8, final float par9,
+        final float par10) {
+        int deltax = 0;
+        int deltaz = 0;
+        final int bid = 0;
+        int dirx = 0;
+        int dirz = 0;
+        final int height = 10;
+        final int width = 7;
+        final int length = 18;
+        if (cposx < 0) {
+            dirx = -1;
+        }
+        if (cposz < 0) {
+            dirz = -1;
+        }
+        final int pposx = (int) (Player.posX + 0.99 * dirx);
+        final int pposy = (int) Player.posY;
+        final int pposz = (int) (Player.posZ + 0.99 * dirz);
+        if (cposx - pposx != 0 && cposz - pposz != 0) {
+            return false;
+        }
+        final int x = cposx;
+        final int y = pposy;
+        final int z = cposz;
+        if (x - pposx < 0) {
+            deltax = -1;
+        }
+        if (x - pposx > 0) {
+            deltax = 1;
+        }
+        if (z - pposz < 0) {
+            deltaz = -1;
+        }
+        if (z - pposz > 0) {
+            deltaz = 1;
+        }
+        if (deltax == 0 && deltaz == 0) {
+            return false;
+        }
+        if (deltax != 0 && deltaz != 0) {
+            return false;
+        }
+        Player.worldObj.playSoundAtEntity(Player, "random.explode", 1.0f, 1.5f);
         if (world.isRemote) {
             return true;
         }
-
-        createGarden(world, playerX, playerY, playerZ);
-
-        if (!player.capabilities.isCreativeMode) {
-            itemStack.stackSize--;
+        for (int i = 0; i < height; ++i) {
+            for (int k = 0; k < length; ++k) {
+                for (int j = -width; j <= width; ++j) {
+                    world.setBlock(x + k * deltax + j * deltaz, y + i, z + k * deltaz + j * deltax, Blocks.air, 0, 2);
+                    if (i == 0) {
+                        world.setBlock(
+                            x + k * deltax + j * deltaz,
+                            y + i - 1,
+                            z + k * deltaz + j * deltax,
+                            (Block) Blocks.grass,
+                            0,
+                            2);
+                    }
+                }
+            }
         }
-
+        for (int k = 1; k < length - 1; ++k) {
+            int i = 0;
+            for (int j = -width; j <= width; ++j) {
+                if (i == 1) {
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 1,
+                        z + k * deltaz + j * deltax,
+                        Blocks.farmland,
+                        0,
+                        2);
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y,
+                        z + k * deltaz + j * deltax,
+                        OreSpawnMain.MyRadishPlant,
+                        0,
+                        2);
+                }
+                if (i == 2) {
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 1,
+                        z + k * deltaz + j * deltax,
+                        Blocks.farmland,
+                        0,
+                        2);
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y,
+                        z + k * deltaz + j * deltax,
+                        OreSpawnMain.MyLettucePlant1,
+                        0,
+                        2);
+                }
+                if (i == 3) {
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 1,
+                        z + k * deltaz + j * deltax,
+                        Blocks.farmland,
+                        0,
+                        2);
+                    world.setBlock(x + k * deltax + j * deltaz, y, z + k * deltaz + j * deltax, Blocks.carrots, 0, 2);
+                }
+                if (i == 4) {
+                    world.setBlock(x + k * deltax + j * deltaz, y - 1, z + k * deltaz + j * deltax, Blocks.water, 0, 2);
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 2,
+                        z + k * deltaz + j * deltax,
+                        Blocks.cobblestone,
+                        0,
+                        2);
+                }
+                if (i == 5) {
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 1,
+                        z + k * deltaz + j * deltax,
+                        Blocks.farmland,
+                        0,
+                        2);
+                    world.setBlock(x + k * deltax + j * deltaz, y, z + k * deltaz + j * deltax, Blocks.potatoes, 0, 2);
+                }
+                if (i == 6) {
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 1,
+                        z + k * deltaz + j * deltax,
+                        Blocks.farmland,
+                        0,
+                        2);
+                    world.setBlock(x + k * deltax + j * deltaz, y, z + k * deltaz + j * deltax, Blocks.wheat, 0, 2);
+                }
+                if (i == 7) {
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 1,
+                        z + k * deltaz + j * deltax,
+                        Blocks.farmland,
+                        0,
+                        2);
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y,
+                        z + k * deltaz + j * deltax,
+                        OreSpawnMain.MyTomatoPlant1,
+                        0,
+                        2);
+                }
+                if (i == 8) {
+                    world.setBlock(x + k * deltax + j * deltaz, y - 1, z + k * deltaz + j * deltax, Blocks.water, 0, 2);
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 2,
+                        z + k * deltaz + j * deltax,
+                        Blocks.cobblestone,
+                        0,
+                        2);
+                }
+                if (i == 9) {
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 1,
+                        z + k * deltaz + j * deltax,
+                        Blocks.farmland,
+                        0,
+                        2);
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y,
+                        z + k * deltaz + j * deltax,
+                        OreSpawnMain.MyCornPlant1,
+                        0,
+                        2);
+                }
+                if (i == 10) {
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 1,
+                        z + k * deltaz + j * deltax,
+                        Blocks.farmland,
+                        0,
+                        2);
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y,
+                        z + k * deltaz + j * deltax,
+                        OreSpawnMain.MyStrawberryPlant,
+                        0,
+                        2);
+                }
+                if (i == 11) {
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 2,
+                        z + k * deltaz + j * deltax,
+                        Blocks.cobblestone,
+                        0,
+                        2);
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 1,
+                        z + k * deltaz + j * deltax,
+                        (Block) Blocks.sand,
+                        0,
+                        2);
+                    world.setBlock(x + k * deltax + j * deltaz, y, z + k * deltaz + j * deltax, Blocks.reeds, 0, 2);
+                }
+                if (i == 12) {
+                    world.setBlock(x + k * deltax + j * deltaz, y - 1, z + k * deltaz + j * deltax, Blocks.water, 0, 2);
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 2,
+                        z + k * deltaz + j * deltax,
+                        Blocks.cobblestone,
+                        0,
+                        2);
+                }
+                if (i == 13) {
+                    world.setBlock(
+                        x + k * deltax + j * deltaz,
+                        y - 1,
+                        z + k * deltaz + j * deltax,
+                        Blocks.farmland,
+                        0,
+                        2);
+                    world
+                        .setBlock(x + k * deltax + j * deltaz, y, z + k * deltaz + j * deltax, Blocks.melon_stem, 0, 2);
+                }
+                ++i;
+            }
+        }
+        if (!Player.capabilities.isCreativeMode) {
+            --par1ItemStack.stackSize;
+        }
         return true;
     }
 
-    private void createGarden(World world, int x, int y, int z) {
-        // Création du champ de culture avec des terres labourables et des cultures (par exemple, Blé, Carottes, Pommes
-        // de terre)
-        for (int i = -WIDTH / 2; i <= WIDTH / 2; i++) {
-            for (int j = -LENGTH / 2; j <= LENGTH / 2; j++) {
-                // Vérifiez si le bloc sous les terres labourables est solide (non aérien)
-                if (world.isAirBlock(x + i, y, z + j)) {
-                    continue; // Si c'est un bloc en l'air, passez au suivant
-                }
-
-                // Placez de l'eau à côté des cultures
-                placeWaterSource(world, x + i, y - 1, z + j);
-
-                // Placez des terres labourables en remplaçant les blocs d'herbe existants
-                world.setBlock(x + i, y, z + j, Blocks.farmland, 0, 2);
-
-                // Placez des cultures aléatoires (Blé, Carottes, Pommes de terre, etc.)
-                placeRandomCrop(world, x + i, y + 1, z + j);
-            }
-        }
-    }
-
-    private void placeWaterSource(World world, int x, int y, int z) {
-        if (world.getBlock(x, y, z) != Blocks.water) {
-            world.setBlock(x, y, z, Blocks.water);
-        }
-    }
-
-    private void placeRandomCrop(World world, int x, int y, int z) {
-        // Créez une liste des cultures possibles
-        Block[] cropBlocks = { Blocks.wheat, Blocks.carrots, Blocks.potatoes };
-
-        // Choisissez un type de culture au hasard parmi la liste
-        Block cropBlock = cropBlocks[world.rand.nextInt(cropBlocks.length)];
-
-        // Placez la culture sur les terres labourables
-        world.setBlock(x, y, z, cropBlock);
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(final IIconRegister iconRegister) {
+        this.itemIcon = iconRegister.registerIcon(
+            "OreSpawn:" + this.getUnlocalizedName()
+                .substring(5));
     }
 }

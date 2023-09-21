@@ -3,7 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
 import fr.iamacat.dangerzone_iamacatfr.DangerLogger;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.api.CustomEntityList;
 import fr.iamacat.dangerzone_iamacatfr.api.CustomMobData;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.packets.PZPacketAnimTime;
@@ -140,7 +140,7 @@ public class GenericAnimalInstance extends GenericTameableInstance {
             if (!this.worldObj.isRemote) {
                 final PZPacketAnimTime message = new PZPacketAnimTime()
                     .setPacketData(this.getEntityId(), this.animTime);
-                DangerZone.packetHandler.sendToAllAround(
+                OreSpawnMain.packetHandler.sendToAllAround(
                     message,
                     new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 30.0));
             }

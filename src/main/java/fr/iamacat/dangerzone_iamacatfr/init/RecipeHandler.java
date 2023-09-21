@@ -7,4 +7,5 @@ public class RecipeHandler {
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {}
+
 }

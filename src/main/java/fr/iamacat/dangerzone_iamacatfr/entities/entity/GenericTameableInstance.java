@@ -2,7 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.network.packet.PZPacketTameParticle;
 import fr.iamacat.dangerzone_iamacatfr.util.EntityStates;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
@@ -241,7 +241,7 @@ public abstract class GenericTameableInstance extends GenericRideableInstance {
                 }
                 final PZPacketTameParticle message = new PZPacketTameParticle()
                     .setPacketData(this.getEntityId(), tameEffectSuccess);
-                DangerZone.packetHandler.sendToAllAround(
+                OreSpawnMain.packetHandler.sendToAllAround(
                     message,
                     new NetworkRegistry.TargetPoint(this.dimension, this.posX, this.posY, this.posZ, 10.0));
             }

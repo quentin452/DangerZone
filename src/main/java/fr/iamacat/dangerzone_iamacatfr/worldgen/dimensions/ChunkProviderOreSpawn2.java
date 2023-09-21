@@ -1,10 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
@@ -27,7 +25,9 @@ import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-import danger.orespawn.entities.entityinstance.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class ChunkProviderOreSpawn2 implements IChunkProvider {
 

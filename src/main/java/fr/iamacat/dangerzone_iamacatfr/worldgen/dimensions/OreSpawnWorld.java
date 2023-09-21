@@ -1,8 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
-import java.util.Random;
-
+import cpw.mods.fml.common.IWorldGenerator;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.Trees;
+import fr.iamacat.dangerzone_iamacatfr.items.ItemAppleSeed;
+import fr.iamacat.dangerzone_iamacatfr.items.ItemMagicApple;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -18,10 +21,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-import cpw.mods.fml.common.IWorldGenerator;
-import danger.orespawn.items.ItemAppleSeed;
-import danger.orespawn.items.ItemMagicApple;
-import danger.orespawn.worldgen.structures.Trees;
+import java.util.Random;
 
 public class OreSpawnWorld implements IWorldGenerator {
 

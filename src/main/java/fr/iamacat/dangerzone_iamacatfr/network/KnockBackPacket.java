@@ -1,6 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -25,6 +25,6 @@ public class KnockBackPacket implements NetworkHelper.IPacket {
         this.xv = bytes.readFloat();
         this.zv = bytes.readFloat();
 
-        DangerZone.packetProxy.onKnockBackPacket(this.xv, this.zv);
+        OreSpawnMain.packetproxy.onKnockBackPacket(this.xv, this.zv);
     }
 }

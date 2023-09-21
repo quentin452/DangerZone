@@ -2,6 +2,7 @@ package fr.iamacat.dangerzone_iamacatfr.materials;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
@@ -28,7 +29,7 @@ public class AmethystOre extends Block {
     }
 
     public Item getItemDropped(final int par1, final Random par2Random, final int par3) {
-        return ItemInitDangerZone.AmethystIngot;
+        return OreSpawnMain.MyAmethyst;
     }
 
     public int quantityDroppedWithBonus(final int par1, final Random par2Random) {

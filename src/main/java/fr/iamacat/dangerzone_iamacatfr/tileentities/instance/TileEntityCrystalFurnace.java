@@ -1,9 +1,10 @@
+
 package fr.iamacat.dangerzone_iamacatfr.tileentities.instance;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalFurnace;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -16,8 +17,6 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-
-import java.util.Objects;
 
 public class TileEntityCrystalFurnace extends TileEntity implements ISidedInventory {
 
@@ -92,7 +91,7 @@ public class TileEntityCrystalFurnace extends TileEntity implements ISidedInvent
         this.furnaceItemStacks = new ItemStack[this.getSizeInventory()];
         for (int i = 0; i < nbttaglist.tagCount(); ++i) {
             final NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
-            final int b0 = nbttagcompound1.getByte("Slot");
+            final byte b0 = nbttagcompound1.getByte("Slot");
             if (b0 >= 0 && b0 < this.furnaceItemStacks.length) {
                 this.furnaceItemStacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
             }
@@ -162,7 +161,7 @@ public class TileEntityCrystalFurnace extends TileEntity implements ISidedInvent
                         final ItemStack itemStack = this.furnaceItemStacks[1];
                         --itemStack.stackSize;
                         if (this.furnaceItemStacks[1].stackSize == 0) {
-                            this.furnaceItemStacks[1] = Objects.requireNonNull(this.furnaceItemStacks[1].getItem())
+                            this.furnaceItemStacks[1] = this.furnaceItemStacks[1].getItem()
                                 .getContainerItem(this.furnaceItemStacks[1]);
                         }
                     }
@@ -180,7 +179,7 @@ public class TileEntityCrystalFurnace extends TileEntity implements ISidedInvent
             }
             if (flag != this.furnaceBurnTime > 0) {
                 flag2 = true;
-                final CrystalFurnace crystalFurnaceBlock = (CrystalFurnace) BlockInitDangerZone.ContainerCrystalFurnaceBlock;
+                final CrystalFurnace crystalFurnaceBlock = OreSpawnMain.CrystalFurnaceBlock;
                 CrystalFurnace.updateFurnaceBlockState(
                     this.furnaceBurnTime > 0,
                     this.worldObj,
@@ -276,7 +275,15 @@ public class TileEntityCrystalFurnace extends TileEntity implements ISidedInvent
         if (item == Items.blaze_rod) {
             return 2400;
         }
-        // todo add crystal coal
+        if (item == Item.getItemFromBlock(OreSpawnMain.CrystalCoal)) {
+            return 20000;
+        }
+        if (item == Item.getItemFromBlock(OreSpawnMain.MyCrystalTreeLog)) {
+            return 800;
+        }
+        if (item == Item.getItemFromBlock(OreSpawnMain.CrystalPlanksBlock)) {
+            return 400;
+        }
         return GameRegistry.getFuelValue(par0ItemStack);
     }
 

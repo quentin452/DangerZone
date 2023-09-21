@@ -1,6 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses;
 
-import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.TragicMob;
 import fr.iamacat.dangerzone_iamacatfr.util.WorldHelper;
 import net.minecraft.block.material.Material;
@@ -208,12 +207,12 @@ public abstract class TragicBoss extends EntityMob implements IBossDisplayData {
         if (this.worldObj.isRemote) return false;
 
         if (par1DamageSource.getEntity() != null) {
-            if (par1DamageSource.getEntity() instanceof EntityPlayer && par2 >= DangerZoneConfig.bossDamageCap) {
+            if (par1DamageSource.getEntity() instanceof EntityPlayer && par2 >= 25) {
                 EntityPlayer player = (EntityPlayer) par1DamageSource.getEntity();
                 boolean flag = player.getCurrentEquippedItem() != null;
 
                 if (!player.capabilities.isCreativeMode || !flag)
-                    par2 = MathHelper.clamp_float(par2, 0.0F, DangerZoneConfig.bossDamageCap);
+                    par2 = MathHelper.clamp_float(par2, 0.0F, 25);
             }
 
             if (rand.nextBoolean() && this.getAttackTarget() != null

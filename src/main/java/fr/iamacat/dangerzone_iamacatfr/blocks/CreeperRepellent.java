@@ -2,7 +2,8 @@ package fr.iamacat.dangerzone_iamacatfr.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Termite;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTorch;
@@ -18,7 +19,7 @@ import java.util.Random;
 
 public class CreeperRepellent extends BlockTorch {
 
-    public CreeperRepellent() {
+    public CreeperRepellent(int i) {
         super();
     }
 
@@ -87,10 +88,7 @@ public class CreeperRepellent extends BlockTorch {
             if (entity instanceof EntityCreeper) {
                 f = 20.0 - entity.getDistance(par2, par3, par4);
                 f = Math.max(0.0, Math.min(20.0, f)) * 0.4;
-            } else if (entity instanceof BrownAntInstance || entity instanceof RedAntInstance
-                || entity instanceof RainbowAntInstance
-                || entity instanceof UnstableAntInstance
-                || entity instanceof TermiteInstance) {
+            } else if (entity instanceof EntityAnt || entity instanceof Termite) {
                     f = 20.0 - entity.getDistance(par2, par3, par4);
                     f = Math.max(0.0, Math.min(20.0, f)) * 0.4;
                 }

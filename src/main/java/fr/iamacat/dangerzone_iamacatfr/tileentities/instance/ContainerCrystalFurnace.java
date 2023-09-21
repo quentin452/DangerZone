@@ -1,15 +1,14 @@
+
 package fr.iamacat.dangerzone_iamacatfr.tileentities.instance;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
-import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 
 public class ContainerCrystalFurnace extends Container {
 
@@ -21,23 +20,25 @@ public class ContainerCrystalFurnace extends Container {
     public ContainerCrystalFurnace(final InventoryPlayer par1InventoryPlayer,
         final TileEntityCrystalFurnace par2TileEntityCrystalFurnace) {
         this.furnace = par2TileEntityCrystalFurnace;
-        this.addSlotToContainer(new Slot(par2TileEntityCrystalFurnace, 0, 56, 17));
-        this.addSlotToContainer(new Slot(par2TileEntityCrystalFurnace, 1, 56, 53));
-        this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, par2TileEntityCrystalFurnace, 2, 116, 35));
+        this.addSlotToContainer(new Slot((IInventory) par2TileEntityCrystalFurnace, 0, 56, 17));
+        this.addSlotToContainer(new Slot((IInventory) par2TileEntityCrystalFurnace, 1, 56, 53));
+        this.addSlotToContainer(
+            (Slot) new SlotFurnace(par1InventoryPlayer.player, (IInventory) par2TileEntityCrystalFurnace, 2, 116, 35));
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
-                this.addSlotToContainer(new Slot(par1InventoryPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                this.addSlotToContainer(
+                    new Slot((IInventory) par1InventoryPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
         for (int i = 0; i < 9; ++i) {
-            this.addSlotToContainer(new Slot(par1InventoryPlayer, i, 8 + i * 18, 142));
+            this.addSlotToContainer(new Slot((IInventory) par1InventoryPlayer, i, 8 + i * 18, 142));
         }
     }
 
     public void addCraftingToCrafters(final ICrafting par1ICrafting) {
         super.addCraftingToCrafters(par1ICrafting);
-        par1ICrafting.sendProgressBarUpdate(this, 0, this.furnace.furnaceCookTime);
-        par1ICrafting.sendProgressBarUpdate(this, 1, this.furnace.furnaceBurnTime);
+        par1ICrafting.sendProgressBarUpdate((Container) this, 0, this.furnace.furnaceCookTime);
+        par1ICrafting.sendProgressBarUpdate((Container) this, 1, this.furnace.furnaceBurnTime);
         par1ICrafting.sendProgressBarUpdate((Container) this, 2, this.furnace.currentItemBurnTime);
     }
 

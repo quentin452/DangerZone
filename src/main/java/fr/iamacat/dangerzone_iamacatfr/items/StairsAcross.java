@@ -2,7 +2,7 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -85,7 +85,7 @@ public class StairsAcross extends Item {
                         cposx + k * deltax,
                         cposy + 1,
                         cposz + k * deltaz,
-                        BlockInitDangerZone.blocktorch,
+                        OreSpawnMain.ExtremeTorch,
                         0,
                         2);
                 }

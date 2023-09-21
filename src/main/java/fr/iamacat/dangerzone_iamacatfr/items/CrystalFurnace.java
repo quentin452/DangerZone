@@ -1,14 +1,15 @@
+
 package fr.iamacat.dangerzone_iamacatfr.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,7 +28,7 @@ import java.util.Random;
 public class CrystalFurnace extends BlockContainer {
 
     private final Random furnaceRand;
-    private final boolean isActive = false;
+    private final boolean isActive;
     private static boolean keepFurnaceInventory;
     @SideOnly(Side.CLIENT)
     private IIcon furnaceIconTop;
@@ -37,6 +38,11 @@ public class CrystalFurnace extends BlockContainer {
     public CrystalFurnace(final int par1, final boolean par2, final float f1, final float f2) {
         super(Material.rock);
         this.furnaceRand = new Random();
+        if (!(this.isActive = par2)) {
+            this.setCreativeTab(CreativeTabs.tabDecorations);
+        } else {
+            this.setLightLevel(0.6f);
+        }
         this.setHardness(f1);
         this.setResistance(f2);
     }
@@ -50,12 +56,12 @@ public class CrystalFurnace extends BlockContainer {
     }
 
     public Item getItemDropped(final int par1, final Random par2Random, final int par3) {
-        return Item.getItemFromBlock(BlockInitDangerZone.ContainerCrystalFurnaceBlock);
+        return Item.getItemFromBlock((Block) OreSpawnMain.CrystalFurnaceBlock);
     }
 
     @SideOnly(Side.CLIENT)
     public Item idPicked(final World par1World, final int par2, final int par3, final int par4) {
-        return Item.getItemFromBlock(BlockInitDangerZone.ContainerCrystalFurnaceBlock);
+        return Item.getItemFromBlock((Block) OreSpawnMain.CrystalFurnaceBlock);
     }
 
     @SideOnly(Side.CLIENT)
@@ -67,20 +73,14 @@ public class CrystalFurnace extends BlockContainer {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
         this.blockIcon = par1IIconRegister.registerIcon(
-            Tags.MODID + ":"
-                + this.getUnlocalizedName()
-                    .substring(5)
-                + "_side");
+            "OreSpawn:" + this.getUnlocalizedName()
+                .substring(5) + "_side");
         this.furnaceIconFront = par1IIconRegister.registerIcon(
-            Tags.MODID + ":"
-                + this.getUnlocalizedName()
-                    .substring(5)
-                + "_front_off");
+            "OreSpawn:" + this.getUnlocalizedName()
+                .substring(5) + (this.isActive ? "_front_off" : "_front_off"));
         this.furnaceIconTop = par1IIconRegister.registerIcon(
-            Tags.MODID + ":"
-                + this.getUnlocalizedName()
-                    .substring(5)
-                + "_top");
+            "OreSpawn:" + this.getUnlocalizedName()
+                .substring(5) + "_top");
     }
 
     public static void updateFurnaceBlockState(final boolean par0, final World par1World, final int par2,
@@ -89,9 +89,9 @@ public class CrystalFurnace extends BlockContainer {
         final TileEntity tileentity = par1World.getTileEntity(par2, par3, par4);
         CrystalFurnace.keepFurnaceInventory = true;
         if (par0) {
-            par1World.setBlock(par2, par3, par4, BlockInitDangerZone.ContainerCrystalFurnaceOnBlock);
+            par1World.setBlock(par2, par3, par4, OreSpawnMain.CrystalFurnaceOnBlock);
         } else {
-            par1World.setBlock(par2, par3, par4, BlockInitDangerZone.ContainerCrystalFurnaceBlock);
+            par1World.setBlock(par2, par3, par4, (Block) OreSpawnMain.CrystalFurnaceBlock);
         }
         CrystalFurnace.keepFurnaceInventory = false;
         par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
@@ -137,7 +137,7 @@ public class CrystalFurnace extends BlockContainer {
         final TileEntityCrystalFurnace tileentitycrystalfurnace = (TileEntityCrystalFurnace) par1World
             .getTileEntity(par2, par3, par4);
         if (tileentitycrystalfurnace != null) {
-            par5EntityPlayer.openGui(Tags.MODID, 0, par1World, par2, par3, par4);
+            par5EntityPlayer.openGui((Object) OreSpawnMain.instance, 0, par1World, par2, par3, par4);
         }
         return true;
     }

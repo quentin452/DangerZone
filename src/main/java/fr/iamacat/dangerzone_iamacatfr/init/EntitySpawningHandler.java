@@ -5,7 +5,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class EntitySpawningHandler {
 
-    // todo make spawning event for entities
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {}
 }

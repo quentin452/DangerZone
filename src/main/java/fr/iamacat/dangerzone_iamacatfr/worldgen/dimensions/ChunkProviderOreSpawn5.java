@@ -1,9 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
-import java.util.List;
-import java.util.Random;
-
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon.CrystalMaze;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -23,7 +22,8 @@ import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-import danger.orespawn.items.CrystalMaze;
+import java.util.List;
+import java.util.Random;
 
 public class ChunkProviderOreSpawn5 implements IChunkProvider {
 

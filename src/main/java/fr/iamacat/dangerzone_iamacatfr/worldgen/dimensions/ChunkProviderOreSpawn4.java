@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 import java.util.List;
 import java.util.Random;
 
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;

@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.PowerOrbsInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.MagicModel;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
@@ -63,10 +64,10 @@ public class ModelMagicRenderer extends RenderLiving {
     }
 
     static {
-        m = new ResourceLocation("orespawn", "Magic1.png");
-        m2 = new ResourceLocation("orespawn", "");
-        m3 = new ResourceLocation("orespawn", "");
-        m4 = new ResourceLocation("orespawn", "");
-        m10 = new ResourceLocation("orespawn", "");
+        m = new ResourceLocation(Tags.MODID+":Magic1.png");
+        m2 = new ResourceLocation(Tags.MODID+":");
+        m3 = new ResourceLocation(Tags.MODID+":");
+        m4 = new ResourceLocation(Tags.MODID+":");
+        m10 = new ResourceLocation(Tags.MODID+":");
     }
 }

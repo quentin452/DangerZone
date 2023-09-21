@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
 import java.util.Random;
 
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;

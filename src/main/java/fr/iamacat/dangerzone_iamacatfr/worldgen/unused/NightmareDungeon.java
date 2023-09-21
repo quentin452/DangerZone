@@ -1,6 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unused;
 
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;

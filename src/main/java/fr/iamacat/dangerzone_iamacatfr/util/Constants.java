@@ -218,4 +218,5 @@ public class Constants {
     public static SpawnEggs MyMoose;
 
     public static SpawnEggs MyUrsaMAJOR;
+    public static SpawnEggs GhostSkellySpawnEgg;
 }

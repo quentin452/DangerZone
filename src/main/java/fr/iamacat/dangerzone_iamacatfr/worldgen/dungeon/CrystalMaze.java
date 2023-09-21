@@ -9,7 +9,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
 
 public class CrystalMaze {
@@ -23,7 +23,7 @@ public class CrystalMaze {
         for (int i = 0; i < 16; ++i) {
             for (int j = 0; j < 16; ++j) {
                 for (int k = 0; k < 3; ++k) {
-                    DangerZone.setBlockIDWithMetadataInChunk(chunk, x + j, y + k, z + i, Blocks.air, 0);
+                    OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, x + j, y + k, z + i, Blocks.air, 0);
                 }
             }
         }
@@ -34,34 +34,34 @@ public class CrystalMaze {
     private void openCrystalMaze(final World world, final int xx, final int yy, final int zz, final int xw,
         final int zw, final int csz, final Chunk chunk) {
         for (int i = 0; i < zw * csz; ++i) {
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx, yy, zz + i, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx, yy + 1, zz + i, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx, yy + 2, zz + i, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + i, yy, zz, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + i, yy + 1, zz, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + i, yy + 2, zz, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + zw * csz - 1, yy, zz + i, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + zw * csz - 1, yy + 1, zz + i, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + zw * csz - 1, yy + 2, zz + i, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + i, yy, zz + zw * csz - 1, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + i, yy + 1, zz + zw * csz - 1, Blocks.air, 0);
-            DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + i, yy + 2, zz + zw * csz - 1, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx, yy, zz + i, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx, yy + 1, zz + i, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx, yy + 2, zz + i, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + i, yy, zz, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + i, yy + 1, zz, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + i, yy + 2, zz, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + zw * csz - 1, yy, zz + i, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + zw * csz - 1, yy + 1, zz + i, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + zw * csz - 1, yy + 2, zz + i, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + i, yy, zz + zw * csz - 1, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + i, yy + 1, zz + zw * csz - 1, Blocks.air, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + i, yy + 2, zz + zw * csz - 1, Blocks.air, 0);
         }
         for (int i = 0; i < zw * csz; ++i) {
             for (int j = 0; j < zw * csz; ++j) {
-                DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + j, yy - 1, zz + i, Blocks.bedrock, 0);
-                DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + j, yy + 3, zz + i, Blocks.bedrock, 0);
+                OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + j, yy - 1, zz + i, Blocks.bedrock, 0);
+                OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + j, yy + 3, zz + i, Blocks.bedrock, 0);
             }
         }
         for (int k = 0; k < 4; ++k) {
             final int i = world.rand.nextInt(zw * csz);
             final int j = world.rand.nextInt(zw * csz);
-            DangerZone
-                .setBlockIDWithMetadataInChunk(chunk, xx + j, yy + 3, zz + i, BlockInitDangerZone.CrystalStone, 0);
+            OreSpawnMain
+                .setBlockIDWithMetadataInChunk(chunk, xx + j, yy + 3, zz + i, OreSpawnMain.CrystalStone, 0);
         }
         int i = world.rand.nextInt(zw * csz);
         int j = world.rand.nextInt(zw * csz);
-        DangerZone.setBlockIDWithMetadataInChunk(chunk, xx + j, yy - 1, zz + i, BlockInitDangerZone.CrystalStone, 0);
+        OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + j, yy - 1, zz + i, OreSpawnMain.CrystalStone, 0);
     }
 
     private void makeMaze(final World world, final int xx, final int yy, final int zz, final int xw, final int zw,
@@ -209,18 +209,18 @@ public class CrystalMaze {
             final int i = fromx;
             for (int j = fromz; j <= toz; ++j) {
                 if (j < cellsize * gridh) {
-                    DangerZone.setBlockIDWithMetadataInChunk(chunk, i + x, y, j + z, blk, 0);
-                    DangerZone.setBlockIDWithMetadataInChunk(chunk, i + x, y + 1, j + z, blk, 0);
-                    DangerZone.setBlockIDWithMetadataInChunk(chunk, i + x, y + 2, j + z, blk, 0);
+                    OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, i + x, y, j + z, blk, 0);
+                    OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, i + x, y + 1, j + z, blk, 0);
+                    OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, i + x, y + 2, j + z, blk, 0);
                 }
             }
         } else {
             final int j = fromz;
             for (int i = fromx; i <= tox; ++i) {
                 if (i < cellsize * gridw) {
-                    DangerZone.setBlockIDWithMetadataInChunk(chunk, i + x, y, j + z, blk, 0);
-                    DangerZone.setBlockIDWithMetadataInChunk(chunk, i + x, y + 1, j + z, blk, 0);
-                    DangerZone.setBlockIDWithMetadataInChunk(chunk, i + x, y + 2, j + z, blk, 0);
+                    OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, i + x, y, j + z, blk, 0);
+                    OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, i + x, y + 1, j + z, blk, 0);
+                    OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, i + x, y + 2, j + z, blk, 0);
                 }
             }
         }
@@ -350,14 +350,14 @@ public class CrystalMaze {
             }
             for (int j = 0; j < hi; ++j) {
                 for (int k = 0; k < 30; ++k) {
-                    DangerZone.setBlockIDWithMetadataInChunk(chunk, x + i, y + j, z + k, Blocks.air, 0);
+                    OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, x + i, y + j, z + k, Blocks.air, 0);
                 }
             }
         }
         for (int i = 0; i < 5; ++i) {
             for (int j = 0; j < 6; ++j) {
                 for (int k = 0; k < 30; ++k) {
-                    DangerZone.setBlockIDWithMetadataInChunk(chunk, x - i, y + j, z + k, Blocks.air, 0);
+                    OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, x - i, y + j, z + k, Blocks.air, 0);
                 }
             }
         }

@@ -1,6 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.AcidEntityInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -20,7 +19,7 @@ public class Acid extends Item {
         }
         world.playSoundAtEntity(entityPlayer, "random.bow", 3.0f, 1.0f);
         if (!world.isRemote) {
-            world.spawnEntityInWorld(new AcidEntityInstance(world, entityPlayer));
+            world.spawnEntityInWorld(new fr.iamacat.dangerzone_iamacatfr.entities.entity.Acid(world, entityPlayer));
         }
         return stack;
     }

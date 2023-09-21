@@ -1,7 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.config.DangerZoneConfig;
 import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -34,7 +33,7 @@ public class DarkCrystalCannonInstance extends EntityThrowable {
             final Entity e = par1MovingObjectPosition.entityHit;
             e.attackEntityFrom(
                 DamageSource.causeMobDamage(this.getThrower()),
-                (float) DangerZoneConfig.DarkCrystalDamage);
+                (float) 9750);
             final float var2 = 40.0f;
             if (MobUtils.isPony(par1MovingObjectPosition.entityHit)) {
                 this.setDead();

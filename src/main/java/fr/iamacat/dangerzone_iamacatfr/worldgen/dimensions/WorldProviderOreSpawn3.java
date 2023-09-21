@@ -1,6 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.biomes.BiomeGenUtopianPlains;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldProvider;

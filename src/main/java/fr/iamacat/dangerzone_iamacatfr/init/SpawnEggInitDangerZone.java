@@ -996,7 +996,10 @@ public class SpawnEggInitDangerZone {
         ProjectileApples.setUnlocalizedName("Projectile Apples Egg");
         Constants.ProjectileApples = ProjectileApples;
         GameRegistry.registerItem(Constants.ProjectileApples, "Projectile Apples Egg");
-
+        SpawnEggs GodZillaSPawnEgg = new SpawnEggs(Godzilla.class);
+        GodZillaSPawnEgg.setUnlocalizedName("GodZilla Egg");
+        Constants.MobzillaSpawnEgg = GodZillaSPawnEgg;
+        GameRegistry.registerItem(Constants.MobzillaSpawnEgg, "GodZilla Egg");
 
     }
 }

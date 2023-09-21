@@ -88,16 +88,21 @@ public class ItemMagicApple extends Item {
         par1ItemStack.addEnchantment(Enchantment.fortune, 2);
     }
 
-    private Entity spawnCreature(final World par0World, final int par1, final double par2, final double par4,
-        final double par6) {
-        Entity var8 = null;
-        var8 = EntityList.createEntityByID(par1, par0World);
-        if (var8 != null) {
-            var8.setLocationAndAngles(par2, par4, par6, par0World.rand.nextFloat() * 360.0f, 0.0f);
-            par0World.spawnEntityInWorld(var8);
-            ((EntityLiving) var8).playLivingSound();
+    private Entity spawnCreature(World world, double x, double y, double z) {
+
+        Entity entity = EntityList.createEntityByID(99, world);
+
+        if(entity != null) {
+            entity.setLocationAndAngles(x, y, z,
+                world.rand.nextFloat() * 360F, 0F);
+
+            world.spawnEntityInWorld(entity);
+
+            return entity;
         }
-        return var8;
+
+        return null;
+
     }
 
     public void onUsingTick(final ItemStack stack, final EntityPlayer player, final int count) {
@@ -222,7 +227,7 @@ public class ItemMagicApple extends Item {
                             && world.isAirBlock(realx, y + 2, realz)
                             && world.isAirBlock(realx, y + 3, realz)) {
                                 Entity ent = null;
-                                ent = this.spawnCreature(world, 99, realx + 0.5, y + 1.01, realz + 0.5);
+                                ent = this.spawnCreature(world, realx + 0.5, y + 1.01, realz + 0.5);
                             }
                     }
                 }

@@ -7,7 +7,6 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.WhaleRenderer;
-import fr.iamacat.dangerzone_iamacatfr.items.IrukandjiArrows;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EntityInitDangerZone {
@@ -138,18 +137,6 @@ public class EntityInitDangerZone {
 
 
 
-        int IrukandjiArrows = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(IrukandjiArrows.class, "Irukandji Arrows DangerZone", IrukandjiArrows);
-
-        EntityRegistry.registerModEntity(
-            IrukandjiArrows.class,
-            "Irukandji Arrows DangerZone",
-            IrukandjiArrows, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
 
 
 

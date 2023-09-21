@@ -6241,125 +6241,58 @@ public class GenericDungeon
     }
 
     public void makeRainbow(final World world, final int cposx, final int cposy, final int cposz) {
-        int width;
-        int depth;
-        int blk_color;
-        TileEntityMobSpawner tileentitymobspawner;
-        TileEntityChest chest;
-        WeightedRandomChestContent[] chestContents;
-        blk_color = 0;
+        int blk_color = 0;
         int j = 35;
-        width = 12;
-        depth = 1;
+        int[] widths = { 12, 13, 14, 13, 12 };
+        int[] depths = { 1, 2, 3, 2, 1 };
 
-        // Créez l'arc-en-ciel en utilisant une seule opération par type de bloc
-        for (int i = -width; i < width; ++i) {
-            for (int k = -depth; k <= depth; ++k) {
-                Block block = Blocks.air;
-                if (i == -width || i == width - 1 || k == -depth || k == depth) {
-                    block = Blocks.stained_hardened_clay;
+        for (int level = 0; level < widths.length; level++) {
+            int width = widths[level];
+            int depth = depths[level];
+
+            for (int i = -width; i < width; ++i) {
+                for (int k = -depth; k <= depth; ++k) {
+                    Block block = (i == -width || i == width - 1 || k == -depth || k == depth)
+                        ? Blocks.stained_hardened_clay
+                        : Blocks.air;
+                    OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + level, cposz + k, block, blk_color, 2);
                 }
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, block, blk_color, 2);
             }
         }
 
-        width = 13;
-        depth = 2;
-        j = 26;
-        int k = 0;
-        for (int i = -width; i < width; ++i) {
-            for (k = -depth; k <= depth; ++k) {
-                Block blk = Blocks.air;
-                if (i == -width || i == width - 1 || k == -depth || k == depth) {
-                    blk = Blocks.stained_hardened_clay;
-                }
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, blk, blk_color, 2);
-            }
-        }
-
-        width = 14;
-        depth = 3;
-        j = 27;
-        for (int i = -width; i < width; ++i) {
-            for (k = -depth; k <= depth; ++k) {
-                Block blk = Blocks.air;
-                if (i == -width || i == width - 1 || k == -depth || k == depth) {
-                    blk = Blocks.stained_hardened_clay;
-                }
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, blk, blk_color, 2);
-            }
-        }
-
-        width = 13;
-        depth = 2;
-        j = 28;
-        for (int i = -width; i < width; ++i) {
-            for (k = -depth; k <= depth; ++k) {
-                Block blk = Blocks.air;
-                if (i == -width || i == width - 1 || k == -depth || k == depth) {
-                    blk = Blocks.stained_hardened_clay;
-                }
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, blk, blk_color, 2);
-            }
-        }
-
-        j = 29;
-        width = 12;
-        depth = 1;
-        for (int i = -width; i < width; ++i) {
-            for (k = -depth; k <= depth; ++k) {
-                Block block = Blocks.stained_hardened_clay;
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, block, blk_color, 2);
-            }
-        }
-
-        j = 30;
         for (int m = 3; m < 11; ++m) {
             blk_color = this.blkcolors[m - 3];
+
             for (int i = 0; i < m; ++i) {
                 OreSpawnMain.setBlockFast(world, cposx + m, cposy + j + i, cposz, Blocks.stained_hardened_clay, blk_color, 2);
                 OreSpawnMain.setBlockFast(world, cposx - (m + 1), cposy + j + i, cposz, Blocks.stained_hardened_clay, blk_color, 2);
             }
+
             for (int i = -(m + 1); i <= m; ++i) {
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + m, cposz, Blocks.stained_hardened_clay, blk_color, 2);
             }
         }
 
         // Créez les blocs des coffres et des spawners en une seule opération
-        world.setBlock(cposx + 2, cposy + j, cposz, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 2, cposy + j, cposz);
-        if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
-        }
-        world.setBlock(cposx - 3, cposy + j, cposz, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 3, cposy + j, cposz);
-        if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
-        }
-        world.setBlock(cposx + 2, cposy + j + 1, cposz, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 2, cposy + j + 1, cposz);
-        if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
-        }
-        world.setBlock(cposx - 3, cposy + j + 1, cposz, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 3, cposy + j + 1, cposz);
-        if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
+        for (int xOffset : new int[] { 2, -3 }) {
+            for (int yOffset : new int[] { 0, 1 }) {
+                world.setBlock(cposx + xOffset, cposy + j + yOffset, cposz, Blocks.mob_spawner, 0, 2);
+                TileEntityMobSpawner tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xOffset, cposy + j + yOffset, cposz);
+                if (tileentitymobspawner != null) {
+                    tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
+                }
+            }
         }
 
         // Créez les coffres et leurs contenus en une seule opération
-        chestContents = this.RainbowContentsList;
-        world.setBlock(cposx, cposy + j, cposz, (Block)Blocks.chest);
-        world.setBlockMetadataWithNotify(cposx, cposy + j, cposz, 2, 3);
-        chest = this.getChestTileEntity(world, cposx, cposy + j, cposz);
-        if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, chest, 10 + world.rand.nextInt(5));
-        }
-        world.setBlock(cposx - 1, cposy + j, cposz, (Block)Blocks.chest);
-        world.setBlockMetadataWithNotify(cposx - 1, cposy + j, cposz, 2, 3);
-        chest = this.getChestTileEntity(world, cposx - 1, cposy + j, cposz);
-        if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, chest, 10 + world.rand.nextInt(5));
+        WeightedRandomChestContent[] chestContents = this.RainbowContentsList;
+        for (int xOffset : new int[] { 0, -1 }) {
+            world.setBlock(cposx + xOffset, cposy + j, cposz, (Block) Blocks.chest);
+            world.setBlockMetadataWithNotify(cposx + xOffset, cposy + j, cposz, 2, 3);
+            TileEntityChest chest = this.getChestTileEntity(world, cposx + xOffset, cposy + j, cposz);
+            if (chest != null) {
+                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, chest, 10 + world.rand.nextInt(5));
+            }
         }
     }
 

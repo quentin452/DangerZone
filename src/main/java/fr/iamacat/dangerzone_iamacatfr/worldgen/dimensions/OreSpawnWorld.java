@@ -2559,24 +2559,24 @@ public class OreSpawnWorld implements IWorldGenerator {
         if (OreSpawnMain.LessLag != 0 && random.nextInt(2) != 0) {
             return false;
         }
+
         final int posX = chunkX + random.nextInt(8);
         final int posZ = chunkZ + random.nextInt(8);
+
+        // Étape 1 : Recherche d'un emplacement approprié
         for (int posY = 20; posY > 4; --posY) {
             Block bid = world.getBlock(posX, posY, posZ);
             if (bid == Blocks.grass) {
-                for (int x = -5; x < 25; ++x) {
-                    for (int z = -4; z < 5; ++z) {
-                        bid = world.getBlock(posX + x, posY + 18, posZ + z);
-                        if (bid != Blocks.air) {
-                            return false;
-                        }
-                    }
+                boolean canGenerate = true;
+                // Étape 3 : Génération de la structure
+                if (canGenerate) {
+                    OreSpawnMain.MyDungeon.makeNightmareRookery(world, posX, posY, posZ);
+                    OreSpawnWorld.recently_placed = 50;
+                    return true;
                 }
-                OreSpawnMain.MyDungeon.makeNightmareRookery(world, posX, posY, posZ);
-                OreSpawnWorld.recently_placed = 50;
-                return true;
             }
         }
+
         return false;
     }
 

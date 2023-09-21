@@ -5221,13 +5221,12 @@ public class GenericDungeon
         WeightedRandomChestContent[] chestContents = null;
         final String monster = "Nightmare";
         chestContents = this.NightmareRookeryContentsList;
-        int h;
-        int k;
-        for (int j = (k = (h = 0)), i = -5; i <= 20; ++i) {
-            k += world.rand.nextInt(3) - 1;
-            h = world.rand.nextInt(20) + 1;
-            j = 0;
-            while (j < h) {
+
+        // Étape 1 : Génération de la structure de base (sol)
+        for (int i = -5; i <= 20; ++i) {
+            int k = world.rand.nextInt(3) - 1;
+            int h = world.rand.nextInt(20) + 1;
+            for (int j = 0; j < h; ++j) {
                 this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.stone);
                 if (world.rand.nextInt(j + 5) == 1) {
                     this.FastSetBlock(world, cposx + i + 1, cposy + j, cposz + k, Blocks.stone);
@@ -5240,60 +5239,20 @@ public class GenericDungeon
                 }
                 if (world.rand.nextInt(j + 5) == 1) {
                     this.FastSetBlock(world, cposx + i, cposy + j, cposz + k - 1, Blocks.stone);
-                }
-                if (j >= 18) {
-                    world.setBlock(cposx + i, cposy + j + 2, cposz + k, Blocks.mob_spawner, 0, 2);
-                    tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j + 2, cposz + k);
-                    if (tileentitymobspawner != null) {
-                        tileentitymobspawner.func_145881_a().setEntityName(monster);
-                    }
-                    world.setBlock(cposx + i, cposy + j + 1, cposz + k, (Block)Blocks.chest, 0, 2);
-                    chest = this.getChestTileEntity(world, cposx + i, cposy + j + 1, cposz + k);
-                    if (chest != null) {
-                        WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(5));
-                        break;
-                    }
-                    break;
-                }
-                else {
-                    ++j;
                 }
             }
-        }
-        for (int i = -5; i <= 20; ++i) {
-            k += world.rand.nextInt(3) - 1;
-            h = world.rand.nextInt(20) + 1;
-            int j = 0;
-            while (j < h) {
-                this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.stone);
-                if (world.rand.nextInt(j + 5) == 1) {
-                    this.FastSetBlock(world, cposx + i + 1, cposy + j, cposz + k, Blocks.stone);
+
+            // Étape 2 : Si la hauteur est suffisamment élevée, générez le reste de la structure
+            if (h >= 18) {
+                world.setBlock(cposx + i, cposy + h + 2, cposz + k, Blocks.mob_spawner, 0, 2);
+                tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + h + 2, cposz + k);
+                if (tileentitymobspawner != null) {
+                    tileentitymobspawner.func_145881_a().setEntityName(monster);
                 }
-                if (world.rand.nextInt(j + 5) == 1) {
-                    this.FastSetBlock(world, cposx + i - 1, cposy + j, cposz + k, Blocks.stone);
-                }
-                if (world.rand.nextInt(j + 5) == 1) {
-                    this.FastSetBlock(world, cposx + i, cposy + j, cposz + k + 1, Blocks.stone);
-                }
-                if (world.rand.nextInt(j + 5) == 1) {
-                    this.FastSetBlock(world, cposx + i, cposy + j, cposz + k - 1, Blocks.stone);
-                }
-                if (j >= 18) {
-                    world.setBlock(cposx + i, cposy + j + 2, cposz + k, Blocks.mob_spawner, 0, 2);
-                    tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j + 2, cposz + k);
-                    if (tileentitymobspawner != null) {
-                        tileentitymobspawner.func_145881_a().setEntityName(monster);
-                    }
-                    world.setBlock(cposx + i, cposy + j + 1, cposz + k, (Block)Blocks.chest, 0, 2);
-                    chest = this.getChestTileEntity(world, cposx + i, cposy + j + 1, cposz + k);
-                    if (chest != null) {
-                        WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(5));
-                        break;
-                    }
-                    break;
-                }
-                else {
-                    ++j;
+                world.setBlock(cposx + i, cposy + h + 1, cposz + k, (Block) Blocks.chest, 0, 2);
+                chest = this.getChestTileEntity(world, cposx + i, cposy + h + 1, cposz + k);
+                if (chest != null) {
+                    WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(5));
                 }
             }
         }
@@ -6285,13 +6244,12 @@ public class GenericDungeon
         }
 
         // Créez les coffres et leurs contenus en une seule opération
-        WeightedRandomChestContent[] chestContents = this.RainbowContentsList;
         for (int xOffset : new int[] { 0, -1 }) {
             world.setBlock(cposx + xOffset, cposy + j, cposz, (Block) Blocks.chest);
             world.setBlockMetadataWithNotify(cposx + xOffset, cposy + j, cposz, 2, 3);
             TileEntityChest chest = this.getChestTileEntity(world, cposx + xOffset, cposy + j, cposz);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, chest, 10 + world.rand.nextInt(5));
+                WeightedRandomChestContent.generateChestContents(world.rand, this.RainbowContentsList, chest, 10 + world.rand.nextInt(5));
             }
         }
     }

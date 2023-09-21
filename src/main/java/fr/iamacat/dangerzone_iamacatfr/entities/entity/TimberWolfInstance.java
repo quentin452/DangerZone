@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-
+// todo add a spawn for this entity
 public class TimberWolfInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;

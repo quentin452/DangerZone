@@ -8,7 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
+// todo add a spawn for this entity
 public class AerialInstance extends EntityLiving {
 
     protected ChunkCoordinates targetPosition;

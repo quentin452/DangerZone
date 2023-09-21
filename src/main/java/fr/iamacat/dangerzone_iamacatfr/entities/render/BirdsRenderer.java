@@ -1,6 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.BirdsInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;

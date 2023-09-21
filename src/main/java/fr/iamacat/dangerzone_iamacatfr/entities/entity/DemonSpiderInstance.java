@@ -30,7 +30,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-
+// todo add a spawn for this entity
 public class DemonSpiderInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;

@@ -2,7 +2,6 @@ package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.AlosaurusInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.AlosaurusModel;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.entity.RenderLiving;

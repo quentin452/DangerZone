@@ -29,7 +29,7 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 import java.util.*;
-
+// todo add a spawn for this entity
 public class CockatriceInstance extends EntityTameable {
 
     private int boatPosRotationIncrements;

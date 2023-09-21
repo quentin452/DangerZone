@@ -1,7 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.relauncher.Side;
+// todo add a spawn for this entity import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
 import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;

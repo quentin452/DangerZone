@@ -1890,10 +1890,10 @@ public class OreSpawnWorld implements IWorldGenerator {
                         a.makeTree(world, posX, posY - 1, posZ, BlockInitDangerZone.BlockAppleLeaves, chunk);
                     }
                     if (which == 8) {
-                        a.makeTree(world, posX, posY - 1, posZ, BlockInitDangerZone.BlockScaryLeaves2, chunk);
+                        a.makeTree(world, posX, posY - 1, posZ, BlockInitDangerZone.MyPeachLeaves, chunk);
                     }
                     if (which == 9) {
-                        a.makeTree(world, posX, posY - 1, posZ, BlockInitDangerZone.BlockScaryLeaves3, chunk);
+                        a.makeTree(world, posX, posY - 1, posZ, BlockInitDangerZone.MyCherryLeaves, chunk);
                     }
                     added = true;
                     break;

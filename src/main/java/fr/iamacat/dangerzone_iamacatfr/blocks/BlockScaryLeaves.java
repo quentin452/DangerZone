@@ -41,7 +41,7 @@ public class BlockScaryLeaves extends BlockLeaves {
             if (this == BlockInitDangerZone.BlockScaryLeaves) {
                 this.dropBlockAsItem(par1World, par2, par3, par4, new ItemStack(ItemInitDangerZone.Cherries));
             }
-            if (this == BlockInitDangerZone.BlockScaryLeaves2) {
+            if (this == BlockInitDangerZone.MyPeachLeaves) {
                 this.dropBlockAsItem(par1World, par2, par3, par4, new ItemStack(ItemInitDangerZone.Peach));
             }
         }
@@ -51,7 +51,7 @@ public class BlockScaryLeaves extends BlockLeaves {
         if (this == BlockInitDangerZone.BlockScaryLeaves) {
             return par1Random.nextInt(4);
         }
-        if (this == BlockInitDangerZone.BlockScaryLeaves2) {
+        if (this == BlockInitDangerZone.MyPeachLeaves) {
             return par1Random.nextInt(1);
         }
         return 0;
@@ -134,7 +134,7 @@ public class BlockScaryLeaves extends BlockLeaves {
         if (this == BlockInitDangerZone.BlockScaryLeaves) {
             return this.generic_solid;
         }
-        if (this == BlockInitDangerZone.BlockScaryLeaves2) {
+        if (this == BlockInitDangerZone.MyPeachLeaves) {
             return this.generic_solid;
         }
         return this.scary_solid;

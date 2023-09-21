@@ -33,7 +33,7 @@ public class LunaMothInstance extends ButterflyInstance {
         this.getNavigator()
             .setAvoidsWater(true);
     }
-
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
@@ -41,7 +41,7 @@ public class LunaMothInstance extends ButterflyInstance {
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
             .setBaseValue(0.10000000149011612);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
-            .setBaseValue(0.0);
+            .setBaseValue(0);
     }
 
     protected void entityInit() {

@@ -374,15 +374,15 @@ public class FairyInstance extends EntityAmbientCreature {
     }
 
     static {
-        texture0 = new ResourceLocation(Tags.MODID+ "fairytexture.png");
-        texture1 = new ResourceLocation(Tags.MODID+ "fairytexture2.png");
-        texture2 = new ResourceLocation(Tags.MODID+ "fairytexture3.png");
-        texture3 = new ResourceLocation(Tags.MODID+ "fairytexture4.png");
-        texture4 = new ResourceLocation(Tags.MODID+ "fairytexture5.png");
-        texture5 = new ResourceLocation(Tags.MODID+ "fairytexture6.png");
-        texture6 = new ResourceLocation(Tags.MODID+ "fairytexture7.png");
-        texture7 = new ResourceLocation(Tags.MODID+ "fairytexture8.png");
-        texture8 = new ResourceLocation(Tags.MODID+ "fairytexture9.png");
+        texture0 = new ResourceLocation(Tags.MODID+ ":textures/entity/fairytexture.png");
+        texture1 = new ResourceLocation(Tags.MODID+ ":textures/entity/fairytexture2.png");
+        texture2 = new ResourceLocation(Tags.MODID+ ":textures/entity/fairytexture3.png");
+        texture3 = new ResourceLocation(Tags.MODID+ ":textures/entity/fairytexture4.png");
+        texture4 = new ResourceLocation(Tags.MODID+ ":textures/entity/fairytexture5.png");
+        texture5 = new ResourceLocation(Tags.MODID+ ":textures/entity/fairytexture6.png");
+        texture6 = new ResourceLocation(Tags.MODID+ ":textures/entity/fairytexture7.png");
+        texture7 = new ResourceLocation(Tags.MODID+ ":textures/entity/fairytexture8.png");
+        texture8 = new ResourceLocation(Tags.MODID+ ":textures/entity/fairytexture9.png");
     }
 }
 

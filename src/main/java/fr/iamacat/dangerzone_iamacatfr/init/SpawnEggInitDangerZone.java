@@ -20,11 +20,6 @@ public class SpawnEggInitDangerZone {
         Constants.AppleCowSpawnEgg = appleCowSpawnEgg;
         GameRegistry.registerItem(Constants.AppleCowSpawnEgg, "Apple Cow Egg");
 
-        SpawnEggs crystalCowSpawnEgg = new SpawnEggs(CrystalCowInstance.class);
-        crystalCowSpawnEgg.setUnlocalizedName("crystal_cow_egg");
-        Constants.CrystalCowSpawnEgg = crystalCowSpawnEgg;
-        GameRegistry.registerItem(Constants.CrystalCowSpawnEgg, "Crystal Cow Egg");
-
         SpawnEggs enchantedGoldenAppleCowSpawnEgg = new SpawnEggs(EnchantedGoldenAppleCowInstance.class);
         enchantedGoldenAppleCowSpawnEgg.setUnlocalizedName("enchanted_golden_apple_cow_egg");
         Constants.EnchantedGoldenAppleCowSpawnEgg = enchantedGoldenAppleCowSpawnEgg;
@@ -313,6 +308,11 @@ public class SpawnEggInitDangerZone {
         crystalUrchinSpawnEgg.setUnlocalizedName("crystal_urchin_egg");
         Constants.crystalUrchinSpawnEgg = crystalUrchinSpawnEgg;
         GameRegistry.registerItem(Constants.crystalUrchinSpawnEgg, "Crystal Urchin Egg");
+
+        SpawnEggs CrystalCowSpawnEgg = new SpawnEggs(CrystalCowInstance.class);
+        CrystalCowSpawnEgg.setUnlocalizedName("Crystal Cow Egg");
+        Constants.CrystalCowSpawnEgg = CrystalCowSpawnEgg;
+        GameRegistry.registerItem(Constants.CrystalCowSpawnEgg, "Crystal Cow Egg");
 
         SpawnEggs goldenAppleCowSpawnEgg = new SpawnEggs(GoldenAppleCowInstance.class);
         goldenAppleCowSpawnEgg.setUnlocalizedName("golden_apple_cow_egg");

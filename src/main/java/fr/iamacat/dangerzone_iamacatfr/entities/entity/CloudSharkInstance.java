@@ -68,7 +68,7 @@ public class CloudSharkInstance extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "splash";
+        return null; //todo
     }
 
     protected String getHurtSound() {

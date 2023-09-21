@@ -103,6 +103,8 @@ public class TheKing extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
+        this.dataWatcher = new DataWatcher(this);
+
         this.dataWatcher.addObject(20, (Object) 0);
       //  this.dataWatcher.addObject(21, (Object) DangerZone.PlayNicely);
         this.dataWatcher.addObject(22, (Object) this.isEnd);

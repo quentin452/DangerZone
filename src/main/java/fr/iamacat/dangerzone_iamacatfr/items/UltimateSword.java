@@ -306,8 +306,8 @@ public class UltimateSword extends ItemSword {
                 || blockID == BlockInitDangerZone.BlockDuctTape
                 || blockID == BlockInitDangerZone.BlockExperienceLeaves
                 || blockID == BlockInitDangerZone.BlockScaryLeaves
-                || blockID == BlockInitDangerZone.BlockScaryLeaves2
-                || blockID == BlockInitDangerZone.BlockScaryLeaves3
+                || blockID == BlockInitDangerZone.MyPeachLeaves
+                || blockID == BlockInitDangerZone.MyCherryLeaves
                 || blockID == BlockInitDangerZone.BlockCrystalLeaves
                 || blockID == BlockInitDangerZone.BlockCrystalLeaves2
                 || blockID == BlockInitDangerZone.BlockCrystalLeaves3
@@ -323,8 +323,8 @@ public class UltimateSword extends ItemSword {
             || blockID == BlockInitDangerZone.BlockAppleLeaves
             || blockID == BlockInitDangerZone.BlockExperienceLeaves
             || blockID == BlockInitDangerZone.BlockScaryLeaves
-            || blockID == BlockInitDangerZone.BlockScaryLeaves2
-            || blockID == BlockInitDangerZone.BlockScaryLeaves3
+            || blockID == BlockInitDangerZone.MyPeachLeaves
+            || blockID == BlockInitDangerZone.MyCherryLeaves
             || blockID == BlockInitDangerZone.BlockCrystalLeaves
             || blockID == BlockInitDangerZone.BlockCrystalLeaves2
             || blockID == BlockInitDangerZone.BlockCrystalLeaves3;

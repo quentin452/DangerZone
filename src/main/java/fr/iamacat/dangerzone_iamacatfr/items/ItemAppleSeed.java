@@ -36,7 +36,7 @@ public class ItemAppleSeed extends Item {
             } else if (this == ItemInitDangerZone.MyCherrySeed) {
                 this.makeTree(world, x, y, z, BlockInitDangerZone.BlockScaryLeaves, null);
             } else {
-                this.makeTree(world, x, y, z, BlockInitDangerZone.BlockScaryLeaves2, null);
+                this.makeTree(world, x, y, z, BlockInitDangerZone.MyPeachLeaves, null);
             }
         }
         if (!par2EntityPlayer.capabilities.isCreativeMode) {
@@ -67,7 +67,7 @@ public class ItemAppleSeed extends Item {
             w1 = 4;
             w2 = 2;
         }
-        if (blkid == BlockInitDangerZone.BlockScaryLeaves2) {
+        if (blkid == BlockInitDangerZone.MyPeachLeaves) {
             h1 = 8;
             h2 = 3;
             h3 = 5;

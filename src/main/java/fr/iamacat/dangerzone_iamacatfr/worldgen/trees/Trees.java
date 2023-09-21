@@ -1101,7 +1101,7 @@ public class Trees {
             new WeightedRandomChestContent(ItemInitDangerZone.ItemIrukandjiArrow, 0, 5, 10, 2),
             new WeightedRandomChestContent(ItemInitDangerZone.ItemIrukandji, 0, 2, 8, 5),
             new WeightedRandomChestContent(ItemInitDangerZone.UltimateBow, 0, 1, 1, 2),
-            new WeightedRandomChestContent(ItemInitDangerZone.UltimateSword, 0, 1, 1, 2),
+            new WeightedRandomChestContent(ItemInitDangerZone.MyUltimateSword, 0, 1, 1, 2),
             new WeightedRandomChestContent(Items.iron_ingot, 0, 1, 4, 10),
             new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log), 0, 1, 4, 10),
             new WeightedRandomChestContent(Items.golden_apple, 0, 1, 5, 2) };

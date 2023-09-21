@@ -40,7 +40,8 @@ public class Mothra extends ButterflyInstance implements IMob {
     private int wing_sound;
     private int health_ticker;
     private GenericTargetSorter TargetSorter;
-    private float moveSpeed;
+    private final float moveSpeed;
+    private final int attackDamage;
 
     public Mothra(final World par1World) {
         super(par1World);
@@ -53,6 +54,7 @@ public class Mothra extends ButterflyInstance implements IMob {
         this.health_ticker = 100;
         this.TargetSorter = null;
         this.moveSpeed = 0.35f;
+        this.attackDamage =12;
         this.setSize(5.0f, 2.0f);
         this.getNavigator()
             .setAvoidsWater(true);
@@ -61,7 +63,7 @@ public class Mothra extends ButterflyInstance implements IMob {
         this.fireResistance = 500;
         this.TargetSorter = new GenericTargetSorter(this);
     }
-
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
@@ -69,7 +71,7 @@ public class Mothra extends ButterflyInstance implements IMob {
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
             .setBaseValue(this.moveSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
-            .setBaseValue(12);
+            .setBaseValue(this.attackDamage);
     }
 
     protected boolean canDespawn() {

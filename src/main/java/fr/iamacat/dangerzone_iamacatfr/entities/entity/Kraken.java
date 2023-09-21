@@ -88,7 +88,8 @@ public class Kraken extends EntityMob {
     protected void entityInit() {
         super.entityInit();
         this.dataWatcher.addObject(20, 0);
-       // this.dataWatcher.addObject(21, (Object) DangerZone.PlayNicely);
+        this.dataWatcher = new DataWatcher(this);
+        // this.dataWatcher.addObject(21, (Object) DangerZone.PlayNicely);
         if (this.renderdata == null) {
             this.renderdata = new RenderInfo();
         }
@@ -248,7 +249,7 @@ public class Kraken extends EntityMob {
             final int var7 = this.worldObj.rand.nextInt(53);
             switch (var7) {
                 case 0: {
-                    is = this.dropItemRand(ItemInitDangerZone.UltimateSword, 1);
+                    is = this.dropItemRand(ItemInitDangerZone.MyUltimateSword, 1);
                     break;
                 }
                 case 1: {

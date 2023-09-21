@@ -28,19 +28,19 @@ public class EnchantedGoldenAppleCowRenderer extends RenderLiving {
         this.model = (ModelCow) this.mainModel;
     }
 
-    public void renderEnchantedCow(final AppleCowInstance par1EntityEnchantedCow, final double par2, final double par4,
+    public void renderEnchantedCow(final EnchantedGoldenAppleCowInstance par1EntityEnchantedCow, final double par2, final double par4,
                                    final double par6, final float par8, final float par9) {
         super.doRender(par1EntityEnchantedCow, par2, par4, par6, par8, par9);
     }
 
     public void doRender(final EntityLiving par1EntityLiving, final double par2, final double par4, final double par6,
         final float par8, final float par9) {
-        this.renderEnchantedCow((AppleCowInstance) par1EntityLiving, par2, par4, par6, par8, par9);
+        this.renderEnchantedCow((EnchantedGoldenAppleCowInstance) par1EntityLiving, par2, par4, par6, par8, par9);
     }
 
     public void doRender(final Entity par1Entity, final double par2, final double par4, final double par6,
         final float par8, final float par9) {
-        this.renderEnchantedCow((AppleCowInstance) par1Entity, par2, par4, par6, par8, par9);
+        this.renderEnchantedCow((EnchantedGoldenAppleCowInstance) par1Entity, par2, par4, par6, par8, par9);
     }
 
     public int shouldRenderPass(final EntityLivingBase par1EntityLiving, final int par2, final float par3) {
@@ -66,8 +66,8 @@ public class EnchantedGoldenAppleCowRenderer extends RenderLiving {
     }
 
     static {
-        texture3 = new ResourceLocation(Tags.MODID + ":crystal_cow.png");
-        texture1 = new ResourceLocation(Tags.MODID + ":red_cow.png");
-        texture2 = new ResourceLocation(Tags.MODID + ":gold_cow.png");
+        texture3 = new ResourceLocation(Tags.MODID + ":textures/entity/crystal_cow.png");
+        texture1 = new ResourceLocation(Tags.MODID + ":textures/entity/red_cow.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":textures/entity/enchanted_golden_apple_cow.png");
     }
 }

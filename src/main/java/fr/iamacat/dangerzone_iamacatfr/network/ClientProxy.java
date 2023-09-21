@@ -47,12 +47,15 @@ public class ClientProxy implements ISidedProxy {
         registerEntityRenderingHandler(
             GoldenAppleCowInstance.class,
             new GoldenAppleCowRenderer(new GoldenAppleCowModel(), 0.5F));
-
-        registerEntityRenderingHandler(BrownAntInstance.class, new BrownAntRenderer());
-        registerEntityRenderingHandler(RedAntInstance.class, new RedAntRenderer());
-        registerEntityRenderingHandler(RainbowAntInstance.class, new RainBowAntRenderer());
-        registerEntityRenderingHandler(UnstableAntInstance.class, new UnstableAntRenderer());
-        registerEntityRenderingHandler(TermiteInstance.class, new TermiteRenderer());
+        RenderingRegistry.registerEntityRenderingHandler(
+            LunaMothInstance.class,
+            new ButterflyRenderer(new ButterflyModel(0.75f), 0.4f, 1.5f));
+        RenderingRegistry
+            .registerEntityRenderingHandler(BrownAntInstance.class, new BrownAntRenderer(new BrownAntModel(), 0.1f, 0.25f));
+        registerEntityRenderingHandler(RedAntInstance.class, new RedAntRenderer(new RedAntModel(), 0.1f, 0.25f));
+        registerEntityRenderingHandler(RainbowAntInstance.class, new RainBowAntRenderer(new RainBowAntModel(), 0.1f, 0.25f));
+        registerEntityRenderingHandler(UnstableAntInstance.class, new UnstableAntRenderer(new UnstableAntModel(), 0.1f, 0.25f));
+        registerEntityRenderingHandler(TermiteInstance.class, new TermiteRenderer(new TermiteModel(), 0.1f, 0.25f));
 
         registerEntityRenderingHandler(GirlfriendInstance.class, new GirlFriendRenderer(new ModelBiped(0.5f), 0.5f));
         registerEntityRenderingHandler(BoyfriendInstance.class, new BoyFriendRenderer(new ModelBiped(0.5f), 0.5f));
@@ -76,7 +79,9 @@ public class ClientProxy implements ISidedProxy {
         registerEntityRenderingHandler(RatInstance.class, new RatRenderer(new RatModel(), 0.5f));
 
         registerEntityRenderingHandler(AlosaurusInstance.class, new AlosaurusRenderer(new AlosaurusModel(), 0.5f));
-
+        RenderingRegistry.registerEntityRenderingHandler(
+            Mothra.class,
+            new ButterflyRenderer(new ButterflyModel(0.2f), 0.75f, 10.0f));
         registerEntityRenderingHandler(EntityBirchDragon.class, new RenderBirchDragon());
         registerEntityRenderingHandler(EntityBlazeDragon.class, new RenderBlazeDragon());
         registerEntityRenderingHandler(EntityAlpsDragon.class, new RenderAlpsDragon());
@@ -125,7 +130,7 @@ public class ClientProxy implements ISidedProxy {
             new GenericLivingRenderer(new BeaverModel(), 0.5f, textureLocation));
         registerEntityRenderingHandler(BeeInstance.class, new BeeRenderer());
         registerEntityRenderingHandler(DarkCrystalInstance.class, new DarkCrystalRenderer());
-        registerEntityRenderingHandler(ButterflyInstance.class, new ButterflyRenderer(new ButterflyModel(), 0.5f));
+        registerEntityRenderingHandler(ButterflyInstance.class, new ButterflyRenderer(new ButterflyModel(0.75f), 0.5f, 1.5f));
 
         registerEntityRenderingHandler(
             WhaleRenderer.WhaleInstance.class,
@@ -259,8 +264,7 @@ public class ClientProxy implements ISidedProxy {
         registerEntityRenderingHandler(GhostInstance.class, new GhostRenderer(new ModelBiped(), 0.0f));
 
         MinecraftForge.EVENT_BUS.register(new GirlfriendOverlayGui(Minecraft.getMinecraft()));
-        registerEntityRenderingHandler(GirlfriendInstance.class, new RenderGirlfriend(new ModelBiped(), 0.5f));
-        registerEntityRenderingHandler(BoyfriendInstance.class, new RenderBoyfriend(new ModelBiped(), 0.55f));
+        registerEntityRenderingHandler(BoyfriendInstance.class, new BoyFriendRenderer(new ModelBiped(), 0.55f));
         registerEntityRenderingHandler(Shoes.class, new RenderShoe());
         registerEntityRenderingHandler(SunspotUrchin.class, new RenderItemUrchin());
         registerEntityRenderingHandler(WaterBallInstance.class, new RenderItemUrchin());

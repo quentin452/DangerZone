@@ -189,7 +189,7 @@ public class EmperorScorpion extends EntityMob {
             final int var5 = this.worldObj.rand.nextInt(20);
             switch (var5) {
                 case 0: {
-                    final ItemStack is = this.dropItemRand(ItemInitDangerZone.UltimateSword, 1);
+                    final ItemStack is = this.dropItemRand(ItemInitDangerZone.MyUltimateSword, 1);
                     break;
                 }
                 case 1: {

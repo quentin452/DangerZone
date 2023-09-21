@@ -16,14 +16,15 @@ public class ItemShoes extends Item {
 
     private int my_id;
 
-    public ItemShoes(final int j, int i) {
+    public ItemShoes(final int i, final int j) {
+        this.my_id = 0;
         this.my_id = j;
         this.maxStackSize = 64;
         this.setCreativeTab(CreativeTabs.tabDecorations);
     }
 
     public ItemStack onItemRightClick(final ItemStack par1ItemStack, final World par2World,
-        final EntityPlayer par3EntityPlayer) {
+                                      final EntityPlayer par3EntityPlayer) {
         if (!par3EntityPlayer.capabilities.isCreativeMode) {
             --par1ItemStack.stackSize;
         }
@@ -41,8 +42,7 @@ public class ItemShoes extends Item {
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon(
-            Tags.MODID + ":"
-                + this.getUnlocalizedName()
-                    .substring(5));
+            Tags.MODID +":" + this.getUnlocalizedName()
+                .substring(5));
     }
 }

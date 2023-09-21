@@ -41,7 +41,7 @@ public class BasiliskMaze {
             new WeightedRandomChestContent(Items.diamond_pickaxe, 0, 1, 1, 15),
             new WeightedRandomChestContent(Items.diamond_sword, 0, 1, 1, 15),
             new WeightedRandomChestContent(ItemInitDangerZone.UltimatePickaxe, 0, 1, 1, 15),
-            new WeightedRandomChestContent(ItemInitDangerZone.UltimateSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(ItemInitDangerZone.MyUltimateSword, 0, 1, 1, 15),
             new WeightedRandomChestContent(ItemInitDangerZone.UltimateFishingRod, 0, 1, 1, 15),
             new WeightedRandomChestContent(ItemInitDangerZone.UltimateBow, 0, 1, 1, 15),
             new WeightedRandomChestContent(Items.diamond_chestplate, 0, 1, 1, 15),

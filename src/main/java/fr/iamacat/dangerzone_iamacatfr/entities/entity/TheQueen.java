@@ -108,6 +108,7 @@ public class TheQueen extends EntityMob {
     protected void entityInit() {
         final int i = 0;
         super.entityInit();
+        this.dataWatcher = new DataWatcher(this);
         this.dataWatcher.addObject(20, (Object) i);
      //   this.dataWatcher.addObject(21, (Object) DangerZone.PlayNicely);
         this.dataWatcher.addObject(22, (Object) this.mood);

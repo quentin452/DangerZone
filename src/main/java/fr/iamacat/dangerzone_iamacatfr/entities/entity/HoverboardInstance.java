@@ -646,7 +646,7 @@ public class HoverboardInstance extends EntityLiving {
             par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, null);
             var2 = null;
         }
-        if (var2 != null && var2.getItem() == ItemInitDangerZone.UltimateSword
+        if (var2 != null && var2.getItem() == ItemInitDangerZone.MyUltimateSword
             && par1EntityPlayer.getDistanceSqToEntity(this) < 16.0) {
             if (!this.worldObj.isRemote) {
                 ++this.color;

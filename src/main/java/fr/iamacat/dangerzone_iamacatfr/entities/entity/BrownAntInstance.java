@@ -1,10 +1,13 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions.teleporter.SafeTeleporter;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -14,67 +17,98 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
+import java.util.List;
+import net.minecraft.util.ResourceLocation;
+
 public class BrownAntInstance extends EntityAnimal {
 
-    public boolean interact(final EntityPlayer player) {
-        if (!(player instanceof EntityPlayerMP)) {
-            return false;
-        }
+    public double moveSpeed;
+    private static final ResourceLocation texture1;
 
-        ItemStack heldItem = player.inventory.getCurrentItem();
-
-        if (heldItem != null && heldItem.stackSize > 0) {
-            // Player is holding an item, do not teleport
-            return false;
-        }
-
-        int targetDimensionId = player.dimension;
-        int destinationDimensionId;
-
-        if (targetDimensionId != DimensionInitDangerZone.UtopiaDimensionId) {
-            destinationDimensionId = DimensionInitDangerZone.UtopiaDimensionId;
-        } else {
-            destinationDimensionId = 0;
-        }
-
-        MinecraftServer server = MinecraftServer.getServer();
-        WorldServer targetWorld = server.worldServerForDimension(targetDimensionId);
-        WorldServer destinationWorld = server.worldServerForDimension(destinationDimensionId);
-
-        if (targetWorld != null && destinationWorld != null) {
-            SafeTeleporter teleporter = new SafeTeleporter(destinationWorld, destinationDimensionId, player.worldObj);
-            server.getConfigurationManager()
-                .transferPlayerToDimension((EntityPlayerMP) player, destinationDimensionId, teleporter);
-        }
-
-        return true;
-    }
-
-    public BrownAntInstance(World p_i1743_1_) {
-        super(p_i1743_1_);
-        this.setSize(0.7F, 0.45F);
-    }
-
-    @Override
-    public EntityAgeable createChild(EntityAgeable p_90011_1_) {
-        return null;
-    }
-
-    protected void entityInit() {
-        super.entityInit();
-        this.dataWatcher.addObject(16, 0);
-    }
-
-    public void onUpdate() {
-        super.onUpdate();
+    public BrownAntInstance(final World par1World) {
+        super(par1World);
+        this.moveSpeed = 0.15000000596046448;
+        this.setSize(0.1f, 0.1f);
+        this.experienceValue = 0;
+        this.getNavigator()
+            .setAvoidsWater(true);
+        this.tasks.addTask(0, new EntityAIPanic(this, 1.4));
+        this.tasks.addTask(1, new MyEntityAIWanderALot(this, 9, 1.0));
     }
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
-            .setBaseValue(0.50D);
+            .setBaseValue(this.mygetMaxHealth());
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
-            .setBaseValue(0.400000011920929D);
+            .setBaseValue(this.moveSpeed);
+        this.getAttributeMap()
+            .registerAttribute(SharedMonsterAttributes.attackDamage);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
+            .setBaseValue(0.0);
+    }
+
+    public ResourceLocation getTexture(final BrownAntInstance a) {
+        return BrownAntInstance.texture1;
+    }
+
+    protected boolean canDespawn() {
+        return !this.isNoDespawnRequired();
+    }
+
+    public void onUpdate() {
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
+            .setBaseValue(this.moveSpeed);
+        super.onUpdate();
+    }
+
+    public boolean interact(final EntityPlayer par1EntityPlayer) {
+        if (par1EntityPlayer == null) {
+            return false;
+        }
+        if (!(par1EntityPlayer instanceof EntityPlayerMP)) {
+            return false;
+        }
+        ItemStack var2 = par1EntityPlayer.inventory.getCurrentItem();
+        if (var2 != null && var2.stackSize <= 0) {
+            par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, null);
+            var2 = null;
+        }
+        if (var2 != null) {
+            return false;
+        }
+        if (par1EntityPlayer.dimension !=        DimensionInitDangerZone.UtopiaDimensionId) {
+            MinecraftServer.getServer()
+                .getConfigurationManager()
+                .transferPlayerToDimension(
+                    (EntityPlayerMP) par1EntityPlayer,
+                   DimensionInitDangerZone.UtopiaDimensionId,
+                  new SafeTeleporter(
+                        MinecraftServer.getServer()
+                            .worldServerForDimension(       DimensionInitDangerZone.UtopiaDimensionId),
+                      DimensionInitDangerZone.UtopiaDimensionId,
+                        this.worldObj));
+        } else {
+            MinecraftServer.getServer()
+                .getConfigurationManager()
+                .transferPlayerToDimension(
+                    (EntityPlayerMP) par1EntityPlayer,
+                    0,
+                   new SafeTeleporter(
+                        MinecraftServer.getServer()
+                            .worldServerForDimension(0),
+                        0,
+                        this.worldObj));
+        }
+        return true;
+    }
+
+    public boolean isAIEnabled() {
+        return true;
+    }
+
+    public int mygetMaxHealth() {
+        return 1;
     }
 
     protected String getLivingSound() {
@@ -89,11 +123,40 @@ public class BrownAntInstance extends EntityAnimal {
         return null;
     }
 
-    protected void func_145780_a(int x, int y, int z, Block blockIn) {
-        // this.playSound("mob.spider.step", 0.15F, 1.0F);
+    protected float getSoundVolume() {
+        return 0.0f;
     }
 
-    protected Item getDropItem() {
+    protected void playStepSound(final int par1, final int par2, final int par3, final int par4) {}
+
+    protected void dropFewItems(final boolean par1, final int par2) {}
+
+    protected boolean canTriggerWalking() {
+        return true;
+    }
+
+    public EntityAgeable createChild(final EntityAgeable var1) {
         return null;
+    }
+
+    public boolean getCanSpawnHere() {
+        return this.posY >= 50.0 && this.findBuddies() <= 4;
+    }
+
+    private int findBuddies() {
+        final List var5 = this.worldObj
+            .getEntitiesWithinAABB(BrownAntInstance.class, this.boundingBox.expand(20.0, 10.0, 20.0));
+        return var5.size();
+    }
+
+    public void updateAITick() {
+        if (this.worldObj.rand.nextInt(200) == 1) {
+            this.setRevengeTarget(null);
+        }
+        super.updateAITick();
+    }
+
+    static {
+        texture1 = new ResourceLocation(Tags.MODID  +":textures/entity/brown_ant.png");
     }
 }

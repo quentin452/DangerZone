@@ -446,6 +446,7 @@ public class BoyFriendRenderer extends RenderLiving {
             default:
                 return texture0;
         }
+
     }
 
     @Override

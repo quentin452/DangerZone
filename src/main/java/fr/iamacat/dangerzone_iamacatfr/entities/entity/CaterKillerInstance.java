@@ -73,6 +73,7 @@ public class CaterKillerInstance extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
+        this.dataWatcher = new DataWatcher(this);
         this.dataWatcher.addObject(20, (Object) 0);
      //   this.dataWatcher.addObject(21, (Object) DangerZone.PlayNicely);
     }
@@ -173,7 +174,7 @@ public class CaterKillerInstance extends EntityMob {
             final int var5 = this.worldObj.rand.nextInt(20);
             switch (var5) {
                 case 0: {
-                    is = this.dropItemRand(ItemInitDangerZone.UltimateSword, 1);
+                    is = this.dropItemRand(ItemInitDangerZone.MyUltimateSword, 1);
                     break;
                 }
                 case 1: {
@@ -395,8 +396,8 @@ public class CaterKillerInstance extends EntityMob {
                     || bid == BlockInitDangerZone.BlockAppleLeaves
                     || bid == BlockInitDangerZone.BlockExperienceLeaves
                     || bid == BlockInitDangerZone.BlockScaryLeaves
-                    || bid == BlockInitDangerZone.BlockScaryLeaves2
-                    || bid == BlockInitDangerZone.BlockScaryLeaves3) {
+                    || bid == BlockInitDangerZone.MyPeachLeaves
+                    || bid == BlockInitDangerZone.MyCherryLeaves) {
                     final int d = dx * dx + j * j + i * i;
                     if (d < this.closest) {
                         this.closest = d;
@@ -415,8 +416,8 @@ public class CaterKillerInstance extends EntityMob {
                     || bid == BlockInitDangerZone.BlockAppleLeaves
                     || bid == BlockInitDangerZone.BlockExperienceLeaves
                     || bid == BlockInitDangerZone.BlockScaryLeaves
-                    || bid == BlockInitDangerZone.BlockScaryLeaves2
-                    || bid == BlockInitDangerZone.BlockScaryLeaves3) {
+                    || bid == BlockInitDangerZone.MyPeachLeaves
+                    || bid == BlockInitDangerZone.MyCherryLeaves) {
                     final int d = dx * dx + j * j + i * i;
                     if (d < this.closest) {
                         this.closest = d;
@@ -439,8 +440,8 @@ public class CaterKillerInstance extends EntityMob {
                     || bid == BlockInitDangerZone.BlockAppleLeaves
                     || bid == BlockInitDangerZone.BlockExperienceLeaves
                     || bid == BlockInitDangerZone.BlockScaryLeaves
-                    || bid == BlockInitDangerZone.BlockScaryLeaves2
-                    || bid == BlockInitDangerZone.BlockScaryLeaves3) {
+                    || bid == BlockInitDangerZone.MyPeachLeaves
+                    || bid == BlockInitDangerZone.MyCherryLeaves) {
                     final int d = dy * dy + j * j + i * i;
                     if (d < this.closest) {
                         this.closest = d;
@@ -459,8 +460,8 @@ public class CaterKillerInstance extends EntityMob {
                     || bid == BlockInitDangerZone.BlockAppleLeaves
                     || bid == BlockInitDangerZone.BlockExperienceLeaves
                     || bid == BlockInitDangerZone.BlockScaryLeaves
-                    || bid == BlockInitDangerZone.BlockScaryLeaves2
-                    || bid == BlockInitDangerZone.BlockScaryLeaves3) {
+                    || bid == BlockInitDangerZone.MyPeachLeaves
+                    || bid == BlockInitDangerZone.MyCherryLeaves) {
                     final int d = dy * dy + j * j + i * i;
                     if (d < this.closest) {
                         this.closest = d;
@@ -483,8 +484,8 @@ public class CaterKillerInstance extends EntityMob {
                     || bid == BlockInitDangerZone.BlockAppleLeaves
                     || bid == BlockInitDangerZone.BlockExperienceLeaves
                     || bid == BlockInitDangerZone.BlockScaryLeaves
-                    || bid == BlockInitDangerZone.BlockScaryLeaves2
-                    || bid == BlockInitDangerZone.BlockScaryLeaves3) {
+                    || bid == BlockInitDangerZone.MyPeachLeaves
+                    || bid == BlockInitDangerZone.MyCherryLeaves) {
                     final int d = dz * dz + j * j + i * i;
                     if (d < this.closest) {
                         this.closest = d;
@@ -503,8 +504,8 @@ public class CaterKillerInstance extends EntityMob {
                     || bid == BlockInitDangerZone.BlockAppleLeaves
                     || bid == BlockInitDangerZone.BlockExperienceLeaves
                     || bid == BlockInitDangerZone.BlockScaryLeaves
-                    || bid == BlockInitDangerZone.BlockScaryLeaves2
-                    || bid == BlockInitDangerZone.BlockScaryLeaves3) {
+                    || bid == BlockInitDangerZone.MyPeachLeaves
+                    || bid == BlockInitDangerZone.MyCherryLeaves) {
                     final int d = dz * dz + j * j + i * i;
                     if (d < this.closest) {
                         this.closest = d;

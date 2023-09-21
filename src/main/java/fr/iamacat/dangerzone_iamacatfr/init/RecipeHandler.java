@@ -663,7 +663,7 @@ public class RecipeHandler {
         GameRegistry.addSmelting(ItemInitDangerZone.WoodFish, new ItemStack(Items.cooked_fished), 0.2f);
         GameRegistry.addSmelting(ItemInitDangerZone.GreyFish, new ItemStack(Items.cooked_fished), 0.2f);
         GameRegistry.addRecipe(
-            new ItemStack(ItemInitDangerZone.UltimateSword),
+            new ItemStack(ItemInitDangerZone.MyUltimateSword),
             " T ",
             " U ",
             " I ",
@@ -674,7 +674,7 @@ public class RecipeHandler {
             'T',
             ItemInitDangerZone.TitaniumIngot);
         GameRegistry.addRecipe(
-            new ItemStack(ItemInitDangerZone.UltimateSword),
+            new ItemStack(ItemInitDangerZone.MyUltimateSword),
             "T  ",
             "U  ",
             "I  ",
@@ -685,7 +685,7 @@ public class RecipeHandler {
             'T',
             ItemInitDangerZone.TitaniumIngot);
         GameRegistry.addRecipe(
-            new ItemStack(ItemInitDangerZone.UltimateSword),
+            new ItemStack(ItemInitDangerZone.MyUltimateSword),
             "  T",
             "  U",
             "  I",
@@ -1481,13 +1481,13 @@ public class RecipeHandler {
             ItemInitDangerZone.AmethystIngot);
         GameRegistry.addShapelessRecipe(
             new ItemStack(ItemInitDangerZone.MyHammy),
-            ItemInitDangerZone.UltimateSword,
-            ItemInitDangerZone.UltimateSword,
+            ItemInitDangerZone.MyUltimateSword,
+            ItemInitDangerZone.MyUltimateSword,
             ItemInitDangerZone.BigHammer,
             ItemInitDangerZone.GreenGoo);
         GameRegistry.addShapelessRecipe(
             new ItemStack(ItemInitDangerZone.BattleAxe),
-            ItemInitDangerZone.UltimateSword,
+            ItemInitDangerZone.MyUltimateSword,
             ItemInitDangerZone.UltimateAxe,
             ItemInitDangerZone.GreenGoo);
         GameRegistry.addRecipe(
@@ -1534,7 +1534,7 @@ public class RecipeHandler {
             ItemInitDangerZone.KrakenTooth,
             ItemInitDangerZone.WormTooth,
             ItemInitDangerZone.TrexTooth,
-            ItemInitDangerZone.UltimateSword,
+            ItemInitDangerZone.MyUltimateSword,
             ItemInitDangerZone.CaterKillerJaw,
             ItemInitDangerZone.SeaViperTongue,
             ItemInitDangerZone.VortexEye);

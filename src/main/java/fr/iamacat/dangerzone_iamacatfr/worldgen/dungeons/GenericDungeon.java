@@ -148,7 +148,7 @@ public class GenericDungeon {
             new WeightedRandomChestContent(Items.cooked_fished, 0, 3, 10, 35),
             new WeightedRandomChestContent(ItemInitDangerZone.BltSandwitch, 0, 4, 10, 35),
             new WeightedRandomChestContent(ItemInitDangerZone.Salad, 0, 4, 10, 35),
-            new WeightedRandomChestContent(ItemInitDangerZone.Corn, 0, 4, 10, 35) };
+            new WeightedRandomChestContent(ItemInitDangerZone.ItemCornCob, 0, 4, 10, 35) };
         this.CrystalBattleTowerDungeonBeastContentsList = new WeightedRandomChestContent[] {
             new WeightedRandomChestContent(Items.dye, 0, 6, 16, 25),
             new WeightedRandomChestContent(ItemInitDangerZone.SquidZooka, 0, 1, 1, 25),
@@ -207,7 +207,7 @@ public class GenericDungeon {
             new WeightedRandomChestContent(Items.gold_nugget, 0, 3, 10, 35),
             new WeightedRandomChestContent(Items.gold_ingot, 0, 3, 10, 35),
             new WeightedRandomChestContent(Items.experience_bottle, 0, 4, 10, 35),
-            new WeightedRandomChestContent(ItemInitDangerZone.Corn, 0, 4, 10, 35),
+            new WeightedRandomChestContent(ItemInitDangerZone.ItemCornCob, 0, 4, 10, 35),
             new WeightedRandomChestContent(ItemInitDangerZone.ExperienceCatcher, 0, 4, 10, 25),
             new WeightedRandomChestContent(Items.bone, 0, 4, 10, 35),
             new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.gold_block), 0, 4, 10, 35) };
@@ -220,7 +220,7 @@ public class GenericDungeon {
             new WeightedRandomChestContent(Items.cooked_fished, 0, 3, 10, 35),
             new WeightedRandomChestContent(ItemInitDangerZone.BltSandwitch, 0, 4, 10, 35),
             new WeightedRandomChestContent(ItemInitDangerZone.Salad, 0, 4, 10, 35),
-            new WeightedRandomChestContent(ItemInitDangerZone.Corn, 0, 4, 10, 35) };
+            new WeightedRandomChestContent(ItemInitDangerZone.ItemCornCob, 0, 4, 10, 35) };
         this.EnderCastleContentsList = new WeightedRandomChestContent[] {
             new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.ender_chest), 0, 2, 4, 35),
             new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.diamond_block), 0, 2, 4, 35),
@@ -347,7 +347,7 @@ public class GenericDungeon {
             new WeightedRandomChestContent(ItemInitDangerZone.SquidZooka, 0, 1, 1, 15),
             new WeightedRandomChestContent(ItemInitDangerZone.TitaniumIngot, 0, 1, 1, 5),
             new WeightedRandomChestContent(ItemInitDangerZone.UraniumIngot, 0, 1, 1, 5),
-            new WeightedRandomChestContent(ItemInitDangerZone.UltimateSword, 0, 1, 1, 10),
+            new WeightedRandomChestContent(ItemInitDangerZone.MyUltimateSword, 0, 1, 1, 10),
             new WeightedRandomChestContent(ItemInitDangerZone.UltimateBow, 0, 1, 1, 10),
             new WeightedRandomChestContent(Constants.EnderReaperSpawnEgg, 0, 2, 8, 15),
             // new WeightedRandomChestContent(SpawnEggInitDangerZone.PitchBlackEgg, 0, 2, 8, 15) todo

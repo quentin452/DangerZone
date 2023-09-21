@@ -164,7 +164,10 @@ public class BoyfriendInstance extends EntityTameable implements IRangedAttackMo
         this.dataWatcher.addObject(20, (Object) this.which_guy);
         this.wet_count = 0;
         this.which_wet_guy = this.rand.nextInt(18);
-        this.dataWatcher.addObject(22, (Object) this.which_wet_guy);
+        this.dataWatcher = new DataWatcher(this);
+
+        this.which_guy = this.rand.nextInt(28);
+        this.dataWatcher.addObject(20, (Object) this.which_guy);
         this.voice = this.rand.nextInt(10);
         this.dataWatcher.addObject(21, (Object) this.voice);
         this.dataWatcher.addObject(23, (Object) this.voice_enable);

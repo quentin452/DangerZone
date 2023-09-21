@@ -194,6 +194,7 @@ public class GirlfriendInstance extends EntityTameable implements IRangedAttackM
 
     protected void entityInit() {
         super.entityInit();
+        this.dataWatcher = new DataWatcher(this);
         this.which_girl = this.rand.nextInt(41);
         this.dataWatcher.addObject(20, (Object) this.which_girl);
         this.wet_count = 0;

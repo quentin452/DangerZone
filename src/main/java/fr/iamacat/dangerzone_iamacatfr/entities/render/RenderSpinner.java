@@ -58,6 +58,6 @@ public class RenderSpinner extends Render {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID + ":spinners.png");
+        texture = new ResourceLocation(Tags.MODID + ":textures/spinners.png");
     }
 }

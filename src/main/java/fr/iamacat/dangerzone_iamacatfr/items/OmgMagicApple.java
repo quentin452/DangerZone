@@ -69,7 +69,7 @@ public class OmgMagicApple extends Item {
             new WeightedRandomChestContent(Items.bow, 0, 1, 1, 20),
             new WeightedRandomChestContent(Items.arrow, 0, 1, 64, 20),
             new WeightedRandomChestContent(ItemInitDangerZone.UltimatePickaxe, 0, 1, 1, 2),
-            new WeightedRandomChestContent(ItemInitDangerZone.UltimateSword, 0, 1, 1, 1),
+            new WeightedRandomChestContent(ItemInitDangerZone.MyUltimateSword, 0, 1, 1, 1),
             new WeightedRandomChestContent(ItemInitDangerZone.UltimateFishingRod, 0, 1, 1, 5),
             new WeightedRandomChestContent(Items.iron_chestplate, 0, 1, 1, 20),
             new WeightedRandomChestContent(Items.iron_helmet, 0, 1, 1, 20),

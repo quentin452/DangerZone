@@ -52,6 +52,6 @@ public class RenderCaveFisher extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID + ":CaveFisher.png");
+        texture = new ResourceLocation(Tags.MODID + ":textures/entity/CaveFisher.png");
     }
 }

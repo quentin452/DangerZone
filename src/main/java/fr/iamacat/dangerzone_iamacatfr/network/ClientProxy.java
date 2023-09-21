@@ -51,12 +51,6 @@ public class ClientProxy implements ISidedProxy {
             new GoldenAppleCowRenderer(new GoldenAppleCowModel(), 0.5F));
 
 
-        RenderingRegistry.registerEntityRenderingHandler(
-            GirlFriendInstance.class,
-            new GirlFriendRenderer(new ModelBiped(0.5f), 0.5f));
-        RenderingRegistry
-            .registerEntityRenderingHandler(BoyFriendInstance.class, new BoyFriendRenderer(new ModelBiped(0.5f), 0.5f));
-
         RenderingRegistry
             .registerEntityRenderingHandler(TinyBirdsInstance.class, new TinyBirdsRenderer(new TinyBirdsModel(), 1.0F));
 

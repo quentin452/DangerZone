@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -77,8 +78,8 @@ public class CrystalGrass extends Block {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
-        (this.field_94364_a = new IIcon[3])[0] = par1IIconRegister.registerIcon("OreSpawn:crystalgrass_top");
-        this.field_94364_a[1] = par1IIconRegister.registerIcon("OreSpawn:crystalgrass_bottom");
-        this.field_94364_a[2] = par1IIconRegister.registerIcon("OreSpawn:crystalgrass_side");
+        (this.field_94364_a = new IIcon[3])[0] = par1IIconRegister.registerIcon(Tags.MODID +":crystalgrass_top");
+        this.field_94364_a[1] = par1IIconRegister.registerIcon(Tags.MODID +":crystalgrass_bottom");
+        this.field_94364_a[2] = par1IIconRegister.registerIcon(Tags.MODID +":crystalgrass_side");
     }
 }

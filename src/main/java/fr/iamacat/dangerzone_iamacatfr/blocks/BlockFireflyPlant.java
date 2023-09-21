@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -89,7 +90,7 @@ public class BlockFireflyPlant extends BlockCrops {
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
         this.field_94364_a = new IIcon[4];
         for (int i = 0; i < this.field_94364_a.length; ++i) {
-            this.field_94364_a[i] = par1IIconRegister.registerIcon("OreSpawn:firefly_" + i);
+            this.field_94364_a[i] = par1IIconRegister.registerIcon(Tags.MODID +":firefly_" + i);
         }
     }
 }

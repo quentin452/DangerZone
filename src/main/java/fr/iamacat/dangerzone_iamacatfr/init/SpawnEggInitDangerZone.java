@@ -40,12 +40,12 @@ public class SpawnEggInitDangerZone {
         Constants.TheQueenSpawnEgg = TheQueenSpawnEgg;
         GameRegistry.registerItem(Constants.TheQueenSpawnEgg, "The Queen Egg");
 
-        SpawnEggs Girlfriend = new SpawnEggs(GirlFriendInstance.class);
+        SpawnEggs Girlfriend = new SpawnEggs(Girlfriend.class);
         Girlfriend.setUnlocalizedName("girlfriend_egg");
         Constants.Girlfriend = Girlfriend;
         GameRegistry.registerItem(Constants.Girlfriend, "Girlfriend Egg");
 
-        SpawnEggs Boyfriend = new SpawnEggs(BoyFriendInstance.class);
+        SpawnEggs Boyfriend = new SpawnEggs(Boyfriend.class);
         Boyfriend.setUnlocalizedName("boyfriend_egg");
         Constants.Boyfriend = Boyfriend;
         GameRegistry.registerItem(Constants.Boyfriend, "Boyfriend Egg");

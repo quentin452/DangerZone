@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -54,7 +55,7 @@ public class EntityMosquito extends EntityAmbientCreature {
     }
 
     protected String getLivingSound() {
-        return "orespawn:mosquito";
+        return Tags.MODID + ":mosquito";
     }
 
     protected String getHurtSound() {

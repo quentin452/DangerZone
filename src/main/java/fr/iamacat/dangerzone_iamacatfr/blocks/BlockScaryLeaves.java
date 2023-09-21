@@ -113,8 +113,8 @@ public class BlockScaryLeaves extends BlockLeaves {
         this.blockIcon = iconRegister.registerIcon(
             Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5));
-        this.generic_solid = iconRegister.registerIcon("OreSpawn:generic_solid");
-        this.scary_solid = iconRegister.registerIcon("OreSpawn:scary_solid");
+        this.generic_solid = iconRegister.registerIcon(Tags.MODID +":generic_solid");
+        this.scary_solid = iconRegister.registerIcon(Tags.MODID +":scary_solid");
     }
 
     @SideOnly(Side.CLIENT)

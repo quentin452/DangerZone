@@ -167,7 +167,7 @@ public class BlockExperienceLeaves extends BlockLeaves {
         this.blockIcon = iconRegister.registerIcon(
             Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5));
-        this.generic_solid = iconRegister.registerIcon("OreSpawn:generic_solid");
+        this.generic_solid = iconRegister.registerIcon(Tags.MODID +":generic_solid");
     }
 
     @SideOnly(Side.CLIENT)

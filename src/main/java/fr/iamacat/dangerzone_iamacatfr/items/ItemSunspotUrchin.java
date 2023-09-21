@@ -13,9 +13,10 @@ import net.minecraft.world.World;
 
 public class ItemSunspotUrchin extends Item
 {
-    public ItemSunspotUrchin(final int i) {
+    public ItemSunspotUrchin() {
         this.maxStackSize = 64;
         this.setCreativeTab(CreativeTabs.tabCombat);
+        this.setTextureName(Tags.MODID + ":sunspoturchin");
     }
 
     public ItemStack onItemRightClick(final ItemStack par1ItemStack, final World par2World, final EntityPlayer par3EntityPlayer) {
@@ -30,7 +31,7 @@ public class ItemSunspotUrchin extends Item
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerIcons(final IIconRegister iconRegister) {
-        this.itemIcon = iconRegister.registerIcon(Tags.MODID + this.getUnlocalizedName().substring(5));
+    public void registerIcons(IIconRegister iconRegister) {
+        this.itemIcon = iconRegister.registerIcon(Tags.MODID + ":sunspoturchin");
     }
 }

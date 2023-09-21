@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -118,8 +119,8 @@ public class CrystalAntBlock extends Block {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
-        (this.field_94364_a = new IIcon[3])[0] = par1IIconRegister.registerIcon("OreSpawn:crystaltermite_top");
-        this.field_94364_a[1] = par1IIconRegister.registerIcon("OreSpawn:crystaltermite_bottom");
-        this.field_94364_a[2] = par1IIconRegister.registerIcon("OreSpawn:crystaltermite_side");
+        (this.field_94364_a = new IIcon[3])[0] = par1IIconRegister.registerIcon(Tags.MODID +":crystaltermite_top");
+        this.field_94364_a[1] = par1IIconRegister.registerIcon(Tags.MODID +":crystaltermite_bottom");
+        this.field_94364_a[2] = par1IIconRegister.registerIcon(Tags.MODID +":crystaltermite_side");
     }
 }

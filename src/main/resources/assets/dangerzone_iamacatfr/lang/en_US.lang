@@ -80,6 +80,10 @@ entity.EntityEndDragon.name=End Dragon
 entity.EntityEnthalledDragon.name=Enthalled Dragon
 entity.EntityEmeraldDragon.name=Emerald Dragon
 entity.EntityIronDragon.name=Iron Dragon
+entity.Frog.name=Frog
+entity.Girlfriend.name=Girl Friend
+entity.Coin.name=Coin
+entity.Rubber Ducky.name=Rubber Ducky
 
 entity.TwilightMob.name=Twilight Mob
 entity.DemonSpiderEntity.name=Demon Spider

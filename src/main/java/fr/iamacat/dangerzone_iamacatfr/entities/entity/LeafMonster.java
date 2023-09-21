@@ -23,7 +23,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -99,7 +98,7 @@ public class LeafMonster extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
             .setBaseValue(this.moveSpeed);
         super.onUpdate();
-        if (this.getAttacking() == 0) {
+        /*if (this.getAttacking() == 0) {
             int px = (int) this.posX;
             final int py = (int) this.posY;
             final int pz = (int) this.posZ;
@@ -125,6 +124,8 @@ public class LeafMonster extends EntityMob {
             this.rotationYawHead = n;
             this.rotationYaw = n;
         }
+
+         */
     }
 
     protected String getLivingSound() {
@@ -153,7 +154,7 @@ public class LeafMonster extends EntityMob {
             return Item.getItemFromBlock(Blocks.log);
         }
         if (i == 1) {
-            return Item.getItemFromBlock((Block) Blocks.leaves);
+            return Item.getItemFromBlock(Blocks.leaves);
         }
         return Items.rotten_flesh;
     }
@@ -220,10 +221,10 @@ public class LeafMonster extends EntityMob {
         }
         final List var5 = this.worldObj
             .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(4.0, 6.0, 4.0));
-        Collections.sort((List<Object>) var5, (Comparator<? super Object>) this.TargetSorter);
+        Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
-        Entity var7 = null;
-        EntityLivingBase var8 = null;
+        Entity var7;
+        EntityLivingBase var8;
         while (var6.hasNext()) {
             var7 = (Entity) var6.next();
             var8 = (EntityLivingBase) var7;

@@ -53,6 +53,6 @@ public class RenderTshirt extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":Tshirttexture.png");
+        texture = new ResourceLocation(Tags.MODID+":textures/entity/Tshirttexture.png");
     }
 }

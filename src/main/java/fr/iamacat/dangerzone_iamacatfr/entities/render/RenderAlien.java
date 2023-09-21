@@ -53,6 +53,6 @@ public class RenderAlien extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":MyAlien.png");
+        texture = new ResourceLocation(Tags.MODID+":textures/entity/Alien.png");
     }
 }

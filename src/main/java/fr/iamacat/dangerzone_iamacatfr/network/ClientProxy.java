@@ -44,36 +44,13 @@ public class ClientProxy implements ISidedProxy {
             CrystalCowInstance.class,
             new CrystalCowRenderer(new CrystalCowModel(), 0.5F));
         RenderingRegistry.registerEntityRenderingHandler(
-            EnchantedGoldenAppleCowInstance.class,
-            new EnchantedGoldenAppleCowRenderer(new EnchantedGoldenAppleCowModel(), 0.5F));
-        RenderingRegistry.registerEntityRenderingHandler(
             GoldenAppleCowInstance.class,
             new GoldenAppleCowRenderer(new GoldenAppleCowModel(), 0.5F));
 
 
-        RenderingRegistry
-            .registerEntityRenderingHandler(TinyBirdsInstance.class, new TinyBirdsRenderer(new TinyBirdsModel(), 1.0F));
 
-        RenderingRegistry.registerEntityRenderingHandler(
-            BirdsInstance.class,
-            new BirdsRenderer(new BirdsModel(), 1.0F, "tinybirdbrown.png"));
-
-        RenderingRegistry.registerEntityRenderingHandler(
-            CaveFisherInstance.class,
-            new CaveFisherRenderer(new CaveFisherModel(), 1.0F));
         RenderingRegistry
             .registerEntityRenderingHandler(EyeRayInstance.class, new EyeRayRenderer(new EyeRayModel(), 1.0F));
-
-        RenderingRegistry.registerEntityRenderingHandler(
-            CrabInstance.class,
-            new CrabRenderer(new CrabModel(), 0.625F, ":textures/entity/helmetcrab.png"));
-
-        RenderingRegistry
-            .registerEntityRenderingHandler(AlienInstance.class, new AlienRenderer(new AlienModel(), 0.5f));
-        RenderingRegistry.registerEntityRenderingHandler(RatInstance.class, new RatRenderer(new RatModel(), 0.5f));
-
-        RenderingRegistry
-            .registerEntityRenderingHandler(AlosaurusInstance.class, new AlosaurusRenderer(new AlosaurusModel(), 0.5f));
 
         RenderingRegistry.registerEntityRenderingHandler(EntityBirchDragon.class, new RenderBirchDragon());
         RenderingRegistry.registerEntityRenderingHandler(EntityBlazeDragon.class, new RenderBlazeDragon());
@@ -111,23 +88,15 @@ public class ClientProxy implements ISidedProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityBoneDragon.class, new RenderBoneDragon());
         RenderingRegistry.registerEntityRenderingHandler(EntityAngelDragon.class, new RenderAngelDragon());
 
-        RenderingRegistry.registerEntityRenderingHandler(
-            BaryonyxInstance.class,
-            new BaryonyxRenderer(new BaryonyxModel(), shadowSize, 2.5f));
+
         RenderingRegistry
             .registerEntityRenderingHandler(MassoInstance.class, new MassoRenderer(new MassoModel(), shadowSize));
-        RenderingRegistry
-            .registerEntityRenderingHandler(BasilikInstance.class, new BasilikRenderer(new BasilikModel(), 0.5f));
+
         ResourceLocation textureLocation = new ResourceLocation(Tags.MODID, "textures/entity/beaver.png");
 
-        RenderingRegistry.registerEntityRenderingHandler(
-            BeaverInstance.class,
-            new GenericLivingRenderer(new BeaverModel(), 0.5f, textureLocation));
+
         RenderingRegistry.registerEntityRenderingHandler(BeeInstance.class, new BeeRenderer());
         RenderingRegistry.registerEntityRenderingHandler(DarkCrystalInstance.class, new DarkCrystalRenderer());
-        RenderingRegistry.registerEntityRenderingHandler(
-            ChipMunkInstance.class,
-            new RenderTFGenericLiving(new ChipmunkModel(), 1.0F, ":textures/entity/squirrel2.png"));
 
         RenderingRegistry.registerEntityRenderingHandler(
             WhaleRenderer.WhaleInstance.class,

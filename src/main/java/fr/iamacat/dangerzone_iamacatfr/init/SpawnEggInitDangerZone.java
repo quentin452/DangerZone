@@ -25,7 +25,7 @@ public class SpawnEggInitDangerZone {
         Constants.CrystalCowSpawnEgg = crystalCowSpawnEgg;
         GameRegistry.registerItem(Constants.CrystalCowSpawnEgg, "Crystal Cow Egg");
 
-        SpawnEggs enchantedGoldenAppleCowSpawnEgg = new SpawnEggs(EnchantedGoldenAppleCowInstance.class);
+        SpawnEggs enchantedGoldenAppleCowSpawnEgg = new SpawnEggs(EnchantedCow.class);
         enchantedGoldenAppleCowSpawnEgg.setUnlocalizedName("enchanted_golden_apple_cow_egg");
         Constants.EnchantedGoldenAppleCowSpawnEgg = enchantedGoldenAppleCowSpawnEgg;
         GameRegistry.registerItem(Constants.EnchantedGoldenAppleCowSpawnEgg, "Enchanted Golden Apple Cow Egg");
@@ -70,7 +70,7 @@ public class SpawnEggInitDangerZone {
         Constants.EnderReaperSpawnEgg = EnderReaperSpawnEgg;
         GameRegistry.registerItem(Constants.EnderReaperSpawnEgg, "Ender Reaper Egg");
 
-        SpawnEggs BeaverSpawnEgg = new SpawnEggs(BeaverInstance.class);
+        SpawnEggs BeaverSpawnEgg = new SpawnEggs(Beaver.class);
         BeaverSpawnEgg.setUnlocalizedName("beaver_egg");
         Constants.BeaverSpawnEgg = BeaverSpawnEgg;
         GameRegistry.registerItem(Constants.BeaverSpawnEgg, "Beaver Egg");
@@ -115,7 +115,7 @@ public class SpawnEggInitDangerZone {
         Constants.ThePrincessSpawnEgg = ThePrincessSpawnEgg;
         GameRegistry.registerItem(Constants.ThePrincessSpawnEgg, "The Pricess Egg");
 
-        SpawnEggs CrabSpawnEgg = new SpawnEggs(CrabInstance.class);
+        SpawnEggs CrabSpawnEgg = new SpawnEggs(Crab.class);
         CrabSpawnEgg.setUnlocalizedName("crab_egg");
         Constants.CrabSpawnEgg = CrabSpawnEgg;
         GameRegistry.registerItem(Constants.CrabSpawnEgg, "Crab Egg");
@@ -233,7 +233,7 @@ public class SpawnEggInitDangerZone {
         Constants.BombombSpawnEgg = BombombSpawnEgg;
         GameRegistry.registerItem(Constants.BombombSpawnEgg, "Bomb Omb Egg");
 
-        SpawnEggs RatSpawnEgg = new SpawnEggs(RatInstance.class);
+        SpawnEggs RatSpawnEgg = new SpawnEggs(Rat.class);
         RatSpawnEgg.setUnlocalizedName("rat_egg");
         Constants.RatSpawnEgg = RatSpawnEgg;
         GameRegistry.registerItem(Constants.RatSpawnEgg, "Rat Egg");
@@ -333,7 +333,7 @@ public class SpawnEggInitDangerZone {
         Constants.DragonSpawnEgg = DragonSpawnEgg;
         GameRegistry.registerItem(Constants.DragonSpawnEgg, "Dragon Egg");
 
-        SpawnEggs AlosaurusSpawnEgg = new SpawnEggs(AlosaurusInstance.class);
+        SpawnEggs AlosaurusSpawnEgg = new SpawnEggs(Alosaurus.class);
         AlosaurusSpawnEgg.setUnlocalizedName("alosaurus_egg");
         Constants.AlosaurusSpawnEgg = AlosaurusSpawnEgg;
         GameRegistry.registerItem(Constants.AlosaurusSpawnEgg, "Alosaurus Egg");
@@ -348,17 +348,17 @@ public class SpawnEggInitDangerZone {
         Constants.CryolohosaurusSpawnEgg = CryolohosaurusSpawnEgg;
         GameRegistry.registerItem(Constants.CryolohosaurusSpawnEgg, "Cryolophosaurus Egg");
 
-        SpawnEggs BasiliskSpawnEgg = new SpawnEggs(BasilikInstance.class);
+        SpawnEggs BasiliskSpawnEgg = new SpawnEggs(Basilisk.class);
         BasiliskSpawnEgg.setUnlocalizedName("basilisc_egg");
         Constants.BasiliskSpawnEgg = BasiliskSpawnEgg;
         GameRegistry.registerItem(Constants.BasiliskSpawnEgg, "Basilisk Egg");
 
-        SpawnEggs ChipmunkSpawnEgg = new SpawnEggs(ChipMunkInstance.class);
+        SpawnEggs ChipmunkSpawnEgg = new SpawnEggs(Chipmunk.class);
         ChipmunkSpawnEgg.setUnlocalizedName("chipmunk_egg");
         Constants.ChipmunkSpawnEgg = ChipmunkSpawnEgg;
         GameRegistry.registerItem(Constants.ChipmunkSpawnEgg, "Chipmunk Egg");
 
-        SpawnEggs BrayonyxSPawnEgg = new SpawnEggs(BaryonyxInstance.class);
+        SpawnEggs BrayonyxSPawnEgg = new SpawnEggs(Baryonyx.class);
         BrayonyxSPawnEgg.setUnlocalizedName("baryonyx_egg");
         Constants.BrayonyxSPawnEgg = BrayonyxSPawnEgg;
         GameRegistry.registerItem(Constants.BrayonyxSPawnEgg, "Baryonyx Egg");
@@ -398,15 +398,10 @@ public class SpawnEggInitDangerZone {
         Constants.WtfSpawnEgg = WtfSpawnEgg;
         GameRegistry.registerItem(Constants.WtfSpawnEgg, "WTF? Egg");
 
-        SpawnEggs BirdSpawnEgg = new SpawnEggs(TinyBirdsInstance.class);
+        SpawnEggs BirdSpawnEgg = new SpawnEggs(Cockateil.class);
         BirdSpawnEgg.setUnlocalizedName("bird_egg");
         Constants.BirdSpawnEgg = BirdSpawnEgg;
         GameRegistry.registerItem(Constants.BirdSpawnEgg, "Bird Egg");
-
-        SpawnEggs TinyBirdsSpawnEgg = new SpawnEggs(TinyBirdsInstance.class);
-        TinyBirdsSpawnEgg.setUnlocalizedName("tiny_bird_egg");
-        Constants.TinyBirdsSpawnEgg = TinyBirdsSpawnEgg;
-        GameRegistry.registerItem(Constants.TinyBirdsSpawnEgg, "Tiny Bird Egg");
 
         SpawnEggs WaterDragonSpawnEgg = new SpawnEggs(WaterDragon.class);
         WaterDragonSpawnEgg.setUnlocalizedName("water_dragon_egg");
@@ -637,7 +632,7 @@ public class SpawnEggInitDangerZone {
         Constants.ScorpionSpawnEgg = ScorpionSpawnEgg;
         GameRegistry.registerItem(Constants.ScorpionSpawnEgg, "Scorpion Egg");
 
-        SpawnEggs CaveFisherSpawnEgg = new SpawnEggs(CaveFisherInstance.class);
+        SpawnEggs CaveFisherSpawnEgg = new SpawnEggs(CaveFisher.class);
         CaveFisherSpawnEgg.setUnlocalizedName("cave_fisher_egg");
         Constants.CaveFisherSpawnEgg = CaveFisherSpawnEgg;
         GameRegistry.registerItem(Constants.CaveFisherSpawnEgg, "Cave Fisher Egg");
@@ -652,7 +647,7 @@ public class SpawnEggInitDangerZone {
         Constants.AttackSquidSpawnEgg = AttackSquidSpawnEgg;
         GameRegistry.registerItem(Constants.AttackSquidSpawnEgg, "Attack Squid Egg");
 
-        SpawnEggs AlienSpawnEgg = new SpawnEggs(AlienInstance.class);
+        SpawnEggs AlienSpawnEgg = new SpawnEggs(Alien.class);
         AlienSpawnEgg.setUnlocalizedName("alien_egg");
         Constants.AlienSpawnEgg = AlienSpawnEgg;
         GameRegistry.registerItem(Constants.AlienSpawnEgg, "Alien Egg");

@@ -24,7 +24,7 @@ public class MassoInstance extends EntityTameable {
         this.tasks.addTask(5, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0f));
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true));
-        this.tasks.addTask(1, new EntityAIAvoidEntity(this, BaryonyxInstance.class, 8.0f, 0.8, 0.8));
+        this.tasks.addTask(1, new EntityAIAvoidEntity(this, Baryonyx.class, 8.0f, 0.8, 0.8));
         // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity(this, EntitySpino.class,
         // 8.0f, 0.8, 0.8));
         // this.tasks.addTask(1, (EntityAIBase)new EntityAIAvoidEntity(this,

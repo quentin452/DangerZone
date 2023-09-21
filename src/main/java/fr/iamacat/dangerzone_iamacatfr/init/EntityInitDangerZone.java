@@ -40,22 +40,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-        int EnchantedGoldenAppleCow = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(
-            EnchantedGoldenAppleCowInstance.class,
-            "Enchanted Golden Apple Cow DangerZone",
-            EnchantedGoldenAppleCow);
-
-        EntityRegistry.registerModEntity(
-            EnchantedGoldenAppleCowInstance.class,
-            "Enchanted Golden Apple Cow DangerZone",
-            EnchantedGoldenAppleCow, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-
         int GoldenAppleCow = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry
@@ -70,44 +54,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-        int TinyBird = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(TinyBirdsInstance.class, "Tiny Bird DangerZone", TinyBird);
-
-        EntityRegistry.registerModEntity(
-            TinyBirdsInstance.class,
-            "Boy Friend DangerZone",
-            TinyBird, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
-
-        int Bird = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(BirdsInstance.class, "Bird DangerZone", Bird);
-
-        EntityRegistry.registerModEntity(
-            BirdsInstance.class,
-            "Boy Friend DangerZone",
-            Bird, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
-
-        int CaveFisher = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(CaveFisherInstance.class, "Cave Fisher DangerZone", CaveFisher);
-
-        EntityRegistry.registerModEntity(
-            CaveFisherInstance.class,
-            "Cave Fisher DangerZone",
-            CaveFisher, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
 
         int EyeRayProjectile = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -122,72 +68,7 @@ public class EntityInitDangerZone {
             1,
             true);
 
-        int Crab = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(CrabInstance.class, "Crab DangerZone", Crab);
-
-        EntityRegistry.registerModEntity(
-            CrabInstance.class,
-            "Crab DangerZone",
-            Crab, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
-
-
-
-
-
-
-
-
-
-
-
-
-        int AlienInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(AlienInstance.class, "AlienInstance", AlienInstance);
-
-        EntityRegistry.registerModEntity(
-            AlienInstance.class,
-            "AlienInstance",
-            AlienInstance, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-
-        int RatInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(
-            fr.iamacat.dangerzone_iamacatfr.entities.entity.RatInstance.class,
-            "RatInstance",
-            RatInstance);
-
-        EntityRegistry.registerModEntity(
-            fr.iamacat.dangerzone_iamacatfr.entities.entity.RatInstance.class,
-            "RatInstance",
-            RatInstance, // Use the chosen unique ID
-            Tags.MODID,
-            16,
-            1,
-            true);
-        int AlosaurusInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(AlosaurusInstance.class, "AlosaurusInstance", AlosaurusInstance);
-
-        EntityRegistry.registerModEntity(
-            AlosaurusInstance.class,
-            "AlosaurusInstance",
-            AlosaurusInstance, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-
-        int EntityAlpsDragon = EntityRegistry.findGlobalUniqueEntityId();
+     int EntityAlpsDragon = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(
             fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityAlpsDragon.class,
@@ -654,19 +535,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-        int BaryonyxInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(BaryonyxInstance.class, "BaryonyxInstance", BaryonyxInstance);
-
-        EntityRegistry.registerModEntity(
-            BaryonyxInstance.class,
-            "BaryonyxInstance",
-            BaryonyxInstance, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-
         int MassoInstance = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(MassoInstance.class, "MassoInstance", MassoInstance);
@@ -675,32 +543,6 @@ public class EntityInitDangerZone {
             MassoInstance.class,
             "MassoInstance",
             MassoInstance, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-
-        int BasilikInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(BasilikInstance.class, "BasilikInstance", BasilikInstance);
-
-        EntityRegistry.registerModEntity(
-            BasilikInstance.class,
-            "BasilikInstance",
-            BasilikInstance, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-
-        int BeaverInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(BeaverInstance.class, "BeaverInstance", BeaverInstance);
-
-        EntityRegistry.registerModEntity(
-            BeaverInstance.class,
-            "BeaverInstance",
-            BeaverInstance, // Use the chosen unique ID
             Tags.MODID,
             32,
             1,
@@ -723,19 +565,6 @@ public class EntityInitDangerZone {
             true);
 
 
-
-        int ChipMunkInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(ChipMunkInstance.class, "ChipMunkInstance", ChipMunkInstance);
-
-        EntityRegistry.registerModEntity(
-            ChipMunkInstance.class,
-            "ChipMunkInstance",
-            ChipMunkInstance, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
 
         int WhaleInstance = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -966,18 +795,6 @@ public class EntityInitDangerZone {
             CragadileInstance.class,
             "MyCragadile",
             MyCragadile, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-        int MyBear = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(BeaverInstance.class, "MyBear", MyBear);
-
-        EntityRegistry.registerModEntity(
-            BeaverInstance.class,
-            "MyBear",
-            MyBear, // Use the chosen unique ID
             Tags.MODID,
             32,
             1,

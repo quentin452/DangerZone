@@ -1,6 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -10,9 +13,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class RTPBlock extends Block {
 
@@ -73,7 +73,7 @@ public class RTPBlock extends Block {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5));
     }
 }

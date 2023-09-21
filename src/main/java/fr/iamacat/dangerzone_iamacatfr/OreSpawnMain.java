@@ -13,6 +13,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.blocks.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DeadIrukandji;
 import fr.iamacat.dangerzone_iamacatfr.gui.OreSpawnGUIHandler;
 import fr.iamacat.dangerzone_iamacatfr.init.*;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalWorkbench;
@@ -1700,6 +1701,8 @@ public class OreSpawnMain {
             MyAcid = new ItemAcid(BaseItemID + 247).setUnlocalizedName("acid");
             MyIrukandjiArrow = new ItemIrukandjiArrow(BaseItemID + 372)
                 .setUnlocalizedName("irukandjiarrow");
+            MyIrukandji = new fr.iamacat.dangerzone_iamacatfr.items.DeadIrukandji(OreSpawnMain.BaseItemID + 258).setUnlocalizedName("deadirukandji");
+
             MyGreenFish = new ItemGenericFish(BaseItemID + 191, 3, 0.5f, false)
                 .setUnlocalizedName("greenfish");
             MyBlueFish = new ItemGenericFish(BaseItemID + 192, 4, 0.4f, false);

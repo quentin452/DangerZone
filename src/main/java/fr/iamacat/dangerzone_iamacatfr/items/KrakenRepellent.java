@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.Kraken;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -133,7 +134,7 @@ public class KrakenRepellent extends BlockTorch {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5));
     }
 }

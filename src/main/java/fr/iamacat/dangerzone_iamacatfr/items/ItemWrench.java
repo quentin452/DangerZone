@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.AntRobot;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.SpiderRobot;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -136,7 +137,7 @@ public class ItemWrench extends Item {
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5));
     }
 }

@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -35,7 +36,7 @@ public class CrystalWood extends Block {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5));
     }
 }

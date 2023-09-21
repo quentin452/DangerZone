@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
@@ -65,10 +66,10 @@ public class BlockCrystalTreeLog extends BlockRotatedPillar {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.field_111052_c = iconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5));
         this.tree_top = iconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5) + "_top");
     }
 }

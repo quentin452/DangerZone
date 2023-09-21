@@ -1,8 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -11,8 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
 
 public class OreUranium extends Block {
 
@@ -123,7 +123,7 @@ public class OreUranium extends Block {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5));
     }
 }

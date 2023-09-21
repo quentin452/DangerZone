@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.Boyfriend;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.Girlfriend;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -185,7 +186,7 @@ public class UltimateSword extends ItemSword {
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5));
     }
 

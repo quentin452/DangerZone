@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityThrownRock;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.RockBase;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -157,7 +158,7 @@ public class ItemRock extends Item {
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5));
     }
 }

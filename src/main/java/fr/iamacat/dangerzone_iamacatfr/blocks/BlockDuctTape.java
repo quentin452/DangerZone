@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -79,16 +80,16 @@ public class BlockDuctTape extends Block {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IconRegister) {
         this.blockIcon = par1IconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5) + "_side");
         this.field_94382_c = par1IconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5) + "_inner");
         this.DuctTapeTopIcon = par1IconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5) + "_top");
         this.DuctTapeBottomIcon = par1IconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5) + "_bottom");
     }
 

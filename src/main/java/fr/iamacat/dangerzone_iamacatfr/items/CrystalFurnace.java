@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -73,13 +74,13 @@ public class CrystalFurnace extends BlockContainer {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
         this.blockIcon = par1IIconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5) + "_side");
         this.furnaceIconFront = par1IIconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5) + (this.isActive ? "_front_off" : "_front_off"));
         this.furnaceIconTop = par1IIconRegister.registerIcon(
-            "OreSpawn:" + this.getUnlocalizedName()
+            Tags.MODID + ":"+ this.getUnlocalizedName()
                 .substring(5) + "_top");
     }
 

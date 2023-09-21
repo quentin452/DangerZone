@@ -1,10 +1,9 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 
-public abstract interface ISidedProxy {
+public interface ISidedProxy {
 
 
     EntityPlayer getCurrentPlayer();

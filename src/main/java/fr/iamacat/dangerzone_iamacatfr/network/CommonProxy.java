@@ -18,7 +18,7 @@ import net.minecraft.util.ChatComponentText;
 
 import java.util.List;
 
-public class CommonProxy {
+public class CommonProxy implements ISidedProxy{
 
     protected FMLEventChannel eventChannel;
 
@@ -28,8 +28,28 @@ public class CommonProxy {
 
     public void registerRenders() {}
 
+    @Override
+    public void onKnockBackPacket(float paramFloat1, float paramFloat2) {
+
+    }
+
+    @Override
+    public void onConfusionPacket(boolean paramBool) {
+
+    }
+
     public EntityPlayer getCurrentPlayer() {
         return null;
+    }
+
+    @Override
+    public void preInit() {
+
+    }
+
+    @Override
+    public void load() {
+
     }
 
     public void sendToAllPlayers(Packet packet) {
@@ -43,6 +63,11 @@ public class CommonProxy {
     public void sendChat(EntityPlayerMP player, String s) {
         if (player != null && !s.isEmpty())
             player.playerNetServerHandler.sendPacket(new S02PacketChat(new ChatComponentText(s)));
+    }
+
+    @Override
+    public EntityPlayer getClientPlayer() {
+        return null;
     }
 
     @Deprecated

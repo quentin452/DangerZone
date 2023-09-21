@@ -35,7 +35,7 @@ public class BasilikModel extends ModelBase {
     ModelRenderer hoodTop;
     ModelRenderer hoodLower;
 
-    public BasilikModel(float v) {
+    public BasilikModel() {
         this.textureWidth = 128;
         this.textureHeight = 64;
         (this.bodyTorso = new ModelRenderer((ModelBase) this, 0, 47)).addBox(-6.0f, 0.0f, -4.0f, 12, 13, 4);

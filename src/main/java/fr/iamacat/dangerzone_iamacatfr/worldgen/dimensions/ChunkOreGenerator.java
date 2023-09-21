@@ -1,61 +1,62 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
-import fr.iamacat.dangerzone_iamacatfr.DangerZone;
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
-import java.util.Random;
-
 public class ChunkOreGenerator {
 
     public void generateOresInChunk(final World world, final Random random, final int chunkX, final int chunkZ,
         final Chunk chunk) {
-        if(38f/100f > 0) {
-            int patchy = 38 + random.nextInt(30);
+        if (OreSpawnMain.SpawnOres_stats.rate > 0) {
+            int patchy = OreSpawnMain.SpawnOres_stats.rate + random.nextInt(30);
             if (random.nextInt(20) == 0) {
                 patchy += 30;
+            }
+            if (OreSpawnMain.LessOre != 0) {
+                patchy /= 3;
             }
             for (int i = 0; i < patchy; ++i) {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= 128
-                    && randPosY >= 50) {
+                if (randPosY <= OreSpawnMain.SpawnOres_stats.maxdepth
+                    && randPosY >= OreSpawnMain.SpawnOres_stats.mindepth) {
                     if (random.nextInt(104) < 7) {
                         final int j = random.nextInt(7);
                         Block b = Blocks.air;
                         switch (j) {
                             case 0: {
-                                b = BlockInitDangerZone.MyBrutalflySpawnBlock;
+                                b = OreSpawnMain.MyBrutalflySpawnBlock;
                                 break;
                             }
                             case 1: {
-                                b = BlockInitDangerZone.MyNastysaurusSpawnBlock;
+                                b = OreSpawnMain.MyNastysaurusSpawnBlock;
                                 break;
                             }
                             case 2: {
-                                b = BlockInitDangerZone.MyPointysaurusSpawnBlock;
+                                b = OreSpawnMain.MyPointysaurusSpawnBlock;
                                 break;
                             }
                             case 3: {
-                                b = BlockInitDangerZone.MyCricketSpawnBlock;
+                                b = OreSpawnMain.MyCricketSpawnBlock;
                                 break;
                             }
                             case 4: {
-                                b = BlockInitDangerZone.MyFrogSpawnBlock;
+                                b = OreSpawnMain.MyFrogSpawnBlock;
                                 break;
                             }
                             case 5: {
-                                b = BlockInitDangerZone.MySpiderDriverSpawnBlock;
+                                b = OreSpawnMain.MySpiderDriverSpawnBlock;
                                 break;
                             }
                             case 6: {
-                                b = BlockInitDangerZone.MyCrabSpawnBlock;
+                                b = OreSpawnMain.MyCrabSpawnBlock;
                                 break;
                             }
                         }
@@ -67,401 +68,401 @@ public class ChunkOreGenerator {
                             randPosZ,
                             chunk,
                             b,
-                            4);
+                            OreSpawnMain.SpawnOres_stats.clumpsize);
                     } else {
                         final int j = random.nextInt(98);
                         Block b = Blocks.air;
                         switch (j) {
                             case 0: {
-                                b = BlockInitDangerZone.MySpiderSpawnBlock;
+                                b = OreSpawnMain.MySpiderSpawnBlock;
                                 break;
                             }
                             case 1: {
-                                b = BlockInitDangerZone.MyBatSpawnBlock;
+                                b = OreSpawnMain.MyBatSpawnBlock;
                                 break;
                             }
                             case 2: {
-                                b = BlockInitDangerZone.MyCowSpawnBlock;
+                                b = OreSpawnMain.MyCowSpawnBlock;
                                 break;
                             }
                             case 3: {
-                                b = BlockInitDangerZone.MyPigSpawnBlock;
+                                b = OreSpawnMain.MyPigSpawnBlock;
                                 break;
                             }
                             case 4: {
-                                b = BlockInitDangerZone.MySquidSpawnBlock;
+                                b = OreSpawnMain.MySquidSpawnBlock;
                                 break;
                             }
                             case 5: {
-                                b = BlockInitDangerZone.MyChickenSpawnBlock;
+                                b = OreSpawnMain.MyChickenSpawnBlock;
                                 break;
                             }
                             case 6: {
-                                b = BlockInitDangerZone.MyCreeperSpawnBlock;
+                                b = OreSpawnMain.MyCreeperSpawnBlock;
                                 break;
                             }
                             case 7: {
-                                b = BlockInitDangerZone.MySkeletonSpawnBlock;
+                                b = OreSpawnMain.MySkeletonSpawnBlock;
                                 break;
                             }
                             case 8: {
-                                b = BlockInitDangerZone.MyZombieSpawnBlock;
+                                b = OreSpawnMain.MyZombieSpawnBlock;
                                 break;
                             }
                             case 9: {
-                                b = BlockInitDangerZone.MySlimeSpawnBlock;
+                                b = OreSpawnMain.MySlimeSpawnBlock;
                                 break;
                             }
                             case 10: {
-                                b = BlockInitDangerZone.MyGhastSpawnBlock;
+                                b = OreSpawnMain.MyGhastSpawnBlock;
                                 break;
                             }
                             case 11: {
-                                b = BlockInitDangerZone.MyZombiePigmanSpawnBlock;
+                                b = OreSpawnMain.MyZombiePigmanSpawnBlock;
                                 break;
                             }
                             case 12: {
-                                b = BlockInitDangerZone.MyEndermanSpawnBlock;
+                                b = OreSpawnMain.MyEndermanSpawnBlock;
                                 break;
                             }
                             case 13: {
-                                b = BlockInitDangerZone.MyCaveSpiderSpawnBlock;
+                                b = OreSpawnMain.MyCaveSpiderSpawnBlock;
                                 break;
                             }
                             case 14: {
-                                b = BlockInitDangerZone.MySilverfishSpawnBlock;
+                                b = OreSpawnMain.MySilverfishSpawnBlock;
                                 break;
                             }
                             case 15: {
-                                b = BlockInitDangerZone.MyMagmaCubeSpawnBlock;
+                                b = OreSpawnMain.MyMagmaCubeSpawnBlock;
                                 break;
                             }
                             case 16: {
-                                b = BlockInitDangerZone.MyWitchSpawnBlock;
+                                b = OreSpawnMain.MyWitchSpawnBlock;
                                 break;
                             }
                             case 17: {
-                                b = BlockInitDangerZone.MySheepSpawnBlock;
+                                b = OreSpawnMain.MySheepSpawnBlock;
                                 break;
                             }
                             case 18: {
-                                b = BlockInitDangerZone.MyWolfSpawnBlock;
+                                b = OreSpawnMain.MyWolfSpawnBlock;
                                 break;
                             }
                             case 19: {
-                                b = BlockInitDangerZone.MyMooshroomSpawnBlock;
+                                b = OreSpawnMain.MyMooshroomSpawnBlock;
                                 break;
                             }
                             case 20: {
-                                b = BlockInitDangerZone.MyOcelotSpawnBlock;
+                                b = OreSpawnMain.MyOcelotSpawnBlock;
                                 break;
                             }
                             case 21: {
-                                b = BlockInitDangerZone.MyBlazeSpawnBlock;
+                                b = OreSpawnMain.MyBlazeSpawnBlock;
                                 break;
                             }
                             case 22: {
-                                b = BlockInitDangerZone.MyWitherSkeletonSpawnBlock;
+                                b = OreSpawnMain.MyWitherSkeletonSpawnBlock;
                                 break;
                             }
                             case 23: {
-                                b = BlockInitDangerZone.MyEnderDragonSpawnBlock;
+                                b = OreSpawnMain.MyEnderDragonSpawnBlock;
                                 break;
                             }
                             case 24: {
-                                b = BlockInitDangerZone.MySnowGolemSpawnBlock;
+                                b = OreSpawnMain.MySnowGolemSpawnBlock;
                                 break;
                             }
                             case 25: {
-                                b = BlockInitDangerZone.MyIronGolemSpawnBlock;
+                                b = OreSpawnMain.MyIronGolemSpawnBlock;
                                 break;
                             }
                             case 26: {
-                                b = BlockInitDangerZone.MyWitherBossSpawnBlock;
+                                b = OreSpawnMain.MyWitherBossSpawnBlock;
                                 break;
                             }
                             case 27: {
-                                b = BlockInitDangerZone.MyGirlfriendSpawnBlock;
+                                b = OreSpawnMain.MyGirlfriendSpawnBlock;
                                 break;
                             }
                             case 28: {
-                                b = BlockInitDangerZone.MyRedCowSpawnBlock;
+                                b = OreSpawnMain.MyRedCowSpawnBlock;
                                 break;
                             }
                             case 29: {
-                                b = BlockInitDangerZone.MyGoldCowSpawnBlock;
+                                b = OreSpawnMain.MyGoldCowSpawnBlock;
                                 break;
                             }
                             case 30: {
-                                b = BlockInitDangerZone.MyEnchantedCowSpawnBlock;
+                                b = OreSpawnMain.MyEnchantedCowSpawnBlock;
                                 break;
                             }
                             case 31: {
-                                b = BlockInitDangerZone.MyMOTHRASpawnBlock;
+                                b = OreSpawnMain.MyMOTHRASpawnBlock;
                                 break;
                             }
                             case 32: {
-                                b = BlockInitDangerZone.MyAloSpawnBlock;
+                                b = OreSpawnMain.MyAloSpawnBlock;
                                 break;
                             }
                             case 33: {
-                                b = BlockInitDangerZone.MyCryoSpawnBlock;
+                                b = OreSpawnMain.MyCryoSpawnBlock;
                                 break;
                             }
                             case 34: {
-                                b = BlockInitDangerZone.MyCamaSpawnBlock;
+                                b = OreSpawnMain.MyCamaSpawnBlock;
                                 break;
                             }
                             case 35: {
-                                b = BlockInitDangerZone.MyVeloSpawnBlock;
+                                b = OreSpawnMain.MyVeloSpawnBlock;
                                 break;
                             }
                             case 36: {
-                                b = BlockInitDangerZone.MyHydroSpawnBlock;
+                                b = OreSpawnMain.MyHydroSpawnBlock;
                                 break;
                             }
                             case 37: {
-                                b = BlockInitDangerZone.MyBasilSpawnBlock;
+                                b = OreSpawnMain.MyBasilSpawnBlock;
                                 break;
                             }
                             case 38: {
-                                b = BlockInitDangerZone.MyDragonflySpawnBlock;
+                                b = OreSpawnMain.MyDragonflySpawnBlock;
                                 break;
                             }
                             case 39: {
-                                b = BlockInitDangerZone.MyEmperorScorpionSpawnBlock;
+                                b = OreSpawnMain.MyEmperorScorpionSpawnBlock;
                                 break;
                             }
                             case 40: {
-                                b = BlockInitDangerZone.MyScorpionSpawnBlock;
+                                b = OreSpawnMain.MyScorpionSpawnBlock;
                                 break;
                             }
                             case 41: {
-                                b = BlockInitDangerZone.MyCaveFisherSpawnBlock;
+                                b = OreSpawnMain.MyCaveFisherSpawnBlock;
                                 break;
                             }
                             case 42: {
-                                b = BlockInitDangerZone.MySpyroSpawnBlock;
+                                b = OreSpawnMain.MySpyroSpawnBlock;
                                 break;
                             }
                             case 43: {
-                                b = BlockInitDangerZone.MyBaryonyxSpawnBlock;
+                                b = OreSpawnMain.MyBaryonyxSpawnBlock;
                                 break;
                             }
                             case 44: {
-                                b = BlockInitDangerZone.MyGammaMetroidSpawnBlock;
+                                b = OreSpawnMain.MyGammaMetroidSpawnBlock;
                                 break;
                             }
                             case 45: {
-                                b = BlockInitDangerZone.MyCockateilSpawnBlock;
+                                b = OreSpawnMain.MyCockateilSpawnBlock;
                                 break;
                             }
                             case 46: {
-                                b = BlockInitDangerZone.MyKyuubiSpawnBlock;
+                                b = OreSpawnMain.MyKyuubiSpawnBlock;
                                 break;
                             }
                             case 47: {
-                                b = BlockInitDangerZone.MyAlienSpawnBlock;
+                                b = OreSpawnMain.MyAlienSpawnBlock;
                                 break;
                             }
                             case 48: {
-                                b = BlockInitDangerZone.MyAttackSquidSpawnBlock;
+                                b = OreSpawnMain.MyAttackSquidSpawnBlock;
                                 break;
                             }
                             case 49: {
-                                b = BlockInitDangerZone.MyWaterDragonSpawnBlock;
+                                b = OreSpawnMain.MyWaterDragonSpawnBlock;
                                 break;
                             }
                             case 50: {
-                                b = BlockInitDangerZone.MyKrakenSpawnBlock;
+                                b = OreSpawnMain.MyKrakenSpawnBlock;
                                 break;
                             }
                             case 51: {
-                                b = BlockInitDangerZone.MyLizardSpawnBlock;
+                                b = OreSpawnMain.MyLizardSpawnBlock;
                                 break;
                             }
                             case 52: {
-                                b = BlockInitDangerZone.MyCephadromeSpawnBlock;
+                                b = OreSpawnMain.MyCephadromeSpawnBlock;
                                 break;
                             }
                             case 53: {
-                                b = BlockInitDangerZone.MyDragonSpawnBlock;
+                                b = OreSpawnMain.MyDragonSpawnBlock;
                                 break;
                             }
                             case 54: {
-                                b = BlockInitDangerZone.MyBeeSpawnBlock;
+                                b = OreSpawnMain.MyBeeSpawnBlock;
                                 break;
                             }
                             case 55: {
-                                b = BlockInitDangerZone.MyHorseSpawnBlock;
+                                b = OreSpawnMain.MyHorseSpawnBlock;
                                 break;
                             }
                             case 56: {
-                                b = BlockInitDangerZone.MyTrooperBugSpawnBlock;
+                                b = OreSpawnMain.MyTrooperBugSpawnBlock;
                                 break;
                             }
                             case 57: {
-                                b = BlockInitDangerZone.MySpitBugSpawnBlock;
+                                b = OreSpawnMain.MySpitBugSpawnBlock;
                                 break;
                             }
                             case 58: {
-                                b = BlockInitDangerZone.MyStinkBugSpawnBlock;
+                                b = OreSpawnMain.MyStinkBugSpawnBlock;
                                 break;
                             }
                             case 59: {
-                                b = BlockInitDangerZone.MyOstrichSpawnBlock;
+                                b = OreSpawnMain.MyOstrichSpawnBlock;
                                 break;
                             }
                             case 60: {
-                                b = BlockInitDangerZone.MyGazelleSpawnBlock;
+                                b = OreSpawnMain.MyGazelleSpawnBlock;
                                 break;
                             }
                             case 61: {
-                                b = BlockInitDangerZone.MyChipmunkSpawnBlock;
+                                b = OreSpawnMain.MyChipmunkSpawnBlock;
                                 break;
                             }
                             case 62: {
-                                b = BlockInitDangerZone.MyCreepingHorrorSpawnBlock;
+                                b = OreSpawnMain.MyCreepingHorrorSpawnBlock;
                                 break;
                             }
                             case 63: {
-                                b = BlockInitDangerZone.MyTerribleTerrorSpawnBlock;
+                                b = OreSpawnMain.MyTerribleTerrorSpawnBlock;
                                 break;
                             }
                             case 64: {
-                                b = BlockInitDangerZone.MyCliffRacerSpawnBlock;
+                                b = OreSpawnMain.MyCliffRacerSpawnBlock;
                                 break;
                             }
                             case 65: {
-                                b = BlockInitDangerZone.MyTriffidSpawnBlock;
+                                b = OreSpawnMain.MyTriffidSpawnBlock;
                                 break;
                             }
                             case 66: {
-                                b = BlockInitDangerZone.MyPitchBlackSpawnBlock;
+                                b = OreSpawnMain.MyPitchBlackSpawnBlock;
                                 break;
                             }
                             case 67: {
-                                b = BlockInitDangerZone.MyLurkingTerrorSpawnBlock;
+                                b = OreSpawnMain.MyLurkingTerrorSpawnBlock;
                                 break;
                             }
                             case 68: {
-                                b = BlockInitDangerZone.MyGodzillaPartSpawnBlock;
+                                b = OreSpawnMain.MyGodzillaPartSpawnBlock;
                                 break;
                             }
                             case 69: {
-                                b = BlockInitDangerZone.MyGodzillaSpawnBlock;
+                                b = OreSpawnMain.MyGodzillaSpawnBlock;
                                 break;
                             }
                             case 70: {
-                                b = BlockInitDangerZone.MySmallWormSpawnBlock;
+                                b = OreSpawnMain.MySmallWormSpawnBlock;
                                 break;
                             }
                             case 71: {
-                                b = BlockInitDangerZone.MyMediumWormSpawnBlock;
+                                b = OreSpawnMain.MyMediumWormSpawnBlock;
                                 break;
                             }
                             case 72: {
-                                b = BlockInitDangerZone.MyLargeWormSpawnBlock;
+                                b = OreSpawnMain.MyLargeWormSpawnBlock;
                                 break;
                             }
                             case 73: {
-                                b = BlockInitDangerZone.MyCassowarySpawnBlock;
+                                b = OreSpawnMain.MyCassowarySpawnBlock;
                                 break;
                             }
                             case 74: {
-                                b = BlockInitDangerZone.MyCloudSharkSpawnBlock;
+                                b = OreSpawnMain.MyCloudSharkSpawnBlock;
                                 break;
                             }
                             case 75: {
-                                b = BlockInitDangerZone.MyGoldFishSpawnBlock;
+                                b = OreSpawnMain.MyGoldFishSpawnBlock;
                                 break;
                             }
                             case 76: {
-                                b = BlockInitDangerZone.MyLeafMonsterSpawnBlock;
+                                b = OreSpawnMain.MyLeafMonsterSpawnBlock;
                                 break;
                             }
                             case 77: {
-                                b = BlockInitDangerZone.MyTshirtSpawnBlock;
+                                b = OreSpawnMain.MyTshirtSpawnBlock;
                                 break;
                             }
                             case 78: {
-                                b = BlockInitDangerZone.MyEnderKnightSpawnBlock;
+                                b = OreSpawnMain.MyEnderKnightSpawnBlock;
                                 break;
                             }
                             case 79: {
-                                b = BlockInitDangerZone.MyEnderReaperSpawnBlock;
+                                b = OreSpawnMain.MyEnderReaperSpawnBlock;
                                 break;
                             }
                             case 80: {
-                                b = BlockInitDangerZone.MyBeaverSpawnBlock;
+                                b = OreSpawnMain.MyBeaverSpawnBlock;
                                 break;
                             }
                             case 81: {
-                                b = BlockInitDangerZone.MyTRexSpawnBlock;
+                                b = OreSpawnMain.MyTRexSpawnBlock;
                                 break;
                             }
                             case 82: {
-                                b = BlockInitDangerZone.MyHerculesSpawnBlock;
+                                b = OreSpawnMain.MyHerculesSpawnBlock;
                                 break;
                             }
                             case 83: {
-                                b = BlockInitDangerZone.MyMantisSpawnBlock;
+                                b = OreSpawnMain.MyMantisSpawnBlock;
                                 break;
                             }
                             case 84: {
-                                b = BlockInitDangerZone.MyStinkySpawnBlock;
+                                b = OreSpawnMain.MyStinkySpawnBlock;
                                 break;
                             }
                             case 85: {
-                                b = BlockInitDangerZone.MyBoyfriendSpawnBlock;
+                                b = OreSpawnMain.MyBoyfriendSpawnBlock;
                                 break;
                             }
                             case 86: {
-                                b = BlockInitDangerZone.MyTheKingPartSpawnBlock;
+                                b = OreSpawnMain.MyTheKingPartSpawnBlock;
                                 break;
                             }
                             case 87: {
-                                b = BlockInitDangerZone.MyEasterBunnySpawnBlock;
+                                b = OreSpawnMain.MyEasterBunnySpawnBlock;
                                 break;
                             }
                             case 88: {
-                                b = BlockInitDangerZone.MyCaterKillerSpawnBlock;
+                                b = OreSpawnMain.MyCaterKillerSpawnBlock;
                                 break;
                             }
                             case 89: {
-                                b = BlockInitDangerZone.MyMolenoidSpawnBlock;
+                                b = OreSpawnMain.MyMolenoidSpawnBlock;
                                 break;
                             }
                             case 90: {
-                                b = BlockInitDangerZone.MySeaMonsterSpawnBlock;
+                                b = OreSpawnMain.MySeaMonsterSpawnBlock;
                                 break;
                             }
                             case 91: {
-                                b = BlockInitDangerZone.MySeaViperSpawnBlock;
+                                b = OreSpawnMain.MySeaViperSpawnBlock;
                                 break;
                             }
                             case 92: {
-                                b = BlockInitDangerZone.MyLeonSpawnBlock;
+                                b = OreSpawnMain.MyLeonSpawnBlock;
                                 break;
                             }
                             case 93: {
-                                b = BlockInitDangerZone.MyHammerheadSpawnBlock;
+                                b = OreSpawnMain.MyHammerheadSpawnBlock;
                                 break;
                             }
                             case 94: {
-                                b = BlockInitDangerZone.MyRubberDuckySpawnBlock;
+                                b = OreSpawnMain.MyRubberDuckySpawnBlock;
                                 break;
                             }
                             case 95: {
-                                b = BlockInitDangerZone.MyVillagerSpawnBlock;
+                                b = OreSpawnMain.MyVillagerSpawnBlock;
                                 break;
                             }
                             case 96: {
-                                b = BlockInitDangerZone.MyCriminalSpawnBlock;
+                                b = OreSpawnMain.MyCriminalSpawnBlock;
                                 break;
                             }
                             case 97: {
-                                b = BlockInitDangerZone.MyTheQueenPartSpawnBlock;
+                                b = OreSpawnMain.MyTheQueenPartSpawnBlock;
                                 break;
                             }
                         }
@@ -473,18 +474,22 @@ public class ChunkOreGenerator {
                             randPosZ,
                             chunk,
                             b,
-                            4);
+                            OreSpawnMain.SpawnOres_stats.clumpsize);
                     }
                 }
             }
         }
-        if (3 > 0) {
-            int patchy = 3 + random.nextInt(9);
+        if (OreSpawnMain.Uranium_stats.rate > 0) {
+            int patchy = OreSpawnMain.Uranium_stats.rate + random.nextInt(9);
+            if (OreSpawnMain.LessOre != 0) {
+                patchy /= 3;
+            }
             for (int i = 0; i < patchy; ++i) {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= 30 && randPosY >=0) {
+                if (randPosY <= OreSpawnMain.Uranium_stats.maxdepth
+                    && randPosY >= OreSpawnMain.Uranium_stats.mindepth) {
                     this.generateBlockOre(
                         world,
                         random,
@@ -492,18 +497,22 @@ public class ChunkOreGenerator {
                         randPosY,
                         randPosZ,
                         chunk,
-                        BlockInitDangerZone.UraniumBlockOre,
-                        4);
+                        OreSpawnMain.MyOreUraniumBlock,
+                        OreSpawnMain.Uranium_stats.clumpsize);
                 }
             }
         }
-        if (3 > 0) {
-            int patchy =3 + random.nextInt(9);
+        if (OreSpawnMain.Titanium_stats.rate > 0) {
+            int patchy = OreSpawnMain.Titanium_stats.rate + random.nextInt(9);
+            if (OreSpawnMain.LessOre != 0) {
+                patchy /= 3;
+            }
             for (int i = 0; i < patchy; ++i) {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= 20 && randPosY >=0) {
+                if (randPosY <= OreSpawnMain.Titanium_stats.maxdepth
+                    && randPosY >= OreSpawnMain.Titanium_stats.mindepth) {
                     this.generateBlockOre(
                         world,
                         random,
@@ -511,18 +520,22 @@ public class ChunkOreGenerator {
                         randPosY,
                         randPosZ,
                         chunk,
-                        BlockInitDangerZone.TitaniumBlockOre,
-                       4);
+                        OreSpawnMain.MyOreTitaniumBlock,
+                        OreSpawnMain.Titanium_stats.clumpsize);
                 }
             }
         }
-        if (2 > 0) {
-            int patchy = 2 + random.nextInt(12);
+        if (OreSpawnMain.Amethyst_stats.rate > 0) {
+            int patchy = OreSpawnMain.Amethyst_stats.rate + random.nextInt(12);
+            if (OreSpawnMain.LessOre != 0) {
+                patchy /= 3;
+            }
             for (int i = 0; i < patchy; ++i) {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= 25 && randPosY >= 0) {
+                if (randPosY <= OreSpawnMain.Amethyst_stats.maxdepth
+                    && randPosY >= OreSpawnMain.Amethyst_stats.mindepth) {
                     this.generateBlockOre(
                         world,
                         random,
@@ -530,18 +543,21 @@ public class ChunkOreGenerator {
                         randPosY,
                         randPosZ,
                         chunk,
-                        BlockInitDangerZone.AmethystBlock,
-                       6);
+                        OreSpawnMain.MyOreAmethystBlock,
+                        OreSpawnMain.Amethyst_stats.clumpsize);
                 }
             }
         }
-        if (5 > 0) {
-            int patchy = 5 + random.nextInt(9);
+        if (OreSpawnMain.Salt_stats.rate > 0) {
+            int patchy = OreSpawnMain.Salt_stats.rate + random.nextInt(9);
+            if (OreSpawnMain.LessOre != 0) {
+                patchy /= 3;
+            }
             for (int i = 0; i < patchy; ++i) {
                 final int randPosX = 3 + chunkX + random.nextInt(10);
                 final int randPosY = random.nextInt(128);
                 final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                if (randPosY <= 128 && randPosY >= 50) {
+                if (randPosY <= OreSpawnMain.Salt_stats.maxdepth && randPosY >= OreSpawnMain.Salt_stats.mindepth) {
                     this.generateBlockOre(
                         world,
                         random,
@@ -549,36 +565,43 @@ public class ChunkOreGenerator {
                         randPosY,
                         randPosZ,
                         chunk,
-                        BlockInitDangerZone.OreSalt,
-                        12);
+                        OreSpawnMain.MyOreSaltBlock,
+                        OreSpawnMain.Salt_stats.clumpsize);
                 }
             }
         }
         int patchy = 4 + random.nextInt(4);
+        if (OreSpawnMain.LessOre != 0) {
+            patchy /= 2;
+        }
         for (int i = 0; i < patchy; ++i) {
             final int randPosX = 3 + chunkX + random.nextInt(10);
             final int randPosY = random.nextInt(128);
             final int randPosZ = 3 + chunkZ + random.nextInt(10);
             if (randPosY <= 50 && randPosY >= 5) {
-                this.generateBlockOre(world, random, randPosX, randPosY, randPosZ, chunk, BlockInitDangerZone.TrollBlock1, 4);
+                this.generateBlockOre(world, random, randPosX, randPosY, randPosZ, chunk, OreSpawnMain.RedAntTroll, 4);
             }
         }
         patchy = 4 + random.nextInt(4);
+        if (OreSpawnMain.LessOre != 0) {
+            patchy /= 2;
+        }
         for (int i = 0; i < patchy; ++i) {
             final int randPosX = 3 + chunkX + random.nextInt(10);
             final int randPosY = random.nextInt(128);
             final int randPosZ = 3 + chunkZ + random.nextInt(10);
             if (randPosY <= 50 && randPosY >= 5) {
-                this.generateBlockOre(world, random, randPosX, randPosY, randPosZ, chunk, BlockInitDangerZone.TermiteTroll, 4);
+                this.generateBlockOre(world, random, randPosX, randPosY, randPosZ, chunk, OreSpawnMain.TermiteTroll, 4);
             }
         }
-            if (4 > 0) {
-                for (int i = 0; i < 4; ++i) {
+        if (OreSpawnMain.LessOre == 0) {
+            if (OreSpawnMain.Diamond_stats.rate > 0) {
+                for (int i = 0; i < OreSpawnMain.Diamond_stats.rate; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= 30
-                        && randPosY >= 0) {
+                    if (randPosY <= OreSpawnMain.Diamond_stats.maxdepth
+                        && randPosY >= OreSpawnMain.Diamond_stats.mindepth) {
                         this.generateBlockOre(
                             world,
                             random,
@@ -587,16 +610,17 @@ public class ChunkOreGenerator {
                             randPosZ,
                             chunk,
                             Blocks.diamond_ore,
-                            6);
+                            OreSpawnMain.Diamond_stats.clumpsize);
                     }
                 }
-            if (2 > 0) {
-                for (int i = 0; i < 2; ++i) {
+            }
+            if (OreSpawnMain.BlkDiamond_stats.rate > 0) {
+                for (int i = 0; i < OreSpawnMain.BlkDiamond_stats.rate; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= 20
-                        && randPosY >= 0) {
+                    if (randPosY <= OreSpawnMain.BlkDiamond_stats.maxdepth
+                        && randPosY >= OreSpawnMain.BlkDiamond_stats.mindepth) {
                         this.generateBlockOre(
                             world,
                             random,
@@ -605,17 +629,17 @@ public class ChunkOreGenerator {
                             randPosZ,
                             chunk,
                             Blocks.diamond_block,
-                            4);
+                            OreSpawnMain.BlkDiamond_stats.clumpsize);
                     }
                 }
             }
-            if (4 > 0) {
-                for (int i = 0; i < 4; ++i) {
+            if (OreSpawnMain.Emerald_stats.rate > 0) {
+                for (int i = 0; i < OreSpawnMain.Emerald_stats.rate; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= 40
-                        && randPosY >= 0) {
+                    if (randPosY <= OreSpawnMain.Emerald_stats.maxdepth
+                        && randPosY >= OreSpawnMain.Emerald_stats.mindepth) {
                         this.generateBlockOre(
                             world,
                             random,
@@ -624,17 +648,17 @@ public class ChunkOreGenerator {
                             randPosZ,
                             chunk,
                             Blocks.emerald_ore,
-                            6);
+                            OreSpawnMain.Emerald_stats.clumpsize);
                     }
                 }
             }
-            if (2 > 0) {
-                for (int i = 0; i < 2; ++i) {
+            if (OreSpawnMain.BlkEmerald_stats.rate > 0) {
+                for (int i = 0; i < OreSpawnMain.BlkEmerald_stats.rate; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= 20
-                        && randPosY >= 0) {
+                    if (randPosY <= OreSpawnMain.BlkEmerald_stats.maxdepth
+                        && randPosY >= OreSpawnMain.BlkEmerald_stats.mindepth) {
                         this.generateBlockOre(
                             world,
                             random,
@@ -643,16 +667,16 @@ public class ChunkOreGenerator {
                             randPosZ,
                             chunk,
                             Blocks.emerald_block,
-                           4);
+                            OreSpawnMain.BlkEmerald_stats.clumpsize);
                     }
                 }
             }
-            if (4 > 0) {
-                for (int i = 0; i < 4; ++i) {
+            if (OreSpawnMain.Gold_stats.rate > 0) {
+                for (int i = 0; i < OreSpawnMain.Gold_stats.rate; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= 40 && randPosY >= 0) {
+                    if (randPosY <= OreSpawnMain.Gold_stats.maxdepth && randPosY >= OreSpawnMain.Gold_stats.mindepth) {
                         this.generateBlockOre(
                             world,
                             random,
@@ -661,17 +685,17 @@ public class ChunkOreGenerator {
                             randPosZ,
                             chunk,
                             Blocks.gold_ore,
-                            8);
+                            OreSpawnMain.Gold_stats.clumpsize);
                     }
                 }
             }
-            if (2 > 0) {
-                for (int i = 0; i < 2; ++i) {
+            if (OreSpawnMain.BlkGold_stats.rate > 0) {
+                for (int i = 0; i < OreSpawnMain.BlkGold_stats.rate; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= 25
-                        && randPosY >= 0) {
+                    if (randPosY <= OreSpawnMain.BlkGold_stats.maxdepth
+                        && randPosY >= OreSpawnMain.BlkGold_stats.mindepth) {
                         this.generateBlockOre(
                             world,
                             random,
@@ -680,17 +704,17 @@ public class ChunkOreGenerator {
                             randPosZ,
                             chunk,
                             Blocks.gold_block,
-                            4);
+                            OreSpawnMain.BlkGold_stats.clumpsize);
                     }
                 }
             }
-            if (1 > 0) {
-                for (int i = 0; i < 1; ++i) {
+            if (OreSpawnMain.BlkRuby_stats.rate > 0) {
+                for (int i = 0; i < OreSpawnMain.BlkRuby_stats.rate; ++i) {
                     final int randPosX = 3 + chunkX + random.nextInt(10);
                     final int randPosY = random.nextInt(128);
                     final int randPosZ = 3 + chunkZ + random.nextInt(10);
-                    if (randPosY <= 15
-                        && randPosY >= 0) {
+                    if (randPosY <= OreSpawnMain.BlkRuby_stats.maxdepth
+                        && randPosY >= OreSpawnMain.BlkRuby_stats.mindepth) {
                         this.generateBlockOre(
                             world,
                             random,
@@ -698,8 +722,8 @@ public class ChunkOreGenerator {
                             randPosY,
                             randPosZ,
                             chunk,
-                            BlockInitDangerZone.RubyBlock,
-                            2);
+                            OreSpawnMain.MyBlockRubyBlock,
+                            OreSpawnMain.BlkRuby_stats.clumpsize);
                     }
                 }
             }
@@ -736,9 +760,9 @@ public class ChunkOreGenerator {
                         if (d13 * d13 + d14 * d14 < 1.0) {
                             for (int i3 = k1; i3 <= j2; ++i3) {
                                 final double d15 = (i3 + 0.5 - d9) / (d11 / 2.0);
-                                final Block bid = DangerZone.getBlockIDInChunk(chunk, k2, l3, i3);
+                                final Block bid = OreSpawnMain.getBlockIDInChunk(chunk, k2, l3, i3);
                                 if (d13 * d13 + d14 * d14 + d15 * d15 < 1.0 && bid == Blocks.stone) {
-                                    DangerZone.setBlockIDWithMetadataInChunk(chunk, k2, l3, i3, newbid, 0);
+                                    OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, k2, l3, i3, newbid, 0);
                                 }
                             }
                         }

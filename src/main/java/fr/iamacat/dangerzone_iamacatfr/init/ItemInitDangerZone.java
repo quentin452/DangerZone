@@ -9,11 +9,9 @@ import fr.iamacat.dangerzone_iamacatfr.util.ArmorMaterialModded;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.util.ToolMaterialModded;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraftforge.common.util.EnumHelper;
 
 public class ItemInitDangerZone {
 
@@ -77,6 +75,7 @@ public class ItemInitDangerZone {
     public static Item ButteredandSaltedPopcorn;
     public static Item Cherries;
     public static Item PopCornBag;
+    public static Item Corn;
     public static Item RawCornDog;
     public static Item Quinoa;
     public static Item Radish;
@@ -126,6 +125,7 @@ public class ItemInitDangerZone {
     public static Item BigHammer;
     public static Item Blackheels;
     public static Item Boots;
+    public static Item DeadIrukandji;
     public static Item ExperienceCatcher;
     public static Item GameController;
     public static Item InstantGarden;
@@ -154,10 +154,7 @@ public class ItemInitDangerZone {
     public static Item TigersEyeChestplate;
     public static Item TigersEyeHelmet;
     public static Item TigersEyeLeggings;
-    public static Item MyUltimateSword;
-    public static Item MyChainsaw;
-    public static Item MyQueenBattleAxe;
-
+    public static Item UltimateSword;
     public static Item UltimateShovel;
     public static Item UltimatePickaxe;
     public static Item UltimateHoe;
@@ -238,6 +235,8 @@ public class ItemInitDangerZone {
     public static Item TheZooKeeper;
     public static Item SquidZooka;
     public static Item Slippers;
+    public static Item ItemDecoyDragonsAdvancedFood;
+    public static Item ItemDecoyDragonFood;
     public static Item rainbowOpalGem;
     public static Item rainbowOpalChunk;
     public static Item pureRainbowOpalGem;
@@ -246,102 +245,9 @@ public class ItemInitDangerZone {
     public static Item mavisOrb;
     public static Item phoenixFeather;
     public static Item darkCrystal;
-    public static Item twilightStar;static Item.ToolMaterial toolBERTHA;
-
-    public static Item royalsword;
-    static Item.ToolMaterial toolRoyal;
-
-    public static Item ItemAppleSeed;
-    public static Item ItemButterflySeed;
-    public static Item ItemCornCob;
-    public static Item ItemCreeperLauncher;
-    public static Item ItemCrystalSticks;
-    public static Item Hoverboard;
-    public static Item ItemExperienceTreeSeed;
-
-    public static Item ItemFireflySeed;
-    public static Item ItemIceBall;
-    public static Item ItemIrukandji;
-    public static Item ItemMosquitoSeed;
-    public static Item ItemMothSeed;
-
-    public static Item ItemRayGun;
-    public static Item ItemRock;
-    public static Item ItemShoes;
-    public static Item ItemStrawberrySeed;
-    public static Item Lavafoam;
-    public static Item LavaLovingItem;
-    public static Item CrystalSword;
-    public static Item MyBertha;
-    public static Item MyHammy;
-    public static Item MySlice;
-    public static Item TitaniumNugget;
-    public static Item UraniumNugget;
-    public static Item CrystalPickaxe;
-    public static Item CrystalAxe;
-    public static Item ItemShoes1;
-    public static Item ItemShoes2;
-    public static Item ItemShoes3;
-    public static Item CrystalShovel;
-    public static Item CrystalHoe;
-    static Item.ToolMaterial toolBATTLE;
-    static Item.ToolMaterial toolQUEENBATTLE;
-    public static Item MyCherrySeed;
-    public static Item MyPeachSeed;
-
-    public static Item MySmallRock;
-    public static Item MyRock;
-    public static Item MyRedRock;
-    public static Item MyCrystalRedRock;
-    public static Item MyCrystalGreenRock;
-    public static Item MyCrystalBlueRock;
-    public static Item MyCrystalTNTRock;
-    public static Item MyBlueRock;
-    public static Item MyGreenRock;
-    public static Item MyPurpleRock;
-    public static Item MySpikeyRock;
-    public static Item MyTNTRock;
-
-    static Item.ToolMaterial toolCRYSTALWOOD;
-    static Item.ToolMaterial toolCRYSTALSTONE;
-    static Item.ToolMaterial toolCRYSTALPINK;
+    public static Item twilightStar;
 
     public static void init() {
-        toolCRYSTALWOOD = EnumHelper.addToolMaterial(
-            "CRYSTALWOOD",
-            2,
-            300,
-            (float)3,
-            (float)2,
-           15);
-      toolCRYSTALSTONE = EnumHelper.addToolMaterial(
-            "CRYSTALSTONE",
-          3,
-           800,
-            (float)6,
-            (float)5,
-      45);
-      toolCRYSTALPINK = EnumHelper.addToolMaterial(
-            "CRYSTALPINK",
-            4,
-           1100,
-            (float) 10,
-            (float)7,
-            65);
-
-        toolBERTHA = EnumHelper.addToolMaterial("BERTHA", 3, 9000, (float) 15, (float) 496, 100);
-        toolRoyal = EnumHelper.addToolMaterial("ROYAL", 3, 10000, (float) 15, (float) 746, 150);
-        toolBATTLE = EnumHelper.addToolMaterial(
-            "BATTLE",
-            3,
-            1500,
-            (float)15,
-            (float) 46,
-           75);
-        toolQUEENBATTLE = EnumHelper.addToolMaterial(
-            "QUEENBATTLE",
-            3, 2200, (float )15, (float )662, 100);
-
         GameRegistry.registerItem(
             ItemInitDangerZone.rainbowOpalGem = new Item().setUnlocalizedName("rainbowOpalGem")
                 .setCreativeTab(CreativeTabs.tabMaterials)
@@ -380,8 +286,11 @@ public class ItemInitDangerZone {
         MobzillaScale = new MobzillaScale().setUnlocalizedName("MobzillaScale");
         MothScale = new MothScale().setUnlocalizedName("MothScale");
         MolenoidNose = new MolenoidNose().setUnlocalizedName("MolenoidNose");
+        BigBerthaBlade = new BigBerthaBlade().setUnlocalizedName("BigBerthaBlade");
+        BigBerthaHandle = new BigBerthaHandle().setUnlocalizedName("BigBerthaHandle");
+        BigBerthaGuard = new BigBerthaGuard().setUnlocalizedName("BigBerthaGuard");
         NightmareScale = new NightmareScale().setUnlocalizedName("NightmareScale");
-        OmgMagicApple = new OmgMagicApple().setUnlocalizedName("OmgMagicApple")
+        OmgMagicApple = new OmgMagicApple(4, 0.6f, false).setUnlocalizedName("OmgMagicApple")
             .setTextureName(Tags.MODID + ":magicapple");
         PeacockFeather = new PeacockFeather().setUnlocalizedName("PeacockFeather");
         CaterKillerJaw = new CaterkillerJaw().setUnlocalizedName("CaterKillerJaw");
@@ -395,7 +304,7 @@ public class ItemInitDangerZone {
         RedAntRobotKit = new RedAntRobotKit().setUnlocalizedName("RedAntRobotKit");
         SpiderRobotKit = new SpiderRobotKit().setUnlocalizedName("SpiderRobotKit");
         DeadStinkBug = new DeadStinkBug().setUnlocalizedName("DeadStinkBug");
-        DuctTape = new DuctTape(Blocks.stone).setUnlocalizedName("DuctTape");
+        DuctTape = new DuctTape().setUnlocalizedName("DuctTape");
         KrakenTooth = new KrakenTooth().setUnlocalizedName("KrakenTooth");
         TrexTooth = new TrexTooth().setUnlocalizedName("TrexTooth");
         WormTooth = new WormTooth().setUnlocalizedName("WormTooth");
@@ -420,6 +329,7 @@ public class ItemInitDangerZone {
         ButteredandSaltedPopcorn = new ButteredandSaltedPopcorn().setUnlocalizedName("ButteredandSaltedPopcorn");
         Cherries = new Cherries().setUnlocalizedName("Cherries");
         PopCornBag = new PopCornBag().setUnlocalizedName("PopCornBag");
+        Corn = new Corn().setUnlocalizedName("Corn");
         RawCornDog = new RawCornDog().setUnlocalizedName("RawCornDog");
         Quinoa = new Quinoa().setUnlocalizedName("Quinoa");
         Radish = new Radish().setUnlocalizedName("Radish");
@@ -462,12 +372,14 @@ public class ItemInitDangerZone {
         SkateBow = new SkateBow().setUnlocalizedName("SkateBow");
         ItemAcid = new Acid().setUnlocalizedName("ItemAcid");
         ItemIrukandjiArrow = new ItemIrukandjiArrow().setUnlocalizedName("ItemIrukandjiArrow");
-        BattleAxe = new UltimateSword(toolBATTLE).setUnlocalizedName("BattleAxe");
+        BattleAxe = new BattleAxe(ToolMaterialModded.BATTLEAXE).setUnlocalizedName("BattleAxe");
+        BigBerthaSword = new BigBerthaSword(ToolMaterialModded.BIGBERTHA).setUnlocalizedName("BigBerthaSword");
         BigHammer = new BigHammer(ToolMaterialModded.BIGHAMMER).setUnlocalizedName("BigHammer");
-        Blackheels = new ItemShoes(51,3).setUnlocalizedName("Blackheels");
+        Blackheels = new Blackheels().setUnlocalizedName("Blackheels");
         Boots = new Boots().setUnlocalizedName("Boots");
+        DeadIrukandji = new DeadIrukandji().setUnlocalizedName("DeadIrukandji");
         ExperienceCatcher = new ExperienceCatcher().setUnlocalizedName("ExperienceCatcher");
-        GameController = new ItemShoes(50, 2).setUnlocalizedName("GameController");
+        GameController = new GameController().setUnlocalizedName("GameController");
         InstantGarden = new InstantGarden().setUnlocalizedName("InstantGarden");
         Wrench = new Wrench().setUnlocalizedName("Wrench");
         MantisClaw = new MantisClaw(ToolMaterialModded.MantisClaw).setUnlocalizedName("MantisClaw");
@@ -501,10 +413,7 @@ public class ItemInitDangerZone {
             .setUnlocalizedName("TigersEyeHelmet");
         TigersEyeLeggings = new TigersEyeLeggings(ArmorMaterialModded.TigersEyeLeggings, 2, 2)
             .setUnlocalizedName("TigersEyeLeggings");
-        MyUltimateSword = new UltimateSword(ToolMaterialModded.UltimateSword).setUnlocalizedName("UltimateSword");
-        MyChainsaw = new UltimateSword(toolBATTLE).setUnlocalizedName("MyChainSaw");
-        MyQueenBattleAxe = new UltimateSword(toolQUEENBATTLE).setUnlocalizedName("MyQueenBattleAxe");
-
+        UltimateSword = new UltimateSword(ToolMaterialModded.UltimateSword).setUnlocalizedName("UltimateSword");
         UltimateShovel = new UltimateShovel(ToolMaterialModded.UltimateShovel).setUnlocalizedName("UltimateShovel");
         UltimatePickaxe = new UltimatePickaxe(ToolMaterialModded.UltimatePickaxe).setUnlocalizedName("UltimatePickaxe");
         UltimateHoe = new UltimateHoe(ToolMaterialModded.UltimateHoe).setUnlocalizedName("UltimateHoe");
@@ -601,7 +510,7 @@ public class ItemInitDangerZone {
         RoyalBoots = new RoyalBoots(ArmorMaterialModded.RoyalBoots, 3, 3).setUnlocalizedName("RoyalBoots");
         RoyalChestplate = new RoyalChestplate(ArmorMaterialModded.RoyalChestplate, 1, 1)
             .setUnlocalizedName("RoyalChestplate");
-        RoyalHelmet = new RoyalHelmet(ArmorMaterialModded.RoyalHelmet, 0, 0).setUnlocalizedName("RoyalHelmet");
+        RoyalHelmet = new RoyalChestplate(ArmorMaterialModded.RoyalHelmet, 0, 0).setUnlocalizedName("RoyalHelmet");
         RoyalLeggings = new RoyalLeggings(ArmorMaterialModded.RoyalLeggings, 2, 2).setUnlocalizedName("RoyalLeggings");
         ExtraSmallZooCage = new ExtraSmallZooCage().setUnlocalizedName("ExtraSmallZooCage");
         SmallZooCage = new SmallZooCage().setUnlocalizedName("SmallZooCage");
@@ -610,96 +519,12 @@ public class ItemInitDangerZone {
         ExtraLargeZooCage = new ExtraLargeZooCage().setUnlocalizedName("ExtraLargeZooCage");
         TheZooKeeper = new TheZooKeeper().setUnlocalizedName("TheZooKeeper");
         SquidZooka = new SquidZooka().setUnlocalizedName("SquidZooka");
-        Slippers = new ItemShoes(5, 2).setUnlocalizedName("Slippers");
+        Slippers = new Slippers().setUnlocalizedName("Slippers");
         mavisOrb = new MavisOrb().setTextureName(Tags.MODID + ":MavisOrb")
             .setUnlocalizedName("MavisOrb");
         phoenixFeather = new PhoenixFeather();
         darkCrystal = new DarkCrystal();
         twilightStar = new TwilightStar();
-        MyBertha = new Bertha(toolBERTHA).setUnlocalizedName("berthasmall");
-
-        ItemAppleSeed = new ItemAppleSeed();
-        ItemButterflySeed = new ItemButterflySeed(
-            212,
-            BlockInitDangerZone.BlockButterflyPlant,
-            Blocks.farmland).setUnlocalizedName("butterfly_seed");
-        ItemCornCob = new ItemCornCob(
-            185,
-            6,
-            0.75f,
-            BlockInitDangerZone.BlockCorn1,
-            Blocks.farmland).setUnlocalizedName("corn_seed");
-        ItemCreeperLauncher = new ItemCreeperLauncher();
-        ItemCrystalSticks = new ItemCrystalSticks();
-        Hoverboard = new Hoverboard();
-        ItemExperienceTreeSeed = new ItemExperienceTreeSeed();
-       ItemFireflySeed = new ItemFireflySeed(
-            215,
-            BlockInitDangerZone.BlockFireflyPlant,
-            Blocks.farmland).setUnlocalizedName("firefly_seed");
-        ItemIceBall = new ItemIceBall();
-        ItemIrukandji = new ItemIrukandji();
-       ItemMosquitoSeed = new ItemMosquitoSeed(
-            214,
-            BlockInitDangerZone.BlockMosquitoPlant,
-            Blocks.farmland).setUnlocalizedName("mosquito_seed");
-     ItemMothSeed = new ItemMothSeed(213,BlockInitDangerZone.BlockMothPlant,
-            Blocks.farmland);
-        ItemRayGun = new ItemRayGun(243).setUnlocalizedName("RayGun");
-       BlueFish= new BlueFish();
-       ItemShoes= new ItemShoes( 248, 2).setUnlocalizedName("redheels");
-
-        ItemStrawberrySeed= new ItemStrawberrySeed(
-         210,BlockInitDangerZone.BlockStrawberry, Blocks.farmland);
-        royalsword = new Bertha(toolRoyal);
-
-        MySlice = new Bertha(toolRoyal).setUnlocalizedName("slicesmall");
-        royalsword = new Bertha(toolRoyal).setUnlocalizedName("royalsmall");
-        MyHammy = new Bertha(toolRoyal).setUnlocalizedName("hammysmall");
-       CrystalSword = new CrystalSword( 329, toolCRYSTALWOOD)
-            .setUnlocalizedName("crystalwoodsword");
-        TitaniumNugget = new TitaniumNugget();
-        UraniumNugget = new UraniumNugget();
-        CrystalPickaxe = new CrystalPickaxe(
-          330,
-           toolCRYSTALWOOD).setUnlocalizedName("crystalwoodpickaxe");
-        CrystalShovel = new CrystalShovel(
-             331,
-           toolCRYSTALWOOD).setUnlocalizedName("crystalwoodshovel");
-        CrystalAxe = new CrystalAxe(338, toolCRYSTALPINK);
-
-       ItemShoes1 = new ItemShoes( 249, 3).setUnlocalizedName("Blackheels");
-       ItemShoes2 = new ItemShoes(250, 4).setUnlocalizedName("Slippers");
-        ItemShoes3 = new ItemShoes(251, 5).setUnlocalizedName("boots3");
-        CrystalHoe = new CrystalHoe(342,toolCRYSTALSTONE);
-
-       MyCherrySeed = new ItemAppleSeed()
-            .setUnlocalizedName("cherrytree_seed");
-        MyPeachSeed = new ItemAppleSeed()
-            .setUnlocalizedName("peachtree_seed");
-
-        ItemRock = new ItemRock().setUnlocalizedName("rocksmall1");
-       MySmallRock = new ItemRock().setUnlocalizedName("rocksmall");
-        MyRock = new ItemRock().setUnlocalizedName("rock");
-       MyRedRock = new ItemRock().setUnlocalizedName("rockred");
-        MyCrystalRedRock = new ItemRock()
-            .setUnlocalizedName("rockcrystalred");
-       MyCrystalGreenRock = new ItemRock()
-            .setUnlocalizedName("rockcrystalgreen");
-      MyCrystalBlueRock = new ItemRock()
-            .setUnlocalizedName("rockcrystalblue");
-        MyCrystalTNTRock = new ItemRock()
-            .setUnlocalizedName("rockcrystaltnt");
-        MyGreenRock = new ItemRock().setUnlocalizedName("rockgreen");
-       MyBlueRock = new ItemRock().setUnlocalizedName("rockblue");
-       MyPurpleRock = new ItemRock().setUnlocalizedName("rockpurple");
-       MySpikeyRock = new ItemRock().setUnlocalizedName("rockspikey");
-       MyTNTRock = new ItemRock().setUnlocalizedName("rocktnt");
-        BigBerthaBlade = new Salt().setUnlocalizedName("bbblade").setTextureName(Tags.MODID +":bbblade");
-        BigBerthaGuard = new Salt().setUnlocalizedName("bbguard").setTextureName(Tags.MODID +":bbguard");
-        BigBerthaHandle = new Salt().setUnlocalizedName("bbhandle").setTextureName(Tags.MODID +":bbhandle");
-        BigBerthaSword = new Salt().setUnlocalizedName("BigBerthaSword");
-        LavaLovingItem = new Salt().setUnlocalizedName("LavaLovingItem");
 
     }
 
@@ -752,6 +577,7 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(ButteredandSaltedPopcorn, "ButteredandSaltedPopcorn");
         GameRegistry.registerItem(Cherries, "Cherries");
         GameRegistry.registerItem(PopCornBag, "PopCornBag");
+        GameRegistry.registerItem(Corn, "Corn");
         GameRegistry.registerItem(RawCornDog, "RawCornDog");
         GameRegistry.registerItem(Quinoa, "Quinoa");
         GameRegistry.registerItem(Radish, "Radish");
@@ -798,6 +624,7 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(BigHammer, "BigHammer");
         GameRegistry.registerItem(Blackheels, "Blackheels");
         GameRegistry.registerItem(Boots, "Boots");
+        GameRegistry.registerItem(DeadIrukandji, "DeadIrukandji");
         GameRegistry.registerItem(ExperienceCatcher, "ExperienceCatcher");
         GameRegistry.registerItem(GameController, "GameController");
         GameRegistry.registerItem(InstantGarden, "InstantGarden");
@@ -825,7 +652,7 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(TigersEyeChestplate, "TigersEyeChestplate");
         GameRegistry.registerItem(TigersEyeHelmet, "TigersEyeHelmet");
         GameRegistry.registerItem(TigersEyeLeggings, "TigersEyeLeggings");
-        GameRegistry.registerItem(MyUltimateSword, "UltimateSword");
+        GameRegistry.registerItem(UltimateSword, "UltimateSword");
         GameRegistry.registerItem(UltimateShovel, "UltimateShovel");
         GameRegistry.registerItem(UltimatePickaxe, "UltimatePickaxe");
         GameRegistry.registerItem(UltimateHoe, "UltimateHoe");
@@ -908,52 +735,6 @@ public class ItemInitDangerZone {
         GameRegistry.registerItem(phoenixFeather, "phoenixFeather");
         GameRegistry.registerItem(darkCrystal, "darkCrystal");
         GameRegistry.registerItem(twilightStar, "twilightStar");
-        GameRegistry.registerItem(ItemAppleSeed, "ItemAppleSeed");
-        GameRegistry.registerItem(ItemButterflySeed, "ItemButterflySeed");
-        GameRegistry.registerItem(ItemCornCob, "ItemCornCob");
-        GameRegistry.registerItem(ItemCreeperLauncher, "ItemCreeperLauncher");
-        GameRegistry.registerItem(ItemCrystalSticks, "ItemCrystalSticks");
-        GameRegistry.registerItem(Hoverboard, "Hoverboard");
-        GameRegistry.registerItem(ItemExperienceTreeSeed, "ItemExperienceTreeSeed");
-        GameRegistry.registerItem(ItemFireflySeed, "ItemFireflySeed");
-        GameRegistry.registerItem(ItemIceBall, "ItemIceBall");
-        GameRegistry.registerItem(ItemIrukandji, "ItemIrukandji");
-        GameRegistry.registerItem(ItemMosquitoSeed, "ItemMosquitoSeed");
-        GameRegistry.registerItem(ItemMothSeed, "ItemMothSeed");
-        GameRegistry.registerItem(ItemRayGun, "ItemRayGun");
-        GameRegistry.registerItem(ItemRock, "ItemRock");
-        GameRegistry.registerItem(ItemShoes, "ItemShoes");
-        GameRegistry.registerItem(ItemStrawberrySeed, "ItemStrawberrySeed");
-        GameRegistry.registerItem(royalsword, "royalsword");
-        GameRegistry.registerItem(LavaLovingItem, "LavaLovingItem");
-        GameRegistry.registerItem(CrystalSword, "CrystalSword");
-        GameRegistry.registerItem(MyBertha, "MyBertha");
-        GameRegistry.registerItem(MyHammy, "MyHammy");
-        GameRegistry.registerItem(MySlice, "MySlice");
-        GameRegistry.registerItem(TitaniumNugget, "TitaniumNugget");
-        GameRegistry.registerItem(UraniumNugget, "UraniumNugget");
-        GameRegistry.registerItem(CrystalPickaxe, "CrystalPickaxe");
-        GameRegistry.registerItem(CrystalAxe, "CrystalAxe");
-        GameRegistry.registerItem(ItemShoes1, "ItemShoes1");
-        GameRegistry.registerItem(ItemShoes2, "ItemShoes2");
-        GameRegistry.registerItem(ItemShoes3, "ItemShoes3");
-        GameRegistry.registerItem(CrystalShovel, "CrystalShovel");
-        GameRegistry.registerItem(MyChainsaw, "MyChainsaw");
-        GameRegistry.registerItem(MyQueenBattleAxe, "MyQueenBattleAxe");
-        GameRegistry.registerItem(MyCherrySeed, "MyCherrySeed");
-        GameRegistry.registerItem(MyPeachSeed, "MyPeachSeed");
-        GameRegistry.registerItem(MySmallRock, "OreSpawn_SmallRock");
-        GameRegistry.registerItem(MyRock, "OreSpawn_Rock");
-        GameRegistry.registerItem(MyRedRock, "OreSpawn_RedRock");
-        GameRegistry.registerItem(MyCrystalRedRock, "OreSpawn_CrystalRedRock");
-        GameRegistry.registerItem(MyCrystalGreenRock, "OreSpawn_CrystalGreenRock");
-        GameRegistry.registerItem(MyCrystalBlueRock, "OreSpawn_CrystalBlueRock");
-        GameRegistry.registerItem(MyCrystalTNTRock, "OreSpawn_CrystalTNTRock");
-        GameRegistry.registerItem(MyGreenRock, "OreSpawn_GreenRock");
-        GameRegistry.registerItem(MyBlueRock, "OreSpawn_BlueRock");
-        GameRegistry.registerItem(MyPurpleRock, "OreSpawn_PurpleRock");
-        GameRegistry.registerItem(MySpikeyRock, "OreSpawn_SpikeyRock");
-        GameRegistry.registerItem(MyTNTRock, "OreSpawn_TNTRock");
 
     }
 }

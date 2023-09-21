@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GirlfriendInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GirlFriendInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBiped;
@@ -143,7 +143,7 @@ public class GirlFriendRenderer extends RenderLiving {
     /**
      * Queries whether should render the specified pass or not.
      */
-    protected int shouldRenderPass(GirlfriendInstance p_77032_1_, int p_77032_2_, float p_77032_3_) {
+    protected int shouldRenderPass(GirlFriendInstance p_77032_1_, int p_77032_2_, float p_77032_3_) {
         ItemStack itemstack = p_77032_1_.func_130225_q(3 - p_77032_2_);
 
         if (itemstack != null) {
@@ -195,7 +195,7 @@ public class GirlFriendRenderer extends RenderLiving {
         return -1;
     }
 
-    protected void func_82408_c(GirlfriendInstance p_82408_1_, int p_82408_2_, float p_82408_3_) {
+    protected void func_82408_c(GirlFriendInstance p_82408_1_, int p_82408_2_, float p_82408_3_) {
         ItemStack itemstack = p_82408_1_.func_130225_q(3 - p_82408_2_);
 
         if (itemstack != null) {
@@ -215,7 +215,7 @@ public class GirlFriendRenderer extends RenderLiving {
      * (Render<T extends Entity) and this method has signature public void func_76986_a(T entity, double d, double d1,
      * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
      */
-    public void doRender(GirlfriendInstance p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_,
+    public void doRender(GirlFriendInstance p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_,
         float p_76986_8_, float p_76986_9_) {
         GL11.glColor3f(1.0F, 1.0F, 1.0F);
         ItemStack itemstack = p_76986_1_.getHeldItem();
@@ -235,7 +235,7 @@ public class GirlFriendRenderer extends RenderLiving {
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
 
-    protected ResourceLocation getEntityTexture(GirlfriendInstance entity) {
+    protected ResourceLocation getEntityTexture(GirlFriendInstance entity) {
         switch (entity.getDataWatcher()
             .getWatchableObjectInt(31)) {
             case 0:
@@ -325,10 +325,10 @@ public class GirlFriendRenderer extends RenderLiving {
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return this.getEntityTexture((GirlfriendInstance) entity);
+        return this.getEntityTexture((GirlFriendInstance) entity);
     }
 
-    protected void renderEquippedItems(GirlfriendInstance p_77029_1_, float p_77029_2_) {
+    protected void renderEquippedItems(GirlFriendInstance p_77029_1_, float p_77029_2_) {
         GL11.glColor3f(1.0F, 1.0F, 1.0F);
         super.renderEquippedItems(p_77029_1_, p_77029_2_);
         ItemStack itemstack = p_77029_1_.getHeldItem();
@@ -485,7 +485,7 @@ public class GirlFriendRenderer extends RenderLiving {
      * @param type   Subtype, can be null or "overlay"
      * @return ResourceLocation pointing at the armor's texture
      */
-    public static ResourceLocation getArmorResource(GirlfriendInstance entity, ItemStack stack, int slot, String type) {
+    public static ResourceLocation getArmorResource(GirlFriendInstance entity, ItemStack stack, int slot, String type) {
         ItemArmor item = (ItemArmor) stack.getItem();
         String s1 = String.format(
             "textures/models/armor/%s_layer_%d%s.png",

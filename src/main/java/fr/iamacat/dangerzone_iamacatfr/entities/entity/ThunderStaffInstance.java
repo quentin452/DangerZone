@@ -1,6 +1,7 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.unfinished.*;
 import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -99,16 +100,16 @@ public class ThunderStaffInstance extends EntityThrowable {
 
         if (par1MovingObjectPosition.entityHit != null) {
             if (isAcid != 0) {
-                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof TrooperBug
-                    || par1MovingObjectPosition.entityHit instanceof SpitBug;
+                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof JumpyBugInstance
+                    || par1MovingObjectPosition.entityHit instanceof SpitInstance;
                 setEntityDeadIfCondition(par1MovingObjectPosition.entityHit, shouldSetDead);
             } else {
-                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof GiantRobot
-                    || par1MovingObjectPosition.entityHit instanceof Robot2
-                    || par1MovingObjectPosition.entityHit instanceof Robot3
-                    || par1MovingObjectPosition.entityHit instanceof Robot4
-                    || par1MovingObjectPosition.entityHit instanceof Robot5
-                    || par1MovingObjectPosition.entityHit instanceof SpiderRobot;
+                boolean shouldSetDead = par1MovingObjectPosition.entityHit instanceof RoboJefferyInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboPounderInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboGunnerInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboWarriorInstance
+                    || par1MovingObjectPosition.entityHit instanceof RoboSniperInstance
+                    || par1MovingObjectPosition.entityHit instanceof SpiderRobotInstance;
                 setEntityDeadIfCondition(par1MovingObjectPosition.entityHit, shouldSetDead);
 
                 if (par1MovingObjectPosition.entityHit instanceof DragonInstance) {

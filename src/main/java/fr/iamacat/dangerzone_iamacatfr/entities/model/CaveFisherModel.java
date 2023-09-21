@@ -88,7 +88,7 @@ public class CaveFisherModel extends ModelBase {
     ModelRenderer LMLeg5;
     ModelRenderer LMLeg6;
 
-    public CaveFisherModel(float v) {
+    public CaveFisherModel() {
         textureWidth = 64;
         textureHeight = 32;
 

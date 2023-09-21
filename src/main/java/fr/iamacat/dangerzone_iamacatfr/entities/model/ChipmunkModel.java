@@ -26,7 +26,7 @@ public class ChipmunkModel extends ModelBase {
     ModelRenderer fluff2;
     ModelRenderer fluff3;
 
-    public ChipmunkModel(float v) {
+    public ChipmunkModel() {
         textureWidth = 32;
         textureHeight = 32;
         setTextureOffset("head.head", 0, 0);

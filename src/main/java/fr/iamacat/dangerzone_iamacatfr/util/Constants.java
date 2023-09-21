@@ -84,6 +84,8 @@ public class Constants {
     public static SpawnEggs StinkBugSpawnEgg;
     public static SpawnEggs AttackSquidSpawnEgg;
     public static SpawnEggs AlienSpawnEgg;
+    public static SpawnEggs SmallNightMareSpawnEgg;
+    public static SpawnEggs LargeNightMareSpawnEgg;
     public static SpawnEggs MobzillaSpawnEgg;
     public static SpawnEggs OstrichSpawnEgg;
     public static SpawnEggs BeeSpawnEgg;
@@ -216,12 +218,4 @@ public class Constants {
     public static SpawnEggs MyMoose;
 
     public static SpawnEggs MyUrsaMAJOR;
-    public static SpawnEggs TrooperBugSpawnEgg;
-
-    public static int BiomeUtopiaID = 150;
-    public static int BiomeIslandsID= 151;
-    public static int BiomeMiningID= 152;
-    public static int BiomeCrystalID= 153;
-    public static int BiomeVillageID= 154;
-    public static int BiomeChaosID=155;
 }

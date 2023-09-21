@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.BoyfriendInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BoyFriendInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBiped;
@@ -119,7 +119,7 @@ public class BoyFriendRenderer extends RenderLiving {
     /**
      * Queries whether should render the specified pass or not.
      */
-    protected int shouldRenderPass(BoyfriendInstance p_77032_1_, int p_77032_2_, float p_77032_3_) {
+    protected int shouldRenderPass(BoyFriendInstance p_77032_1_, int p_77032_2_, float p_77032_3_) {
         ItemStack itemstack = p_77032_1_.func_130225_q(3 - p_77032_2_);
 
         if (itemstack != null) {
@@ -171,7 +171,7 @@ public class BoyFriendRenderer extends RenderLiving {
         return -1;
     }
 
-    protected void func_82408_c(BoyfriendInstance p_82408_1_, int p_82408_2_, float p_82408_3_) {
+    protected void func_82408_c(BoyFriendInstance p_82408_1_, int p_82408_2_, float p_82408_3_) {
         ItemStack itemstack = p_82408_1_.func_130225_q(3 - p_82408_2_);
 
         if (itemstack != null) {
@@ -191,7 +191,7 @@ public class BoyFriendRenderer extends RenderLiving {
      * (Render<T extends Entity) and this method has signature public void func_76986_a(T entity, double d, double d1,
      * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
      */
-    public void doRender(BoyfriendInstance p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_,
+    public void doRender(BoyFriendInstance p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_,
         float p_76986_8_, float p_76986_9_) {
         GL11.glColor3f(1.0F, 1.0F, 1.0F);
         ItemStack itemstack = p_76986_1_.getHeldItem();
@@ -211,7 +211,7 @@ public class BoyFriendRenderer extends RenderLiving {
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
 
-    protected void renderEquippedItems(BoyfriendInstance p_77029_1_, float p_77029_2_) {
+    protected void renderEquippedItems(BoyFriendInstance p_77029_1_, float p_77029_2_) {
         GL11.glColor3f(1.0F, 1.0F, 1.0F);
         super.renderEquippedItems(p_77029_1_, p_77029_2_);
         ItemStack itemstack = p_77029_1_.getHeldItem();
@@ -367,7 +367,7 @@ public class BoyFriendRenderer extends RenderLiving {
      * @param type   Subtype, can be null or "overlay"
      * @return ResourceLocation pointing at the armor's texture
      */
-    public static ResourceLocation getArmorResource(BoyfriendInstance entity, ItemStack stack, int slot, String type) {
+    public static ResourceLocation getArmorResource(BoyFriendInstance entity, ItemStack stack, int slot, String type) {
         ItemArmor item = (ItemArmor) stack.getItem();
         String s1 = String.format(
             "textures/models/armor/%s_layer_%d%s.png",
@@ -386,7 +386,7 @@ public class BoyFriendRenderer extends RenderLiving {
         return resourcelocation;
     }
 
-    protected ResourceLocation getEntityTexture(BoyfriendInstance entity) {
+    protected ResourceLocation getEntityTexture(BoyFriendInstance entity) {
         switch (entity.getDataWatcher()
             .getWatchableObjectInt(27)) {
             case 0:
@@ -446,11 +446,10 @@ public class BoyFriendRenderer extends RenderLiving {
             default:
                 return texture0;
         }
-
     }
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return this.getEntityTexture((BoyfriendInstance) entity);
+        return this.getEntityTexture((BoyFriendInstance) entity);
     }
 }

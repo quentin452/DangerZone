@@ -1,6 +1,6 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Shoes;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.BootsInstance;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -20,7 +20,7 @@ public class SunspotUrchin extends Item {
         }
         world.playSoundAtEntity(entityPlayer, "random.bow", 3.0f, 1.0f);
         if (!world.isRemote) {
-            world.spawnEntityInWorld(new Shoes(world, entityPlayer));
+            world.spawnEntityInWorld(new BootsInstance(world, entityPlayer));
         }
         return stack;
     }

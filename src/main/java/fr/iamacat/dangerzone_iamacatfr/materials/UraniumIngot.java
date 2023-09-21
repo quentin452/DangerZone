@@ -6,6 +6,6 @@ import net.minecraft.item.Item;
 public class UraniumIngot extends Item {
 
     public UraniumIngot() {
-        this.setTextureName(Tags.MODID + ":ingoturanium");
+        this.setTextureName(Tags.MODID + ":ingottitanium");
     }
 }

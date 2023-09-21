@@ -41,7 +41,7 @@ public class ButterflyRenderer extends RenderLiving {
     private static final ResourceLocation grayTextures = new ResourceLocation(
         Tags.MODID + ":textures/entity/butterfly/butterfly_gray.png");
 
-    public ButterflyRenderer(ModelBase p_i1265_1_, float p_i1265_2_, float v) {
+    public ButterflyRenderer(ModelBase p_i1265_1_, float p_i1265_2_) {
         super(p_i1265_1_, p_i1265_2_);
         this.shadowSize = 0.2F;
     }

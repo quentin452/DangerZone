@@ -21,7 +21,7 @@ public class ButterflyModel extends ModelBase {
     ModelRenderer thorax;
     ModelRenderer head;
 
-    public ButterflyModel(float v) {
+    public ButterflyModel() {
         textureWidth = 64;
         textureHeight = 32;
 

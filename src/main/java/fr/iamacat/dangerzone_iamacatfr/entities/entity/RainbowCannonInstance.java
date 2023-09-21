@@ -35,7 +35,7 @@ public class RainbowCannonInstance extends EntityThrowable {
             if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
                 return;
             }
-            if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstancemMLP) {
+            if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstance) {
                 return;
             }
             if (par1MovingObjectPosition.entityHit instanceof AJInstance) {

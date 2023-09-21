@@ -58,7 +58,7 @@ public class YakPrinceInstance extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, 0);
+        this.dataWatcher.addObject(20, (Object) 0);
         if (this.renderdata == null) {
             this.renderdata = new InfoRenderer();
         }
@@ -75,9 +75,9 @@ public class YakPrinceInstance extends EntityMob {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth)
-            .setBaseValue(this.mygetMaxHealth());
+            .setBaseValue((double) this.mygetMaxHealth());
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
-            .setBaseValue(this.moveSpeed);
+            .setBaseValue((double) this.moveSpeed);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage)
             .setBaseValue(105.0);
     }

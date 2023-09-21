@@ -5,53 +5,73 @@ import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.UnstableAntInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.UnstableAntModel;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class UnstableAntRenderer  extends RenderLiving {
+public class UnstableAntRenderer extends RenderLiving {
 
-    protected UnstableAntModel model;
-    private float scale;
+    // todo finish the texture
+    private static final ResourceLocation spiderTextures = new ResourceLocation(
+        Tags.MODID + ":textures/entity/unstable_ant.png");
 
-    public UnstableAntRenderer(final UnstableAntModel par1ModelBase, final float par2, final float par3) {
-        super((ModelBase) par1ModelBase, par2 * par3);
-        this.scale = 0.25f;
-        this.model = (UnstableAntModel) this.mainModel;
-        this.scale = par3;
+    public UnstableAntRenderer() {
+        super(new UnstableAntModel(), 0.5F);
+        this.setRenderPassModel(new UnstableAntModel());
     }
 
-    public void renderAnt(final UnstableAntInstance par1EntityAnt, final double par2, final double par4, final double par6,
-                          final float par8, final float par9) {
-        super.doRender(par1EntityAnt, par2, par4, par6, par8, par9);
+    protected float getDeathMaxRotation() {
+        return 180.0F;
     }
 
-    public void doRender(final EntityLiving par1EntityLiving, final double par2, final double par4, final double par6,
-                         final float par8, final float par9) {
-        this.renderAnt((UnstableAntInstance) par1EntityLiving, par2, par4, par6, par8, par9);
+    /**
+     * Queries whether should render the specified pass or not.
+     */
+    protected int shouldRenderPass(UnstableAntInstance p_77032_1_, int p_77032_2_) {
+        if (p_77032_2_ != 0) {
+            return -1;
+        } else {
+            GL11.glEnable(GL11.GL_BLEND);
+            GL11.glDisable(GL11.GL_ALPHA_TEST);
+            GL11.glBlendFunc(GL11.GL_ONE, GL11.GL_ONE);
+
+            GL11.glDepthMask(!p_77032_1_.isInvisible());
+
+            char c0 = 61680;
+            int j = c0 % 65536;
+            int k = 0;
+            OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
+            GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+            return 1;
+        }
     }
 
-    public void doRender(final Entity par1Entity, final double par2, final double par4, final double par6,
-                         final float par8, final float par9) {
-        this.renderAnt((UnstableAntInstance) par1Entity, par2, par4, par6, par8, par9);
+    /**
+     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+     */
+    protected ResourceLocation getEntityTexture() {
+        return spiderTextures;
     }
 
-    protected void preRenderScale(final UnstableAntInstance par1Entity, final float par2) {
-        GL11.glScalef(this.scale, this.scale, this.scale);
+    protected float getDeathMaxRotation(EntityLivingBase p_77037_1_) {
+        return this.getDeathMaxRotation();
     }
 
-    protected void preRenderCallback(final EntityLivingBase par1EntityLiving, final float par2) {
-        this.preRenderScale((UnstableAntInstance) par1EntityLiving, par2);
+    /**
+     * Queries whether should render the specified pass or not.
+     */
+    protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_) {
+        return this.shouldRenderPass((UnstableAntInstance) p_77032_1_, p_77032_2_);
     }
 
-    protected ResourceLocation getEntityTexture(final Entity entity) {
-        final UnstableAntInstance a = (UnstableAntInstance) entity;
-        return a.getTexture(a);
+    /**
+     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+     */
+    protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
+        return this.getEntityTexture();
     }
 }

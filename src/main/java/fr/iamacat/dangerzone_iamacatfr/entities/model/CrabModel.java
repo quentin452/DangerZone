@@ -31,7 +31,7 @@ public class CrabModel extends ModelBase {
     public ModelRenderer lefthorn1;
     public ModelRenderer lefthorn2;
 
-    public CrabModel(float v) {
+    public CrabModel() {
         textureWidth = 64;
         textureHeight = 32;
 

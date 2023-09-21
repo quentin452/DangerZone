@@ -173,7 +173,7 @@ public class RobotBeamInstance extends EntityFireball {
                     var17 = null;
                     break;
                 }
-                if (var21 instanceof BetterFireballInstancemMLP) {
+                if (var21 instanceof BetterFireballInstance) {
                     var17 = null;
                     break;
                 }
@@ -314,7 +314,7 @@ public class RobotBeamInstance extends EntityFireball {
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
         if (!this.worldObj.isRemote) {
             if (par1MovingObjectPosition.entityHit != null) {
-                if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstancemMLP) {
+                if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstance) {
                     return;
                 }
                 if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {

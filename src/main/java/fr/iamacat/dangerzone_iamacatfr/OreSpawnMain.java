@@ -2757,38 +2757,11 @@ public class OreSpawnMain {
             GameRegistry.registerItem(SeaViperTongue, "OreSpawn_SeaViperTongue");
             GameRegistry.registerItem(VortexEye, "OreSpawn_VortexEye");
             GameRegistry.registerItem(CageEmpty, "OreSpawn_CageEmpty");
-            GameRegistry.registerItem(CagedSpider, "OreSpawn_CagedSpider");
-            GameRegistry.registerItem(CagedBat, "OreSpawn_CagedBat");
-            GameRegistry.registerItem(CagedCow, "OreSpawn_CagedCow");
-            GameRegistry.registerItem(CagedPig, "OreSpawn_CagePig");
-            GameRegistry.registerItem(CagedSquid, "OreSpawn_CagedSquid");
-            GameRegistry.registerItem(CagedChicken, "OreSpawn_CagedChicken");
-            GameRegistry.registerItem(CagedCreeper, "OreSpawn_CagedCreeper");
-            GameRegistry.registerItem(CagedSkeleton, "OreSpawn_CagedSkeleton");
-            GameRegistry.registerItem(CagedZombie, "OreSpawn_CagedZombie");
-            GameRegistry.registerItem(CagedSlime, "OreSpawn_CagedSlime");
-            GameRegistry.registerItem(CagedGhast, "OreSpawn_CagedGhast");
-            GameRegistry.registerItem(CagedZombiePigman, "OreSpawn_CagedZombiePigman");
-            GameRegistry.registerItem(CagedEnderman, "OreSpawn_CagedEnderman");
-            GameRegistry.registerItem(CagedCaveSpider, "OreSpawn_CagedCaveSpider");
-            GameRegistry.registerItem(CagedSilverfish, "OreSpawn_CagedSilverfish");
-            GameRegistry.registerItem(CagedMagmaCube, "OreSpawn_CagedMagmaCube");
-            GameRegistry.registerItem(CagedWitch, "OreSpawn_CagedWitch");
-            GameRegistry.registerItem(CagedSheep, "OreSpawn_CagedSheep");
-            GameRegistry.registerItem(CagedWolf, "OreSpawn_CagedWolf");
             GameRegistry.registerItem(CagedMooshroom, "OreSpawn_CagedMooshroom");
-            GameRegistry.registerItem(CagedOcelot, "OreSpawn_CagedOcelot");
-            GameRegistry.registerItem(CagedBlaze, "OreSpawn_CagedBlaze");
             GameRegistry.registerItem(CagedGirlfriend, "OreSpawn_CagedGirlfriend");
             GameRegistry.registerItem(CagedBoyfriend, "OreSpawn_CagedBoyfriend");
-            GameRegistry.registerItem(CagedWitherSkeleton, "OreSpawn_CagedWitherSkeleton");
-            GameRegistry.registerItem(CagedEnderDragon, "OreSpawn_CagedEnderDragon");
-            GameRegistry.registerItem(CagedSnowGolem, "OreSpawn_CagedSnowGolem");
-            GameRegistry.registerItem(CagedIronGolem, "OreSpawn_CagedIronGolem");
-            GameRegistry.registerItem(CagedWitherBoss, "OreSpawn_CagedWitherBoss");
             GameRegistry.registerItem(CagedRedCow, "OreSpawn_CagedRedCow");
             GameRegistry.registerItem(CagedCrystalCow, "OreSpawn_CagedCrystalCow");
-            GameRegistry.registerItem(CagedVillager, "OreSpawn_CagedVillager");
             GameRegistry.registerItem(CagedGoldCow, "OreSpawn_CagedGoldCow");
             GameRegistry.registerItem(CagedEnchantedCow, "OreSpawn_CagedEnchantedCow");
             GameRegistry.registerItem(CagedMOTHRA, "OreSpawn_CagedMOTHRA");
@@ -2816,7 +2789,6 @@ public class OreSpawnMain {
             GameRegistry.registerItem(CagedLizard, "OreSpawn_CagedLizard");
             GameRegistry.registerItem(CagedDragon, "OreSpawn_CagedDragon");
             GameRegistry.registerItem(CagedBee, "OreSpawn_CagedBee");
-            GameRegistry.registerItem(CagedHorse, "OreSpawn_CagedHorse");
             GameRegistry.registerItem(CagedFirefly, "OreSpawn_CagedFirefly");
             GameRegistry.registerItem(CagedChipmunk, "OreSpawn_CagedChipmunk");
             GameRegistry.registerItem(CagedGazelle, "OreSpawn_CagedGazelle");
@@ -6648,50 +6620,16 @@ public class OreSpawnMain {
         }
 
         public void initializeCagesAndEggs() {
+
             CageEmpty = new CritterCage(BaseItemID, 160).setUnlocalizedName("cageempty");
-            CagedSpider = new CritterCage(BaseItemID + 1, 161).setUnlocalizedName("cagespider");
-            CagedBat = new CritterCage(BaseItemID + 2, 162).setUnlocalizedName("cagebat");
-            CagedCow = new CritterCage(BaseItemID + 3, 163).setUnlocalizedName("cagecow");
-            CagedPig = new CritterCage(BaseItemID + 4, 164).setUnlocalizedName("cagepig");
-            CagedSquid = new CritterCage(BaseItemID + 5, 165).setUnlocalizedName("cagesquid");
-            CagedChicken = new CritterCage(BaseItemID + 6, 166).setUnlocalizedName("cagechicken");
-            CagedCreeper = new CritterCage(BaseItemID + 7, 167).setUnlocalizedName("cagecreeper");
-            CagedSkeleton = new CritterCage(BaseItemID + 8, 168)
-                .setUnlocalizedName("cageskeleton");
-            CagedZombie = new CritterCage(BaseItemID + 9, 169).setUnlocalizedName("cagezombie");
-            CagedSlime = new CritterCage(BaseItemID + 10, 170).setUnlocalizedName("cageslime");
-            CagedGhast = new CritterCage(BaseItemID + 11, 171).setUnlocalizedName("cageghast");
-            CagedZombiePigman = new CritterCage(BaseItemID + 12, 172)
-                .setUnlocalizedName("cagezombiepigman");
-            CagedEnderman = new CritterCage(BaseItemID + 13, 173)
-                .setUnlocalizedName("cageenderman");
-            CagedCaveSpider = new CritterCage(BaseItemID + 14, 174)
-                .setUnlocalizedName("cagecavespider");
-            CagedSilverfish = new CritterCage(BaseItemID + 15, 175)
-                .setUnlocalizedName("cagesilverfish");
-            CagedMagmaCube = new CritterCage(BaseItemID + 16, 176)
-                .setUnlocalizedName("cagemagmacube");
-            CagedWitch = new CritterCage(BaseItemID + 17, 177).setUnlocalizedName("cagewitch");
-            CagedSheep = new CritterCage(BaseItemID + 18, 178).setUnlocalizedName("cagesheep");
-            CagedWolf = new CritterCage(BaseItemID + 19, 179).setUnlocalizedName("cagewolf");
             CagedMooshroom = new CritterCage(BaseItemID + 20, 180)
                 .setUnlocalizedName("cagemooshroom");
-            CagedOcelot = new CritterCage(BaseItemID + 21, 181).setUnlocalizedName("cageocelot");
-            CagedBlaze = new CritterCage(BaseItemID + 22, 182).setUnlocalizedName("cageblaze");
             CagedGirlfriend = new CritterCage(BaseItemID + 23, 183)
                 .setUnlocalizedName("cagegirlfriend");
             CagedBoyfriend = new CritterCage(BaseItemID + 95, 215)
                 .setUnlocalizedName("cageboyfriend");
             CagedWitherSkeleton = new CritterCage(BaseItemID + 24, 188)
                 .setUnlocalizedName("cagewitherskeleton");
-            CagedEnderDragon = new CritterCage(BaseItemID + 25, 184)
-                .setUnlocalizedName("cageenderdragon");
-            CagedSnowGolem = new CritterCage(BaseItemID + 26, 185)
-                .setUnlocalizedName("cagesnowgolem");
-            CagedIronGolem = new CritterCage(BaseItemID + 27, 186)
-                .setUnlocalizedName("cageirongolem");
-            CagedWitherBoss = new CritterCage(BaseItemID + 28, 187)
-                .setUnlocalizedName("cagewitherboss");
             CagedRedCow = new CritterCage(BaseItemID + 29, 189).setUnlocalizedName("cageredcow");
             CagedGoldCow = new CritterCage(BaseItemID + 30, 190)
                 .setUnlocalizedName("cagegoldcow");
@@ -6735,7 +6673,6 @@ public class OreSpawnMain {
             CagedLizard = new CritterCage(BaseItemID + 52, 246).setUnlocalizedName("cagelizard");
             CagedDragon = new CritterCage(BaseItemID + 54, 250).setUnlocalizedName("cagedragon");
             CagedBee = new CritterCage(BaseItemID + 55, 252).setUnlocalizedName("cagebee");
-            CagedHorse = new CritterCage(BaseItemID + 56, 253).setUnlocalizedName("cagehorse");
             CagedFirefly = new CritterCage(BaseItemID + 57, 255)
                 .setUnlocalizedName("cagefirefly");
             CagedChipmunk = new CritterCage(BaseItemID + 58, 256)
@@ -6817,8 +6754,6 @@ public class OreSpawnMain {
                 .setUnlocalizedName("cagerubberducky");
             CagedCrystalCow = new CritterCage(BaseItemID + 429, 216)
                 .setUnlocalizedName("cagecrystalcow");
-            CagedVillager = new CritterCage(BaseItemID + 430, 217)
-                .setUnlocalizedName("cagevillager");
             CagedCriminal = new CritterCage(BaseItemID + 433, 218)
                 .setUnlocalizedName("cagecriminal");
             CagedBrutalfly = new CritterCage(BaseItemID + 465, 373)

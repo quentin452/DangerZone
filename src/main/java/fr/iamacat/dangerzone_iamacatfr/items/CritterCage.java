@@ -70,119 +70,8 @@ public class CritterCage extends Item {
         int skelly_type = 0;
         String name = null;
         switch (this.cage_id) {
-            case 161: {
-                entityID = 52;
-                break;
-            }
-            case 162: {
-                entityID = 65;
-                break;
-            }
-            case 163: {
-                entityID = 92;
-                break;
-            }
-            case 164: {
-                entityID = 90;
-                break;
-            }
-            case 165: {
-                entityID = 94;
-                break;
-            }
-            case 166: {
-                entityID = 93;
-                break;
-            }
-            case 167: {
-                entityID = 50;
-                break;
-            }
-            case 188: {
-                skelly_type = 1;
-            }
-            case 168: {
-                entityID = 51;
-                break;
-            }
-            case 169: {
-                entityID = 54;
-                break;
-            }
-            case 170: {
-                entityID = 55;
-                break;
-            }
-            case 171: {
-                entityID = 56;
-                break;
-            }
-            case 172: {
-                entityID = 57;
-                break;
-            }
-            case 173: {
-                entityID = 58;
-                break;
-            }
-            case 174: {
-                entityID = 59;
-                break;
-            }
-            case 175: {
-                entityID = 60;
-                break;
-            }
-            case 176: {
-                entityID = 62;
-                break;
-            }
-            case 177: {
-                entityID = 66;
-                break;
-            }
-            case 178: {
-                entityID = 91;
-                break;
-            }
-            case 179: {
-                entityID = 95;
-                break;
-            }
             case 180: {
                 entityID = 96;
-                break;
-            }
-            case 181: {
-                entityID = 98;
-                break;
-            }
-            case 182: {
-                entityID = 61;
-                break;
-            }
-            case 184: {
-                entityID = 63;
-                break;
-            }
-            case 185: {
-                entityID = 97;
-                break;
-            }
-            case 186: {
-                entityID = 99;
-                break;
-            }
-            case 187: {
-                entityID = 64;
-                break;
-            }
-            case 253: {
-                entityID = 100;
-                break;
-            }
-            case 217: {
-                entityID = 120;
                 break;
             }
             case 183: {
@@ -523,7 +412,7 @@ public class CritterCage extends Item {
             }
         }
         if (entityID != 0 || name != null) {
-            Entity ent = null;
+            Entity ent;
             ent = spawnCreature(par3World, entityID, name, par4 + 0.5, par5 + 1.1, par6 + 0.5);
             if (ent != null) {
                 ent.dropItem(OreSpawnMain.CageEmpty, 1);

@@ -767,40 +767,6 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
-        int Ghost = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(
-           Ghost.class,
-            "Ghost",
-            Ghost);
-
-        EntityRegistry.registerModEntity(
-            Ghost.class,
-            "Ghost",
-            Ghost, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-        int GhostSkelly = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(
-            GhostSkelly.class,
-            "GhostSkelly",
-            GhostSkelly);
-
-        EntityRegistry.registerModEntity(
-            GhostSkelly.class,
-            "GhostSkelly",
-            GhostSkelly, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-
-
-
-
     }
 
 }

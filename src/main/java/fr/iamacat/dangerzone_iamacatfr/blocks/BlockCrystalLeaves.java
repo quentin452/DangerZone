@@ -1,9 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import java.util.List;
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -11,15 +13,14 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.List;
+import java.util.Random;
 
 public class BlockCrystalLeaves extends BlockLeaves {
 
@@ -109,12 +110,36 @@ public class BlockCrystalLeaves extends BlockLeaves {
         return 1;
     }
 
-    @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(final IBlockAccess par1IBlockAccess, final int par2, final int par3,
-        final int par4, final int par5) {
-        final Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
-        return OreSpawnMain.FastGraphicsLeaves == 0 || i1 != this;
+    private boolean areAtLeastTwoAdjacentBlocksLeaves(IBlockAccess world, int x, int y, int z, Block leafBlock) {
+        int leafCount = 0;
+        for (EnumFacing facing : EnumFacing.values()) {
+            Block adjacentBlock = world.getBlock(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
+            if (adjacentBlock == leafBlock && adjacentBlock instanceof BlockScaryLeaves) {
+                leafCount++;
+                if (leafCount >= 2) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
+
+    @Override
+    public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
+        Block block = world.getBlock(x, y, z);
+        Block adjacentBlock = world.getBlock(x + ForgeDirection.VALID_DIRECTIONS[side].offsetX, y + ForgeDirection.VALID_DIRECTIONS[side].offsetY, z + ForgeDirection.VALID_DIRECTIONS[side].offsetZ);
+
+        // Si le bloc adjacent est une feuille du même type et qu'au moins deux blocs adjacents sont aussi des feuilles du même type, ne pas rendre le côté.
+        if (block == adjacentBlock && block instanceof BlockScaryLeaves) {
+            if (areAtLeastTwoAdjacentBlocksLeaves(world, x, y, z, block)) {
+                return false;
+            }
+            return true;
+        }
+
+        return super.shouldSideBeRendered(world, x, y, z, side);
+    }
+
 
     @SideOnly(Side.CLIENT)
     public int getBlockColor() {

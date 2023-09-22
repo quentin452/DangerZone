@@ -121,17 +121,17 @@ public class MavisInstance extends EntityTameable {
                             par1EntityPlayer.getUniqueID()
                                 .toString());
                         this.playTameEffect(true);
-                        this.worldObj.setEntityState((Entity) this, (byte) 7);
+                        this.worldObj.setEntityState((Entity) this,  (byte) 7);
                         this.heal(this.mygetMaxHealth() - this.getHealth());
                     } else {
                         this.playTameEffect(false);
-                        this.worldObj.setEntityState((Entity) this, (byte) 6);
+                        this.worldObj.setEntityState((Entity) this,   (byte)6);
                     }
                 }
             } else if (this.func_152114_e((EntityLivingBase) par1EntityPlayer)) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState((Entity) this, (byte) 7);
+                    this.worldObj.setEntityState((Entity) this,  (byte) 7);
                 }
                 if (this.mygetMaxHealth() > this.getHealth()) {
                     this.heal(this.mygetMaxHealth() - this.getHealth());
@@ -154,7 +154,7 @@ public class MavisInstance extends EntityTameable {
                 this.setTamed(false);
                 this.func_152115_b("");
                 this.playTameEffect(false);
-                this.worldObj.setEntityState((Entity) this, (byte) 6);
+                this.worldObj.setEntityState((Entity) this,   (byte)6);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack2 = var2;
@@ -432,7 +432,7 @@ public class MavisInstance extends EntityTameable {
             if (e != null) {
                 this.faceEntity(e, 10.0f, 10.0f);
                 if (this.getDistanceSqToEntity(e) < (4.0f + e.width / 2.0f) * (4.0f + e.width / 2.0f)) {
-                    this.setAttacking((byte) 1);
+                    this.setAttacking( 1);
                     if (this.worldObj.rand.nextInt(4) == 0 || this.worldObj.rand.nextInt(5) == 1) {
                         this.attackEntityAsMob(e);
                         this.magiccanon(e);
@@ -446,7 +446,7 @@ public class MavisInstance extends EntityTameable {
                     this.magiccanon(e);
                 }
             } else {
-                this.setAttacking((byte) 0);
+                this.setAttacking( 0);
             }
         }
         if (this.worldObj.rand.nextInt(4) == 1 && this.getHealth() < this.mygetMaxHealth()) {
@@ -459,7 +459,7 @@ public class MavisInstance extends EntityTameable {
         final double yoff = 1.75;
         final double xzoff = 2.5;
         if (this.stream_count > 0) {
-            this.setAttacking((byte) 2);
+            this.setAttacking( 2);
             if (this.rand.nextInt(15) == 1) {
                 final MavisBallInstance var2 = new MavisBallInstance(
                     this.worldObj,
@@ -505,7 +505,7 @@ public class MavisInstance extends EntityTameable {
             this.worldObj.spawnEntityInWorld(var2);
             --this.stream_count;
         } else {
-            this.setAttacking((byte) 0);
+            this.setAttacking( 0);
         }
         if (this.stream_count <= 0 && this.rand.nextInt(4) == 1) {
             this.stream_count = 8;
@@ -575,25 +575,25 @@ public class MavisInstance extends EntityTameable {
         return null;
     }
 
-    public final byte getAttacking() {
-        return this.dataWatcher.getWatchableObjectByte(20);
+    public final int getAttacking() {
+        return this.dataWatcher.getWatchableObjectInt(20);
     }
 
-    public final void setAttacking(final byte par1) {
+    public final void setAttacking(final int par1) {
         this.dataWatcher.updateObject(20, par1);
     }
 
 
     public boolean getCanSpawnHere() {
-        for (byte k = -3; k < 3; ++k) {
-            for (byte j = -3; j < 3; ++j) {
-                for (byte i = 0; i < 5; ++i) {
+        for (int k = -3; k < 3; ++k) {
+            for (int j = -3; j < 3; ++j) {
+                for (int i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("MyMavis")) {

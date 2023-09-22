@@ -344,8 +344,8 @@ public class EyeRayInstance extends EntityLiving {
         var1.setShort("xTile", (short) this.xTile);
         var1.setShort("yTile", (short) this.yTile);
         var1.setShort("zTile", (short) this.zTile);
-        var1.setByte("inTile", (byte) this.inTile);
-        var1.setByte("inGround", (byte) (this.inGround ? 1 : 0));
+        var1.setByte("inTile",  (byte) this.inTile);
+        var1.setByte("inGround",   (byte)(this.inGround ? 1 : 0));
         var1.setTag("direction", this.newDoubleNBTList(this.motionX, this.motionY, this.motionZ));
 
         NBTTagList var2 = new NBTTagList();

@@ -75,7 +75,7 @@ public abstract class TragicMob extends EntityMob {
     }
 
     public void setSupport(boolean flag) {
-        this.dataWatcher.updateObject(13, flag ? (byte) 1 : 0);
+        this.dataWatcher.updateObject(13, flag ?  1 : 0);
     }
 
     @Override
@@ -91,7 +91,7 @@ public abstract class TragicMob extends EntityMob {
                 double d = 0.35D;
                 double d2 = 0.35D;
 
-                for (byte i = 0; i < 3; i++) {
+                for (int i = 0; i < 3; i++) {
                     this.worldObj.spawnParticle(
                         "smoke",
                         this.posX + (this.rand.nextDouble() - rand.nextDouble()) * this.width * 1.25D,
@@ -216,13 +216,13 @@ public abstract class TragicMob extends EntityMob {
          * if (this.canChange() && this.getCorruptionTicks() >= 400 && this.rand.nextInt(200) <=
          * TragicConfig.mobTransformationChance && this.ticksExisted % 20 == 0 && rand.nextInt(4) == 0)
          * {
-         * this.dataWatcher.updateObject(14, (byte) 1);
+         * this.dataWatcher.updateObject(14,  1);
          * }
          * }
          * else if (this.canChange() && this.ticksExisted >= 6000 && this.ticksExisted % 20 == 0 &&
          * this.rand.nextInt(100) <= TragicConfig.mobTransformationChance)
          * {
-         * this.dataWatcher.updateObject(14, (byte) 1);
+         * this.dataWatcher.updateObject(14,  1);
          * }
          */
     }
@@ -236,7 +236,7 @@ public abstract class TragicMob extends EntityMob {
             this.worldObj.spawnEntityInWorld(boss);
             boss.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 200, 2));
             boss.addPotionEffect(new PotionEffect(Potion.resistance.id, 200, 2));
-            boss.dataWatcher.updateObject(14, (byte) 0);
+            boss.dataWatcher.updateObject(14,  0);
             boss.playSound(Tags.MODID + ":random.change", 1.0F, 1.0F);
         }
     }
@@ -296,8 +296,8 @@ public abstract class TragicMob extends EntityMob {
     public void writeEntityToNBT(NBTTagCompound tag) {
         super.writeEntityToNBT(tag);
         tag.setInteger("corruptionTicks", this.getCorruptionTicks());
-        tag.setByte("changeState", this.dataWatcher.getWatchableObjectByte(14));
-        tag.setByte("support", this.isSupport() ? (byte) 1 : (byte) 0);
+        tag.setInteger("changeState", this.dataWatcher.getWatchableObjectInt(14));
+        tag.setInteger("support", this.isSupport() ? 1 : 0);
         tag.setInteger("supportID", this.supportID);
         tag.setInteger("supportAmp", this.supportAmp);
     }

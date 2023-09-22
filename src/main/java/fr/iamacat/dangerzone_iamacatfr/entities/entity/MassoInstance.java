@@ -102,15 +102,15 @@ public class MassoInstance extends EntityTameable {
     }
 
     public boolean isAngry() {
-        return (this.dataWatcher.getWatchableObjectByte(16) & 0x2) != 0x0;
+        return (this.dataWatcher.getWatchableObjectInt(16) & 0x2) != 0x0;
     }
 
     public void setAngry(final boolean par1) {
-        final int b0 = this.dataWatcher.getWatchableObjectByte(16);
+        final int b0 = this.dataWatcher.getWatchableObjectInt(16);
         if (par1) {
-            this.dataWatcher.updateObject(16, (byte) (b0 | 0x2));
+            this.dataWatcher.updateObject(16,(b0 | 0x2));
         } else {
-            this.dataWatcher.updateObject(16, (byte) (b0 & 0xFFFFFFFD));
+            this.dataWatcher.updateObject(16,(b0 & 0xFFFFFFFD));
         }
     }
 }

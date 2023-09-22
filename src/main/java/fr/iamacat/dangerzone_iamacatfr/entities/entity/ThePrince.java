@@ -193,7 +193,7 @@ public class ThePrince extends EntityTameable {
                     par1EntityPlayer.getUniqueID()
                         .toString());
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this, (byte) 7);
+                this.worldObj.setEntityState(this, (byte)  7);
                 this.heal(this.mygetMaxHealth() - this.getHealth());
                 this.ok_to_grow = 1;
                 this.kill_count = 1000;
@@ -219,7 +219,7 @@ public class ThePrince extends EntityTameable {
                     this.heal((float) (var3.func_150905_g(var2) * 10));
                 }
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this, (byte) 7);
+                this.worldObj.setEntityState(this, (byte)  7);
                 ++this.fed_count;
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
@@ -237,7 +237,7 @@ public class ThePrince extends EntityTameable {
             && this.func_152114_e(par1EntityPlayer)) {
             if (!this.worldObj.isRemote) {
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this, (byte) 6);
+                this.worldObj.setEntityState(this,   (byte)6);
                 this.setSpyroFire(0);
                 String healthMessage = new String();
                 healthMessage = String.format("Prince fireballs extinguished.", new Object[0]);
@@ -258,11 +258,11 @@ public class ThePrince extends EntityTameable {
             && this.func_152114_e(par1EntityPlayer)) {
             if (!this.worldObj.isRemote) {
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this, (byte) 6);
+                this.worldObj.setEntityState(this,  (byte) 6);
                 this.setSpyroFire(1);
-                String healthMessage = new String();
+                String healthMessage;
                 healthMessage = String.format("Prince fireballs lit!", new Object[0]);
-                par1EntityPlayer.addChatComponentMessage((IChatComponent) new ChatComponentText(healthMessage));
+                par1EntityPlayer.addChatComponentMessage(new ChatComponentText(healthMessage));
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack4 = var2;
@@ -555,7 +555,7 @@ public class ThePrince extends EntityTameable {
                     p.getUniqueID()
                         .toString());
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this, (byte) 7);
+                this.worldObj.setEntityState(this, (byte)  7);
                 this.heal(this.mygetMaxHealth() - this.getHealth());
             }
         }

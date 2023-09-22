@@ -584,15 +584,15 @@ public class CrabzillaInstance extends EntityTameable {
     }
 
     public boolean getCanSpawnHere() {
-        for (byte k = -8; k < 8; ++k) {
-            for (byte j = -12; j < 12; ++j) {
-                for (byte i = 0; i < 10; ++i) {
+        for (int k = -8; k < 8; ++k) {
+            for (int j = -12; j < 12; ++j) {
+                for (int i = 0; i < 10; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("MyCrabzilla")) {

@@ -512,15 +512,15 @@ public class FlameDragonInstance extends EntityTameable {
     }
 
     public boolean getCanSpawnHere() {
-        for (byte k = -5; k <= 5; ++k) {
-            for (byte j = -5; j <= 5; ++j) {
-                for (byte i = 3; i < 5; ++i) {
+        for (int k = -5; k <= 5; ++k) {
+            for (int j = -5; j <= 5; ++j) {
+                for (int i = 3; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("MyFlameDragon")) {
@@ -1204,7 +1204,7 @@ public class FlameDragonInstance extends EntityTameable {
         if (this.worldObj != null && this.worldObj.isRemote) {
             return;
         }
-        this.dataWatcher.updateObject(22, (Object) par1);
+        this.dataWatcher.updateObject(22, par1);
     }
 
     public EntityAgeable createChild(final EntityAgeable entityageable) {

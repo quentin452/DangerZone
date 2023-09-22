@@ -320,15 +320,15 @@ public class Molenoid extends EntityMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (byte k = -3; k < 3; ++k) {
-            for (byte j = -3; j < 3; ++j) {
-                for (byte i = 0; i < 5; ++i) {
+        for (int k = -3; k < 3; ++k) {
+            for (int j = -3; j < 3; ++j) {
+                for (int i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("Molenoid")) {

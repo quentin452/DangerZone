@@ -17,7 +17,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityMobSpawner;
@@ -281,15 +280,15 @@ public class BandP extends EntityMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (byte k = -3; k < 3; ++k) {
-            for (byte j = -3; j < 3; ++j) {
-                for (byte i = 0; i < 5; ++i) {
+        for (int k = -3; k < 3; ++k) {
+            for (int j = -3; j < 3; ++j) {
+                for (int i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("Criminal")) {
@@ -323,7 +322,7 @@ public class BandP extends EntityMob {
     public void writeEntityToNBT(final NBTTagCompound par1NBTTagCompound) {
         super.writeEntityToNBT(par1NBTTagCompound);
         if (this.got_stuff != 0) {
-            par1NBTTagCompound.setTag("Inventory", (NBTBase) this.writeToNBT(new NBTTagList()));
+            par1NBTTagCompound.setTag("Inventory", this.writeToNBT(new NBTTagList()));
         }
         par1NBTTagCompound.setInteger("GotStuff", this.got_stuff);
     }
@@ -338,10 +337,10 @@ public class BandP extends EntityMob {
     }
 
     public NBTTagList writeToNBT(final NBTTagList par1NBTTagList) {
-        for (byte i = 0; i < this.MymainInventory.length; ++i) {
+        for (int i = 0; i < this.MymainInventory.length; ++i) {
             if (this.MymainInventory[i] != null) {
                 final NBTTagCompound nbttagcompound = new NBTTagCompound();
-                nbttagcompound.setByte("Slot", i);
+                nbttagcompound.setInteger("Slot", i);
                 this.MymainInventory[i].writeToNBT(nbttagcompound);
                 par1NBTTagList.appendTag(nbttagcompound);
             }

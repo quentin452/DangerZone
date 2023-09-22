@@ -146,5 +146,6 @@
 "bosshurt": {"category": "master","sounds": [{"name": "bosshurt","stream": false}]},
 "frog": {"category": "master","sounds": [{"name": "frog","stream": false}]},
 "flap_a1": {"category": "master","sounds": [{"name": "flap_a1","stream": false}]},
+"toughpain": {"category": "master","sounds": [{"name": "toughpain","stream": false}]},
 "slap": {"category": "master","sounds": [{"name": "slap","stream": false}]}
 }

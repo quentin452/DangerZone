@@ -174,17 +174,17 @@ public class Stinky extends EntityTameable {
                             par1EntityPlayer.getUniqueID()
                                 .toString());
                         this.playTameEffect(true);
-                        this.worldObj.setEntityState(this, (byte) 7);
+                        this.worldObj.setEntityState(this,  (byte) 7);
                         this.heal(this.mygetMaxHealth() - this.getHealth());
                     } else {
                         this.playTameEffect(false);
-                        this.worldObj.setEntityState(this, (byte) 6);
+                        this.worldObj.setEntityState(this,  (byte) 6);
                     }
                 }
             } else if (this.func_152114_e(par1EntityPlayer)) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte) 7);
+                    this.worldObj.setEntityState(this,  (byte) 7);
                 }
                 if (this.mygetMaxHealth() > this.getHealth()) {
                     this.heal(this.mygetMaxHealth() - this.getHealth());
@@ -208,7 +208,7 @@ public class Stinky extends EntityTameable {
                 this.setHealth((float) this.mygetMaxHealth());
                 this.func_152115_b("");
                 this.playTameEffect(false);
-                this.worldObj.setEntityState(this, (byte) 6);
+                this.worldObj.setEntityState(this,   (byte)6);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack2 = var2;

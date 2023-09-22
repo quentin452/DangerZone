@@ -607,15 +607,15 @@ public class HydraInstance extends EntityMob {
         if (this.worldObj.rand.nextInt(3) != 1) {
             return false;
         }
-        for (byte k = -6; k < 6; ++k) {
-            for (byte j = -6; j < 6; ++j) {
-                for (byte i = 5; i < 10; ++i) {
+        for (int k = -6; k < 6; ++k) {
+            for (int j = -6; j < 6; ++j) {
+                for (int i = 5; i < 10; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("MyMLPHydra")) {

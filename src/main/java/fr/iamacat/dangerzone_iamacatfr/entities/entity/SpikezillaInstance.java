@@ -599,15 +599,15 @@ public class SpikezillaInstance extends EntityMob {
         if (this.worldObj.rand.nextInt(60) != 1) {
             return false;
         }
-        for (byte k = -8; k < 8; ++k) {
-            for (byte j = -8; j < 8; ++j) {
-                for (byte i = 5; i < 10; ++i) {
+        for (int k = -8; k < 8; ++k) {
+            for (int j = -8; j < 8; ++j) {
+                for (int i = 5; i < 10; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("MySpikezilla")) {

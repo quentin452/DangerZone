@@ -112,17 +112,17 @@ public class GammaMetroid extends EntityTameable {
                             par1EntityPlayer.getUniqueID()
                                 .toString());
                         this.playTameEffect(true);
-                        this.worldObj.setEntityState(this, (byte) 7);
+                        this.worldObj.setEntityState(this,   (byte)7);
                         this.heal(this.mygetMaxHealth() - this.getHealth());
                     } else {
                         this.playTameEffect(false);
-                        this.worldObj.setEntityState(this, (byte) 6);
+                        this.worldObj.setEntityState(this,  (byte) 6);
                     }
                 }
             } else if (this.func_152114_e(par1EntityPlayer)) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte) 7);
+                    this.worldObj.setEntityState(this,   (byte)7);
                 }
                 if (this.mygetMaxHealth() > this.getHealth()) {
                     this.heal(this.mygetMaxHealth() - this.getHealth());
@@ -145,7 +145,7 @@ public class GammaMetroid extends EntityTameable {
                 this.setTamed(false);
                 this.func_152115_b("");
                 this.playTameEffect(false);
-                this.worldObj.setEntityState(this, (byte) 6);
+                this.worldObj.setEntityState(this,  (byte) 6);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack2 = var2;
@@ -351,15 +351,15 @@ public class GammaMetroid extends EntityTameable {
     }
 
     public boolean getCanSpawnHere() {
-        for (byte k = -3; k < 3; ++k) {
-            for (byte j = -3; j < 3; ++j) {
-                for (byte i = 0; i < 5; ++i) {
+        for (int k = -3; k < 3; ++k) {
+            for (int j = -3; j < 3; ++j) {
+                for (int i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("WTF?")) {

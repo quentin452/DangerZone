@@ -50,9 +50,9 @@ public class AerialInstance extends EntityLiving {
 
     protected void setEntityGrounded(final Boolean par1) {
         if (par1) {
-            this.dataWatcher.updateObject(17, (Object) 1);
+            this.dataWatcher.updateObject(17,1);
         } else {
-            this.dataWatcher.updateObject(17, (Object) 0);
+            this.dataWatcher.updateObject(17, 0);
         }
     }
 

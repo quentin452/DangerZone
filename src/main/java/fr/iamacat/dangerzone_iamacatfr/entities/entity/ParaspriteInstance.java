@@ -73,11 +73,11 @@ public class ParaspriteInstance extends EntityMob {
         return !this.isNoDespawnRequired();
     }
 
-    public final byte getAttacking() {
-        return this.dataWatcher.getWatchableObjectByte(20);
+    public final int getAttacking() {
+        return this.dataWatcher.getWatchableObjectInt(20);
     }
 
-    public final void setAttacking(final byte par1) {
+    public final void setAttacking(final int par1) {
         this.dataWatcher.updateObject(20, par1);
     }
 
@@ -235,14 +235,14 @@ public class ParaspriteInstance extends EntityMob {
                     e = this.findSomethingToAttack();
                 }
                 if (e != null) {
-                    this.setAttacking((byte) 1);
+                    this.setAttacking( 1);
                     this.currentFlightTarget.set((int) e.posX, (int) e.posY + 1, (int) e.posZ);
                     if (this.getDistanceSqToEntity((Entity) e) >= (5.5f + e.width / 2.0f) * (5.5f + e.width / 2.0f)) {
                         continue;
                     }
                     this.attackEntityAsMob((Entity) e);
                 } else {
-                    this.setAttacking((byte) 0);
+                    this.setAttacking( 0);
                 }
             }
         }
@@ -281,15 +281,15 @@ public class ParaspriteInstance extends EntityMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (byte k = -2; k <= 2; ++k) {
-            for (byte j = -2; j <= 2; ++j) {
-                for (byte i = 1; i < 4; ++i) {
+        for (int k = -2; k <= 2; ++k) {
+            for (int j = -2; j <= 2; ++j) {
+                for (int i = 1; i < 4; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("Mantis")) {

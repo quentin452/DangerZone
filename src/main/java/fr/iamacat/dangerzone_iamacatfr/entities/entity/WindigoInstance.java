@@ -1155,15 +1155,15 @@ public class WindigoInstance extends EntityMob {
         if (this.worldObj.rand.nextInt(10) != 1) {
             return false;
         }
-        for (byte k = -10; k < 10; ++k) {
-            for (byte j = -10; j < 10; ++j) {
-                for (byte i = 6; i < 10; ++i) {
+        for (int k = -10; k < 10; ++k) {
+            for (int j = -10; j < 10; ++j) {
+                for (int i = 6; i < 10; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("WindigoInstance")) {

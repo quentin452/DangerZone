@@ -475,7 +475,7 @@ public class YakPrinceInstance extends EntityMob {
             }
             if (e != null) {
                 this.faceEntity((Entity) e, 10.0f, 10.0f);
-                this.setAttacking((byte) 1);
+                this.setAttacking( 1);
                 this.getNavigator()
                     .tryMoveToEntityLiving((Entity) e, 1.2);
                 if (this.getDistanceSqToEntity((Entity) e) < (9.8f + e.width / 2.0f) * (9.8f + e.width / 2.0f)) {
@@ -489,7 +489,7 @@ public class YakPrinceInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.2);
                 }
             } else {
-                this.setAttacking((byte) 0);
+                this.setAttacking( 0);
             }
         }
         if (this.worldObj.rand.nextInt(40) == 1 && this.getHealth() < this.mygetMaxHealth()) {
@@ -498,15 +498,15 @@ public class YakPrinceInstance extends EntityMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (byte k = -3; k < 3; ++k) {
-            for (byte j = -3; j < 3; ++j) {
-                for (byte i = 0; i < 5; ++i) {
+        for (int k = -3; k < 3; ++k) {
+            for (int j = -3; j < 3; ++j) {
+                for (int i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("YakPrinceInstance")) {
@@ -554,11 +554,11 @@ public class YakPrinceInstance extends EntityMob {
         return true;
     }
 
-    public final byte getAttacking() {
-        return this.dataWatcher.getWatchableObjectByte(20);
+    public final int getAttacking() {
+        return this.dataWatcher.getWatchableObjectInt(20);
     }
 
-    public final void setAttacking(final byte par1) {
+    public final void setAttacking(final int par1) {
         this.dataWatcher.updateObject(20, par1);
     }
 

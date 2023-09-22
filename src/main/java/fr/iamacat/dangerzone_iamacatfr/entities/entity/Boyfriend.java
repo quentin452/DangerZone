@@ -570,17 +570,17 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                             par1EntityPlayer.getUniqueID()
                                 .toString());
                         this.playTameEffect(true);
-                        this.worldObj.setEntityState(this, (byte) 7);
+                        this.worldObj.setEntityState(this,   (byte)7);
                         this.heal(this.mygetMaxHealth() - this.getHealth());
                     } else {
                         this.playTameEffect(false);
-                        this.worldObj.setEntityState(this, (byte) 6);
+                        this.worldObj.setEntityState(this,   (byte)6);
                     }
                 }
             } else if (this.func_152114_e(par1EntityPlayer)) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte) 7);
+                    this.worldObj.setEntityState(this,  (byte) 7);
                 }
                 if (this.mygetMaxHealth() > this.getHealth()) {
                     this.heal(this.mygetMaxHealth() - this.getHealth());
@@ -603,7 +603,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 this.setTamed(false);
                 this.func_152115_b("");
                 this.playTameEffect(false);
-                this.worldObj.setEntityState(this, (byte) 6);
+                this.worldObj.setEntityState(this,   (byte)6);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack2 = var2;
@@ -622,7 +622,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 this.voice_enable = 0;
                 this.dataWatcher.updateObject(23, (Object) this.voice_enable);
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this, (byte) 7);
+                this.worldObj.setEntityState(this,   (byte)7);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack3 = var2;
@@ -641,7 +641,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 this.voice_enable = 1;
                 this.dataWatcher.updateObject(23, (Object) this.voice_enable);
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this, (byte) 7);
+                this.worldObj.setEntityState(this,   (byte)7);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack4 = var2;
@@ -663,7 +663,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                         this.which_wet_guy = 0;
                     }
                     this.setWetTameSkin(this.which_wet_guy);
-                    this.worldObj.setEntityState(this, (byte) 7);
+                    this.worldObj.setEntityState(this,   (byte)7);
                     if (this.isInWater() || this.handleLavaMovement()) {
                         this.wet_count = 500;
                     }
@@ -673,7 +673,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                         this.which_guy = 0;
                     }
                     this.setTameSkin(this.which_guy);
-                    this.worldObj.setEntityState(this, (byte) 7);
+                    this.worldObj.setEntityState(this, (byte)  7);
                 }
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
@@ -695,7 +695,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                         this.heal((float) (var3.func_150905_g(var2) * 5));
                     }
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte) 7);
+                    this.worldObj.setEntityState(this, (byte)  7);
                 }
                 if (!par1EntityPlayer.capabilities.isCreativeMode) {
                     final ItemStack itemStack6 = var2;
@@ -708,7 +708,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
             } else {
                 if (!this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte) 7);
+                    this.worldObj.setEntityState(this,   (byte)7);
                 }
                 final ItemStack var4 = this.getCurrentEquippedItem();
                 this.setCurrentItemOrArmor(0, var2);
@@ -761,7 +761,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 par1EntityPlayer.getUniqueID()
                     .toString());
             this.playTameEffect(true);
-            this.worldObj.setEntityState(this, (byte) 7);
+            this.worldObj.setEntityState(this,   (byte)7);
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack7 = var2;
                 --itemStack7.stackSize;
@@ -811,12 +811,12 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 this.setCurrentItemOrArmor(it, null);
                 this.setSitting(false);
                 if (!this.worldObj.isRemote) {
-                    this.worldObj.setEntityState(this, (byte) 6);
+                    this.worldObj.setEntityState(this,   (byte)6);
                 }
             } else if (!this.worldObj.isRemote) {
                 this.setSitting(false);
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this, (byte) 7);
+                this.worldObj.setEntityState(this,   (byte)7);
                 String healthMessage = new String();
                 healthMessage = String.format("I have %d health. Thanks for asking!", this.getBoyfriendHealth());
                 par1EntityPlayer.addChatComponentMessage((IChatComponent) new ChatComponentText(healthMessage));
@@ -1075,15 +1075,15 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (byte k = -3; k < 3; ++k) {
-            for (byte j = -3; j < 3; ++j) {
-                for (byte i = 0; i < 5; ++i) {
+        for (int k = -3; k < 3; ++k) {
+            for (int j = -3; j < 3; ++j) {
+                for (int i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("Boyfriend")) {

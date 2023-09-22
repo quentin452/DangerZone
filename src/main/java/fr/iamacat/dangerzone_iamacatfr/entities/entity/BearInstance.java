@@ -263,9 +263,9 @@ public class BearInstance extends EntityMob {
             }
             if (e != null) {
                 this.faceEntity((Entity) e, 10.0f, 10.0f);
-                this.setAttacking((byte) 1);
+                this.setAttacking( 1);
                 if (this.getDistanceSqToEntity((Entity) e) < (5.5f + e.width / 3.0f) * (5.5f + e.width / 3.0f)) {
-                    this.setAttacking((byte) 1);
+                    this.setAttacking( 1);
                     if (this.worldObj.rand.nextInt(3) == 1 || this.worldObj.rand.nextInt(2) == 1) {
                         this.attackEntityAsMob((Entity) e);
                     }
@@ -284,7 +284,7 @@ public class BearInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.25);
                 }
             } else {
-                this.setAttacking((byte) 0);
+                this.setAttacking( 0);
             }
         }
     }
@@ -351,11 +351,11 @@ public class BearInstance extends EntityMob {
         return null;
     }
 
-    public final byte getAttacking() {
-        return this.dataWatcher.getWatchableObjectByte(20);
+    public final int getAttacking() {
+        return this.dataWatcher.getWatchableObjectInt(20);
     }
 
-    public final void setAttacking(final byte par1) {
+    public final void setAttacking(final int par1) {
         this.dataWatcher.updateObject(20, par1);
     }
 

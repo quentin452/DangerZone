@@ -1239,7 +1239,7 @@ public class ThePrinceAdult extends EntityTameable {
             if (var2 != null && var2.getItem() == Items.beef && par1EntityPlayer.getDistanceSqToEntity(this) < 36.0) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte) 7);
+                    this.worldObj.setEntityState(this,  (byte) 7);
                 }
                 if (this.mygetMaxHealth() > this.getHealth()) {
                     this.heal(this.mygetMaxHealth() - this.getHealth());
@@ -1262,7 +1262,7 @@ public class ThePrinceAdult extends EntityTameable {
                         this.heal((float) (var3.func_150905_g(var2) * 10));
                     }
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte) 7);
+                    this.worldObj.setEntityState(this,   (byte)7);
                 }
                 if (!par1EntityPlayer.capabilities.isCreativeMode) {
                     final ItemStack itemStack3 = var2;
@@ -1278,7 +1278,7 @@ public class ThePrinceAdult extends EntityTameable {
                 && par1EntityPlayer.getDistanceSqToEntity(this) < 36.0) {
                 if (!this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte) 6);
+                    this.worldObj.setEntityState(this,   (byte)6);
                     this.setThePrinceAdultFire(0);
                     String healthMessage = new String();
                     healthMessage = String.format("Fireballs extinguished.", new Object[0]);
@@ -1298,7 +1298,7 @@ public class ThePrinceAdult extends EntityTameable {
                 && par1EntityPlayer.getDistanceSqToEntity(this) < 36.0) {
                 if (!this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte) 6);
+                    this.worldObj.setEntityState(this,  (byte)6);
                     this.setThePrinceAdultFire(1);
                     String healthMessage = new String();
                     healthMessage = String.format("Fireballs lit!", new Object[0]);

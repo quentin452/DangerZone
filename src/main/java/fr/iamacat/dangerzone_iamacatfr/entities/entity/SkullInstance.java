@@ -365,15 +365,15 @@ public class SkullInstance extends EntityMob implements IMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (byte k = -2; k <= 2; ++k) {
-            for (byte j = -2; j <= 2; ++j) {
-                for (byte i = 1; i < 4; ++i) {
+        for (int k = -2; k <= 2; ++k) {
+            for (int j = -2; j <= 2; ++j) {
+                for (int i = 1; i < 4; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
+                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("LittleSkull")) {

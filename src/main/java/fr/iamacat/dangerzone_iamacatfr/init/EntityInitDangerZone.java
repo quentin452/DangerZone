@@ -731,18 +731,6 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
-        int TwilightFireball = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(TwilightFireballInstance.class, "TwilightFireball", TwilightFireball);
-
-        EntityRegistry.registerModEntity(
-            TwilightFireballInstance.class,
-            "TwilightFireball",
-            TwilightFireball, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
         int HydraFireball = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(HydraFireballInstance.class, "HydraFireball", HydraFireball);

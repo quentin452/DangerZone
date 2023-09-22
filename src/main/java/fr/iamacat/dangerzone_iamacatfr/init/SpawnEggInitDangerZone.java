@@ -776,11 +776,6 @@ public class SpawnEggInitDangerZone {
         Constants.BetterFireball = BetterFireball;
         GameRegistry.registerItem(Constants.BetterFireball, "Better Fireball Egg");
 
-        SpawnEggs TwilightFireball = new SpawnEggs(TwilightFireballInstance.class);
-        TwilightFireball.setUnlocalizedName("Twilight Fireball Egg");
-        Constants.TwilightFireball = TwilightFireball;
-        GameRegistry.registerItem(Constants.TwilightFireball, "Twilight Fireball Egg");
-
         SpawnEggs HydraFireball = new SpawnEggs(HydraFireballInstance.class);
         HydraFireball.setUnlocalizedName("Hydra Fire ball Egg");
         Constants.HydraFireball = HydraFireball;

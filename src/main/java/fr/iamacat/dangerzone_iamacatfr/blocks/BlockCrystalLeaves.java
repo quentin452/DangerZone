@@ -130,7 +130,7 @@ public class BlockCrystalLeaves extends BlockLeaves {
         Block adjacentBlock = world.getBlock(x + ForgeDirection.VALID_DIRECTIONS[side].offsetX, y + ForgeDirection.VALID_DIRECTIONS[side].offsetY, z + ForgeDirection.VALID_DIRECTIONS[side].offsetZ);
 
         // Si le bloc adjacent est une feuille du même type et qu'au moins deux blocs adjacents sont aussi des feuilles du même type, ne pas rendre le côté.
-        if (block == adjacentBlock && block instanceof BlockScaryLeaves) {
+        if (block == adjacentBlock && block instanceof BlockCrystalLeaves) {
             if (areAtLeastTwoAdjacentBlocksLeaves(world, x, y, z, block)) {
                 return false;
             }

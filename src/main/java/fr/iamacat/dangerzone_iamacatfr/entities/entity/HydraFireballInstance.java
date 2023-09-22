@@ -151,7 +151,7 @@ public class HydraFireballInstance extends EntityFireball {
                     break;
                 }
                 if (this.size4 != 0 && (var21 instanceof EntityPlayer || var21 instanceof FlameDragonInstance
-                    || var21 instanceof TwilicornInstance)) {
+                )) {
                     var17 = null;
                     break;
                 }
@@ -224,9 +224,6 @@ public class HydraFireballInstance extends EntityFireball {
         if (!this.worldObj.isRemote) {
             if (par1MovingObjectPosition.entityHit != null) {
                 if (par1MovingObjectPosition.entityHit instanceof HydraFireballInstance) {
-                    return;
-                }
-                if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
                     return;
                 }
                 if (this.size4 != 0 && (par1MovingObjectPosition.entityHit instanceof FlameDragonInstance

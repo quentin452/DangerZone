@@ -212,48 +212,11 @@ public class WindigoInstance extends EntityMob {
         Entity twi = null;
         Entity rbd = null;
         Entity apj = null;
-        TwilicornInstance tw = null;
         DashInstance rd = null;
         AJInstance aj = null;
         twi = spawnCreature(this.worldObj, "MyTwilicorn", this.posX, this.posY + 10.0, this.posZ);
         rbd = spawnCreature(this.worldObj, "MyDash", this.posX, this.posY + 10.0, this.posZ);
         apj = spawnCreature(this.worldObj, "AJInstance", this.posX, this.posY + 5.0, this.posZ);
-        if (twi != null) {
-            tw = (TwilicornInstance) twi;
-            final EntityPlayer p = this.worldObj.getClosestPlayerToEntity((Entity) tw, 128.0);
-            if (p != null) {
-                tw.setTamed(true);
-                tw.func_152115_b(
-                    p.getUniqueID()
-                        .toString());
-                tw.worldObj.setEntityState((Entity) this, (byte) 7);
-                tw.heal(this.mygetMaxHealth() - this.getHealth());
-            }
-        }
-        if (rbd != null) {
-            rd = (DashInstance) rbd;
-            final EntityPlayer p = this.worldObj.getClosestPlayerToEntity((Entity) tw, 128.0);
-            if (p != null) {
-                rd.setTamed(true);
-                rd.func_152115_b(
-                    p.getUniqueID()
-                        .toString());
-                rd.worldObj.setEntityState((Entity) this, (byte) 7);
-                rd.heal(this.mygetMaxHealth() - this.getHealth());
-            }
-        }
-        if (apj != null) {
-            aj = (AJInstance) apj;
-            final EntityPlayer p = this.worldObj.getClosestPlayerToEntity((Entity) tw, 128.0);
-            if (p != null) {
-                aj.setTamed(true);
-                aj.func_152115_b(
-                    p.getUniqueID()
-                        .toString());
-                aj.worldObj.setEntityState((Entity) this, (byte) 7);
-                aj.heal(this.mygetMaxHealth() - this.getHealth());
-            }
-        }
         /*
          * this.dropItemRand(Basic.alicornSword, 1);
          * this.dropItemRand(Basic.alicornSword, 1);
@@ -1309,9 +1272,6 @@ public class WindigoInstance extends EntityMob {
         }
         if (!par1EntityLiving.isEntityAlive()) {
             return false;
-        }
-        if (MobUtils.isPony((Entity) par1EntityLiving)) {
-            return par1EntityLiving instanceof TwilicornInstance;
         }
         float d1 = (float) (par1EntityLiving.posX - this.homex);
         final float d2 = (float) (par1EntityLiving.posZ - this.homez);

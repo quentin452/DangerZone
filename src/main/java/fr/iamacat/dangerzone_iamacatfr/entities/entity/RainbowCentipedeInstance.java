@@ -60,7 +60,7 @@ public class RainbowCentipedeInstance extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (Object) 0);
+        this.dataWatcher.addObject(21, 0);
         if (this.renderdata == null) {
             this.renderdata = new InfoRenderer();
         }
@@ -290,7 +290,7 @@ public class RainbowCentipedeInstance extends EntityMob {
     }
 
     protected void updateAITasks() {
-        EntityLivingBase e = null;
+        EntityLivingBase e;
         if (this.isDead) {
             return;
         }
@@ -439,7 +439,7 @@ public class RainbowCentipedeInstance extends EntityMob {
         if (this.worldObj.isDaytime()) {
             return false;
         }
-        RainbowCentipedeInstance target = null;
+        RainbowCentipedeInstance target;
         target = (RainbowCentipedeInstance) this.worldObj.findNearestEntityWithinAABB(
             RainbowCentipedeInstance.class,
             this.boundingBox.expand(16.0, 6.0, 16.0),
@@ -448,10 +448,10 @@ public class RainbowCentipedeInstance extends EntityMob {
     }
 
     public final int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+        return this.dataWatcher.getWatchableObjectInt(21);
     }
 
     public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+        this.dataWatcher.updateObject(21, par1);
     }
 }

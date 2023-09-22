@@ -440,7 +440,7 @@ public class BiomeGenUtopianPlains extends BiomeGenBase
         }
     }
     public void setMLPCreatures() {
-
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(KingbowserInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(AJInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(HydraInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(WindigoInstance.class, 1, 1, 1));
@@ -458,10 +458,8 @@ public class BiomeGenUtopianPlains extends BiomeGenBase
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(CentipedeInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(ParaspriteInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(TimberWolfInstance.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(KingbowserInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(ArcticScorpionInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(CockatriceInstance.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(TwilicornInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(CloudInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(LeviathanInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(DemonSpiderInstance.class, 1, 1, 1));
@@ -476,7 +474,5 @@ public class BiomeGenUtopianPlains extends BiomeGenBase
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(CrabzillaInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(YakPrinceInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(TwilightMobInstance.class, 1, 1, 1));
-        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(TwilicornInstance.class, 1, 1, 1));
-
     }
 }

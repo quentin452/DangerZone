@@ -382,7 +382,7 @@ public class KingbowserInstance extends EntityMob {
                             }
                             this.worldObj.spawnEntityInWorld((Entity) var2);
                         }
-                        this.setAttacking(1);
+                        this.setAttacking((byte) 1);
                     }
                     this.getNavigator()
                         .tryMoveToEntityLiving((Entity) e, 0.75);
@@ -404,7 +404,7 @@ public class KingbowserInstance extends EntityMob {
             }
         }
         if (this.reload_ticker <= 0 && this.was_attacked_ticker <= 0) {
-            this.setAttacking(0);
+            this.setAttacking((byte) 0);
         }
     }
 
@@ -412,7 +412,7 @@ public class KingbowserInstance extends EntityMob {
         final double yoff = 3.0;
         final double xzoff = 3.5;
         if (this.reload_ticker > 0) {
-            this.setAttacking(2);
+            this.setAttacking((byte) 2);
             if (this.rand.nextInt(30) == 1) {
                 final FireCannon var2 = new FireCannon(
                     this.worldObj,
@@ -458,7 +458,7 @@ public class KingbowserInstance extends EntityMob {
             this.worldObj.spawnEntityInWorld((Entity) var2);
             --this.reload_ticker;
         } else {
-            this.setAttacking(0);
+            this.setAttacking((byte) 0);
         }
         if (this.reload_ticker <= 0 && this.rand.nextInt(4) == 1) {
             this.reload_ticker = 16;
@@ -475,7 +475,7 @@ public class KingbowserInstance extends EntityMob {
             return false;
         }
         this.was_attacked_ticker = 5;
-        this.setAttacking(1);
+        this.setAttacking((byte) 1);
         ret = super.attackEntityFrom(par1DamageSource, par2);
         final Entity e = par1DamageSource.getEntity();
         if (e != null && e instanceof EntityLiving) {
@@ -580,13 +580,14 @@ public class KingbowserInstance extends EntityMob {
         return null;
     }
 
-    public final int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+    public final byte getAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
-    public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+    public final void setAttacking(final byte par1) {
+        this.dataWatcher.updateObject(20, par1);
     }
+
 
     public final int getShielding() {
         return this.dataWatcher.getWatchableObjectInt(21);

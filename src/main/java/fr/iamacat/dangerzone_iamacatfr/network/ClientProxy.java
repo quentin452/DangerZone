@@ -9,6 +9,7 @@ import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.other.RiderControl;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderDragon;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.*;
@@ -32,7 +33,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
-public class ClientProxy implements ISidedProxy {
+public class ClientProxy extends CommonProxy {
+
 
     @Override
     public void registerRenders() {
@@ -118,9 +120,6 @@ public class ClientProxy implements ISidedProxy {
             ThunderHoovesInstance.class,
             new ThunderHoovesRenderer(new ChiefThunderHoovesModel(1.0f), 1.8f, 1.8f));
         RenderingRegistry.registerEntityRenderingHandler(
-            TwilicornInstance.class,
-            new TwilicornRenderer(new TwilicornModel(0.85f), 0.75f, 0.75f));
-        RenderingRegistry.registerEntityRenderingHandler(
             KingbowserInstance.class,
             new KingbowserInstance.RenderTheMob6(new KingbowserModel(), 1.0f));
         RenderingRegistry.registerEntityRenderingHandler(
@@ -140,9 +139,6 @@ public class ClientProxy implements ISidedProxy {
             new BuffaloInstance.RenderTheMob11(new BufalloModel(), 4.0f));
         RenderingRegistry
             .registerEntityRenderingHandler(DarknessInstance.class, new LeechRenderer(new LeechModel(), 1.2f, 1.2f));
-        RenderingRegistry.registerEntityRenderingHandler(
-            TwilightMagicInstance.class,
-            new TwiMagicRenderer(new TwilicornOrbsModel(0.8f), 0.8f, 0.8f));
         RenderingRegistry.registerEntityRenderingHandler(
             FlameDragonInstance.class,
             new FlameDragonRenderer(new GarbleModel(7.5f), 2.2f, 2.2f));
@@ -667,6 +663,11 @@ public class ClientProxy implements ISidedProxy {
 
     @Override
     public void registerNetworkStuff() {
-
+        super.registerNetworkStuff();
+        FMLCommonHandler.instance()
+            .bus()
+            .register(new RiderControl(this.getNetwork()));
     }
+
+
 }

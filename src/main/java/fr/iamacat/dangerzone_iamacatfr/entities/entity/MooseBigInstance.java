@@ -283,7 +283,7 @@ public class MooseBigInstance extends EntityMob {
                     this.Rampage(this.posX, this.posY, this.posZ, 5.0, 16.0, 1);
                 }
                 if (this.getDistanceSqToEntity((Entity) e) < (4.0f + e.width / 2.0f) * (4.0f + e.width / 2.0f)) {
-                    this.setAttacking(1);
+                    this.setAttacking((byte) 1);
                     if (this.worldObj.rand.nextInt(1) == 0 || this.worldObj.rand.nextInt(2) == 1) {
                         this.attackEntityAsMob((Entity) e);
                     }
@@ -292,7 +292,7 @@ public class MooseBigInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.25);
                 }
             } else {
-                this.setAttacking(0);
+                this.setAttacking((byte) 0);
             }
         }
     }
@@ -461,13 +461,14 @@ public class MooseBigInstance extends EntityMob {
         return target == null;
     }
 
-    public int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+    public final byte getAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
-    public void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+    public final void setAttacking(final byte par1) {
+        this.dataWatcher.updateObject(20, par1);
     }
+
 
     @SideOnly(Side.CLIENT)
     public static class RenderTheMob15 extends RenderLiving {

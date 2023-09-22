@@ -20,8 +20,7 @@ import fr.iamacat.dangerzone_iamacatfr.items.ItemIrukandjiArrow;
 import fr.iamacat.dangerzone_iamacatfr.items.MantisClaw;
 import fr.iamacat.dangerzone_iamacatfr.items.SunspotUrchin;
 import fr.iamacat.dangerzone_iamacatfr.items.*;
-import fr.iamacat.dangerzone_iamacatfr.network.ISidedProxy;
-import fr.iamacat.dangerzone_iamacatfr.network.PZPacketHandler;
+import fr.iamacat.dangerzone_iamacatfr.network.CommonProxy;
 import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
 import fr.iamacat.dangerzone_iamacatfr.util.*;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions.ChunkOreGenerator;
@@ -68,9 +67,7 @@ public class OreSpawnMain {
     public static InputConfusedMovement confusedMovementInput;
 
     @SidedProxy(clientSide = Tags.CLIENTPROXY, serverSide = Tags.SERVERPROXY)
-    public static ISidedProxy packetproxy;
-    public static PZPacketHandler packetHandler;
-
+    public static CommonProxy packetproxy;
     public static Configuration config;
 
     @Mod.EventHandler

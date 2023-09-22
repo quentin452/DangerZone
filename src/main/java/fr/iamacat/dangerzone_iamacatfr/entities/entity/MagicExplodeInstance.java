@@ -42,9 +42,6 @@ public class MagicExplodeInstance extends EntityThrowable {
             if (par1MovingObjectPosition.entityHit instanceof EntityCreeper) {
                 var2 = 7500.0f;
             }
-            if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
-                return;
-            }
             if (par1MovingObjectPosition.entityHit instanceof EntityPlayer) {
                 final EntityPlayer d = (EntityPlayer) par1MovingObjectPosition.entityHit;
                 if (d.ridingEntity != null) {

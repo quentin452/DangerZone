@@ -39,9 +39,6 @@ public class TwilightCannonInstance extends EntityThrowable {
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
         if (par1MovingObjectPosition.entityHit != null) {
             final float var2 = 2750.0f;
-            if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
-                return;
-            }
             if (par1MovingObjectPosition.entityHit instanceof EntityPlayer) {
                 return;
             }

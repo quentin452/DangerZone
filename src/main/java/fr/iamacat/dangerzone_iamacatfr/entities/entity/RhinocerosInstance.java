@@ -288,7 +288,7 @@ public class RhinocerosInstance extends EntityMob {
                 this.getNavigator()
                     .tryMoveToEntityLiving((Entity) e, 1.2);
                 if (this.getDistanceSqToEntity((Entity) e) < (7.8f + e.width / 2.0f) * (7.8f + e.width / 2.0f)) {
-                    this.setAttacking(1);
+                    this.setAttacking((byte) 1);
                     this.faceEntity((Entity) e, 10.0f, 10.0f);
                     if (this.worldObj.rand.nextInt(2) == 1 || this.worldObj.rand.nextInt(5) == 1) {
                         this.attackEntityAsMob((Entity) e);
@@ -303,7 +303,7 @@ public class RhinocerosInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.2);
                 }
             } else {
-                this.setAttacking(0);
+                this.setAttacking((byte) 0);
             }
         }
         if (this.worldObj.rand.nextInt(60) == 1 && this.getHealth() < this.mygetMaxHealth()) {
@@ -390,11 +390,12 @@ public class RhinocerosInstance extends EntityMob {
         return null;
     }
 
-    public final int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+    public final byte getAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
-    public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+    public final void setAttacking(final byte par1) {
+        this.dataWatcher.updateObject(20, par1);
     }
+
 }

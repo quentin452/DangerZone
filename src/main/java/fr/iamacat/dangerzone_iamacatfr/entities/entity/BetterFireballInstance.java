@@ -236,7 +236,7 @@ public class BetterFireballInstance extends EntityFireball {
                     break;
                 }
                 if (this.notme != 0 && (var21 instanceof EntityPlayer || var21 instanceof FlameDragonInstance
-                    || var21 instanceof TwilicornInstance)) {
+                  )) {
                     var17 = null;
                     break;
                 }
@@ -439,9 +439,6 @@ public class BetterFireballInstance extends EntityFireball {
         if (!this.worldObj.isRemote) {
             if (par1MovingObjectPosition.entityHit != null) {
                 if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstance) {
-                    return;
-                }
-                if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
                     return;
                 }
                 if (par1MovingObjectPosition.entityHit instanceof FlameDragonInstance && this.large) {

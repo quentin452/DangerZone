@@ -503,9 +503,6 @@ public class ArcticScorpionInstance extends EntityMob {
         if (par1EntityLiving instanceof WindigoInstance) {
             return false;
         }
-        if (par1EntityLiving instanceof TwilicornInstance) {
-            return false;
-        }
         if (par1EntityLiving instanceof EntityPlayer) {
             final EntityPlayer p = (EntityPlayer) par1EntityLiving;
             return !p.capabilities.isCreativeMode;

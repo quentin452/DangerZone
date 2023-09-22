@@ -324,7 +324,7 @@ public class CentipedeInstance extends EntityMob {
                 if (this.worldObj.rand.nextInt(10) == 1 && !this.isAirBorne) {
                     this.jumpAtEntity(e);
                 } else if (this.getDistanceSqToEntity((Entity) e) < (5.5f + e.width / 2.0f) * (5.5f + e.width / 2.0f)) {
-                    this.setAttacking(1);
+                    this.setAttacking((byte) 1);
                     if (this.worldObj.rand.nextInt(2) == 0 || this.worldObj.rand.nextInt(3) == 1) {
                         this.attackEntityAsMob((Entity) e);
                         if (!this.worldObj.isRemote) {
@@ -340,7 +340,7 @@ public class CentipedeInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.2);
                 }
             } else {
-                this.setAttacking(0);
+                this.setAttacking((byte) 0);
             }
         }
         if (this.worldObj.rand.nextInt(150) == 1 && this.getHealth() < this.mygetMaxHealth()) {
@@ -459,13 +459,14 @@ public class CentipedeInstance extends EntityMob {
         return null;
     }
 
-    public final int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+    public final byte getAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
-    public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+    public final void setAttacking(final byte par1) {
+        this.dataWatcher.updateObject(20, par1);
     }
+
 
     public boolean getCanSpawnHere() {
         for (byte k = -2; k < 2; ++k) {

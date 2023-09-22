@@ -455,7 +455,7 @@ public class ThunderHoovesInstance extends EntityMob {
             }
             if (e != null) {
                 this.faceEntity((Entity) e, 10.0f, 10.0f);
-                this.setAttacking(1);
+                this.setAttacking((byte) 1);
                 if (this.getDistanceSqToEntity((Entity) e) < (7.8f + e.width / 2.0f) * (7.8f + e.width / 2.0f)
                     && (this.worldObj.rand.nextInt(3) == 1 || this.worldObj.rand.nextInt(4) == 1)) {
                     this.attackEntityAsMob(e);
@@ -482,7 +482,7 @@ public class ThunderHoovesInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.2);
                 }
             } else {
-                this.setAttacking(0);
+                this.setAttacking((byte) 0);
             }
         }
         if (this.worldObj.rand.nextInt(100) == 1 && this.getHealth() < this.mygetMaxHealth()) {
@@ -584,12 +584,12 @@ public class ThunderHoovesInstance extends EntityMob {
         return null;
     }
 
-    public final int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+    public final byte getAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
-    public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+    public final void setAttacking(final byte par1) {
+        this.dataWatcher.updateObject(20, par1);
     }
 
     @SideOnly(Side.CLIENT)

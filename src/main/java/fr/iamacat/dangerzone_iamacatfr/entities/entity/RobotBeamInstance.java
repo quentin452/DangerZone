@@ -317,9 +317,6 @@ public class RobotBeamInstance extends EntityFireball {
                 if (par1MovingObjectPosition.entityHit instanceof BetterFireballInstance) {
                     return;
                 }
-                if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
-                    return;
-                }
                 if (this.notme != 0 && (par1MovingObjectPosition.entityHit instanceof TwilightMobInstance
                     || par1MovingObjectPosition.entityHit instanceof EntityPlayer)) {
                     this.setDead();

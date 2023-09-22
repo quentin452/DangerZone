@@ -1,7 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.TwilicornInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -248,7 +247,6 @@ public class TwilicornModel extends ModelBase {
 
     public void render(final Entity entity, final float f, final float f1, final float f2, final float f3,
         final float f4, final float f5) {
-        final TwilicornInstance e = (TwilicornInstance) entity;
         float newangle = 0.0f;
         final float lspeed = 0.0f;
         final InfoRenderer r = null;

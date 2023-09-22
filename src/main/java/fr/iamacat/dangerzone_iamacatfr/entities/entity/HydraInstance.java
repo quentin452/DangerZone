@@ -35,6 +35,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+
 public class HydraInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -161,9 +162,11 @@ public class HydraInstance extends EntityMob {
         super.onLivingUpdate();
     }
 
-    protected void fall(final float par1) {}
+    protected void fall(final float par1) {
+    }
 
-    protected void updateFallState(final double par1, final boolean par3) {}
+    protected void updateFallState(final double par1, final boolean par3) {
+    }
 
     protected String getLivingSound() {
         if (this.worldObj.rand.nextInt(10) == 0) {
@@ -385,7 +388,7 @@ public class HydraInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.0);
                     if (this.worldObj.rand.nextInt(4 - this.largemob) == 0
                         || this.worldObj.rand.nextInt(3 - this.largemob) == 1) {
-                        this.attackEntityAsMob((Entity) e);
+                        this.attackEntityAsMob(e);
                         final float s = e.height * e.width;
                         if (s > 50.0f && !(e instanceof HydraInstance)
                             && !(e instanceof SpikezillaInstance)
@@ -420,10 +423,10 @@ public class HydraInstance extends EntityMob {
                                 this.firecannon(e);
                             }
                         } else {
-                            this.setAttacking(0);
+                            this.setAttacking( 0);
                         }
                     } else {
-                        this.setAttacking(0);
+                        this.setAttacking( 0);
                     }
                 }
             } else {
@@ -437,7 +440,7 @@ public class HydraInstance extends EntityMob {
     }
 
     public static Entity spawnCreature(final World par0World, final String par1, final double par2, final double par4,
-        final double par6) {
+                                       final double par6) {
         Entity var8 = null;
         var8 = EntityList.createEntityByName(par1, par0World);
         if (var8 != null) {
@@ -496,12 +499,12 @@ public class HydraInstance extends EntityMob {
             && par1EntityLiving != this
             && par1EntityLiving.isEntityAlive()
             && this.getEntitySenses()
-                .canSee((Entity) par1EntityLiving)
+            .canSee((Entity) par1EntityLiving)
             && par1EntityLiving instanceof EntityVillager;
     }
 
     private EntityLivingBase doJumpDamage(final double X, final double Y, final double Z, final double dist,
-        final double damage, final int knock) {
+                                          final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
         final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
@@ -535,7 +538,7 @@ public class HydraInstance extends EntityMob {
     }
 
     private EntityLivingBase justStandThere(final double X, final double Y, final double Z, final double dist,
-        final double damage, final int knock) {
+                                            final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
         final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
@@ -630,7 +633,7 @@ public class HydraInstance extends EntityMob {
         }
         HydraInstance target = null;
         target = (HydraInstance) this.worldObj
-            .findNearestEntityWithinAABB(HydraInstance.class, this.boundingBox.expand(72.0, 36.0, 72.0), (Entity) this);
+            .findNearestEntityWithinAABB(HydraInstance.class, this.boundingBox.expand(72.0, 36.0, 72.0), this);
         return target == null;
     }
 
@@ -639,7 +642,7 @@ public class HydraInstance extends EntityMob {
     }
 
     public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+        this.dataWatcher.updateObject(20, par1);
     }
 
     private ItemStack dropItemRand(final Item index, final int par1) {
@@ -705,7 +708,7 @@ public class HydraInstance extends EntityMob {
                     e.posZ - cz + r3);
                 bf.setLocationAndAngles(cx, this.posY + yoff, cz, this.rotationYaw, 0.0f);
                 bf.setPosition(cx, this.posY + yoff, cz);
-                this.worldObj.spawnEntityInWorld((Entity) bf);
+                this.worldObj.spawnEntityInWorld(bf);
             }
             --this.stream_count;
         }
@@ -885,7 +888,8 @@ public class HydraInstance extends EntityMob {
         return ret;
     }
 
-    public void onStruckByLightning(final EntityLightningBolt par1EntityLightningBolt) {}
+    public void onStruckByLightning(final EntityLightningBolt par1EntityLightningBolt) {
+    }
 
     private void strikeTheGround(final EntityLivingBase e) {
         if (e == null) {

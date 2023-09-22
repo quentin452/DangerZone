@@ -200,7 +200,7 @@ public class ToughGuyInstance extends EntityMob {
             if (e != null) {
                 this.faceEntity((Entity) e, 10.0f, 10.0f);
                 if (this.getDistanceSqToEntity((Entity) e) < (5.0f + e.width / 3.0f) * (5.0f + e.width / 3.0f)) {
-                    this.setAttacking(1);
+                    this.setAttacking((byte) 1);
                     if (this.worldObj.rand.nextInt(4) == 0 || this.worldObj.rand.nextInt(5) == 1) {
                         this.attackEntityAsMob((Entity) e);
                     }
@@ -209,7 +209,7 @@ public class ToughGuyInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.75);
                 }
             } else {
-                this.setAttacking(0);
+                this.setAttacking((byte) 0);
             }
         }
     }
@@ -323,13 +323,14 @@ public class ToughGuyInstance extends EntityMob {
         return null;
     }
 
-    public int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+    public final byte getAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
-    public void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+    public final void setAttacking(final byte par1) {
+        this.dataWatcher.updateObject(20, par1);
     }
+
 
     public boolean getCanSpawnHere() {
         for (byte k = -3; k < 3; ++k) {

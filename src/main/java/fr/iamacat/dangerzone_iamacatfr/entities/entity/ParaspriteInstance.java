@@ -73,13 +73,14 @@ public class ParaspriteInstance extends EntityMob {
         return !this.isNoDespawnRequired();
     }
 
-    public final int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+    public final byte getAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
-    public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+    public final void setAttacking(final byte par1) {
+        this.dataWatcher.updateObject(20, par1);
     }
+
 
     protected float getSoundVolume() {
         return 1.25f;
@@ -234,14 +235,14 @@ public class ParaspriteInstance extends EntityMob {
                     e = this.findSomethingToAttack();
                 }
                 if (e != null) {
-                    this.setAttacking(1);
+                    this.setAttacking((byte) 1);
                     this.currentFlightTarget.set((int) e.posX, (int) e.posY + 1, (int) e.posZ);
                     if (this.getDistanceSqToEntity((Entity) e) >= (5.5f + e.width / 2.0f) * (5.5f + e.width / 2.0f)) {
                         continue;
                     }
                     this.attackEntityAsMob((Entity) e);
                 } else {
-                    this.setAttacking(0);
+                    this.setAttacking((byte) 0);
                 }
             }
         }

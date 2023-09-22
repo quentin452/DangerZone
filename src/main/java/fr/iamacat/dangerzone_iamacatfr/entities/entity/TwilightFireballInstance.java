@@ -165,7 +165,7 @@ public class TwilightFireballInstance extends EntityFireball
                     var17 = null;
                     break;
                 }
-                if (this.notme != 0 && (var21 instanceof EntityPlayer || var21 instanceof FlameDragonInstance || var21 instanceof TwilicornInstance)) {
+                if (this.notme != 0 && (var21 instanceof EntityPlayer || var21 instanceof FlameDragonInstance )) {
                     var17 = null;
                     break;
                 }
@@ -255,9 +255,6 @@ public class TwilightFireballInstance extends EntityFireball
         if (!this.worldObj.isRemote) {
             if (par1MovingObjectPosition.entityHit != null) {
                 if (par1MovingObjectPosition.entityHit instanceof TwilightFireballInstance) {
-                    return;
-                }
-                if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
                     return;
                 }
                 if (this.notme != 0 && (par1MovingObjectPosition.entityHit instanceof FlameDragonInstance || par1MovingObjectPosition.entityHit instanceof EntityPlayer)) {

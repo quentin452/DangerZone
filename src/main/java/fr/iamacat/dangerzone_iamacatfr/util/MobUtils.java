@@ -10,10 +10,9 @@ import net.minecraft.entity.passive.EntityVillager;
 public class MobUtils {
 
     public static boolean isPony(final Entity e) {
-        return e instanceof EntityLivingBase && (e instanceof TwilicornInstance || e instanceof WindigoInstance
+        return e instanceof EntityLivingBase && (e instanceof WindigoInstance
             || e instanceof ArcticScorpionInstance
             || e instanceof DarknessInstance
-            || e instanceof TwilightMagicInstance
             || e instanceof DashCloudInstance);
     }
 

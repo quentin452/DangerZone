@@ -1,7 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.TwilightMagicInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -184,7 +183,6 @@ public class TwilicornOrbsModel extends ModelBase {
 
     public void render(final Entity entity, final float f, final float f1, final float f2, final float f3,
         final float f4, final float f5) {
-        final TwilightMagicInstance p = (TwilightMagicInstance) entity;
         final float rf1 = 1.0f;
         super.render(entity, f, f1, f2, f3, f4, f5);
         this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);

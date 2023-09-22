@@ -730,10 +730,7 @@ public class SpawnEggInitDangerZone {
         MyThunderHooves.setUnlocalizedName("My Thunder Hooves Egg");
         Constants.MyThunderHooves = MyThunderHooves;
         GameRegistry.registerItem(Constants.MyThunderHooves, "My Thunder Hooves Egg");
-        SpawnEggs MyTwilicorn = new SpawnEggs(TwilicornInstance.class);
-        MyTwilicorn.setUnlocalizedName("My Twilicorn Egg");
-        Constants.MyTwilicorn = MyTwilicorn;
-        GameRegistry.registerItem(Constants.MyTwilicorn, "My Twilicorn Egg");
+
         SpawnEggs MyKingbowser = new SpawnEggs(KingbowserInstance.class);
         MyKingbowser.setUnlocalizedName("My King bowser Egg");
         Constants.MyKingbowser = MyKingbowser;
@@ -768,11 +765,6 @@ public class SpawnEggInitDangerZone {
         MyDarkness.setUnlocalizedName("My Darkness Egg");
         Constants.MyDarkness = MyDarkness;
         GameRegistry.registerItem(Constants.MyDarkness, "My Darkness Egg");
-
-        SpawnEggs MyTwilightMagic = new SpawnEggs(TwilightMagicInstance.class);
-        MyTwilightMagic.setUnlocalizedName("My Twilight Magic Egg");
-        Constants.MyTwilightMagic = MyTwilightMagic;
-        GameRegistry.registerItem(Constants.MyTwilightMagic, "My Twilight Magic Egg");
 
         SpawnEggs MyFlameDragon = new SpawnEggs(FlameDragonInstance.class);
         MyFlameDragon.setUnlocalizedName("My Flame Dragon Egg");

@@ -390,7 +390,6 @@ public class DashCloudInstance extends CloudInstance implements IMob {
             && !(par1EntityLiving instanceof DashCloudInstance)
             && !(par1EntityLiving instanceof DashInstance)
             && !(par1EntityLiving instanceof EntityPlayer)
-            && !(par1EntityLiving instanceof TwilicornInstance)
             && !(par1EntityLiving instanceof AJInstance);
     }
 

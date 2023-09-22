@@ -377,9 +377,6 @@ public class MavisInstance extends EntityTameable {
             this.dmgDelay = 10;
         }
         if (e != null && e instanceof EntityLiving) {
-            if (e instanceof TwilicornInstance) {
-                return false;
-            }
             if (e instanceof MavisInstance) {
                 return false;
             }
@@ -433,23 +430,23 @@ public class MavisInstance extends EntityTameable {
         if (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.worldObj.rand.nextInt(5) == 1) {
             final EntityLivingBase e = this.findSomethingToAttack();
             if (e != null) {
-                this.faceEntity((Entity) e, 10.0f, 10.0f);
-                if (this.getDistanceSqToEntity((Entity) e) < (4.0f + e.width / 2.0f) * (4.0f + e.width / 2.0f)) {
-                    this.setAttacking(1);
+                this.faceEntity(e, 10.0f, 10.0f);
+                if (this.getDistanceSqToEntity(e) < (4.0f + e.width / 2.0f) * (4.0f + e.width / 2.0f)) {
+                    this.setAttacking((byte) 1);
                     if (this.worldObj.rand.nextInt(4) == 0 || this.worldObj.rand.nextInt(5) == 1) {
-                        this.attackEntityAsMob((Entity) e);
+                        this.attackEntityAsMob(e);
                         this.magiccanon(e);
                     }
                 } else {
                     this.getNavigator()
-                        .tryMoveToEntityLiving((Entity) e, 1.0);
+                        .tryMoveToEntityLiving(e, 1.0);
                     this.magiccanon(e);
                     this.magiccanon(e);
                     this.magiccanon(e);
                     this.magiccanon(e);
                 }
             } else {
-                this.setAttacking(0);
+                this.setAttacking((byte) 0);
             }
         }
         if (this.worldObj.rand.nextInt(4) == 1 && this.getHealth() < this.mygetMaxHealth()) {
@@ -462,7 +459,7 @@ public class MavisInstance extends EntityTameable {
         final double yoff = 1.75;
         final double xzoff = 2.5;
         if (this.stream_count > 0) {
-            this.setAttacking(2);
+            this.setAttacking((byte) 2);
             if (this.rand.nextInt(15) == 1) {
                 final MavisBallInstance var2 = new MavisBallInstance(
                     this.worldObj,
@@ -505,10 +502,10 @@ public class MavisInstance extends EntityTameable {
                 0.75f,
                 1.0f / (this.getRNG()
                     .nextFloat() * 0.4f + 0.8f));
-            this.worldObj.spawnEntityInWorld((Entity) var2);
+            this.worldObj.spawnEntityInWorld(var2);
             --this.stream_count;
         } else {
-            this.setAttacking(0);
+            this.setAttacking((byte) 0);
         }
         if (this.stream_count <= 0 && this.rand.nextInt(4) == 1) {
             this.stream_count = 8;
@@ -578,13 +575,14 @@ public class MavisInstance extends EntityTameable {
         return null;
     }
 
-    public int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+    public final byte getAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
-    public void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+    public final void setAttacking(final byte par1) {
+        this.dataWatcher.updateObject(20, par1);
     }
+
 
     public boolean getCanSpawnHere() {
         for (byte k = -3; k < 3; ++k) {

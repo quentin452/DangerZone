@@ -370,7 +370,7 @@ public class SpikezillaInstance extends EntityMob {
                 this.faceEntity(e, 10.0f, 10.0f);
                 this.getNavigator()
                     .tryMoveToEntityLiving(e, 1.2);
-                this.setAttacking((byte) 1);
+                this.setAttacking(1);
                 if (this.worldObj.rand.nextInt() == 1) {
                     this.doJumpDamage(dx, this.posY, this.posZ, 16.5, 355.0, 2);
                 }
@@ -386,7 +386,7 @@ public class SpikezillaInstance extends EntityMob {
                     this.MagicCannon(e);
                     this.jump_timer = 20;
                 } else if (this.MygetDistanceSqToEntity(e) < 300.0) {
-                    this.setAttacking((byte) 1);
+                    this.setAttacking( 1);
                     this.getNavigator()
                         .tryMoveToEntityLiving(e, 1.0);
                     if (this.worldObj.rand.nextInt(4 - this.largemob) == 0
@@ -407,7 +407,7 @@ public class SpikezillaInstance extends EntityMob {
                         .tryMoveToEntityLiving(e, 1.0);
                     if (this.getHorizontalDistanceSqToEntity(e) > 625.0) {
                         if (this.stream_count > 0) {
-                            this.setAttacking((byte) 1);
+                            this.setAttacking( 1);
                             final double rr = Math.atan2(e.posZ - this.posZ, e.posX - this.posX);
                             final double rhdir = Math.toRadians((this.rotationYawHead + 90.0f) % 360.0f);
                             final double pi = 3.1415926545;
@@ -438,14 +438,14 @@ public class SpikezillaInstance extends EntityMob {
                                 this.WindyMagic(e);
                             }
                         } else {
-                            this.setAttacking((byte) 0);
+                            this.setAttacking(0);
                         }
                     } else {
-                        this.setAttacking((byte) 0);
+                        this.setAttacking( 0);
                     }
                 }
             } else {
-                this.setAttacking((byte) 0);
+                this.setAttacking( 0);
                 this.stream_count = 8;
             }
         }
@@ -623,11 +623,11 @@ public class SpikezillaInstance extends EntityMob {
         return target == null;
     }
 
-    public final byte getAttacking() {
-        return this.dataWatcher.getWatchableObjectByte(20);
+    public final int getAttacking() {
+        return this.dataWatcher.getWatchableObjectInt(20);
     }
 
-    public final void setAttacking(byte par1) {
+    public final void setAttacking(int par1) {
         this.dataWatcher.updateObject(20, par1);
     }
 

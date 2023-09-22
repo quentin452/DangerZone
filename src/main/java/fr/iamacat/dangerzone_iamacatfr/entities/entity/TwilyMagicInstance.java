@@ -30,9 +30,6 @@ public class TwilyMagicInstance extends EntityThrowable {
     }
 
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
-        if (par1MovingObjectPosition.entityHit instanceof TwilicornInstance) {
-            return;
-        }
         if (par1MovingObjectPosition.entityHit instanceof TwilyMagicInstance) {
             return;
         }

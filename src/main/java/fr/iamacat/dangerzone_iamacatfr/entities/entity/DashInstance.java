@@ -15,7 +15,6 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntityTameable;
@@ -483,11 +482,7 @@ public class DashInstance extends EntityTameable {
         if (par1EntityLiving instanceof AJInstance) {
             return false;
         }
-        if (par1EntityLiving instanceof EntityMob) {
-            return !(par1EntityLiving instanceof TwilightMagicInstance);
-        }
-        return !(par1EntityLiving instanceof DashInstance) && !(par1EntityLiving instanceof TwilightMagicInstance)
-            && !(par1EntityLiving instanceof TwilicornInstance)
+        return !(par1EntityLiving instanceof DashInstance)
             && !(par1EntityLiving instanceof DashCloudInstance)
             && !(par1EntityLiving instanceof EntityAnimal)
             && !(par1EntityLiving instanceof EntityVillager)
@@ -1307,10 +1302,8 @@ public class DashInstance extends EntityTameable {
                 && var8 != this
                 && var8.isEntityAlive()
                 && !(var8 instanceof DashInstance)
-                && !(var8 instanceof TwilicornInstance)
                 && !(var8 instanceof AJInstance)
                 && !(var8 instanceof DashCloudInstance)
-                && !(var8 instanceof TwilightMagicInstance)
                 && !(var8 instanceof EntityPig)
                 && !(var8 instanceof EntityTameable)
                 && !(var8 instanceof EntityPlayer)) {

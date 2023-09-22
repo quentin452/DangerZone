@@ -42,9 +42,6 @@ public class WindigoPowerInstance extends EntityThrowable {
             if (par1MovingObjectPosition.entityHit instanceof DarknessInstance) {
                 return;
             }
-            if (par1MovingObjectPosition.entityHit instanceof TwilightMagicInstance) {
-                return;
-            }
             if (par1MovingObjectPosition.entityHit instanceof WindigoPowerInstance) {
                 return;
             }

@@ -514,12 +514,6 @@ public class AJInstance extends EntityTameable {
         if (par1EntityLiving instanceof DashCloudInstance) {
             return this.ajismad == 1;
         }
-        if (par1EntityLiving instanceof TwilightMagicInstance) {
-            return false;
-        }
-        if (par1EntityLiving instanceof TwilicornInstance) {
-            return this.ajismad == 1;
-        }
         return !this.isTamed() && MobUtils.isAttackableNonMob(par1EntityLiving);
     }
 
@@ -675,7 +669,6 @@ public class AJInstance extends EntityTameable {
                 && var8 != this
                 && var8.isEntityAlive()
                 && !(var8 instanceof DashInstance)
-                && !(var8 instanceof TwilicornInstance)
                 && !(var8 instanceof AJInstance)
                 && !(var8 instanceof EntityTameable)
                 && !(var8 instanceof EntityPlayer)) {

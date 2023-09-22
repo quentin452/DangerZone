@@ -336,7 +336,7 @@ public class IronWillInstance extends EntityMob {
                 if (this.worldObj.rand.nextInt(10) == 1) {
                     this.ChargeAtPlayer(e);
                 } else if (this.getDistanceSqToEntity((Entity) e) < (8.8f + e.width / 2.0f) * (8.8f + e.width / 2.0f)) {
-                    this.setAttacking(1);
+                    this.setAttacking((byte) 1);
                     this.attackEntityAsMob((Entity) e);
                     if (!this.worldObj.isRemote) {
                         if (this.worldObj.rand.nextInt(3) == 1) {
@@ -350,7 +350,7 @@ public class IronWillInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.2);
                 }
             } else {
-                this.setAttacking(0);
+                this.setAttacking((byte) 0);
             }
         }
         if (this.worldObj.rand.nextInt(60) == 1 && this.getHealth() < this.mygetMaxHealth()) {
@@ -436,13 +436,14 @@ public class IronWillInstance extends EntityMob {
         return null;
     }
 
-    public final int getAttacking() {
-        return this.dataWatcher.getWatchableObjectInt(20);
+    public final byte getAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(20);
     }
 
-    public final void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (Object) (byte) par1);
+    public final void setAttacking(final byte par1) {
+        this.dataWatcher.updateObject(20, par1);
     }
+
 
     public boolean getCanSpawnHere() {
         for (byte k = -3; k < 3; ++k) {

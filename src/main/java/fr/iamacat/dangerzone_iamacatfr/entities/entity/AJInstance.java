@@ -552,7 +552,7 @@ public class AJInstance extends EntityTameable {
     }
 
     public void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (byte) par1);
+        this.dataWatcher.updateObject(20, par1);
     }
 
     public void writeEntityToNBT(final NBTTagCompound par1NBTTagCompound) {

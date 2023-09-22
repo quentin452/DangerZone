@@ -68,22 +68,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-     int EntityAlpsDragon = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(
-            fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityAlpsDragon.class,
-            "EntityAlpsDragon",
-            EntityAlpsDragon);
-
-        EntityRegistry.registerModEntity(
-            fr.iamacat.dangerzone_iamacatfr.entities.entity.babydragon.EntityAlpsDragon.class,
-            "EntityAlpsDragon",
-            EntityAlpsDragon, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
-
 
 
         int MassoInstance = EntityRegistry.findGlobalUniqueEntityId();

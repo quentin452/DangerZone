@@ -117,7 +117,7 @@ public class BlockAppleLeaves extends BlockLeaves {
         int leafCount = 0;
         for (EnumFacing facing : EnumFacing.values()) {
             Block adjacentBlock = world.getBlock(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
-            if (adjacentBlock == leafBlock && adjacentBlock instanceof BlockScaryLeaves) {
+            if (adjacentBlock == leafBlock && adjacentBlock instanceof BlockAppleLeaves) {
                 leafCount++;
                 if (leafCount >= 2) {
                     return true;

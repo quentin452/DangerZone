@@ -98,10 +98,7 @@ public class DemonSpiderInstance extends EntityMob {
     }
 
     protected String getLivingSound() {
-        if (this.rand.nextInt(4) == 0) {
-            return "";
-        }
-        return "";
+        return null;
     }
 
     protected String getHurtSound() {

@@ -104,7 +104,7 @@ public class TwilightMobInstance extends EntityMob {
         if (this.rand.nextInt(3) == 0) {
             return "mob.irongolem.death";
         }
-        return "";
+        return null;
     }
 
     protected String getHurtSound() {

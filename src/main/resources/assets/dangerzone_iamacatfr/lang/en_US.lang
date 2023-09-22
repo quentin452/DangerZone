@@ -84,6 +84,7 @@ entity.Frog.name=Frog
 entity.Girlfriend.name=Girl Friend
 entity.Coin.name=Coin
 entity.Rubber Ducky.name=Rubber Ducky
+entity.Nightmare.name=Nightmare
 
 entity.TwilightMob.name=Twilight Mob
 entity.DemonSpiderEntity.name=Demon Spider
@@ -360,7 +361,8 @@ item.apple_cow_egg.name=Spawn Apple Cow
 item.crystal_cow_egg.name=Spawn Crystal Apple
 item.golden_apple_cow_egg.name=Spawn Golden Apple Cow
 item.enchanted_golden_apple_cow_egg.name=Spawn Enchanted Golden Apple Cow
-item.ghost_pumkin_skelly_egg.name=Spawn Ghost Pumpkin Skelly
+item.ghost_skelly_egg.name=Spawn Ghost Pumpkin Skelly
+item.nightmare_egg.name=Spawn Nightmare
 item.camarasaurus_egg.name=Spawn Camarasaurus
 item.the_princess_egg.name=Spawn The Princess
 item.fairy_egg.name=Spawn Fairy
@@ -503,7 +505,8 @@ item.Robot Beam Egg.name=Robot Beam Egg
 item.Fire Cannon Egg.name=Fire Cannon Egg
 item.Rainbow Cannon Egg.name=Rainbow Cannon Egg
 item.Projectile Apples Egg.name=Projectile Apples Egg
-item.Godzilla Egg.name=Godzilla Egg
+item.GodZilla Egg.name=GodZilla Egg
+item.twilightStar.name=Twilight Star
 
 item.dragonMeat.name=dragon Meat
 item.dragonMeatCooked.name=dragon Meat Cooked
@@ -747,6 +750,7 @@ tile.tigerseye.name=Tiger Eye
 tile.crystalplanks.name=Crystal Planks
 tile.crystalworkbench.name=Crystal Workbench
 tile.crystalfurnace.name=Crystal Furnace
+tile.dungeonspawner.name=Dungeon Spawner
 
 tile.corn_0.name=Corn 0
 tile.corn_1.name=Corn 1

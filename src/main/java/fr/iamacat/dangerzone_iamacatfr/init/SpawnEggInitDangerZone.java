@@ -540,7 +540,7 @@ public class SpawnEggInitDangerZone {
         GameRegistry.registerItem(Constants.MolenoidSpawnEgg, "Molenoid Egg");
 
         SpawnEggs TwilightMob = new SpawnEggs(TwilightMobInstance.class);
-        MolenoidSpawnEgg.setUnlocalizedName("Twilight Mob Egg");
+        TwilightMob.setUnlocalizedName("Twilight Mob Egg");
         Constants.TwilightMob = TwilightMob;
         GameRegistry.registerItem(Constants.TwilightMob, "Twilight Mob Egg");
 

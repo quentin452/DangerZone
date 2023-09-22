@@ -115,7 +115,7 @@ public class BearInstance extends EntityMob {
         if (this.rand.nextInt(3) == 0) {
             return "mob.enderdragon.growl";
         }
-        return "";
+        return null;
     }
 
     protected String getHurtSound() {

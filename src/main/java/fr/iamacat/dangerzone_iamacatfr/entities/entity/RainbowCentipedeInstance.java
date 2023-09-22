@@ -147,7 +147,7 @@ public class RainbowCentipedeInstance extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "";
+        return null;
     }
 
     protected String getHurtSound() {

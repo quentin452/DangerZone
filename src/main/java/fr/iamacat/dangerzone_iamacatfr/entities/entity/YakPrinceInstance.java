@@ -133,7 +133,7 @@ public class YakPrinceInstance extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "";
+        return null;
     }
 
     protected String getHurtSound() {

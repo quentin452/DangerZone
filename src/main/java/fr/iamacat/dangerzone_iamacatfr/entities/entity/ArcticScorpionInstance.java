@@ -207,7 +207,7 @@ public class ArcticScorpionInstance extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "";
+        return null;
     }
 
     protected String getHurtSound() {

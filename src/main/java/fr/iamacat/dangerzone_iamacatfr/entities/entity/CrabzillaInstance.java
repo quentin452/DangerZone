@@ -199,10 +199,7 @@ public class CrabzillaInstance extends EntityTameable {
     }
 
     protected String getLivingSound() {
-        if (this.rand.nextInt(3) == 0) {
-            return "";
-        }
-        return "";
+        return null;
     }
 
     protected String getHurtSound() {

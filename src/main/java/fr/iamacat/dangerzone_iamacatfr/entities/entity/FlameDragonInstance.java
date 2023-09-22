@@ -215,7 +215,7 @@ public class FlameDragonInstance extends EntityTameable {
     }
 
     public String getLivingSound() {
-        return "";
+        return null;
     }
 
     protected String getHurtSound() {

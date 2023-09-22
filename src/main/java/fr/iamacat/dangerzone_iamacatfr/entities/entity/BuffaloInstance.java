@@ -141,7 +141,7 @@ public class BuffaloInstance extends EntityMob {
     }
 
     protected String getLivingSound() {
-        return "";
+        return null;
     }
 
     protected String getHurtSound() {

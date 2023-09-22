@@ -1,15 +1,17 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.DarkCrystalInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.DarkCrystalModel;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.DarkCrystalInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.DarkCrystalModel;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class DarkCrystalRenderer extends Render {
 

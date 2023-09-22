@@ -1,11 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,9 +22,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class LeafMonster extends EntityMob {
 
@@ -99,33 +99,33 @@ public class LeafMonster extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
             .setBaseValue(this.moveSpeed);
         super.onUpdate();
-        /*if (this.getAttacking() == 0) {
-            int px = (int) this.posX;
-            final int py = (int) this.posY;
-            final int pz = (int) this.posZ;
-            this.posX = px;
-            this.posY = py;
-            this.posZ = pz;
-            if (this.posX > 0.0) {
-                this.posX += 0.5;
-            }
-            if (this.posZ > 0.0) {
-                this.posZ += 0.5;
-            }
-            if (this.posX < 0.0) {
-                this.posX -= 0.5;
-            }
-            if (this.posZ < 0.0) {
-                this.posZ -= 0.5;
-            }
-            this.rotationPitch = 0.0f;
-            px = (int) this.rotationYawHead;
-            px /= 90;
-            final float n = (float) (px * 90);
-            this.rotationYawHead = n;
-            this.rotationYaw = n;
-        }
-
+        /*
+         * if (this.getAttacking() == 0) {
+         * int px = (int) this.posX;
+         * final int py = (int) this.posY;
+         * final int pz = (int) this.posZ;
+         * this.posX = px;
+         * this.posY = py;
+         * this.posZ = pz;
+         * if (this.posX > 0.0) {
+         * this.posX += 0.5;
+         * }
+         * if (this.posZ > 0.0) {
+         * this.posZ += 0.5;
+         * }
+         * if (this.posX < 0.0) {
+         * this.posX -= 0.5;
+         * }
+         * if (this.posZ < 0.0) {
+         * this.posZ -= 0.5;
+         * }
+         * this.rotationPitch = 0.0f;
+         * px = (int) this.rotationYawHead;
+         * px /= 90;
+         * final float n = (float) (px * 90);
+         * this.rotationYawHead = n;
+         * this.rotationYaw = n;
+         * }
          */
     }
 

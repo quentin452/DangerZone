@@ -1,9 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -15,7 +12,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
+
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class GirlfriendOverlayGui extends Gui {
 
@@ -410,6 +412,6 @@ public class GirlfriendOverlayGui extends Gui {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":girlfriendgui.png");
+        texture = new ResourceLocation(Tags.MODID + ":girlfriendgui.png");
     }
 }

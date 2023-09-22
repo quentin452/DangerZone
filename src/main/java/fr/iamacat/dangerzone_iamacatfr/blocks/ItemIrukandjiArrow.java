@@ -1,7 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.item.Item;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class ItemIrukandjiArrow extends Item {
 

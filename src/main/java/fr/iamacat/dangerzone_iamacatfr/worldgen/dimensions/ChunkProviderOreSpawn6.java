@@ -4,7 +4,6 @@ package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 import java.util.List;
 import java.util.Random;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -20,6 +19,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.NoiseGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraftforge.event.terraingen.TerrainGen;
+
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 
 public class ChunkProviderOreSpawn6 implements IChunkProvider {
 

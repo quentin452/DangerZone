@@ -1,15 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
-import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
-import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -29,10 +25,15 @@ import net.minecraft.util.*;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
+import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class ThePrinceTeen extends EntityTameable {
 
@@ -1237,7 +1238,7 @@ public class ThePrinceTeen extends EntityTameable {
                     par1EntityPlayer.getUniqueID()
                         .toString());
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this,  (byte) 7);
+                this.worldObj.setEntityState(this, (byte) 7);
                 this.heal(this.mygetMaxHealth() - this.getHealth());
                 this.kill_count = 1000;
                 this.day_count = 1000;
@@ -1266,7 +1267,7 @@ public class ThePrinceTeen extends EntityTameable {
             if (var2 != null && var2.getItem() == Items.beef && par1EntityPlayer.getDistanceSqToEntity(this) < 25.0) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte)  7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 }
                 if (this.mygetMaxHealth() > this.getHealth()) {
                     this.heal(this.mygetMaxHealth() - this.getHealth());
@@ -1289,7 +1290,7 @@ public class ThePrinceTeen extends EntityTameable {
                         this.heal((float) (var3.func_150905_g(var2) * 10));
                     }
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this,   (byte)7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 }
                 if (!par1EntityPlayer.capabilities.isCreativeMode) {
                     final ItemStack itemStack3 = var2;
@@ -1305,7 +1306,7 @@ public class ThePrinceTeen extends EntityTameable {
                 && par1EntityPlayer.getDistanceSqToEntity(this) < 25.0) {
                 if (!this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this,  (byte) 6);
+                    this.worldObj.setEntityState(this, (byte) 6);
                     this.setThePrinceTeenFire(0);
                     String healthMessage = new String();
                     healthMessage = String.format("Fireballs extinguished.", new Object[0]);

@@ -1,13 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.AIFollowOwner;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.network.MovementInputProxy;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -31,10 +29,14 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.AIFollowOwner;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.network.MovementInputProxy;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class DashInstance extends EntityTameable {
 
     private int boatPosRotationIncrements;
@@ -482,8 +484,7 @@ public class DashInstance extends EntityTameable {
         if (par1EntityLiving instanceof AJInstance) {
             return false;
         }
-        return !(par1EntityLiving instanceof DashInstance)
-            && !(par1EntityLiving instanceof DashCloudInstance)
+        return !(par1EntityLiving instanceof DashInstance) && !(par1EntityLiving instanceof DashCloudInstance)
             && !(par1EntityLiving instanceof EntityAnimal)
             && !(par1EntityLiving instanceof EntityVillager)
             && !this.isTamed()
@@ -1132,7 +1133,7 @@ public class DashInstance extends EntityTameable {
                     p.getUniqueID()
                         .toString());
                 this.playTameEffect(true);
-                this.worldObj.setEntityState((Entity) this,  (byte) 7);
+                this.worldObj.setEntityState((Entity) this, (byte) 7);
                 this.heal(this.mygetMaxHealth() - this.getHealth());
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
@@ -1157,11 +1158,11 @@ public class DashInstance extends EntityTameable {
                         p.getUniqueID()
                             .toString());
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState((Entity) this,   (byte)7);
+                    this.worldObj.setEntityState((Entity) this, (byte) 7);
                     this.heal(this.mygetMaxHealth() - this.getHealth());
                 } else {
                     this.playTameEffect(false);
-                    this.worldObj.setEntityState((Entity) this,   (byte)6);
+                    this.worldObj.setEntityState((Entity) this, (byte) 6);
                 }
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
@@ -1185,7 +1186,7 @@ public class DashInstance extends EntityTameable {
         if (var2 != null && par1EntityPlayer.getDistanceSqToEntity((Entity) this) < 49.0) {
             if (this.worldObj.isRemote) {
                 this.playTameEffect(true);
-                this.worldObj.setEntityState((Entity) this, (byte)  7);
+                this.worldObj.setEntityState((Entity) this, (byte) 7);
             }
             if (this.mygetMaxHealth() > this.getHealth()) {
                 this.heal(this.mygetMaxHealth() - this.getHealth());
@@ -1205,7 +1206,7 @@ public class DashInstance extends EntityTameable {
                 this.setTamed(false);
                 this.func_152115_b("");
                 this.playTameEffect(false);
-                this.worldObj.setEntityState(this,  (byte) 6);
+                this.worldObj.setEntityState(this, (byte) 6);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack4 = var2;

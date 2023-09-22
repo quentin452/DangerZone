@@ -1,8 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -21,10 +24,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+
 public class YakPrinceInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -475,7 +477,7 @@ public class YakPrinceInstance extends EntityMob {
             }
             if (e != null) {
                 this.faceEntity((Entity) e, 10.0f, 10.0f);
-                this.setAttacking( 1);
+                this.setAttacking(1);
                 this.getNavigator()
                     .tryMoveToEntityLiving((Entity) e, 1.2);
                 if (this.getDistanceSqToEntity((Entity) e) < (9.8f + e.width / 2.0f) * (9.8f + e.width / 2.0f)) {
@@ -489,7 +491,7 @@ public class YakPrinceInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.2);
                 }
             } else {
-                this.setAttacking( 0);
+                this.setAttacking(0);
             }
         }
         if (this.worldObj.rand.nextInt(40) == 1 && this.getHealth() < this.mygetMaxHealth()) {
@@ -561,7 +563,6 @@ public class YakPrinceInstance extends EntityMob {
     public final void setAttacking(final int par1) {
         this.dataWatcher.updateObject(20, par1);
     }
-
 
     private EntityLivingBase findSomethingToAttack() {
         /*

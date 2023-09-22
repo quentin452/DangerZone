@@ -1,12 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
 
 public class IceBall extends LaserBall {
 

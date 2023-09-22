@@ -1,5 +1,9 @@
 package fr.iamacat.dangerzone_iamacatfr.util;
 
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Set;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -8,10 +12,6 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Set;
 
 public class WorldHelper {
 

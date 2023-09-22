@@ -1,16 +1,17 @@
 
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class CrystalWorkbench extends BlockWorkbench {
 
@@ -51,13 +52,19 @@ public class CrystalWorkbench extends BlockWorkbench {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
         this.blockIcon = par1IIconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5) + "_side");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_side");
         this.workbenchIconTop = par1IIconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5) + "_top");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_top");
         this.workbenchIconFront = par1IIconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5) + "_bottom");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_bottom");
     }
 }

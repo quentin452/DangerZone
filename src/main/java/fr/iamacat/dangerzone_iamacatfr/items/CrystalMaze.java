@@ -1,14 +1,15 @@
 
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import java.awt.*;
+import java.util.Vector;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
-import java.awt.*;
-import java.util.Vector;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 
 public class CrystalMaze {
 

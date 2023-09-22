@@ -1,17 +1,18 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.RockBase;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelRockBase;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.RockBase;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelRockBase;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderRockBase extends RenderLiving {
 
@@ -38,7 +39,7 @@ public class RenderRockBase extends RenderLiving {
     }
 
     public void renderRockBase(final RockBase par1EntityRockBase, final double par2, final double par4,
-                               final double par6, final float par8, final float par9) {
+        final double par6, final float par8, final float par9) {
         super.doRender(par1EntityRockBase, par2, par4, par6, par8, par9);
     }
 
@@ -103,17 +104,17 @@ public class RenderRockBase extends RenderLiving {
     }
 
     static {
-        texture1 = new ResourceLocation(Tags.MODID+":Rocktexture.png");
-        texture2 = new ResourceLocation(Tags.MODID+":Rocktexture.png");
-        texture3 = new ResourceLocation(Tags.MODID+":RockRedtexture.png");
-        texture4 = new ResourceLocation(Tags.MODID+":RockGreentexture.png");
-        texture5 = new ResourceLocation(Tags.MODID+":RockBluetexture.png");
-        texture6 = new ResourceLocation(Tags.MODID+":RockPurpletexture.png");
-        texture7 = new ResourceLocation(Tags.MODID+":Rocktexture.png");
-        texture8 = new ResourceLocation(Tags.MODID+":RockTNTtexture.png");
-        texture9 = new ResourceLocation(Tags.MODID+":rockcrystaltexture.png");
-        texture10 = new ResourceLocation(Tags.MODID+":rockcrystalgreentexture.png");
-        texture11 = new ResourceLocation(Tags.MODID+":rockcrystalbluetexture.png");
-        texture12 = new ResourceLocation(Tags.MODID+":rockcrystaltnttexture.png");
+        texture1 = new ResourceLocation(Tags.MODID + ":Rocktexture.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":Rocktexture.png");
+        texture3 = new ResourceLocation(Tags.MODID + ":RockRedtexture.png");
+        texture4 = new ResourceLocation(Tags.MODID + ":RockGreentexture.png");
+        texture5 = new ResourceLocation(Tags.MODID + ":RockBluetexture.png");
+        texture6 = new ResourceLocation(Tags.MODID + ":RockPurpletexture.png");
+        texture7 = new ResourceLocation(Tags.MODID + ":Rocktexture.png");
+        texture8 = new ResourceLocation(Tags.MODID + ":RockTNTtexture.png");
+        texture9 = new ResourceLocation(Tags.MODID + ":rockcrystaltexture.png");
+        texture10 = new ResourceLocation(Tags.MODID + ":rockcrystalgreentexture.png");
+        texture11 = new ResourceLocation(Tags.MODID + ":rockcrystalbluetexture.png");
+        texture12 = new ResourceLocation(Tags.MODID + ":rockcrystaltnttexture.png");
     }
 }

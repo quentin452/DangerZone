@@ -1,15 +1,16 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.biomes;
 
+import java.util.ArrayList;
+
+import net.minecraft.world.biome.BiomeGenBase;
+
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import fr.iamacat.dangerzone_iamacatfr.items.CrystalCow;
-import net.minecraft.world.biome.BiomeGenBase;
 
-import java.util.ArrayList;
+public class BiomeGenUtopianPlains extends BiomeGenBase {
 
-public class BiomeGenUtopianPlains extends BiomeGenBase
-{
     public BiomeGenUtopianPlains(final int par1) {
         super(par1);
         if (OreSpawnMain.GazelleEnable != 0) {
@@ -439,6 +440,7 @@ public class BiomeGenUtopianPlains extends BiomeGenBase
             this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(GammaMetroid.class, 1, 1, 1));
         }
     }
+
     public void setMLPCreatures() {
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(KingbowserInstance.class, 1, 1, 1));
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(AJInstance.class, 1, 1, 1));

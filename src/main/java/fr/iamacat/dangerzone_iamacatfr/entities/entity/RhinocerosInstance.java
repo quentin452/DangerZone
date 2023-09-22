@@ -1,9 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -22,10 +24,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class RhinocerosInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -288,7 +290,7 @@ public class RhinocerosInstance extends EntityMob {
                 this.getNavigator()
                     .tryMoveToEntityLiving((Entity) e, 1.2);
                 if (this.getDistanceSqToEntity((Entity) e) < (7.8f + e.width / 2.0f) * (7.8f + e.width / 2.0f)) {
-                    this.setAttacking( 1);
+                    this.setAttacking(1);
                     this.faceEntity((Entity) e, 10.0f, 10.0f);
                     if (this.worldObj.rand.nextInt(2) == 1 || this.worldObj.rand.nextInt(5) == 1) {
                         this.attackEntityAsMob((Entity) e);
@@ -303,7 +305,7 @@ public class RhinocerosInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.2);
                 }
             } else {
-                this.setAttacking( 0);
+                this.setAttacking(0);
             }
         }
         if (this.worldObj.rand.nextInt(60) == 1 && this.getHealth() < this.mygetMaxHealth()) {

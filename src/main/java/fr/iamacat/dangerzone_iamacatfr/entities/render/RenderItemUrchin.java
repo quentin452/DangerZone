@@ -1,9 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
+import net.minecraft.entity.Entity;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import net.minecraft.entity.Entity;
 
 public class RenderItemUrchin extends RenderSpinner {
 

@@ -1,9 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import net.minecraft.entity.Entity;
-
 import java.util.Comparator;
+
+import net.minecraft.entity.Entity;
 
 public class MyValentineTargetSorter implements Comparator {
 

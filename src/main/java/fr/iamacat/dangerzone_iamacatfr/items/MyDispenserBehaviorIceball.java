@@ -1,11 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.IceBall;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.IceBall;
 
 public final class MyDispenserBehaviorIceball extends BehaviorProjectileDispense {
 

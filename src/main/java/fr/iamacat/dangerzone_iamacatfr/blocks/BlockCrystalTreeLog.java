@@ -1,10 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
@@ -15,7 +13,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class BlockCrystalTreeLog extends BlockRotatedPillar {
 
@@ -66,10 +67,13 @@ public class BlockCrystalTreeLog extends BlockRotatedPillar {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.field_111052_c = iconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5));
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5));
         this.tree_top = iconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5) + "_top");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_top");
     }
 }

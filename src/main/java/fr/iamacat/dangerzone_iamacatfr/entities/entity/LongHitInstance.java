@@ -1,5 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,9 +13,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-
-import java.util.Iterator;
-import java.util.List;
 
 public class LongHitInstance extends EntityThrowable {
 

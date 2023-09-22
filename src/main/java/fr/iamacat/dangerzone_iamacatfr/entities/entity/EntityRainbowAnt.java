@@ -1,10 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +8,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 
 public class EntityRainbowAnt extends EntityAnt {
 

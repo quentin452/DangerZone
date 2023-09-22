@@ -1,9 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -21,9 +22,9 @@ import net.minecraft.util.*;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class Fairy extends EntityAmbientCreature {
 
@@ -378,14 +379,14 @@ public class Fairy extends EntityAmbientCreature {
     }
 
     static {
-        texture0 = new ResourceLocation(Tags.MODID+":fairytexture.png");
-        texture1 = new ResourceLocation(Tags.MODID+":fairytexture2.png");
-        texture2 = new ResourceLocation(Tags.MODID+":fairytexture3.png");
-        texture3 = new ResourceLocation(Tags.MODID+":fairytexture4.png");
-        texture4 = new ResourceLocation(Tags.MODID+":fairytexture5.png");
-        texture5 = new ResourceLocation(Tags.MODID+":fairytexture6.png");
-        texture6 = new ResourceLocation(Tags.MODID+":fairytexture7.png");
-        texture7 = new ResourceLocation(Tags.MODID+":fairytexture8.png");
-        texture8 = new ResourceLocation(Tags.MODID+":fairytexture9.png");
+        texture0 = new ResourceLocation(Tags.MODID + ":fairytexture.png");
+        texture1 = new ResourceLocation(Tags.MODID + ":fairytexture2.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":fairytexture3.png");
+        texture3 = new ResourceLocation(Tags.MODID + ":fairytexture4.png");
+        texture4 = new ResourceLocation(Tags.MODID + ":fairytexture5.png");
+        texture5 = new ResourceLocation(Tags.MODID + ":fairytexture6.png");
+        texture6 = new ResourceLocation(Tags.MODID + ":fairytexture7.png");
+        texture7 = new ResourceLocation(Tags.MODID + ":fairytexture8.png");
+        texture8 = new ResourceLocation(Tags.MODID + ":fairytexture9.png");
     }
 }

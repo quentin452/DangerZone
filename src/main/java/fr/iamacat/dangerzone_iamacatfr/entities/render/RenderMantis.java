@@ -1,17 +1,18 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Mantis;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelMantis;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Mantis;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelMantis;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderMantis extends RenderLiving {
 
@@ -54,6 +55,6 @@ public class RenderMantis extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":Mantistexture.png");
+        texture = new ResourceLocation(Tags.MODID + ":Mantistexture.png");
     }
 }

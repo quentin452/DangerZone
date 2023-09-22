@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.api;
 
 import com.google.common.base.Optional;
+
 import fr.iamacat.dangerzone_iamacatfr.items.SubItemPotion;
 
 public enum SubItemPotionList {

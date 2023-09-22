@@ -1,12 +1,14 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
+
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class FairyModel extends ModelBiped {
@@ -27,7 +29,7 @@ public class FairyModel extends ModelBiped {
         bipedHead = new ModelRenderer(this, 0, 0);
         bipedHead.addBox(-3F, -6F, -3F, 6, 6, 6, f);
         bipedHead.setRotationPoint(0.0F, 0.0F + f1, 0.0F);
-        strand = (new ModelRenderer(this)).setTextureSize( 64,  32);
+        strand = (new ModelRenderer(this)).setTextureSize(64, 32);
         strand.setTextureOffset(0, 20)
             .addBox(-3F, -5F, 3F, 6, 3, 1, f);
         strand.setTextureOffset(24, 0)
@@ -35,12 +37,12 @@ public class FairyModel extends ModelBiped {
         strand.setTextureOffset(24, 0)
             .addBox(3F, -5F, -3F, 1, 3, 6, f);
         strand.setRotationPoint(0.0F, 0.0F + f1, 0.0F);
-        strand2 = (new ModelRenderer(this)).setTextureSize( 64,  32);
+        strand2 = (new ModelRenderer(this)).setTextureSize(64, 32);
         strand2.setTextureOffset(13, 23)
             .addBox(-5F, -2.5F, 1.5F, 10, 3, 3, f);
         strand2.setRotationPoint(0F, 0F + f1, 0F);
         strand.addChild(strand2);
-        strand3 = (new ModelRenderer(this)).setTextureSize( 64,  32);
+        strand3 = (new ModelRenderer(this)).setTextureSize(64, 32);
         strand3.setTextureOffset(13, 23)
             .addBox(-3F, -1.5F, -1.5F, 3, 3, 3, f - 0.5F);
         strand3.setTextureOffset(13, 23)
@@ -50,7 +52,7 @@ public class FairyModel extends ModelBiped {
         strand3.rotateAngleY = 0.5F;
         strand3.isHidden = true;
         strand.addChild(strand3);
-        strand4 = (new ModelRenderer(this)).setTextureSize( 64,  32);
+        strand4 = (new ModelRenderer(this)).setTextureSize(64, 32);
         strand4.mirror = true;
         strand4.setTextureOffset(13, 23)
             .addBox(0F, -1.5F, -1.5F, 3, 3, 3, f - 0.5F);
@@ -68,7 +70,7 @@ public class FairyModel extends ModelBiped {
         crown = new ModelRenderer(this, 37, 14);
         crown.addBox(-3F, -6.75F, -3F, 6, 3, 6, f + 0.25F);
         crown.setRotationPoint(0.0F, 0.0F + f1, 0.0F);
-        bipedBody = (new ModelRenderer(this)).setTextureSize( 64,  32);
+        bipedBody = (new ModelRenderer(this)).setTextureSize(64, 32);
         bipedBody.setTextureOffset(8, 12)
             .addBox(-2F, 0.0F, -1F, 4, 6, 2, f);
         bipedBody.setTextureOffset(15, 20)

@@ -1,17 +1,17 @@
 
 package fr.iamacat.dangerzone_iamacatfr.util;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityVillager;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+
 public class MobUtils {
 
     public static boolean isPony(final Entity e) {
-        return e instanceof EntityLivingBase && (e instanceof WindigoInstance
-            || e instanceof ArcticScorpionInstance
+        return e instanceof EntityLivingBase && (e instanceof WindigoInstance || e instanceof ArcticScorpionInstance
             || e instanceof DarknessInstance
             || e instanceof DashCloudInstance);
     }

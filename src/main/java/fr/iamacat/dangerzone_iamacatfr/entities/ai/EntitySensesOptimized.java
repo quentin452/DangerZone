@@ -1,10 +1,10 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-
 import java.util.HashSet;
 import java.util.Set;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 
 public class EntitySensesOptimized {
 

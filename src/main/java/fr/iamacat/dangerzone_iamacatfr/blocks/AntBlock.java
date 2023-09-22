@@ -1,10 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -19,7 +17,10 @@ import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class AntBlock extends BlockGrass {
 
@@ -137,8 +138,8 @@ public class AntBlock extends BlockGrass {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
-        (this.field_94364_a = new IIcon[3])[0] = par1IIconRegister.registerIcon(Tags.MODID +":antnest_top");
-        this.field_94364_a[1] = par1IIconRegister.registerIcon(Tags.MODID +":antnest_bottom");
-        this.field_94364_a[2] = par1IIconRegister.registerIcon(Tags.MODID +":antnest_side");
+        (this.field_94364_a = new IIcon[3])[0] = par1IIconRegister.registerIcon(Tags.MODID + ":antnest_top");
+        this.field_94364_a[1] = par1IIconRegister.registerIcon(Tags.MODID + ":antnest_bottom");
+        this.field_94364_a[2] = par1IIconRegister.registerIcon(Tags.MODID + ":antnest_side");
     }
 }

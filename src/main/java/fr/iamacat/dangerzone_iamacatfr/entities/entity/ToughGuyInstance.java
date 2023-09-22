@@ -1,11 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -25,10 +25,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class ToughGuyInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -200,7 +202,7 @@ public class ToughGuyInstance extends EntityMob {
             if (e != null) {
                 this.faceEntity((Entity) e, 10.0f, 10.0f);
                 if (this.getDistanceSqToEntity((Entity) e) < (5.0f + e.width / 3.0f) * (5.0f + e.width / 3.0f)) {
-                    this.setAttacking( 1);
+                    this.setAttacking(1);
                     if (this.worldObj.rand.nextInt(4) == 0 || this.worldObj.rand.nextInt(5) == 1) {
                         this.attackEntityAsMob((Entity) e);
                     }
@@ -209,7 +211,7 @@ public class ToughGuyInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.75);
                 }
             } else {
-                this.setAttacking( 0);
+                this.setAttacking(0);
             }
         }
     }
@@ -330,7 +332,6 @@ public class ToughGuyInstance extends EntityMob {
     public final void setAttacking(final int par1) {
         this.dataWatcher.updateObject(20, par1);
     }
-
 
     public boolean getCanSpawnHere() {
         for (int k = -3; k < 3; ++k) {

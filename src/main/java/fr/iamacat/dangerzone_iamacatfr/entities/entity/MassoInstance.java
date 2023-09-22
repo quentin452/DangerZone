@@ -1,7 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,6 +11,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class MassoInstance extends EntityTameable {
 
@@ -108,9 +109,9 @@ public class MassoInstance extends EntityTameable {
     public void setAngry(final boolean par1) {
         final int b0 = this.dataWatcher.getWatchableObjectInt(16);
         if (par1) {
-            this.dataWatcher.updateObject(16,(b0 | 0x2));
+            this.dataWatcher.updateObject(16, (b0 | 0x2));
         } else {
-            this.dataWatcher.updateObject(16,(b0 & 0xFFFFFFFD));
+            this.dataWatcher.updateObject(16, (b0 & 0xFFFFFFFD));
         }
     }
 }

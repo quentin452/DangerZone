@@ -1,10 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.Entity;
@@ -23,7 +21,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class Elevator extends EntityLiving {
 
@@ -707,15 +708,15 @@ public class Elevator extends EntityLiving {
     }
 
     static {
-        texture1 = new ResourceLocation(Tags.MODID+":Elevator1.png");
-        texture2 = new ResourceLocation(Tags.MODID+":Elevator2.png");
-        texture3 = new ResourceLocation(Tags.MODID+":Elevator3.png");
-        texture4 = new ResourceLocation(Tags.MODID+":Elevator4.png");
-        texture5 = new ResourceLocation(Tags.MODID+":Elevator5.png");
-        texture6 = new ResourceLocation(Tags.MODID+":Elevator6.png");
-        texture7 = new ResourceLocation(Tags.MODID+":Elevator7.png");
-        texture8 = new ResourceLocation(Tags.MODID+":Elevator8.png");
-        texture9 = new ResourceLocation(Tags.MODID+":Elevator9.png");
-        texture10 = new ResourceLocation(Tags.MODID+":Elevator10.png");
+        texture1 = new ResourceLocation(Tags.MODID + ":Elevator1.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":Elevator2.png");
+        texture3 = new ResourceLocation(Tags.MODID + ":Elevator3.png");
+        texture4 = new ResourceLocation(Tags.MODID + ":Elevator4.png");
+        texture5 = new ResourceLocation(Tags.MODID + ":Elevator5.png");
+        texture6 = new ResourceLocation(Tags.MODID + ":Elevator6.png");
+        texture7 = new ResourceLocation(Tags.MODID + ":Elevator7.png");
+        texture8 = new ResourceLocation(Tags.MODID + ":Elevator8.png");
+        texture9 = new ResourceLocation(Tags.MODID + ":Elevator9.png");
+        texture10 = new ResourceLocation(Tags.MODID + ":Elevator10.png");
     }
 }

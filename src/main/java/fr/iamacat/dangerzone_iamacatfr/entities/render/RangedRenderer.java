@@ -1,10 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
+import net.minecraft.entity.Entity;
+
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.LaserBallSecondInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.LongHitInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.TwilightCannonInstance;
-import net.minecraft.entity.Entity;
 
 public class RangedRenderer extends MagicRenderer {
 

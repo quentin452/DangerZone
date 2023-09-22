@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
@@ -26,6 +25,8 @@ import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraftforge.event.terraingen.TerrainGen;
+
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 
 public class ChunkProviderOreSpawn implements IChunkProvider {
 

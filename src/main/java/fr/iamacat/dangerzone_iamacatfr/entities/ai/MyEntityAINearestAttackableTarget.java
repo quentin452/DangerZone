@@ -1,13 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Girlfriend;
+import java.util.Collections;
+import java.util.List;
+
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.passive.EntityTameable;
 
-import java.util.Collections;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Girlfriend;
 
 public class MyEntityAINearestAttackableTarget extends MyEntityAITarget {
 

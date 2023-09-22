@@ -1,7 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,9 +16,8 @@ import net.minecraft.util.*;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+
 public class DarknessInstance extends EntityMob {
 
     private ChunkCoordinates currentFlightTarget;
@@ -74,7 +76,6 @@ public class DarknessInstance extends EntityMob {
         this.dataWatcher.updateObject(20, par1);
     }
 
-
     protected float getSoundVolume() {
         return 0.35f;
     }
@@ -124,15 +125,15 @@ public class DarknessInstance extends EntityMob {
             this.posX,
             this.posY + 1.25,
             this.posZ,
-           ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-           ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
+            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
+            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
             ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
         this.worldObj.spawnParticle(
             "explode",
             this.posX,
             this.posY + 1.25,
             this.posZ,
-           ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
+            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
             ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
             ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
         this.motionY *= 0.6;
@@ -162,7 +163,7 @@ public class DarknessInstance extends EntityMob {
         final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort((List<Object>) var5, this.TargetSorter);
         final Iterator var6 = var5.iterator();
-        Entity var7 ;
+        Entity var7;
         EntityLivingBase var8;
         while (var6.hasNext()) {
             var7 = (Entity) var6.next();
@@ -211,10 +212,12 @@ public class DarknessInstance extends EntityMob {
             this.currentFlightTarget = new ChunkCoordinates((int) this.posX, (int) this.posY, (int) this.posZ);
         }
         Block bid = Blocks.air;
-        if (this.rand.nextInt(300) == 0 || this.currentFlightTarget.getDistanceSquared((int) this.posX, (int) this.posY, (int) this.posZ) < 4.5f) {
+        if (this.rand.nextInt(300) == 0
+            || this.currentFlightTarget.getDistanceSquared((int) this.posX, (int) this.posY, (int) this.posZ) < 4.5f) {
             bid = Blocks.stone;
         }
-        if (this.stuck_count > 10 || this.currentFlightTarget.getDistanceSquared((int) this.posX, (int) this.posY, (int) this.posZ) < 2.1f) {
+        if (this.stuck_count > 10
+            || this.currentFlightTarget.getDistanceSquared((int) this.posX, (int) this.posY, (int) this.posZ) < 2.1f) {
             bid = Blocks.stone;
             this.stuck_count = 0;
         }
@@ -227,9 +230,14 @@ public class DarknessInstance extends EntityMob {
             if (this.rand.nextInt(2) == 0) {
                 xdir = -xdir;
             }
-            this.currentFlightTarget.set((int) this.posX + xdir, (int) this.posY + this.rand.nextInt(20) - 10, (int) this.posZ + zdir);
-            bid = this.worldObj.getBlock(this.currentFlightTarget.posX, this.currentFlightTarget.posY, this.currentFlightTarget.posZ);
-            if (bid == Blocks.air && !this.canSeeTarget(this.currentFlightTarget.posX, this.currentFlightTarget.posY, this.currentFlightTarget.posZ)) {
+            this.currentFlightTarget
+                .set((int) this.posX + xdir, (int) this.posY + this.rand.nextInt(20) - 10, (int) this.posZ + zdir);
+            bid = this.worldObj
+                .getBlock(this.currentFlightTarget.posX, this.currentFlightTarget.posY, this.currentFlightTarget.posZ);
+            if (bid == Blocks.air && !this.canSeeTarget(
+                this.currentFlightTarget.posX,
+                this.currentFlightTarget.posY,
+                this.currentFlightTarget.posZ)) {
                 bid = Blocks.stone;
             }
             --keep_trying;
@@ -270,7 +278,8 @@ public class DarknessInstance extends EntityMob {
 
     public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
         boolean ret = false;
-        if (!par1DamageSource.getDamageType().equals("cactus")) {
+        if (!par1DamageSource.getDamageType()
+            .equals("cactus")) {
             Entity sourceEntity = par1DamageSource.getEntity();
             if (sourceEntity instanceof EntityLivingBase) {
                 EntityLivingBase e = (EntityLivingBase) sourceEntity;
@@ -332,8 +341,10 @@ public class DarknessInstance extends EntityMob {
         return true;
     }
 
-    private EntityLivingBase setExplodeSource(final double X, final double Y, final double Z, final double dist, final double damage) {
-        final AxisAlignedBB bb = AxisAlignedBB.getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
+    private EntityLivingBase setExplodeSource(final double X, final double Y, final double Z, final double dist,
+        final double damage) {
+        final AxisAlignedBB bb = AxisAlignedBB
+            .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
         final List<EntityLivingBase> var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
         Collections.sort(var5, this.TargetSorter);
         final Iterator<EntityLivingBase> var6 = var5.iterator();
@@ -348,7 +359,11 @@ public class DarknessInstance extends EntityMob {
                 var9.setExplosion();
                 var8.attackEntityFrom(var9, (float) damage);
                 var8.attackEntityFrom(DamageSource.fall, (float) damage);
-                this.worldObj.playSoundAtEntity(var8, "random.explode", 2.65f, 1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);
+                this.worldObj.playSoundAtEntity(
+                    var8,
+                    "random.explode",
+                    2.65f,
+                    1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);
                 final double ks = 0.0;
                 final double inair = -4.0;
                 final float f3 = (float) Math.atan2(var8.posZ - this.posZ, var8.posX - this.posX);
@@ -359,7 +374,8 @@ public class DarknessInstance extends EntityMob {
     }
 
     private EntityLivingBase findSomethingToAttack() {
-        List<EntityLivingBase> entities = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(64.0, 32.0, 64.0));
+        List<EntityLivingBase> entities = this.worldObj
+            .getEntitiesWithinAABB(EntityLivingBase.class, this.boundingBox.expand(64.0, 32.0, 64.0));
         entities.sort(this.TargetSorter);
         for (EntityLivingBase entity : entities) {
             if (this.isSuitableTarget(entity)) {

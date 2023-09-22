@@ -1,12 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Boyfriend;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Girlfriend;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -26,8 +23,12 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-import java.util.Iterator;
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Boyfriend;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Girlfriend;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class UltimateSword extends ItemSword {
 
@@ -186,8 +187,9 @@ public class UltimateSword extends ItemSword {
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5));
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5));
     }
 
     private void findSomethingToHit(final EntityPlayer player) {

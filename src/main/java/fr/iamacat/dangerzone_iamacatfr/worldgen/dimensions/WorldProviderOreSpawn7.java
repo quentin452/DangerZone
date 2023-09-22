@@ -1,9 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.biomes.BiomeGenUtopianPlains;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldServer;
@@ -11,6 +8,10 @@ import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.DimensionManager;
+
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.biomes.BiomeGenUtopianPlains;
 
 public class WorldProviderOreSpawn7 extends WorldProvider {
 
@@ -25,7 +26,6 @@ public class WorldProviderOreSpawn7 extends WorldProvider {
     public String getDimensionName() {
         return "Dimension-MLP";
     }
-
 
     public void registerWorldChunkManager() {
         this.MyPlains.setMLPCreatures();

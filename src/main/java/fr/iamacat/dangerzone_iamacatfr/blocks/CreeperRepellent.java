@@ -1,10 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Termite;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,8 +12,11 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Termite;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class CreeperRepellent extends BlockTorch {
 
@@ -89,9 +90,9 @@ public class CreeperRepellent extends BlockTorch {
                 f = 20.0 - entity.getDistance(par2, par3, par4);
                 f = Math.max(0.0, Math.min(20.0, f)) * 0.4;
             } else if (entity instanceof EntityAnt || entity instanceof Termite) {
-                    f = 20.0 - entity.getDistance(par2, par3, par4);
-                    f = Math.max(0.0, Math.min(20.0, f)) * 0.4;
-                }
+                f = 20.0 - entity.getDistance(par2, par3, par4);
+                f = Math.max(0.0, Math.min(20.0, f)) * 0.4;
+            }
 
             if (f > 0.0) {
                 double d1 = entity.posX - par2;

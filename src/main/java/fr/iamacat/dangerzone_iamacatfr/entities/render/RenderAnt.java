@@ -1,16 +1,17 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelAnt;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelAnt;
 
 public class RenderAnt extends RenderLiving {
 

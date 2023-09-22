@@ -1,8 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Basilisk;
+import java.awt.*;
+import java.util.Vector;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -15,11 +16,11 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 
-import java.awt.*;
-import java.util.Vector;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Basilisk;
 
-public class BasiliskMaze
-{
+public class BasiliskMaze {
+
     public static final int WTOP = 1;
     public static final int WRGT = 2;
     public static final int WBOT = 4;
@@ -27,7 +28,38 @@ public class BasiliskMaze
     private final WeightedRandomChestContent[] chestContentsList;
 
     public BasiliskMaze() {
-        this.chestContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.ender_pearl, 0, 3, 6, 15), new WeightedRandomChestContent(Items.diamond, 0, 15, 25, 20), new WeightedRandomChestContent(Items.blaze_rod, 0, 4, 12, 15), new WeightedRandomChestContent(OreSpawnMain.CageEmpty, 0, 3, 10, 20), new WeightedRandomChestContent(OreSpawnMain.CagedGirlfriend, 0, 2, 4, 15), new WeightedRandomChestContent(Items.iron_ingot, 0, 2, 20, 20), new WeightedRandomChestContent(Items.gold_ingot, 0, 4, 16, 20), new WeightedRandomChestContent(OreSpawnMain.MyIngotUranium, 0, 2, 8, 20), new WeightedRandomChestContent(OreSpawnMain.MyIngotTitanium, 0, 2, 6, 20), new WeightedRandomChestContent(OreSpawnMain.MySunFish, 0, 2, 8, 20), new WeightedRandomChestContent(OreSpawnMain.MyFireFish, 0, 3, 8, 20), new WeightedRandomChestContent(OreSpawnMain.MyLavaEel, 0, 5, 24, 20), new WeightedRandomChestContent(OreSpawnMain.MyCornDog, 0, 6, 12, 20), new WeightedRandomChestContent(Items.diamond_pickaxe, 0, 1, 1, 15), new WeightedRandomChestContent(Items.diamond_sword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyUltimatePickaxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyUltimateSword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyUltimateFishingRod, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyUltimateBow, 0, 1, 1, 15), new WeightedRandomChestContent((Item)Items.diamond_chestplate, 0, 1, 1, 15), new WeightedRandomChestContent((Item)Items.diamond_helmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)Items.diamond_leggings, 0, 1, 1, 15), new WeightedRandomChestContent((Item)Items.diamond_boots, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.UltimateBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.UltimateLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.UltimateHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.UltimateBoots, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyRuby, 0, 1, 1, 5), new WeightedRandomChestContent(OreSpawnMain.MyThunderStaff, 0, 1, 1, 5), new WeightedRandomChestContent(OreSpawnMain.MagicApple, 0, 1, 1, 15), new WeightedRandomChestContent(Items.golden_apple, 0, 2, 4, 15) };
+        this.chestContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.ender_pearl, 0, 3, 6, 15),
+            new WeightedRandomChestContent(Items.diamond, 0, 15, 25, 20),
+            new WeightedRandomChestContent(Items.blaze_rod, 0, 4, 12, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CageEmpty, 0, 3, 10, 20),
+            new WeightedRandomChestContent(OreSpawnMain.CagedGirlfriend, 0, 2, 4, 15),
+            new WeightedRandomChestContent(Items.iron_ingot, 0, 2, 20, 20),
+            new WeightedRandomChestContent(Items.gold_ingot, 0, 4, 16, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyIngotUranium, 0, 2, 8, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyIngotTitanium, 0, 2, 6, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MySunFish, 0, 2, 8, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyFireFish, 0, 3, 8, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyLavaEel, 0, 5, 24, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyCornDog, 0, 6, 12, 20),
+            new WeightedRandomChestContent(Items.diamond_pickaxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(Items.diamond_sword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyUltimatePickaxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyUltimateSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyUltimateFishingRod, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyUltimateBow, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) Items.diamond_chestplate, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) Items.diamond_helmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) Items.diamond_leggings, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) Items.diamond_boots, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.UltimateBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.UltimateLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.UltimateHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.UltimateBoots, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRuby, 0, 1, 1, 5),
+            new WeightedRandomChestContent(OreSpawnMain.MyThunderStaff, 0, 1, 1, 5),
+            new WeightedRandomChestContent(OreSpawnMain.MagicApple, 0, 1, 1, 15),
+            new WeightedRandomChestContent(Items.golden_apple, 0, 2, 4, 15) };
     }
 
     public void buildBasiliskMaze(final World world, final int x, final int y, final int z) {
@@ -39,7 +71,8 @@ public class BasiliskMaze
         this.makeEntrance(world, x, y, z, depth);
     }
 
-    private void makeMaze(final World world, final int xx, final int yy, final int zz, final int xw, final int zw, final int csz, final int b) {
+    private void makeMaze(final World world, final int xx, final int yy, final int zz, final int xw, final int zw,
+        final int csz, final int b) {
         final int gridw = xw;
         final int gridh = zw;
         int cellsize = csz;
@@ -81,11 +114,11 @@ public class BasiliskMaze
                 outlist.addElement(new Point(x, y));
             }
         }
-        Point current_cell = (Point)this.rndElement(outlist);
+        Point current_cell = (Point) this.rndElement(outlist);
         inlist.addElement(current_cell);
         this.moveNbrs(current_cell, cells, outlist, frontlist);
         while (!frontlist.isEmpty()) {
-            current_cell = (Point)this.rndElement(frontlist);
+            current_cell = (Point) this.rndElement(frontlist);
             inlist.addElement(current_cell);
             this.moveNbrs(current_cell, cells, outlist, frontlist);
             final int dir = this.findInNbr(current_cell, cells, inlist);
@@ -96,22 +129,71 @@ public class BasiliskMaze
             for (int y = 0; y < gridh; ++y) {
                 final int val = cells[x][y];
                 if ((val & 0x1) != 0x0) {
-                    this.drawSide(world, x * cellsize, y * cellsize, (x + 1) * cellsize, y * cellsize, xx, yy, zz, cellsize, gridh, gridw, b);
+                    this.drawSide(
+                        world,
+                        x * cellsize,
+                        y * cellsize,
+                        (x + 1) * cellsize,
+                        y * cellsize,
+                        xx,
+                        yy,
+                        zz,
+                        cellsize,
+                        gridh,
+                        gridw,
+                        b);
                 }
                 if ((val & 0x2) != 0x0) {
-                    this.drawSide(world, (x + 1) * cellsize - 1, y * cellsize, (x + 1) * cellsize - 1, (y + 1) * cellsize, xx, yy, zz, cellsize, gridh, gridw, b);
+                    this.drawSide(
+                        world,
+                        (x + 1) * cellsize - 1,
+                        y * cellsize,
+                        (x + 1) * cellsize - 1,
+                        (y + 1) * cellsize,
+                        xx,
+                        yy,
+                        zz,
+                        cellsize,
+                        gridh,
+                        gridw,
+                        b);
                 }
                 if ((val & 0x4) != 0x0) {
-                    this.drawSide(world, x * cellsize, (y + 1) * cellsize - 1, (x + 1) * cellsize, (y + 1) * cellsize - 1, xx, yy, zz, cellsize, gridh, gridw, b);
+                    this.drawSide(
+                        world,
+                        x * cellsize,
+                        (y + 1) * cellsize - 1,
+                        (x + 1) * cellsize,
+                        (y + 1) * cellsize - 1,
+                        xx,
+                        yy,
+                        zz,
+                        cellsize,
+                        gridh,
+                        gridw,
+                        b);
                 }
                 if ((val & 0x8) != 0x0) {
-                    this.drawSide(world, x * cellsize, y * cellsize, x * cellsize, (y + 1) * cellsize, xx, yy, zz, cellsize, gridh, gridw, b);
+                    this.drawSide(
+                        world,
+                        x * cellsize,
+                        y * cellsize,
+                        x * cellsize,
+                        (y + 1) * cellsize,
+                        xx,
+                        yy,
+                        zz,
+                        cellsize,
+                        gridh,
+                        gridw,
+                        b);
                 }
             }
         }
     }
 
-    private void drawSide(final World world, int fromx, int fromz, int tox, int toz, final int x, final int y, final int z, final int cellsize, final int gridh, final int gridw, final int bb) {
+    private void drawSide(final World world, int fromx, int fromz, int tox, int toz, final int x, final int y,
+        final int z, final int cellsize, final int gridh, final int gridw, final int bb) {
         Block blk = Blocks.obsidian;
         if (bb != 0) {
             blk = Blocks.bedrock;
@@ -135,8 +217,7 @@ public class BasiliskMaze
                     OreSpawnMain.setBlockFast(world, i + x, y + 2, j + z, blk, 0, 2);
                 }
             }
-        }
-        else {
+        } else {
             final int j = fromz;
             for (int i = fromx; i <= tox; ++i) {
                 if (i < cellsize * gridw) {
@@ -254,7 +335,7 @@ public class BasiliskMaze
     }
 
     private int rnd(final int n) {
-        return (int)(Math.random() * n + 1.0);
+        return (int) (Math.random() * n + 1.0);
     }
 
     private Object rndElement(final Vector v) {
@@ -264,13 +345,14 @@ public class BasiliskMaze
         return s;
     }
 
-    private Entity spawnCreature(final World par0World, final String par1, final double par2, final double par4, final double par6) {
+    private Entity spawnCreature(final World par0World, final String par1, final double par2, final double par4,
+        final double par6) {
         Entity var8 = null;
         var8 = EntityList.createEntityByName(par1, par0World);
         if (var8 != null) {
             var8.setLocationAndAngles(par2, par4, par6, par0World.rand.nextFloat() * 360.0f, 0.0f);
             par0World.spawnEntityInWorld(var8);
-            ((EntityLiving)var8).playLivingSound();
+            ((EntityLiving) var8).playLivingSound();
         }
         return var8;
     }
@@ -296,7 +378,8 @@ public class BasiliskMaze
         }
     }
 
-    private void openMaze(final World world, final int xx, final int yy, final int zz, final int xw, final int zw, final int csz) {
+    private void openMaze(final World world, final int xx, final int yy, final int zz, final int xw, final int zw,
+        final int csz) {
         for (int i = 0; i < zw * csz; ++i) {
             final Block bid = world.getBlock(xx + 1, yy, zz + i);
             if (bid == Blocks.air) {
@@ -324,10 +407,24 @@ public class BasiliskMaze
             }
         }
         for (int i = 0; i < 80; ++i) {
-            OreSpawnMain.setBlockFast(world, x + world.rand.nextInt(28) + 1, y, z + world.rand.nextInt(28) + 1, Blocks.lava, 0, 2);
+            OreSpawnMain.setBlockFast(
+                world,
+                x + world.rand.nextInt(28) + 1,
+                y,
+                z + world.rand.nextInt(28) + 1,
+                Blocks.lava,
+                0,
+                2);
         }
         for (int i = 0; i < 20; ++i) {
-            OreSpawnMain.setBlockFast(world, x + 30 + world.rand.nextInt(28) + 1, y, z + world.rand.nextInt(28) + 1, OreSpawnMain.MyRTPBlock, 0, 2);
+            OreSpawnMain.setBlockFast(
+                world,
+                x + 30 + world.rand.nextInt(28) + 1,
+                y,
+                z + world.rand.nextInt(28) + 1,
+                OreSpawnMain.MyRTPBlock,
+                0,
+                2);
         }
         for (int i = 0; i < 30; ++i) {
             for (int k = 0; k < 30; ++k) {
@@ -406,26 +503,30 @@ public class BasiliskMaze
         TileEntityChest chest = null;
         for (int i = 2 + world.rand.nextInt(3), k = 0; k < i; ++k) {
             OreSpawnMain.setBlockFast(world, x + 58, y + 4, z + 2 + k * 2, Blocks.torch, 0, 2);
-            OreSpawnMain.setBlockFast(world, x + 58, y + 1, z + 2 + k * 2, (Block)Blocks.chest, 0, 2);
-            chest = (TileEntityChest)world.getTileEntity(x + 58, y + 1, z + 2 + k * 2);
+            OreSpawnMain.setBlockFast(world, x + 58, y + 1, z + 2 + k * 2, (Block) Blocks.chest, 0, 2);
+            chest = (TileEntityChest) world.getTileEntity(x + 58, y + 1, z + 2 + k * 2);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, this.chestContentsList, (IInventory)chest, 5 + world.rand.nextInt(6));
+                WeightedRandomChestContent.generateChestContents(
+                    world.rand,
+                    this.chestContentsList,
+                    (IInventory) chest,
+                    5 + world.rand.nextInt(6));
             }
         }
         Entity ent = null;
         ent = this.spawnCreature(world, "Basilisk", x + 45.0, y + 1.01, z + 15.0);
         if (ent != null) {
-            final Basilisk b = (Basilisk)ent;
+            final Basilisk b = (Basilisk) ent;
             b.func_110163_bv();
         }
         ent = this.spawnCreature(world, "Basilisk", x + 46.0, y + 1.01, z + 15.0);
         if (ent != null) {
-            final Basilisk b = (Basilisk)ent;
+            final Basilisk b = (Basilisk) ent;
             b.func_110163_bv();
         }
         ent = this.spawnCreature(world, "Basilisk", x + 47.0, y + 1.01, z + 15.0);
         if (ent != null) {
-            final Basilisk b = (Basilisk)ent;
+            final Basilisk b = (Basilisk) ent;
             b.func_110163_bv();
         }
     }

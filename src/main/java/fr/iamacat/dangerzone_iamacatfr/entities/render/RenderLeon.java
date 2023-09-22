@@ -1,17 +1,18 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Leon;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelLeon;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Leon;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelLeon;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderLeon extends RenderLiving {
 
@@ -27,7 +28,7 @@ public class RenderLeon extends RenderLiving {
     }
 
     public void renderLeon(final Leon par1EntityLeon, final double par2, final double par4, final double par6,
-                           final float par8, final float par9) {
+        final float par8, final float par9) {
         super.doRender(par1EntityLeon, par2, par4, par6, par8, par9);
     }
 
@@ -54,6 +55,6 @@ public class RenderLeon extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":Leon.png");
+        texture = new ResourceLocation(Tags.MODID + ":Leon.png");
     }
 }

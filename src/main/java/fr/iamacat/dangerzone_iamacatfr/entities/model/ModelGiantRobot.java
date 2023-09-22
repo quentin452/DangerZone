@@ -1,12 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GiantRobot;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderGiantRobotInfo;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GiantRobot;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderGiantRobotInfo;
 
 public class ModelGiantRobot extends ModelBase {
 

@@ -1,7 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -23,10 +27,8 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+
 public class CragadileInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -326,7 +328,7 @@ public class CragadileInstance extends EntityMob {
             }
             if (e != null) {
                 this.faceEntity((Entity) e, 10.0f, 10.0f);
-                this.setAttacking( 1);
+                this.setAttacking(1);
                 if (this.worldObj.rand.nextInt(20) == 1 && this.SnackTime == 0) {
                     this.Ambush(e);
                     this.SnackTime = 30;
@@ -351,7 +353,7 @@ public class CragadileInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.2);
                 }
             } else {
-                this.setAttacking( 0);
+                this.setAttacking(0);
             }
         }
         if (this.worldObj.rand.nextInt(150) == 1 && this.getHealth() < this.mygetMaxHealth()) {
@@ -462,7 +464,6 @@ public class CragadileInstance extends EntityMob {
     public final void setAttacking(final int par1) {
         this.dataWatcher.updateObject(20, par1);
     }
-
 
     private EntityLivingBase TailSwipe(final double X, final double Y, final double Z, final double dist,
         final double damage, final int knock) {

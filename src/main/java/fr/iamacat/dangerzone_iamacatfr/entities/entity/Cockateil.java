@@ -1,10 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -17,6 +13,10 @@ import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class Cockateil extends EntityAnimal {
 
@@ -281,11 +281,11 @@ public class Cockateil extends EntityAnimal {
     }
 
     static {
-        texture1 = new ResourceLocation(Tags.MODID+":Bird1.png");
-        texture2 = new ResourceLocation(Tags.MODID+":Bird2.png");
-        texture3 = new ResourceLocation(Tags.MODID+":Bird3.png");
-        texture4 = new ResourceLocation(Tags.MODID+":Bird4.png");
-        texture5 = new ResourceLocation(Tags.MODID+":Bird5.png");
-        texture6 = new ResourceLocation(Tags.MODID+":Bird6.png");
+        texture1 = new ResourceLocation(Tags.MODID + ":Bird1.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":Bird2.png");
+        texture3 = new ResourceLocation(Tags.MODID + ":Bird3.png");
+        texture4 = new ResourceLocation(Tags.MODID + ":Bird4.png");
+        texture5 = new ResourceLocation(Tags.MODID + ":Bird5.png");
+        texture6 = new ResourceLocation(Tags.MODID + ":Bird6.png");
     }
 }

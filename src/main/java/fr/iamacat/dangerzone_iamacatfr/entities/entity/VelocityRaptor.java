@@ -1,11 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIAvoidEntity;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,6 +16,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIAvoidEntity;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class VelocityRaptor extends EntityCannonFodder {
 
@@ -280,7 +281,7 @@ public class VelocityRaptor extends EntityCannonFodder {
                             par1EntityPlayer.getUniqueID()
                                 .toString());
                         this.playTameEffect(true);
-                        this.worldObj.setEntityState(this,  (byte) 7);
+                        this.worldObj.setEntityState(this, (byte) 7);
                         this.heal(this.mygetMaxHealth() - this.getHealth());
                     } else {
                         this.playTameEffect(false);
@@ -290,7 +291,7 @@ public class VelocityRaptor extends EntityCannonFodder {
             } else if (this.func_152114_e(par1EntityPlayer)) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this,  (byte) 7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                     par1EntityPlayer.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
                         .setBaseValue(0.6000000238418579);
                 }
@@ -316,7 +317,7 @@ public class VelocityRaptor extends EntityCannonFodder {
                 this.setHealth((float) this.mygetMaxHealth());
                 this.func_152115_b("");
                 this.playTameEffect(false);
-                this.worldObj.setEntityState(this,   (byte)6);
+                this.worldObj.setEntityState(this, (byte) 6);
             } else {
                 par1EntityPlayer.getEntityAttribute(SharedMonsterAttributes.movementSpeed)
                     .setBaseValue(0.30000001192092896);

@@ -1,8 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Shoes;
 import net.minecraft.entity.Entity;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Shoes;
 
 public class RenderShoe extends RenderSpinner {
 

@@ -1,12 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.network;
 
-import cpw.mods.fml.common.network.FMLEventChannel;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.network.internal.FMLProxyPacket;
-import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import cpw.mods.fml.relauncher.Side;
-import fr.iamacat.dangerzone_iamacatfr.entities.other.RiderControlMessage;
-import fr.iamacat.dangerzone_iamacatfr.entities.other.RiderControlMessageHandler;
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -16,9 +11,15 @@ import net.minecraft.network.play.server.S13PacketDestroyEntities;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 
-import java.util.List;
+import cpw.mods.fml.common.network.FMLEventChannel;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.internal.FMLProxyPacket;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import cpw.mods.fml.relauncher.Side;
+import fr.iamacat.dangerzone_iamacatfr.entities.other.RiderControlMessage;
+import fr.iamacat.dangerzone_iamacatfr.entities.other.RiderControlMessageHandler;
 
-public class CommonProxy{
+public class CommonProxy {
 
     protected FMLEventChannel eventChannel;
 
@@ -28,11 +29,9 @@ public class CommonProxy{
 
     public void registerRenders() {}
 
-
     public void onKnockBackPacket(float paramFloat1, float paramFloat2) {
 
     }
-
 
     public void onConfusionPacket(boolean paramBool) {
 
@@ -42,11 +41,9 @@ public class CommonProxy{
         return null;
     }
 
-
     public void preInit() {
 
     }
-
 
     public void load() {
 
@@ -64,7 +61,6 @@ public class CommonProxy{
         if (player != null && !s.isEmpty())
             player.playerNetServerHandler.sendPacket(new S02PacketChat(new ChatComponentText(s)));
     }
-
 
     public EntityPlayer getClientPlayer() {
         return null;
@@ -89,6 +85,7 @@ public class CommonProxy{
         sendToAllPlayers(packet);
         entity.setDead();
     }
+
     private SimpleNetworkWrapper network;
 
     public SimpleNetworkWrapper getNetwork() {

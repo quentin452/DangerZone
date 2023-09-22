@@ -1,11 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -30,10 +30,12 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class KingbowserInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -382,7 +384,7 @@ public class KingbowserInstance extends EntityMob {
                             }
                             this.worldObj.spawnEntityInWorld((Entity) var2);
                         }
-                        this.setAttacking( 1);
+                        this.setAttacking(1);
                     }
                     this.getNavigator()
                         .tryMoveToEntityLiving((Entity) e, 0.75);
@@ -404,7 +406,7 @@ public class KingbowserInstance extends EntityMob {
             }
         }
         if (this.reload_ticker <= 0 && this.was_attacked_ticker <= 0) {
-            this.setAttacking( 0);
+            this.setAttacking(0);
         }
     }
 
@@ -412,7 +414,7 @@ public class KingbowserInstance extends EntityMob {
         final double yoff = 3.0;
         final double xzoff = 3.5;
         if (this.reload_ticker > 0) {
-            this.setAttacking( 2);
+            this.setAttacking(2);
             if (this.rand.nextInt(30) == 1) {
                 final FireCannon var2 = new FireCannon(
                     this.worldObj,
@@ -458,7 +460,7 @@ public class KingbowserInstance extends EntityMob {
             this.worldObj.spawnEntityInWorld((Entity) var2);
             --this.reload_ticker;
         } else {
-            this.setAttacking( 0);
+            this.setAttacking(0);
         }
         if (this.reload_ticker <= 0 && this.rand.nextInt(4) == 1) {
             this.reload_ticker = 16;
@@ -475,7 +477,7 @@ public class KingbowserInstance extends EntityMob {
             return false;
         }
         this.was_attacked_ticker = 5;
-        this.setAttacking( 1);
+        this.setAttacking(1);
         ret = super.attackEntityFrom(par1DamageSource, par2);
         final Entity e = par1DamageSource.getEntity();
         if (e != null && e instanceof EntityLiving) {
@@ -588,13 +590,12 @@ public class KingbowserInstance extends EntityMob {
         this.dataWatcher.updateObject(20, par1);
     }
 
-
     public final int getShielding() {
         return this.dataWatcher.getWatchableObjectInt(21);
     }
 
     public final void setShielding(final int par1) {
-        this.dataWatcher.updateObject(21, (Object)  par1);
+        this.dataWatcher.updateObject(21, (Object) par1);
     }
 
     private void firecanon(final EntityLivingBase e) {

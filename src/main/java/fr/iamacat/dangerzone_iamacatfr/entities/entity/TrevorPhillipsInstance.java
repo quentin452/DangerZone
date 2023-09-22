@@ -1,9 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -23,9 +24,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class TrevorPhillipsInstance extends EntityMob {
 
@@ -463,11 +464,11 @@ public class TrevorPhillipsInstance extends EntityMob {
             for (int j = -3; j < 3; ++j) {
                 for (int i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) (this.posX + j), (int) (this.posY + i), (int)  this.posZ + k);
+                        .getBlock((int) (this.posX + j), (int) (this.posY + i), (int) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) (this.posX + j), (int)  this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((int) (this.posX + j), (int) this.posY + i, (int) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("TrevorPhillipsInstance")) {

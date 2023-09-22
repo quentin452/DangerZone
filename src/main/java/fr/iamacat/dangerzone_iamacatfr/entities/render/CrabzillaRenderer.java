@@ -1,14 +1,16 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.CrabzillaInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.CrabzillaModel;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.CrabzillaInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.CrabzillaModel;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class CrabzillaRenderer extends RenderLiving {
 

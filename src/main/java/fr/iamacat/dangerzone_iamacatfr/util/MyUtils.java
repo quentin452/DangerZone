@@ -1,11 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.util;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityVillager;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
 
 public class MyUtils {
 

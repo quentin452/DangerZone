@@ -1,9 +1,10 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class QueenLeggings extends ItemArmor {
 

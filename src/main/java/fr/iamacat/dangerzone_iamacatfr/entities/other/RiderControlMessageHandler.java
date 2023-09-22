@@ -1,7 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.other;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,6 +8,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import io.netty.channel.ChannelHandler;
 
 @ChannelHandler.Sharable

@@ -1,8 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RubyBird extends Cockateil {
 

@@ -1,9 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -29,9 +30,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class SpikezillaInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -386,7 +388,7 @@ public class SpikezillaInstance extends EntityMob {
                     this.MagicCannon(e);
                     this.jump_timer = 20;
                 } else if (this.MygetDistanceSqToEntity(e) < 300.0) {
-                    this.setAttacking( 1);
+                    this.setAttacking(1);
                     this.getNavigator()
                         .tryMoveToEntityLiving(e, 1.0);
                     if (this.worldObj.rand.nextInt(4 - this.largemob) == 0
@@ -407,7 +409,7 @@ public class SpikezillaInstance extends EntityMob {
                         .tryMoveToEntityLiving(e, 1.0);
                     if (this.getHorizontalDistanceSqToEntity(e) > 625.0) {
                         if (this.stream_count > 0) {
-                            this.setAttacking( 1);
+                            this.setAttacking(1);
                             final double rr = Math.atan2(e.posZ - this.posZ, e.posX - this.posX);
                             final double rhdir = Math.toRadians((this.rotationYawHead + 90.0f) % 360.0f);
                             final double pi = 3.1415926545;
@@ -441,11 +443,11 @@ public class SpikezillaInstance extends EntityMob {
                             this.setAttacking(0);
                         }
                     } else {
-                        this.setAttacking( 0);
+                        this.setAttacking(0);
                     }
                 }
             } else {
-                this.setAttacking( 0);
+                this.setAttacking(0);
                 this.stream_count = 8;
             }
         }

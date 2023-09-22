@@ -1,10 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Robot5;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Robot5;
 
 public class ModelRobot5 extends ModelBase {
 

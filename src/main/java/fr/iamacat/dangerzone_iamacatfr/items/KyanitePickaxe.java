@@ -1,7 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.item.ItemPickaxe;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class KyanitePickaxe extends ItemPickaxe {
 

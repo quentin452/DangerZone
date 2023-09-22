@@ -11,8 +11,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class SunspotUrchin extends EntityThrowable
-{
+public class SunspotUrchin extends EntityThrowable {
+
     private float my_rotation;
     private int my_index;
 
@@ -57,13 +57,13 @@ public class SunspotUrchin extends EntityThrowable
                 var2 = 6.0f;
             }
             if (!(par1MovingObjectPosition.entityHit instanceof EntityPlayer)) {
-                par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage((Entity) this, (Entity)this.getThrower()), var2);
+                par1MovingObjectPosition.entityHit
+                    .attackEntityFrom(DamageSource.causeThrownDamage((Entity) this, (Entity) this.getThrower()), var2);
                 if (!par1MovingObjectPosition.entityHit.isImmuneToFire()) {
                     par1MovingObjectPosition.entityHit.setFire(5);
                 }
             }
-        }
-        else {
+        } else {
             int i = par1MovingObjectPosition.blockX;
             int j = par1MovingObjectPosition.blockY;
             int k = par1MovingObjectPosition.blockZ;
@@ -98,8 +98,22 @@ public class SunspotUrchin extends EntityThrowable
             }
         }
         for (int var3 = 0; var3 < 5; ++var3) {
-            this.worldObj.spawnParticle("smoke", this.posX, this.posY, this.posZ, (double)this.worldObj.rand.nextFloat(), (double)this.worldObj.rand.nextFloat(), (double)this.worldObj.rand.nextFloat());
-            this.worldObj.spawnParticle("reddust", this.posX, this.posY, this.posZ, (double)this.worldObj.rand.nextFloat(), (double)this.worldObj.rand.nextFloat(), (double)this.worldObj.rand.nextFloat());
+            this.worldObj.spawnParticle(
+                "smoke",
+                this.posX,
+                this.posY,
+                this.posZ,
+                (double) this.worldObj.rand.nextFloat(),
+                (double) this.worldObj.rand.nextFloat(),
+                (double) this.worldObj.rand.nextFloat());
+            this.worldObj.spawnParticle(
+                "reddust",
+                this.posX,
+                this.posY,
+                this.posZ,
+                (double) this.worldObj.rand.nextFloat(),
+                (double) this.worldObj.rand.nextFloat(),
+                (double) this.worldObj.rand.nextFloat());
         }
         if (!this.worldObj.isRemote) {
             this.setDead();

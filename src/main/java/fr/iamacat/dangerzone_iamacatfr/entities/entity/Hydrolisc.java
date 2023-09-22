@@ -1,11 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,6 +17,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class Hydrolisc extends EntityTameable {
 
@@ -267,17 +267,17 @@ public class Hydrolisc extends EntityTameable {
                             par1EntityPlayer.getUniqueID()
                                 .toString());
                         this.playTameEffect(true);
-                        this.worldObj.setEntityState(this,  (byte) 7);
+                        this.worldObj.setEntityState(this, (byte) 7);
                         this.heal(this.getMaxHealth() - this.getHealth());
                     } else {
                         this.playTameEffect(false);
-                        this.worldObj.setEntityState(this,  (byte) 6);
+                        this.worldObj.setEntityState(this, (byte) 6);
                     }
                 }
             } else if (this.func_152114_e(par1EntityPlayer)) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte)  7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 }
                 if (this.getMaxHealth() > this.getHealth()) {
                     this.heal(this.getMaxHealth() - this.getHealth());
@@ -300,7 +300,7 @@ public class Hydrolisc extends EntityTameable {
                 this.setTamed(false);
                 this.func_152115_b("");
                 this.playTameEffect(false);
-                this.worldObj.setEntityState(this,   (byte)6);
+                this.worldObj.setEntityState(this, (byte) 6);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack2 = var2;

@@ -1,11 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -31,10 +31,11 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class HydraInstance extends EntityMob {
 
@@ -162,11 +163,9 @@ public class HydraInstance extends EntityMob {
         super.onLivingUpdate();
     }
 
-    protected void fall(final float par1) {
-    }
+    protected void fall(final float par1) {}
 
-    protected void updateFallState(final double par1, final boolean par3) {
-    }
+    protected void updateFallState(final double par1, final boolean par3) {}
 
     protected String getLivingSound() {
         if (this.worldObj.rand.nextInt(10) == 0) {
@@ -423,10 +422,10 @@ public class HydraInstance extends EntityMob {
                                 this.firecannon(e);
                             }
                         } else {
-                            this.setAttacking( 0);
+                            this.setAttacking(0);
                         }
                     } else {
-                        this.setAttacking( 0);
+                        this.setAttacking(0);
                     }
                 }
             } else {
@@ -440,7 +439,7 @@ public class HydraInstance extends EntityMob {
     }
 
     public static Entity spawnCreature(final World par0World, final String par1, final double par2, final double par4,
-                                       final double par6) {
+        final double par6) {
         Entity var8 = null;
         var8 = EntityList.createEntityByName(par1, par0World);
         if (var8 != null) {
@@ -499,12 +498,12 @@ public class HydraInstance extends EntityMob {
             && par1EntityLiving != this
             && par1EntityLiving.isEntityAlive()
             && this.getEntitySenses()
-            .canSee((Entity) par1EntityLiving)
+                .canSee((Entity) par1EntityLiving)
             && par1EntityLiving instanceof EntityVillager;
     }
 
     private EntityLivingBase doJumpDamage(final double X, final double Y, final double Z, final double dist,
-                                          final double damage, final int knock) {
+        final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
         final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
@@ -538,7 +537,7 @@ public class HydraInstance extends EntityMob {
     }
 
     private EntityLivingBase justStandThere(final double X, final double Y, final double Z, final double dist,
-                                            final double damage, final int knock) {
+        final double damage, final int knock) {
         final AxisAlignedBB bb = AxisAlignedBB
             .getBoundingBox(X - dist, Y - 10.0, Z - dist, X + dist, Y + 10.0, Z + dist);
         final List var5 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, bb);
@@ -888,8 +887,7 @@ public class HydraInstance extends EntityMob {
         return ret;
     }
 
-    public void onStruckByLightning(final EntityLightningBolt par1EntityLightningBolt) {
-    }
+    public void onStruckByLightning(final EntityLightningBolt par1EntityLightningBolt) {}
 
     private void strikeTheGround(final EntityLivingBase e) {
         if (e == null) {

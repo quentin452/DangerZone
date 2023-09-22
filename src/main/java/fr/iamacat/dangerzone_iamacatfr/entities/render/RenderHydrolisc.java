@@ -1,16 +1,18 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Hydrolisc;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelHydrolisc;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Hydrolisc;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelHydrolisc;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderHydrolisc extends RenderLiving {
 
@@ -26,7 +28,7 @@ public class RenderHydrolisc extends RenderLiving {
     }
 
     public void renderHydrolisc(final Hydrolisc par1EntityHydrolisc, final double par2, final double par4,
-                                final double par6, final float par8, final float par9) {
+        final double par6, final float par8, final float par9) {
         super.doRender(par1EntityHydrolisc, par2, par4, par6, par8, par9);
     }
 
@@ -57,6 +59,6 @@ public class RenderHydrolisc extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":hydrolisc.png");
+        texture = new ResourceLocation(Tags.MODID + ":hydrolisc.png");
     }
 }

@@ -1,12 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.TheKing;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.TheQueen;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -26,7 +22,12 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.TheKing;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.TheQueen;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class ItemMagicApple extends Item {
 
@@ -92,9 +93,8 @@ public class ItemMagicApple extends Item {
 
         Entity entity = EntityList.createEntityByID(99, world);
 
-        if(entity != null) {
-            entity.setLocationAndAngles(x, y, z,
-                world.rand.nextFloat() * 360F, 0F);
+        if (entity != null) {
+            entity.setLocationAndAngles(x, y, z, world.rand.nextFloat() * 360F, 0F);
 
             world.spawnEntityInWorld(entity);
 
@@ -1174,7 +1174,8 @@ public class ItemMagicApple extends Item {
     @SideOnly(Side.CLIENT)
     public void registerIcons(final IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5));
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5));
     }
 }

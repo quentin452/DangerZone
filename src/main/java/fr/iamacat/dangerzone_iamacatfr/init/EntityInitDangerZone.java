@@ -12,7 +12,7 @@ public class EntityInitDangerZone {
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
-       // Choose a unique ID for the "Apple Cow" entity
+        // Choose a unique ID for the "Apple Cow" entity
 
         int appleCowId = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -54,7 +54,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-
         int EyeRayProjectile = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(EyeRayInstance.class, "Eye Ray DangerZone", EyeRayProjectile);
@@ -67,8 +66,6 @@ public class EntityInitDangerZone {
             16,
             1,
             true);
-
-
 
         int MassoInstance = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -98,8 +95,6 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
-
-
 
         int WhaleInstance = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -189,7 +184,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-
         int MyMLPHydra = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(HydraInstance.class, "MyMLPHydra", MyMLPHydra);
@@ -202,7 +196,6 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
-
 
         int MyWindigo = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -217,7 +210,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-
         int MyMoose = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(MooseInstance.class, "MyMoose", MyMoose);
@@ -231,7 +223,7 @@ public class EntityInitDangerZone {
             1,
             true);
 
-       int MyMLPBuffalo = EntityRegistry.findGlobalUniqueEntityId();
+        int MyMLPBuffalo = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(BuffaloInstance.class, "MyMLPBuffalo", MyMLPBuffalo);
 
@@ -243,8 +235,6 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
-
-
 
         int MyDarkness = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -259,7 +249,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-
         int RobotBeam = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(RobotBeamInstance.class, "RobotBeam", RobotBeam);
@@ -272,7 +261,6 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
-
 
         int FireCannon = EntityRegistry.findGlobalUniqueEntityId();
 
@@ -287,8 +275,7 @@ public class EntityInitDangerZone {
             1,
             true);
 
-
-       int MyFlameDragon = EntityRegistry.findGlobalUniqueEntityId();
+        int MyFlameDragon = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(FlameDragonInstance.class, "MyFlameDragon", MyFlameDragon);
 
@@ -387,8 +374,7 @@ public class EntityInitDangerZone {
             1,
             true);
 
-
-      int MyManticore = EntityRegistry.findGlobalUniqueEntityId();
+        int MyManticore = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(ManticoreInstance.class, "MyManticore", MyManticore);
 

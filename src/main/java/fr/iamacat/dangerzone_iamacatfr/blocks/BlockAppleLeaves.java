@@ -1,13 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.PurplePower;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockTorch;
@@ -24,9 +21,13 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.PurplePower;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class BlockAppleLeaves extends BlockLeaves {
 
@@ -87,7 +88,8 @@ public class BlockAppleLeaves extends BlockLeaves {
                                 }
                                 long t = par1World.getWorldTime();
                                 t %= 24000L;
-                                if (t > 12000L && par1World.provider.dimensionId == DimensionInitDangerZone.DimensionID4) {
+                                if (t > 12000L
+                                    && par1World.provider.dimensionId == DimensionInitDangerZone.DimensionID4) {
                                     OreSpawnMain
                                         .setBlockFast(par1World, par2, par3, par4, OreSpawnMain.MyScaryLeaves, 0, 3);
                                 }
@@ -120,9 +122,10 @@ public class BlockAppleLeaves extends BlockLeaves {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5));
-        this.generic_solid = iconRegister.registerIcon(Tags.MODID +":generic_solid");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5));
+        this.generic_solid = iconRegister.registerIcon(Tags.MODID + ":generic_solid");
     }
 
     @SideOnly(Side.CLIENT)
@@ -191,7 +194,8 @@ public class BlockAppleLeaves extends BlockLeaves {
             world.scheduleBlockUpdate(x, y, z, (Block) this, this.tickRate(world));
         }
 
-        public void onNeighborBlockChange(final World world, final int x, final int y, final int z, final Block blockId) {
+        public void onNeighborBlockChange(final World world, final int x, final int y, final int z,
+            final Block blockId) {
             world.scheduleBlockUpdate(x, y, z, (Block) this, this.tickRate(world));
         }
 
@@ -277,8 +281,9 @@ public class BlockAppleLeaves extends BlockLeaves {
         @SideOnly(Side.CLIENT)
         public void registerBlockIcons(final IIconRegister iconRegister) {
             this.blockIcon = iconRegister.registerIcon(
-                Tags.MODID + ":"+ this.getUnlocalizedName()
-                    .substring(5));
+                Tags.MODID + ":"
+                    + this.getUnlocalizedName()
+                        .substring(5));
         }
     }
 }

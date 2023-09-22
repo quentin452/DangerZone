@@ -1,19 +1,22 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
+import net.minecraftforge.common.DimensionManager;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions.*;
-import net.minecraftforge.common.DimensionManager;
 
 public class DimensionInitDangerZone {
+
     public static int DimensionID = OreSpawnMain.BaseDimensionID;
-    public static int DimensionID2= OreSpawnMain.BaseDimensionID +1;
-    public static int DimensionID3= OreSpawnMain.BaseDimensionID+2;
-    public static int DimensionID4= OreSpawnMain.BaseDimensionID+3;
-    public static int DimensionID5= OreSpawnMain.BaseDimensionID+4;
-    public static int DimensionID6= OreSpawnMain.BaseDimensionID+5;
-    public static int DimensionID7= OreSpawnMain.BaseDimensionID+6;
+    public static int DimensionID2 = OreSpawnMain.BaseDimensionID + 1;
+    public static int DimensionID3 = OreSpawnMain.BaseDimensionID + 2;
+    public static int DimensionID4 = OreSpawnMain.BaseDimensionID + 3;
+    public static int DimensionID5 = OreSpawnMain.BaseDimensionID + 4;
+    public static int DimensionID6 = OreSpawnMain.BaseDimensionID + 5;
+    public static int DimensionID7 = OreSpawnMain.BaseDimensionID + 6;
+
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
         DimensionManager.registerProviderType(DimensionID, WorldProviderOreSpawn.class, false);

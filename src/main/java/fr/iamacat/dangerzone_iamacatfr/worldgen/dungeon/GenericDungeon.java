@@ -1,6 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -17,8 +16,10 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 
-public class GenericDungeon
-{
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+
+public class GenericDungeon {
+
     private final WeightedRandomChestContent[] RainbowContentsList;
     private final WeightedRandomChestContent[] WhiteHouseContentsList;
     private final WeightedRandomChestContent[] RubberDuckyContentsList;
@@ -62,54 +63,597 @@ public class GenericDungeon
     private int[] blkcolors;
 
     public GenericDungeon() {
-        this.RainbowContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.MagicApple, 0, 1, 1, 25), new WeightedRandomChestContent(OreSpawnMain.CloudSharkEgg, 0, 4, 10, 25), new WeightedRandomChestContent(Items.bone, 0, 2, 16, 25), new WeightedRandomChestContent(Items.string, 0, 2, 16, 25), new WeightedRandomChestContent(Items.rotten_flesh, 0, 3, 10, 25), new WeightedRandomChestContent(Items.experience_bottle, 0, 4, 10, 25) };
-        this.WhiteHouseContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.MyCornDog, 0, 6, 12, 35), new WeightedRandomChestContent(OreSpawnMain.UraniumNugget, 0, 2, 6, 10), new WeightedRandomChestContent(OreSpawnMain.TitaniumNugget, 0, 2, 6, 10), new WeightedRandomChestContent(OreSpawnMain.MyAmethyst, 0, 2, 6, 35), new WeightedRandomChestContent(OreSpawnMain.MyRuby, 0, 2, 6, 25), new WeightedRandomChestContent(OreSpawnMain.CriminalEgg, 0, 4, 10, 35), new WeightedRandomChestContent(Items.emerald, 0, 6, 16, 35), new WeightedRandomChestContent(Items.porkchop, 0, 6, 16, 35), new WeightedRandomChestContent(Items.cooked_porkchop, 0, 6, 16, 35), new WeightedRandomChestContent(Items.diamond, 0, 6, 16, 35), new WeightedRandomChestContent(Items.gold_ingot, 0, 6, 16, 35) };
-        this.RubberDuckyContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.MyDeadStinkBug, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyFireFish, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MySunFish, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MySparkFish, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyGreenFish, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyBlueFish, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyPinkFish, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyRockFish, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyWoodFish, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyGreyFish, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.RubberDuckyEgg, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyPeacockFeather, 0, 4, 10, 35), new WeightedRandomChestContent(Items.feather, 0, 6, 16, 35) };
-        this.StinkyHouseContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.MyDeadStinkBug, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.StinkyEgg, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.StinkBugEgg, 0, 4, 10, 35), new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25), new WeightedRandomChestContent(Items.coal, 0, 6, 16, 25), new WeightedRandomChestContent(Items.string, 0, 6, 16, 25), new WeightedRandomChestContent(Items.rotten_flesh, 0, 3, 10, 35) };
-        this.NightmareRookeryContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.MyDeadStinkBug, 0, 4, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyFlowerBlackBlock), 0, 4, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyFlowerScaryBlock), 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.PitchBlackEgg, 0, 4, 10, 25), new WeightedRandomChestContent(OreSpawnMain.AntRobotKit, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.SpiderRobotKit, 0, 1, 1, 10), new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25), new WeightedRandomChestContent(Items.string, 0, 6, 16, 25), new WeightedRandomChestContent(Items.rotten_flesh, 0, 3, 10, 35), new WeightedRandomChestContent(Items.experience_bottle, 0, 4, 10, 35) };
-        this.MonsterIslandContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.CreeperRepellent), 0, 4, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.KrakenRepellent), 0, 4, 10, 35), new WeightedRandomChestContent(Items.dye, 0, 6, 16, 25), new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25), new WeightedRandomChestContent(Items.string, 0, 6, 16, 25), new WeightedRandomChestContent(Items.porkchop, 0, 3, 10, 35), new WeightedRandomChestContent(Items.beef, 0, 3, 10, 35), new WeightedRandomChestContent(Items.chicken, 0, 3, 10, 35), new WeightedRandomChestContent(Items.fish, 0, 3, 10, 35), new WeightedRandomChestContent(Items.rotten_flesh, 0, 3, 10, 35), new WeightedRandomChestContent(Items.experience_bottle, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyRawBacon, 0, 6, 16, 35), new WeightedRandomChestContent(OreSpawnMain.MyRawPeacock, 0, 6, 16, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log), 0, 6, 16, 25) };
-        this.GreenhouseContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.GreenGoo, 0, 4, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.CreeperRepellent), 0, 4, 10, 35), new WeightedRandomChestContent(Items.flower_pot, 0, 6, 16, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.sapling), 0, 6, 16, 35), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.leaves), 0, 6, 16, 25), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.dirt), 0, 6, 16, 25), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log), 0, 6, 16, 25) };
-        this.CrystalBattleTowerRatContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.cooked_porkchop, 0, 3, 10, 35), new WeightedRandomChestContent(Items.beef, 0, 3, 10, 35), new WeightedRandomChestContent(Items.cooked_chicken, 0, 3, 10, 35), new WeightedRandomChestContent(Items.cooked_fished, 0, 3, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyBLT, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MySalad, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyCornDog, 0, 4, 10, 35) };
-        this.CrystalBattleTowerDungeonBeastContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.dye, 0, 6, 16, 25), new WeightedRandomChestContent(OreSpawnMain.MySquidZooka, 0, 1, 1, 25), new WeightedRandomChestContent(Items.gold_nugget, 0, 5, 15, 15), new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
-        this.CrystalBattleTowerUrchinContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkHelmet, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkBody, 0, 1, 1, 10), new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkLegs, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkBoots, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.MyFairySword, 0, 1, 1, 15) };
-        this.CrystalBattleTowerRotatorContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeHelmet, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeBody, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeLegs, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeBoots, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.MyRatSword, 0, 1, 1, 15) };
-        this.CrystalBattleTowerVortexContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.CrystalCoal), 0, 6, 10, 10), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.CrystalCoal), 0, 6, 10, 10), new WeightedRandomChestContent(OreSpawnMain.MyTigersEyeSword, 0, 1, 1, 10), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyTigersEyeBlock), 0, 4, 8, 15), new WeightedRandomChestContent(OreSpawnMain.MyPoisonSword, 0, 1, 1, 15) };
-        this.RobotContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.redstone, 0, 1, 10, 35), new WeightedRandomChestContent(Items.repeater, 0, 1, 10, 35), new WeightedRandomChestContent(Items.minecart, 0, 1, 1, 35), new WeightedRandomChestContent(Items.fire_charge, 0, 1, 10, 35), new WeightedRandomChestContent(Items.hopper_minecart, 0, 1, 1, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.redstone_block), 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.rail), 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.detector_rail), 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.sticky_piston), 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.piston), 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.redstone_torch), 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.tnt), 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.rail), 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.lever), 0, 1, 10, 35), new WeightedRandomChestContent(OreSpawnMain.AntRobotKit, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.SpiderRobotKit, 0, 1, 1, 10), new WeightedRandomChestContent(Items.iron_door, 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.redstone_torch), 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.wooden_button), 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.iron_bars), 0, 1, 10, 35), new WeightedRandomChestContent(Items.comparator, 0, 1, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.activator_rail), 0, 1, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyRayGun, 0, 1, 1, 35) };
-        this.IncaPyramidContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.golden_sword, 0, 1, 1, 35), new WeightedRandomChestContent((Item)Items.golden_boots, 0, 1, 1, 35), new WeightedRandomChestContent((Item)Items.golden_leggings, 0, 1, 1, 35), new WeightedRandomChestContent((Item)Items.golden_helmet, 0, 1, 1, 35), new WeightedRandomChestContent((Item)Items.golden_chestplate, 0, 1, 1, 35), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.yellow_flower), 0, 3, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.red_flower), 0, 3, 10, 35), new WeightedRandomChestContent(Items.gold_nugget, 0, 3, 10, 35), new WeightedRandomChestContent(Items.gold_ingot, 0, 3, 10, 35), new WeightedRandomChestContent(Items.experience_bottle, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyCornCob, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 25), new WeightedRandomChestContent(Items.bone, 0, 4, 10, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.gold_block), 0, 4, 10, 35) };
-        this.DamselContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.iron_pickaxe, 0, 1, 1, 35), new WeightedRandomChestContent(Items.iron_sword, 0, 1, 1, 35), new WeightedRandomChestContent(Items.cooked_porkchop, 0, 3, 10, 35), new WeightedRandomChestContent(Items.beef, 0, 3, 10, 35), new WeightedRandomChestContent(Items.cooked_chicken, 0, 3, 10, 35), new WeightedRandomChestContent(Items.cooked_fished, 0, 3, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyBLT, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MySalad, 0, 4, 10, 35), new WeightedRandomChestContent(OreSpawnMain.MyCornDog, 0, 4, 10, 35) };
-        this.EnderCastleContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.ender_chest), 0, 2, 4, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.diamond_block), 0, 2, 4, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.dragon_egg), 0, 1, 1, 35), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyEnderPearlBlock), 0, 3, 6, 35), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyEyeOfEnderBlock), 0, 3, 6, 35), new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 25), new WeightedRandomChestContent(Items.ender_pearl, 0, 2, 4, 35), new WeightedRandomChestContent(Items.ender_eye, 0, 2, 4, 35) };
-        this.BouncyContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 35), new WeightedRandomChestContent(Items.fish, 0, 6, 16, 25), new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25), new WeightedRandomChestContent(Items.string, 0, 6, 16, 25), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.red_flower), 0, 6, 16, 25), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.yellow_flower), 0, 6, 16, 25), new WeightedRandomChestContent(Items.ender_pearl, 0, 2, 4, 20) };
-        this.SpitBugContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 35), new WeightedRandomChestContent(Items.fish, 0, 6, 16, 25), new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25), new WeightedRandomChestContent(Items.string, 0, 6, 16, 25), new WeightedRandomChestContent(OreSpawnMain.MyAmethystPickaxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyAmethystShovel, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyAmethystHoe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyAmethystAxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyAmethystSword, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.AmethystBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.AmethystLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.AmethystHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.AmethystBoots, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.InstantGarden, 0, 2, 4, 25), new WeightedRandomChestContent(OreSpawnMain.InstantShelter, 0, 2, 4, 25) };
-        this.GraveContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.ender_eye, 0, 6, 16, 35), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.red_flower), 0, 6, 16, 35), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.yellow_flower), 0, 6, 16, 35), new WeightedRandomChestContent(Items.ender_pearl, 0, 6, 16, 35) };
-        this.HospitalContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.ender_chest), 0, 2, 4, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.diamond_block), 0, 2, 4, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.dragon_egg), 0, 1, 1, 35), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyEnderPearlBlock), 0, 3, 6, 35), new WeightedRandomChestContent(Items.ender_pearl, 0, 2, 4, 35), new WeightedRandomChestContent(Items.ender_eye, 0, 2, 4, 35) };
-        this.MiniContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.golden_apple, 0, 6, 16, 35), new WeightedRandomChestContent(OreSpawnMain.MyCrystalApple, 0, 6, 16, 35), new WeightedRandomChestContent(OreSpawnMain.MyBacon, 0, 6, 16, 35), new WeightedRandomChestContent(OreSpawnMain.MyFireFish, 0, 6, 16, 35), new WeightedRandomChestContent(OreSpawnMain.InstantGarden, 0, 2, 4, 25), new WeightedRandomChestContent(OreSpawnMain.InstantShelter, 0, 2, 4, 25) };
-        this.LeafMonsterContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.flower_pot, 0, 6, 16, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.sapling), 0, 6, 16, 35), new WeightedRandomChestContent(Items.flower_pot, 0, 6, 16, 35), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.sapling), 0, 6, 16, 35), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.leaves), 0, 6, 16, 25), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.dirt), 0, 6, 16, 25), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log), 0, 6, 16, 25), new WeightedRandomChestContent(OreSpawnMain.MyPoisonSword, 0, 1, 1, 15), new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
-        this.CloudSharkContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.fish, 0, 6, 16, 25), new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25), new WeightedRandomChestContent(Items.string, 0, 6, 16, 25), new WeightedRandomChestContent(Items.paper, 0, 6, 16, 25), new WeightedRandomChestContent(OreSpawnMain.MyExperienceTreeSeed, 0, 1, 2, 15), new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
-        this.WaterDragonContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.fish, 0, 6, 16, 25), new WeightedRandomChestContent(OreSpawnMain.MyUltimateAxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyUltimatePickaxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyUltimateShovel, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 25), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.iron_block), 0, 6, 16, 25), new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
-        this.SquidContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.dye, 0, 6, 16, 25), new WeightedRandomChestContent(OreSpawnMain.MySquidZooka, 0, 1, 1, 15), new WeightedRandomChestContent(Items.gold_nugget, 0, 5, 15, 15), new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
-        this.KnightContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.paper, 0, 2, 8, 20), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.planks), 0, 4, 8, 20), new WeightedRandomChestContent(Items.ender_eye, 0, 2, 8, 15), new WeightedRandomChestContent(Items.ender_pearl, 0, 2, 8, 15), new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
-        this.AlienWTFContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.diamond_block), 0, 1, 2, 15), new WeightedRandomChestContent(OreSpawnMain.MyRuby, 0, 1, 1, 20), new WeightedRandomChestContent(OreSpawnMain.MyAmethyst, 0, 1, 1, 20), new WeightedRandomChestContent(OreSpawnMain.MyIngotUranium, 0, 1, 2, 5), new WeightedRandomChestContent(OreSpawnMain.MyIngotTitanium, 0, 1, 2, 5), new WeightedRandomChestContent((Item)OreSpawnMain.UltimateHelmet, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.UltimateBody, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.UltimateLegs, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.UltimateBoots, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.MyUltimateBow, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyNightmareSword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 15), new WeightedRandomChestContent(OreSpawnMain.MyRayGun, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.CageEmpty, 0, 1, 10, 20), new WeightedRandomChestContent(OreSpawnMain.MyCornDog, 0, 1, 10, 20), new WeightedRandomChestContent(OreSpawnMain.MyBacon, 0, 1, 5, 20), new WeightedRandomChestContent(OreSpawnMain.MyPopcornBag, 0, 2, 8, 20), new WeightedRandomChestContent(OreSpawnMain.MyFireFish, 0, 2, 8, 15) };
-        this.shadowContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.glowstone_dust, 0, 2, 8, 20), new WeightedRandomChestContent(Items.nether_wart, 0, 4, 8, 20), new WeightedRandomChestContent(Items.blaze_rod, 0, 2, 8, 15), new WeightedRandomChestContent(Items.blaze_powder, 0, 2, 8, 15), new WeightedRandomChestContent(Items.fire_charge, 0, 4, 8, 15), new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25), new WeightedRandomChestContent(Items.dye, 0, 6, 16, 25), new WeightedRandomChestContent(OreSpawnMain.MyRuby, 0, 2, 8, 15), new WeightedRandomChestContent(OreSpawnMain.MyExperienceTreeSeed, 0, 2, 4, 15), new WeightedRandomChestContent(OreSpawnMain.MyElevator, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyNightmareSword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyPoisonSword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyRatSword, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.MyRubySword, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.MyBigHammer, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MySquidZooka, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyIngotTitanium, 0, 1, 1, 5), new WeightedRandomChestContent(OreSpawnMain.MyIngotUranium, 0, 1, 1, 5), new WeightedRandomChestContent(OreSpawnMain.MyUltimateSword, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.MyUltimateBow, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.EnderReaperEgg, 0, 2, 8, 15), new WeightedRandomChestContent(OreSpawnMain.PitchBlackEgg, 0, 2, 8, 15) };
-        this.kyuubiContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.redstone, 0, 2, 8, 10), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.redstone_block), 0, 4, 8, 15), new WeightedRandomChestContent(Items.quartz, 0, 2, 8, 15), new WeightedRandomChestContent(Items.coal, 0, 2, 8, 15), new WeightedRandomChestContent(OreSpawnMain.MyNightmareSword, 0, 1, 1, 20), new WeightedRandomChestContent(OreSpawnMain.MyPoisonSword, 0, 1, 1, 20), new WeightedRandomChestContent(OreSpawnMain.KyuubiEgg, 0, 2, 8, 15) };
-        this.blazeContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.blaze_rod, 0, 2, 8, 15), new WeightedRandomChestContent(Items.blaze_powder, 0, 2, 8, 15), new WeightedRandomChestContent(Items.fire_charge, 0, 4, 8, 15), new WeightedRandomChestContent(Items.flint_and_steel, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.LavaEelHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.LavaEelBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.LavaEelLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.LavaEelBoots, 0, 1, 1, 15), new WeightedRandomChestContent(Items.spawn_egg, 61, 2, 8, 15) };
-        this.beeContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.sugar, 0, 2, 8, 15), new WeightedRandomChestContent(Item.getItemFromBlock((Block)Blocks.yellow_flower), 0, 4, 8, 15), new WeightedRandomChestContent(Items.gold_nugget, 0, 5, 15, 15), new WeightedRandomChestContent(Items.paper, 0, 2, 8, 15), new WeightedRandomChestContent(OreSpawnMain.MyFairySword, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkHelmet, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkBody, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkLegs, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkBoots, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.MyButterCandy, 0, 2, 8, 15), new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 10), new WeightedRandomChestContent(OreSpawnMain.BeeEgg, 0, 2, 8, 15) };
-        this.mantisContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.MyMantisClaw, 0, 1, 1, 10), new WeightedRandomChestContent(Items.gold_nugget, 0, 4, 8, 15), new WeightedRandomChestContent(OreSpawnMain.UraniumNugget, 0, 1, 3, 5), new WeightedRandomChestContent(OreSpawnMain.TitaniumNugget, 0, 1, 3, 5), new WeightedRandomChestContent(OreSpawnMain.MantisEgg, 0, 2, 4, 20), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeHelmet, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeBody, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeLegs, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeBoots, 0, 1, 1, 10), new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25), new WeightedRandomChestContent(Items.diamond, 0, 1, 3, 15) };
-        this.level1ContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.emerald, 0, 2, 8, 15), new WeightedRandomChestContent(OreSpawnMain.MinersDream, 0, 4, 8, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldPickaxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldShovel, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldHoe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldAxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldSword, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.EmeraldBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.EmeraldLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.EmeraldHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.EmeraldBoots, 0, 1, 1, 15) };
-        this.level2ContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(Items.experience_bottle, 0, 2, 8, 15), new WeightedRandomChestContent(Items.experience_bottle, 0, 2, 8, 15), new WeightedRandomChestContent(OreSpawnMain.CreeperLauncher, 0, 2, 10, 15), new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkHelmet, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkBody, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkLegs, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.CrystalPinkBoots, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.MyFairySword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldPickaxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldShovel, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldHoe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldAxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldSword, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.ExperienceBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.ExperienceLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.ExperienceHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.ExperienceBoots, 0, 1, 1, 15) };
-        this.level3ContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.MySquidZooka, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyRatSword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyAmethyst, 0, 2, 8, 15), new WeightedRandomChestContent(Items.dye, 0, 2, 8, 15), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeHelmet, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeBody, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeLegs, 0, 1, 1, 10), new WeightedRandomChestContent((Item)OreSpawnMain.TigersEyeBoots, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.MyAmethystPickaxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyAmethystShovel, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyAmethystHoe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyAmethystAxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyAmethystSword, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.AmethystBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.AmethystLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.AmethystHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.AmethystBoots, 0, 1, 1, 15) };
-        this.level4ContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.MyRuby, 0, 2, 8, 15), new WeightedRandomChestContent(OreSpawnMain.MagicApple, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyRayGun, 0, 1, 1, 15), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.CreeperRepellent), 0, 4, 10, 15), new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.KrakenRepellent), 0, 4, 10, 15), new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 15), new WeightedRandomChestContent(OreSpawnMain.ZooKeeper, 0, 10, 16, 15), new WeightedRandomChestContent(OreSpawnMain.MyRubyPickaxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyRubyShovel, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyRubyHoe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyRubyAxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyRubySword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyThunderStaff, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.RubyBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.RubyLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.RubyHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.RubyBoots, 0, 1, 1, 15) };
-        this.level5ContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.MyNightmareSword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyPoisonSword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.WitherSkeletonEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.EnderDragonEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SnowGolemEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.IronGolemEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.WitherBossEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.RedCowEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.GoldCowEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.EnchantedCowEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.MOTHRAEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.AloEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CryoEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CamaEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.VeloEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.HydroEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.BasilEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.DragonflyEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.EmperorScorpionEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.ScorpionEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CaveFisherEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SpyroEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.BaryonyxEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CockateilEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.GammaMetroidEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.KyuubiEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.AlienEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.AttackSquidEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.WaterDragonEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CephadromeEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.KrakenEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.LizardEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.DragonEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.BeeEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.TrooperBugEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SpitBugEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.StinkBugEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.OstrichEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.GazelleEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.ChipmunkEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CreepingHorrorEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.TerribleTerrorEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CliffRacerEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.TriffidEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.PitchBlackEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.LurkingTerrorEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SmallWormEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.MediumWormEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.LargeWormEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.TRexEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.GodzillaEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.MantisEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.HerculesEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.VortexEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.RatEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.DungeonBeastEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.FairyEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.WhaleEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SkateEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.IrukandjiEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.Robot1Egg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.Robot2Egg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.Robot3Egg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.Robot4Egg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.Robot5Egg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CriminalEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CoinEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.BoyfriendEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.EasterBunnyEgg, 0, 1, 4, 5), new WeightedRandomChestContent(OreSpawnMain.MolenoidEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SeaMonsterEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SeaViperEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CaterKillerEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.LeonEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.HammerheadEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.RubberDuckyEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.NastysaurusEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.PointysaurusEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.BrutalflyEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CricketEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.FrogEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.AntRobotKit, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.SpiderRobotKit, 0, 1, 1, 10), new WeightedRandomChestContent(OreSpawnMain.JefferyEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SpiderDriverEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CrabEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CassowaryEgg, 0, 1, 4, 15) };
-        this.chestContentsList = new WeightedRandomChestContent[] { new WeightedRandomChestContent(OreSpawnMain.MyBacon, 0, 6, 12, 20), new WeightedRandomChestContent(OreSpawnMain.MyButterCandy, 0, 6, 12, 20), new WeightedRandomChestContent(Items.emerald, 0, 2, 8, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldPickaxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldShovel, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldHoe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldAxe, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyEmeraldSword, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.EmeraldBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.EmeraldLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.EmeraldHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.EmeraldBoots, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyMothScale, 0, 2, 8, 15), new WeightedRandomChestContent((Item)OreSpawnMain.MothScaleBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.MothScaleLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.MothScaleHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.MothScaleBoots, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyLavaEel, 0, 2, 8, 15), new WeightedRandomChestContent((Item)OreSpawnMain.LavaEelBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.LavaEelLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.LavaEelHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.LavaEelBoots, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.ExperienceBody, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.ExperienceLegs, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.ExperienceHelmet, 0, 1, 1, 15), new WeightedRandomChestContent((Item)OreSpawnMain.ExperienceBoots, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.MyExperienceSword, 0, 1, 1, 15), new WeightedRandomChestContent(OreSpawnMain.WitherSkeletonEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.EnderDragonEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SnowGolemEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.IronGolemEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.WitherBossEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.RedCowEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.GoldCowEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.EnchantedCowEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.MOTHRAEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.AloEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CryoEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CamaEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.VeloEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.HydroEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.BasilEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.DragonflyEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.EmperorScorpionEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.ScorpionEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CaveFisherEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SpyroEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.BaryonyxEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CockateilEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.GammaMetroidEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.KyuubiEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.AlienEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.AttackSquidEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.WaterDragonEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CephadromeEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.KrakenEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.LizardEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.DragonEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.BeeEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.TrooperBugEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SpitBugEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.StinkBugEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.OstrichEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.GazelleEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.ChipmunkEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CreepingHorrorEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.TerribleTerrorEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CliffRacerEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.TriffidEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.PitchBlackEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.LurkingTerrorEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SmallWormEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.MediumWormEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.LargeWormEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CassowaryEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.MolenoidEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SeaMonsterEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SeaViperEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CaterKillerEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.LeonEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.HammerheadEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.RubberDuckyEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.NastysaurusEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.PointysaurusEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.BrutalflyEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CricketEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.FrogEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.JefferyEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.SpiderDriverEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CrabEgg, 0, 1, 4, 15), new WeightedRandomChestContent(OreSpawnMain.CageEmpty, 0, 3, 10, 20) };
-        this.king = new int[] { -1, -1, 24, 3, -1, 24, 5, -1, 17, 12, -1, 16, 15, -1, 15, 14, -1, 15, 6, 3, 5, -1, 14, 6, 4, 3, -1, 14, 5, -1, 14, 5, -1, 12, 9, -1, 11, 11, -1, 8, 17, -1, 5, 23, -1, 3, 27, -1, 2, 29, -1, 1, 31, -1, 0, 33, -1, 13, 6, -1, 12, 9, -1, 11, 3, 1, 2, 1, 4, -1, 10, 3, 2, 2, 3, 2, -1, 10, 2, 4, 2, 3, 2, -1, 9, 2, 5, 2, 4, 6, -1, 9, 2, 5, 2, 6, 4, -1, 8, 2, 6, 1, -1, 8, 2, 5, 2, -1, 8, 2, 5, 2, -1, 8, 2, 5, 2, -1, 15, 2, -1, -1, -1 };
-        this.queen = new int[] { -1, -1, 24, 3, -1, 24, 5, -1, 17, 12, -1, 16, 15, -1, 15, 14, -1, 15, 6, 3, 5, -1, 14, 6, 4, 3, -1, 14, 5, -1, 14, 5, -1, 12, 9, -1, 11, 11, -1, 8, 17, -1, 5, 23, -1, 3, 27, -1, 2, 29, -1, 1, 31, -1, 0, 33, -1, 13, 6, -1, 12, 9, -1, 11, 3, 1, 2, 1, 4, -1, 10, 3, 2, 2, 3, 2, -1, 10, 2, 4, 2, 3, 2, -1, 9, 2, 5, 2, 4, 6, -1, 9, 2, 5, 2, 6, 4, -1, 8, 2, 6, 1, -1, 8, 2, 5, 2, -1, 8, 2, 5, 2, -1, 8, 2, 5, 2, -1, 15, 2, -1, -1, -1 };
+        this.RainbowContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.MagicApple, 0, 1, 1, 25),
+            new WeightedRandomChestContent(OreSpawnMain.CloudSharkEgg, 0, 4, 10, 25),
+            new WeightedRandomChestContent(Items.bone, 0, 2, 16, 25),
+            new WeightedRandomChestContent(Items.string, 0, 2, 16, 25),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 3, 10, 25),
+            new WeightedRandomChestContent(Items.experience_bottle, 0, 4, 10, 25) };
+        this.WhiteHouseContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.MyCornDog, 0, 6, 12, 35),
+            new WeightedRandomChestContent(OreSpawnMain.UraniumNugget, 0, 2, 6, 10),
+            new WeightedRandomChestContent(OreSpawnMain.TitaniumNugget, 0, 2, 6, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethyst, 0, 2, 6, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyRuby, 0, 2, 6, 25),
+            new WeightedRandomChestContent(OreSpawnMain.CriminalEgg, 0, 4, 10, 35),
+            new WeightedRandomChestContent(Items.emerald, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Items.porkchop, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Items.cooked_porkchop, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Items.diamond, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Items.gold_ingot, 0, 6, 16, 35) };
+        this.RubberDuckyContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.MyDeadStinkBug, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyFireFish, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MySunFish, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MySparkFish, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyGreenFish, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyBlueFish, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyPinkFish, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyRockFish, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyWoodFish, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyGreyFish, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.RubberDuckyEgg, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyPeacockFeather, 0, 4, 10, 35),
+            new WeightedRandomChestContent(Items.feather, 0, 6, 16, 35) };
+        this.StinkyHouseContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.MyDeadStinkBug, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.StinkyEgg, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.StinkBugEgg, 0, 4, 10, 35),
+            new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.coal, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.string, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 3, 10, 35) };
+        this.NightmareRookeryContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.MyDeadStinkBug, 0, 4, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyFlowerBlackBlock), 0, 4, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyFlowerScaryBlock), 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.PitchBlackEgg, 0, 4, 10, 25),
+            new WeightedRandomChestContent(OreSpawnMain.AntRobotKit, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.SpiderRobotKit, 0, 1, 1, 10),
+            new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.string, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.experience_bottle, 0, 4, 10, 35) };
+        this.MonsterIslandContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.CreeperRepellent), 0, 4, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.KrakenRepellent), 0, 4, 10, 35),
+            new WeightedRandomChestContent(Items.dye, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.string, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.porkchop, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.beef, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.chicken, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.fish, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.experience_bottle, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyRawBacon, 0, 6, 16, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyRawPeacock, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log), 0, 6, 16, 25) };
+        this.GreenhouseContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.GreenGoo, 0, 4, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.CreeperRepellent), 0, 4, 10, 35),
+            new WeightedRandomChestContent(Items.flower_pot, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.sapling), 0, 6, 16, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.leaves), 0, 6, 16, 25),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.dirt), 0, 6, 16, 25),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log), 0, 6, 16, 25) };
+        this.CrystalBattleTowerRatContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.cooked_porkchop, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.beef, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.cooked_chicken, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.cooked_fished, 0, 3, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyBLT, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MySalad, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyCornDog, 0, 4, 10, 35) };
+        this.CrystalBattleTowerDungeonBeastContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.dye, 0, 6, 16, 25),
+            new WeightedRandomChestContent(OreSpawnMain.MySquidZooka, 0, 1, 1, 25),
+            new WeightedRandomChestContent(Items.gold_nugget, 0, 5, 15, 15),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
+        this.CrystalBattleTowerUrchinContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkHelmet, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkBody, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkLegs, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkBoots, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyFairySword, 0, 1, 1, 15) };
+        this.CrystalBattleTowerRotatorContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeHelmet, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeBody, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeLegs, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeBoots, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyRatSword, 0, 1, 1, 15) };
+        this.CrystalBattleTowerVortexContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.CrystalCoal), 0, 6, 10, 10),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.CrystalCoal), 0, 6, 10, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyTigersEyeSword, 0, 1, 1, 10),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyTigersEyeBlock), 0, 4, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyPoisonSword, 0, 1, 1, 15) };
+        this.RobotContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.redstone, 0, 1, 10, 35),
+            new WeightedRandomChestContent(Items.repeater, 0, 1, 10, 35),
+            new WeightedRandomChestContent(Items.minecart, 0, 1, 1, 35),
+            new WeightedRandomChestContent(Items.fire_charge, 0, 1, 10, 35),
+            new WeightedRandomChestContent(Items.hopper_minecart, 0, 1, 1, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.redstone_block), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.rail), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.detector_rail), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.sticky_piston), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.piston), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.redstone_torch), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.tnt), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.rail), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.lever), 0, 1, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.AntRobotKit, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.SpiderRobotKit, 0, 1, 1, 10),
+            new WeightedRandomChestContent(Items.iron_door, 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.redstone_torch), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.wooden_button), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.iron_bars), 0, 1, 10, 35),
+            new WeightedRandomChestContent(Items.comparator, 0, 1, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.activator_rail), 0, 1, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyRayGun, 0, 1, 1, 35) };
+        this.IncaPyramidContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.golden_sword, 0, 1, 1, 35),
+            new WeightedRandomChestContent((Item) Items.golden_boots, 0, 1, 1, 35),
+            new WeightedRandomChestContent((Item) Items.golden_leggings, 0, 1, 1, 35),
+            new WeightedRandomChestContent((Item) Items.golden_helmet, 0, 1, 1, 35),
+            new WeightedRandomChestContent((Item) Items.golden_chestplate, 0, 1, 1, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.yellow_flower), 0, 3, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.red_flower), 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.gold_nugget, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.gold_ingot, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.experience_bottle, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyCornCob, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 25),
+            new WeightedRandomChestContent(Items.bone, 0, 4, 10, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.gold_block), 0, 4, 10, 35) };
+        this.DamselContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.iron_pickaxe, 0, 1, 1, 35),
+            new WeightedRandomChestContent(Items.iron_sword, 0, 1, 1, 35),
+            new WeightedRandomChestContent(Items.cooked_porkchop, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.beef, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.cooked_chicken, 0, 3, 10, 35),
+            new WeightedRandomChestContent(Items.cooked_fished, 0, 3, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyBLT, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MySalad, 0, 4, 10, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyCornDog, 0, 4, 10, 35) };
+        this.EnderCastleContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.ender_chest), 0, 2, 4, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.diamond_block), 0, 2, 4, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.dragon_egg), 0, 1, 1, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyEnderPearlBlock), 0, 3, 6, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyEyeOfEnderBlock), 0, 3, 6, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 25),
+            new WeightedRandomChestContent(Items.ender_pearl, 0, 2, 4, 35),
+            new WeightedRandomChestContent(Items.ender_eye, 0, 2, 4, 35) };
+        this.BouncyContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Items.fish, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.string, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.red_flower), 0, 6, 16, 25),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.yellow_flower), 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.ender_pearl, 0, 2, 4, 20) };
+        this.SpitBugContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Items.fish, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.string, 0, 6, 16, 25),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethystPickaxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethystShovel, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethystHoe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethystAxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethystSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.AmethystBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.AmethystLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.AmethystHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.AmethystBoots, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.InstantGarden, 0, 2, 4, 25),
+            new WeightedRandomChestContent(OreSpawnMain.InstantShelter, 0, 2, 4, 25) };
+        this.GraveContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.ender_eye, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.red_flower), 0, 6, 16, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.yellow_flower), 0, 6, 16, 35),
+            new WeightedRandomChestContent(Items.ender_pearl, 0, 6, 16, 35) };
+        this.HospitalContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.ender_chest), 0, 2, 4, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.diamond_block), 0, 2, 4, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.dragon_egg), 0, 1, 1, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.MyEnderPearlBlock), 0, 3, 6, 35),
+            new WeightedRandomChestContent(Items.ender_pearl, 0, 2, 4, 35),
+            new WeightedRandomChestContent(Items.ender_eye, 0, 2, 4, 35) };
+        this.MiniContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.golden_apple, 0, 6, 16, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyCrystalApple, 0, 6, 16, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyBacon, 0, 6, 16, 35),
+            new WeightedRandomChestContent(OreSpawnMain.MyFireFish, 0, 6, 16, 35),
+            new WeightedRandomChestContent(OreSpawnMain.InstantGarden, 0, 2, 4, 25),
+            new WeightedRandomChestContent(OreSpawnMain.InstantShelter, 0, 2, 4, 25) };
+        this.LeafMonsterContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.flower_pot, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.sapling), 0, 6, 16, 35),
+            new WeightedRandomChestContent(Items.flower_pot, 0, 6, 16, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.sapling), 0, 6, 16, 35),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.leaves), 0, 6, 16, 25),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.dirt), 0, 6, 16, 25),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.log), 0, 6, 16, 25),
+            new WeightedRandomChestContent(OreSpawnMain.MyPoisonSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
+        this.CloudSharkContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.fish, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.bone, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.string, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.paper, 0, 6, 16, 25),
+            new WeightedRandomChestContent(OreSpawnMain.MyExperienceTreeSeed, 0, 1, 2, 15),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
+        this.WaterDragonContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.fish, 0, 6, 16, 25),
+            new WeightedRandomChestContent(OreSpawnMain.MyUltimateAxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyUltimatePickaxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyUltimateShovel, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 25),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.iron_block), 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
+        this.SquidContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.dye, 0, 6, 16, 25),
+            new WeightedRandomChestContent(OreSpawnMain.MySquidZooka, 0, 1, 1, 15),
+            new WeightedRandomChestContent(Items.gold_nugget, 0, 5, 15, 15),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
+        this.KnightContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.paper, 0, 2, 8, 20),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.planks), 0, 4, 8, 20),
+            new WeightedRandomChestContent(Items.ender_eye, 0, 2, 8, 15),
+            new WeightedRandomChestContent(Items.ender_pearl, 0, 2, 8, 15),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25) };
+        this.AlienWTFContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.diamond_block), 0, 1, 2, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRuby, 0, 1, 1, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethyst, 0, 1, 1, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyIngotUranium, 0, 1, 2, 5),
+            new WeightedRandomChestContent(OreSpawnMain.MyIngotTitanium, 0, 1, 2, 5),
+            new WeightedRandomChestContent((Item) OreSpawnMain.UltimateHelmet, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.UltimateBody, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.UltimateLegs, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.UltimateBoots, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyUltimateBow, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyNightmareSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRayGun, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.CageEmpty, 0, 1, 10, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyCornDog, 0, 1, 10, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyBacon, 0, 1, 5, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyPopcornBag, 0, 2, 8, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyFireFish, 0, 2, 8, 15) };
+        this.shadowContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.glowstone_dust, 0, 2, 8, 20),
+            new WeightedRandomChestContent(Items.nether_wart, 0, 4, 8, 20),
+            new WeightedRandomChestContent(Items.blaze_rod, 0, 2, 8, 15),
+            new WeightedRandomChestContent(Items.blaze_powder, 0, 2, 8, 15),
+            new WeightedRandomChestContent(Items.fire_charge, 0, 4, 8, 15),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.dye, 0, 6, 16, 25),
+            new WeightedRandomChestContent(OreSpawnMain.MyRuby, 0, 2, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyExperienceTreeSeed, 0, 2, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyElevator, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyNightmareSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyPoisonSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRatSword, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyRubySword, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyBigHammer, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MySquidZooka, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyIngotTitanium, 0, 1, 1, 5),
+            new WeightedRandomChestContent(OreSpawnMain.MyIngotUranium, 0, 1, 1, 5),
+            new WeightedRandomChestContent(OreSpawnMain.MyUltimateSword, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyUltimateBow, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.EnderReaperEgg, 0, 2, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.PitchBlackEgg, 0, 2, 8, 15) };
+        this.kyuubiContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.redstone, 0, 2, 8, 10),
+            new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.redstone_block), 0, 4, 8, 15),
+            new WeightedRandomChestContent(Items.quartz, 0, 2, 8, 15),
+            new WeightedRandomChestContent(Items.coal, 0, 2, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyNightmareSword, 0, 1, 1, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyPoisonSword, 0, 1, 1, 20),
+            new WeightedRandomChestContent(OreSpawnMain.KyuubiEgg, 0, 2, 8, 15) };
+        this.blazeContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.blaze_rod, 0, 2, 8, 15),
+            new WeightedRandomChestContent(Items.blaze_powder, 0, 2, 8, 15),
+            new WeightedRandomChestContent(Items.fire_charge, 0, 4, 8, 15),
+            new WeightedRandomChestContent(Items.flint_and_steel, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.LavaEelHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.LavaEelBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.LavaEelLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.LavaEelBoots, 0, 1, 1, 15),
+            new WeightedRandomChestContent(Items.spawn_egg, 61, 2, 8, 15) };
+        this.beeContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.sugar, 0, 2, 8, 15),
+            new WeightedRandomChestContent(Item.getItemFromBlock((Block) Blocks.yellow_flower), 0, 4, 8, 15),
+            new WeightedRandomChestContent(Items.gold_nugget, 0, 5, 15, 15),
+            new WeightedRandomChestContent(Items.paper, 0, 2, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyFairySword, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkHelmet, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkBody, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkLegs, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkBoots, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyButterCandy, 0, 2, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 10),
+            new WeightedRandomChestContent(OreSpawnMain.BeeEgg, 0, 2, 8, 15) };
+        this.mantisContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.MyMantisClaw, 0, 1, 1, 10),
+            new WeightedRandomChestContent(Items.gold_nugget, 0, 4, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.UraniumNugget, 0, 1, 3, 5),
+            new WeightedRandomChestContent(OreSpawnMain.TitaniumNugget, 0, 1, 3, 5),
+            new WeightedRandomChestContent(OreSpawnMain.MantisEgg, 0, 2, 4, 20),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeHelmet, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeBody, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeLegs, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeBoots, 0, 1, 1, 10),
+            new WeightedRandomChestContent(Items.rotten_flesh, 0, 6, 16, 25),
+            new WeightedRandomChestContent(Items.diamond, 0, 1, 3, 15) };
+        this.level1ContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.emerald, 0, 2, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MinersDream, 0, 4, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldPickaxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldShovel, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldHoe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldAxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.EmeraldBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.EmeraldLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.EmeraldHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.EmeraldBoots, 0, 1, 1, 15) };
+        this.level2ContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(Items.experience_bottle, 0, 2, 8, 15),
+            new WeightedRandomChestContent(Items.experience_bottle, 0, 2, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CreeperLauncher, 0, 2, 10, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkHelmet, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkBody, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkLegs, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.CrystalPinkBoots, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyFairySword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldPickaxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldShovel, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldHoe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldAxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.ExperienceBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.ExperienceLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.ExperienceHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.ExperienceBoots, 0, 1, 1, 15) };
+        this.level3ContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.MySquidZooka, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRatSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethyst, 0, 2, 8, 15),
+            new WeightedRandomChestContent(Items.dye, 0, 2, 8, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeHelmet, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeBody, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeLegs, 0, 1, 1, 10),
+            new WeightedRandomChestContent((Item) OreSpawnMain.TigersEyeBoots, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethystPickaxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethystShovel, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethystHoe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethystAxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyAmethystSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.AmethystBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.AmethystLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.AmethystHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.AmethystBoots, 0, 1, 1, 15) };
+        this.level4ContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.MyRuby, 0, 2, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MagicApple, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRayGun, 0, 1, 1, 15),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.CreeperRepellent), 0, 4, 10, 15),
+            new WeightedRandomChestContent(Item.getItemFromBlock(OreSpawnMain.KrakenRepellent), 0, 4, 10, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyExperienceCatcher, 0, 4, 10, 15),
+            new WeightedRandomChestContent(OreSpawnMain.ZooKeeper, 0, 10, 16, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRubyPickaxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRubyShovel, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRubyHoe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRubyAxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyRubySword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyThunderStaff, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.RubyBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.RubyLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.RubyHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.RubyBoots, 0, 1, 1, 15) };
+        this.level5ContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.MyNightmareSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyPoisonSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.WitherSkeletonEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.EnderDragonEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SnowGolemEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.IronGolemEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.WitherBossEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.RedCowEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.GoldCowEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.EnchantedCowEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MOTHRAEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.AloEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CryoEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CamaEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.VeloEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.HydroEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.BasilEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.DragonflyEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.EmperorScorpionEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.ScorpionEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CaveFisherEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SpyroEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.BaryonyxEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CockateilEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.GammaMetroidEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.KyuubiEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.AlienEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.AttackSquidEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.WaterDragonEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CephadromeEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.KrakenEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.LizardEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.DragonEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.BeeEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.TrooperBugEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SpitBugEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.StinkBugEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.OstrichEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.GazelleEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.ChipmunkEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CreepingHorrorEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.TerribleTerrorEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CliffRacerEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.TriffidEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.PitchBlackEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.LurkingTerrorEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SmallWormEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MediumWormEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.LargeWormEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.TRexEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.GodzillaEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MantisEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.HerculesEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.VortexEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.RatEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.DungeonBeastEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.FairyEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.WhaleEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SkateEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.IrukandjiEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.Robot1Egg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.Robot2Egg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.Robot3Egg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.Robot4Egg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.Robot5Egg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CriminalEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CoinEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.BoyfriendEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.EasterBunnyEgg, 0, 1, 4, 5),
+            new WeightedRandomChestContent(OreSpawnMain.MolenoidEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SeaMonsterEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SeaViperEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CaterKillerEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.LeonEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.HammerheadEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.RubberDuckyEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.NastysaurusEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.PointysaurusEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.BrutalflyEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CricketEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.FrogEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.AntRobotKit, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.SpiderRobotKit, 0, 1, 1, 10),
+            new WeightedRandomChestContent(OreSpawnMain.JefferyEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SpiderDriverEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CrabEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CassowaryEgg, 0, 1, 4, 15) };
+        this.chestContentsList = new WeightedRandomChestContent[] {
+            new WeightedRandomChestContent(OreSpawnMain.MyBacon, 0, 6, 12, 20),
+            new WeightedRandomChestContent(OreSpawnMain.MyButterCandy, 0, 6, 12, 20),
+            new WeightedRandomChestContent(Items.emerald, 0, 2, 8, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldPickaxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldShovel, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldHoe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldAxe, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyEmeraldSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.EmeraldBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.EmeraldLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.EmeraldHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.EmeraldBoots, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyMothScale, 0, 2, 8, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.MothScaleBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.MothScaleLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.MothScaleHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.MothScaleBoots, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyLavaEel, 0, 2, 8, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.LavaEelBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.LavaEelLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.LavaEelHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.LavaEelBoots, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.ExperienceBody, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.ExperienceLegs, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.ExperienceHelmet, 0, 1, 1, 15),
+            new WeightedRandomChestContent((Item) OreSpawnMain.ExperienceBoots, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MyExperienceSword, 0, 1, 1, 15),
+            new WeightedRandomChestContent(OreSpawnMain.WitherSkeletonEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.EnderDragonEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SnowGolemEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.IronGolemEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.WitherBossEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.RedCowEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.GoldCowEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.EnchantedCowEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MOTHRAEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.AloEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CryoEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CamaEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.VeloEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.HydroEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.BasilEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.DragonflyEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.EmperorScorpionEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.ScorpionEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CaveFisherEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SpyroEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.BaryonyxEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CockateilEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.GammaMetroidEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.KyuubiEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.AlienEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.AttackSquidEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.WaterDragonEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CephadromeEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.KrakenEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.LizardEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.DragonEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.BeeEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.TrooperBugEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SpitBugEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.StinkBugEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.OstrichEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.GazelleEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.ChipmunkEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CreepingHorrorEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.TerribleTerrorEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CliffRacerEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.TriffidEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.PitchBlackEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.LurkingTerrorEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SmallWormEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MediumWormEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.LargeWormEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CassowaryEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.MolenoidEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SeaMonsterEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SeaViperEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CaterKillerEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.LeonEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.HammerheadEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.RubberDuckyEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.NastysaurusEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.PointysaurusEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.BrutalflyEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CricketEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.FrogEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.JefferyEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.SpiderDriverEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CrabEgg, 0, 1, 4, 15),
+            new WeightedRandomChestContent(OreSpawnMain.CageEmpty, 0, 3, 10, 20) };
+        this.king = new int[] { -1, -1, 24, 3, -1, 24, 5, -1, 17, 12, -1, 16, 15, -1, 15, 14, -1, 15, 6, 3, 5, -1, 14,
+            6, 4, 3, -1, 14, 5, -1, 14, 5, -1, 12, 9, -1, 11, 11, -1, 8, 17, -1, 5, 23, -1, 3, 27, -1, 2, 29, -1, 1, 31,
+            -1, 0, 33, -1, 13, 6, -1, 12, 9, -1, 11, 3, 1, 2, 1, 4, -1, 10, 3, 2, 2, 3, 2, -1, 10, 2, 4, 2, 3, 2, -1, 9,
+            2, 5, 2, 4, 6, -1, 9, 2, 5, 2, 6, 4, -1, 8, 2, 6, 1, -1, 8, 2, 5, 2, -1, 8, 2, 5, 2, -1, 8, 2, 5, 2, -1, 15,
+            2, -1, -1, -1 };
+        this.queen = new int[] { -1, -1, 24, 3, -1, 24, 5, -1, 17, 12, -1, 16, 15, -1, 15, 14, -1, 15, 6, 3, 5, -1, 14,
+            6, 4, 3, -1, 14, 5, -1, 14, 5, -1, 12, 9, -1, 11, 11, -1, 8, 17, -1, 5, 23, -1, 3, 27, -1, 2, 29, -1, 1, 31,
+            -1, 0, 33, -1, 13, 6, -1, 12, 9, -1, 11, 3, 1, 2, 1, 4, -1, 10, 3, 2, 2, 3, 2, -1, 10, 2, 4, 2, 3, 2, -1, 9,
+            2, 5, 2, 4, 6, -1, 9, 2, 5, 2, 6, 4, -1, 8, 2, 6, 1, -1, 8, 2, 5, 2, -1, 8, 2, 5, 2, -1, 8, 2, 5, 2, -1, 15,
+            2, -1, -1, -1 };
         this.blkcolors = new int[] { 14, 1, 4, 5, 3, 11, 10, 6 };
     }
 
     private void setThisBlock(final World world, final int cposx, final int cposy, final int cposz) {
         if (world.rand.nextInt(2) == 1) {
             this.FastSetBlock(world, cposx, cposy, cposz, Blocks.mossy_cobblestone);
-        }
-        else {
+        } else {
             this.FastSetBlock(world, cposx, cposy, cposz, Blocks.cobblestone);
         }
     }
@@ -119,18 +663,19 @@ public class GenericDungeon
         TileEntity t = null;
         t = world.getTileEntity(cposx, cposy, cposz);
         if (t != null && t instanceof TileEntityChest) {
-            chest = (TileEntityChest)t;
+            chest = (TileEntityChest) t;
             return chest;
         }
         return null;
     }
 
-    private TileEntityMobSpawner getSpawnerTileEntity(final World world, final int cposx, final int cposy, final int cposz) {
+    private TileEntityMobSpawner getSpawnerTileEntity(final World world, final int cposx, final int cposy,
+        final int cposz) {
         TileEntityMobSpawner chest = null;
         TileEntity t = null;
         t = world.getTileEntity(cposx, cposy, cposz);
         if (t != null && t instanceof TileEntityMobSpawner) {
-            chest = (TileEntityMobSpawner)t;
+            chest = (TileEntityMobSpawner) t;
             return chest;
         }
         return null;
@@ -175,51 +720,68 @@ public class GenericDungeon
             }
         }
         world.setBlock(cposx + width / 2, cposy + 1, cposz + width / 2, Blocks.mob_spawner, 0, 2);
-        final TileEntityMobSpawner tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 1, cposz + width / 2);
+        final TileEntityMobSpawner tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2, cposy + 1, cposz + width / 2);
         if (tileentitymobspawner != null) {
             final int t = world.rand.nextInt(12);
             if (t == 0) {
-                tileentitymobspawner.func_145881_a().setEntityName("Scorpion");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Scorpion");
             }
             if (t == 1) {
-                tileentitymobspawner.func_145881_a().setEntityName("Alien");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Alien");
             }
             if (t == 2) {
-                tileentitymobspawner.func_145881_a().setEntityName("Cryolophosaurus");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Cryolophosaurus");
             }
             if (t == 3) {
-                tileentitymobspawner.func_145881_a().setEntityName("WTF?");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("WTF?");
             }
             if (t == 4) {
-                tileentitymobspawner.func_145881_a().setEntityName("Kyuubi");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Kyuubi");
             }
             if (t == 5) {
-                tileentitymobspawner.func_145881_a().setEntityName("Bee");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Bee");
             }
             if (t == 6) {
-                tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Cloud Shark");
             }
             if (t == 7) {
-                tileentitymobspawner.func_145881_a().setEntityName("Lurking Terror");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Lurking Terror");
             }
             if (t == 8) {
-                tileentitymobspawner.func_145881_a().setEntityName("Terrible Terror");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Terrible Terror");
             }
             if (t == 9) {
-                tileentitymobspawner.func_145881_a().setEntityName("Rotator");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Rotator");
             }
             if (t == 10) {
-                tileentitymobspawner.func_145881_a().setEntityName("Rat");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Rat");
             }
             if (t == 11) {
-                tileentitymobspawner.func_145881_a().setEntityName("Dungeon Beast");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Dungeon Beast");
             }
         }
         TileEntityChest chest = null;
-        world.setBlock(cposx + width / 2, cposy + 1, cposz + 1, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width / 2, cposy + 1, cposz + 1, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + 1, cposz + 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, this.chestContentsList, (IInventory)chest, 5 + world.rand.nextInt(7));
+            WeightedRandomChestContent.generateChestContents(
+                world.rand,
+                this.chestContentsList,
+                (IInventory) chest,
+                5 + world.rand.nextInt(7));
         }
     }
 
@@ -293,44 +855,65 @@ public class GenericDungeon
             world.setBlock(cposx - 3, cposy + 1 + j, cposz - 3, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 3, cposy + 1 + j, cposz - 3);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Terrible Terror");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Terrible Terror");
             }
             world.setBlock(cposx - 3, cposy + 1 + j, cposz + width + 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 3, cposy + 1 + j, cposz + width + 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Terrible Terror");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Terrible Terror");
             }
             world.setBlock(cposx + width + 2, cposy + 1 + j, cposz - 3, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width + 2, cposy + 1 + j, cposz - 3);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Terrible Terror");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Terrible Terror");
             }
             world.setBlock(cposx + width + 2, cposy + 1 + j, cposz + width + 2, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width + 2, cposy + 1 + j, cposz + width + 2);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width + 2, cposy + 1 + j, cposz + width + 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Terrible Terror");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Terrible Terror");
             }
         }
         world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Emperor Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Emperor Scorpion");
         }
         world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Emperor Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Emperor Scorpion");
         }
         world.setBlock(cposx + width / 2, cposy + 4, cposz + width / 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 4, cposz + width / 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Emperor Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Emperor Scorpion");
         }
         int j = height;
         this.buildLevel(world, cposx + 1, cposy + j, cposz + 1, width - 2, 10, 4, "Cloud Shark", 1, -1, 5, 1, level);
         j += 10;
         if (level >= 2) {
-            this.buildLevel(world, cposx + 1, cposy + j, cposz + 1, width - 2, 10, 4, "Lurking Terror", 0, 0, 4, 2, level);
+            this.buildLevel(
+                world,
+                cposx + 1,
+                cposy + j,
+                cposz + 1,
+                width - 2,
+                10,
+                4,
+                "Lurking Terror",
+                0,
+                0,
+                4,
+                2,
+                level);
         }
         j += 10;
         if (level >= 3) {
@@ -353,8 +936,14 @@ public class GenericDungeon
             j = height;
             for (int k = -(platformwidth / 2); k <= platformwidth / 2; ++k) {
                 this.FastSetBlock(world, cposx + i - 20, cposy + j, cposz + k + width / 2, Blocks.quartz_block);
-                if ((i == 0 || i == platformwidth - 1 || k == -(platformwidth / 2) || k == platformwidth / 2) && (i != 0 || k < -1 || k > 1)) {
-                    this.FastSetBlock(world, cposx + i - 20, cposy + j + 1, cposz + k + width / 2, Blocks.nether_brick_fence);
+                if ((i == 0 || i == platformwidth - 1 || k == -(platformwidth / 2) || k == platformwidth / 2)
+                    && (i != 0 || k < -1 || k > 1)) {
+                    this.FastSetBlock(
+                        world,
+                        cposx + i - 20,
+                        cposy + j + 1,
+                        cposz + k + width / 2,
+                        Blocks.nether_brick_fence);
                 }
             }
         }
@@ -364,17 +953,20 @@ public class GenericDungeon
                 if (i == -3 || i == -10) {
                     if (k != -2 && k != 2) {
                         this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.air);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.netherrack);
                         this.FastSetBlock(world, cposx + i, cposy + j + 2, cposz + k + width / 2, Blocks.netherrack);
-                        this.FastSetBlock(world, cposx + i, cposy + j + 3, cposz + k + width / 2, (Block)Blocks.fire);
+                        this.FastSetBlock(world, cposx + i, cposy + j + 3, cposz + k + width / 2, (Block) Blocks.fire);
                     }
-                }
-                else {
+                } else {
                     this.FastSetBlock(world, cposx + i, cposy + j, cposz + k + width / 2, Blocks.quartz_block);
                     if (k == -2 || k == 2) {
-                        this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.nether_brick_fence);
+                        this.FastSetBlock(
+                            world,
+                            cposx + i,
+                            cposy + j + 1,
+                            cposz + k + width / 2,
+                            Blocks.nether_brick_fence);
                     }
                 }
             }
@@ -388,17 +980,20 @@ public class GenericDungeon
                 if (j == 0) {
                     if (k != -2 && k != 2) {
                         this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.air);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.netherrack);
                         this.FastSetBlock(world, cposx + i, cposy + j + 2, cposz + k + width / 2, Blocks.netherrack);
-                        this.FastSetBlock(world, cposx + i, cposy + j + 3, cposz + k + width / 2, (Block)Blocks.fire);
+                        this.FastSetBlock(world, cposx + i, cposy + j + 3, cposz + k + width / 2, (Block) Blocks.fire);
                     }
-                }
-                else {
+                } else {
                     this.FastSetBlock(world, cposx + i, cposy + j, cposz + k + width / 2, Blocks.quartz_block);
                     if (k == -2 || k == 2) {
-                        this.FastSetBlock(world, cposx + i, cposy + j + 1, cposz + k + width / 2, Blocks.nether_brick_fence);
+                        this.FastSetBlock(
+                            world,
+                            cposx + i,
+                            cposy + j + 1,
+                            cposz + k + width / 2,
+                            Blocks.nether_brick_fence);
                     }
                 }
             }
@@ -414,16 +1009,20 @@ public class GenericDungeon
                     i -= span / 2;
                     k -= span / 2;
                     world.setBlock(cposx + i + width / 2, cposy + j, cposz + k + width / 2, Blocks.mob_spawner, 0, 2);
-                    tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i + width / 2, cposy + j, cposz + k + width / 2);
+                    tileentitymobspawner = this
+                        .getSpawnerTileEntity(world, cposx + i + width / 2, cposy + j, cposz + k + width / 2);
                     if (tileentitymobspawner != null) {
-                        tileentitymobspawner.func_145881_a().setEntityName("Large Worm");
+                        tileentitymobspawner.func_145881_a()
+                            .setEntityName("Large Worm");
                     }
                 }
             }
         }
     }
 
-    public void buildLevel(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height, final int pw, final String critter, final int stepside, final int stepoff, final int holelen, final int decor, final int level) {
+    public void buildLevel(final World world, final int cposx, final int cposy, final int cposz, final int width,
+        final int height, final int pw, final String critter, final int stepside, final int stepoff, final int holelen,
+        final int decor, final int level) {
         for (int i = -pw; i < width + pw; ++i) {
             for (int j = 1; j < height; ++j) {
                 for (int k = -pw; k < width + pw; ++k) {
@@ -479,8 +1078,7 @@ public class GenericDungeon
             if (stepside != 0) {
                 final int k = -1;
                 this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.stone);
-            }
-            else {
+            } else {
                 final int k = width;
                 this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.stone);
             }
@@ -491,8 +1089,7 @@ public class GenericDungeon
             if (stepside == 0) {
                 k = -1;
                 k -= stepoff;
-            }
-            else {
+            } else {
                 k = width;
                 k += stepoff;
             }
@@ -507,60 +1104,76 @@ public class GenericDungeon
             world.setBlock(cposx - (pw - 1), cposy + j + 1, cposz - (pw - 1), Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - (pw - 1), cposy + j + 1, cposz - (pw - 1));
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx - (pw - 1), cposy + j + 1, cposz + width + (pw - 2), Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - (pw - 1), cposy + j + 1, cposz + width + (pw - 2));
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx - (pw - 1), cposy + j + 1, cposz + width + (pw - 2));
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width + (pw - 2), cposy + j + 1, cposz - (pw - 1), Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width + (pw - 2), cposy + j + 1, cposz - (pw - 1));
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width + (pw - 2), cposy + j + 1, cposz - (pw - 1));
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width + (pw - 2), cposy + j + 1, cposz + width + (pw - 2), Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width + (pw - 2), cposy + j + 1, cposz + width + (pw - 2));
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width + (pw - 2), cposy + j + 1, cposz + width + (pw - 2));
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
         }
         this.addLevelDecorations(world, cposx, cposy, cposz, width, height, decor, level);
     }
 
-    public void addLevelDecorations(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height, final int decor, final int difficulty) {
+    public void addLevelDecorations(final World world, final int cposx, final int cposy, final int cposz,
+        final int width, final int height, final int decor, final int difficulty) {
         TileEntityMobSpawner tileentitymobspawner = null;
         int reward = 1;
         String critter = "Alosaurus";
         if (decor == 6) {
             this.FastSetBlock(world, cposx, cposy + height, cposz, Blocks.netherrack);
-            this.FastSetBlock(world, cposx, cposy + height + 1, cposz, (Block)Blocks.fire);
+            this.FastSetBlock(world, cposx, cposy + height + 1, cposz, (Block) Blocks.fire);
             this.FastSetBlock(world, cposx, cposy + height, cposz + width - 1, Blocks.netherrack);
-            this.FastSetBlock(world, cposx, cposy + height + 1, cposz + width - 1, (Block)Blocks.fire);
+            this.FastSetBlock(world, cposx, cposy + height + 1, cposz + width - 1, (Block) Blocks.fire);
             this.FastSetBlock(world, cposx + width - 1, cposy + height, cposz, Blocks.netherrack);
-            this.FastSetBlock(world, cposx + width - 1, cposy + height + 1, cposz, (Block)Blocks.fire);
+            this.FastSetBlock(world, cposx + width - 1, cposy + height + 1, cposz, (Block) Blocks.fire);
             this.FastSetBlock(world, cposx + width - 1, cposy + height, cposz + width - 1, Blocks.netherrack);
-            this.FastSetBlock(world, cposx + width - 1, cposy + height + 1, cposz + width - 1, (Block)Blocks.fire);
+            this.FastSetBlock(world, cposx + width - 1, cposy + height + 1, cposz + width - 1, (Block) Blocks.fire);
             this.FastSetBlock(world, cposx + width / 2, cposy + height, cposz + width / 2, Blocks.air);
             world.setBlock(cposx + width / 2 - 1, cposy + height + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 - 1, cposy + height + 2, cposz + width / 2);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width / 2 - 1, cposy + height + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Nightmare");
             }
             world.setBlock(cposx + width / 2 + 1, cposy + height + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 + 1, cposy + height + 2, cposz + width / 2);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width / 2 + 1, cposy + height + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Nightmare");
             }
             world.setBlock(cposx + width / 2, cposy + height + 2, cposz + width / 2 - 1, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + height + 2, cposz + width / 2 - 1);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width / 2, cposy + height + 2, cposz + width / 2 - 1);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Nightmare");
             }
             world.setBlock(cposx + width / 2, cposy + height + 2, cposz + width / 2 + 1, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + height + 2, cposz + width / 2 + 1);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width / 2, cposy + height + 2, cposz + width / 2 + 1);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Nightmare");
             }
             for (int i = 1; i < width - 1; ++i) {
                 for (int j = 1; j < 5; ++j) {
@@ -572,17 +1185,20 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Large Worm");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Large Worm");
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Large Worm");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Large Worm");
             }
             world.setBlock(cposx + width / 2, cposy + 4, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 4, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Large Worm");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Large Worm");
             }
             for (int j = 0; j < 10; ++j) {
                 this.FastSetBlock(world, cposx + 1, cposy + j, cposz + 1, Blocks.air);
@@ -601,12 +1217,14 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             for (int j = 1; j < 5; ++j) {
                 this.FastSetBlock(world, cposx + width / 2 - 1, cposy + j, cposz + width / 2, Blocks.bedrock);
@@ -634,12 +1252,14 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             for (int j = 1; j < 5; ++j) {
                 this.FastSetBlock(world, cposx + width / 2 - 1, cposy + j, cposz + width / 2, Blocks.bedrock);
@@ -671,12 +1291,14 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             for (int j = 1; j < 5; ++j) {
                 this.FastSetBlock(world, cposx + width / 2 - 1, cposy + j, cposz + width / 2, Blocks.bedrock);
@@ -712,12 +1334,14 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             for (int j = 1; j < 5; ++j) {
                 this.FastSetBlock(world, cposx + width / 2 - 1, cposy + j, cposz + width / 2, Blocks.bedrock);
@@ -752,12 +1376,14 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             for (int j = 1; j < 5; ++j) {
                 this.FastSetBlock(world, cposx + width / 2 - 1, cposy + j, cposz + width / 2, Blocks.bedrock);
@@ -774,7 +1400,8 @@ public class GenericDungeon
         }
     }
 
-    private void fill_chests(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height, final int decor, final int reward) {
+    private void fill_chests(final World world, final int cposx, final int cposy, final int cposz, final int width,
+        final int height, final int decor, final int reward) {
         TileEntityChest chest = null;
         WeightedRandomChestContent[] chestContents = null;
         chestContents = this.level1ContentsList;
@@ -790,50 +1417,50 @@ public class GenericDungeon
         if (reward == 5) {
             chestContents = this.level5ContentsList;
         }
-        world.setBlock(cposx + 1, cposy + 1, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + 1, cposy + 1, cposz + width / 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + 1, cposy + 1, cposz + width / 2, 5, 3);
         chest = this.getChestTileEntity(world, cposx + 1, cposy + 1, cposz + width / 2);
         if (chest != null) {
             if (reward == 6) {
                 chest.setInventorySlotContents(1, new ItemStack(OreSpawnMain.ThePrinceEgg, 1, 0));
-            }
-            else {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(7));
+            } else {
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(7));
             }
         }
-        world.setBlock(cposx + width - 2, cposy + 1, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width - 2, cposy + 1, cposz + width / 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width - 2, cposy + 1, cposz + width / 2, 4, 3);
         chest = this.getChestTileEntity(world, cposx + width - 2, cposy + 1, cposz + width / 2);
         if (chest != null) {
             if (reward == 6) {
-                chest.setInventorySlotContents(1, new ItemStack((Item)OreSpawnMain.RoyalHelmet, 1, 0));
-                chest.setInventorySlotContents(2, new ItemStack((Item)OreSpawnMain.RoyalBody, 1, 0));
-            }
-            else {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(7));
+                chest.setInventorySlotContents(1, new ItemStack((Item) OreSpawnMain.RoyalHelmet, 1, 0));
+                chest.setInventorySlotContents(2, new ItemStack((Item) OreSpawnMain.RoyalBody, 1, 0));
+            } else {
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(7));
             }
         }
-        world.setBlock(cposx + width / 2, cposy + 1, cposz + 1, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width / 2, cposy + 1, cposz + 1, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width / 2, cposy + 1, cposz + 1, 3, 3);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + 1, cposz + 1);
         if (chest != null) {
             if (reward == 6) {
-                chest.setInventorySlotContents(1, new ItemStack((Item)OreSpawnMain.RoyalLegs, 1, 0));
-                chest.setInventorySlotContents(2, new ItemStack((Item)OreSpawnMain.RoyalBoots, 1, 0));
-            }
-            else {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(7));
+                chest.setInventorySlotContents(1, new ItemStack((Item) OreSpawnMain.RoyalLegs, 1, 0));
+                chest.setInventorySlotContents(2, new ItemStack((Item) OreSpawnMain.RoyalBoots, 1, 0));
+            } else {
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(7));
             }
         }
-        world.setBlock(cposx + width / 2, cposy + 1, cposz + width - 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width / 2, cposy + 1, cposz + width - 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width / 2, cposy + 1, cposz + width - 2, 2, 3);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + 1, cposz + width - 2);
         if (chest != null) {
             if (reward == 6) {
                 chest.setInventorySlotContents(1, new ItemStack(OreSpawnMain.MyRoyal, 1, 0));
-            }
-            else {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(7));
+            } else {
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(7));
             }
         }
     }
@@ -845,15 +1472,17 @@ public class GenericDungeon
         world.setBlock(cposx, cposy + 5, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 5, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rotator");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rotator");
         }
         world.setBlock(cposx, cposy + 6, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 6, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rotator");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rotator");
         }
         world.setBlock(cposx, cposy + 7, cposz, OreSpawnMain.CrystalStone, 0, 2);
-        world.setBlock(cposx, cposy + 8, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + 8, cposz, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx, cposy + 8, cposz, 2, 3);
         chest = this.getChestTileEntity(world, cposx, cposy + 8, cposz);
         if (chest != null) {
@@ -892,8 +1521,7 @@ public class GenericDungeon
                             blk = Blocks.gold_ore;
                         }
                         this.FastSetBlock(world, cposx + i, cposy - j, cposz + k, blk);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i, cposy - j, cposz + k, Blocks.air);
                     }
                 }
@@ -901,43 +1529,51 @@ public class GenericDungeon
         }
         TileEntityMobSpawner tileentitymobspawner = null;
         for (int j = 0; j < 4; ++j) {
-            world.setBlock(cposx + width / 2, cposy - 2 - j * (height / 4), cposz + width / 2, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy - 2 - j * (height / 4), cposz + width / 2);
+            world
+                .setBlock(cposx + width / 2, cposy - 2 - j * (height / 4), cposz + width / 2, Blocks.mob_spawner, 0, 2);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width / 2, cposy - 2 - j * (height / 4), cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Bee");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Bee");
             }
         }
         this.fill_beehive_chests(world, cposx, cposy, cposz, width, height);
     }
 
-    private void fill_beehive_chests(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height) {
+    private void fill_beehive_chests(final World world, final int cposx, final int cposy, final int cposz,
+        final int width, final int height) {
         TileEntityChest chest = null;
         WeightedRandomChestContent[] chestContents = null;
         chestContents = this.beeContentsList;
         for (int j = 2; j < height - 1; j += 2) {
-            world.setBlock(cposx + 1, cposy - j, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+            world.setBlock(cposx + 1, cposy - j, cposz + width / 2, (Block) Blocks.chest, 0, 2);
             world.setBlockMetadataWithNotify(cposx + 1, cposy - j, cposz + width / 2, 5, 3);
             chest = this.getChestTileEntity(world, cposx + 1, cposy - j, cposz + width / 2);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 1 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 1 + world.rand.nextInt(5));
             }
-            world.setBlock(cposx + width - 2, cposy - j, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+            world.setBlock(cposx + width - 2, cposy - j, cposz + width / 2, (Block) Blocks.chest, 0, 2);
             world.setBlockMetadataWithNotify(cposx + width - 2, cposy - j, cposz + width / 2, 4, 3);
             chest = this.getChestTileEntity(world, cposx + width - 2, cposy - j, cposz + width / 2);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 1 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 1 + world.rand.nextInt(5));
             }
-            world.setBlock(cposx + width / 2, cposy - j, cposz + 1, (Block)Blocks.chest, 0, 2);
+            world.setBlock(cposx + width / 2, cposy - j, cposz + 1, (Block) Blocks.chest, 0, 2);
             world.setBlockMetadataWithNotify(cposx + width / 2, cposy - j, cposz + 1, 3, 3);
             chest = this.getChestTileEntity(world, cposx + width / 2, cposy - j, cposz + 1);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 1 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 1 + world.rand.nextInt(5));
             }
-            world.setBlock(cposx + width / 2, cposy - j, cposz + width - 2, (Block)Blocks.chest, 0, 2);
+            world.setBlock(cposx + width / 2, cposy - j, cposz + width - 2, (Block) Blocks.chest, 0, 2);
             world.setBlockMetadataWithNotify(cposx + width / 2, cposy - j, cposz + width - 2, 2, 3);
             chest = this.getChestTileEntity(world, cposx + width / 2, cposy - j, cposz + width - 2);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 1 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 1 + world.rand.nextInt(5));
             }
         }
     }
@@ -966,22 +1602,17 @@ public class GenericDungeon
                 for (int k = 0; k <= height + 1; ++k) {
                     if (k == height + 1) {
                         world.setBlock(x + i, y + k, z + j, Blocks.planks);
-                    }
-                    else if (k == 0) {
+                    } else if (k == 0) {
                         world.setBlock(x + i, y + k, z + j, Blocks.cobblestone);
-                    }
-                    else if (i == width || j == length || i == -width || j == -length) {
+                    } else if (i == width || j == length || i == -width || j == -length) {
                         if (k == height) {
                             world.setBlock(x + i, y + k, z + j, Blocks.glass);
-                        }
-                        else if ((k == 1 || k == 2) && i == deltax * width && j == deltaz * length) {
+                        } else if ((k == 1 || k == 2) && i == deltax * width && j == deltaz * length) {
                             world.setBlock(x + i, y + k, z + j, Blocks.air);
-                        }
-                        else {
+                        } else {
                             world.setBlock(x + i, y + k, z + j, Blocks.planks);
                         }
-                    }
-                    else {
+                    } else {
                         world.setBlock(x + i, y + k, z + j, Blocks.air);
                     }
                 }
@@ -995,15 +1626,16 @@ public class GenericDungeon
         i = 1;
         world.setBlock(x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax, Blocks.crafting_table);
         i = 0;
-        world.setBlock(x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax, (Block)Blocks.chest);
+        world.setBlock(x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax, (Block) Blocks.chest);
         world.setBlockMetadataWithNotify(x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax, stuffdir, 3);
-        final TileEntityChest chest = this.getChestTileEntity(world, x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax);
+        final TileEntityChest chest = this
+            .getChestTileEntity(world, x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax);
         if (chest != null) {
             if (world.rand.nextInt(2) == 0) {
                 chest.setInventorySlotContents(0, new ItemStack(Items.compass));
             }
             if (world.rand.nextInt(2) == 0) {
-                chest.setInventorySlotContents(1, new ItemStack((Item)Items.map));
+                chest.setInventorySlotContents(1, new ItemStack((Item) Items.map));
             }
             if (world.rand.nextInt(2) == 0) {
                 chest.setInventorySlotContents(2, new ItemStack(Items.cooked_porkchop, 8));
@@ -1039,23 +1671,26 @@ public class GenericDungeon
                 chest.setInventorySlotContents(12, new ItemStack(OreSpawnMain.MyOreSaltBlock, 4));
             }
             if (world.rand.nextInt(2) == 0) {
-                chest.setInventorySlotContents(13, new ItemStack((Block)Blocks.chest));
+                chest.setInventorySlotContents(13, new ItemStack((Block) Blocks.chest));
             }
         }
         world.setBlock(cposx, cposy + 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rat");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rat");
         }
         world.setBlock(cposx, cposy + 2, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 2, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ghost");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ghost");
         }
         world.setBlock(cposx, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ghost Pumpkin Skelly");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ghost Pumpkin Skelly");
         }
     }
 
@@ -1084,8 +1719,7 @@ public class GenericDungeon
                             blk = Blocks.emerald_ore;
                         }
                         this.FastSetBlock(world, cposx + i + xoff, cposy - yoff, cposz + k + zoff, blk);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i + xoff, cposy - yoff, cposz + k + zoff, Blocks.air);
                     }
                 }
@@ -1105,39 +1739,45 @@ public class GenericDungeon
             world.setBlock(cposx + xoff, cposy + j - yoff, cposz + yoff, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xoff, cposy + j - yoff, cposz + yoff);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Mantis");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Mantis");
             }
         }
     }
 
-    private void fill_mantishive_chests(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height) {
+    private void fill_mantishive_chests(final World world, final int cposx, final int cposy, final int cposz,
+        final int width, final int height) {
         TileEntityChest chest = null;
         WeightedRandomChestContent[] chestContents = null;
         chestContents = this.mantisContentsList;
         final int j = height;
-        world.setBlock(cposx + 1, cposy + j, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + 1, cposy + j, cposz + width / 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + 1, cposy + j, cposz + width / 2, 5, 3);
         chest = this.getChestTileEntity(world, cposx + 1, cposy + j, cposz + width / 2);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(7));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(7));
         }
-        world.setBlock(cposx + width - 2, cposy + j, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width - 2, cposy + j, cposz + width / 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width - 2, cposy + j, cposz + width / 2, 4, 3);
         chest = this.getChestTileEntity(world, cposx + width - 2, cposy + j, cposz + width / 2);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(7));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(7));
         }
-        world.setBlock(cposx + width / 2, cposy + j, cposz + 1, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width / 2, cposy + j, cposz + 1, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width / 2, cposy + j, cposz + 1, 3, 3);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + j, cposz + 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(7));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(7));
         }
-        world.setBlock(cposx + width / 2, cposy + j, cposz + width - 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width / 2, cposy + j, cposz + width - 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width / 2, cposy + j, cposz + width - 2, 2, 3);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + j, cposz + width - 2);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(7));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(7));
         }
     }
 
@@ -1172,8 +1812,7 @@ public class GenericDungeon
                 for (j = 0; j < height; ++j) {
                     if (k == 0 || k == width - 1 || i == 0 || i == width - 1) {
                         this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, blk);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.air);
                     }
                 }
@@ -1185,8 +1824,7 @@ public class GenericDungeon
                 for (j = -1; j > -depth; --j) {
                     if (k == 0 || k == width - 1 || i == 0 || i == width - 1) {
                         this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, blk);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.air);
                     }
                 }
@@ -1214,8 +1852,7 @@ public class GenericDungeon
                 for (j = 0; j < rheight; ++j) {
                     if (k == 0 || k == rwidth - 1 || j == 0 || j == rheight - 1 || i == 0 || i == rlength - 1) {
                         this.FastSetBlock(world, x + i, y + j, z + k, blk);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, x + i, y + j, z + k, Blocks.air);
                     }
                 }
@@ -1233,8 +1870,7 @@ public class GenericDungeon
                             blk = Blocks.lava;
                         }
                         this.FastSetBlock(world, x + i, y + j, z + k, blk);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, x + i, y + j, z + k, Blocks.air);
                     }
                 }
@@ -1251,12 +1887,12 @@ public class GenericDungeon
         this.addlavasquare(world, x + 3, y, z + 22);
         this.addkyuubi(world, x + rlength / 4, y, z + rwidth * 3 / 4 - 3);
         this.addblaze(world, x + rlength * 2 / 3 - 3, y, z + rwidth / 4 - 2);
-        this.FastSetBlock(world, x + 7, y, z + 1, (Block)Blocks.fire);
-        this.FastSetBlock(world, x + 5, y, z + 9, (Block)Blocks.fire);
-        this.FastSetBlock(world, x + 2, y, z + 12, (Block)Blocks.fire);
-        this.FastSetBlock(world, x + 16, y, z + 18, (Block)Blocks.fire);
-        this.FastSetBlock(world, x + 2, y, z + 27, (Block)Blocks.fire);
-        this.FastSetBlock(world, x + 18, y, z + 28, (Block)Blocks.fire);
+        this.FastSetBlock(world, x + 7, y, z + 1, (Block) Blocks.fire);
+        this.FastSetBlock(world, x + 5, y, z + 9, (Block) Blocks.fire);
+        this.FastSetBlock(world, x + 2, y, z + 12, (Block) Blocks.fire);
+        this.FastSetBlock(world, x + 16, y, z + 18, (Block) Blocks.fire);
+        this.FastSetBlock(world, x + 2, y, z + 27, (Block) Blocks.fire);
+        this.FastSetBlock(world, x + 18, y, z + 28, (Block) Blocks.fire);
     }
 
     private void addlavasquare(final World world, final int x, final int y, final int z) {
@@ -1277,8 +1913,7 @@ public class GenericDungeon
             for (int k = 0; k < width; ++k) {
                 if (k == 0 || k == width - 1 || i == 0 || i == width - 1) {
                     this.FastSetBlock(world, x + i, y, z + k, Blocks.nether_brick);
-                }
-                else {
+                } else {
                     this.FastSetBlock(world, x + i, y, z + k, Blocks.lava);
                 }
             }
@@ -1288,8 +1923,7 @@ public class GenericDungeon
             for (int k = 0; k < width; ++k) {
                 if (k == 0 || k == width - 1 || i == 0 || i == width - 1) {
                     this.FastSetBlock(world, x + i + 1, y + 1, z + k + 1, Blocks.nether_brick);
-                }
-                else {
+                } else {
                     this.FastSetBlock(world, x + i + 1, y + 1, z + k + 1, Blocks.lava);
                 }
             }
@@ -1298,14 +1932,16 @@ public class GenericDungeon
             world.setBlock(x + 4, y + j + 2, z + 4, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, x + 4, y + j + 2, z + 4);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Kyuubi");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Kyuubi");
             }
         }
-        world.setBlock(x + 4, y + 5, z + 4, (Block)Blocks.chest, 0, 2);
+        world.setBlock(x + 4, y + 5, z + 4, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(x + 4, y + 5, z + 4, 2, 3);
         chest = this.getChestTileEntity(world, x + 4, y + 5, z + 4);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 7 + world.rand.nextInt(7));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 7 + world.rand.nextInt(7));
         }
     }
 
@@ -1366,47 +2002,55 @@ public class GenericDungeon
             world.setBlock(xx - 1, yy + height + j - 3, zz, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, xx - 1, yy + height + j - 3, zz);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Blaze");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Blaze");
             }
             world.setBlock(xx + 1, yy + height + j - 3, zz, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, xx + 1, yy + height + j - 3, zz);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Blaze");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Blaze");
             }
             world.setBlock(xx, yy + height + j - 3, zz - 1, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, xx, yy + height + j - 3, zz - 1);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Blaze");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Blaze");
             }
             world.setBlock(xx, yy + height + j - 3, zz + 1, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, xx, yy + height + j - 3, zz + 1);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Blaze");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Blaze");
             }
         }
-        world.setBlock(x, y + 4, z + 3, (Block)Blocks.chest, 0, 2);
+        world.setBlock(x, y + 4, z + 3, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(x, y + 4, z + 3, 4, 3);
         chest = this.getChestTileEntity(world, x, y + 4, z + 3);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(5));
         }
-        world.setBlock(x + 3, y + 4, z, (Block)Blocks.chest, 0, 2);
+        world.setBlock(x + 3, y + 4, z, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(x + 3, y + 4, z, 2, 3);
         chest = this.getChestTileEntity(world, x + 3, y + 4, z);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
         }
-        world.setBlock(x + 3, y + 4, z + 6, (Block)Blocks.chest, 0, 2);
+        world.setBlock(x + 3, y + 4, z + 6, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(x + 3, y + 4, z + 6, 3, 3);
         chest = this.getChestTileEntity(world, x + 3, y + 4, z + 6);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(5));
         }
-        world.setBlock(x + 6, y + 4, z + 3, (Block)Blocks.chest, 0, 2);
+        world.setBlock(x + 6, y + 4, z + 3, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(x + 6, y + 4, z + 3, 5, 3);
         chest = this.getChestTileEntity(world, x + 6, y + 4, z + 3);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 6 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 6 + world.rand.nextInt(5));
         }
     }
 
@@ -1441,7 +2085,12 @@ public class GenericDungeon
                     blk = height * 2 / 3;
                 }
                 for (j = 0; j < blk; ++j) {
-                    this.FastSetBlock(world, cposx + i, cposy + height * 2 / 3 - j, cposz + k, Blocks.mossy_cobblestone);
+                    this.FastSetBlock(
+                        world,
+                        cposx + i,
+                        cposy + height * 2 / 3 - j,
+                        cposz + k,
+                        Blocks.mossy_cobblestone);
                 }
             }
         }
@@ -1452,8 +2101,7 @@ public class GenericDungeon
                 for (int k = 0; k < width; ++k) {
                     if (k == 0 || i == 0 || k == width - 1 || i == width - 1) {
                         this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.sponge);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.air);
                     }
                 }
@@ -1463,8 +2111,7 @@ public class GenericDungeon
                 for (int k = -1; k < width + 1; ++k) {
                     if (k == -1 || i == -1 || k == width || i == width) {
                         this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.sponge);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.air);
                     }
                 }
@@ -1488,15 +2135,17 @@ public class GenericDungeon
             world.setBlock(cposx + 1, cposy + blk + j, cposz + 1, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy + blk + j, cposz + 1);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Bee");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Bee");
             }
         }
         chestContents = this.beeContentsList;
-        world.setBlock(cposx + width / 2, cposy + j, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width / 2, cposy + j, cposz + width / 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width / 2, cposy + j, cposz + width / 2, 5, 3);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + j, cposz + width / 2);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 7 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 7 + world.rand.nextInt(5));
         }
     }
 
@@ -1522,8 +2171,7 @@ public class GenericDungeon
                             blk = Blocks.soul_sand;
                         }
                         this.FastSetBlock(world, cposx + i + xoff, cposy - yoff, cposz + k + zoff, blk);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i + xoff, cposy - yoff, cposz + k + zoff, Blocks.air);
                     }
                 }
@@ -1532,29 +2180,42 @@ public class GenericDungeon
                 if ((yoff & 0x1) != 0x0) {
                     this.fill_shadow_chests(world, cposx + xoff, cposy - yoff, cposz + zoff, width, 0);
                     whichmob = "Ender Reaper";
-                }
-                else {
+                } else {
                     whichmob = "Nightmare";
                 }
                 world.setBlock(cposx + xoff + 1, cposy - yoff, cposz + zoff + 1, Blocks.mob_spawner, 0, 2);
-                tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xoff + 1, cposy - yoff, cposz + zoff + 1);
+                tileentitymobspawner = this
+                    .getSpawnerTileEntity(world, cposx + xoff + 1, cposy - yoff, cposz + zoff + 1);
                 if (tileentitymobspawner != null) {
-                    tileentitymobspawner.func_145881_a().setEntityName(whichmob);
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName(whichmob);
                 }
                 world.setBlock(cposx + xoff + width - 2, cposy - yoff, cposz + zoff + 1, Blocks.mob_spawner, 0, 2);
-                tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xoff + width - 2, cposy - yoff, cposz + zoff + 1);
+                tileentitymobspawner = this
+                    .getSpawnerTileEntity(world, cposx + xoff + width - 2, cposy - yoff, cposz + zoff + 1);
                 if (tileentitymobspawner != null) {
-                    tileentitymobspawner.func_145881_a().setEntityName(whichmob);
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName(whichmob);
                 }
                 world.setBlock(cposx + xoff + 1, cposy - yoff, cposz + zoff + width - 2, Blocks.mob_spawner, 0, 2);
-                tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xoff + 1, cposy - yoff, cposz + zoff + width - 2);
+                tileentitymobspawner = this
+                    .getSpawnerTileEntity(world, cposx + xoff + 1, cposy - yoff, cposz + zoff + width - 2);
                 if (tileentitymobspawner != null) {
-                    tileentitymobspawner.func_145881_a().setEntityName(whichmob);
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName(whichmob);
                 }
-                world.setBlock(cposx + xoff + width - 2, cposy - yoff, cposz + zoff + width - 2, Blocks.mob_spawner, 0, 2);
-                tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xoff + width - 2, cposy - yoff, cposz + zoff + width - 2);
+                world.setBlock(
+                    cposx + xoff + width - 2,
+                    cposy - yoff,
+                    cposz + zoff + width - 2,
+                    Blocks.mob_spawner,
+                    0,
+                    2);
+                tileentitymobspawner = this
+                    .getSpawnerTileEntity(world, cposx + xoff + width - 2, cposy - yoff, cposz + zoff + width - 2);
                 if (tileentitymobspawner != null) {
-                    tileentitymobspawner.func_145881_a().setEntityName(whichmob);
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName(whichmob);
                 }
             }
             ++xoff;
@@ -1571,8 +2232,7 @@ public class GenericDungeon
                             blk = Blocks.bedrock;
                         }
                         this.FastSetBlock(world, cposx + i + xoff, cposy + yoff, cposz + k + zoff, blk);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i + xoff, cposy + yoff, cposz + k + zoff, Blocks.air);
                     }
                 }
@@ -1583,34 +2243,39 @@ public class GenericDungeon
         }
     }
 
-    private void fill_shadow_chests(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height) {
+    private void fill_shadow_chests(final World world, final int cposx, final int cposy, final int cposz,
+        final int width, final int height) {
         TileEntityChest chest = null;
         WeightedRandomChestContent[] chestContents = null;
         chestContents = this.shadowContentsList;
         final int j = height;
-        world.setBlock(cposx + 1, cposy + j, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + 1, cposy + j, cposz + width / 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + 1, cposy + j, cposz + width / 2, 5, 3);
         chest = this.getChestTileEntity(world, cposx + 1, cposy + j, cposz + width / 2);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(7));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(7));
         }
-        world.setBlock(cposx + width - 2, cposy + j, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width - 2, cposy + j, cposz + width / 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width - 2, cposy + j, cposz + width / 2, 4, 3);
         chest = this.getChestTileEntity(world, cposx + width - 2, cposy + j, cposz + width / 2);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(7));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(7));
         }
-        world.setBlock(cposx + width / 2, cposy + j, cposz + 1, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width / 2, cposy + j, cposz + 1, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width / 2, cposy + j, cposz + 1, 3, 3);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + j, cposz + 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(7));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(7));
         }
-        world.setBlock(cposx + width / 2, cposy + j, cposz + width - 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width / 2, cposy + j, cposz + width - 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width / 2, cposy + j, cposz + width - 2, 2, 3);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + j, cposz + width - 2);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(7));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(7));
         }
     }
 
@@ -1626,8 +2291,7 @@ public class GenericDungeon
                 for (int k = 0; k < width; ++k) {
                     if (i == 0 || j == 0 || k == 0 || i == width - 1 || j == height - 1 || k == width - 1) {
                         this.FastSetBlock(world, cposx + i - 2, cposy + j, cposz + k - 2, Blocks.lapis_ore);
-                    }
-                    else {
+                    } else {
                         this.FastSetBlock(world, cposx + i - 2, cposy + j, cposz + k - 2, Blocks.air);
                     }
                 }
@@ -1738,7 +2402,8 @@ public class GenericDungeon
         }
     }
 
-    private void makePart(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height, final int dx, final int dz, final int difficulty) {
+    private void makePart(final World world, final int cposx, final int cposy, final int cposz, final int width,
+        final int height, final int dx, final int dz, final int difficulty) {
         TileEntityMobSpawner tileentitymobspawner = null;
         for (int i = 0; i < width; ++i) {
             for (int j = 0; j < height; ++j) {
@@ -1783,55 +2448,71 @@ public class GenericDungeon
         }
         for (int j = 0; j < difficulty; ++j) {
             world.setBlock(cposx + dx * width / 2, cposy + j + 2, cposz + dz * width / 2, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + dx * width / 2, cposy + j + 2, cposz + dz * width / 2);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + dx * width / 2, cposy + j + 2, cposz + dz * width / 2);
             if (tileentitymobspawner != null) {
                 final int t = world.rand.nextInt(2);
                 if (t == 0) {
-                    tileentitymobspawner.func_145881_a().setEntityName("Alien");
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName("Alien");
                 }
                 if (t == 1) {
-                    tileentitymobspawner.func_145881_a().setEntityName("WTF?");
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName("WTF?");
                 }
             }
-            world.setBlock(cposx + dx * width / 2 + dx, cposy + j + 2, cposz + dz * width / 2 + dz, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + dx * width / 2 + dx, cposy + j + 2, cposz + dz * width / 2 + dz);
+            world.setBlock(
+                cposx + dx * width / 2 + dx,
+                cposy + j + 2,
+                cposz + dz * width / 2 + dz,
+                Blocks.mob_spawner,
+                0,
+                2);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + dx * width / 2 + dx, cposy + j + 2, cposz + dz * width / 2 + dz);
             if (tileentitymobspawner != null) {
                 final int t = world.rand.nextInt(2);
                 if (t == 0) {
-                    tileentitymobspawner.func_145881_a().setEntityName("Alien");
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName("Alien");
                 }
                 if (t == 1) {
-                    tileentitymobspawner.func_145881_a().setEntityName("WTF?");
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName("WTF?");
                 }
             }
         }
         TileEntityChest chest = null;
         WeightedRandomChestContent[] chestContents = null;
         chestContents = this.AlienWTFContentsList;
-        world.setBlock(cposx + width * dx / 2, cposy + 1, cposz + dz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width * dx / 2, cposy + 1, cposz + dz, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + width * dx / 2, cposy + 1, cposz + dz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
         }
         if (difficulty > 1) {
-            world.setBlock(cposx + width * dx / 2, cposy + 1, cposz + (width - 2) * dz, (Block)Blocks.chest, 0, 2);
+            world.setBlock(cposx + width * dx / 2, cposy + 1, cposz + (width - 2) * dz, (Block) Blocks.chest, 0, 2);
             chest = this.getChestTileEntity(world, cposx + width * dx / 2, cposy + 1, cposz + (width - 2) * dz);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
             }
         }
         if (difficulty > 2) {
-            world.setBlock(cposx + dx, cposy + 1, cposz + width / 2 * dz, (Block)Blocks.chest, 0, 2);
+            world.setBlock(cposx + dx, cposy + 1, cposz + width / 2 * dz, (Block) Blocks.chest, 0, 2);
             chest = this.getChestTileEntity(world, cposx + dx, cposy + 1, cposz + width / 2 * dz);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
             }
         }
         if (difficulty > 3) {
-            world.setBlock(cposx + (width - 2) * dx, cposy + 1, cposz + width / 2 * dz, (Block)Blocks.chest, 0, 2);
+            world.setBlock(cposx + (width - 2) * dx, cposy + 1, cposz + width / 2 * dz, (Block) Blocks.chest, 0, 2);
             chest = this.getChestTileEntity(world, cposx + (width - 2) * dx, cposy + 1, cposz + width / 2 * dz);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
             }
         }
     }
@@ -1904,12 +2585,14 @@ public class GenericDungeon
                     world.setBlock(cposx, cposy + 2, cposz + k, Blocks.mob_spawner, 0, 2);
                     tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 2, cposz + k);
                     if (tileentitymobspawner != null) {
-                        tileentitymobspawner.func_145881_a().setEntityName("Ender Knight");
+                        tileentitymobspawner.func_145881_a()
+                            .setEntityName("Ender Knight");
                     }
                     world.setBlock(cposx, cposy + 3, cposz + k, Blocks.mob_spawner, 0, 2);
                     tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz + k);
                     if (tileentitymobspawner != null) {
-                        tileentitymobspawner.func_145881_a().setEntityName("Ender Knight");
+                        tileentitymobspawner.func_145881_a()
+                            .setEntityName("Ender Knight");
                     }
                 }
             }
@@ -1953,10 +2636,11 @@ public class GenericDungeon
             TileEntityChest chest = null;
             WeightedRandomChestContent[] chestContents = null;
             chestContents = this.KnightContentsList;
-            world.setBlock(cposx, cposy, cposz, (Block)Blocks.chest, 0, 2);
+            world.setBlock(cposx, cposy, cposz, (Block) Blocks.chest, 0, 2);
             chest = this.getChestTileEntity(world, cposx, cposy, cposz);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
             }
         }
         if (i == 1) {
@@ -1982,20 +2666,22 @@ public class GenericDungeon
             world.setBlock(cposx + i, cposy + 16, cposz, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + 16, cposz);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Attack Squid");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Attack Squid");
             }
         }
-        world.setBlock(cposx + 1, cposy + 17, cposz, (Block)Blocks.chest, 0, 2);
-        world.setBlock(cposx + 2, cposy + 17, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + 1, cposy + 17, cposz, (Block) Blocks.chest, 0, 2);
+        world.setBlock(cposx + 2, cposy + 17, cposz, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + 1, cposy + 17, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
         }
         for (int i = 0; i < 4; ++i) {
             world.setBlock(cposx + i, cposy + 18, cposz, Blocks.water, 0, 3);
         }
-        world.setBlock(cposx - 1, cposy + 18, cposz, (Block)Blocks.flowing_water, 0, 3);
-        world.setBlock(cposx + 4, cposy + 18, cposz, (Block)Blocks.flowing_water, 0, 3);
+        world.setBlock(cposx - 1, cposy + 18, cposz, (Block) Blocks.flowing_water, 0, 3);
+        world.setBlock(cposx + 4, cposy + 18, cposz, (Block) Blocks.flowing_water, 0, 3);
     }
 
     public void makeWaterDragonLair(final World world, final int cposx, final int cposy, final int cposz) {
@@ -2005,57 +2691,77 @@ public class GenericDungeon
         chestContents = this.WaterDragonContentsList;
         for (float radius = 10.0f, currad = 0.0f; currad < radius; currad += 0.33f) {
             for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 5.0f) {
-                final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-                final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
+                final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+                final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
                 Block blk = Blocks.bedrock;
                 if (currad > 5.0f && currad < 6.0f) {
                     blk = Blocks.iron_block;
                 }
-                this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 7, (int)(cposz + curz + 0.5f), blk);
+                this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 7, (int) (cposz + curz + 0.5f), blk);
             }
         }
         for (int i = 1; i < 10; ++i) {
-            this.FastSetBlock(world, (int)(cposx + i + 0.5f), cposy + 7, (int)(cposz + 0.5f), Blocks.iron_block);
-            this.FastSetBlock(world, (int)(cposx - i + 0.5f), cposy + 7, (int)(cposz + 0.5f), Blocks.iron_block);
-            this.FastSetBlock(world, (int)(cposx + 0.5f), cposy + 7, (int)(cposz + i + 0.5f), Blocks.iron_block);
-            this.FastSetBlock(world, (int)(cposx + 0.5f), cposy + 7, (int)(cposz - i + 0.5f), Blocks.iron_block);
+            this.FastSetBlock(world, (int) (cposx + i + 0.5f), cposy + 7, (int) (cposz + 0.5f), Blocks.iron_block);
+            this.FastSetBlock(world, (int) (cposx - i + 0.5f), cposy + 7, (int) (cposz + 0.5f), Blocks.iron_block);
+            this.FastSetBlock(world, (int) (cposx + 0.5f), cposy + 7, (int) (cposz + i + 0.5f), Blocks.iron_block);
+            this.FastSetBlock(world, (int) (cposx + 0.5f), cposy + 7, (int) (cposz - i + 0.5f), Blocks.iron_block);
         }
-        this.FastSetBlock(world, (int)(cposx + 0.5f), cposy + 7, (int)(cposz + 0.5f), Blocks.air);
-        this.FastSetBlock(world, (int)(cposx + 1 + 0.5f), cposy + 7, (int)(cposz + 0.5f), Blocks.glowstone);
-        this.FastSetBlock(world, (int)(cposx - 1 + 0.5f), cposy + 7, (int)(cposz + 0.5f), Blocks.glowstone);
-        this.FastSetBlock(world, (int)(cposx + 0.5f), cposy + 7, (int)(cposz + 1 + 0.5f), Blocks.glowstone);
-        this.FastSetBlock(world, (int)(cposx + 0.5f), cposy + 7, (int)(cposz - 1 + 0.5f), Blocks.glowstone);
+        this.FastSetBlock(world, (int) (cposx + 0.5f), cposy + 7, (int) (cposz + 0.5f), Blocks.air);
+        this.FastSetBlock(world, (int) (cposx + 1 + 0.5f), cposy + 7, (int) (cposz + 0.5f), Blocks.glowstone);
+        this.FastSetBlock(world, (int) (cposx - 1 + 0.5f), cposy + 7, (int) (cposz + 0.5f), Blocks.glowstone);
+        this.FastSetBlock(world, (int) (cposx + 0.5f), cposy + 7, (int) (cposz + 1 + 0.5f), Blocks.glowstone);
+        this.FastSetBlock(world, (int) (cposx + 0.5f), cposy + 7, (int) (cposz - 1 + 0.5f), Blocks.glowstone);
         float currad = 10.0f;
         for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 5.0f) {
-            final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-            final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 1, (int)(cposz + curz + 0.5f), Blocks.glowstone);
+            final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+            final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
+            this.FastSetBlock(
+                world,
+                (int) (cposx + curx + 0.5f),
+                cposy + 1,
+                (int) (cposz + curz + 0.5f),
+                Blocks.glowstone);
             Block blk = Blocks.lapis_block;
             if (world.rand.nextInt(2) == 0) {
                 blk = OreSpawnMain.MyWaterDragonSpawnBlock;
             }
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 2, (int)(cposz + curz + 0.5f), blk);
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 2, (int) (cposz + curz + 0.5f), blk);
             blk = Blocks.lapis_block;
             if (world.rand.nextInt(2) == 0) {
                 blk = OreSpawnMain.MyWaterDragonSpawnBlock;
             }
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 3, (int)(cposz + curz + 0.5f), blk);
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 4, (int)(cposz + curz + 0.5f), Blocks.glowstone);
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 5, (int)(cposz + curz + 0.5f), Blocks.bedrock);
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 6, (int)(cposz + curz + 0.5f), Blocks.bedrock);
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 3, (int) (cposz + curz + 0.5f), blk);
+            this.FastSetBlock(
+                world,
+                (int) (cposx + curx + 0.5f),
+                cposy + 4,
+                (int) (cposz + curz + 0.5f),
+                Blocks.glowstone);
+            this.FastSetBlock(
+                world,
+                (int) (cposx + curx + 0.5f),
+                cposy + 5,
+                (int) (cposz + curz + 0.5f),
+                Blocks.bedrock);
+            this.FastSetBlock(
+                world,
+                (int) (cposx + curx + 0.5f),
+                cposy + 6,
+                (int) (cposz + curz + 0.5f),
+                Blocks.bedrock);
         }
         for (int i = -3; i <= 3; ++i) {
             for (int j = -3; j <= 3; ++j) {
-                this.FastSetBlock(world, cposx + i, cposy, cposz + j, (Block)Blocks.sand);
+                this.FastSetBlock(world, cposx + i, cposy, cposz + j, (Block) Blocks.sand);
                 this.FastSetBlock(world, cposx + i, cposy - 1, cposz + j, Blocks.stone);
             }
         }
         for (int i = -2; i <= 2; ++i) {
             for (int j = -2; j <= 2; ++j) {
-                this.FastSetBlock(world, cposx + i, cposy + 3, cposz + j, (Block)Blocks.leaves);
+                this.FastSetBlock(world, cposx + i, cposy + 3, cposz + j, (Block) Blocks.leaves);
             }
         }
-        this.FastSetBlock(world, cposx, cposy + 4, cposz, (Block)Blocks.leaves);
+        this.FastSetBlock(world, cposx, cposy + 4, cposz, (Block) Blocks.leaves);
         this.FastSetBlock(world, cposx, cposy + 3, cposz, Blocks.log);
         this.FastSetBlock(world, cposx, cposy + 2, cposz, Blocks.log);
         this.FastSetBlock(world, cposx, cposy + 1, cposz, Blocks.log);
@@ -2066,27 +2772,32 @@ public class GenericDungeon
         world.setBlock(cposx + 1, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Water Dragon");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Water Dragon");
         }
         world.setBlock(cposx - 1, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 1, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Water Dragon");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Water Dragon");
         }
         world.setBlock(cposx, cposy + 3, cposz + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Water Dragon");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Water Dragon");
         }
         world.setBlock(cposx, cposy + 3, cposz - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Water Dragon");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Water Dragon");
         }
-        world.setBlock(cposx, cposy + 1, cposz - 1, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + 1, cposz - 1, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + 1, cposz - 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(5));
         }
     }
 
@@ -2100,27 +2811,32 @@ public class GenericDungeon
         world.setBlock(cposx + 1, cposy, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Cloud Shark");
         }
         world.setBlock(cposx - 1, cposy, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 1, cposy, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Cloud Shark");
         }
         world.setBlock(cposx, cposy, cposz + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy, cposz + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Cloud Shark");
         }
         world.setBlock(cposx, cposy, cposz - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy, cposz - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Cloud Shark");
         }
-        world.setBlock(cposx, cposy + 1, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + 1, cposz, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + 1, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(5));
         }
     }
 
@@ -2179,15 +2895,15 @@ public class GenericDungeon
                 }
             }
         }
-        this.FastSetBlock(world, cposx + 1, cposy + 2, cposz - 1, (Block)Blocks.leaves);
-        this.FastSetBlock(world, cposx + 2, cposy + 2, cposz - 1, (Block)Blocks.leaves);
+        this.FastSetBlock(world, cposx + 1, cposy + 2, cposz - 1, (Block) Blocks.leaves);
+        this.FastSetBlock(world, cposx + 2, cposy + 2, cposz - 1, (Block) Blocks.leaves);
         for (int i = -3; i < 7; ++i) {
             for (int k = -3; k < 7; ++k) {
                 final int j = 9;
                 if (i < 0 || i > 3 || k < 0 || k > 3) {
                     Block blk = Blocks.log;
                     if (i == -3 || i == 6 || k == -3 || k == 6) {
-                        blk = (Block)Blocks.leaves;
+                        blk = (Block) Blocks.leaves;
                     }
                     this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, blk);
                 }
@@ -2198,7 +2914,7 @@ public class GenericDungeon
                 for (int j = 10; j < 13; ++j) {
                     Block blk = Blocks.air;
                     if (i == -3 || i == 6 || k == -3 || k == 6) {
-                        blk = (Block)Blocks.leaves;
+                        blk = (Block) Blocks.leaves;
                     }
                     this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, blk);
                 }
@@ -2212,7 +2928,7 @@ public class GenericDungeon
                     blk = Blocks.log;
                 }
                 if (i == -1 || i == 4 || k == -1 || k == 4) {
-                    blk = (Block)Blocks.leaves;
+                    blk = (Block) Blocks.leaves;
                 }
                 this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, blk);
             }
@@ -2220,7 +2936,7 @@ public class GenericDungeon
         for (int i = -1; i < 5; ++i) {
             for (int k = -1; k < 5; ++k) {
                 final int j = 14;
-                final Block blk = (Block)Blocks.leaves;
+                final Block blk = (Block) Blocks.leaves;
                 this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, blk);
             }
         }
@@ -2234,35 +2950,40 @@ public class GenericDungeon
         for (int i = 1; i < 3; ++i) {
             for (int k = 1; k < 3; ++k) {
                 final int j = 16;
-                final Block blk = (Block)Blocks.leaves;
+                final Block blk = (Block) Blocks.leaves;
                 this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, blk);
             }
         }
         world.setBlock(cposx - 2, cposy + 10, cposz - 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 2, cposy + 10, cposz - 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Leaf Monster");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Leaf Monster");
         }
         world.setBlock(cposx + 5, cposy + 10, cposz + 5, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 5, cposy + 10, cposz + 5);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Leaf Monster");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Leaf Monster");
         }
         world.setBlock(cposx - 2, cposy + 10, cposz + 5, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 2, cposy + 10, cposz + 5);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Leaf Monster");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Leaf Monster");
         }
         world.setBlock(cposx + 5, cposy + 10, cposz - 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 5, cposy + 10, cposz - 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Leaf Monster");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Leaf Monster");
         }
-        world.setBlock(cposx + 1, cposy + 10, cposz + 5, (Block)Blocks.chest, 0, 2);
-        world.setBlock(cposx + 2, cposy + 10, cposz + 5, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + 1, cposy + 10, cposz + 5, (Block) Blocks.chest, 0, 2);
+        world.setBlock(cposx + 2, cposy + 10, cposz + 5, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + 1, cposy + 10, cposz + 5);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 12 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 12 + world.rand.nextInt(5));
         }
     }
 
@@ -2305,7 +3026,7 @@ public class GenericDungeon
                 final int j = 7;
                 Block blk = Blocks.air;
                 if (i == 1 || i == 8 || k == 1 || k == 8) {
-                    blk = (Block)Blocks.grass;
+                    blk = (Block) Blocks.grass;
                 }
                 this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, blk);
             }
@@ -2315,7 +3036,7 @@ public class GenericDungeon
                 final int j = 8;
                 Block blk = Blocks.air;
                 if (i == 2 || i == 7 || k == 2 || k == 7) {
-                    blk = (Block)Blocks.grass;
+                    blk = (Block) Blocks.grass;
                 }
                 this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, blk);
             }
@@ -2343,7 +3064,8 @@ public class GenericDungeon
                     world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
                     tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
                     if (tileentitymobspawner != null) {
-                        tileentitymobspawner.func_145881_a().setEntityName("Butterfly");
+                        tileentitymobspawner.func_145881_a()
+                            .setEntityName("Butterfly");
                     }
                 }
             }
@@ -2355,7 +3077,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Terrible Terror");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Terrible Terror");
         }
         k = (i = 9);
         for (j = 7; j < 11; ++j) {
@@ -2364,7 +3087,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Butterfly");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Butterfly");
         }
         i = 0;
         k = 9;
@@ -2374,7 +3098,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Terrible Terror");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Terrible Terror");
         }
         i = 9;
         k = 0;
@@ -2384,21 +3109,24 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Butterfly");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Butterfly");
         }
         k = (i = 1);
         j = 1;
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Terrible Terror");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Terrible Terror");
         }
         k = (i = 8);
         j = 1;
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Terrible Terror");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Terrible Terror");
         }
         i = 8;
         k = 1;
@@ -2406,7 +3134,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Butterfly");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Butterfly");
         }
         i = 1;
         k = 8;
@@ -2414,7 +3143,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Butterfly");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Butterfly");
         }
         i = 4;
         k = 4;
@@ -2422,7 +3152,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Lurking Terror");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Lurking Terror");
         }
         i = 5;
         k = 5;
@@ -2430,12 +3161,14 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Lurking Terror");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Lurking Terror");
         }
-        world.setBlock(cposx + 3, cposy + 1, cposz + 3, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + 3, cposy + 1, cposz + 3, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + 3, cposy + 1, cposz + 3);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(5));
         }
     }
 
@@ -2451,7 +3184,7 @@ public class GenericDungeon
         j = 2;
         for (int i = -1; i < 6; ++i) {
             for (int k = -1; k < 6; ++k) {
-                blk = (Block)Blocks.sand;
+                blk = (Block) Blocks.sand;
                 if (i == -1 || k == -1 || i == 5 || k == 5) {
                     blk = Blocks.glass;
                 }
@@ -2515,7 +3248,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Gold Fish");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Gold Fish");
         }
     }
 
@@ -2556,7 +3290,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         i = width - 2;
         k = length - 2;
@@ -2564,7 +3299,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         i = 1;
         k = length - 2;
@@ -2572,7 +3308,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         i = width - 2;
         k = 1;
@@ -2580,7 +3317,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         this.makeAGrave(world, cposx, cposy, cposz, 1, 6);
         this.makeAGrave(world, cposx, cposy, cposz, 3, 4);
@@ -2592,16 +3330,18 @@ public class GenericDungeon
         this.makeAGrave(world, cposx, cposy, cposz, 9, 6);
     }
 
-    public void makeAGrave(final World world, final int cposx, final int cposy, final int cposz, final int xoff, final int zoff) {
+    public void makeAGrave(final World world, final int cposx, final int cposy, final int cposz, final int xoff,
+        final int zoff) {
         TileEntityChest chest = null;
         WeightedRandomChestContent[] chestContents = null;
         chestContents = this.GraveContentsList;
         this.FastSetBlock(world, cposx + xoff, cposy + 1, cposz + zoff - 1, Blocks.obsidian);
         this.FastSetBlock(world, cposx + xoff, cposy, cposz + zoff + 1, Blocks.obsidian);
-        world.setBlock(cposx + xoff, cposy, cposz + zoff, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + xoff, cposy, cposz + zoff, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + xoff, cposy, cposz + zoff);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(3));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(3));
         }
     }
 
@@ -2624,13 +3364,13 @@ public class GenericDungeon
             if (i != 0) {
                 length /= 2;
             }
-            float rx = (float)cposx;
-            float ry = (float)cposy;
-            float rz = (float)cposz;
+            float rx = (float) cposx;
+            float ry = (float) cposy;
+            float rz = (float) cposz;
             for (int iy = 0; iy <= length; ++iy) {
                 for (int ix = 0; ix <= width; ++ix) {
                     for (int iz = 0; iz <= width; ++iz) {
-                        OreSpawnMain.setBlockFast(world, (int)(rx + ix), (int)ry, (int)(rz + iz), bid, 0, 2);
+                        OreSpawnMain.setBlockFast(world, (int) (rx + ix), (int) ry, (int) (rz + iz), bid, 0, 2);
                     }
                 }
                 ry += dy;
@@ -2641,20 +3381,23 @@ public class GenericDungeon
         world.setBlock(cposx, cposy + 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Crystal Urchin");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Crystal Urchin");
         }
         world.setBlock(cposx, cposy + 2, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 2, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Crystal Urchin");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Crystal Urchin");
         }
         world.setBlock(cposx, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Crystal Urchin");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Crystal Urchin");
         }
         world.setBlock(cposx, cposy, cposz, Blocks.air, 0, 2);
-        world.setBlock(cposx, cposy - 1, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy - 1, cposz, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx, cposy - 1, cposz, 2, 3);
         chest = this.getChestTileEntity(world, cposx, cposy - 1, cposz);
         if (chest != null) {
@@ -2673,11 +3416,39 @@ public class GenericDungeon
         WeightedRandomChestContent[] chestContents = null;
         chestContents = this.SpitBugContentsList;
         for (int i = 0; i < width; ++i) {
-            OreSpawnMain.setBlockFast(world, cposx + i, cposy + width - i + 2, cposz, Blocks.stained_hardened_clay, dark_green, 2);
-            OreSpawnMain.setBlockFast(world, cposx + i, cposy + width - i + 1, cposz, Blocks.stained_hardened_clay, dark_green, 2);
+            OreSpawnMain.setBlockFast(
+                world,
+                cposx + i,
+                cposy + width - i + 2,
+                cposz,
+                Blocks.stained_hardened_clay,
+                dark_green,
+                2);
+            OreSpawnMain.setBlockFast(
+                world,
+                cposx + i,
+                cposy + width - i + 1,
+                cposz,
+                Blocks.stained_hardened_clay,
+                dark_green,
+                2);
             OreSpawnMain.setBlockFast(world, cposx + i, cposy + width - i, cposz, Blocks.mossy_cobblestone, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - i, cposy + width - i + 2, cposz, Blocks.stained_hardened_clay, dark_green, 2);
-            OreSpawnMain.setBlockFast(world, cposx - i, cposy + width - i + 1, cposz, Blocks.stained_hardened_clay, dark_green, 2);
+            OreSpawnMain.setBlockFast(
+                world,
+                cposx - i,
+                cposy + width - i + 2,
+                cposz,
+                Blocks.stained_hardened_clay,
+                dark_green,
+                2);
+            OreSpawnMain.setBlockFast(
+                world,
+                cposx - i,
+                cposy + width - i + 1,
+                cposz,
+                Blocks.stained_hardened_clay,
+                dark_green,
+                2);
             OreSpawnMain.setBlockFast(world, cposx - i, cposy + width - i, cposz, Blocks.mossy_cobblestone, 0, 2);
         }
         OreSpawnMain.setBlockFast(world, cposx, cposy + width + 3, cposz, Blocks.emerald_ore, 0, 2);
@@ -2686,30 +3457,62 @@ public class GenericDungeon
         world.setBlock(cposx, cposy + width + 0, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + width + 0, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Spit Bug");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Spit Bug");
         }
         world.setBlock(cposx, cposy + width - 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + width - 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Spit Bug");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Spit Bug");
         }
         world.setBlock(cposx, cposy + width - 2, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + width - 2, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Spit Bug");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Spit Bug");
         }
         final int k = 0;
         for (int i = 0; i < width; ++i) {
             for (int j = -i; j <= i; ++j) {
-                OreSpawnMain.setBlockFast(world, cposx - width + i + 1, cposy, cposz + j, Blocks.stained_hardened_clay, green, 2);
-                OreSpawnMain.setBlockFast(world, cposx + width - i - 1, cposy, cposz + j, Blocks.stained_hardened_clay, green, 2);
+                OreSpawnMain.setBlockFast(
+                    world,
+                    cposx - width + i + 1,
+                    cposy,
+                    cposz + j,
+                    Blocks.stained_hardened_clay,
+                    green,
+                    2);
+                OreSpawnMain.setBlockFast(
+                    world,
+                    cposx + width - i - 1,
+                    cposy,
+                    cposz + j,
+                    Blocks.stained_hardened_clay,
+                    green,
+                    2);
                 if (j == -i || j == i) {
-                    OreSpawnMain.setBlockFast(world, cposx - width + i + 1, cposy + 1, cposz + j, Blocks.stained_hardened_clay, dark_green, 2);
-                    OreSpawnMain.setBlockFast(world, cposx + width - i - 1, cposy + 1, cposz + j, Blocks.stained_hardened_clay, dark_green, 2);
-                    OreSpawnMain.setBlockFast(world, cposx - width + i + 1, cposy + 2, cposz + j, Blocks.stonebrick, 3, 2);
-                    OreSpawnMain.setBlockFast(world, cposx + width - i - 1, cposy + 2, cposz + j, Blocks.stonebrick, 3, 2);
-                }
-                else {
+                    OreSpawnMain.setBlockFast(
+                        world,
+                        cposx - width + i + 1,
+                        cposy + 1,
+                        cposz + j,
+                        Blocks.stained_hardened_clay,
+                        dark_green,
+                        2);
+                    OreSpawnMain.setBlockFast(
+                        world,
+                        cposx + width - i - 1,
+                        cposy + 1,
+                        cposz + j,
+                        Blocks.stained_hardened_clay,
+                        dark_green,
+                        2);
+                    OreSpawnMain
+                        .setBlockFast(world, cposx - width + i + 1, cposy + 2, cposz + j, Blocks.stonebrick, 3, 2);
+                    OreSpawnMain
+                        .setBlockFast(world, cposx + width - i - 1, cposy + 2, cposz + j, Blocks.stonebrick, 3, 2);
+                } else {
                     OreSpawnMain.setBlockFast(world, cposx - width + i + 1, cposy + 1, cposz + j, Blocks.air, 0, 2);
                     OreSpawnMain.setBlockFast(world, cposx + width - i - 1, cposy + 1, cposz + j, Blocks.air, 0, 2);
                     OreSpawnMain.setBlockFast(world, cposx - width + i + 1, cposy + 2, cposz + j, Blocks.air, 0, 2);
@@ -2717,10 +3520,11 @@ public class GenericDungeon
                 }
             }
         }
-        world.setBlock(cposx, cposy + 1, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + 1, cposz, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + 1, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(4));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(4));
         }
     }
 
@@ -2729,69 +3533,73 @@ public class GenericDungeon
         TileEntityChest chest = null;
         float currad = 6.0f;
         for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 5.0f) {
-            final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-            final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 1, (int)(cposz + curz + 0.5f), Blocks.snow);
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 2, (int)(cposz + curz + 0.5f), Blocks.ice);
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 3, (int)(cposz + curz + 0.5f), Blocks.snow);
+            final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+            final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 1, (int) (cposz + curz + 0.5f), Blocks.snow);
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 2, (int) (cposz + curz + 0.5f), Blocks.ice);
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 3, (int) (cposz + curz + 0.5f), Blocks.snow);
         }
         currad = 5.0f;
         for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 5.0f) {
-            final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-            final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 4, (int)(cposz + curz + 0.5f), Blocks.ice);
+            final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+            final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 4, (int) (cposz + curz + 0.5f), Blocks.ice);
         }
         currad = 4.0f;
         for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 5.0f) {
-            final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-            final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 5, (int)(cposz + curz + 0.5f), Blocks.snow);
+            final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+            final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 5, (int) (cposz + curz + 0.5f), Blocks.snow);
         }
         currad = 3.0f;
         for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 10.0f) {
-            final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-            final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 5, (int)(cposz + curz + 0.5f), Blocks.ice);
+            final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+            final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 5, (int) (cposz + curz + 0.5f), Blocks.ice);
         }
         currad = 2.0f;
         for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 15.0f) {
-            final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-            final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 5, (int)(cposz + curz + 0.5f), Blocks.snow);
+            final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+            final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 5, (int) (cposz + curz + 0.5f), Blocks.snow);
         }
         currad = 1.0f;
         for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 15.0f) {
-            final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-            final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + 5, (int)(cposz + curz + 0.5f), Blocks.ice);
+            final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+            final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + 5, (int) (cposz + curz + 0.5f), Blocks.ice);
         }
-        this.FastSetBlock(world, (int)(cposx - 6.0f + 0.5f), cposy, (int)(cposz + 0.5f), Blocks.planks);
-        this.FastSetBlock(world, (int)(cposx - 6.0f + 0.5f), cposy + 1, (int)(cposz + 0.5f), Blocks.air);
-        this.FastSetBlock(world, (int)(cposx - 6.0f + 0.5f), cposy + 2, (int)(cposz + 0.5f), Blocks.air);
-        ItemDoor.placeDoorBlock(world, (int)(cposx - 6.0f + 0.5f), cposy + 1, (int)(cposz + 0.5f), 2, Blocks.wooden_door);
+        this.FastSetBlock(world, (int) (cposx - 6.0f + 0.5f), cposy, (int) (cposz + 0.5f), Blocks.planks);
+        this.FastSetBlock(world, (int) (cposx - 6.0f + 0.5f), cposy + 1, (int) (cposz + 0.5f), Blocks.air);
+        this.FastSetBlock(world, (int) (cposx - 6.0f + 0.5f), cposy + 2, (int) (cposz + 0.5f), Blocks.air);
+        ItemDoor
+            .placeDoorBlock(world, (int) (cposx - 6.0f + 0.5f), cposy + 1, (int) (cposz + 0.5f), 2, Blocks.wooden_door);
         world.setBlock(cposx + 2, cposy + 1, cposz - 4, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 2, cposy + 1, cposz - 4);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rat");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rat");
         }
         world.setBlock(cposx - 1, cposy + 1, cposz + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 1, cposy + 1, cposz + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ghost");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ghost");
         }
         world.setBlock(cposx + 3, cposy + 1, cposz + 4, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 3, cposy + 1, cposz + 4);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ghost Pumpkin Skelly");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ghost Pumpkin Skelly");
         }
-        world.setBlock(cposx - 3, cposy + 1, cposz - 3, (Block)Blocks.chest, 2, 2);
+        world.setBlock(cposx - 3, cposy + 1, cposz - 3, (Block) Blocks.chest, 2, 2);
         chest = this.getChestTileEntity(world, cposx - 3, cposy + 1, cposz - 3);
         if (chest != null) {
             if (world.rand.nextInt(2) == 0) {
                 chest.setInventorySlotContents(0, new ItemStack(Items.compass));
             }
             if (world.rand.nextInt(2) == 0) {
-                chest.setInventorySlotContents(1, new ItemStack((Item)Items.map));
+                chest.setInventorySlotContents(1, new ItemStack((Item) Items.map));
             }
             if (world.rand.nextInt(2) == 0) {
                 chest.setInventorySlotContents(2, new ItemStack(Items.cooked_porkchop, 8));
@@ -2824,7 +3632,7 @@ public class GenericDungeon
                 chest.setInventorySlotContents(11, new ItemStack(Items.bucket));
             }
             if (world.rand.nextInt(2) == 0) {
-                chest.setInventorySlotContents(13, new ItemStack((Block)Blocks.chest));
+                chest.setInventorySlotContents(13, new ItemStack((Block) Blocks.chest));
             }
             if (world.rand.nextInt(2) == 0) {
                 chest.setInventorySlotContents(14, new ItemStack(Items.gold_nugget, 6));
@@ -2926,20 +3734,40 @@ public class GenericDungeon
         this.FastSetBlock(world, cposx + 9, cposy + 8, cposz + 0, Blocks.obsidian);
         this.FastSetBlock(world, cposx + 9, cposy + 8, cposz + 9, Blocks.obsidian);
         EntityEnderCrystal entityendercrystal = new EntityEnderCrystal(world);
-        entityendercrystal.setLocationAndAngles((double)(cposx + 0.5f), (double)(cposy + 9), (double)(cposz + 0.5f), world.rand.nextFloat() * 360.0f, 0.0f);
-        world.spawnEntityInWorld((Entity)entityendercrystal);
+        entityendercrystal.setLocationAndAngles(
+            (double) (cposx + 0.5f),
+            (double) (cposy + 9),
+            (double) (cposz + 0.5f),
+            world.rand.nextFloat() * 360.0f,
+            0.0f);
+        world.spawnEntityInWorld((Entity) entityendercrystal);
         this.FastSetBlock(world, cposx, cposy + 9, cposz, Blocks.bedrock);
         entityendercrystal = new EntityEnderCrystal(world);
-        entityendercrystal.setLocationAndAngles((double)(cposx + 0.5f), (double)(cposy + 9), (double)(cposz + 9.5f), world.rand.nextFloat() * 360.0f, 0.0f);
-        world.spawnEntityInWorld((Entity)entityendercrystal);
+        entityendercrystal.setLocationAndAngles(
+            (double) (cposx + 0.5f),
+            (double) (cposy + 9),
+            (double) (cposz + 9.5f),
+            world.rand.nextFloat() * 360.0f,
+            0.0f);
+        world.spawnEntityInWorld((Entity) entityendercrystal);
         this.FastSetBlock(world, cposx, cposy + 9, cposz + 9, Blocks.bedrock);
         entityendercrystal = new EntityEnderCrystal(world);
-        entityendercrystal.setLocationAndAngles((double)(cposx + 9.5f), (double)(cposy + 9), (double)(cposz + 0.5f), world.rand.nextFloat() * 360.0f, 0.0f);
-        world.spawnEntityInWorld((Entity)entityendercrystal);
+        entityendercrystal.setLocationAndAngles(
+            (double) (cposx + 9.5f),
+            (double) (cposy + 9),
+            (double) (cposz + 0.5f),
+            world.rand.nextFloat() * 360.0f,
+            0.0f);
+        world.spawnEntityInWorld((Entity) entityendercrystal);
         this.FastSetBlock(world, cposx + 9, cposy + 9, cposz, Blocks.bedrock);
         entityendercrystal = new EntityEnderCrystal(world);
-        entityendercrystal.setLocationAndAngles((double)(cposx + 9.5f), (double)(cposy + 9), (double)(cposz + 9.5f), world.rand.nextFloat() * 360.0f, 0.0f);
-        world.spawnEntityInWorld((Entity)entityendercrystal);
+        entityendercrystal.setLocationAndAngles(
+            (double) (cposx + 9.5f),
+            (double) (cposy + 9),
+            (double) (cposz + 9.5f),
+            world.rand.nextFloat() * 360.0f,
+            0.0f);
+        world.spawnEntityInWorld((Entity) entityendercrystal);
         this.FastSetBlock(world, cposx + 9, cposy + 9, cposz + 9, Blocks.bedrock);
         i = 3;
         k = 3;
@@ -2947,7 +3775,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         i = 3;
         k = 6;
@@ -2955,7 +3784,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         i = 6;
         k = 3;
@@ -2963,7 +3793,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         i = 6;
         k = 6;
@@ -2971,7 +3802,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         i = 1;
         k = 1;
@@ -2979,7 +3811,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Nightmare");
         }
         i = 1;
         k = 8;
@@ -2987,7 +3820,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Nightmare");
         }
         i = 8;
         k = 1;
@@ -2995,7 +3829,8 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Nightmare");
         }
         i = 8;
         k = 8;
@@ -3003,12 +3838,14 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Nightmare");
         }
-        world.setBlock(cposx + 4, cposy + 1, cposz + 4, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + 4, cposy + 1, cposz + 4, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + 4, cposy + 1, cposz + 4);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 6 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 6 + world.rand.nextInt(5));
         }
     }
 
@@ -3036,22 +3873,17 @@ public class GenericDungeon
                 for (int k = 0; k <= height + 1; ++k) {
                     if (k == height + 1) {
                         world.setBlock(x + i, y + k, z + j, OreSpawnMain.CrystalPlanksBlock);
-                    }
-                    else if (k == 0) {
+                    } else if (k == 0) {
                         world.setBlock(x + i, y + k, z + j, OreSpawnMain.CrystalStone);
-                    }
-                    else if (i == width || j == length || i == -width || j == -length) {
+                    } else if (i == width || j == length || i == -width || j == -length) {
                         if (k == height) {
                             world.setBlock(x + i, y + k, z + j, Blocks.glass);
-                        }
-                        else if ((k == 1 || k == 2) && i == deltax * width && j == deltaz * length) {
+                        } else if ((k == 1 || k == 2) && i == deltax * width && j == deltaz * length) {
                             world.setBlock(x + i, y + k, z + j, Blocks.air);
-                        }
-                        else {
+                        } else {
                             world.setBlock(x + i, y + k, z + j, OreSpawnMain.CrystalPlanksBlock);
                         }
-                    }
-                    else {
+                    } else {
                         world.setBlock(x + i, y + k, z + j, Blocks.air);
                     }
                 }
@@ -3060,14 +3892,23 @@ public class GenericDungeon
         int i = 2;
         int k = 1;
         int j = length - 1;
-        world.setBlock(x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax, (Block)OreSpawnMain.CrystalFurnaceBlock);
+        world.setBlock(
+            x + i * deltax + j * deltaz,
+            y + k,
+            z + i * deltaz + j * deltax,
+            (Block) OreSpawnMain.CrystalFurnaceBlock);
         world.setBlockMetadataWithNotify(x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax, stuffdir, 3);
         i = 1;
-        world.setBlock(x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax, OreSpawnMain.CrystalWorkbenchBlock);
+        world.setBlock(
+            x + i * deltax + j * deltaz,
+            y + k,
+            z + i * deltaz + j * deltax,
+            OreSpawnMain.CrystalWorkbenchBlock);
         i = 0;
-        world.setBlock(x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax, (Block)Blocks.chest);
+        world.setBlock(x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax, (Block) Blocks.chest);
         world.setBlockMetadataWithNotify(x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax, stuffdir, 3);
-        final TileEntityChest chest = this.getChestTileEntity(world, x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax);
+        final TileEntityChest chest = this
+            .getChestTileEntity(world, x + i * deltax + j * deltaz, y + k, z + i * deltaz + j * deltax);
         if (chest != null) {
             if (world.rand.nextInt(2) == 0) {
                 chest.setInventorySlotContents(0, new ItemStack(Items.compass));
@@ -3101,23 +3942,26 @@ public class GenericDungeon
             }
             chest.setInventorySlotContents(11, new ItemStack(OreSpawnMain.KrakenRepellent));
             if (world.rand.nextInt(2) == 0) {
-                chest.setInventorySlotContents(13, new ItemStack((Block)Blocks.chest));
+                chest.setInventorySlotContents(13, new ItemStack((Block) Blocks.chest));
             }
         }
         world.setBlock(cposx, cposy + 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rat");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rat");
         }
         world.setBlock(cposx, cposy + 2, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 2, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ghost");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ghost");
         }
         world.setBlock(cposx, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ghost Pumpkin Skelly");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ghost Pumpkin Skelly");
         }
     }
 
@@ -3173,52 +4017,62 @@ public class GenericDungeon
         world.setBlock(cposx - 1, cposy + 3, cposz + length - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 1, cposy + 3, cposz + length - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Silverfish");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Silverfish");
         }
         world.setBlock(cposx, cposy + 3, cposz + length - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz + length - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rat");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rat");
         }
         world.setBlock(cposx + 1, cposy + 3, cposz + length - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy + 3, cposz + length - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Scorpion");
         }
         world.setBlock(cposx + width - 1, cposy + 3, cposz - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width - 1, cposy + 3, cposz - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Silverfish");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Silverfish");
         }
         world.setBlock(cposx + width - 1, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width - 1, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rat");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rat");
         }
         world.setBlock(cposx + width - 1, cposy + 3, cposz + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width - 1, cposy + 3, cposz + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Scorpion");
         }
         world.setBlock(cposx - width + 1, cposy + 3, cposz - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - width + 1, cposy + 3, cposz - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Silverfish");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Silverfish");
         }
         world.setBlock(cposx - width + 1, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - width + 1, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rat");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rat");
         }
         world.setBlock(cposx - width + 1, cposy + 3, cposz + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - width + 1, cposy + 3, cposz + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Scorpion");
         }
-        world.setBlock(cposx + width - 1, cposy + 3, cposz + length - 1, (Block)Blocks.chest, 2, 2);
+        world.setBlock(cposx + width - 1, cposy + 3, cposz + length - 1, (Block) Blocks.chest, 2, 2);
         chest = this.getChestTileEntity(world, cposx + width - 1, cposy + 3, cposz + length - 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 6 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 6 + world.rand.nextInt(5));
         }
     }
 
@@ -3285,9 +4139,23 @@ public class GenericDungeon
                             bid = Blocks.bedrock;
                         }
                         if (j == 6 && bid != Blocks.air && world.rand.nextInt(2) == 1) {
-                            OreSpawnMain.setBlockFast(world, cposx + i, cposy + j - 1, cposz + k, OreSpawnMain.MyEnderPearlBlock, 0, 2);
+                            OreSpawnMain.setBlockFast(
+                                world,
+                                cposx + i,
+                                cposy + j - 1,
+                                cposz + k,
+                                OreSpawnMain.MyEnderPearlBlock,
+                                0,
+                                2);
                             if (world.rand.nextInt(3) == 1) {
-                                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j - 2, cposz + k, OreSpawnMain.MyEnderPearlBlock, 0, 2);
+                                OreSpawnMain.setBlockFast(
+                                    world,
+                                    cposx + i,
+                                    cposy + j - 2,
+                                    cposz + k,
+                                    OreSpawnMain.MyEnderPearlBlock,
+                                    0,
+                                    2);
                             }
                         }
                     }
@@ -3327,10 +4195,14 @@ public class GenericDungeon
             }
         }
         for (int m = -1; m <= 1; ++m) {
-            OreSpawnMain.setBlockFast(world, cposx + width / 2 + m, cposy + j, cposz + width / 2 + 3, Blocks.bedrock, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + width / 2 + m, cposy + j, cposz + width / 2 - 3, Blocks.bedrock, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + width / 2 + 3, cposy + j, cposz + width / 2 + m, Blocks.bedrock, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + width / 2 - 3, cposy + j, cposz + width / 2 + m, Blocks.bedrock, 0, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + width / 2 + m, cposy + j, cposz + width / 2 + 3, Blocks.bedrock, 0, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + width / 2 + m, cposy + j, cposz + width / 2 - 3, Blocks.bedrock, 0, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + width / 2 + 3, cposy + j, cposz + width / 2 + m, Blocks.bedrock, 0, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + width / 2 - 3, cposy + j, cposz + width / 2 + m, Blocks.bedrock, 0, 2);
         }
         OreSpawnMain.setBlockFast(world, cposx + width / 2 - 2, cposy + j, cposz + width / 2 - 2, Blocks.bedrock, 0, 2);
         OreSpawnMain.setBlockFast(world, cposx + width / 2 + 2, cposy + j, cposz + width / 2 + 2, Blocks.bedrock, 0, 2);
@@ -3352,44 +4224,60 @@ public class GenericDungeon
         OreSpawnMain.setBlockFast(world, cposx + width / 2, cposy + j + 5, cposz + width / 2, Blocks.bedrock, 0, 2);
         OreSpawnMain.setBlockFast(world, cposx + width / 2, cposy + j + 6, cposz + width / 2, Blocks.dragon_egg, 0, 2);
         world.setBlock(cposx + width / 2 + 5, cposy + j, cposz + width / 2 + 5, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 + 5, cposy + j, cposz + width / 2 + 5);
+        tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2 + 5, cposy + j, cposz + width / 2 + 5);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         world.setBlock(cposx + width / 2 + 5, cposy + j + 1, cposz + width / 2 + 5, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 + 5, cposy + j + 1, cposz + width / 2 + 5);
+        tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2 + 5, cposy + j + 1, cposz + width / 2 + 5);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Knight");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Knight");
         }
         world.setBlock(cposx + width / 2 - 5, cposy + j, cposz + width / 2 + 5, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 - 5, cposy + j, cposz + width / 2 + 5);
+        tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2 - 5, cposy + j, cposz + width / 2 + 5);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         world.setBlock(cposx + width / 2 - 5, cposy + j + 1, cposz + width / 2 + 5, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 - 5, cposy + j + 1, cposz + width / 2 + 5);
+        tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2 - 5, cposy + j + 1, cposz + width / 2 + 5);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Knight");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Knight");
         }
         world.setBlock(cposx + width / 2 + 5, cposy + j, cposz + width / 2 - 5, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 + 5, cposy + j, cposz + width / 2 - 5);
+        tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2 + 5, cposy + j, cposz + width / 2 - 5);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         world.setBlock(cposx + width / 2 + 5, cposy + j + 1, cposz + width / 2 - 5, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 + 5, cposy + j + 1, cposz + width / 2 - 5);
+        tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2 + 5, cposy + j + 1, cposz + width / 2 - 5);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Knight");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Knight");
         }
         world.setBlock(cposx + width / 2 - 5, cposy + j, cposz + width / 2 - 5, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 - 5, cposy + j, cposz + width / 2 - 5);
+        tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2 - 5, cposy + j, cposz + width / 2 - 5);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         world.setBlock(cposx + width / 2 - 5, cposy + j + 1, cposz + width / 2 - 5, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 - 5, cposy + j + 1, cposz + width / 2 - 5);
+        tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2 - 5, cposy + j + 1, cposz + width / 2 - 5);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Knight");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Knight");
         }
         j = 4;
         for (int i = 1; i <= width - 1; ++i) {
@@ -3453,62 +4341,74 @@ public class GenericDungeon
         world.setBlock(cposx + width / 2, cposy + j, cposz + width / 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + j, cposz + width / 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Reaper");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Reaper");
         }
         world.setBlock(cposx + width / 2, cposy + j + 1, cposz + width / 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + j + 1, cposz + width / 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ender Knight");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ender Knight");
         }
         j = 5;
         world.setBlock(cposx + 1, cposy + j, cposz + width / 2 - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy + j, cposz + width / 2 - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("CaveFisher");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("CaveFisher");
         }
         world.setBlock(cposx + 1, cposy + j, cposz + width / 2 + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy + j, cposz + width / 2 + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("CaveFisher");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("CaveFisher");
         }
-        world.setBlock(cposx + 1, cposy + j, cposz + width / 2, (Block)Blocks.chest, 2, 2);
+        world.setBlock(cposx + 1, cposy + j, cposz + width / 2, (Block) Blocks.chest, 2, 2);
         chest = this.getChestTileEntity(world, cposx + 1, cposy + j, cposz + width / 2);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 6 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 6 + world.rand.nextInt(5));
         }
         world.setBlock(cposx + width / 2 - 1, cposy + j, cposz + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 - 1, cposy + j, cposz + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("CaveFisher");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("CaveFisher");
         }
         world.setBlock(cposx + width / 2 + 1, cposy + j, cposz + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 + 1, cposy + j, cposz + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("CaveFisher");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("CaveFisher");
         }
-        world.setBlock(cposx + width / 2, cposy + j, cposz + 1, (Block)Blocks.chest, 3, 2);
+        world.setBlock(cposx + width / 2, cposy + j, cposz + 1, (Block) Blocks.chest, 3, 2);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + j, cposz + 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 6 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 6 + world.rand.nextInt(5));
         }
         world.setBlock(cposx + width / 2 - 1, cposy + j, cposz + width - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 - 1, cposy + j, cposz + width - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("CaveFisher");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("CaveFisher");
         }
         world.setBlock(cposx + width / 2 + 1, cposy + j, cposz + width - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 + 1, cposy + j, cposz + width - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("CaveFisher");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("CaveFisher");
         }
-        world.setBlock(cposx + width / 2, cposy + j, cposz + width - 1, (Block)Blocks.chest, 4, 2);
+        world.setBlock(cposx + width / 2, cposy + j, cposz + width - 1, (Block) Blocks.chest, 4, 2);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + j, cposz + width - 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 6 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 6 + world.rand.nextInt(5));
         }
     }
 
-    private void makeAColumn(final World world, final int cposx, final int cposy, final int cposz, final int height, final int dir) {
+    private void makeAColumn(final World world, final int cposx, final int cposy, final int cposz, final int height,
+        final int dir) {
         final int width = 4;
         final int halfwidth = 2;
         int step = dir;
@@ -3539,7 +4439,9 @@ public class GenericDungeon
                     if (i == 0 || i == width || (k == width | k == 0)) {
                         bid = Blocks.obsidian;
                     }
-                    if ((j % 3 == 0 || j % 3 == 1) && j != height + 2 && bid == Blocks.obsidian && (i == halfwidth || k == halfwidth)) {
+                    if ((j % 3 == 0 || j % 3 == 1) && j != height + 2
+                        && bid == Blocks.obsidian
+                        && (i == halfwidth || k == halfwidth)) {
                         bid = Blocks.iron_bars;
                     }
                     OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
@@ -3721,22 +4623,30 @@ public class GenericDungeon
         world.setBlock(cposx - width + 1, cposy + 1, cposz - length + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - width + 1, cposy + 1, cposz - length + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Scorpion");
         }
         world.setBlock(cposx + width - 1, cposy + 1, cposz - length + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width - 1, cposy + 1, cposz - length + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Scorpion");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Scorpion");
         }
-        world.setBlock(cposx + width - 1, cposy + 1, cposz + length - 1, (Block)Blocks.chest, 2, 2);
+        world.setBlock(cposx + width - 1, cposy + 1, cposz + length - 1, (Block) Blocks.chest, 2, 2);
         chest = this.getChestTileEntity(world, cposx + width - 1, cposy + 1, cposz + length - 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 10 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 10 + world.rand.nextInt(5));
         }
         Entity var8 = null;
         var8 = EntityList.createEntityByName("Girlfriend", world);
         if (var8 != null) {
-            var8.setLocationAndAngles((double)(cposx - width + 2), (double)(cposy + 1), (double)(cposz + length - 1), world.rand.nextFloat() * 360.0f, 0.0f);
+            var8.setLocationAndAngles(
+                (double) (cposx - width + 2),
+                (double) (cposy + 1),
+                (double) (cposz + length - 1),
+                world.rand.nextFloat() * 360.0f,
+                0.0f);
             world.spawnEntityInWorld(var8);
         }
     }
@@ -3780,7 +4690,8 @@ public class GenericDungeon
                     OreSpawnMain.setBlockFast(world, cposx + i + j, cposy + j, cposz + k + j, bid, meta, 2);
                     if (k == basedepth - j * 2 - 1 && j % 3 == 2 && i != 0 && i != basewidth - j * 2 - 1) {
                         meta = 4;
-                        OreSpawnMain.setBlockFast(world, cposx + i + j, cposy + j, cposz + k + j - 1, Blocks.torch, meta, 2);
+                        OreSpawnMain
+                            .setBlockFast(world, cposx + i + j, cposy + j, cposz + k + j - 1, Blocks.torch, meta, 2);
                     }
                 }
             }
@@ -3795,16 +4706,24 @@ public class GenericDungeon
                 if (p < -1 || p > 1) {
                     bid = world.getBlock(cposx + i, cposy + j + 1, cposz + k);
                     if (bid == Blocks.air) {
-                        OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, Blocks.stonebrick, meta, 2);
+                        OreSpawnMain
+                            .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, Blocks.stonebrick, meta, 2);
                         if (m == 0 || m == baseheight * 2 - 2) {
-                            OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 2, cposz + k, Blocks.torch, meta, 2);
+                            OreSpawnMain
+                                .setBlockFast(world, cposx + i, cposy + j + 2, cposz + k, Blocks.torch, meta, 2);
                         }
                     }
-                }
-                else if (m % 2 == 1) {
+                } else if (m % 2 == 1) {
                     bid = world.getBlock(cposx + i, cposy + j + 1, cposz + k);
                     if (bid == Blocks.air) {
-                        OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, (Block)Blocks.stone_slab, meta, 2);
+                        OreSpawnMain.setBlockFast(
+                            world,
+                            cposx + i,
+                            cposy + j + 1,
+                            cposz + k,
+                            (Block) Blocks.stone_slab,
+                            meta,
+                            2);
                     }
                 }
                 while (j >= 0) {
@@ -3827,16 +4746,24 @@ public class GenericDungeon
                 if (p < -1 || p > 1) {
                     bid = world.getBlock(cposx + i, cposy + j + 1, cposz + k);
                     if (bid == Blocks.air) {
-                        OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, Blocks.stonebrick, meta, 2);
+                        OreSpawnMain
+                            .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, Blocks.stonebrick, meta, 2);
                         if (m == 0 || m == baseheight * 2 - 2) {
-                            OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 2, cposz + k, Blocks.torch, meta, 2);
+                            OreSpawnMain
+                                .setBlockFast(world, cposx + i, cposy + j + 2, cposz + k, Blocks.torch, meta, 2);
                         }
                     }
-                }
-                else if (m % 2 == 1) {
+                } else if (m % 2 == 1) {
                     bid = world.getBlock(cposx + i, cposy + j + 1, cposz + k);
                     if (bid == Blocks.air) {
-                        OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, (Block)Blocks.stone_slab, meta, 2);
+                        OreSpawnMain.setBlockFast(
+                            world,
+                            cposx + i,
+                            cposy + j + 1,
+                            cposz + k,
+                            (Block) Blocks.stone_slab,
+                            meta,
+                            2);
                     }
                 }
                 while (j >= 0) {
@@ -3859,16 +4786,24 @@ public class GenericDungeon
                 if (p < -1 || p > 1) {
                     bid = world.getBlock(cposx + i, cposy + j + 1, cposz + k);
                     if (bid == Blocks.air) {
-                        OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, Blocks.stonebrick, meta, 2);
+                        OreSpawnMain
+                            .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, Blocks.stonebrick, meta, 2);
                         if (m == 0 || m == baseheight * 2 - 2) {
-                            OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 2, cposz + k, Blocks.torch, meta, 2);
+                            OreSpawnMain
+                                .setBlockFast(world, cposx + i, cposy + j + 2, cposz + k, Blocks.torch, meta, 2);
                         }
                     }
-                }
-                else if (m % 2 == 1) {
+                } else if (m % 2 == 1) {
                     bid = world.getBlock(cposx + i, cposy + j + 1, cposz + k);
                     if (bid == Blocks.air) {
-                        OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, (Block)Blocks.stone_slab, meta, 2);
+                        OreSpawnMain.setBlockFast(
+                            world,
+                            cposx + i,
+                            cposy + j + 1,
+                            cposz + k,
+                            (Block) Blocks.stone_slab,
+                            meta,
+                            2);
                     }
                 }
                 while (j >= 0) {
@@ -3891,16 +4826,24 @@ public class GenericDungeon
                 if (p < -1 || p > 1) {
                     bid = world.getBlock(cposx + i, cposy + j + 1, cposz + k);
                     if (bid == Blocks.air) {
-                        OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, Blocks.stonebrick, meta, 2);
+                        OreSpawnMain
+                            .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, Blocks.stonebrick, meta, 2);
                         if (m == 0 || m == baseheight * 2 - 2) {
-                            OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 2, cposz + k, Blocks.torch, meta, 2);
+                            OreSpawnMain
+                                .setBlockFast(world, cposx + i, cposy + j + 2, cposz + k, Blocks.torch, meta, 2);
                         }
                     }
-                }
-                else if (m % 2 == 1) {
+                } else if (m % 2 == 1) {
                     bid = world.getBlock(cposx + i, cposy + j + 1, cposz + k);
                     if (bid == Blocks.air) {
-                        OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, (Block)Blocks.stone_slab, meta, 2);
+                        OreSpawnMain.setBlockFast(
+                            world,
+                            cposx + i,
+                            cposy + j + 1,
+                            cposz + k,
+                            (Block) Blocks.stone_slab,
+                            meta,
+                            2);
                     }
                 }
                 while (j >= 0) {
@@ -3937,16 +4880,14 @@ public class GenericDungeon
                         if ((k == 0 || k == depth - 1) && i >= width / 2 - 1 && i <= width / 2 + 1) {
                             if (j == 3) {
                                 bid = Blocks.fence;
-                            }
-                            else {
+                            } else {
                                 bid = Blocks.air;
                             }
                         }
                         if ((i == 0 || i == width - 1) && k >= depth / 2 - 1 && k <= depth / 2 + 1) {
                             if (j == 3) {
                                 bid = Blocks.fence;
-                            }
-                            else {
+                            } else {
                                 bid = Blocks.air;
                             }
                         }
@@ -3956,8 +4897,7 @@ public class GenericDungeon
                             if (bid != Blocks.air) {
                                 bid = Blocks.lit_redstone_lamp;
                             }
-                        }
-                        else {
+                        } else {
                             bid = Blocks.air;
                         }
                     }
@@ -3965,7 +4905,7 @@ public class GenericDungeon
                 }
             }
         }
-        bid = (Block)Blocks.stone_slab;
+        bid = (Block) Blocks.stone_slab;
         meta = 0;
         int j = height;
         for (int i = -1; i <= width; ++i) {
@@ -3987,7 +4927,8 @@ public class GenericDungeon
         world.setBlock(cposx + width / 2 - 2, cposy + 1, cposz + depth / 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 - 2, cposy + 1, cposz + depth / 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Molenoid");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Molenoid");
         }
         OreSpawnMain.setBlockFast(world, cposx + width / 2 + 2, cposy + 1, cposz + depth / 2, Blocks.trapdoor, 3, 2);
         OreSpawnMain.setBlockFast(world, cposx + width / 2 + 2, cposy, cposz + depth / 2, Blocks.air, 0, 2);
@@ -4009,7 +4950,8 @@ public class GenericDungeon
         OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz, Blocks.water, 0, 2);
     }
 
-    private void makeincagraves(final World world, final int cposx, final int cposy, final int cposz, final int width, final int depth) {
+    private void makeincagraves(final World world, final int cposx, final int cposy, final int cposz, final int width,
+        final int depth) {
         for (int i = 5; i < width - 5; i += 6) {
             this.makeincagrave(world, cposx + i, cposy, cposz + 5, 1);
         }
@@ -4030,61 +4972,65 @@ public class GenericDungeon
         WeightedRandomChestContent[] chestContents = null;
         chestContents = this.IncaPyramidContentsList;
         if (dir == 1) {
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz, (Block)Blocks.red_flower, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz + 1, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz + 1, (Block)Blocks.yellow_flower, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz + 2, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz + 2, (Block)Blocks.red_flower, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz, (Block)Blocks.red_flower, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz + 1, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz + 1, (Block)Blocks.yellow_flower, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz + 2, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz + 2, (Block)Blocks.red_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz, (Block) Blocks.red_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz + 1, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz + 1, (Block) Blocks.yellow_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz + 2, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz + 2, (Block) Blocks.red_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz, (Block) Blocks.red_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz + 1, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz + 1, (Block) Blocks.yellow_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz + 2, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz + 2, (Block) Blocks.red_flower, 0, 2);
             OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz, Blocks.stone, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz + 1, (Block)Blocks.stone_slab, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz + 2, (Block)Blocks.stone_slab, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz + 1, (Block) Blocks.stone_slab, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz + 2, (Block) Blocks.stone_slab, 0, 2);
             if (world.rand.nextInt(3) == 1) {
                 world.setBlock(cposx, cposy + 2, cposz, Blocks.mob_spawner, 0, 2);
                 tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 2, cposz);
                 if (tileentitymobspawner != null) {
-                    tileentitymobspawner.func_145881_a().setEntityName("Ghost");
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName("Ghost");
                 }
             }
-            world.setBlock(cposx, cposy + 1, cposz - 1, (Block)Blocks.chest, 2, 2);
+            world.setBlock(cposx, cposy + 1, cposz - 1, (Block) Blocks.chest, 2, 2);
             chest = this.getChestTileEntity(world, cposx, cposy + 1, cposz - 1);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 10 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 10 + world.rand.nextInt(5));
             }
         }
         if (dir == 3) {
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz, (Block)Blocks.red_flower, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz - 1, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz - 1, (Block)Blocks.yellow_flower, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz - 2, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz - 2, (Block)Blocks.red_flower, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz, (Block)Blocks.red_flower, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz - 1, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz - 1, (Block)Blocks.yellow_flower, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz - 2, (Block)Blocks.grass, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz - 2, (Block)Blocks.red_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz, (Block) Blocks.red_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz - 1, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz - 1, (Block) Blocks.yellow_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy, cposz - 2, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx - 1, cposy + 1, cposz - 2, (Block) Blocks.red_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz, (Block) Blocks.red_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz - 1, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz - 1, (Block) Blocks.yellow_flower, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy, cposz - 2, (Block) Blocks.grass, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx + 1, cposy + 1, cposz - 2, (Block) Blocks.red_flower, 0, 2);
             OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz, Blocks.stone, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz - 1, (Block)Blocks.stone_slab, 0, 2);
-            OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz - 2, (Block)Blocks.stone_slab, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz - 1, (Block) Blocks.stone_slab, 0, 2);
+            OreSpawnMain.setBlockFast(world, cposx, cposy + 1, cposz - 2, (Block) Blocks.stone_slab, 0, 2);
             if (world.rand.nextInt(3) == 1) {
                 world.setBlock(cposx, cposy + 2, cposz, Blocks.mob_spawner, 0, 2);
                 tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 2, cposz);
                 if (tileentitymobspawner != null) {
-                    tileentitymobspawner.func_145881_a().setEntityName("Ghost");
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName("Ghost");
                 }
             }
-            world.setBlock(cposx, cposy + 1, cposz + 1, (Block)Blocks.chest, 2, 2);
+            world.setBlock(cposx, cposy + 1, cposz + 1, (Block) Blocks.chest, 2, 2);
             chest = this.getChestTileEntity(world, cposx, cposy + 1, cposz + 1);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 10 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 10 + world.rand.nextInt(5));
             }
         }
     }
@@ -4160,14 +5106,16 @@ public class GenericDungeon
             world.setBlock(cposx + 1, cposy + 1, cposz, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy + 1, cposz);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Robo-Sniper");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Robo-Sniper");
             }
         }
         if (dir == 1) {
             world.setBlock(cposx - 1, cposy + 1, cposz, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 1, cposy + 1, cposz);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Robo-Sniper");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Robo-Sniper");
             }
         }
     }
@@ -4245,14 +5193,12 @@ public class GenericDungeon
                     bid = Blocks.air;
                     if (j < 15) {
                         bid = Blocks.quartz_block;
-                    }
-                    else if (j < 25) {
+                    } else if (j < 25) {
                         bid = Blocks.quartz_block;
                         if (k == 2) {
                             bid = Blocks.iron_bars;
                         }
-                    }
-                    else {
+                    } else {
                         bid = Blocks.quartz_block;
                         if (k == 1) {
                             bid = Blocks.iron_bars;
@@ -4293,12 +5239,14 @@ public class GenericDungeon
         world.setBlock(cposx + 3, cposy + 2, cposz + 3, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 3, cposy + 2, cposz + 3);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Robo-Pounder");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Robo-Pounder");
         }
         world.setBlock(cposx + 4, cposy + 2, cposz + 4, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 4, cposy + 2, cposz + 4);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Robo-Pounder");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Robo-Pounder");
         }
     }
 
@@ -4341,7 +5289,7 @@ public class GenericDungeon
         for (int k = 0; k < 24; ++k) {
             if (k % 3 == 1) {
                 OreSpawnMain.setBlockFast(world, cposx - 2, cposy + 1, cposz + k, Blocks.quartz_stairs, 1, 2);
-                OreSpawnMain.setBlockFast(world, cposx, cposy + 2, cposz + k, (Block)Blocks.sticky_piston, 3, 2);
+                OreSpawnMain.setBlockFast(world, cposx, cposy + 2, cposz + k, (Block) Blocks.sticky_piston, 3, 2);
                 OreSpawnMain.setBlockFast(world, cposx, cposy + 3, cposz + k, Blocks.carpet, 0, 2);
             }
             if (k % 3 == 0) {
@@ -4381,17 +5329,20 @@ public class GenericDungeon
         world.setBlock(cposx + 10, cposy + 1, cposz + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 10, cposy + 1, cposz + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Robo-Warrior");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Robo-Warrior");
         }
-        world.setBlock(cposx + 8, cposy + 1, cposz + 1, (Block)Blocks.chest, 2, 2);
+        world.setBlock(cposx + 8, cposy + 1, cposz + 1, (Block) Blocks.chest, 2, 2);
         chest = this.getChestTileEntity(world, cposx + 8, cposy + 1, cposz + 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 10 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 10 + world.rand.nextInt(5));
         }
-        world.setBlock(cposx + 6, cposy + 1, cposz + 1, (Block)Blocks.chest, 2, 2);
+        world.setBlock(cposx + 6, cposy + 1, cposz + 1, (Block) Blocks.chest, 2, 2);
         chest = this.getChestTileEntity(world, cposx + 6, cposy + 1, cposz + 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 10 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 10 + world.rand.nextInt(5));
         }
     }
 
@@ -4414,7 +5365,7 @@ public class GenericDungeon
         int j = 0;
         for (int i = 0; i < width; ++i) {
             for (int k = 0; k < length; ++k) {
-                bid = (Block)Blocks.grass;
+                bid = (Block) Blocks.grass;
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
                 for (int v = 1; v < 10; ++v) {
                     bid = world.getBlock(cposx + i, cposy + j - v, cposz + k);
@@ -4532,16 +5483,14 @@ public class GenericDungeon
                 }
                 ++cury;
                 curz = 0;
-            }
-            else {
+            } else {
                 for (int n = 0; n < v; ++n) {
                     OreSpawnMain.setBlockFast(world, cposx, cposy + cury, cposz + curz, bid, 0, 2);
                     ++curz;
                 }
                 if (bid == Blocks.stone) {
                     bid = Blocks.quartz_block;
-                }
-                else {
+                } else {
                     bid = Blocks.stone;
                 }
             }
@@ -4645,10 +5594,12 @@ public class GenericDungeon
             for (int k = -length; k <= length; ++k) {
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
                 if (i == width && (k == -length || k == length)) {
-                    OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
+                    OreSpawnMain
+                        .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
                 }
                 if (i == -width && (k == -length || k == length)) {
-                    OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
+                    OreSpawnMain
+                        .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
                 }
             }
         }
@@ -4705,14 +5656,16 @@ public class GenericDungeon
             for (int k = -length; k <= length; ++k) {
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
                 if (i == width && (k == -length || k == length)) {
-                    OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
+                    OreSpawnMain
+                        .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
                 }
                 if (i == -width && (k == -length || k == length)) {
-                    OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
+                    OreSpawnMain
+                        .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
                 }
             }
         }
-        world.setBlock(cposx, cposy + j, cposz, (Block)Blocks.chest);
+        world.setBlock(cposx, cposy + j, cposz, (Block) Blocks.chest);
         world.setBlockMetadataWithNotify(cposx, cposy + j, cposz, 2, 3);
         final TileEntityChest chest = this.getChestTileEntity(world, cposx, cposy + j, cposz);
         if (chest != null) {
@@ -4730,12 +5683,12 @@ public class GenericDungeon
                 for (int k = -rad; k <= rad; ++k) {
                     bid = Blocks.air;
                     dist = j * j + i * i + k * k;
-                    dist = (int)Math.sqrt(dist);
+                    dist = (int) Math.sqrt(dist);
                     if (dist <= rad) {
                         if (dist >= rad - 2) {
                             final int which = world.rand.nextInt(6);
                             if (which == 0) {
-                                bid = (Block)Blocks.leaves;
+                                bid = (Block) Blocks.leaves;
                             }
                             if (which == 1) {
                                 bid = Blocks.log;
@@ -4769,7 +5722,8 @@ public class GenericDungeon
         world.setBlock(cposx, cposy - (rad - 4), cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy - (rad - 4), cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Leonopteryx");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Leonopteryx");
         }
     }
 
@@ -4816,6 +5770,7 @@ public class GenericDungeon
         j = 3;
         OreSpawnMain.setBlockFast(world, cposx, cposy + j, cposz, OreSpawnMain.MyEyeOfEnderBlock, 0, 2);
     }
+
     public void makeCrystalBattleTower(final World world, final int cposx, final int cposy, final int cposz) {
         TileEntityMobSpawner tileentitymobspawner = null;
         TileEntityChest chest = null;
@@ -4826,22 +5781,26 @@ public class GenericDungeon
             if (j % 5 == 0) {
                 for (float currad = 0.0f; currad < radius; currad += 0.33f) {
                     for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 5.0f) {
-                        final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-                        final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
-                        this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + j, (int)(cposz + curz + 0.5f), blk);
+                        final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+                        final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
+                        this.FastSetBlock(
+                            world,
+                            (int) (cposx + curx + 0.5f),
+                            cposy + j,
+                            (int) (cposz + curz + 0.5f),
+                            blk);
                     }
                 }
-            }
-            else {
+            } else {
                 final float currad = 10.0f;
                 for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 5.0f) {
-                    final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-                    final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
+                    final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+                    final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
                     blk = OreSpawnMain.CrystalStone;
                     if (j % 5 >= 1 && j % 5 <= 3 && (curdeg < 10.0f || curdeg > 350.0f)) {
                         blk = Blocks.air;
                     }
-                    this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + j, (int)(cposz + curz + 0.5f), blk);
+                    this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + j, (int) (cposz + curz + 0.5f), blk);
                 }
             }
         }
@@ -4850,9 +5809,9 @@ public class GenericDungeon
             final Block blk = OreSpawnMain.CrystalCrystal;
             final float currad = 10.0f;
             for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 5.0f) {
-                final float curx = (float)(currad * Math.cos(Math.toRadians(curdeg)));
-                final float curz = (float)(currad * Math.sin(Math.toRadians(curdeg)));
-                this.FastSetBlock(world, (int)(cposx + curx + 0.5f), cposy + j, (int)(cposz + curz + 0.5f), blk);
+                final float curx = (float) (currad * Math.cos(Math.toRadians(curdeg)));
+                final float curz = (float) (currad * Math.sin(Math.toRadians(curdeg)));
+                this.FastSetBlock(world, (int) (cposx + curx + 0.5f), cposy + j, (int) (cposz + curz + 0.5f), blk);
             }
         }
         int j = 1;
@@ -4860,85 +5819,100 @@ public class GenericDungeon
         world.setBlock(cposx, cposy + j + 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + j + 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rat");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rat");
         }
         world.setBlock(cposx, cposy + j + 2, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + j + 2, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rat");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rat");
         }
-        world.setBlock(cposx, cposy + j, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + j, cposz, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + j, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(5));
         }
         j = 6;
         chestContents = this.CrystalBattleTowerDungeonBeastContentsList;
         world.setBlock(cposx, cposy + j + 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + j + 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Dungeon Beast");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Dungeon Beast");
         }
         world.setBlock(cposx, cposy + j + 2, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + j + 2, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Dungeon Beast");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Dungeon Beast");
         }
-        world.setBlock(cposx, cposy + j, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + j, cposz, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + j, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(5));
         }
         j = 11;
         chestContents = this.CrystalBattleTowerUrchinContentsList;
         world.setBlock(cposx, cposy + j + 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + j + 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Crystal Urchin");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Crystal Urchin");
         }
         world.setBlock(cposx, cposy + j + 2, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + j + 2, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Crystal Urchin");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Crystal Urchin");
         }
-        world.setBlock(cposx, cposy + j, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + j, cposz, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + j, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(5));
         }
         j = 16;
         chestContents = this.CrystalBattleTowerRotatorContentsList;
         world.setBlock(cposx, cposy + j + 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + j + 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rotator");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rotator");
         }
         world.setBlock(cposx, cposy + j + 2, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + j + 2, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rotator");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rotator");
         }
-        world.setBlock(cposx, cposy + j, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + j, cposz, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + j, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(5));
         }
         j = 21;
         chestContents = this.CrystalBattleTowerVortexContentsList;
         world.setBlock(cposx, cposy + j + 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + j + 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Vortex");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Vortex");
         }
         world.setBlock(cposx, cposy + j + 2, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + j + 2, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Vortex");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Vortex");
         }
-        world.setBlock(cposx, cposy + j, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + j, cposz, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + j, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 6 + world.rand.nextInt(6));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 6 + world.rand.nextInt(6));
         }
     }
 
@@ -4959,16 +5933,16 @@ public class GenericDungeon
                 k = 2;
             }
             for (int j = -k; j <= k; ++j) {
-                this.FastSetBlock(world, cposx + i, cposy, cposz + j, (Block)Blocks.sand);
+                this.FastSetBlock(world, cposx + i, cposy, cposz + j, (Block) Blocks.sand);
                 this.FastSetBlock(world, cposx + i, cposy - 1, cposz + j, Blocks.stone);
             }
         }
         for (int i = -2; i <= 2; ++i) {
             for (int j = -2; j <= 2; ++j) {
-                this.FastSetBlock(world, cposx + i, cposy + 3, cposz + j, (Block)Blocks.leaves);
+                this.FastSetBlock(world, cposx + i, cposy + 3, cposz + j, (Block) Blocks.leaves);
             }
         }
-        this.FastSetBlock(world, cposx, cposy + 4, cposz, (Block)Blocks.leaves);
+        this.FastSetBlock(world, cposx, cposy + 4, cposz, (Block) Blocks.leaves);
         this.FastSetBlock(world, cposx, cposy + 3, cposz, Blocks.log);
         this.FastSetBlock(world, cposx, cposy + 2, cposz, Blocks.log);
         this.FastSetBlock(world, cposx, cposy + 1, cposz, Blocks.log);
@@ -4979,32 +5953,38 @@ public class GenericDungeon
         world.setBlock(cposx + 1, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Girlfriend");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Girlfriend");
         }
         world.setBlock(cposx - 1, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 1, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Boyfriend");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Boyfriend");
         }
         world.setBlock(cposx, cposy + 3, cposz + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Gold Fish");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Gold Fish");
         }
         world.setBlock(cposx, cposy + 3, cposz - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Gold Fish");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Gold Fish");
         }
-        world.setBlock(cposx, cposy + 1, cposz - 1, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + 1, cposz - 1, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + 1, cposz - 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(5));
         }
-        world.setBlock(cposx, cposy + 1, cposz + 1, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + 1, cposz + 1, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + 1, cposz + 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(5));
         }
     }
 
@@ -5034,27 +6014,32 @@ public class GenericDungeon
                         }
                     }
                     if (j == 0) {
-                        blk = (Block)Blocks.grass;
+                        blk = (Block) Blocks.grass;
                         if (i != 0 && k != 0 && i != length - 1 && k != width - 1 && i % 3 == 2) {
                             blk = Blocks.water;
                         }
                     }
-                    if (j == 1 && i != 0 && k != 0 && i != length - 1 && k != width - 1 && i % 3 != 2 && world.rand.nextInt(3) != 1) {
+                    if (j == 1 && i != 0
+                        && k != 0
+                        && i != length - 1
+                        && k != width - 1
+                        && i % 3 != 2
+                        && world.rand.nextInt(3) != 1) {
                         blk = Blocks.farmland;
                         this.FastSetBlock(world, cposx + i, cposy + j - 1, cposz + k, blk);
                         t = world.rand.nextInt(20);
                         blk = Blocks.air;
                         if (t == 0) {
-                            blk = (Block)Blocks.yellow_flower;
+                            blk = (Block) Blocks.yellow_flower;
                         }
                         if (t == 1) {
-                            blk = (Block)Blocks.red_flower;
+                            blk = (Block) Blocks.red_flower;
                         }
                         if (t == 2) {
-                            blk = (Block)Blocks.brown_mushroom;
+                            blk = (Block) Blocks.brown_mushroom;
                         }
                         if (t == 3) {
-                            blk = (Block)Blocks.red_mushroom;
+                            blk = (Block) Blocks.red_mushroom;
                         }
                         if (t == 4) {
                             blk = Blocks.wheat;
@@ -5129,19 +6114,22 @@ public class GenericDungeon
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Triffid");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Triffid");
         }
         j = height + 2;
         world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Triffid");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Triffid");
         }
         j = height;
-        world.setBlock(cposx + i, cposy + j, cposz + k, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + i, cposy + j, cposz + k, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + i, cposy + j, cposz + k);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(5));
         }
     }
 
@@ -5166,16 +6154,16 @@ public class GenericDungeon
                 k = 2;
             }
             for (int j = -k; j <= k; ++j) {
-                this.FastSetBlock(world, cposx + i, cposy, cposz + j, (Block)Blocks.sand);
+                this.FastSetBlock(world, cposx + i, cposy, cposz + j, (Block) Blocks.sand);
                 this.FastSetBlock(world, cposx + i, cposy - 1, cposz + j, Blocks.stone);
             }
         }
         for (int i = -2; i <= 2; ++i) {
             for (int j = -2; j <= 2; ++j) {
-                this.FastSetBlock(world, cposx + i, cposy + 3, cposz + j, (Block)Blocks.leaves);
+                this.FastSetBlock(world, cposx + i, cposy + 3, cposz + j, (Block) Blocks.leaves);
             }
         }
-        this.FastSetBlock(world, cposx, cposy + 4, cposz, (Block)Blocks.leaves);
+        this.FastSetBlock(world, cposx, cposy + 4, cposz, (Block) Blocks.leaves);
         this.FastSetBlock(world, cposx, cposy + 3, cposz, Blocks.log);
         this.FastSetBlock(world, cposx, cposy + 2, cposz, Blocks.log);
         this.FastSetBlock(world, cposx, cposy + 1, cposz, Blocks.log);
@@ -5186,32 +6174,38 @@ public class GenericDungeon
         world.setBlock(cposx + 1, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName(monster);
+            tileentitymobspawner.func_145881_a()
+                .setEntityName(monster);
         }
         world.setBlock(cposx - 1, cposy + 3, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 1, cposy + 3, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName(monster);
+            tileentitymobspawner.func_145881_a()
+                .setEntityName(monster);
         }
         world.setBlock(cposx, cposy + 3, cposz + 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz + 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName(monster);
+            tileentitymobspawner.func_145881_a()
+                .setEntityName(monster);
         }
         world.setBlock(cposx, cposy + 3, cposz - 1, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 3, cposz - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName(monster);
+            tileentitymobspawner.func_145881_a()
+                .setEntityName(monster);
         }
-        world.setBlock(cposx, cposy + 1, cposz - 1, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + 1, cposz - 1, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + 1, cposz - 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(5));
         }
-        world.setBlock(cposx, cposy + 1, cposz + 1, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + 1, cposz + 1, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx, cposy + 1, cposz + 1);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 4 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(5));
         }
     }
 
@@ -5247,12 +6241,17 @@ public class GenericDungeon
                 world.setBlock(cposx + i, cposy + h + 2, cposz + k, Blocks.mob_spawner, 0, 2);
                 tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + h + 2, cposz + k);
                 if (tileentitymobspawner != null) {
-                    tileentitymobspawner.func_145881_a().setEntityName(monster);
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName(monster);
                 }
                 world.setBlock(cposx + i, cposy + h + 1, cposz + k, (Block) Blocks.chest, 0, 2);
                 chest = this.getChestTileEntity(world, cposx + i, cposy + h + 1, cposz + k);
                 if (chest != null) {
-                    WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory) chest, 4 + world.rand.nextInt(5));
+                    WeightedRandomChestContent.generateChestContents(
+                        world.rand,
+                        chestContents,
+                        (IInventory) chest,
+                        4 + world.rand.nextInt(5));
                 }
             }
         }
@@ -5277,7 +6276,7 @@ public class GenericDungeon
                     bid = Blocks.air;
                 }
                 if (bid == Blocks.air && world.rand.nextInt(10) == 1) {
-                    bid = (Block)Blocks.deadbush;
+                    bid = (Block) Blocks.deadbush;
                 }
                 if (bid != Blocks.air) {
                     this.FastSetBlock(world, cposx + i - 5, cposy + 1, cposz + k - 4, bid);
@@ -5310,17 +6309,20 @@ public class GenericDungeon
         world.setBlock(cposx + 2, cposy + 1, cposz + 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 2, cposy + 1, cposz + 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Stink Bug");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Stink Bug");
         }
         world.setBlock(cposx + length - 2, cposy + 1, cposz + width - 2, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + length - 2, cposy + 1, cposz + width - 2);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Stinky");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Stinky");
         }
-        world.setBlock(cposx + length / 2, cposy + 1, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + length / 2, cposy + 1, cposz + width / 2, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + length / 2, cposy + 1, cposz + width / 2);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 8 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 8 + world.rand.nextInt(5));
         }
     }
 
@@ -5334,27 +6336,29 @@ public class GenericDungeon
             world.setBlock(cposx + i, cposy + 6, cposz, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + 6, cposz);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Rubber Ducky");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Rubber Ducky");
             }
         }
-        world.setBlock(cposx, cposy + 5, cposz, (Block)Blocks.chest, 0, 2);
-        world.setBlock(cposx + 1, cposy + 5, cposz, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx, cposy + 5, cposz, (Block) Blocks.chest, 0, 2);
+        world.setBlock(cposx + 1, cposy + 5, cposz, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + 1, cposy + 5, cposz);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 8 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 8 + world.rand.nextInt(5));
         }
         world.setBlock(cposx, cposy + 4, cposz, Blocks.glass, 0, 2);
         world.setBlock(cposx + 1, cposy + 4, cposz, Blocks.glass, 0, 2);
         for (int i = 0; i < 2; ++i) {
             world.setBlock(cposx + i, cposy + 3, cposz, Blocks.water, 0, 3);
         }
-        world.setBlock(cposx - 1, cposy + 3, cposz, (Block)Blocks.flowing_water, 0, 3);
-        world.setBlock(cposx + 2, cposy + 3, cposz, (Block)Blocks.flowing_water, 0, 3);
+        world.setBlock(cposx - 1, cposy + 3, cposz, (Block) Blocks.flowing_water, 0, 3);
+        world.setBlock(cposx + 2, cposy + 3, cposz, (Block) Blocks.flowing_water, 0, 3);
         for (int i = 0; i < 12; ++i) {
             for (int k = 0; k < 11; ++k) {
                 bid = Blocks.water;
                 if (i == 0 || k == 0 || i == 11 || k == 10) {
-                    bid = (Block)Blocks.sand;
+                    bid = (Block) Blocks.sand;
                 }
                 this.FastSetBlock(world, cposx + i - 5, cposy, cposz + k - 5, bid);
                 bid = Blocks.air;
@@ -5403,8 +6407,8 @@ public class GenericDungeon
             }
         }
         world.setBlock(cposx + 3, cposy + 5, cposz + 2, Blocks.water, 0, 3);
-        world.setBlock(cposx + 2, cposy + 5, cposz + 2, (Block)Blocks.flowing_water, 0, 3);
-        world.setBlock(cposx + 4, cposy + 5, cposz + 2, (Block)Blocks.flowing_water, 0, 3);
+        world.setBlock(cposx + 2, cposy + 5, cposz + 2, (Block) Blocks.flowing_water, 0, 3);
+        world.setBlock(cposx + 4, cposy + 5, cposz + 2, (Block) Blocks.flowing_water, 0, 3);
     }
 
     private void makewalkway(final World world, final int cposx, final int cposy, final int cposz) {
@@ -5462,30 +6466,25 @@ public class GenericDungeon
                                 if ((i & 0x1) == 0x0 || (k & 0x1) == 0x0) {
                                     bid = Blocks.glass_pane;
                                 }
-                            }
-                            else if ((i & 0x1) == 0x1 || (k & 0x1) == 0x1) {
+                            } else if ((i & 0x1) == 0x1 || (k & 0x1) == 0x1) {
                                 bid = Blocks.glass_pane;
                             }
-                        }
-                        else if (k != 0) {
+                        } else if (k != 0) {
                             if ((j & 0x1) == 0x1) {
                                 if (i == 2 || k == 2 || i == 20 || k == 20) {
                                     bid = Blocks.glass_pane;
                                 }
-                            }
-                            else if (i == 1 || k == 1 || i == 21 || k == 21) {
+                            } else if (i == 1 || k == 1 || i == 21 || k == 21) {
                                 bid = Blocks.glass_pane;
                             }
                             if (j > 0 && j < 5 && k > 7 && k < 15) {
                                 bid = Blocks.glass_pane;
                             }
-                        }
-                        else if ((j & 0x1) == 0x1) {
+                        } else if ((j & 0x1) == 0x1) {
                             if (i == 2 || k == 2 || i == 20 || k == 20) {
                                 bid = Blocks.glass_pane;
                             }
-                        }
-                        else if (i == 1 || k == 1 || i == 21 || k == 21) {
+                        } else if (i == 1 || k == 1 || i == 21 || k == 21) {
                             bid = Blocks.glass_pane;
                         }
                     }
@@ -5516,7 +6515,12 @@ public class GenericDungeon
                     }
                     this.FastSetBlock(world, cposx + i + j, cposy + 8 + j, cposz + k + j, bid);
                     if ((i == 0 || i == 24 - 2 * j) && (k == 0 || k == 24 - 2 * j)) {
-                        this.FastSetBlock(world, cposx + i + j, cposy + 8 + j + 1, cposz + k + j, OreSpawnMain.CrystalTorch);
+                        this.FastSetBlock(
+                            world,
+                            cposx + i + j,
+                            cposy + 8 + j + 1,
+                            cposz + k + j,
+                            OreSpawnMain.CrystalTorch);
                     }
                 }
             }
@@ -5550,45 +6554,57 @@ public class GenericDungeon
         int xoff = 0;
         for (int i = 0; i < 8; ++i) {
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff, Blocks.quartz_stairs, 3, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block)Blocks.piston_extension, 1, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block)Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block) Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block) Blocks.piston_extension, 1, 2);
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 3, Blocks.quartz_stairs, 2, 2);
         }
         xoff = 11;
         for (int i = 0; i < 8; ++i) {
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff, Blocks.quartz_stairs, 3, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block)Blocks.piston_extension, 1, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block)Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block) Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block) Blocks.piston_extension, 1, 2);
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 3, Blocks.quartz_stairs, 2, 2);
         }
         zoff = 7;
         xoff = 0;
         for (int i = 0; i < 8; ++i) {
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff, Blocks.quartz_stairs, 3, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block)Blocks.piston_extension, 1, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block)Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block) Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block) Blocks.piston_extension, 1, 2);
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 3, Blocks.quartz_stairs, 2, 2);
         }
         xoff = 11;
         for (int i = 0; i < 8; ++i) {
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff, Blocks.quartz_stairs, 3, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block)Blocks.piston_extension, 1, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block)Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block) Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block) Blocks.piston_extension, 1, 2);
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 3, Blocks.quartz_stairs, 2, 2);
         }
         zoff = 13;
         xoff = 0;
         for (int i = 0; i < 8; ++i) {
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff, Blocks.quartz_stairs, 3, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block)Blocks.piston_extension, 1, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block)Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block) Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block) Blocks.piston_extension, 1, 2);
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 3, Blocks.quartz_stairs, 2, 2);
         }
         xoff = 11;
         for (int i = 0; i < 8; ++i) {
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff, Blocks.quartz_stairs, 3, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block)Blocks.piston_extension, 1, 2);
-            OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block)Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 1, (Block) Blocks.piston_extension, 1, 2);
+            OreSpawnMain
+                .setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 2, (Block) Blocks.piston_extension, 1, 2);
             OreSpawnMain.setBlockFast(world, cposx + xoff + i, cposy, cposz + zoff + 3, Blocks.quartz_stairs, 2, 2);
         }
         TileEntityMobSpawner tileentitymobspawner = null;
@@ -5600,45 +6616,53 @@ public class GenericDungeon
         world.setBlock(cposx + xoff, cposy + 1, cposz + zoff, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xoff, cposy + 1, cposz + zoff);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Criminal");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Criminal");
         }
-        world.setBlock(cposx + xoff, cposy, cposz + zoff, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + xoff, cposy, cposz + zoff, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + xoff, cposy, cposz + zoff);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
         }
         xoff = 6;
         world.setBlock(cposx + xoff, cposy + 1, cposz + zoff, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xoff, cposy + 1, cposz + zoff);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Criminal");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Criminal");
         }
-        world.setBlock(cposx + xoff, cposy, cposz + zoff, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + xoff, cposy, cposz + zoff, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + xoff, cposy, cposz + zoff);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
         }
         xoff = 12;
         world.setBlock(cposx + xoff, cposy + 1, cposz + zoff, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xoff, cposy + 1, cposz + zoff);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Criminal");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Criminal");
         }
-        world.setBlock(cposx + xoff, cposy, cposz + zoff, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + xoff, cposy, cposz + zoff, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + xoff, cposy, cposz + zoff);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
         }
         xoff = 16;
         world.setBlock(cposx + xoff, cposy + 1, cposz + zoff, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xoff, cposy + 1, cposz + zoff);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Criminal");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Criminal");
         }
-        world.setBlock(cposx + xoff, cposy, cposz + zoff, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + xoff, cposy, cposz + zoff, (Block) Blocks.chest, 0, 2);
         chest = this.getChestTileEntity(world, cposx + xoff, cposy, cposz + zoff);
         if (chest != null) {
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 3 + world.rand.nextInt(5));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 3 + world.rand.nextInt(5));
         }
     }
 
@@ -5661,7 +6685,7 @@ public class GenericDungeon
         int j = 0;
         for (int i = 0; i < width; ++i) {
             for (int k = 0; k < length; ++k) {
-                bid = (Block)Blocks.grass;
+                bid = (Block) Blocks.grass;
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
                 for (int v = 1; v < 10; ++v) {
                     bid = world.getBlock(cposx + i, cposy + j - v, cposz + k);
@@ -5776,16 +6800,14 @@ public class GenericDungeon
                 }
                 ++cury;
                 curz = 0;
-            }
-            else {
+            } else {
                 for (int n = 0; n < v; ++n) {
                     OreSpawnMain.setBlockFast(world, cposx, cposy + cury, cposz + curz, bid, 0, 2);
                     ++curz;
                 }
                 if (bid == Blocks.stone) {
                     bid = OreSpawnMain.MyBlockRubyBlock;
-                }
-                else {
+                } else {
                     bid = Blocks.stone;
                 }
             }
@@ -5889,10 +6911,12 @@ public class GenericDungeon
             for (int k = -length; k <= length; ++k) {
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
                 if (i == width && (k == -length || k == length)) {
-                    OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
+                    OreSpawnMain
+                        .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
                 }
                 if (i == -width && (k == -length || k == length)) {
-                    OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
+                    OreSpawnMain
+                        .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
                 }
             }
         }
@@ -5949,14 +6973,16 @@ public class GenericDungeon
             for (int k = -length; k <= length; ++k) {
                 OreSpawnMain.setBlockFast(world, cposx + i, cposy + j, cposz + k, bid, 0, 2);
                 if (i == width && (k == -length || k == length)) {
-                    OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
+                    OreSpawnMain
+                        .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
                 }
                 if (i == -width && (k == -length || k == length)) {
-                    OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
+                    OreSpawnMain
+                        .setBlockFast(world, cposx + i, cposy + j + 1, cposz + k, OreSpawnMain.CrystalTorch, 0, 2);
                 }
             }
         }
-        world.setBlock(cposx, cposy + j, cposz, (Block)Blocks.chest);
+        world.setBlock(cposx, cposy + j, cposz, (Block) Blocks.chest);
         world.setBlockMetadataWithNotify(cposx, cposy + j, cposz, 2, 3);
         final TileEntityChest chest = this.getChestTileEntity(world, cposx, cposy + j, cposz);
         if (chest != null) {
@@ -5969,7 +6995,8 @@ public class GenericDungeon
         world.setBlock(cposx, cposy + 2, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 2, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Frog");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Frog");
         }
         for (int i = -3; i <= 3; ++i) {
             for (int j = -3; j <= 3; ++j) {
@@ -5977,10 +7004,10 @@ public class GenericDungeon
             }
         }
         world.setBlock(cposx, cposy + 1, cposz, Blocks.water, 0, 3);
-        world.setBlock(cposx - 1, cposy + 1, cposz, (Block)Blocks.flowing_water, 0, 3);
-        world.setBlock(cposx + 1, cposy + 1, cposz, (Block)Blocks.flowing_water, 0, 3);
-        world.setBlock(cposx, cposy + 1, cposz - 1, (Block)Blocks.flowing_water, 0, 3);
-        world.setBlock(cposx, cposy + 1, cposz + 1, (Block)Blocks.flowing_water, 0, 3);
+        world.setBlock(cposx - 1, cposy + 1, cposz, (Block) Blocks.flowing_water, 0, 3);
+        world.setBlock(cposx + 1, cposy + 1, cposz, (Block) Blocks.flowing_water, 0, 3);
+        world.setBlock(cposx, cposy + 1, cposz - 1, (Block) Blocks.flowing_water, 0, 3);
+        world.setBlock(cposx, cposy + 1, cposz + 1, (Block) Blocks.flowing_water, 0, 3);
         world.setBlock(cposx - 1, cposy + 2, cposz, Blocks.waterlily, 0, 3);
         world.setBlock(cposx + 1, cposy + 2, cposz, Blocks.waterlily, 0, 3);
         world.setBlock(cposx, cposy + 2, cposz - 1, Blocks.waterlily, 0, 3);
@@ -6090,40 +7117,72 @@ public class GenericDungeon
         k = depth / 2 - 1;
         for (j = 0; j < 4; ++j) {
             for (i = 0; i < 3; ++i) {
-                OreSpawnMain.setBlockFast(world, cposx + width / 2 - i - j, cposy + height + j, cposz + k, Blocks.stained_hardened_clay, dark_green, 2);
+                OreSpawnMain.setBlockFast(
+                    world,
+                    cposx + width / 2 - i - j,
+                    cposy + height + j,
+                    cposz + k,
+                    Blocks.stained_hardened_clay,
+                    dark_green,
+                    2);
             }
         }
         for (j = 0; j < 5; ++j) {
             for (i = 0; i < 2; ++i) {
                 for (k = 0; k < 2; ++k) {
-                    OreSpawnMain.setBlockFast(world, cposx + width / 2 + i - 1, cposy + j + 1, cposz + depth / 2 + k - 1, Blocks.planks, 0, 2);
+                    OreSpawnMain.setBlockFast(
+                        world,
+                        cposx + width / 2 + i - 1,
+                        cposy + j + 1,
+                        cposz + depth / 2 + k - 1,
+                        Blocks.planks,
+                        0,
+                        2);
                 }
             }
         }
         j = 5;
         for (i = 0; i < 2; ++i) {
             for (k = 0; k < 2; ++k) {
-                OreSpawnMain.setBlockFast(world, cposx + width / 2 + i - 1, cposy + j + 1, cposz + depth / 2 + k - 1, Blocks.netherrack, 0, 2);
+                OreSpawnMain.setBlockFast(
+                    world,
+                    cposx + width / 2 + i - 1,
+                    cposy + j + 1,
+                    cposz + depth / 2 + k - 1,
+                    Blocks.netherrack,
+                    0,
+                    2);
             }
         }
         j = 6;
         k = 0;
         for (i = 0; i < 2; ++i) {
-            OreSpawnMain.setBlockFast(world, cposx + width / 2 + i - 1, cposy + j + 1, cposz + depth / 2 + k - 1, (Block)Blocks.fire, 0, 2);
+            OreSpawnMain.setBlockFast(
+                world,
+                cposx + width / 2 + i - 1,
+                cposy + j + 1,
+                cposz + depth / 2 + k - 1,
+                (Block) Blocks.fire,
+                0,
+                2);
         }
         j = 6;
         k = 1;
         i = 0;
         world.setBlock(cposx + width / 2 + i - 1, cposy + j + 1, cposz + depth / 2 + k - 1, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 + i - 1, cposy + j + 1, cposz + depth / 2 + k - 1);
+        tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2 + i - 1, cposy + j + 1, cposz + depth / 2 + k - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ghost Pumpkin Skelly");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ghost Pumpkin Skelly");
         }
         i = 1;
         world.setBlock(cposx + width / 2 + i - 1, cposy + j + 1, cposz + depth / 2 + k - 1, Blocks.mob_spawner, 0, 2);
-        tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 + i - 1, cposy + j + 1, cposz + depth / 2 + k - 1);
+        tileentitymobspawner = this
+            .getSpawnerTileEntity(world, cposx + width / 2 + i - 1, cposy + j + 1, cposz + depth / 2 + k - 1);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Ghost Pumpkin Skelly");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Ghost Pumpkin Skelly");
         }
     }
 
@@ -6133,69 +7192,78 @@ public class GenericDungeon
         WeightedRandomChestContent[] chestContents = null;
         float radius = 6.0f;
         for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 5.0f) {
-            final float curx = (float)(radius * Math.cos(Math.toRadians(curdeg)));
-            final float cury = (float)(radius * Math.sin(Math.toRadians(curdeg)));
+            final float curx = (float) (radius * Math.cos(Math.toRadians(curdeg)));
+            final float cury = (float) (radius * Math.sin(Math.toRadians(curdeg)));
             final Block blk = Blocks.bedrock;
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), (int)(cposy + 6 + cury + 0.5f), cposz, blk);
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), (int) (cposy + 6 + cury + 0.5f), cposz, blk);
         }
         radius = 2.0f;
         for (float curdeg = 0.0f; curdeg < 360.0f; curdeg += 5.0f) {
-            final float curx = (float)(radius * Math.cos(Math.toRadians(curdeg)));
-            final float cury = (float)(radius * Math.sin(Math.toRadians(curdeg)));
+            final float curx = (float) (radius * Math.cos(Math.toRadians(curdeg)));
+            final float cury = (float) (radius * Math.sin(Math.toRadians(curdeg)));
             final Block blk = OreSpawnMain.MyCrystalPinkBlock;
-            this.FastSetBlock(world, (int)(cposx + curx + 0.5f), (int)(cposy + 6 + cury + 0.5f), cposz, blk);
+            this.FastSetBlock(world, (int) (cposx + curx + 0.5f), (int) (cposy + 6 + cury + 0.5f), cposz, blk);
         }
         world.setBlock(cposx + 1, cposy + 6 + 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy + 6 + 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rotator");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rotator");
         }
         world.setBlock(cposx - 1, cposy + 6 - 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 1, cposy + 6 - 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rotator");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rotator");
         }
         world.setBlock(cposx + 1, cposy + 6 - 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 1, cposy + 6 - 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rotator");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rotator");
         }
         world.setBlock(cposx - 1, cposy + 6 + 1, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 1, cposy + 6 + 1, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Rotator");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Rotator");
         }
         world.setBlock(cposx + 5, cposy + 6, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + 5, cposy + 6, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Dungeon Beast");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Dungeon Beast");
         }
         world.setBlock(cposx - 5, cposy + 6, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - 5, cposy + 6, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Dungeon Beast");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Dungeon Beast");
         }
         world.setBlock(cposx, cposy + 6 - 5, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 6 - 5, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Dungeon Beast");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Dungeon Beast");
         }
         world.setBlock(cposx, cposy + 6 + 5, cposz, Blocks.mob_spawner, 0, 2);
         tileentitymobspawner = this.getSpawnerTileEntity(world, cposx, cposy + 6 + 5, cposz);
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("Dungeon Beast");
+            tileentitymobspawner.func_145881_a()
+                .setEntityName("Dungeon Beast");
         }
         final Block blk = OreSpawnMain.CrystalCoal;
         this.FastSetBlock(world, cposx + 1, cposy + 6, cposz, blk);
         this.FastSetBlock(world, cposx - 1, cposy + 6, cposz, blk);
         this.FastSetBlock(world, cposx, cposy + 6 + 1, cposz, blk);
         this.FastSetBlock(world, cposx, cposy + 6 - 1, cposz, blk);
-        world.setBlock(cposx, cposy + 6, cposz, (Block)Blocks.chest);
+        world.setBlock(cposx, cposy + 6, cposz, (Block) Blocks.chest);
         world.setBlockMetadataWithNotify(cposx, cposy + 6, cposz, 2, 3);
         chest = this.getChestTileEntity(world, cposx, cposy + 6, cposz);
         if (chest != null) {
             chestContents = this.CrystalBattleTowerVortexContentsList;
-            WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 6 + world.rand.nextInt(6));
+            WeightedRandomChestContent
+                .generateChestContents(world.rand, chestContents, (IInventory) chest, 6 + world.rand.nextInt(6));
         }
     }
 
@@ -6223,12 +7291,21 @@ public class GenericDungeon
             blk_color = this.blkcolors[m - 3];
 
             for (int i = 0; i < m; ++i) {
-                OreSpawnMain.setBlockFast(world, cposx + m, cposy + j + i, cposz, Blocks.stained_hardened_clay, blk_color, 2);
-                OreSpawnMain.setBlockFast(world, cposx - (m + 1), cposy + j + i, cposz, Blocks.stained_hardened_clay, blk_color, 2);
+                OreSpawnMain
+                    .setBlockFast(world, cposx + m, cposy + j + i, cposz, Blocks.stained_hardened_clay, blk_color, 2);
+                OreSpawnMain.setBlockFast(
+                    world,
+                    cposx - (m + 1),
+                    cposy + j + i,
+                    cposz,
+                    Blocks.stained_hardened_clay,
+                    blk_color,
+                    2);
             }
 
             for (int i = -(m + 1); i <= m; ++i) {
-                OreSpawnMain.setBlockFast(world, cposx + i, cposy + j + m, cposz, Blocks.stained_hardened_clay, blk_color, 2);
+                OreSpawnMain
+                    .setBlockFast(world, cposx + i, cposy + j + m, cposz, Blocks.stained_hardened_clay, blk_color, 2);
             }
         }
 
@@ -6236,9 +7313,11 @@ public class GenericDungeon
         for (int xOffset : new int[] { 2, -3 }) {
             for (int yOffset : new int[] { 0, 1 }) {
                 world.setBlock(cposx + xOffset, cposy + j + yOffset, cposz, Blocks.mob_spawner, 0, 2);
-                TileEntityMobSpawner tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + xOffset, cposy + j + yOffset, cposz);
+                TileEntityMobSpawner tileentitymobspawner = this
+                    .getSpawnerTileEntity(world, cposx + xOffset, cposy + j + yOffset, cposz);
                 if (tileentitymobspawner != null) {
-                    tileentitymobspawner.func_145881_a().setEntityName("Cloud Shark");
+                    tileentitymobspawner.func_145881_a()
+                        .setEntityName("Cloud Shark");
                 }
             }
         }
@@ -6249,7 +7328,8 @@ public class GenericDungeon
             world.setBlockMetadataWithNotify(cposx + xOffset, cposy + j, cposz, 2, 3);
             TileEntityChest chest = this.getChestTileEntity(world, cposx + xOffset, cposy + j, cposz);
             if (chest != null) {
-                WeightedRandomChestContent.generateChestContents(world.rand, this.RainbowContentsList, chest, 10 + world.rand.nextInt(5));
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, this.RainbowContentsList, chest, 10 + world.rand.nextInt(5));
             }
         }
     }
@@ -6487,8 +7567,9 @@ public class GenericDungeon
         }
     }
 
-
-    public void buildLevelQ(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height, final int pw, final String critter, final int stepside, final int stepoff, final int holelen, final int decor, final int level) {
+    public void buildLevelQ(final World world, final int cposx, final int cposy, final int cposz, final int width,
+        final int height, final int pw, final String critter, final int stepside, final int stepoff, final int holelen,
+        final int decor, final int level) {
         for (int i = -pw; i < width + pw; ++i) {
             for (int j = 1; j < height; ++j) {
                 for (int k = -pw; k < width + pw; ++k) {
@@ -6544,8 +7625,7 @@ public class GenericDungeon
             if (stepside != 0) {
                 final int k = -1;
                 this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.obsidian);
-            }
-            else {
+            } else {
                 final int k = width;
                 this.FastSetBlock(world, cposx + i, cposy + j, cposz + k, Blocks.obsidian);
             }
@@ -6556,8 +7636,7 @@ public class GenericDungeon
             if (stepside == 0) {
                 k = -1;
                 k -= stepoff;
-            }
-            else {
+            } else {
                 k = width;
                 k += stepoff;
             }
@@ -6572,60 +7651,76 @@ public class GenericDungeon
             world.setBlock(cposx - (pw - 1), cposy + j + 1, cposz - (pw - 1), Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - (pw - 1), cposy + j + 1, cposz - (pw - 1));
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx - (pw - 1), cposy + j + 1, cposz + width + (pw - 2), Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx - (pw - 1), cposy + j + 1, cposz + width + (pw - 2));
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx - (pw - 1), cposy + j + 1, cposz + width + (pw - 2));
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width + (pw - 2), cposy + j + 1, cposz - (pw - 1), Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width + (pw - 2), cposy + j + 1, cposz - (pw - 1));
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width + (pw - 2), cposy + j + 1, cposz - (pw - 1));
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width + (pw - 2), cposy + j + 1, cposz + width + (pw - 2), Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width + (pw - 2), cposy + j + 1, cposz + width + (pw - 2));
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width + (pw - 2), cposy + j + 1, cposz + width + (pw - 2));
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
         }
         this.addLevelDecorationsQ(world, cposx, cposy, cposz, width, height, decor, level);
     }
 
-    public void addLevelDecorationsQ(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height, final int decor, final int difficulty) {
+    public void addLevelDecorationsQ(final World world, final int cposx, final int cposy, final int cposz,
+        final int width, final int height, final int decor, final int difficulty) {
         TileEntityMobSpawner tileentitymobspawner = null;
         int reward = 1;
         String critter = "T. Rex";
         if (decor == 6) {
             this.FastSetBlock(world, cposx, cposy + height, cposz, Blocks.netherrack);
-            this.FastSetBlock(world, cposx, cposy + height + 1, cposz, (Block)Blocks.fire);
+            this.FastSetBlock(world, cposx, cposy + height + 1, cposz, (Block) Blocks.fire);
             this.FastSetBlock(world, cposx, cposy + height, cposz + width - 1, Blocks.netherrack);
-            this.FastSetBlock(world, cposx, cposy + height + 1, cposz + width - 1, (Block)Blocks.fire);
+            this.FastSetBlock(world, cposx, cposy + height + 1, cposz + width - 1, (Block) Blocks.fire);
             this.FastSetBlock(world, cposx + width - 1, cposy + height, cposz, Blocks.netherrack);
-            this.FastSetBlock(world, cposx + width - 1, cposy + height + 1, cposz, (Block)Blocks.fire);
+            this.FastSetBlock(world, cposx + width - 1, cposy + height + 1, cposz, (Block) Blocks.fire);
             this.FastSetBlock(world, cposx + width - 1, cposy + height, cposz + width - 1, Blocks.netherrack);
-            this.FastSetBlock(world, cposx + width - 1, cposy + height + 1, cposz + width - 1, (Block)Blocks.fire);
+            this.FastSetBlock(world, cposx + width - 1, cposy + height + 1, cposz + width - 1, (Block) Blocks.fire);
             this.FastSetBlock(world, cposx + width / 2, cposy + height, cposz + width / 2, Blocks.air);
             world.setBlock(cposx + width / 2 - 1, cposy + height + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 - 1, cposy + height + 2, cposz + width / 2);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width / 2 - 1, cposy + height + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Nightmare");
             }
             world.setBlock(cposx + width / 2 + 1, cposy + height + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2 + 1, cposy + height + 2, cposz + width / 2);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width / 2 + 1, cposy + height + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Nightmare");
             }
             world.setBlock(cposx + width / 2, cposy + height + 2, cposz + width / 2 - 1, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + height + 2, cposz + width / 2 - 1);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width / 2, cposy + height + 2, cposz + width / 2 - 1);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Nightmare");
             }
             world.setBlock(cposx + width / 2, cposy + height + 2, cposz + width / 2 + 1, Blocks.mob_spawner, 0, 2);
-            tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + height + 2, cposz + width / 2 + 1);
+            tileentitymobspawner = this
+                .getSpawnerTileEntity(world, cposx + width / 2, cposy + height + 2, cposz + width / 2 + 1);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Nightmare");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Nightmare");
             }
             for (int i = 1; i < width - 1; ++i) {
                 for (int j = 1; j < 5; ++j) {
@@ -6637,17 +7732,20 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Large Worm");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Large Worm");
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Large Worm");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Large Worm");
             }
             world.setBlock(cposx + width / 2, cposy + 4, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 4, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Large Worm");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Large Worm");
             }
             for (int j = 0; j < 10; ++j) {
                 this.FastSetBlock(world, cposx + 1, cposy + j, cposz + 1, Blocks.air);
@@ -6666,12 +7764,14 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             for (int j = 1; j < 5; ++j) {
                 this.FastSetBlock(world, cposx + width / 2 - 1, cposy + j, cposz + width / 2, Blocks.bedrock);
@@ -6699,12 +7799,14 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             for (int j = 1; j < 5; ++j) {
                 this.FastSetBlock(world, cposx + width / 2 - 1, cposy + j, cposz + width / 2, Blocks.bedrock);
@@ -6736,12 +7838,14 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             for (int j = 1; j < 5; ++j) {
                 this.FastSetBlock(world, cposx + width / 2 - 1, cposy + j, cposz + width / 2, Blocks.bedrock);
@@ -6777,12 +7881,14 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             for (int j = 1; j < 5; ++j) {
                 this.FastSetBlock(world, cposx + width / 2 - 1, cposy + j, cposz + width / 2, Blocks.bedrock);
@@ -6817,12 +7923,14 @@ public class GenericDungeon
             world.setBlock(cposx + width / 2, cposy + 2, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 2, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             world.setBlock(cposx + width / 2, cposy + 3, cposz + width / 2, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + width / 2, cposy + 3, cposz + width / 2);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName(critter);
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName(critter);
             }
             for (int j = 1; j < 5; ++j) {
                 this.FastSetBlock(world, cposx + width / 2 - 1, cposy + j, cposz + width / 2, Blocks.bedrock);
@@ -6839,7 +7947,8 @@ public class GenericDungeon
         }
     }
 
-    private void fill_chestsQ(final World world, final int cposx, final int cposy, final int cposz, final int width, final int height, final int decor, final int reward) {
+    private void fill_chestsQ(final World world, final int cposx, final int cposy, final int cposz, final int width,
+        final int height, final int decor, final int reward) {
         TileEntityChest chest = null;
         WeightedRandomChestContent[] chestContents = null;
         chestContents = this.level1ContentsList;
@@ -6855,50 +7964,50 @@ public class GenericDungeon
         if (reward == 5) {
             chestContents = this.level5ContentsList;
         }
-        world.setBlock(cposx + 1, cposy + 1, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + 1, cposy + 1, cposz + width / 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + 1, cposy + 1, cposz + width / 2, 5, 3);
         chest = this.getChestTileEntity(world, cposx + 1, cposy + 1, cposz + width / 2);
         if (chest != null) {
             if (reward == 6) {
                 chest.setInventorySlotContents(1, new ItemStack(OreSpawnMain.ThePrincessEgg, 1, 0));
-            }
-            else {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(7));
+            } else {
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(7));
             }
         }
-        world.setBlock(cposx + width - 2, cposy + 1, cposz + width / 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width - 2, cposy + 1, cposz + width / 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width - 2, cposy + 1, cposz + width / 2, 4, 3);
         chest = this.getChestTileEntity(world, cposx + width - 2, cposy + 1, cposz + width / 2);
         if (chest != null) {
             if (reward == 6) {
-                chest.setInventorySlotContents(1, new ItemStack((Item)OreSpawnMain.QueenHelmet, 1, 0));
-                chest.setInventorySlotContents(2, new ItemStack((Item)OreSpawnMain.QueenBody, 1, 0));
-            }
-            else {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(7));
+                chest.setInventorySlotContents(1, new ItemStack((Item) OreSpawnMain.QueenHelmet, 1, 0));
+                chest.setInventorySlotContents(2, new ItemStack((Item) OreSpawnMain.QueenBody, 1, 0));
+            } else {
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(7));
             }
         }
-        world.setBlock(cposx + width / 2, cposy + 1, cposz + 1, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width / 2, cposy + 1, cposz + 1, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width / 2, cposy + 1, cposz + 1, 3, 3);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + 1, cposz + 1);
         if (chest != null) {
             if (reward == 6) {
-                chest.setInventorySlotContents(1, new ItemStack((Item)OreSpawnMain.QueenLegs, 1, 0));
-                chest.setInventorySlotContents(2, new ItemStack((Item)OreSpawnMain.QueenBoots, 1, 0));
-            }
-            else {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(7));
+                chest.setInventorySlotContents(1, new ItemStack((Item) OreSpawnMain.QueenLegs, 1, 0));
+                chest.setInventorySlotContents(2, new ItemStack((Item) OreSpawnMain.QueenBoots, 1, 0));
+            } else {
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(7));
             }
         }
-        world.setBlock(cposx + width / 2, cposy + 1, cposz + width - 2, (Block)Blocks.chest, 0, 2);
+        world.setBlock(cposx + width / 2, cposy + 1, cposz + width - 2, (Block) Blocks.chest, 0, 2);
         world.setBlockMetadataWithNotify(cposx + width / 2, cposy + 1, cposz + width - 2, 2, 3);
         chest = this.getChestTileEntity(world, cposx + width / 2, cposy + 1, cposz + width - 2);
         if (chest != null) {
             if (reward == 6) {
                 chest.setInventorySlotContents(1, new ItemStack(OreSpawnMain.MyRoyal, 1, 0));
-            }
-            else {
-                WeightedRandomChestContent.generateChestContents(world.rand, chestContents, (IInventory)chest, 5 + world.rand.nextInt(7));
+            } else {
+                WeightedRandomChestContent
+                    .generateChestContents(world.rand, chestContents, (IInventory) chest, 5 + world.rand.nextInt(7));
             }
         }
     }
@@ -6926,33 +8035,42 @@ public class GenericDungeon
             world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Spider Driver");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Spider Driver");
             }
             k = 19;
             i = 19;
             world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Spider Driver");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Spider Driver");
             }
             k = 0;
             i = 19;
             world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Spider Driver");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Spider Driver");
             }
             k = 19;
             i = 0;
             world.setBlock(cposx + i, cposy + j, cposz + k, Blocks.mob_spawner, 0, 2);
             tileentitymobspawner = this.getSpawnerTileEntity(world, cposx + i, cposy + j, cposz + k);
             if (tileentitymobspawner != null) {
-                tileentitymobspawner.func_145881_a().setEntityName("Spider Driver");
+                tileentitymobspawner.func_145881_a()
+                    .setEntityName("Spider Driver");
             }
         }
         var8 = EntityList.createEntityByName("Robot Spider", world);
         if (var8 != null) {
-            var8.setLocationAndAngles((double)(cposx + 10), (double)(cposy + 1), (double)(cposz + 10), world.rand.nextFloat() * 360.0f, 0.0f);
+            var8.setLocationAndAngles(
+                (double) (cposx + 10),
+                (double) (cposy + 1),
+                (double) (cposz + 10),
+                world.rand.nextFloat() * 360.0f,
+                0.0f);
             world.spawnEntityInWorld(var8);
         }
     }
@@ -6978,7 +8096,12 @@ public class GenericDungeon
         }
         var8 = EntityList.createEntityByName("Robot Red Ant", world);
         if (var8 != null) {
-            var8.setLocationAndAngles((double)(cposx + 8), (double)(cposy + 1), (double)(cposz + 8), world.rand.nextFloat() * 360.0f, 0.0f);
+            var8.setLocationAndAngles(
+                (double) (cposx + 8),
+                (double) (cposy + 1),
+                (double) (cposz + 8),
+                world.rand.nextFloat() * 360.0f,
+                0.0f);
             world.spawnEntityInWorld(var8);
         }
     }

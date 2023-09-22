@@ -1,7 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.unused;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
@@ -9,6 +8,9 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+
 // todo maybe add an utility for this dungeon
 public class NightmareDungeon {
 

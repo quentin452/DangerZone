@@ -1,6 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.animation;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -8,13 +16,6 @@ import fr.iamacat.dangerzone_iamacatfr.util.libs.MCAClientLibrary.MCAModelRender
 import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.IMCAnimatedEntity;
 import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math.Quaternion;
 import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.math.Vector3f;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.Entity;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public abstract class AnimationHandler {
 

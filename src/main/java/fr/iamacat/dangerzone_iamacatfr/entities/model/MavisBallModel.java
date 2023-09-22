@@ -1,8 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.MavisInstance;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
@@ -11,6 +9,9 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.MavisInstance;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 
 public class MavisBallModel extends EntityThrowable implements IProjectile {
 

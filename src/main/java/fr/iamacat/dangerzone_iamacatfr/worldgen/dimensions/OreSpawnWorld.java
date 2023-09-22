@@ -1,12 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
-import cpw.mods.fml.common.IWorldGenerator;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.Trees;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.items.ItemAppleSeed;
-import fr.iamacat.dangerzone_iamacatfr.items.ItemMagicApple;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -22,7 +18,12 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-import java.util.Random;
+import cpw.mods.fml.common.IWorldGenerator;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.Trees;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.items.ItemAppleSeed;
+import fr.iamacat.dangerzone_iamacatfr.items.ItemMagicApple;
 
 public class OreSpawnWorld implements IWorldGenerator {
 
@@ -130,9 +131,9 @@ public class OreSpawnWorld implements IWorldGenerator {
             return;
         }
         if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID4) {
-          // if (OreSpawnWorld.recently_placed == 0 && random.nextInt(100) == 0
-          //      && this.D4BigSpaceCheck(world, chunkX * 16, 7, chunkZ * 16)) {
-                if (OreSpawnWorld.recently_placed == 0 && random.nextInt(100) == 0) {
+            // if (OreSpawnWorld.recently_placed == 0 && random.nextInt(100) == 0
+            // && this.D4BigSpaceCheck(world, chunkX * 16, 7, chunkZ * 16)) {
+            if (OreSpawnWorld.recently_placed == 0 && random.nextInt(100) == 0) {
                 final int i = random.nextInt(19);
                 if (i < 3) {
                     this.addD4Castle(world, random, chunkX * 16, chunkZ * 16);
@@ -2627,6 +2628,7 @@ public class OreSpawnWorld implements IWorldGenerator {
         }
         return false;
     }
+
     public boolean addD4EnderCastle(final World world, final Random random, final int chunkX, final int chunkZ) {
         if (OreSpawnMain.LessLag != 0 && random.nextInt(2) != 0) {
             return false;

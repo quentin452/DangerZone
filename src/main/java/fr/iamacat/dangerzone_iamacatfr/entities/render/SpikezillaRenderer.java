@@ -1,19 +1,23 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.SpikezillaInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.SpikezillaModel;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
 
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.SpikezillaInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.SpikezillaModel;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class SpikezillaRenderer extends RenderLiving {
+
     private static final ResourceLocation TEXTURE = new ResourceLocation(Tags.MODID, "textures/entity/spikezilla.png");
     protected SpikezillaModel model;
     private final float scale;
+
     public SpikezillaRenderer(SpikezillaModel par1ModelBase, float par2, float par3) {
         super(par1ModelBase, par2 * par3);
         this.model = (SpikezillaModel) this.mainModel;

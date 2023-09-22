@@ -1,14 +1,15 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.SpiderDriver;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelSpider;
 import net.minecraft.client.renderer.entity.RenderSpider;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.util.ResourceLocation;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.SpiderDriver;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderSpiderDriver extends RenderSpider {
 
@@ -17,7 +18,7 @@ public class RenderSpiderDriver extends RenderSpider {
     public RenderSpiderDriver(final ModelSpider modelSpider, final float par2) {}
 
     public void renderSpiderDriver(final SpiderDriver par1EntitySpiderDriver, final double par2, final double par4,
-                                   final double par6, final float par8, final float par9) {
+        final double par6, final float par8, final float par9) {
         super.doRender(par1EntitySpiderDriver, par2, par4, par6, par8, par9);
     }
 
@@ -40,6 +41,6 @@ public class RenderSpiderDriver extends RenderSpider {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":spiderdriver.png");
+        texture = new ResourceLocation(Tags.MODID + ":spiderdriver.png");
     }
 }

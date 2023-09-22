@@ -1,17 +1,18 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EasterBunny;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelEasterBunny;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EasterBunny;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelEasterBunny;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderEasterBunny extends RenderLiving {
 
@@ -27,7 +28,7 @@ public class RenderEasterBunny extends RenderLiving {
     }
 
     public void renderEasterBunny(final EasterBunny par1EntityEasterBunny, final double par2, final double par4,
-                                  final double par6, final float par8, final float par9) {
+        final double par6, final float par8, final float par9) {
         super.doRender(par1EntityEasterBunny, par2, par4, par6, par8, par9);
     }
 
@@ -58,6 +59,6 @@ public class RenderEasterBunny extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":EasterBunnytexture.png");
+        texture = new ResourceLocation(Tags.MODID + ":EasterBunnytexture.png");
     }
 }

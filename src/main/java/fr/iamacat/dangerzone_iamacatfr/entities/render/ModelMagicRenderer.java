@@ -1,14 +1,16 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.PowerOrbsInstance;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.MagicModel;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.PowerOrbsInstance;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.MagicModel;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class ModelMagicRenderer extends RenderLiving {
 
@@ -64,10 +66,10 @@ public class ModelMagicRenderer extends RenderLiving {
     }
 
     static {
-        m = new ResourceLocation(Tags.MODID+":Magic1.png");
-        m2 = new ResourceLocation(Tags.MODID+":");
-        m3 = new ResourceLocation(Tags.MODID+":");
-        m4 = new ResourceLocation(Tags.MODID+":");
-        m10 = new ResourceLocation(Tags.MODID+":");
+        m = new ResourceLocation(Tags.MODID + ":Magic1.png");
+        m2 = new ResourceLocation(Tags.MODID + ":");
+        m3 = new ResourceLocation(Tags.MODID + ":");
+        m4 = new ResourceLocation(Tags.MODID + ":");
+        m10 = new ResourceLocation(Tags.MODID + ":");
     }
 }

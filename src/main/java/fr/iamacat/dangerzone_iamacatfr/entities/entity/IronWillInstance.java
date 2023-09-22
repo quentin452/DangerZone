@@ -1,9 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.render.MinotaurInfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -22,10 +24,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.MinotaurInfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 // todo add a spawn for this entity
 public class IronWillInstance extends EntityMob {
 
@@ -333,7 +335,7 @@ public class IronWillInstance extends EntityMob {
                 if (this.worldObj.rand.nextInt(10) == 1) {
                     this.ChargeAtPlayer(e);
                 } else if (this.getDistanceSqToEntity((Entity) e) < (8.8f + e.width / 2.0f) * (8.8f + e.width / 2.0f)) {
-                    this.setAttacking( 1);
+                    this.setAttacking(1);
                     this.attackEntityAsMob((Entity) e);
                     if (!this.worldObj.isRemote) {
                         if (this.worldObj.rand.nextInt(3) == 1) {
@@ -347,7 +349,7 @@ public class IronWillInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.2);
                 }
             } else {
-                this.setAttacking( 0);
+                this.setAttacking(0);
             }
         }
         if (this.worldObj.rand.nextInt(60) == 1 && this.getHealth() < this.mygetMaxHealth()) {
@@ -440,7 +442,6 @@ public class IronWillInstance extends EntityMob {
     public final void setAttacking(final int par1) {
         this.dataWatcher.updateObject(20, par1);
     }
-
 
     public boolean getCanSpawnHere() {
         for (int k = -3; k < 3; ++k) {

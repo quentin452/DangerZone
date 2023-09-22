@@ -1,13 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.api;
 
-import com.google.common.base.CharMatcher;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Optional;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+
+import com.google.common.base.CharMatcher;
 
 public enum CustomEntityList {
 

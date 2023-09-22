@@ -1,8 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityCage;
 import net.minecraft.entity.Entity;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityCage;
 
 public class RenderCage extends RenderSpinner {
 

@@ -1,9 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,6 +7,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class StairsAcross extends Item {
 
@@ -81,13 +82,7 @@ public class StairsAcross extends Item {
             if ((k - 1) % 8 == 0) {
                 bid = world.getBlock(cposx + k * deltax, cposy + 1, cposz + k * deltaz); // Augmentez y de 1
                 if (bid == Blocks.air) {
-                    world.setBlock(
-                        cposx + k * deltax,
-                        cposy + 1,
-                        cposz + k * deltaz,
-                        OreSpawnMain.ExtremeTorch,
-                        0,
-                        2);
+                    world.setBlock(cposx + k * deltax, cposy + 1, cposz + k * deltaz, OreSpawnMain.ExtremeTorch, 0, 2);
                 }
             }
         }

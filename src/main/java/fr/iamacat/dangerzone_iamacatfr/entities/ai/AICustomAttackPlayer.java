@@ -1,11 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
+import java.util.List;
+
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
-
-import java.util.List;
 
 public class AICustomAttackPlayer extends EntityAIBase {
 

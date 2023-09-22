@@ -1,11 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Kraken;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,9 +13,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Kraken;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class KrakenRepellent extends BlockTorch {
 
@@ -134,7 +135,8 @@ public class KrakenRepellent extends BlockTorch {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5));
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5));
     }
 }

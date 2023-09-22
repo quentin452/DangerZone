@@ -1,9 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -22,9 +23,9 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 
 public class UltimateFishHook extends EntityFishHook {
 
@@ -194,14 +195,14 @@ public class UltimateFishHook extends EntityFishHook {
                 if (this.field_146042_b != null) {
                     final ItemStack itemstack = this.field_146042_b.getCurrentEquippedItem();
                     if (itemstack != null && itemstack.getItem() != null) {
-                if (this.field_146042_b.isDead || !this.field_146042_b.isEntityAlive()
-                    || itemstack == null
-                    || itemstack.getItem() != OreSpawnMain.MyUltimateFishingRod
-                    || this.getDistanceSqToEntity(this.field_146042_b) > 1024.0) {
-                    this.setDead();
-                    this.field_146042_b.fishEntity = null;
-                    return;
-                }
+                        if (this.field_146042_b.isDead || !this.field_146042_b.isEntityAlive()
+                            || itemstack == null
+                            || itemstack.getItem() != OreSpawnMain.MyUltimateFishingRod
+                            || this.getDistanceSqToEntity(this.field_146042_b) > 1024.0) {
+                            this.setDead();
+                            this.field_146042_b.fishEntity = null;
+                            return;
+                        }
                     } else {
                         // Gérez le cas où itemstack ou son item est null
                     }

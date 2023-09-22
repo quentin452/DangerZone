@@ -1,9 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.TragicBoss;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.minibosses.TragicMiniBoss;
-import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityProjectile;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Calendar;
+import java.util.List;
+
 import net.minecraft.entity.*;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.boss.EntityWither;
@@ -22,8 +21,10 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Calendar;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.TragicBoss;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.minibosses.TragicMiniBoss;
+import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EntityProjectile;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public abstract class TragicMob extends EntityMob {
 
@@ -75,7 +76,7 @@ public abstract class TragicMob extends EntityMob {
     }
 
     public void setSupport(boolean flag) {
-        this.dataWatcher.updateObject(13, flag ?  1 : 0);
+        this.dataWatcher.updateObject(13, flag ? 1 : 0);
     }
 
     @Override
@@ -216,13 +217,13 @@ public abstract class TragicMob extends EntityMob {
          * if (this.canChange() && this.getCorruptionTicks() >= 400 && this.rand.nextInt(200) <=
          * TragicConfig.mobTransformationChance && this.ticksExisted % 20 == 0 && rand.nextInt(4) == 0)
          * {
-         * this.dataWatcher.updateObject(14,  1);
+         * this.dataWatcher.updateObject(14, 1);
          * }
          * }
          * else if (this.canChange() && this.ticksExisted >= 6000 && this.ticksExisted % 20 == 0 &&
          * this.rand.nextInt(100) <= TragicConfig.mobTransformationChance)
          * {
-         * this.dataWatcher.updateObject(14,  1);
+         * this.dataWatcher.updateObject(14, 1);
          * }
          */
     }
@@ -236,7 +237,7 @@ public abstract class TragicMob extends EntityMob {
             this.worldObj.spawnEntityInWorld(boss);
             boss.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 200, 2));
             boss.addPotionEffect(new PotionEffect(Potion.resistance.id, 200, 2));
-            boss.dataWatcher.updateObject(14,  0);
+            boss.dataWatcher.updateObject(14, 0);
             boss.playSound(Tags.MODID + ":random.change", 1.0F, 1.0F);
         }
     }

@@ -1,9 +1,10 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.model.BeeModel;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.model.BeeModel;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class BeeRenderer extends BossRenderer {
 

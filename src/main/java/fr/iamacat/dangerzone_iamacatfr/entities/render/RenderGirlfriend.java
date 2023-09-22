@@ -1,16 +1,17 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Girlfriend;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Girlfriend;
 
 public class RenderGirlfriend extends RenderBiped {
 
@@ -22,7 +23,7 @@ public class RenderGirlfriend extends RenderBiped {
     }
 
     public void renderGirlfriend(final Girlfriend par1EntityGirlfriend, final double par2, final double par4,
-                                 final double par6, final float par8, final float par9) {
+        final double par6, final float par8, final float par9) {
         super.doRender(par1EntityGirlfriend, par2, par4, par6, par8, par9);
     }
 

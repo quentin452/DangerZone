@@ -1,10 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,7 +14,10 @@ import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class BlockMothPlant extends BlockCrops {
 
@@ -87,7 +88,7 @@ public class BlockMothPlant extends BlockCrops {
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
         this.field_94364_a = new IIcon[4];
         for (int i = 0; i < this.field_94364_a.length; ++i) {
-            this.field_94364_a[i] = par1IIconRegister.registerIcon(Tags.MODID +":moth_" + i);
+            this.field_94364_a[i] = par1IIconRegister.registerIcon(Tags.MODID + ":moth_" + i);
         }
     }
 }

@@ -1,16 +1,18 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Hammerhead;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelHammerhead;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Hammerhead;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelHammerhead;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderHammerhead extends RenderLiving {
 
@@ -26,7 +28,7 @@ public class RenderHammerhead extends RenderLiving {
     }
 
     public void renderHammerhead(final Hammerhead par1EntityHammerhead, final double par2, final double par4,
-                                 final double par6, final float par8, final float par9) {
+        final double par6, final float par8, final float par9) {
         super.doRender(par1EntityHammerhead, par2, par4, par6, par8, par9);
     }
 
@@ -53,6 +55,6 @@ public class RenderHammerhead extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":Hammerheadtexture.png");
+        texture = new ResourceLocation(Tags.MODID + ":Hammerheadtexture.png");
     }
 }

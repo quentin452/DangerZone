@@ -1,7 +1,8 @@
 package fr.iamacat.dangerzone_iamacatfr.util;
 
-import fr.iamacat.dangerzone_iamacatfr.spawnable.SpawnEggs;
 import net.minecraft.item.Item;
+
+import fr.iamacat.dangerzone_iamacatfr.spawnable.SpawnEggs;
 
 public class Constants {
 

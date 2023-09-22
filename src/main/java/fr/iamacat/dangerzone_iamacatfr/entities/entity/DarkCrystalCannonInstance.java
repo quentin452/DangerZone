@@ -1,13 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 
 public class DarkCrystalCannonInstance extends EntityThrowable {
 
@@ -31,9 +32,7 @@ public class DarkCrystalCannonInstance extends EntityThrowable {
     protected void onImpact(final MovingObjectPosition par1MovingObjectPosition) {
         if (par1MovingObjectPosition.entityHit != null) {
             final Entity e = par1MovingObjectPosition.entityHit;
-            e.attackEntityFrom(
-                DamageSource.causeMobDamage(this.getThrower()),
-                (float) 9750);
+            e.attackEntityFrom(DamageSource.causeMobDamage(this.getThrower()), (float) 9750);
             final float var2 = 40.0f;
             if (MobUtils.isPony(par1MovingObjectPosition.entityHit)) {
                 this.setDead();

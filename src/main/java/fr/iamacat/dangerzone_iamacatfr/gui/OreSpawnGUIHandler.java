@@ -1,13 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.gui;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+
 import cpw.mods.fml.common.network.IGuiHandler;
 import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.ContainerCrystalFurnace;
 import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.ContainerCrystalWorkbench;
 import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 
 public class OreSpawnGUIHandler implements IGuiHandler {
 

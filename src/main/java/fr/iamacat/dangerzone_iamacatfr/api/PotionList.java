@@ -1,8 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.api;
 
-import com.google.common.base.Optional;
 import net.minecraft.potion.Potion;
+
+import com.google.common.base.Optional;
 
 public enum PotionList {
 

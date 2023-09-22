@@ -4,7 +4,6 @@ package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 import java.util.List;
 import java.util.Random;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
@@ -15,6 +14,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
+
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 
 public class ChunkProviderOreSpawn4 implements IChunkProvider {
 

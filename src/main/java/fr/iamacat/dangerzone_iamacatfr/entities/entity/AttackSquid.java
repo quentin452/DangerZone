@@ -1,11 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
@@ -29,9 +28,11 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class AttackSquid extends EntityMob {
 
@@ -416,7 +417,8 @@ public class AttackSquid extends EntityMob {
             ret = true;
         }
         ret = super.attackEntityFrom(par1DamageSource, par2);
-        if ((this.getHealth() <= 0.0f || this.isDead) && this.worldObj.provider.dimensionId != DimensionInitDangerZone.DimensionID5
+        if ((this.getHealth() <= 0.0f || this.isDead)
+            && this.worldObj.provider.dimensionId != DimensionInitDangerZone.DimensionID5
             && !this.worldObj.isRemote
             && e != null
             && e instanceof EntityPlayer
@@ -496,13 +498,15 @@ public class AttackSquid extends EntityMob {
                         if (target != this.currentTarget || distanceSquared != this.currentDistanceSquared) {
                             this.currentTarget = target;
                             this.currentDistanceSquared = distanceSquared;
-                            this.getNavigator().tryMoveToEntityLiving(target, 1.2);
+                            this.getNavigator()
+                                .tryMoveToEntityLiving(target, 1.2);
                         }
                         this.watercanon(target);
                     }
                 } else {
                     if (this.buddy != null) {
-                        this.getNavigator().tryMoveToEntityLiving(this.buddy, 1.0);
+                        this.getNavigator()
+                            .tryMoveToEntityLiving(this.buddy, 1.0);
                     }
                     this.setAttacking(0);
                 }
@@ -517,7 +521,8 @@ public class AttackSquid extends EntityMob {
             int y = (int) this.posY - 1;
             int z = (int) this.posZ;
             Block block = getBlock(x, y, z);
-            if (block != null && !block.getMaterial().isSolid()) {
+            if (block != null && !block.getMaterial()
+                .isSolid()) {
                 return false;
             }
         }
@@ -527,7 +532,6 @@ public class AttackSquid extends EntityMob {
     private Block getBlock(int x, int y, int z) {
         return this.worldObj.getBlock(x, y, z);
     }
-
 
     private void watercanon(final EntityLivingBase e) {
         final double yoff = 1.0;

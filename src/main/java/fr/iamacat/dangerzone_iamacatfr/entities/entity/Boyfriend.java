@@ -1,13 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIJealousy;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAINearestAttackableTarget;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
-import fr.iamacat.dangerzone_iamacatfr.items.ItemOreSpawnArmor;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -29,6 +22,14 @@ import net.minecraft.potion.Potion;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIJealousy;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAINearestAttackableTarget;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
+import fr.iamacat.dangerzone_iamacatfr.items.ItemOreSpawnArmor;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class Boyfriend extends EntityTameable implements IRangedAttackMob {
 
@@ -570,17 +571,17 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                             par1EntityPlayer.getUniqueID()
                                 .toString());
                         this.playTameEffect(true);
-                        this.worldObj.setEntityState(this,   (byte)7);
+                        this.worldObj.setEntityState(this, (byte) 7);
                         this.heal(this.mygetMaxHealth() - this.getHealth());
                     } else {
                         this.playTameEffect(false);
-                        this.worldObj.setEntityState(this,   (byte)6);
+                        this.worldObj.setEntityState(this, (byte) 6);
                     }
                 }
             } else if (this.func_152114_e(par1EntityPlayer)) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this,  (byte) 7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 }
                 if (this.mygetMaxHealth() > this.getHealth()) {
                     this.heal(this.mygetMaxHealth() - this.getHealth());
@@ -603,7 +604,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 this.setTamed(false);
                 this.func_152115_b("");
                 this.playTameEffect(false);
-                this.worldObj.setEntityState(this,   (byte)6);
+                this.worldObj.setEntityState(this, (byte) 6);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack2 = var2;
@@ -622,7 +623,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 this.voice_enable = 0;
                 this.dataWatcher.updateObject(23, (Object) this.voice_enable);
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this,   (byte)7);
+                this.worldObj.setEntityState(this, (byte) 7);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack3 = var2;
@@ -641,7 +642,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 this.voice_enable = 1;
                 this.dataWatcher.updateObject(23, (Object) this.voice_enable);
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this,   (byte)7);
+                this.worldObj.setEntityState(this, (byte) 7);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack4 = var2;
@@ -663,7 +664,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                         this.which_wet_guy = 0;
                     }
                     this.setWetTameSkin(this.which_wet_guy);
-                    this.worldObj.setEntityState(this,   (byte)7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                     if (this.isInWater() || this.handleLavaMovement()) {
                         this.wet_count = 500;
                     }
@@ -673,7 +674,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                         this.which_guy = 0;
                     }
                     this.setTameSkin(this.which_guy);
-                    this.worldObj.setEntityState(this, (byte)  7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 }
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
@@ -695,7 +696,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                         this.heal((float) (var3.func_150905_g(var2) * 5));
                     }
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte)  7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 }
                 if (!par1EntityPlayer.capabilities.isCreativeMode) {
                     final ItemStack itemStack6 = var2;
@@ -708,7 +709,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
             } else {
                 if (!this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this,   (byte)7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 }
                 final ItemStack var4 = this.getCurrentEquippedItem();
                 this.setCurrentItemOrArmor(0, var2);
@@ -761,7 +762,7 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 par1EntityPlayer.getUniqueID()
                     .toString());
             this.playTameEffect(true);
-            this.worldObj.setEntityState(this,   (byte)7);
+            this.worldObj.setEntityState(this, (byte) 7);
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack7 = var2;
                 --itemStack7.stackSize;
@@ -811,12 +812,12 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
                 this.setCurrentItemOrArmor(it, null);
                 this.setSitting(false);
                 if (!this.worldObj.isRemote) {
-                    this.worldObj.setEntityState(this,   (byte)6);
+                    this.worldObj.setEntityState(this, (byte) 6);
                 }
             } else if (!this.worldObj.isRemote) {
                 this.setSitting(false);
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this,   (byte)7);
+                this.worldObj.setEntityState(this, (byte) 7);
                 String healthMessage = new String();
                 healthMessage = String.format("I have %d health. Thanks for asking!", this.getBoyfriendHealth());
                 par1EntityPlayer.addChatComponentMessage((IChatComponent) new ChatComponentText(healthMessage));
@@ -1097,53 +1098,53 @@ public class Boyfriend extends EntityTameable implements IRangedAttackMob {
     }
 
     static {
-        DryTexture0 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend0.png");
-        DryTexture1 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend1.png");
-        DryTexture2 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend2.png");
-        DryTexture3 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend3.png");
-        DryTexture4 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend4.png");
-        DryTexture5 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend5.png");
-        DryTexture6 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend6.png");
-        DryTexture7 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend7.png");
-        DryTexture8 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend8.png");
-        DryTexture9 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend9.png");
-        DryTexture10 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend10.png");
-        DryTexture11 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend11.png");
-        DryTexture12 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend12.png");
-        DryTexture13 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend13.png");
-        DryTexture14 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend14.png");
-        DryTexture15 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend15.png");
-        DryTexture16 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend16.png");
-        DryTexture17 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend17.png");
-        DryTexture18 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend18.png");
-        DryTexture19 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend19.png");
-        DryTexture20 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend20.png");
-        DryTexture21 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend21.png");
-        DryTexture22 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend22.png");
-        DryTexture23 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend23.png");
-        DryTexture24 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend24.png");
-        DryTexture25 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend25.png");
-        DryTexture26 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend26.png");
-        DryTexture27 = new ResourceLocation(Tags.MODID+":textures/entity/boyfriend27.png");
-        WetTexture0 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts0.png");
-        WetTexture1 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts1.png");
-        WetTexture2 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts2.png");
-        WetTexture3 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts3.png");
-        WetTexture4 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts4.png");
-        WetTexture5 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts5.png");
-        WetTexture6 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts6.png");
-        WetTexture7 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts7.png");
-        WetTexture8 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts8.png");
-        WetTexture9 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts9.png");
-        WetTexture10 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts10.png");
-        WetTexture11 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts11.png");
-        WetTexture12 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts12.png");
-        WetTexture13 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts13.png");
-        WetTexture14 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts14.png");
-        WetTexture15 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts15.png");
-        WetTexture16 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts16.png");
-        WetTexture17 = new ResourceLocation(Tags.MODID+":textures/entity/swimshorts17.png");
-        PrinceTexture1 = new ResourceLocation(Tags.MODID+":textures/entity/FrogPrince.png");
-        PrinceTexture2 = new ResourceLocation(Tags.MODID+":textures/entity/FrogPrince2.png");
+        DryTexture0 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend0.png");
+        DryTexture1 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend1.png");
+        DryTexture2 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend2.png");
+        DryTexture3 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend3.png");
+        DryTexture4 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend4.png");
+        DryTexture5 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend5.png");
+        DryTexture6 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend6.png");
+        DryTexture7 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend7.png");
+        DryTexture8 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend8.png");
+        DryTexture9 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend9.png");
+        DryTexture10 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend10.png");
+        DryTexture11 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend11.png");
+        DryTexture12 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend12.png");
+        DryTexture13 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend13.png");
+        DryTexture14 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend14.png");
+        DryTexture15 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend15.png");
+        DryTexture16 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend16.png");
+        DryTexture17 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend17.png");
+        DryTexture18 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend18.png");
+        DryTexture19 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend19.png");
+        DryTexture20 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend20.png");
+        DryTexture21 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend21.png");
+        DryTexture22 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend22.png");
+        DryTexture23 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend23.png");
+        DryTexture24 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend24.png");
+        DryTexture25 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend25.png");
+        DryTexture26 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend26.png");
+        DryTexture27 = new ResourceLocation(Tags.MODID + ":textures/entity/boyfriend27.png");
+        WetTexture0 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts0.png");
+        WetTexture1 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts1.png");
+        WetTexture2 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts2.png");
+        WetTexture3 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts3.png");
+        WetTexture4 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts4.png");
+        WetTexture5 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts5.png");
+        WetTexture6 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts6.png");
+        WetTexture7 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts7.png");
+        WetTexture8 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts8.png");
+        WetTexture9 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts9.png");
+        WetTexture10 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts10.png");
+        WetTexture11 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts11.png");
+        WetTexture12 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts12.png");
+        WetTexture13 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts13.png");
+        WetTexture14 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts14.png");
+        WetTexture15 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts15.png");
+        WetTexture16 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts16.png");
+        WetTexture17 = new ResourceLocation(Tags.MODID + ":textures/entity/swimshorts17.png");
+        PrinceTexture1 = new ResourceLocation(Tags.MODID + ":textures/entity/FrogPrince.png");
+        PrinceTexture2 = new ResourceLocation(Tags.MODID + ":textures/entity/FrogPrince2.png");
     }
 }

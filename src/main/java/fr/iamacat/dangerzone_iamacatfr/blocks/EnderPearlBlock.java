@@ -1,8 +1,9 @@
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EnderPearlBlock extends Block {
 

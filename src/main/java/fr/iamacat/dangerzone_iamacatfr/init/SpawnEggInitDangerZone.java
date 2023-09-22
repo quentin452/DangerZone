@@ -407,8 +407,6 @@ public class SpawnEggInitDangerZone {
         Constants.WaterDragonSpawnEgg = WaterDragonSpawnEgg;
         GameRegistry.registerItem(Constants.WaterDragonSpawnEgg, "Water Dragon Egg");
 
-
-
         SpawnEggs MassoSpawnEgg = new SpawnEggs(MassoInstance.class);
         MassoSpawnEgg.setUnlocalizedName("Masso Egg");
         Constants.MassoSpawnEgg = MassoSpawnEgg;

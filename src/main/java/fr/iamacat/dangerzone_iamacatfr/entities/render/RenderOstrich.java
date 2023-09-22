@@ -1,18 +1,19 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityCannonFodder;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Ostrich;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelOstrich;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityCannonFodder;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Ostrich;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelOstrich;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderOstrich extends RenderLiving {
 
@@ -30,7 +31,7 @@ public class RenderOstrich extends RenderLiving {
     }
 
     public void renderOstrich(final Ostrich par1EntityOstrich, final double par2, final double par4, final double par6,
-                              final float par8, final float par9) {
+        final float par8, final float par9) {
         super.doRender(par1EntityOstrich, par2, par4, par6, par8, par9);
     }
 
@@ -72,8 +73,8 @@ public class RenderOstrich extends RenderLiving {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":Ostrichtexture.png");
-        texture2 = new ResourceLocation(Tags.MODID+":Ostrichtexture2.png");
-        texture3 = new ResourceLocation(Tags.MODID+":Ostrichtexture3.png");
+        texture = new ResourceLocation(Tags.MODID + ":Ostrichtexture.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":Ostrichtexture2.png");
+        texture3 = new ResourceLocation(Tags.MODID + ":Ostrichtexture3.png");
     }
 }

@@ -1,10 +1,11 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.model;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 
 public class BeeModel extends ModelBase {
 

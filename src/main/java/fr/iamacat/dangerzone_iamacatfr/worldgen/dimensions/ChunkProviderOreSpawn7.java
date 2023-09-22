@@ -1,8 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon.MapGenMoreVillages;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
@@ -25,8 +26,8 @@ import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-import java.util.List;
-import java.util.Random;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon.MapGenMoreVillages;
 
 public class ChunkProviderOreSpawn7 implements IChunkProvider {
 
@@ -86,7 +87,7 @@ public class ChunkProviderOreSpawn7 implements IChunkProvider {
                 this.parabolicField[j + 2 + (k + 2) * 5] = f;
             }
         }
-        NoiseGenerator[] noiseGens = {this.field_147431_j, (NoiseGenerator) this.field_147432_k,
+        NoiseGenerator[] noiseGens = { this.field_147431_j, (NoiseGenerator) this.field_147432_k,
             (NoiseGenerator) this.field_147429_l, (NoiseGenerator) this.field_147430_m, (NoiseGenerator) this.noiseGen5,
             (NoiseGenerator) this.noiseGen6, (NoiseGenerator) this.mobSpawnerNoise };
         noiseGens = TerrainGen.getModdedNoiseGenerators(par1World, this.rand, noiseGens);
@@ -437,12 +438,12 @@ public class ChunkProviderOreSpawn7 implements IChunkProvider {
     }
 
     public List getPossibleCreatures(final EnumCreatureType par1EnumCreatureType, final int par2, final int par3,
-                                     final int par4) {
+        final int par4) {
         final BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(par2, par4);
         return (par1EnumCreatureType == EnumCreatureType.monster
             && this.scatteredFeatureGenerator.func_143030_a(par2, par3, par4))
-            ? this.scatteredFeatureGenerator.getScatteredFeatureSpawnList()
-            : biomegenbase.getSpawnableList(par1EnumCreatureType);
+                ? this.scatteredFeatureGenerator.getScatteredFeatureSpawnList()
+                : biomegenbase.getSpawnableList(par1EnumCreatureType);
     }
 
     public ChunkPosition func_147416_a(final World p_147416_1_, final String p_147416_2_, final int p_147416_3_,
@@ -461,8 +462,7 @@ public class ChunkProviderOreSpawn7 implements IChunkProvider {
             this.mineshaftGenerator.func_151539_a(this, this.worldObj, par1, par2, null);
             this.villageGenerator.func_151539_a(this, this.worldObj, par1, par2, null);
             this.strongholdGenerator.func_151539_a(this, this.worldObj, par1, par2, null);
-            this.scatteredFeatureGenerator
-                .func_151539_a(this, this.worldObj, par1, par2, null);
+            this.scatteredFeatureGenerator.func_151539_a(this, this.worldObj, par1, par2, null);
         }
     }
 }

@@ -1,10 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,7 +14,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class BlockDuctTape extends Block {
 
@@ -80,17 +81,25 @@ public class BlockDuctTape extends Block {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(final IIconRegister par1IconRegister) {
         this.blockIcon = par1IconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5) + "_side");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_side");
         this.field_94382_c = par1IconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5) + "_inner");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_inner");
         this.DuctTapeTopIcon = par1IconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5) + "_top");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_top");
         this.DuctTapeBottomIcon = par1IconRegister.registerIcon(
-            Tags.MODID + ":"+ this.getUnlocalizedName()
-                .substring(5) + "_bottom");
+            Tags.MODID + ":"
+                + this.getUnlocalizedName()
+                    .substring(5)
+                + "_bottom");
     }
 
     public boolean isOpaqueCube() {

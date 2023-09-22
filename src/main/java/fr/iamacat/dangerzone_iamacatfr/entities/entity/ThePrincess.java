@@ -1,12 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
-import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
-import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -23,10 +22,12 @@ import net.minecraft.util.*;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
+import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class ThePrincess extends EntityTameable {
 
@@ -206,7 +207,7 @@ public class ThePrincess extends EntityTameable {
                     par1EntityPlayer.getUniqueID()
                         .toString());
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this,   (byte)7);
+                this.worldObj.setEntityState(this, (byte) 7);
                 this.heal(this.mygetMaxHealth() - this.getHealth());
                 this.ok_to_grow = 1;
                 this.kill_count = 1000;
@@ -232,7 +233,7 @@ public class ThePrincess extends EntityTameable {
                     this.heal((float) (var3.func_150905_g(var2) * 10));
                 }
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this, (byte)  7);
+                this.worldObj.setEntityState(this, (byte) 7);
             }
             if (!par1EntityPlayer.capabilities.isCreativeMode) {
                 final ItemStack itemStack2 = var2;
@@ -249,7 +250,7 @@ public class ThePrincess extends EntityTameable {
             && this.func_152114_e(par1EntityPlayer)) {
             if (!this.worldObj.isRemote) {
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this,   (byte)6);
+                this.worldObj.setEntityState(this, (byte) 6);
                 this.setSpyroFire(0);
                 String healthMessage = new String();
                 healthMessage = String.format("Princess fireballs extinguished.", new Object[0]);
@@ -270,7 +271,7 @@ public class ThePrincess extends EntityTameable {
             && this.func_152114_e(par1EntityPlayer)) {
             if (!this.worldObj.isRemote) {
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this,   (byte)6);
+                this.worldObj.setEntityState(this, (byte) 6);
                 this.setSpyroFire(1);
                 String healthMessage = new String();
                 healthMessage = String.format("Princess fireballs lit!", new Object[0]);
@@ -564,7 +565,7 @@ public class ThePrincess extends EntityTameable {
                     p.getUniqueID()
                         .toString());
                 this.playTameEffect(true);
-                this.worldObj.setEntityState(this,  (byte) 7);
+                this.worldObj.setEntityState(this, (byte) 7);
                 this.heal(this.mygetMaxHealth() - this.getHealth());
             }
         }

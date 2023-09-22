@@ -1,7 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
@@ -9,8 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class ItemDecoyDragonsAdvancedFood extends ItemFood {
 

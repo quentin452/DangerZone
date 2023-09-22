@@ -1,9 +1,5 @@
 package fr.iamacat.dangerzone_iamacatfr.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,6 +7,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class MinersDream extends Item {
 
@@ -100,13 +101,7 @@ public class MinersDream extends Item {
                 || targetBlock == Blocks.bedrock)
                 && world.isAirBlock(targetX + k * deltaX, playerPosY, targetZ + k * deltaZ)) {
 
-                world.setBlock(
-                    targetX + k * deltaX,
-                    playerPosY,
-                    targetZ + k * deltaZ,
-                    OreSpawnMain.ExtremeTorch,
-                    0,
-                    2);
+                world.setBlock(targetX + k * deltaX, playerPosY, targetZ + k * deltaZ, OreSpawnMain.ExtremeTorch, 0, 2);
             }
         }
 

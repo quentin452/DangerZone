@@ -1,13 +1,14 @@
 
 package fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.animation;
 
+import java.util.ArrayList;
+
+import net.minecraft.entity.Entity;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import fr.iamacat.dangerzone_iamacatfr.util.libs.MCACommonLibrary.IMCAnimatedEntity;
-import net.minecraft.entity.Entity;
-
-import java.util.ArrayList;
 
 public class AnimTickHandler {
 

@@ -1,12 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.EnchantedCow;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.GoldCow;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.RedCow;
-import fr.iamacat.dangerzone_iamacatfr.items.CrystalCow;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelCow;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -14,7 +8,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.EnchantedCow;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.GoldCow;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.RedCow;
+import fr.iamacat.dangerzone_iamacatfr.items.CrystalCow;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderEnchantedCow extends RenderLiving {
 
@@ -66,8 +67,8 @@ public class RenderEnchantedCow extends RenderLiving {
     }
 
     static {
-        texture3 = new ResourceLocation(Tags.MODID+":textures/entity/crystal_cow.png");
-        texture1 = new ResourceLocation(Tags.MODID+":textures/entity/red_cow.png");
-        texture2 = new ResourceLocation(Tags.MODID+":textures/entity/gold_cow.png");
+        texture3 = new ResourceLocation(Tags.MODID + ":textures/entity/crystal_cow.png");
+        texture1 = new ResourceLocation(Tags.MODID + ":textures/entity/red_cow.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":textures/entity/gold_cow.png");
     }
 }

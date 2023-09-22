@@ -1,7 +1,9 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -14,8 +16,7 @@ import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
-import java.util.List;
-import java.util.Random;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 
 public class OreSpawnTeleporter extends Teleporter {
 

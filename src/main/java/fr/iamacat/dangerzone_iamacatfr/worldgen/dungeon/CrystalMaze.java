@@ -1,14 +1,15 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import java.awt.*;
+import java.util.Vector;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
-import java.awt.*;
-import java.util.Vector;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 
 public class CrystalMaze {
 
@@ -49,8 +50,7 @@ public class CrystalMaze {
         for (int k = 0; k < 4; ++k) {
             final int i = world.rand.nextInt(zw * csz);
             final int j = world.rand.nextInt(zw * csz);
-            OreSpawnMain
-                .setBlockIDWithMetadataInChunk(chunk, xx + j, yy + 3, zz + i, OreSpawnMain.CrystalStone, 0);
+            OreSpawnMain.setBlockIDWithMetadataInChunk(chunk, xx + j, yy + 3, zz + i, OreSpawnMain.CrystalStone, 0);
         }
         int i = world.rand.nextInt(zw * csz);
         int j = world.rand.nextInt(zw * csz);

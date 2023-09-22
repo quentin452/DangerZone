@@ -1,12 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -27,9 +25,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 
 public class EntityButterfly extends EntityAmbientCreature {
 
@@ -170,18 +170,19 @@ public class EntityButterfly extends EntityAmbientCreature {
                     (int) this.posY + this.rand.nextInt(6) - 2,
                     (int) this.posZ + this.rand.nextInt(7) - this.rand.nextInt(7));
             }
-        } else if (this.rand.nextInt(10) == 0 && this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4
-            && this.butterfly_type == 1
-            && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) {
-                EntityLivingBase e;
-                e = this.findSomethingToAttack();
-                if (e != null) {
-                    this.currentFlightTarget.set((int) e.posX, (int) (e.posY + 1.0), (int) e.posZ);
-                    if (this.getDistanceSqToEntity(e) < 6.0) {
-                        this.attackEntityAsMob(e);
+        } else
+            if (this.rand.nextInt(10) == 0 && this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4
+                && this.butterfly_type == 1
+                && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) {
+                    EntityLivingBase e;
+                    e = this.findSomethingToAttack();
+                    if (e != null) {
+                        this.currentFlightTarget.set((int) e.posX, (int) (e.posY + 1.0), (int) e.posZ);
+                        if (this.getDistanceSqToEntity(e) < 6.0) {
+                            this.attackEntityAsMob(e);
+                        }
                     }
                 }
-            }
         final double var1 = this.currentFlightTarget.posX + 0.5 - this.posX;
         final double var2 = this.currentFlightTarget.posY + 0.1 - this.posY;
         final double var3 = this.currentFlightTarget.posZ + 0.5 - this.posZ;
@@ -351,14 +352,14 @@ public class EntityButterfly extends EntityAmbientCreature {
     }
 
     static {
-        texture1 = new ResourceLocation(Tags.MODID+":butterfly.png");
-        texture2 = new ResourceLocation(Tags.MODID+":butterfly2.png");
-        texture3 = new ResourceLocation(Tags.MODID+":butterfly3.png");
-        texture4 = new ResourceLocation(Tags.MODID+":butterfly4.png");
-        texture5 = new ResourceLocation(Tags.MODID+":eyemoth.png");
-        texture6 = new ResourceLocation(Tags.MODID+":lunamoth.png");
-        texture7 = new ResourceLocation(Tags.MODID+":darkmoth.png");
-        texture8 = new ResourceLocation(Tags.MODID+":firemoth.png");
-        texture9 = new ResourceLocation(Tags.MODID+":vbutterfly1.png");
+        texture1 = new ResourceLocation(Tags.MODID + ":butterfly.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":butterfly2.png");
+        texture3 = new ResourceLocation(Tags.MODID + ":butterfly3.png");
+        texture4 = new ResourceLocation(Tags.MODID + ":butterfly4.png");
+        texture5 = new ResourceLocation(Tags.MODID + ":eyemoth.png");
+        texture6 = new ResourceLocation(Tags.MODID + ":lunamoth.png");
+        texture7 = new ResourceLocation(Tags.MODID + ":darkmoth.png");
+        texture8 = new ResourceLocation(Tags.MODID + ":firemoth.png");
+        texture9 = new ResourceLocation(Tags.MODID + ":vbutterfly1.png");
     }
 }

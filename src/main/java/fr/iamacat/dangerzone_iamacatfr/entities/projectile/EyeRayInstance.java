@@ -1,9 +1,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.projectile;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.util.Helper;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -21,7 +19,10 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.util.Helper;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class EyeRayInstance extends EntityLiving {
 
@@ -344,8 +345,8 @@ public class EyeRayInstance extends EntityLiving {
         var1.setShort("xTile", (short) this.xTile);
         var1.setShort("yTile", (short) this.yTile);
         var1.setShort("zTile", (short) this.zTile);
-        var1.setByte("inTile",  (byte) this.inTile);
-        var1.setByte("inGround",   (byte)(this.inGround ? 1 : 0));
+        var1.setByte("inTile", (byte) this.inTile);
+        var1.setByte("inGround", (byte) (this.inGround ? 1 : 0));
         var1.setTag("direction", this.newDoubleNBTList(this.motionX, this.motionY, this.motionZ));
 
         NBTTagList var2 = new NBTTagList();

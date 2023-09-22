@@ -1,14 +1,15 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.QueenHead;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelTheQueen;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.QueenHead;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelTheQueen;
 
 public class RenderQueenHead extends RenderLiving {
 
@@ -17,7 +18,7 @@ public class RenderQueenHead extends RenderLiving {
     }
 
     public void renderQueenHead(final QueenHead par1EntityQueenHead, final double par2, final double par4,
-                                final double par6, final float par8, final float par9) {}
+        final double par6, final float par8, final float par9) {}
 
     public void doRender(final EntityLiving par1EntityLiving, final double par2, final double par4, final double par6,
         final float par8, final float par9) {}

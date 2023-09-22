@@ -1,10 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -23,7 +21,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 
 public class Termite extends EntityAnt {
 
@@ -97,15 +98,13 @@ public class Termite extends EntityAnt {
         if (par1EntityPlayer.dimension != DimensionInitDangerZone.DimensionID5) {
             for (int i = 0; i < par1EntityPlayer.inventory.mainInventory.length; ++i) {
                 if (par1EntityPlayer.inventory.mainInventory[i] != null) {
-                    par1EntityPlayer
-                        .addChatComponentMessage(new ChatComponentText("Empty your inventory!"));
+                    par1EntityPlayer.addChatComponentMessage(new ChatComponentText("Empty your inventory!"));
                     return false;
                 }
             }
             for (int i = 0; i < par1EntityPlayer.inventory.armorInventory.length; ++i) {
                 if (par1EntityPlayer.inventory.armorInventory[i] != null) {
-                    par1EntityPlayer
-                        .addChatComponentMessage(new ChatComponentText("Take off your armor!"));
+                    par1EntityPlayer.addChatComponentMessage(new ChatComponentText("Take off your armor!"));
                     return false;
                 }
             }

@@ -1,7 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldServer;
@@ -10,6 +9,8 @@ import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.DimensionManager;
+
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 
 public class WorldProviderOreSpawn2 extends WorldProvider {
 

@@ -1,6 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import java.util.*;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,7 +21,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.*;
 public class CloudInstance extends EntityAmbientCreature {
 
     public int cloudtype;

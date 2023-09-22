@@ -1,14 +1,16 @@
 package fr.iamacat.dangerzone_iamacatfr.init;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import fr.iamacat.dangerzone_iamacatfr.items.*;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import fr.iamacat.dangerzone_iamacatfr.items.*;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class ItemInitDangerZone {
+
     public static Item dragonMeat;
     public static Item dragonMeatCooked;
     public static Item rainbowOpalGem;
@@ -18,6 +20,7 @@ public class ItemInitDangerZone {
     public static Item phoenixFeather;
     public static Item twilightStar;
     public static Item mavisOrb;
+
     public static void init() {
 
         GameRegistry.registerItem(
@@ -57,7 +60,6 @@ public class ItemInitDangerZone {
         mavisOrb = new MavisOrb().setTextureName(Tags.MODID + ":MavisOrb")
             .setUnlocalizedName("MavisOrb");
     }
-
 
     public static void register() {
         GameRegistry.registerItem(rainbowOpalGem, "rainbowOpalGem");

@@ -1,13 +1,15 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelQueenBattleAxe;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.FMLClientHandler;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelQueenBattleAxe;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderQueenBattleAxe implements IItemRenderer {
 
@@ -75,6 +77,6 @@ public class RenderQueenBattleAxe implements IItemRenderer {
     }
 
     static {
-        texture = new ResourceLocation(Tags.MODID+":QueenBattleAxetexture.png");
+        texture = new ResourceLocation(Tags.MODID + ":QueenBattleAxetexture.png");
     }
 }

@@ -1,11 +1,12 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.ai;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Boyfriend;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Girlfriend;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityTameable;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Boyfriend;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Girlfriend;
 
 public class MyEntityAIJealousy extends MyEntityAINearestAttackableTarget {
 

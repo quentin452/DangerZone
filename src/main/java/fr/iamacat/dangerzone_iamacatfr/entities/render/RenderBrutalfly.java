@@ -1,16 +1,18 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Brutalfly;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelBrutalfly;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Brutalfly;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelBrutalfly;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderBrutalfly extends RenderLiving {
 
@@ -84,7 +86,7 @@ public class RenderBrutalfly extends RenderLiving {
     }
 
     static {
-        overlay = new ResourceLocation(Tags.MODID+":Brutalfly_overlay2.png");
-        texture = new ResourceLocation(Tags.MODID+":Brutalflytexture.png");
+        overlay = new ResourceLocation(Tags.MODID + ":Brutalfly_overlay2.png");
+        texture = new ResourceLocation(Tags.MODID + ":Brutalflytexture.png");
     }
 }

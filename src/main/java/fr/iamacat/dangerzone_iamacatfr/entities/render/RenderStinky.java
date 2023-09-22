@@ -1,17 +1,18 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.render;
 
-
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.Stinky;
-import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelStinky;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
+
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.Stinky;
+import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelStinky;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class RenderStinky extends RenderLiving {
 
@@ -45,7 +46,7 @@ public class RenderStinky extends RenderLiving {
     }
 
     public void renderStinky(final Stinky par1EntityStinky, final double par2, final double par4, final double par6,
-                             final float par8, final float par9) {
+        final float par8, final float par9) {
         super.doRender(par1EntityStinky, par2, par4, par6, par8, par9);
     }
 
@@ -128,24 +129,24 @@ public class RenderStinky extends RenderLiving {
     }
 
     static {
-        texture1 = new ResourceLocation(Tags.MODID+":Stinkytexture1.png");
-        texture2 = new ResourceLocation(Tags.MODID+":Stinkytexture2.png");
-        texture3 = new ResourceLocation(Tags.MODID+":Stinkytexture3.png");
-        texture4 = new ResourceLocation(Tags.MODID+":Stinkytexture4.png");
-        texture5 = new ResourceLocation(Tags.MODID+":Stinkytexture5.png");
-        texture6 = new ResourceLocation(Tags.MODID+":Stinkytexture6.png");
-        texture7 = new ResourceLocation(Tags.MODID+":Stinkytexture7.png");
-        texture8 = new ResourceLocation(Tags.MODID+":Stinkytexture8.png");
-        texture9 = new ResourceLocation(Tags.MODID+":Stinkytexture9.png");
-        texture10 = new ResourceLocation(Tags.MODID+":Stinkytexture10.png");
-        texture11 = new ResourceLocation(Tags.MODID+":Stinkytexture11.png");
-        texture12 = new ResourceLocation(Tags.MODID+":Stinkytexture12.png");
-        texture13 = new ResourceLocation(Tags.MODID+":Stinkytexture13.png");
-        texture14 = new ResourceLocation(Tags.MODID+":Stinkytexture14.png");
-        texture15 = new ResourceLocation(Tags.MODID+":Stinkytexture15.png");
-        texture16 = new ResourceLocation(Tags.MODID+":Stinkytexture16.png");
-        texture17 = new ResourceLocation(Tags.MODID+":Stinkytexture17.png");
-        texture18 = new ResourceLocation(Tags.MODID+":Stinkytexture18.png");
-        texture19 = new ResourceLocation(Tags.MODID+":Stinkytexture19.png");
+        texture1 = new ResourceLocation(Tags.MODID + ":Stinkytexture1.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":Stinkytexture2.png");
+        texture3 = new ResourceLocation(Tags.MODID + ":Stinkytexture3.png");
+        texture4 = new ResourceLocation(Tags.MODID + ":Stinkytexture4.png");
+        texture5 = new ResourceLocation(Tags.MODID + ":Stinkytexture5.png");
+        texture6 = new ResourceLocation(Tags.MODID + ":Stinkytexture6.png");
+        texture7 = new ResourceLocation(Tags.MODID + ":Stinkytexture7.png");
+        texture8 = new ResourceLocation(Tags.MODID + ":Stinkytexture8.png");
+        texture9 = new ResourceLocation(Tags.MODID + ":Stinkytexture9.png");
+        texture10 = new ResourceLocation(Tags.MODID + ":Stinkytexture10.png");
+        texture11 = new ResourceLocation(Tags.MODID + ":Stinkytexture11.png");
+        texture12 = new ResourceLocation(Tags.MODID + ":Stinkytexture12.png");
+        texture13 = new ResourceLocation(Tags.MODID + ":Stinkytexture13.png");
+        texture14 = new ResourceLocation(Tags.MODID + ":Stinkytexture14.png");
+        texture15 = new ResourceLocation(Tags.MODID + ":Stinkytexture15.png");
+        texture16 = new ResourceLocation(Tags.MODID + ":Stinkytexture16.png");
+        texture17 = new ResourceLocation(Tags.MODID + ":Stinkytexture17.png");
+        texture18 = new ResourceLocation(Tags.MODID + ":Stinkytexture18.png");
+        texture19 = new ResourceLocation(Tags.MODID + ":Stinkytexture19.png");
     }
 }

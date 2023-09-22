@@ -1,11 +1,8 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
+import java.util.List;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIPanic;
@@ -18,7 +15,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 
 public class EntityAnt extends EntityAnimal {
 
@@ -173,10 +173,10 @@ public class EntityAnt extends EntityAnimal {
     }
 
     static {
-        texture1 = new ResourceLocation(Tags.MODID+":textures/entity/ant.png");
-        texture2 = new ResourceLocation(Tags.MODID+":textures/entity/red_ant.png");
-        texture3 = new ResourceLocation(Tags.MODID+":textures/entity/rainbow_ant.png");
-        texture4 = new ResourceLocation(Tags.MODID+":textures/entity/unstableant.png");
-        texture5 = new ResourceLocation(Tags.MODID+":textures/entity/termite.png");
+        texture1 = new ResourceLocation(Tags.MODID + ":textures/entity/ant.png");
+        texture2 = new ResourceLocation(Tags.MODID + ":textures/entity/red_ant.png");
+        texture3 = new ResourceLocation(Tags.MODID + ":textures/entity/rainbow_ant.png");
+        texture4 = new ResourceLocation(Tags.MODID + ":textures/entity/unstableant.png");
+        texture5 = new ResourceLocation(Tags.MODID + ":textures/entity/termite.png");
     }
 }

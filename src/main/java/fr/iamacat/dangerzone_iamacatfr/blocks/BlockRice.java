@@ -1,16 +1,17 @@
 
 package fr.iamacat.dangerzone_iamacatfr.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Random;
+
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class BlockRice extends BlockCrops {
 
@@ -44,7 +45,7 @@ public class BlockRice extends BlockCrops {
     public void registerBlockIcons(final IIconRegister par1IIconRegister) {
         this.iconArray = new IIcon[4];
         for (int i = 0; i < this.iconArray.length; ++i) {
-            this.iconArray[i] = par1IIconRegister.registerIcon(Tags.MODID +":rice_" + i);
+            this.iconArray[i] = par1IIconRegister.registerIcon(Tags.MODID + ":rice_" + i);
         }
     }
 }

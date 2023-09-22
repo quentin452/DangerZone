@@ -1,11 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
-import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -29,10 +29,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+
 public class BuffaloInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -292,7 +294,7 @@ public class BuffaloInstance extends EntityMob {
             if (e != null) {
                 this.faceEntity((Entity) e, 10.0f, 10.0f);
                 if (this.getDistanceSqToEntity((Entity) e) < (3.8f + e.width / 2.0f) * (3.8f + e.width / 2.0f)) {
-                    this.setAttacking( 1);
+                    this.setAttacking(1);
                     if (this.worldObj.rand.nextInt(3) == 0 || this.worldObj.rand.nextInt(5) == 1) {
                         this.attackEntityAsMob((Entity) e);
                         if (!this.worldObj.isRemote) {
@@ -308,7 +310,7 @@ public class BuffaloInstance extends EntityMob {
                         .tryMoveToEntityLiving((Entity) e, 1.2);
                 }
             } else {
-                this.setAttacking( 0);
+                this.setAttacking(0);
             }
         }
         if (this.worldObj.rand.nextInt(100) == 1 && this.getHealth() < this.mygetMaxHealth()) {

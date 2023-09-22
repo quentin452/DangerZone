@@ -1,15 +1,10 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
-import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
-import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
-import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
-import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
-import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -28,9 +23,15 @@ import net.minecraft.util.*;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIFollowOwner;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
+import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
+import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
 public class Dragon extends EntityTameable {
 
@@ -614,7 +615,8 @@ public class Dragon extends EntityTameable {
         }
         target = (Dragon) this.worldObj
             .findNearestEntityWithinAABB(Dragon.class, this.boundingBox.expand(16.0, 6.0, 16.0), this);
-        return target == null && (this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4 || this.posY >= 50.0);
+        return target == null
+            && (this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4 || this.posY >= 50.0);
     }
 
     public boolean canSeeTarget(final double pX, final double pY, final double pZ) {
@@ -1350,11 +1352,11 @@ public class Dragon extends EntityTameable {
                             par1EntityPlayer.getUniqueID()
                                 .toString());
                         this.playTameEffect(true);
-                        this.worldObj.setEntityState(this,   (byte)7);
+                        this.worldObj.setEntityState(this, (byte) 7);
                         this.heal(this.mygetMaxHealth() - this.getHealth());
                     } else {
                         this.playTameEffect(false);
-                        this.worldObj.setEntityState(this,  (byte)6);
+                        this.worldObj.setEntityState(this, (byte) 6);
                     }
                 }
                 if (!par1EntityPlayer.capabilities.isCreativeMode) {
@@ -1382,7 +1384,7 @@ public class Dragon extends EntityTameable {
             if (var2 != null && var2.getItem() == Items.beef && par1EntityPlayer.getDistanceSqToEntity(this) < 25.0) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this,  (byte) 7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 }
                 if (this.mygetMaxHealth() > this.getHealth()) {
                     this.heal(this.mygetMaxHealth() - this.getHealth());
@@ -1403,7 +1405,7 @@ public class Dragon extends EntityTameable {
                     this.setTamed(false);
                     this.func_152115_b("");
                     this.playTameEffect(false);
-                    this.worldObj.setEntityState(this,  (byte) 6);
+                    this.worldObj.setEntityState(this, (byte) 6);
                 }
                 if (!par1EntityPlayer.capabilities.isCreativeMode) {
                     final ItemStack itemStack3 = var2;
@@ -1420,7 +1422,7 @@ public class Dragon extends EntityTameable {
                 && this.func_152114_e(par1EntityPlayer)) {
                 if (!this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this,   (byte)6);
+                    this.worldObj.setEntityState(this, (byte) 6);
                     this.setDragonFire(0);
                     par1EntityPlayer.addChatComponentMessage(
                         (IChatComponent) new ChatComponentText("Dragon fireballs extinguished."));
@@ -1440,7 +1442,7 @@ public class Dragon extends EntityTameable {
                 && this.func_152114_e(par1EntityPlayer)) {
                 if (!this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this,   (byte)6);
+                    this.worldObj.setEntityState(this, (byte) 6);
                     this.setDragonFire(1);
                     par1EntityPlayer
                         .addChatComponentMessage((IChatComponent) new ChatComponentText("Dragon fireballs lit!"));
@@ -1461,7 +1463,7 @@ public class Dragon extends EntityTameable {
                 && this.getDragonFire() > 0) {
                 if (!this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this, (byte)  6);
+                    this.worldObj.setEntityState(this, (byte) 6);
                     this.setDragonFire(2);
                     par1EntityPlayer.addChatComponentMessage(
                         (IChatComponent) new ChatComponentText("Dragon fireballs supercharged!"));
@@ -1480,7 +1482,7 @@ public class Dragon extends EntityTameable {
                 && par1EntityPlayer.getDistanceSqToEntity(this) < 25.0) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this,  (byte) 7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 }
                 this.setDragonType(this.dragontype = 1);
                 if (!par1EntityPlayer.capabilities.isCreativeMode) {
@@ -1496,7 +1498,7 @@ public class Dragon extends EntityTameable {
             if (var2 != null && var2.getItem() == Items.coal && par1EntityPlayer.getDistanceSqToEntity(this) < 25.0) {
                 if (this.worldObj.isRemote) {
                     this.playTameEffect(true);
-                    this.worldObj.setEntityState(this,   (byte)7);
+                    this.worldObj.setEntityState(this, (byte) 7);
                 }
                 this.setDragonType(this.dragontype = 0);
                 if (!par1EntityPlayer.capabilities.isCreativeMode) {

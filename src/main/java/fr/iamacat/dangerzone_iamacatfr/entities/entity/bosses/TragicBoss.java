@@ -1,7 +1,9 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses;
 
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.TragicMob;
-import fr.iamacat.dangerzone_iamacatfr.util.WorldHelper;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,9 +16,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.TragicMob;
+import fr.iamacat.dangerzone_iamacatfr.util.WorldHelper;
 
 public abstract class TragicBoss extends EntityMob implements IBossDisplayData {
 
@@ -211,8 +212,7 @@ public abstract class TragicBoss extends EntityMob implements IBossDisplayData {
                 EntityPlayer player = (EntityPlayer) par1DamageSource.getEntity();
                 boolean flag = player.getCurrentEquippedItem() != null;
 
-                if (!player.capabilities.isCreativeMode || !flag)
-                    par2 = MathHelper.clamp_float(par2, 0.0F, 25);
+                if (!player.capabilities.isCreativeMode || !flag) par2 = MathHelper.clamp_float(par2, 0.0F, 25);
             }
 
             if (rand.nextBoolean() && this.getAttackTarget() != null

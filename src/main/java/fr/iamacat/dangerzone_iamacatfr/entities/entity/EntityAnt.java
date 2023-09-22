@@ -2,8 +2,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 import net.minecraft.entity.EntityAgeable;
@@ -93,16 +93,16 @@ public class EntityAnt extends EntityAnimal {
         if (var2 != null) {
             return false;
         }
-        if (par1EntityPlayer.dimension != OreSpawnMain.DimensionID) {
+        if (par1EntityPlayer.dimension != DimensionInitDangerZone.DimensionID) {
             MinecraftServer.getServer()
                 .getConfigurationManager()
                 .transferPlayerToDimension(
                     (EntityPlayerMP) par1EntityPlayer,
-                    OreSpawnMain.DimensionID,
+                    DimensionInitDangerZone.DimensionID,
                     (Teleporter) new OreSpawnTeleporter(
                         MinecraftServer.getServer()
-                            .worldServerForDimension(OreSpawnMain.DimensionID),
-                        OreSpawnMain.DimensionID,
+                            .worldServerForDimension(DimensionInitDangerZone.DimensionID),
+                        DimensionInitDangerZone.DimensionID,
                         this.worldObj));
         } else {
             MinecraftServer.getServer()

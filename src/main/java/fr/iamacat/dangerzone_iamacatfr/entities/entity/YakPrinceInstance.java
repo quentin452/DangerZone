@@ -25,7 +25,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-// todo add a spawn for this entity 
 public class YakPrinceInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -58,7 +57,7 @@ public class YakPrinceInstance extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (Object) 0);
+        this.dataWatcher.addObject(20, 0);
         if (this.renderdata == null) {
             this.renderdata = new InfoRenderer();
         }
@@ -499,15 +498,15 @@ public class YakPrinceInstance extends EntityMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (int k = -3; k < 3; ++k) {
-            for (int j = -3; j < 3; ++j) {
-                for (int i = 0; i < 5; ++i) {
+        for (byte k = -3; k < 3; ++k) {
+            for (byte j = -3; j < 3; ++j) {
+                for (byte i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("YakPrinceInstance")) {

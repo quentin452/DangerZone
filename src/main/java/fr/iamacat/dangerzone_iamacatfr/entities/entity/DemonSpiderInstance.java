@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-// todo add a spawn for this entity
 public class DemonSpiderInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -338,15 +337,15 @@ public class DemonSpiderInstance extends EntityMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (int k = -4; k < 4; ++k) {
-            for (int j = -4; j < 4; ++j) {
-                for (int i = 4; i < 5; ++i) {
+        for (byte k = -4; k < 4; ++k) {
+            for (byte j = -4; j < 4; ++j) {
+                for (byte i = 4; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("DemonSpiderModel")) {

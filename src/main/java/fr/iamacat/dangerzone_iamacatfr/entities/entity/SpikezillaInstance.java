@@ -32,7 +32,6 @@ import net.minecraft.world.World;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-// todo add a spawn for this entity
 public class SpikezillaInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -91,7 +90,7 @@ public class SpikezillaInstance extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (byte) 0);
+        this.dataWatcher.addObject(20, 0);
         // this.dataWatcher.addObject(21, Basic.Snap);
         if (this.renderdata == null) {
             this.renderdata = new InfoRenderer();
@@ -600,15 +599,15 @@ public class SpikezillaInstance extends EntityMob {
         if (this.worldObj.rand.nextInt(60) != 1) {
             return false;
         }
-        for (int k = -8; k < 8; ++k) {
-            for (int j = -8; j < 8; ++j) {
-                for (int i = 5; i < 10; ++i) {
+        for (byte k = -8; k < 8; ++k) {
+            for (byte j = -8; j < 8; ++j) {
+                for (byte i = 5; i < 10; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("MySpikezilla")) {

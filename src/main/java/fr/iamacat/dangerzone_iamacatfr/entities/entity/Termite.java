@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -19,9 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.world.EnumDifficulty;
-import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -92,21 +91,21 @@ public class Termite extends EntityAnt {
             var2 = null;
         }
         if (var2 != null) {
-            par1EntityPlayer.addChatComponentMessage((IChatComponent) new ChatComponentText("Empty your hand!"));
+            par1EntityPlayer.addChatComponentMessage(new ChatComponentText("Empty your hand!"));
             return false;
         }
-        if (par1EntityPlayer.dimension != OreSpawnMain.DimensionID5) {
+        if (par1EntityPlayer.dimension != DimensionInitDangerZone.DimensionID5) {
             for (int i = 0; i < par1EntityPlayer.inventory.mainInventory.length; ++i) {
                 if (par1EntityPlayer.inventory.mainInventory[i] != null) {
                     par1EntityPlayer
-                        .addChatComponentMessage((IChatComponent) new ChatComponentText("Empty your inventory!"));
+                        .addChatComponentMessage(new ChatComponentText("Empty your inventory!"));
                     return false;
                 }
             }
             for (int i = 0; i < par1EntityPlayer.inventory.armorInventory.length; ++i) {
                 if (par1EntityPlayer.inventory.armorInventory[i] != null) {
                     par1EntityPlayer
-                        .addChatComponentMessage((IChatComponent) new ChatComponentText("Take off your armor!"));
+                        .addChatComponentMessage(new ChatComponentText("Take off your armor!"));
                     return false;
                 }
             }
@@ -114,11 +113,11 @@ public class Termite extends EntityAnt {
                 .getConfigurationManager()
                 .transferPlayerToDimension(
                     (EntityPlayerMP) par1EntityPlayer,
-                    OreSpawnMain.DimensionID5,
-                    (Teleporter) new OreSpawnTeleporter(
+                    DimensionInitDangerZone.DimensionID5,
+                    new OreSpawnTeleporter(
                         MinecraftServer.getServer()
-                            .worldServerForDimension(OreSpawnMain.DimensionID5),
-                        OreSpawnMain.DimensionID5,
+                            .worldServerForDimension(DimensionInitDangerZone.DimensionID5),
+                        DimensionInitDangerZone.DimensionID5,
                         this.worldObj));
         } else {
             MinecraftServer.getServer()
@@ -126,7 +125,7 @@ public class Termite extends EntityAnt {
                 .transferPlayerToDimension(
                     (EntityPlayerMP) par1EntityPlayer,
                     0,
-                    (Teleporter) new OreSpawnTeleporter(
+                    new OreSpawnTeleporter(
                         MinecraftServer.getServer()
                             .worldServerForDimension(0),
                         0,

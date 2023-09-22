@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 import cpw.mods.fml.common.IWorldGenerator;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.Trees;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.items.ItemAppleSeed;
 import fr.iamacat.dangerzone_iamacatfr.items.ItemMagicApple;
 import net.minecraft.block.Block;
@@ -36,7 +37,7 @@ public class OreSpawnWorld implements IWorldGenerator {
         if (OreSpawnWorld.recently_placed > 0) {
             --OreSpawnWorld.recently_placed;
         }
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID) {
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID) {
             this.generateSurface(world, random, chunkX * 16, chunkZ * 16);
             if (!this.addHugeTree(world, random, chunkX * 16, chunkZ * 16, chunk)) {
                 if (!this.addAppleTrees(world, random, chunkX * 16, chunkZ * 16, chunk)
@@ -53,7 +54,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             }
             return;
         }
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID2) {
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID2) {
             this.generateRuby(world, random, chunkX * 16, chunkZ * 16);
             if (OreSpawnMain.LessOre == 0) {
                 this.generateRuby(world, random, chunkX * 16, chunkZ * 16);
@@ -110,7 +111,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             this.addRocks(world, random, chunkX * 16, chunkZ * 16);
             return;
         }
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID3) {
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID3) {
             if (OreSpawnMain.MosquitoEnable != 0) {
                 this.addMosquitos(world, random, chunkX, chunkZ);
             }
@@ -128,7 +129,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             }
             return;
         }
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID4) {
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID4) {
           // if (OreSpawnWorld.recently_placed == 0 && random.nextInt(100) == 0
           //      && this.D4BigSpaceCheck(world, chunkX * 16, 7, chunkZ * 16)) {
                 if (OreSpawnWorld.recently_placed == 0 && random.nextInt(100) == 0) {
@@ -185,7 +186,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             this.addD4Rocks(world, random, chunkX * 16, chunkZ * 16);
             return;
         }
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID5) {
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID5) {
             if (!this.addFairyTree(world, random, chunkX * 16, chunkZ * 16)) {
                 this.addCrystalTermites(world, random, chunkX * 16, chunkZ * 16);
                 if (OreSpawnWorld.recently_placed == 0) {
@@ -204,7 +205,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             }
             return;
         }
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID6) {
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID6) {
             this.addButterfliesAndMoths(world, random, chunkX * 16, chunkZ * 16);
             this.addVeggies(world, random, chunkX * 16, chunkZ * 16);
             this.addAnts(world, random, chunkX * 16, chunkZ * 16, 2);
@@ -1010,7 +1011,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             return;
         }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID || b.biomeName.equals("Forest")
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID || b.biomeName.equals("Forest")
             || b.biomeName.equals("ForestHills")
             || b.biomeName.equals("Birch Forest Hills")
             || b.biomeName.equals("Birch Forest")) {
@@ -1087,8 +1088,8 @@ public class OreSpawnWorld implements IWorldGenerator {
             nc = 3;
         }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID
-            || world.provider.dimensionId == OreSpawnMain.DimensionID3
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID
+            || world.provider.dimensionId == DimensionInitDangerZone.DimensionID3
             || b.biomeName.equals("Plains")) {
             for (int j = 0; j < nc; ++j) {
                 final int posX = chunkX + random.nextInt(16);
@@ -1137,8 +1138,8 @@ public class OreSpawnWorld implements IWorldGenerator {
             return;
         }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID
-            || world.provider.dimensionId == OreSpawnMain.DimensionID3
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID
+            || world.provider.dimensionId == DimensionInitDangerZone.DimensionID3
             || b.biomeName.equals("Plains")) {
             for (int j = 0; j < 5; ++j) {
                 final int posX = chunkX + random.nextInt(16);
@@ -1187,8 +1188,8 @@ public class OreSpawnWorld implements IWorldGenerator {
             return;
         }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID
-            || world.provider.dimensionId == OreSpawnMain.DimensionID6
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID
+            || world.provider.dimensionId == DimensionInitDangerZone.DimensionID6
             || b.biomeName.equals("Forest")
             || b.biomeName.equals("ForestHills")
             || b.biomeName.equals("River")
@@ -1457,7 +1458,6 @@ public class OreSpawnWorld implements IWorldGenerator {
         for (int i = 0; i < 4; ++i) {
             final int posX = chunkX + random.nextInt(16);
             final int posZ = chunkZ + random.nextInt(16);
-            final int which = 0;
             for (int posY = 100; posY > 40; --posY) {
                 if (world.getBlock(posX, posY, posZ) == Blocks.air
                     && world.getBlock(posX, posY - 1, posZ) == Blocks.grass
@@ -1480,7 +1480,6 @@ public class OreSpawnWorld implements IWorldGenerator {
             for (int i = 0; i < 4; ++i) {
                 final int posX = chunkX + random.nextInt(16);
                 final int posZ = chunkZ + random.nextInt(16);
-                final int which = 0;
                 for (int posY = 100; posY > 40; --posY) {
                     if (world.getBlock(posX, posY, posZ) == Blocks.air
                         && world.getBlock(posX, posY - 1, posZ) == Blocks.water) {
@@ -1502,7 +1501,6 @@ public class OreSpawnWorld implements IWorldGenerator {
             for (int i = 0; i < 4; ++i) {
                 final int posX = chunkX + random.nextInt(16);
                 final int posZ = chunkZ + random.nextInt(16);
-                final int which = 0;
                 for (int posY = 100; posY > 40; --posY) {
                     if (world.getBlock(posX, posY, posZ) == Blocks.air
                         && world.getBlock(posX, posY - 1, posZ) == Blocks.water) {
@@ -1524,7 +1522,6 @@ public class OreSpawnWorld implements IWorldGenerator {
             for (int i = 0; i < 4; ++i) {
                 final int posX = chunkX + random.nextInt(16);
                 final int posZ = chunkZ + random.nextInt(16);
-                final int which = 0;
                 for (int posY = 100; posY > 40; --posY) {
                     if (world.getBlock(posX, posY, posZ) == Blocks.air
                         && world.getBlock(posX, posY - 1, posZ) == Blocks.water) {
@@ -1541,14 +1538,14 @@ public class OreSpawnWorld implements IWorldGenerator {
         if (random.nextInt(25 + OreSpawnMain.LessLag * 2) != 0) {
             return;
         }
-        if ((world.provider.dimensionId == OreSpawnMain.DimensionID
-            || world.provider.dimensionId == OreSpawnMain.DimensionID3) && random.nextInt(3) != 0) {
+        if ((world.provider.dimensionId == DimensionInitDangerZone.DimensionID
+            || world.provider.dimensionId == DimensionInitDangerZone.DimensionID3) && random.nextInt(3) != 0) {
             return;
         }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID
-            || world.provider.dimensionId == OreSpawnMain.DimensionID2
-            || world.provider.dimensionId == OreSpawnMain.DimensionID3
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID
+            || world.provider.dimensionId == DimensionInitDangerZone.DimensionID2
+            || world.provider.dimensionId == DimensionInitDangerZone.DimensionID3
             || b.biomeName.equals("Jungle")
             || b.biomeName.equals("Swampland")) {
             for (int i = 0; i < 2; ++i) {
@@ -2125,9 +2122,9 @@ public class OreSpawnWorld implements IWorldGenerator {
             return;
         }
         final BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID
-            || world.provider.dimensionId == OreSpawnMain.DimensionID2
-            || world.provider.dimensionId == OreSpawnMain.DimensionID6
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID
+            || world.provider.dimensionId == DimensionInitDangerZone.DimensionID2
+            || world.provider.dimensionId == DimensionInitDangerZone.DimensionID6
             || b.biomeName.equals("River")
             || b.biomeName.equals("Swampland")) {
             for (int i = 0; i < 8; ++i) {
@@ -2862,7 +2859,7 @@ public class OreSpawnWorld implements IWorldGenerator {
             }
             nc = 3;
         }
-        if (world.provider.dimensionId == OreSpawnMain.DimensionID) {
+        if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID) {
             final int dir = 0;
             final int what = random.nextInt(2);
             for (int i = 0; i < nc; ++i) {

@@ -33,7 +33,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-// todo add a spawn for this entity
 public class BuffaloInstance extends EntityMob {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -359,15 +358,15 @@ public class BuffaloInstance extends EntityMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (int k = -2; k < 2; ++k) {
-            for (int j = -2; j < 2; ++j) {
-                for (int i = 1; i < 5; ++i) {
+        for (byte k = -2; k < 2; ++k) {
+            for (byte j = -2; j < 2; ++j) {
+                for (byte i = 1; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("MyMLPBuffalo")) {

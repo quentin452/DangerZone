@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
@@ -59,7 +60,7 @@ public class BlockCrystalLeaves extends BlockLeaves {
         int var7 = 2;
         int totaldist = 0;
         int chance = 20;
-        if (par1World.provider.dimensionId == OreSpawnMain.DimensionID4) {
+        if (par1World.provider.dimensionId == DimensionInitDangerZone.DimensionID4) {
             chance = 100;
             var7 = 1;
         }

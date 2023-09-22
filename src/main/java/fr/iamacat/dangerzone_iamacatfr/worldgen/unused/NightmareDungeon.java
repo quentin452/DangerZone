@@ -9,7 +9,7 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
-
+// todo maybe add an utility for this dungeon
 public class NightmareDungeon {
 
     private final WeightedRandomChestContent[] chestContentsList;

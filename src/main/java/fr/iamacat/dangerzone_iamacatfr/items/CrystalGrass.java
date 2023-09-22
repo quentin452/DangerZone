@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -69,11 +70,11 @@ public class CrystalGrass extends Block {
     }
 
     public boolean isOpaqueCube() {
-        return OreSpawnMain.current_dimension == OreSpawnMain.DimensionID5;
+        return OreSpawnMain.current_dimension == DimensionInitDangerZone.DimensionID5;
     }
 
     public boolean renderAsNormalBlock() {
-        return OreSpawnMain.current_dimension == OreSpawnMain.DimensionID5;
+        return OreSpawnMain.current_dimension == DimensionInitDangerZone.DimensionID5;
     }
 
     @SideOnly(Side.CLIENT)

@@ -1,23 +1,16 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon;
 
-import java.awt.*;
-import java.util.Vector;
-
+import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
-import fr.iamacat.dangerzone_iamacatfr.init.BlockInitDangerZone;
+import java.awt.*;
+import java.util.Vector;
 
 public class CrystalMaze {
-
-    public static final int WTOP = 1;
-    public static final int WRGT = 2;
-    public static final int WBOT = 4;
-    public static final int WLFT = 8;
 
     public void buildCrystalMaze(final World world, final int x, final int y, final int z, final Chunk chunk) {
         for (int i = 0; i < 16; ++i) {
@@ -234,7 +227,7 @@ public class CrystalMaze {
                     if ((cells[p.x][p.y] & 0x10) != 0x0) {
                         break;
                     }
-                    if (inlist.indexOf(new Point(p.x, p.y - 1)) >= 0) {
+                    if (inlist.contains(new Point(p.x, p.y - 1))) {
                         return 1;
                     }
                     break;
@@ -243,7 +236,7 @@ public class CrystalMaze {
                     if ((cells[p.x][p.y] & 0x20) != 0x0) {
                         break;
                     }
-                    if (inlist.indexOf(new Point(p.x + 1, p.y)) >= 0) {
+                    if (inlist.contains(new Point(p.x + 1, p.y))) {
                         return 2;
                     }
                     break;
@@ -252,7 +245,7 @@ public class CrystalMaze {
                     if ((cells[p.x][p.y] & 0x40) != 0x0) {
                         break;
                     }
-                    if (inlist.indexOf(new Point(p.x, p.y + 1)) >= 0) {
+                    if (inlist.contains(new Point(p.x, p.y + 1))) {
                         return 4;
                     }
                     break;
@@ -261,7 +254,7 @@ public class CrystalMaze {
                     if ((cells[p.x][p.y] & 0x80) != 0x0) {
                         break;
                     }
-                    if (inlist.indexOf(new Point(p.x - 1, p.y)) >= 0) {
+                    if (inlist.contains(new Point(p.x - 1, p.y))) {
                         return 8;
                     }
                     break;

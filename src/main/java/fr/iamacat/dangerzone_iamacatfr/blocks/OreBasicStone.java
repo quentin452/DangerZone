@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -80,11 +81,11 @@ public class OreBasicStone extends Block {
     }
 
     public boolean isOpaqueCube() {
-        return OreSpawnMain.current_dimension == OreSpawnMain.DimensionID5;
+        return OreSpawnMain.current_dimension == DimensionInitDangerZone.DimensionID5;
     }
 
     public boolean renderAsNormalBlock() {
-        return OreSpawnMain.current_dimension == OreSpawnMain.DimensionID5;
+        return OreSpawnMain.current_dimension == DimensionInitDangerZone.DimensionID5;
     }
 
     public static Entity spawnCreature(final World par0World, final int par1, final String name, final double par2,

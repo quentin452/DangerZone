@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWander;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.*;
@@ -255,7 +256,7 @@ public class Frog extends EntityAnimal {
 
     public boolean getCanSpawnHere() {
         return this.posY >= 50.0 && this.worldObj.isDaytime()
-            && (this.worldObj.provider.dimensionId != OreSpawnMain.DimensionID5 || this.worldObj.rand.nextInt(20) == 1)
+            && (this.worldObj.provider.dimensionId != DimensionInitDangerZone.DimensionID5 || this.worldObj.rand.nextInt(20) == 1)
             && this.findBuddies() <= 5;
     }
 

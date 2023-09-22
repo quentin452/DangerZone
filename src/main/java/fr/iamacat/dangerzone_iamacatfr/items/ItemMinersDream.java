@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.items;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -103,7 +104,7 @@ public class ItemMinersDream extends Item {
                             || bid == Blocks.water
                             || bid == Blocks.flowing_lava
                             || bid == Blocks.lava) {
-                            if (world.provider.dimensionId == OreSpawnMain.DimensionID5) {
+                            if (world.provider.dimensionId == DimensionInitDangerZone.DimensionID5) {
                                 world.setBlock(
                                     x + k * deltax + j * deltaz,
                                     y + i + 1,

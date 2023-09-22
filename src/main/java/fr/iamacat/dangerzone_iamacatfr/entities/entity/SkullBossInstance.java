@@ -26,7 +26,6 @@ import net.minecraft.world.World;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-// todo add a spawn for this entity
 public class SkullBossInstance extends EntityMob implements IMob {
 
     private ChunkCoordinates currentFlightTarget;
@@ -35,7 +34,7 @@ public class SkullBossInstance extends EntityMob implements IMob {
     private int lastY;
     private int stuck_count;
     private GenericTargetSorterInstance TargetSorter;
-    private float moveSpeed;
+    private final float moveSpeed;
     private int dmgDelay;
     private int boatPosRotationIncrements;
     private double boatX;
@@ -449,15 +448,15 @@ public class SkullBossInstance extends EntityMob implements IMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (int k = -4; k <= 4; ++k) {
-            for (int j = -4; j <= 4; ++j) {
-                for (int i = 1; i < 4; ++i) {
+        for (byte k = -4; k <= 4; ++k) {
+            for (byte j = -4; j <= 4; ++j) {
+                for (byte i = 1; i < 4; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("BigBadSkull")) {

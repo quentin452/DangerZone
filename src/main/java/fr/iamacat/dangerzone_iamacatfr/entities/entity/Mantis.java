@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.MyUtils;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
@@ -265,15 +266,15 @@ public class Mantis extends EntityMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (int k = -2; k <= 2; ++k) {
-            for (int j = -2; j <= 2; ++j) {
-                for (int i = 1; i < 4; ++i) {
+        for (byte k = -2; k <= 2; ++k) {
+            for (byte j = -2; j <= 2; ++j) {
+                for (byte i = 1; i < 4; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("Mantis")) {
@@ -294,7 +295,7 @@ public class Mantis extends EntityMob {
                 }
             }
         }
-        if (this.worldObj.provider.dimensionId == OreSpawnMain.DimensionID6 && this.worldObj.rand.nextInt(6) != 0) {
+        if (this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID6 && this.worldObj.rand.nextInt(6) != 0) {
             return false;
         }
         if (this.posY < 50.0) {

@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
@@ -415,7 +416,7 @@ public class AttackSquid extends EntityMob {
             ret = true;
         }
         ret = super.attackEntityFrom(par1DamageSource, par2);
-        if ((this.getHealth() <= 0.0f || this.isDead) && this.worldObj.provider.dimensionId != OreSpawnMain.DimensionID5
+        if ((this.getHealth() <= 0.0f || this.isDead) && this.worldObj.provider.dimensionId != DimensionInitDangerZone.DimensionID5
             && !this.worldObj.isRemote
             && e != null
             && e instanceof EntityPlayer

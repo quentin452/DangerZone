@@ -1,7 +1,6 @@
 
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
-// todo add a spawn for this entity import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
@@ -81,7 +80,7 @@ public class UrsaMAJORInstance extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (Object) 0);
+        this.dataWatcher.addObject(20, 0);
         // this.dataWatcher.addObject(21, (Object)Basic.Snap);
         if (this.renderdata == null) {
             this.renderdata = new InfoRenderer();

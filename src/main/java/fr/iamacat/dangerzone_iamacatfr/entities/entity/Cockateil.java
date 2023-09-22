@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -187,7 +188,7 @@ public class Cockateil extends EntityAnimal {
             return;
         }
         super.updateAITasks();
-        if (this.worldObj.provider.dimensionId == OreSpawnMain.DimensionID4) {
+        if (this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4) {
             stayup = 2;
         }
         if (this.lastX == (int) this.posX && this.lastZ == (int) this.posZ) {
@@ -252,7 +253,7 @@ public class Cockateil extends EntityAnimal {
 
     public boolean getCanSpawnHere() {
         return this.worldObj.isDaytime()
-            && (this.worldObj.provider.dimensionId == OreSpawnMain.DimensionID4 || this.posY >= 50.0);
+            && (this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4 || this.posY >= 50.0);
     }
 
     protected Item getDropItem() {

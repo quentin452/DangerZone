@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -92,7 +93,7 @@ public class RockBase extends EntityLiving {
             this.rock_type = this.getRockType();
         }
         if (!this.worldObj.isRemote && this.rock_type == 0) {
-            if (this.worldObj.provider.dimensionId != OreSpawnMain.DimensionID5) {
+            if (this.worldObj.provider.dimensionId != DimensionInitDangerZone.DimensionID5) {
                 this.rock_type = 1;
                 if (this.worldObj.rand.nextInt(10) == 0) {
                     this.rock_type = 2;

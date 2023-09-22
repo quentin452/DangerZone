@@ -191,7 +191,9 @@ public class UltimateFishHook extends EntityFishHook {
             this.setRotation(this.rotationYaw, this.rotationPitch);
         } else {
             if (!this.worldObj.isRemote) {
-                final ItemStack itemstack = this.field_146042_b.getCurrentEquippedItem();
+                if (this.field_146042_b != null) {
+                    final ItemStack itemstack = this.field_146042_b.getCurrentEquippedItem();
+                    if (itemstack != null && itemstack.getItem() != null) {
                 if (this.field_146042_b.isDead || !this.field_146042_b.isEntityAlive()
                     || itemstack == null
                     || itemstack.getItem() != OreSpawnMain.MyUltimateFishingRod
@@ -199,6 +201,12 @@ public class UltimateFishHook extends EntityFishHook {
                     this.setDead();
                     this.field_146042_b.fishEntity = null;
                     return;
+                }
+                    } else {
+                        // Gérez le cas où itemstack ou son item est null
+                    }
+                } else {
+                    // Gérez le cas où this.field_146042_b est null
                 }
                 if (this.field_146043_c != null) {
                     if (!this.field_146043_c.isDead) {

@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
@@ -24,7 +25,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
-import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 
 import java.util.Collections;
@@ -90,7 +90,7 @@ public class EntityButterfly extends EntityAmbientCreature {
             }
             return EntityButterfly.texture6;
         } else if (this.butterfly_type == 1) {
-            if (this.worldObj.provider.dimensionId == OreSpawnMain.DimensionID4) {
+            if (this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4) {
                 return EntityButterfly.texture9;
             }
             return EntityButterfly.texture2;
@@ -170,10 +170,10 @@ public class EntityButterfly extends EntityAmbientCreature {
                     (int) this.posY + this.rand.nextInt(6) - 2,
                     (int) this.posZ + this.rand.nextInt(7) - this.rand.nextInt(7));
             }
-        } else if (this.rand.nextInt(10) == 0 && this.worldObj.provider.dimensionId == OreSpawnMain.DimensionID4
+        } else if (this.rand.nextInt(10) == 0 && this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4
             && this.butterfly_type == 1
             && this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) {
-                EntityLivingBase e = null;
+                EntityLivingBase e;
                 e = this.findSomethingToAttack();
                 if (e != null) {
                     this.currentFlightTarget.set((int) e.posX, (int) (e.posY + 1.0), (int) e.posZ);
@@ -287,16 +287,16 @@ public class EntityButterfly extends EntityAmbientCreature {
         if (var2 != null) {
             return false;
         }
-        if (par1EntityPlayer.dimension != OreSpawnMain.DimensionID6) {
+        if (par1EntityPlayer.dimension != DimensionInitDangerZone.DimensionID6) {
             MinecraftServer.getServer()
                 .getConfigurationManager()
                 .transferPlayerToDimension(
                     (EntityPlayerMP) par1EntityPlayer,
-                    OreSpawnMain.DimensionID6,
-                    (Teleporter) new OreSpawnTeleporter(
+                    DimensionInitDangerZone.DimensionID6,
+                    new OreSpawnTeleporter(
                         MinecraftServer.getServer()
-                            .worldServerForDimension(OreSpawnMain.DimensionID6),
-                        OreSpawnMain.DimensionID6,
+                            .worldServerForDimension(DimensionInitDangerZone.DimensionID6),
+                        DimensionInitDangerZone.DimensionID6,
                         this.worldObj));
         } else {
             MinecraftServer.getServer()
@@ -304,7 +304,7 @@ public class EntityButterfly extends EntityAmbientCreature {
                 .transferPlayerToDimension(
                     (EntityPlayerMP) par1EntityPlayer,
                     0,
-                    (Teleporter) new OreSpawnTeleporter(
+                    new OreSpawnTeleporter(
                         MinecraftServer.getServer()
                             .worldServerForDimension(0),
                         0,
@@ -314,15 +314,15 @@ public class EntityButterfly extends EntityAmbientCreature {
     }
 
     public boolean getCanSpawnHere() {
-        for (int k = -3; k < 3; ++k) {
-            for (int j = -3; j < 3; ++j) {
-                for (int i = 0; i < 5; ++i) {
+        for (byte k = -3; k < 3; ++k) {
+            for (byte j = -3; j < 3; ++j) {
+                for (byte i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner = null;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("Butterfly")) {
@@ -335,7 +335,7 @@ public class EntityButterfly extends EntityAmbientCreature {
         }
         final Block bid = this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ);
         return bid == Blocks.air && this.worldObj.isDaytime()
-            && (this.worldObj.provider.dimensionId == OreSpawnMain.DimensionID4 || this.posY >= 50.0);
+            && (this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4 || this.posY >= 50.0);
     }
 
     public void initCreature() {}

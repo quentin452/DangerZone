@@ -147,7 +147,7 @@ public class DirectedLightningInstance extends EntityWeatherEffect {
 
     @Override
     protected void entityInit() {
-        this.dataWatcher.addObject(3, Integer.valueOf(0));
+        this.dataWatcher.addObject(3, 0);
     }
 
     @Override

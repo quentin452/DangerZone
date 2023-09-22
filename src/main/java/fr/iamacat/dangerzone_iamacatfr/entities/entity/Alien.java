@@ -4,6 +4,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.RenderInfo;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
@@ -440,15 +441,15 @@ public class Alien extends EntityMob {
     }
 
     public boolean getCanSpawnHere() {
-        for (int k = -3; k < 3; ++k) {
-            for (int j = -3; j < 3; ++j) {
-                for (int i = 0; i < 5; ++i) {
+        for (byte k = -3; k < 3; ++k) {
+            for (byte j = -3; j < 3; ++j) {
+                for (byte i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
-                        TileEntityMobSpawner tileentitymobspawner = null;
+                        TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("Alien")) {
@@ -461,7 +462,7 @@ public class Alien extends EntityMob {
         if (!this.isValidLightLevel()) {
             return false;
         }
-        if (this.worldObj.provider.dimensionId == OreSpawnMain.DimensionID4) {
+        if (this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4) {
             return true;
         }
         if (this.posY > 50.0) {

@@ -3,6 +3,7 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.entity.Entity;
@@ -215,7 +216,7 @@ public class CreepingHorror extends EntityMob {
 
     public boolean getCanSpawnHere() {
         return this.isValidLightLevel() && !this.worldObj.isDaytime()
-            && (this.worldObj.provider.dimensionId == OreSpawnMain.DimensionID6 || this.posY <= 15.0);
+            && (this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID6 || this.posY <= 15.0);
     }
 
     protected boolean canDespawn() {

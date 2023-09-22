@@ -48,8 +48,8 @@ public abstract class TragicMob extends EntityMob {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(13, (byte) 0);
-        this.dataWatcher.addObject(14, (byte) 0);
+        this.dataWatcher.addObject(13, 0);
+        this.dataWatcher.addObject(14, 0);
         this.dataWatcher.addObject(15, 0);
     }
 

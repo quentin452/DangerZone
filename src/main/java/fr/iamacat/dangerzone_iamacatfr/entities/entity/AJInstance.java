@@ -3,8 +3,10 @@ package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.AIFollowOwner;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.InfoRenderer;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.MobUtils;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -14,11 +16,13 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
@@ -30,8 +34,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-// todo add a spawn for this entity
-
 public class AJInstance extends EntityTameable {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -93,7 +95,7 @@ public class AJInstance extends EntityTameable {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (Object) 0);
+        this.dataWatcher.addObject(20, 0);
         if (this.renderdata == null) {
             this.renderdata = new InfoRenderer();
         }
@@ -108,91 +110,44 @@ public class AJInstance extends EntityTameable {
     }
 
     public boolean interact(final EntityPlayer par1EntityPlayer) {
+        if (par1EntityPlayer == null) {
+            return false;
+        }
+        if (!(par1EntityPlayer instanceof EntityPlayerMP)) {
+            return false;
+        }
         ItemStack var2 = par1EntityPlayer.inventory.getCurrentItem();
         if (var2 != null && var2.stackSize <= 0) {
-            par1EntityPlayer.inventory
-                .setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack) null);
+            par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, null);
             var2 = null;
         }
-        if (super.interact(par1EntityPlayer)) {
-            return true;
+        if (var2 != null) {
+            return false;
         }
-        // if (var2 != null && var2.getItem() == Items.apple && par1EntityPlayer.getDistanceSqToEntity(this) < 25.0) {
-        if (var2 != null && var2.getItem() == Items.apple && par1EntityPlayer.getDistanceSqToEntity(this) < 25.0) {
-            if (!this.isTamed()) {
-                if (!this.worldObj.isRemote) {
-                    if (this.rand.nextInt(1) == 0) {
-                        this.setTamed(true);
-                        this.func_152115_b(
-                            par1EntityPlayer.getUniqueID()
-                                .toString());
-                        this.playTameEffect(true);
-                        this.worldObj.setEntityState((Entity) this, (byte) 7);
-                        this.heal(this.mygetMaxHealth() - this.getHealth());
-                    } else {
-                        this.playTameEffect(false);
-                        this.worldObj.setEntityState((Entity) this, (byte) 6);
-                    }
-                }
-            } else if (this.func_152114_e((EntityLivingBase) par1EntityPlayer)) {
-                if (this.worldObj.isRemote) {
-                    this.playTameEffect(true);
-                    this.worldObj.setEntityState((Entity) this, (byte) 7);
-                }
-                if (this.mygetMaxHealth() > this.getHealth()) {
-                    this.heal(this.mygetMaxHealth() - this.getHealth());
-                }
-            }
-            if (!par1EntityPlayer.capabilities.isCreativeMode) {
-                final ItemStack itemStack = var2;
-                --itemStack.stackSize;
-                if (var2.stackSize <= 0) {
-                    par1EntityPlayer.inventory
-                        .setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack) null);
-                }
-            }
-            return true;
+        if (par1EntityPlayer.dimension != DimensionInitDangerZone.DimensionID7) {
+            MinecraftServer.getServer()
+                .getConfigurationManager()
+                .transferPlayerToDimension(
+                    (EntityPlayerMP) par1EntityPlayer,
+                    DimensionInitDangerZone.DimensionID7,
+                    new OreSpawnTeleporter(
+                        MinecraftServer.getServer()
+                            .worldServerForDimension(DimensionInitDangerZone.DimensionID7),
+                        DimensionInitDangerZone.DimensionID7,
+                        this.worldObj));
+        } else {
+            MinecraftServer.getServer()
+                .getConfigurationManager()
+                .transferPlayerToDimension(
+                    (EntityPlayerMP) par1EntityPlayer,
+                    0,
+                    new OreSpawnTeleporter(
+                        MinecraftServer.getServer()
+                            .worldServerForDimension(0),
+                        0,
+                        this.worldObj));
         }
-        if (this.isTamed() && var2 != null
-            && var2.getItem() == Item.getItemFromBlock((Block) Blocks.deadbush)
-            && par1EntityPlayer.getDistanceSqToEntity((Entity) this) < 16.0
-            && this.func_152114_e((EntityLivingBase) par1EntityPlayer)) {
-            this.setCustomNameTag(var2.getDisplayName());
-            if (!par1EntityPlayer.capabilities.isCreativeMode) {
-                final ItemStack itemStack2 = var2;
-                --itemStack2.stackSize;
-                if (var2.stackSize <= 0) {
-                    par1EntityPlayer.inventory
-                        .setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack) null);
-                }
-            }
-            return true;
-        }
-        if (var2.getItem() == Item.getItemFromBlock(Blocks.hay_block)
-            && par1EntityPlayer.getDistanceSqToEntity((Entity) this) < 16.0) {
-            this.ajismad = 1;
-            if (!par1EntityPlayer.capabilities.isCreativeMode) {
-                final ItemStack itemStack3 = var2;
-                --itemStack3.stackSize;
-                if (var2.stackSize <= 0) {
-                    par1EntityPlayer.inventory
-                        .setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack) null);
-                }
-            }
-            return true;
-        }
-        if (this.isTamed() && var2 != null
-            && var2.getItem() == Items.name_tag
-            && par1EntityPlayer.getDistanceSqToEntity((Entity) this) < 25.0
-            && this.func_152114_e((EntityLivingBase) par1EntityPlayer)) {
-            if (!this.isSitting()) {
-                this.setSitting(true);
-            } else {
-                this.setSitting(false);
-            }
-            return true;
-        }
-        return false;
+        return true;
     }
 
     protected boolean canDespawn() {
@@ -475,7 +430,7 @@ public class AJInstance extends EntityTameable {
             }
             if (this.closest < 99999) {
                 this.getNavigator()
-                    .tryMoveToXYZ((double) this.tx, (double) (this.ty - 1), (double) this.tz, 1.33);
+                    .tryMoveToXYZ(this.tx, this.ty - 1, this.tz, 1.33);
             } else if (this.getHealth() <= 0.0f) {
                 this.setDead();
                 return;
@@ -671,15 +626,15 @@ public class AJInstance extends EntityTameable {
     }
 
     public boolean getCanSpawnHere() {
-        for (int k = -3; k < 3; ++k) {
-            for (int j = -3; j < 3; ++j) {
-                for (int i = 0; i < 5; ++i) {
+        for (byte k = -3; k < 3; ++k) {
+            for (byte j = -3; j < 3; ++j) {
+                for (byte i = 0; i < 5; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                        .getBlock((byte)this.posX + j, (byte)this.posY + i, (byte)this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((byte)this.posX + j, (byte)this.posY + i, (byte)this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("AJInstance")) {
@@ -689,7 +644,7 @@ public class AJInstance extends EntityTameable {
                 }
             }
         }
-        AJInstance target = null;
+        AJInstance target;
         if (this.posY < 50.0) {
             return false;
         }

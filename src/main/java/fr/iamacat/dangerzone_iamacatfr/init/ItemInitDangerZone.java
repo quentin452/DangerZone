@@ -53,7 +53,7 @@ public class ItemInitDangerZone {
             "dragonMeatCooked");
         phoenixFeather = new PhoenixFeather();
         darkCrystal = new DarkCrystal();
-        twilightStar = new TwilightStar();
+        twilightStar = new TwilightStar(510);
         mavisOrb = new MavisOrb().setTextureName(Tags.MODID + ":MavisOrb")
             .setUnlocalizedName("MavisOrb");
     }

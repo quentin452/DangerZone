@@ -2,21 +2,19 @@
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.biomes.BiomeGenUtopianPlains;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldServer;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.DimensionManager;
 
-import fr.iamacat.dangerzone_iamacatfr.worldgen.biomes.BiomeGenUtopianPlains;
-
 public class WorldProviderOreSpawn6 extends WorldProvider {
 
-    private BiomeGenUtopianPlains MyPlains;
+    private final BiomeGenUtopianPlains MyPlains;
 
     public WorldProviderOreSpawn6() {
         this.MyPlains = (BiomeGenUtopianPlains) new BiomeGenUtopianPlains(OreSpawnMain.BiomeChaosID).setColor(353825)
@@ -28,17 +26,13 @@ public class WorldProviderOreSpawn6 extends WorldProvider {
         return "Dimension-Chaos";
     }
 
-    public boolean canRespawnHere() {
-        return true;
-    }
 
     public void registerWorldChunkManager() {
         this.MyPlains.setChaosCreatures();
-        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell((BiomeGenBase) this.MyPlains, 0.01f);
+        this.worldChunkMgr = new WorldChunkManagerHell(this.MyPlains, 0.01f);
         this.worldChunkMgr.getBiomeGenAt(0, 0)
             .setTemperatureRainfall(0.8f, 0.01f);
-        this.dimensionId = OreSpawnMain.DimensionID4;
-        this.dimensionId = OreSpawnMain.DimensionID6;
+        this.dimensionId = DimensionInitDangerZone.DimensionID6;
     }
 
     public void setWorldTime(final long time) {
@@ -64,6 +58,6 @@ public class WorldProviderOreSpawn6 extends WorldProvider {
     }
 
     public IChunkProvider createChunkGenerator() {
-        return (IChunkProvider) new ChunkProviderOreSpawn6(this.worldObj, this.worldObj.getSeed());
+        return new ChunkProviderOreSpawn6(this.worldObj, this.worldObj.getSeed());
     }
 }

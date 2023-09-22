@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -199,7 +200,7 @@ public class EntityLunaMoth extends EntityButterfly {
     public boolean getCanSpawnHere() {
         final Block bid = this.worldObj.getBlock((int) this.posX, (int) this.posY, (int) this.posZ);
         return bid == Blocks.air && !this.worldObj.isDaytime()
-            && (this.worldObj.provider.dimensionId == OreSpawnMain.DimensionID4 || this.posY >= 50.0);
+            && (this.worldObj.provider.dimensionId == DimensionInitDangerZone.DimensionID4 || this.posY >= 50.0);
     }
 
     public void initCreature() {}

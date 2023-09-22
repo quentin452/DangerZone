@@ -7,21 +7,11 @@ import fr.iamacat.dangerzone_iamacatfr.items.CrystalCow;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class BiomeGenUtopianPlains extends BiomeGenBase {
-    List<SpawnListEntry> spawnableCreatureList;
-    List<SpawnListEntry> spawnableMonsterList;
-    List<SpawnListEntry> spawnableCaveCreatureList;
-    List<SpawnListEntry> spawnableWaterCreatureList;
-
+public class BiomeGenUtopianPlains extends BiomeGenBase
+{
     public BiomeGenUtopianPlains(final int par1) {
         super(par1);
-        spawnableCreatureList = new ArrayList<>();
-        spawnableMonsterList = new ArrayList<>();
-        spawnableCaveCreatureList = new ArrayList<>();
-        spawnableWaterCreatureList = new ArrayList<>();
-
         if (OreSpawnMain.GazelleEnable != 0) {
             this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(Gazelle.class, 10, 2, 4));
         }
@@ -75,6 +65,14 @@ public class BiomeGenUtopianPlains extends BiomeGenBase {
     }
 
     public void setIslandCreatures() {
+        this.spawnableCreatureList = null;
+        this.spawnableMonsterList = null;
+        this.spawnableWaterCreatureList = null;
+        this.spawnableCaveCreatureList = null;
+        this.spawnableCreatureList = new ArrayList();
+        this.spawnableMonsterList = new ArrayList();
+        this.spawnableWaterCreatureList = new ArrayList();
+        this.spawnableCaveCreatureList = new ArrayList();
         if (OreSpawnMain.ButterflyEnable != 0) {
             this.spawnableCaveCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityButterfly.class, 5, 2, 6));
         }
@@ -126,6 +124,14 @@ public class BiomeGenUtopianPlains extends BiomeGenBase {
     }
 
     public void setCrystalCreatures() {
+        this.spawnableCreatureList = null;
+        this.spawnableMonsterList = null;
+        this.spawnableWaterCreatureList = null;
+        this.spawnableCaveCreatureList = null;
+        this.spawnableCreatureList = new ArrayList();
+        this.spawnableMonsterList = new ArrayList();
+        this.spawnableWaterCreatureList = new ArrayList();
+        this.spawnableCaveCreatureList = new ArrayList();
         if (OreSpawnMain.CowEnable != 0) {
             this.spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(CrystalCow.class, 1, 1, 4));
         }
@@ -251,6 +257,14 @@ public class BiomeGenUtopianPlains extends BiomeGenBase {
     }
 
     public void setChaosCreatures() {
+        this.spawnableCreatureList = null;
+        this.spawnableMonsterList = null;
+        this.spawnableWaterCreatureList = null;
+        this.spawnableCaveCreatureList = null;
+        this.spawnableCreatureList = new ArrayList();
+        this.spawnableMonsterList = new ArrayList();
+        this.spawnableWaterCreatureList = new ArrayList();
+        this.spawnableCaveCreatureList = new ArrayList();
         this.theBiomeDecorator.flowersPerChunk = 2;
         this.theBiomeDecorator.grassPerChunk = 4;
         this.theBiomeDecorator.treesPerChunk = 1;
@@ -424,5 +438,45 @@ public class BiomeGenUtopianPlains extends BiomeGenBase {
         if (OreSpawnMain.GammaMetroidEnable != 0) {
             this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(GammaMetroid.class, 1, 1, 1));
         }
+    }
+    public void setMLPCreatures() {
+
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(AJInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(HydraInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(WindigoInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(MooseInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(MooseBigInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(BuffaloInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(FlameDragonInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(DarknessInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(BearInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(ToughGuyInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(DashInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(ManticoreInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(UrsaMAJORInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(MavisInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(CentipedeInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(ParaspriteInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(TimberWolfInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(KingbowserInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(ArcticScorpionInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(CockatriceInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(TwilicornInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(CloudInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(LeviathanInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(DemonSpiderInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(PhoenixInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(CragadileInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(ThunderHoovesInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(RainbowCentipedeInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(RhinocerosInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(SkullBossInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(SkullInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(SpikezillaInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(CrabzillaInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(YakPrinceInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(TwilightMobInstance.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(TwilicornInstance.class, 1, 1, 1));
+
     }
 }

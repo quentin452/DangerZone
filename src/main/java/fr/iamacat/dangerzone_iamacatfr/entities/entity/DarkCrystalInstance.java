@@ -42,8 +42,8 @@ public class DarkCrystalInstance extends Entity {
 
     @Override
     protected void entityInit() {
-        this.dataWatcher.addObject(4, Integer.valueOf(rand.nextInt(10000)));
-        this.dataWatcher.addObject(5, Integer.valueOf(0));
+        this.dataWatcher.addObject(4, rand.nextInt(10000));
+        this.dataWatcher.addObject(5, 0);
     }
 
     private void incrementRotation() {

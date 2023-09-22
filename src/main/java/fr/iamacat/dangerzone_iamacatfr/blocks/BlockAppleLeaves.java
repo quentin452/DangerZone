@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.EntityAnt;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.PurplePower;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
@@ -66,7 +67,7 @@ public class BlockAppleLeaves extends BlockLeaves {
         int var7 = 2;
         int totaldist = 0;
         int chance = 20;
-        if (par1World.provider.dimensionId == OreSpawnMain.DimensionID4) {
+        if (par1World.provider.dimensionId == DimensionInitDangerZone.DimensionID4) {
             chance = 100;
             var7 = 1;
         }
@@ -86,7 +87,7 @@ public class BlockAppleLeaves extends BlockLeaves {
                                 }
                                 long t = par1World.getWorldTime();
                                 t %= 24000L;
-                                if (t > 12000L && par1World.provider.dimensionId == OreSpawnMain.DimensionID4) {
+                                if (t > 12000L && par1World.provider.dimensionId == DimensionInitDangerZone.DimensionID4) {
                                     OreSpawnMain
                                         .setBlockFast(par1World, par2, par3, par4, OreSpawnMain.MyScaryLeaves, 0, 3);
                                 }

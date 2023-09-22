@@ -2,8 +2,8 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.MyEntityAIWanderALot;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.worldgen.OreSpawnTeleporter;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIPanic;
@@ -11,7 +11,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 
 public class EntityRainbowAnt extends EntityAnt {
@@ -51,16 +50,16 @@ public class EntityRainbowAnt extends EntityAnt {
         if (var2 != null) {
             return false;
         }
-        if (par1EntityPlayer.dimension != OreSpawnMain.DimensionID3) {
+        if (par1EntityPlayer.dimension != DimensionInitDangerZone.DimensionID3) {
             MinecraftServer.getServer()
                 .getConfigurationManager()
                 .transferPlayerToDimension(
                     (EntityPlayerMP) par1EntityPlayer,
-                    OreSpawnMain.DimensionID3,
-                    (Teleporter) new OreSpawnTeleporter(
+                    DimensionInitDangerZone.DimensionID3,
+                    new OreSpawnTeleporter(
                         MinecraftServer.getServer()
-                            .worldServerForDimension(OreSpawnMain.DimensionID3),
-                        OreSpawnMain.DimensionID3,
+                            .worldServerForDimension(DimensionInitDangerZone.DimensionID3),
+                        DimensionInitDangerZone.DimensionID3,
                         this.worldObj));
         } else {
             MinecraftServer.getServer()
@@ -68,7 +67,7 @@ public class EntityRainbowAnt extends EntityAnt {
                 .transferPlayerToDimension(
                     (EntityPlayerMP) par1EntityPlayer,
                     0,
-                    (Teleporter) new OreSpawnTeleporter(
+                    new OreSpawnTeleporter(
                         MinecraftServer.getServer()
                             .worldServerForDimension(0),
                         0,

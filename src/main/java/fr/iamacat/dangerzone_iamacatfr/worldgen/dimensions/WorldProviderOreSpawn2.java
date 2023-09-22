@@ -1,12 +1,11 @@
 
 package fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions;
 
-import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
+import fr.iamacat.dangerzone_iamacatfr.init.DimensionInitDangerZone;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.storage.WorldInfo;
@@ -15,18 +14,14 @@ import net.minecraftforge.common.DimensionManager;
 public class WorldProviderOreSpawn2 extends WorldProvider {
 
     public String getDimensionName() {
-        return "Dimension-Extreme";
-    }
-
-    public boolean canRespawnHere() {
-        return true;
+        return "Dimension-Village";
     }
 
     public void registerWorldChunkManager() {
-        this.worldChunkMgr = (WorldChunkManager) new WorldChunkManagerHell(BiomeGenBase.extremeHills, 0.01f);
+        this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.extremeHills, 0.01f);
         this.worldChunkMgr.getBiomeGenAt(0, 0)
             .setTemperatureRainfall(0.8f, 0.01f);
-        this.dimensionId = OreSpawnMain.DimensionID2;
+        this.dimensionId = DimensionInitDangerZone.DimensionID2;
     }
 
     public void setWorldTime(final long time) {
@@ -52,6 +47,7 @@ public class WorldProviderOreSpawn2 extends WorldProvider {
     }
 
     public IChunkProvider createChunkGenerator() {
-        return (IChunkProvider) new ChunkProviderOreSpawn2(this.worldObj, this.worldObj.getSeed(), true);
+        return new ChunkProviderOreSpawn2(this.worldObj, this.worldObj.getSeed(), true);
     }
+
 }

@@ -143,6 +143,7 @@ entity.RainbowCannon.name=Rainbow Cannon
 entity.ProjectileApples.name=Projectile Apples
 entity.GhostInstance.name=Ghost
 entity.Tiny Bird DangerZone.name=Tiny Bird
+entity.Crystal Urchin.name=Crystal Urchin
 
 item.MavisOrb.name=Mavis Orb Egg
 item.Masso Egg.name=Masso Egg

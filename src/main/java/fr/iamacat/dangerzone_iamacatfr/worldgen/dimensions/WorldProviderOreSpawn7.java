@@ -10,30 +10,29 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.storage.WorldInfo;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.DimensionManager;
 
-public class WorldProviderOreSpawn3 extends WorldProvider {
+public class WorldProviderOreSpawn7 extends WorldProvider {
 
     private final BiomeGenUtopianPlains MyPlains;
 
-    public WorldProviderOreSpawn3() {
-        this.MyPlains = (BiomeGenUtopianPlains) new BiomeGenUtopianPlains(OreSpawnMain.BiomeVillageID).setColor(353825)
-            .setBiomeName("Mining")
+    public WorldProviderOreSpawn7() {
+        this.MyPlains = (BiomeGenUtopianPlains) new BiomeGenUtopianPlains(OreSpawnMain.BiomeChaosID).setColor(353825)
+            .setBiomeName("MLP")
             .setTemperatureRainfall(0.7f, 0.5f);
     }
 
     public String getDimensionName() {
-        return "Dimension-Mining";
+        return "Dimension-MLP";
     }
 
+
     public void registerWorldChunkManager() {
-        this.MyPlains.setVillageCreatures();
-        this.worldChunkMgr = new WorldChunkManagerHell(this.MyPlains, 0.5f);
+        this.MyPlains.setMLPCreatures();
+        this.worldChunkMgr = new WorldChunkManagerHell(this.MyPlains, 0.01f);
         this.worldChunkMgr.getBiomeGenAt(0, 0)
-            .setTemperatureRainfall(0.7f, 0.5f);
-        this.dimensionId = DimensionInitDangerZone.DimensionID3;
-        BiomeManager.addVillageBiome(this.MyPlains, true);
+            .setTemperatureRainfall(0.8f, 0.01f);
+        this.dimensionId = DimensionInitDangerZone.DimensionID7;
     }
 
     public void setWorldTime(final long time) {
@@ -59,6 +58,6 @@ public class WorldProviderOreSpawn3 extends WorldProvider {
     }
 
     public IChunkProvider createChunkGenerator() {
-        return new ChunkProviderOreSpawn3(this.worldObj, this.worldObj.getSeed(), true);
+        return new ChunkProviderOreSpawn7(this.worldObj, this.worldObj.getSeed(), true);
     }
 }

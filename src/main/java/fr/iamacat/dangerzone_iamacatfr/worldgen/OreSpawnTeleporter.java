@@ -203,7 +203,7 @@ public class OreSpawnTeleporter extends Teleporter {
             entity3.motionZ = motionX2;
             entity2.motionY = motionX2;
             entity.motionX = motionX2;
-            var6.setWorld((World) this.world);
+            var6.setWorld(this.world);
             this.world.spawnEntityInWorld(var6);
         }
         e.isDead = true;

@@ -1142,6 +1142,7 @@ public class EntityInitDangerZone {
             32,
             1,
             true);
+
         int TwilyMagic = EntityRegistry.findGlobalUniqueEntityId();
 
         EntityRegistry.registerGlobalEntityID(TwilyMagicInstance.class, "TwilyMagic", TwilyMagic);

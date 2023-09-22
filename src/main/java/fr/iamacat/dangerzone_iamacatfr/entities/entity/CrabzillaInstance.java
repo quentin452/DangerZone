@@ -25,7 +25,6 @@ import net.minecraft.world.World;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-// todo add a spawn for this entity
 public class CrabzillaInstance extends EntityTameable {
 
     private GenericTargetSorterInstance TargetSorter;
@@ -91,7 +90,7 @@ public class CrabzillaInstance extends EntityTameable {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (byte) 0);
+        this.dataWatcher.addObject(20, 0);
         if (this.renderdata == null) {
             this.renderdata = new InfoRenderer();
         }
@@ -577,23 +576,23 @@ public class CrabzillaInstance extends EntityTameable {
     }
 
     public int getAttacking() {
-        return this.dataWatcher.getWatchableObjectByte(20);
+        return this.dataWatcher.getWatchableObjectInt(20);
     }
 
     public void setAttacking(final int par1) {
-        this.dataWatcher.updateObject(20, (byte) par1);
+        this.dataWatcher.updateObject(20, par1);
     }
 
     public boolean getCanSpawnHere() {
-        for (int k = -8; k < 8; ++k) {
-            for (int j = -12; j < 12; ++j) {
-                for (int i = 0; i < 10; ++i) {
+        for (byte k = -8; k < 8; ++k) {
+            for (byte j = -12; j < 12; ++j) {
+                for (byte i = 0; i < 10; ++i) {
                     final Block bid = this.worldObj
-                        .getBlock((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                        .getBlock((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                     if (bid == Blocks.mob_spawner) {
                         TileEntityMobSpawner tileentitymobspawner = null;
                         tileentitymobspawner = (TileEntityMobSpawner) this.worldObj
-                            .getTileEntity((int) this.posX + j, (int) this.posY + i, (int) this.posZ + k);
+                            .getTileEntity((byte) this.posX + j, (byte) this.posY + i, (byte) this.posZ + k);
                         final String s = tileentitymobspawner.func_145881_a()
                             .getEntityNameToSpawn();
                         if (s != null && s.equals("MyCrabzilla")) {
@@ -635,7 +634,7 @@ public class CrabzillaInstance extends EntityTameable {
                 var8.attackEntityFrom(DamageSource.fall, (float) damage / 1.0f);
                 this.worldObj.playSoundAtEntity(
                     (Entity) var8,
-                    Tags.MODID + ":pincer_a",
+                    Tags.MODID + ":pincer_a2",
                     3.5f,
                     1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);
                 final double ks = 2.6;

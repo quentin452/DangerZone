@@ -67,7 +67,7 @@ public class TwilightMagicInstance extends EntityMob {
 
     protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(20, (Object) 0);
+        this.dataWatcher.addObject(20, 0);
     }
 
     public void setWasShot() {

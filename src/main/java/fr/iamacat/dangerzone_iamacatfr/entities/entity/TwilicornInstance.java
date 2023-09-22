@@ -2,6 +2,7 @@
 package fr.iamacat.dangerzone_iamacatfr.entities.entity;
 
 import fr.iamacat.dangerzone_iamacatfr.entities.ai.AIFollowOwner;
+import fr.iamacat.dangerzone_iamacatfr.entities.ai.EntitySensesOptimized;
 import fr.iamacat.dangerzone_iamacatfr.init.ItemInitDangerZone;
 import fr.iamacat.dangerzone_iamacatfr.util.GenericTargetSorter;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
@@ -50,6 +51,7 @@ public class TwilicornInstance  extends EntityTameable
     private int stuck_count;
     private int lastX;
     private int lastZ;
+    private final EntitySensesOptimized senses;
 
     public TwilicornInstance(final World par1World) {
         super(par1World);
@@ -79,13 +81,15 @@ public class TwilicornInstance  extends EntityTameable
         this.renderDistanceWeight = 12.0;
         this.getNavigator().setAvoidsWater(true);
         this.setSitting(false);
-        this.tasks.addTask(1, (EntityAIBase)new EntityAISwimming((EntityLiving)this));
-        this.tasks.addTask(2, (EntityAIBase)new AIFollowOwner((EntityTameable)this, 1.75f, 16.0f, 2.5f));
-        this.tasks.addTask(3, (EntityAIBase)new EntityAITempt((EntityCreature)this, 1.25, ItemInitDangerZone.twilightStar, false));
-        this.tasks.addTask(4, (EntityAIBase)new EntityAIWatchClosest((EntityLiving)this, EntityLiving.class, 6.0f));
-        this.tasks.addTask(7, (EntityAIBase)new EntityAIMoveIndoors((EntityCreature)this));
-        this.TargetSorter = new GenericTargetSorter((Entity)this);
+        this.tasks.addTask(1, new EntityAISwimming(this));
+        this.tasks.addTask(2, new AIFollowOwner(this, 1.75f, 16.0f, 2.5f));
+        this.tasks.addTask(3, new EntityAITempt(this, 1.25, ItemInitDangerZone.twilightStar, false));
+        this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityLiving.class, 6.0f));
+        this.tasks.addTask(7, new EntityAIMoveIndoors(this));
+        this.TargetSorter = new GenericTargetSorter(this);
         this.experienceValue = 7555;
+        this.senses = new EntitySensesOptimized(this);
+
     }
 
     protected void applyEntityAttributes() {
@@ -1011,7 +1015,10 @@ public class TwilicornInstance  extends EntityTameable
     }
 
     private boolean isSuitableTarget(final EntityLivingBase par1EntityLiving, final boolean par2) {
-        return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && par1EntityLiving != null && par1EntityLiving != this && par1EntityLiving.isEntityAlive() && this.getEntitySenses().canSee((Entity)par1EntityLiving) && !(par1EntityLiving instanceof AJInstance) && !(par1EntityLiving instanceof EntityAnimal) && !(par1EntityLiving instanceof DashInstance) && !(par1EntityLiving instanceof DashCloudInstance) && !(par1EntityLiving instanceof TwilightMagicInstance) && !(par1EntityLiving instanceof TwilicornInstance) && (par1EntityLiving instanceof EntityMob || !(par1EntityLiving instanceof EntityPlayer));
+        return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && par1EntityLiving != null && par1EntityLiving != this && par1EntityLiving.isEntityAlive() && this.getOptimizedEntitySenses().canSee(par1EntityLiving) && !(par1EntityLiving instanceof AJInstance) && !(par1EntityLiving instanceof EntityAnimal) && !(par1EntityLiving instanceof DashInstance) && !(par1EntityLiving instanceof DashCloudInstance) && !(par1EntityLiving instanceof TwilightMagicInstance) && !(par1EntityLiving instanceof TwilicornInstance) && (par1EntityLiving instanceof EntityMob || !(par1EntityLiving instanceof EntityPlayer));
+    }
+    public EntitySensesOptimized getOptimizedEntitySenses() {
+        return this.senses;
     }
 
     private EntityLivingBase findSomethingToAttack() {

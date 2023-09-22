@@ -407,9 +407,12 @@ public class AJInstance extends EntityTameable {
             return;
         }
         super.updateAITasks();
+
         if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
             this.setDead();
+            return;
         }
+
         if (this.dmgDelay > 0) {
             --this.dmgDelay;
         }
@@ -419,6 +422,7 @@ public class AJInstance extends EntityTameable {
             this.tz = tx;
             this.ty = tx;
             this.tx = tx;
+
             for (int i = 1; i < 12; ++i) {
                 int j = i;
                 if (j > 10) {
@@ -447,13 +451,12 @@ public class AJInstance extends EntityTameable {
                     this.setAttacking(1);
                     this.getNavigator()
                         .tryMoveToEntityLiving(e, 1.0);
-                    if (this.worldObj.rand.nextInt(1) == 0 || this.worldObj.rand.nextInt(2) == 1) {
-                        this.attackEntityAsMob(e);
-                        this.ForceFeed(e);
-                        this.earthQuake(this.posX, this.posY, this.posZ, 5.0, 275.0, 2);
-                        this.getNavigator()
-                            .tryMoveToEntityLiving(e, 1.0);
-                    }
+                    this.worldObj.rand.nextInt(1);
+                    this.attackEntityAsMob(e);
+                    this.ForceFeed(e);
+                    this.earthQuake(this.posX, this.posY, this.posZ, 5.0, 275.0, 2);
+                    this.getNavigator()
+                        .tryMoveToEntityLiving(e, 1.0);
                 }
                 if (this.getHealth() < 75.0f) {
                     this.setAttacking(0);

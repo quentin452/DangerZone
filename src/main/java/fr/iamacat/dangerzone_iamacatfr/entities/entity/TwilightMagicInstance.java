@@ -106,102 +106,65 @@ public class TwilightMagicInstance extends EntityMob {
 
     public void onUpdate() {
         super.onUpdate();
-        this.worldObj.spawnParticle(
-            "fireworksSpark",
-            this.posX,
-            this.posY + 1.25,
-            this.posZ,
-             ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-           ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-             ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
-        this.worldObj.spawnParticle(
-            "fireworksSpark",
-            this.posX,
-            this.posY + 1.25,
-            this.posZ,
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            (double) ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
-        this.worldObj.spawnParticle(
-            "fireworksSpark",
-            this.posX,
-            this.posY + 1.25,
-            this.posZ,
-           ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-           ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
-        this.worldObj.spawnParticle(
-            "witchMagic",
-            this.posX,
-            this.posY + 1.25,
-            this.posZ,
-           ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-          ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-           ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
-        this.worldObj.spawnParticle(
-            "witchMagic",
-            this.posX,
-            this.posY + 1.25,
-            this.posZ,
-           ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-          ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
-        this.worldObj.spawnParticle(
-            "witchMagic",
-            this.posX,
-            this.posY + 1.25,
-            this.posZ,
-            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-           ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f),
-            ((this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) / 2.0f));
-        this.motionY *= 0.6;
-        if (this.isInWater() && this.worldObj.rand.nextInt(20) == 1) {
-            this.attackEntityAsMob(this);
+
+        World world = this.worldObj;
+        Random rand = world.rand;
+
+        if (rand.nextInt(3) == 0) { // Réduit la fréquence des particules
+            double offsetX = (rand.nextFloat() - rand.nextFloat()) / 2.0;
+            double offsetY = (rand.nextFloat() - rand.nextFloat()) / 2.0;
+            double offsetZ = (rand.nextFloat() - rand.nextFloat()) / 2.0;
+
+            double posX = this.posX;
+            double posY = this.posY + 1.25;
+            double posZ = this.posZ;
+
+            world.spawnParticle("fireworksSpark", posX, posY, posZ, offsetX, offsetY, offsetZ);
+            world.spawnParticle("witchMagic", posX, posY, posZ, offsetX, offsetY, offsetZ);
+
+            this.motionY *= 0.6;
+
+            if (this.isInWater() && rand.nextInt(20) == 1) {
+                this.attackEntityAsMob(this);
+            }
         }
     }
 
     public boolean attackEntityAsMob(final Entity par1Entity) {
-        final boolean var4 = false;
-        if (par1Entity != null && par1Entity instanceof EntityLivingBase) {
-            final EntityLivingBase e = (EntityLivingBase) par1Entity;
-            final float s = par1Entity.height * par1Entity.width;
-            if (e instanceof DarknessInstance) {
-                e.setHealth(e.getHealth() - 2.14748365E9f);
-                this.worldObj
-                    .addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
+        if (par1Entity instanceof EntityLivingBase) {
+            EntityLivingBase target = (EntityLivingBase) par1Entity;
+
+            // Définir les valeurs des dégâts en fonction du type d'entité
+            float damage = 0.0f;
+            float explosionDamage = 5.0f;
+            float healthReductionFactor = 1.35f;
+
+            if (target instanceof DarknessInstance) {
+                damage = 2.14748365E9f;
+            } else if (target instanceof EntityPlayer) {
+                damage = -40.0f;
+            } else if (this.shotbyplayer == 1) {
+                damage = target.getHealth() / healthReductionFactor;
+            } else if (target instanceof HydraInstance || target instanceof UrsaMAJORInstance) {
+                damage = -50.0f;
             }
-            if (e instanceof EntityPlayer) {
-                e.setHealth(e.getHealth() - 40.0f);
-                this.worldObj
-                    .addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
-            }
-            if (this.shotbyplayer == 1) {
-                e.setHealth(e.getHealth() / 1.35f);
-                this.worldObj
-                    .addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
-            }
-            if (e instanceof HydraInstance) {
-                e.setHealth(e.getHealth() - 50.0f);
-                this.worldObj
-                    .addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
-            }
-            if (e instanceof UrsaMAJORInstance) {
-                e.setHealth(e.getHealth()  - 50.0f);
-                this.worldObj
-                    .addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
-            }
-            if (e.getHealth() < 5.0f) {
-                e.setHealth(e.getHealth() / 1.35f - 0.0f);
-                this.worldObj
-                    .addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
-                this.createExplodeSource(e.posX, e.posY, e.posZ, 2.0, 5.0, 1);
+
+            // Appliquer les dégâts à la cible
+            target.attackEntityFrom(DamageSource.setExplosionSource(null).setExplosion(), damage);
+            target.attackEntityFrom(DamageSource.fall, damage);
+
+            // Appliquer l'effet météorologique
+            worldObj.addWeatherEffect(new EntityLightningBolt(worldObj, target.posX, target.posY - 16.0, target.posZ));
+
+            // Vérifier la santé de la cible
+            if (target.getHealth() < 5.0f) {
+                target.setHealth(target.getHealth() / healthReductionFactor - 0.0f);
+                createExplodeSource(target.posX, target.posY, target.posZ, 2.0, explosionDamage, 1);
             } else {
-                e.setHealth(e.getHealth() / 1.35f);
-                this.worldObj
-                    .addWeatherEffect(new EntityLightningBolt(this.worldObj, e.posX, e.posY - 16.0, e.posZ));
+                target.setHealth(target.getHealth() / healthReductionFactor);
             }
         }
-        return var4;
+        return false;
     }
 
     public boolean canSeeTarget(final double pX, final double pY, final double pZ) {
@@ -230,7 +193,7 @@ public class TwilightMagicInstance extends EntityMob {
                 var8.attackEntityFrom(var9, (float) damage );
                 var8.attackEntityFrom(DamageSource.fall, (float) damage );
                 this.worldObj.playSoundAtEntity(
-                    (Entity) var8,
+                    var8,
                     "random.explode",
                     2.65f,
                     1.0f + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.5f);
@@ -244,7 +207,6 @@ public class TwilightMagicInstance extends EntityMob {
     }
 
     private ChunkCoordinates getRandomFlightTarget() {
-        Random rand = new Random();
         int x = (int) this.posX + rand.nextInt(16) - 8;
         int y = (int) this.posY + rand.nextInt(20) - 10;
         int z = (int) this.posZ + rand.nextInt(16) - 8;
@@ -282,14 +244,22 @@ public class TwilightMagicInstance extends EntityMob {
         double moveY = Math.signum(targetY) * 1.8;
         double moveZ = Math.signum(targetZ) * 1.8;
 
+        // Précalculez l'angle en radians
+        double angleRad = Math.atan2(moveZ, moveX);
+
         this.motionX += (moveX - this.motionX) * 0.6;
         this.motionY += (moveY - this.motionY) * 0.4;
         this.motionZ += (moveZ - this.motionZ) * 0.6;
 
-        float yaw = (float) (Math.atan2(moveZ, moveX) * 90.0 / 3.141592653589793) - 30.0f;
+        // Utilisez une constante plutôt que de multiplier par 90.0/3.141592653589793
+        float yaw = (float) (angleRad * 51.295);
+
         float yawDiff = MathHelper.wrapAngleTo180_float(yaw - this.rotationYaw);
+
+        // Utilisez une constante plutôt que de diviser par 8.0f
         this.moveForward = 2.0f;
-        this.rotationYaw += yawDiff / 8.0f;
+
+        this.rotationYaw += yawDiff * 0.125; // 1.0 / 8.0
     }
 
     public boolean canBePushed() {
@@ -341,7 +311,7 @@ public class TwilightMagicInstance extends EntityMob {
     private EntityLivingBase findSomethingToAttack() {
         AxisAlignedBB searchBox = this.boundingBox.expand(32.0, 16.0, 32.0);
 
-        List<EntityLivingBase> entities = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, searchBox);
+        List entities = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, searchBox);
 
 
         entities.sort(this.TargetSorter);

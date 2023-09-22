@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class EntitySensesOptimized {
 
-    // this class was maked to don't use ArrayList because its not optimized with TwilightMagicInstance logic
+    // this class was maked to don't use ArrayList because its not optimized with TwilightMagicInstance logic and more
     private final EntityLiving entityObj;
     private final Set<Entity> seenEntities = new HashSet<>();
     private final Set<Entity> unseenEntities = new HashSet<>();

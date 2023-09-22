@@ -11,37 +11,47 @@ import cpw.mods.fml.client.FMLClientHandler;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.ModelBertha;
 import fr.iamacat.dangerzone_iamacatfr.util.Tags;
 
-public class RenderBertha implements IItemRenderer {
-
-    private static final ResourceLocation texture = new ResourceLocation(Tags.MODID + ":Berthatexture.png");
+public class RenderBertha implements IItemRenderer
+{
     protected ModelBertha modelBertha;
+    private static final ResourceLocation texture;
 
     public RenderBertha() {
         this.modelBertha = new ModelBertha();
     }
 
-    @Override
-    public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        return type == ItemRenderType.EQUIPPED || type == ItemRenderType.EQUIPPED_FIRST_PERSON;
+    public boolean handleRenderType(final ItemStack item, final IItemRenderer.ItemRenderType type) {
+        switch (type) {
+            case EQUIPPED: {
+                return true;
+            }
+            case EQUIPPED_FIRST_PERSON: {
+                return true;
+            }
+            default: {
+                return false;
+            }
+        }
     }
 
-    @Override
-    public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
+    public boolean shouldUseRenderHelper(final IItemRenderer.ItemRenderType type, final ItemStack item, final IItemRenderer.ItemRendererHelper helper) {
         return true;
     }
 
-    @Override
-    public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-        GL11.glPushMatrix();
-        if (type == ItemRenderType.EQUIPPED) {
-            renderSword(-4.0f, 2.0f, -3.0f, 0.25f);
-        } else if (type == ItemRenderType.EQUIPPED_FIRST_PERSON) {
-            renderSwordFirstPerson(6.0f, 3.0f, -5.0f, 0.25f);
+    public void renderItem(final IItemRenderer.ItemRenderType type, final ItemStack item, final Object... data) {
+        switch (type) {
+            case EQUIPPED: {
+                this.renderSwordF5(-4.0f, 2.0f, -3.0f, 0.25f);
+                break;
+            }
+            case EQUIPPED_FIRST_PERSON: {
+                this.renderSword(6.0f, 3.0f, -5.0f, 0.25f);
+                break;
+            }
         }
-        GL11.glPopMatrix();
     }
 
-    private void renderSword(float x, float y, float z, float scale) {
+    private void renderSword(final float x, final float y, final float z, final float scale) {
         GL11.glPushMatrix();
         GL11.glRotatef(190.0f, 1.0f, 0.0f, 0.0f);
         GL11.glRotatef(25.0f, 0.0f, 0.0f, 1.0f);
@@ -53,7 +63,7 @@ public class RenderBertha implements IItemRenderer {
         GL11.glPopMatrix();
     }
 
-    private void renderSwordFirstPerson(float x, float y, float z, float scale) {
+    private void renderSwordF5(final float x, final float y, final float z, final float scale) {
         GL11.glPushMatrix();
         GL11.glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
         GL11.glRotatef(-90.0f, 0.0f, 0.0f, 1.0f);
@@ -63,5 +73,9 @@ public class RenderBertha implements IItemRenderer {
             .getClient().renderEngine.bindTexture(texture);
         modelBertha.render();
         GL11.glPopMatrix();
+    }
+
+    static {
+        texture = new ResourceLocation(Tags.MODID + ":Berthatexture.png");
     }
 }

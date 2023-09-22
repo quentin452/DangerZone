@@ -1,10 +1,33 @@
 package fr.iamacat.dangerzone_iamacatfr;
 
-import java.io.File;
-import java.util.GregorianCalendar;
-import java.util.List;
-import java.util.Random;
-
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.iamacat.dangerzone_iamacatfr.blocks.*;
+import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
+import fr.iamacat.dangerzone_iamacatfr.gui.OreSpawnGUIHandler;
+import fr.iamacat.dangerzone_iamacatfr.init.*;
+import fr.iamacat.dangerzone_iamacatfr.items.CrystalWorkbench;
+import fr.iamacat.dangerzone_iamacatfr.items.ItemIrukandjiArrow;
+import fr.iamacat.dangerzone_iamacatfr.items.MantisClaw;
+import fr.iamacat.dangerzone_iamacatfr.items.SunspotUrchin;
+import fr.iamacat.dangerzone_iamacatfr.items.*;
+import fr.iamacat.dangerzone_iamacatfr.network.CommonProxy;
+import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
+import fr.iamacat.dangerzone_iamacatfr.util.*;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions.ChunkOreGenerator;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions.OreSpawnWorld;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon.BasiliskMaze;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon.GenericDungeon;
+import fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon.RubyBirdDungeon;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.creativetab.CreativeTabs;
@@ -29,34 +52,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.IGuiHandler;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fr.iamacat.dangerzone_iamacatfr.blocks.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.gui.OreSpawnGUIHandler;
-import fr.iamacat.dangerzone_iamacatfr.init.*;
-import fr.iamacat.dangerzone_iamacatfr.items.*;
-import fr.iamacat.dangerzone_iamacatfr.items.CrystalWorkbench;
-import fr.iamacat.dangerzone_iamacatfr.items.ItemIrukandjiArrow;
-import fr.iamacat.dangerzone_iamacatfr.items.MantisClaw;
-import fr.iamacat.dangerzone_iamacatfr.items.SunspotUrchin;
-import fr.iamacat.dangerzone_iamacatfr.network.CommonProxy;
-import fr.iamacat.dangerzone_iamacatfr.tileentities.instance.TileEntityCrystalFurnace;
-import fr.iamacat.dangerzone_iamacatfr.util.*;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions.ChunkOreGenerator;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.dimensions.OreSpawnWorld;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon.BasiliskMaze;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon.GenericDungeon;
-import fr.iamacat.dangerzone_iamacatfr.worldgen.dungeon.RubyBirdDungeon;
+import java.io.File;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Random;
 
 @Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = Tags.MCVERSION)
 public class OreSpawnMain {
@@ -1175,7 +1174,6 @@ public class OreSpawnMain {
         final String weapons = "OreSpawnWEAPONS";
         final String ores = "OreSpawnORES";
         config.load();
-        packetproxy.registerRenders();
         EntityInitDangerZone.preInit(event);
         SpawnEggInitDangerZone.preInit(event);
         ItemInitDangerZone.init();
@@ -5622,7 +5620,10 @@ public class OreSpawnMain {
         BlockDispenser.dispenseBehaviorRegistry.putObject(MySpikeyRock, new MyDispenserBehaviorRock());
         BlockDispenser.dispenseBehaviorRegistry.putObject(MyTNTRock, new MyDispenserBehaviorRock());
     }
-
+    @Mod.EventHandler
+    public static void Init(final FMLInitializationEvent event) {
+        packetproxy.registerRenders();
+    }
     @Mod.EventHandler
     public void load(final FMLInitializationEvent event) {}
 

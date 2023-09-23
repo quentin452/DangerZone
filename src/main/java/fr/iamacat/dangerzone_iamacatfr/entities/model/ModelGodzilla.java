@@ -449,22 +449,20 @@ public class ModelGodzilla extends ModelBase {
     public void render(final Entity entity, final float f, final float f1, final float f2, final float f3,
         final float f4, final float f5) {
         final Godzilla e = (Godzilla) entity;
-        RenderInfo r = null;
-        float newangle = 0.0f;
-        float newangle2 = 0.0f;
+        RenderInfo r;
+        float newangle;
+        float newangle2;
         final float pscale = 1.0f;
         final float pi4 = 0.7853982f;
         final float clawZ = 6.0f;
         final float clawY = 16.0f;
         final float clawZamp = 35.0f * pscale;
         final float clawYamp = 18.0f * pscale;
-        final float spikeamp = 1.0f;
-        final float spikefreq = 1.0f;
         super.render(entity, f, f1, f2, f3, f4, f5);
         this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         r = e.getRenderInfo();
-        float t1 = 0.0f;
-        float t2 = 0.0f;
+        float t1;
+        float t2;
         if (f1 > 0.001) {
             newangle = MathHelper.cos(f2 * 0.75f * this.wingspeed / pscale);
             newangle2 = MathHelper.cos(f2 * 0.75f * this.wingspeed / pscale + pi4);
@@ -534,7 +532,6 @@ public class ModelGodzilla extends ModelBase {
         } else {
             newangle = 0.0f;
             t1 = 0.0f;
-            t2 = 0.0f;
         }
         if (t1 > 0.0f) {
             t2 = t1 * clawYamp * f1;
@@ -649,12 +646,10 @@ public class ModelGodzilla extends ModelBase {
             r.ri2 = 0;
             if (e.getAttacking() == 0) {
                 if (e.worldObj.rand.nextInt(20) == 1) {
-                    final RenderInfo renderInfo = r;
-                    renderInfo.ri2 |= 0x1;
+                    r.ri2 |= 0x1;
                 }
             } else if (e.worldObj.rand.nextInt(2) == 1) {
-                final RenderInfo renderInfo2 = r;
-                renderInfo2.ri2 |= 0x1;
+                r.ri2 |= 0x1;
             }
         }
         r.rf2 = newrf1;
@@ -669,21 +664,17 @@ public class ModelGodzilla extends ModelBase {
             r.ri1 = 0;
             if (e.getAttacking() == 0) {
                 if (e.worldObj.rand.nextInt(20) == 1) {
-                    final RenderInfo renderInfo3 = r;
-                    renderInfo3.ri1 |= 0x1;
+                    r.ri1 |= 0x1;
                 }
                 if (e.worldObj.rand.nextInt(20) == 1) {
-                    final RenderInfo renderInfo4 = r;
-                    renderInfo4.ri1 |= 0x2;
+                    r.ri1 |= 0x2;
                 }
             } else {
                 if (e.worldObj.rand.nextInt(2) == 1) {
-                    final RenderInfo renderInfo5 = r;
-                    renderInfo5.ri1 |= 0x1;
+                    r.ri1 |= 0x1;
                 }
                 if (e.worldObj.rand.nextInt(2) == 1) {
-                    final RenderInfo renderInfo6 = r;
-                    renderInfo6.ri1 |= 0x2;
+                    r.ri1 |= 0x2;
                 }
             }
         }

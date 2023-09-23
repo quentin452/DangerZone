@@ -265,86 +265,86 @@ public class ItemOreSpawnArmor extends ItemArmor {
     public String getArmorTexture(final ItemStack armor, final Entity e, final int slot, final String layer) {
         if (this.armor_type == 0 || this.armor_type == 1 || this.armor_type == 3) {
             if (this.armor_material == 0) {
-                return Tags.MODID + ":ultimate_1.png";
+                return Tags.MODID + ":textures/model/armors/ultimate_1.png";
             }
             if (this.armor_material == 1) {
-                return Tags.MODID + ":lavaeel_1.png";
+                return Tags.MODID + ":textures/model/armors/lavaeel_1.png";
             }
             if (this.armor_material == 2) {
-                return Tags.MODID + ":mothscale_1.png";
+                return Tags.MODID + ":textures/model/armors/mothscale_1.png";
             }
             if (this.armor_material == 4) {
-                return Tags.MODID + ":experience_1.png";
+                return Tags.MODID + ":textures/model/armors/experience_1.png";
             }
             if (this.armor_material == 5) {
-                return Tags.MODID + ":ruby_1.png";
+                return Tags.MODID + ":textures/model/armors/ruby_1.png";
             }
             if (this.armor_material == 6) {
-                return Tags.MODID + ":amethyst_1.png";
+                return Tags.MODID + ":textures/model/armors/amethyst_1.png";
             }
             if (this.armor_material == 7) {
-                return Tags.MODID + ":pink_1.png";
+                return Tags.MODID + ":textures/model/armors/pink_1.png";
             }
             if (this.armor_material == 8) {
-                return Tags.MODID + ":tigerseye_1.png";
+                return Tags.MODID + ":textures/model/armors/tigerseye_1.png";
             }
             if (this.armor_material == 9) {
-                return Tags.MODID + ":peacock_1.png";
+                return Tags.MODID + ":textures/model/armors/peacock_1.png";
             }
             if (this.armor_material == 10) {
-                return Tags.MODID + ":mobzilla_1.png";
+                return Tags.MODID + ":textures/model/armors/mobzilla_1.png";
             }
             if (this.armor_material == 11) {
-                return Tags.MODID + ":royal_1.png";
+                return Tags.MODID + ":textures/model/armors/royal_1.png";
             }
             if (this.armor_material == 12) {
-                return Tags.MODID + ":lapis_1.png";
+                return Tags.MODID + ":textures/model/armors/lapis_1.png";
             }
             if (this.armor_material == 13) {
-                return Tags.MODID + ":queen_1.png";
+                return Tags.MODID + ":textures/model/armors/queen_1.png";
             }
-            return Tags.MODID + ":emerald_1.png";
+            return Tags.MODID + ":textures/model/armors/emerald_1.png";
         } else {
             if (this.armor_material == 0) {
-                return Tags.MODID + ":ultimate_2.png";
+                return Tags.MODID + ":textures/model/armors/ultimate_2.png";
             }
             if (this.armor_material == 1) {
-                return Tags.MODID + ":lavaeel_2.png";
+                return Tags.MODID + ":textures/model/armors/lavaeel_2.png";
             }
             if (this.armor_material == 2) {
-                return Tags.MODID + ":mothscale_2.png";
+                return Tags.MODID + ":textures/model/armors/mothscale_2.png";
             }
             if (this.armor_material == 4) {
-                return Tags.MODID + ":experience_2.png";
+                return Tags.MODID + ":textures/model/armors/experience_2.png";
             }
             if (this.armor_material == 5) {
-                return Tags.MODID + ":ruby_2.png";
+                return Tags.MODID + ":textures/model/armors/ruby_2.png";
             }
             if (this.armor_material == 6) {
-                return Tags.MODID + ":amethyst_2.png";
+                return Tags.MODID + ":textures/model/armors/amethyst_2.png";
             }
             if (this.armor_material == 7) {
-                return Tags.MODID + ":pink_2.png";
+                return Tags.MODID + ":textures/model/armors/pink_2.png";
             }
             if (this.armor_material == 8) {
-                return Tags.MODID + ":tigerseye_2.png";
+                return Tags.MODID + ":textures/model/armors/tigerseye_2.png";
             }
             if (this.armor_material == 9) {
-                return Tags.MODID + ":peacock_2.png";
+                return Tags.MODID + ":textures/model/armors/peacock_2.png";
             }
             if (this.armor_material == 10) {
-                return Tags.MODID + ":mobzilla_2.png";
+                return Tags.MODID + ":textures/model/armors/mobzilla_2.png";
             }
             if (this.armor_material == 11) {
-                return Tags.MODID + ":royal_2.png";
+                return Tags.MODID + ":textures/model/armors/royal_2.png";
             }
             if (this.armor_material == 12) {
-                return Tags.MODID + ":lapis_2.png";
+                return Tags.MODID + ":textures/model/armors/lapis_2.png";
             }
             if (this.armor_material == 13) {
-                return Tags.MODID + ":queen_2.png";
+                return Tags.MODID + ":textures/model/armors/queen_2.png";
             }
-            return Tags.MODID + ":emerald_2.png";
+            return Tags.MODID + ":textures/model/armors/emerald_2.png";
         }
     }
 

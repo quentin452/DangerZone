@@ -86,7 +86,7 @@ public class ModelGodzilla extends ModelBase {
 
     public ModelGodzilla(final float f1) {
         this.wingspeed = f1;
-        this.textureWidth = 1024;
+        this.textureWidth = 572;
         this.textureHeight = 1024;
         (this.LToe1 = new ModelRenderer(this, 45, 1002)).addBox(-5.0f, -2.0f, -40.0f, 10, 10, 6);
         this.LToe1.setRotationPoint(54.0f, 16.0f, 6.0f);

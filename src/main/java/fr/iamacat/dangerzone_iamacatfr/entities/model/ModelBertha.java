@@ -20,8 +20,8 @@ public class ModelBertha extends ModelBase {
     ModelRenderer Bottom;
 
     public ModelBertha() {
-        this.textureWidth = 64;
-        this.textureHeight = 128;
+        this.textureWidth = 36;
+        this.textureHeight = 47;
         (this.Grip = new ModelRenderer(this, 0, 0)).addBox(0.0f, -6.0f, 0.0f, 1, 12, 1);
         this.Grip.setRotationPoint(0.0f, 0.0f, 0.0f);
         this.Grip.setTextureSize(64, 128);

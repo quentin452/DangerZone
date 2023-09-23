@@ -46,8 +46,8 @@ public class ModelCaterKiller extends ModelBase {
     public ModelCaterKiller(final float f1) {
         this.wingspeed = 1.0f;
         this.wingspeed = f1;
-        this.textureWidth = 256;
-        this.textureHeight = 512;
+        this.textureWidth = 215;
+        this.textureHeight = 424;
         (this.Head = new ModelRenderer((ModelBase) this, 0, 50)).addBox(-8.0f, -8.0f, -8.0f, 16, 16, 8);
         this.Head.setRotationPoint(0.0f, -8.0f, -12.0f);
         this.Head.setTextureSize(64, 32);

@@ -82,21 +82,6 @@ public class EntityInitDangerZone {
             1,
             true);
 
-        final int BeeInstance = EntityRegistry.findGlobalUniqueEntityId();
-
-        EntityRegistry.registerGlobalEntityID(
-            fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance.class,
-            "BeeInstance",
-            BeeInstance);
-
-        EntityRegistry.registerModEntity(
-            fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance.class,
-            "BeeInstance",
-            BeeInstance, // Use the chosen unique ID
-            Tags.MODID,
-            32,
-            1,
-            true);
 
         final int WhaleInstance = EntityRegistry.findGlobalUniqueEntityId();
 

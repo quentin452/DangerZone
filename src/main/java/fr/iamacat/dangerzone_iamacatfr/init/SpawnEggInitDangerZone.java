@@ -4,7 +4,6 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.render.WhaleRenderer;
 import fr.iamacat.dangerzone_iamacatfr.spawnable.SpawnEggs;
 import fr.iamacat.dangerzone_iamacatfr.util.Constants;
@@ -482,7 +481,7 @@ public class SpawnEggInitDangerZone {
         Constants.OstrichSpawnEgg = OstrichSpawnEgg;
         GameRegistry.registerItem(Constants.OstrichSpawnEgg, "Ostrich Egg");
 
-        SpawnEggs BeeSpawnEgg = new SpawnEggs(BeeInstance.class);
+        SpawnEggs BeeSpawnEgg = new SpawnEggs(Bee.class);
         BeeSpawnEgg.setUnlocalizedName("bee_egg");
         Constants.BeeSpawnEgg = BeeSpawnEgg;
         GameRegistry.registerItem(Constants.BeeSpawnEgg, "Bee Egg");

@@ -52,8 +52,8 @@ public class ModelHerculesBeetle extends ModelBase {
     public ModelHerculesBeetle(final float f1) {
         this.wingspeed = 1.0f;
         this.wingspeed = f1;
-        this.textureWidth = 256;
-        this.textureHeight = 256;
+        this.textureWidth = 171;
+        this.textureHeight = 198;
         (this.body1 = new ModelRenderer((ModelBase) this, 0, 30)).addBox(-8.0f, 0.0f, 0.0f, 16, 16, 23);
         this.body1.setRotationPoint(0.0f, 0.0f, 0.0f);
         this.body1.setTextureSize(256, 256);

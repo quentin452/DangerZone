@@ -20,7 +20,6 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import fr.iamacat.dangerzone_iamacatfr.InputConfusedMovement;
 import fr.iamacat.dangerzone_iamacatfr.OreSpawnMain;
 import fr.iamacat.dangerzone_iamacatfr.entities.entity.*;
-import fr.iamacat.dangerzone_iamacatfr.entities.entity.bosses.BeeInstance;
 import fr.iamacat.dangerzone_iamacatfr.entities.model.*;
 import fr.iamacat.dangerzone_iamacatfr.entities.other.RiderControl;
 import fr.iamacat.dangerzone_iamacatfr.entities.projectile.EyeRayInstance;
@@ -51,9 +50,6 @@ public class ClientProxy extends CommonProxy {
 
         RenderingRegistry
             .registerEntityRenderingHandler(MassoInstance.class, new MassoRenderer(new MassoModel(), shadowSize));
-
-        RenderingRegistry.registerEntityRenderingHandler(BeeInstance.class, new BeeRenderer());
-        RenderingRegistry.registerEntityRenderingHandler(DarkCrystalInstance.class, new DarkCrystalRenderer());
 
         RenderingRegistry.registerEntityRenderingHandler(
             WhaleRenderer.WhaleInstance.class,

@@ -36,16 +36,15 @@ public class ModelBee extends ModelBase {
     ModelRenderer RightPincerExtra;
 
     public ModelBee(final float f1) {
-        this.wingspeed = 1.0f;
         this.wingspeed = f1;
-        this.textureWidth = 256;
-        this.textureHeight = 256;
-        (this.Sting = new ModelRenderer((ModelBase) this, 68, 0)).addBox(-1.0f, 0.0f, -1.0f, 2, 10, 2);
+        this.textureWidth = 144;
+        this.textureHeight = 169;
+        (this.Sting = new ModelRenderer(this, 68, 0)).addBox(-1.0f, 0.0f, -1.0f, 2, 10, 2);
         this.Sting.setRotationPoint(0.0f, 16.0f, 1.0f);
         this.Sting.setTextureSize(256, 256);
         this.Sting.mirror = true;
         this.setRotation(this.Sting, -0.7853982f, 0.0f, 0.0f);
-        (this.Abdomnem1 = new ModelRenderer((ModelBase) this, 64, 12)).addBox(-2.0f, 0.0f, 0.0f, 4, 8, 4);
+        (this.Abdomnem1 = new ModelRenderer(this, 64, 12)).addBox(-2.0f, 0.0f, 0.0f, 4, 8, 4);
         this.Abdomnem1.setRotationPoint(0.0f, 9.0f, 2.0f);
         this.Abdomnem1.setTextureSize(256, 256);
         this.Abdomnem1.mirror = true;
@@ -90,17 +89,17 @@ public class ModelBee extends ModelBase {
         this.WingRight.setTextureSize(256, 256);
         this.WingRight.mirror = true;
         this.setRotation(this.WingRight, -0.7853982f, -0.5235988f, 2.617994f);
-        (this.WingLeft = new ModelRenderer((ModelBase) this, 96, 91)).addBox(0.0f, 0.0f, 0.0f, 0, 8, 24);
+        (this.WingLeft = new ModelRenderer(this, 96, 91)).addBox(0.0f, 0.0f, 0.0f, 0, 8, 24);
         this.WingLeft.setRotationPoint(3.0f, -14.0f, -15.0f);
         this.WingLeft.setTextureSize(256, 256);
         this.WingLeft.mirror = true;
         this.setRotation(this.WingLeft, -0.7853982f, 0.5235988f, -2.617994f);
-        (this.RA1 = new ModelRenderer((ModelBase) this, 47, 152)).addBox(0.0f, -6.0f, -1.0f, 1, 6, 1);
+        (this.RA1 = new ModelRenderer(this, 47, 152)).addBox(0.0f, -6.0f, -1.0f, 1, 6, 1);
         this.RA1.setRotationPoint(-3.0f, -17.0f, -31.0f);
         this.RA1.setTextureSize(256, 256);
         this.RA1.mirror = true;
         this.setRotation(this.RA1, 0.2617994f, 0.5235988f, 0.0f);
-        (this.LA1 = new ModelRenderer((ModelBase) this, 91, 152)).addBox(0.0f, -6.0f, -1.0f, 1, 6, 1);
+        (this.LA1 = new ModelRenderer(this, 91, 152)).addBox(0.0f, -6.0f, -1.0f, 1, 6, 1);
         this.LA1.setRotationPoint(2.0f, -17.0f, -32.0f);
         this.LA1.setTextureSize(256, 256);
         this.LA1.mirror = true;

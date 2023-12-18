@@ -78,7 +78,6 @@ public class OreSpawnMain {
     public static int flyup_keystate;
     public static int BaseBlockID;
     public static int BaseItemID;
-    public static int BaseBiomeID;
     public static int BaseDimensionID;
     public static int BiomeUtopiaID;
     public static int BiomeIslandsID;
@@ -1066,11 +1065,17 @@ public class OreSpawnMain {
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandlerDangerZone());
         BaseBlockID = config.get(ids, "BaseBlockID", 2700)
             .getInt();
+        BiomeUtopiaID = config.get(ids, "BiomeUtopiaID", 120)
+            .getInt();
+        BiomeIslandsID = config.get(ids, "BiomeIslandsID", 121)
+            .getInt();
+        BiomeCrystalID = config.get(ids, "BiomeCrystalID", 122)
+            .getInt();
+        BiomeVillageID = config.get(ids, "BiomeVillageID", 123)
+            .getInt();
+        BiomeChaosID = config.get(ids, "BiomeChaosID", 124)
+            .getInt();
         BaseItemID = config.get(ids, "BaseItemID", 9000)
-            .getInt();
-        BaseBiomeID = config.get(ids, "BaseBiomeID", 120)
-            .getInt();
-        BaseDimensionID = config.get(ids, "BaseDimensionID", 80)
             .getInt();
         this.getMobs(config, mobs);
         AllMobsDisable = config.get(tweaks, "AllMobsDisable", 0)
@@ -1217,11 +1222,6 @@ public class OreSpawnMain {
         if (AllMobsDisable != 0) {
             this.disableAllMobs();
         }
-        BiomeUtopiaID = BaseBiomeID;
-        BiomeIslandsID = BaseBiomeID + 1;
-        BiomeCrystalID = BaseBiomeID + 2;
-        BiomeVillageID = BaseBiomeID + 3;
-        BiomeChaosID = BaseBiomeID + 4;
         packetproxy.registerSoundThings();
         this.laySomeEggs();
         MyOreUraniumBlock = new OreUranium(BaseBlockID + 101).setBlockName("oreuranium");
@@ -5602,13 +5602,7 @@ public class OreSpawnMain {
         flyup_keystate = 0;
         BaseBlockID = 2700;
         BaseItemID = 9000;
-        BaseBiomeID = 120;
         BaseDimensionID = 80;
-        BiomeUtopiaID = 0;
-        BiomeIslandsID = 0;
-        BiomeCrystalID = 0;
-        BiomeVillageID = 0;
-        BiomeChaosID = 0;
         godzilla_has_spawned = 0;
         current_dimension = 0;
         valentines_day = 0;
